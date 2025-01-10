@@ -1,187 +1,120 @@
-# --- General options --- #
-# Name of website
-title: ✨Bằng Nguyễn✨
-
-#For my changes
-# use meta-title: for the center heading of the page.
-# use title: to set the <title> of the web page.
-# use subtitle: to set the sub heading for that title(meta-title). NOTE: if(meta-title exists){subtilel visiblity = true}
-
-# Short description of your site
-description: Embedded Systems Engineer
+title: ✨Happy Smart Light✨
+description: >-
+  Chuyên tư vấn giải pháp kỹ thuật, thiết kế, led Decor, quảng cáo,
+  sự kiện, led đạo cụ sân khấu, trình diển ánh sáng
 site:
-  url: "/"
-  baseurl: "/" # Bỏ trống nếu bạn chạy ở root
-# --- Navigation bar options --- #
-# List of links in the navigation bar
+  url: /
+  baseurl: /
 navbar-links:
-  📚Books: "books"
-  📌Topic:
-    - Linux: Topic/Linux
-    - Social sciences: Topic/Social sciences
-    - Programming MCU: Topic/Programming MCU
-    - Electronic components: Topic/Electronic components
-  ⚙️Tools: 
+  🔥HOT Deal: "HOT-product"
+  📌Chủ đề:
+    - Tư vấn, thiết kế: Topic/Linux
+    - Led Decor: Topic/Social sciences
+    - Led Dance: Topic/Programming MCU
+    - Led Biển Hiệu: Topic/Electronic components
+  ⚙️Hướng dẫn:
     - Esp Web Tools: 2024-05-10-Flash-firmware
     - ARGB HappyLight: Topic/ARGB-LED/index
     - ARGB Hướng dẫn: Topic/ARGB-LED/basics/tutorials
-  🏋️About Me: 
+  🏋️HSL: 
     - About Me: resume/aboutme
-    - LinkedIn: "https://www.linkedin.com/in/bangnguyenduy"
-    - Github: "https://github.com/bangnguyendev"
     - Bio Social: bio-social
-    - 🧧Resume🧧: resume/Nguyen-Duy-Bang-CV.pdf
-    
-
   🗝️Tags: tags #thay thế bằng nút tìm kiếm.
-
-# Image to show in the navigation bar - image must be a square (width = height)
-# Remove this parameter if you don't want an image in the navbar
-avatar: "/img/My_Picture/avatar_site.webp"
-
-# --- Footer options --- #
-
-# Change all these values or delete the ones you don't want.
-# Important: you must keep the "name" parameter, everything else you can remove
+avatar: "/img/My_Picture/avatar_site.png"
 author:
-  name: 🔥Nguyễn Duy Bằng🔥
+  name: "\U0001F525HAPPY SMART LIGHT\U0001F525"
   rss: true
-  email: "duybang140494@gmail.com"
-  facebook: drake.bangnguyen
-  github: bangnguyendev
-  linkedin: bangnguyenduy
-  stackoverflow: "12104912"
+  email: happysmartlight@outlook.com
+  facebook: happysmartlight
+  github: happysmartlight
   instagram: nguyen.duy.bang
-  youtube: "@laptrinhthieunhi"
+  youtube: '@HappySmartLight'
   telephone: 0784140494
-  twitter: bangnguyenduy
-
-# Select which links to show in the footer
+  tiktok: '@denthongminhhappy'
 footer-links-active:
   rss: true
   facebook: true
   email: true
-  #twitter: true
-  github: true
-  linkedin: true
-  #instagram: true
-  #reddit: false
-  stackoverflow: true
-  # youtube: true
   telephone: true
-
-# Select which share links to show in posts
+  youtube: true
+  tiktok: true
 share-links-active:
-  #twitter: true
   facebook: true
   linkedin: true
-
-# --- Misc --- #
-
-# Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
-# mail:nduybang140494@gmail.com
-disqus: "bang-nguyen-blog"
-
-# Fill in your Google Analytics ID to track your website using GA
-google_analytics: "G-NX3V2C477N"
-
-# Google Tag Manager ID
-gtm: "GTM-P4L6M63"
-
-# Facebook App ID
-fb_app_id: "721347795190980"
-
-# Excerpt Word Length
-# Truncates the excerpt to the specified number of words on the index page
+disqus: bang-nguyen-blog
+google_analytics: G-NX3V2C477N
+gtm: GTM-P4L6M63
+fb_app_id: '721347795190980'
 excerpt_length: 50
-
-# Character used to separate site title and description in HTML document title
-# and RSS feed title
-title-separator: "-"
-
-# --- Don't need to touch anything below here (but you can if you want) --- #
-
-# Output options (more information on Jekyll's site)
-timezone: "Asia/Bangkok"
+title-separator: '-'
+timezone: Asia/Bangkok
 markdown: kramdown
 highlighter: rouge
-permalink: /:year-:month-:day-:title/
+permalink: '/:year-:month-:day-:title/'
 paginate: 8
-
 kramdown:
   input: GFM
-
-# Default YAML values (more information on Jekyll's site)
 defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
+  - scope:
+      path: ''
+      type: posts
     values:
-      layout: "post"
-      sitemap: true # sitemap lập chỉ mục trang
-      comments: true  # add comments to all blog posts
-      social-share: true # add social media sharing buttons to all blog posts
-  -
-    scope:
-      path: "" # all files
+      layout: post
+      sitemap: true
+      comments: true
+      social-share: true
+  - scope:
+      path: ''
     values:
-      layout: "page"
+      layout: page
       show-avatar: true
-
-# Use tags index page and make tags on each post clickable
 link-tags: true
-
-# Exclude these files from production site
 exclude:
   - CHANGELOG.md
   - CNAME
-  # - Dockerfile
   - Gemfile
   - Gemfile.lock
+  - Dockerfile
   - LICENSE
   - README.md
   - Vagrantfile
-
-#Meta data for your Posts
 metadata:
   _posts:
-    - name: "layout"
+    - name: layout
       field:
-        element: "hidden"
-        value: "post"
-    - name: "title"
+        element: hidden
+        value: post
+    - name: title
       field:
-        element: "text"
-        label: "Post title"
-        placeholder: "Title"
+        element: text
+        label: Post title
+        placeholder: Title
         alterable: true
-    - name: "subtitle"
+    - name: subtitle
       field:
-        element: "textarea"
-        label: "Subtitle"
-        placeholder: "A description of your post."
+        element: textarea
+        label: Subtitle
+        placeholder: A description of your post.
         alterable: true
-    - name: "date"
+    - name: date
       field:
-        element: "text"
-        label: "Date"
-        help: "Enter date of post."
-        placeholder: "yyyy-mm-dd"
+        element: text
+        label: Date
+        help: Enter date of post.
+        placeholder: yyyy-mm-dd
         alterable: true
-    - name: "image"
+    - name: image
       field:
-        element: "text"
-        label: "Image"
-        help: "Add a thumbnail image to your post."
-        placeholder: "Thumbnail"
+        element: text
+        label: Image
+        help: Add a thumbnail image to your post.
+        placeholder: Thumbnail
         alterable: true
-    - name: "published"
+    - name: published
       field:
-        element: "checkbox"
-        label: "Publish"
-        help: "Check to publish post, uncheck to hide."
-
+        element: checkbox
+        label: Publish
+        help: 'Check to publish post, uncheck to hide.'
 plugins:
   - jekyll-paginate
   - jekyll-sitemap

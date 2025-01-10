@@ -171,9 +171,11 @@
         </ul>
         
         <p class="copyright text-muted">
-          ©Copyright &nbsp;&bull;&nbsp; {{ site.author.name }}
+          ©Copyright
           &nbsp;&bull;&nbsp;
           {{ site.time | date: '%Y' }}
+          <br>
+          {{ site.author.name }}
           
           {% if site.url-pretty %}
           &nbsp;&bull;&nbsp;

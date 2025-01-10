@@ -1,7 +1,7 @@
 services:
   jekyll:
-    image: jekyll-bangnguyendev
-    container_name: bangnguyendev_web
+    image: jekyll-happysmartlight
+    container_name: happysmartlight-web
     ports:
       - "4000:4000"
       - "35729:35729"
@@ -19,4 +19,4 @@ services:
 #    external: true
 
 # Định nghĩa tên của Compose
-name: bangnguyendev
+name: happysmartlight-web

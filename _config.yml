@@ -6,22 +6,25 @@ site:
   url: /
   baseurl: /
 navbar-links:
-  🔥Catalog: HOT-product
+  🔥Catalog: none
+  🔥HOT Deal: HOT-product
   🔥Mạch điều khiển:
-    - Điều khiển LED Pixcel: "HOT-product"
-    - Điều khiển LED Cabin: "HOT-product"
-    - Phát - thu sóng: "HOT-product"
-    - Card Cabin LED: "HOT-product"
-  🔥HOT Deal: "HOT-product"
+    - Điều khiển LED Pixcel: none
+    - Điều khiển LED Cabin: none
+    - Phát - thu sóng: none
+    - Card Cabin LED: none
+  🔥Phụ kiện: 
+    - Led Pixel: none
+    - Led Module: none
+    - Nguồn Pin: none
+    - Khác: none
   📌Chủ đề:
     - Tư vấn, thiết kế: none
     - Led Decor: none
     - Led Dance: none
     - Led Biển Hiệu: none
   ⚙️Hướng dẫn HSL:
-    - Esp Web Tools: none
-    - ARGB HappyLight: Topic/ARGB-LED/index
-    - ARGB Hướng dẫn: Topic/ARGB-LED/basics/tutorials
+    - Mạch ARGB HSL: Topic/ARGB-LED/index
     - Liên hệ: resume/aboutme
     - Đối tác: none
   🗝️Tags: tags #thay thế bằng nút tìm kiếm.

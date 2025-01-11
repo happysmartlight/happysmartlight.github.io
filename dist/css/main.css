@@ -100,8 +100,8 @@
 /* --- General --- */
 
 body {
-  /* font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; */
-  font-family: 'Poppins,Arial,sans-serif';
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* font-family: 'Poppins,Arial,sans-serif'; */
   font-size: 18px;
   color: #ffffff;
   /* position: relative; */
@@ -674,7 +674,7 @@ footer .theme-by {
 
 .gradient-text p {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 3rem;
+  font-size: clamp(1rem, 5vw, 3rem); /* Font size linh hoạt từ 1rem đến 3rem */
   font-weight: bold;
   display: inline-block;
   background: linear-gradient(90deg, #00d3ff, #f00ac0);
@@ -1375,3 +1375,4 @@ option {
 option:hover {
   background-color: #ddd;
 }
+

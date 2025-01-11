@@ -14,17 +14,16 @@ navbar-links:
     - Card Cabin LED: "HOT-product"
   🔥HOT Deal: "HOT-product"
   📌Chủ đề:
-    - Tư vấn, thiết kế: Topic/Linux
-    - Led Decor: Topic/Social sciences
-    - Led Dance: Topic/Programming MCU
-    - Led Biển Hiệu: Topic/Electronic components
-  ⚙️Hướng dẫn:
-    - Esp Web Tools: 2024-05-10-Flash-firmware
+    - Tư vấn, thiết kế: none
+    - Led Decor: none
+    - Led Dance: none
+    - Led Biển Hiệu: none
+  ⚙️Hướng dẫn HSL:
+    - Esp Web Tools: none
     - ARGB HappyLight: Topic/ARGB-LED/index
     - ARGB Hướng dẫn: Topic/ARGB-LED/basics/tutorials
-  🏋️HSL: 
-    - About Me: resume/aboutme
-    - Bio Social: bio-social
+    - Liên hệ: resume/aboutme
+    - Đối tác: none
   🗝️Tags: tags #thay thế bằng nút tìm kiếm.
 avatar: "/img/My_Picture/avatar_site.png"
 author:

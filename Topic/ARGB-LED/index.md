@@ -4,8 +4,8 @@ title: Bộ điều khiển led ARGB
 meta-title: Bộ điều khiển led ARGB
 # subtitle: "... Welcome to ARGB"
 bigimg:
-  - "image/BANER__ARGB.png"
-image: "image/BANER__ARGB.png"
+  - "image/BANER__ARGB.jpg"
+image: "image/BANER__ARGB.jpg"
 tags: [ARGB, ws2811, ws2812b, strip leds]
 category: Programming MCU
 # gh-repo: bangnguyendev/flash-esp-web-bangnguyendev

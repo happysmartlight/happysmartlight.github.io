@@ -9,7 +9,15 @@ title: Các sản phẩm HOT
 	<script src="js/modernizr.custom.js"></script>
 </head>
 <div class="view">
-	<div class="my__suggestion"><center><h1><br>Books I Would Recommend</h1></center><div>
+	<div class="my__suggestion">
+	<center>
+	<h1>
+		<div class="gradient-text">
+			<p>Các sản phẩm HOT DEAL của Happy Smart Light</p>
+		</div>
+	</h1>
+	</center>
+	<div>
 		<section class="grid">
 		<!-- sách 1 -->
 			<div class="product">

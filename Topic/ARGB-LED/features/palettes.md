@@ -4,8 +4,8 @@ title: Palettes ARGB
 meta-title: "Effects ARGB"
 subtitle: "Các kiểu bảng màu"
 bigimg:
-  - "/Topic/ARGB-LED/image/BANER__ARGB.png"
-image: "/Topic/ARGB-LED/image/BANER__ARGB.png"
+  - "/Topic/ARGB-LED/image/BANER__ARGB.jpg"
+image: "/Topic/ARGB-LED/image/BANER__ARGB.jpg"
 tags: [esp web tools, LED, ARGB, led strip]
 category: Programming MCU
 # gh-repo: bangnguyendev/flash-esp-web-bangnguyendev

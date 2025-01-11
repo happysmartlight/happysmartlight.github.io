@@ -3,8 +3,8 @@ title: Infrared
 meta-title: Bộ điều khiển hồng ngoại
 subtitle: Các remote IR được hỗ trợ
 bigimg:
-  - "/Topic/ARGB-LED/image\/BANER__ARGB.png"
-image: "/Topic/ARGB-LED/image\/BANER__ARGB.png"
+  - "/Topic/ARGB-LED/image\/BANER__ARGB.jpg"
+image: "/Topic/ARGB-LED/image\/BANER__ARGB.jpg"
 tags: [ARGB, hồng ngoại, IR, strip leds]
 category: Programming MCU
 hide:

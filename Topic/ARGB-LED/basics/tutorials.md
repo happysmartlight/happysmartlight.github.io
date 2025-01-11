@@ -5,8 +5,8 @@ title: ARGB Tutorials
 meta-title: ARGB Tutorials
 # subtitle: "... Welcome to ARGB"
 bigimg:
-  - "/Topic/ARGB-LED/image/BANER__ARGB.png"
-image: "/Topic/ARGB-LED/image/BANER__ARGB.png"
+  - "/Topic/ARGB-LED/image/BANER__ARGB.jpg"
+image: "/Topic/ARGB-LED/image/BANER__ARGB.jpg"
 tags: [Tutorialss, ARGBl, bluetooth]
 category: Programming MCU
 # gh-repo: bangnguyendev/flash-esp-web-bangnguyendev

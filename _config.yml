@@ -6,6 +6,12 @@ site:
   url: /
   baseurl: /
 navbar-links:
+  🔥Catalog: HOT-product
+  🔥Mạch điều khiển:
+    - Điều khiển LED Pixcel: "HOT-product"
+    - Điều khiển LED Cabin: "HOT-product"
+    - Phát - thu sóng: "HOT-product"
+    - Card Cabin LED: "HOT-product"
   🔥HOT Deal: "HOT-product"
   📌Chủ đề:
     - Tư vấn, thiết kế: Topic/Linux

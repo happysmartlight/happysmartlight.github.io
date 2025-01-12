@@ -13,7 +13,7 @@ title: Các sản phẩm HOT
 	<center>
 	<h1>
 		<div class="gradient-text">
-			<p>Các sản phẩm HOT DEAL của Happy Smart Light</p>
+			<p>Các sản phẩm Best Seller của Happy Smart Light</p>
 		</div>
 	</h1>
 	</center>
@@ -22,73 +22,37 @@ title: Các sản phẩm HOT
 		<!-- sách 1 -->
 			<div class="product">
 				<div class="product__info">
-					<img class="product__image" src="images/Linux Shell Scripting Cookbook - Second Edition.jpg" alt="Linux Shell Scripting Cookbook - Second Edition" />
-					<h3 class="product__title">Linux Shell Scripting Cookbook</h3>
-					<span class="product__author highlight">Sarath Lakshman</span>
-					<button class="action action--button" onclick="window.open('https://www.amazon.com/Linux-Shell-Scripting-Cookbook-Second/dp/1782162747')"><i class="fa fa-comments"></i><span class="action__text">Reviews</span></button>
-				</div>
-			</div>	
-		<!-- sách 3 -->
-			<div class="product">
-				<div class="product__info">
-					<img class="product__image" src="images/Head First C A Brain-Friendly Guide.jpg" alt="Head First C: A Brain-Friendly Guide" />
-					<h3 class="product__title">Head First C: A Brain-Friendly Guide <br> (1st Edition)</h3>
-					<span class="product__author highlight">Dawn Griffiths </span>
-					<button class="action action--button" onclick="window.open('https://www.amazon.com/gp/customer-reviews/R31JH7UREUWULF/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8&ASIN=1449399916')"><i class="fa fa-comments"></i><span class="action__text">Reviews</span></button>
-				</div>
-			</div>	
-		<!-- sách 6 -->
-			<div class="product">
-				<div class="product__info">
-					<img class="product__image" src="images/the art of electronics.png" alt="The Art of Electronics" />
-					<h3 class="product__title">The Art of Electronics</h3>
-					<span class="product__author highlight">PAUL HOROWITZ <br> WINFIELD HILL </span>
-					<button class="action action--button" onclick="window.open('https://www.amazon.com/Art-Electronics-Paul-Horowitz/product-reviews/0521809266')"><i class="fa fa-comments"></i><span class="action__text">Reviews</span></button>
+					{%- assign bio-name-product = "Test sản phẩm 2"-%}<!--  Tên sản phẩm -->
+					{%- assign bio-image-product = "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltf0w184ob2l69"-%}<!--  Ảnh sản phẩm -->
+					{%- assign bio-review-product = "https://shope.ee/g3IagvVg1"-%}<!--  Link review sản phẩm -->
+					{%- assign bio-buy-product = "https://shope.ee/g3IagvVg1"-%}<!--  Link mua sản phẩm -->
+					{%- assign bio-descript-product = "
+					🔥 Lõi dây đồng nguyên khối tiết diện 1.25mm2 chịu tải lên tới 3600W<br>
+					🔥 Vỏ ngoài làm từ nhựa ABS + PC chống cháy lên đến 750 độ C"-%}<!--  Mô tả sản phẩm -->
+					<a href="{{- bio-buy-product -}}" target="_blank"><img class="product__image"  src="{{- bio-image-product -}}" alt="{{- bio-name-product -}}"></a><!--  Ảnh sản phẩm -->
+					<button class="action action--button" onclick="window.open('{{- bio-review-product -}}')"><i class="fa fa-check-circle-o"></i><span class="action__text">Reviews</span></button> <!--  Link review sản phẩm -->
+					<button class="action action--button" onclick="window.open('{{- bio-buy-product -}}')"><i class="fa fa-shopping-cart"></i><span class="action__text">Lụm</span></button> <!--  Link mua sản phẩm -->
+					<h2 class="product__title">{{- bio-name-product -}}</h2> <!--  Tên sản phẩm -->
+					<p>{{- bio-descript-product -}}</p>
 				</div>
 			</div>	
 		<!-- sách 6 -->
 			<div class="product">
 				<div class="product__info">
-					<img class="product__image" src="images/Make-Electronics.png" alt="Make Electronics" />
-					<h3 class="product__title">Make: Electronics</h3>
-					<span class="product__author highlight">Charles Platt </span>
-					<button class="action action--button" onclick="window.open('https://www.amazon.co.uk/product-reviews/B0B3LS5K2Z/')"><i class="fa fa-comments"></i><span class="action__text">Reviews</span></button>
-				</div>
-			</div>	
-		<!-- sách 4 -->
-			<div class="product">
 				<div class="product__info">
-					<img class="product__image" src="images/code-complete-2.jpg" alt="Code Complete" />
-					<h3 class="product__title">Code Complete</h3>
-					<span class="product__author highlight">Steve McConnell </span>
-					<button class="action action--button" onclick="window.open('https://www.amazon.com/Code-Complete-Practical-Handbook-Construction/product-reviews/0735619670')"><i class="fa fa-comments"></i><span class="action__text">Reviews</span></button>
+					{%- assign bio-name-product = "Test sản phẩm 2"-%}<!--  Tên sản phẩm -->
+					{%- assign bio-image-product = "https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ltf0w184ob2l69"-%}<!--  Ảnh sản phẩm -->
+					{%- assign bio-review-product = "https://shope.ee/g3IagvVg1"-%}<!--  Link review sản phẩm -->
+					{%- assign bio-buy-product = "https://shope.ee/g3IagvVg1"-%}<!--  Link mua sản phẩm -->
+					{%- assign bio-descript-product = "
+					🔥 Tương thích rất nhiều loại phích cắm phổ biến từ dẹt đến tròn<br>
+					🔥 Vỏ ngoài làm từ nhựa ABS + PC chống cháy lên đến 750 độ C"-%}<!--  Mô tả sản phẩm -->
+					<a href="{{- bio-buy-product -}}" target="_blank"><img class="product__image"  src="{{- bio-image-product -}}" alt="{{- bio-name-product -}}"></a><!--  Ảnh sản phẩm -->
+					<button class="action action--button" onclick="window.open('{{- bio-review-product -}}')"><i class="fa fa-check-circle-o"></i><span class="action__text">Reviews</span></button> <!--  Link review sản phẩm -->
+					<button class="action action--button" onclick="window.open('{{- bio-buy-product -}}')"><i class="fa fa-shopping-cart"></i><span class="action__text">Lụm</span></button> <!--  Link mua sản phẩm -->
+					<h2 class="product__title">{{- bio-name-product -}}</h2> <!--  Tên sản phẩm -->
+					<p>{{- bio-descript-product -}}</p>
 				</div>
-			</div>	
-		<!-- sách 2 -->
-			<div class="product">
-				<div class="product__info">
-					<img class="product__image" src="images/Pro WPF in CShap 2010.jpg" alt="Pro WPF in C# 2010" />
-					<h3 class="product__title">Pro WPF in C# 2010</h3>
-					<span class="product__author highlight">Matthew MacDonald</span>
-					<button class="action action--button" onclick="window.open('https://www.amazon.com/gp/customer-reviews/RRHPVL6Y2O44C/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8&ASIN=1430272058')"><i class="fa fa-comments"></i><span class="action__text">Reviews</span></button>
-				</div>
-			</div>	
-		<!-- sách 5 -->
-			<div class="product">
-				<div class="product__info">
-					<img class="product__image" src="images/Dac Nhan Tam.jpg" alt="Đắc nhân tâm" />
-					<h3 class="product__title">How to Win Friends and Influence People <br> (Đắc nhân tâm)</h3>
-					<span class="product__author highlight">Dale Carnegie </span>
-					<button class="action action--button" onclick="window.open('https://www.google.com/search?q=dac+nhan+tam+review&source=lmns&bih=555&biw=1280&rlz=1C1GCEU_enVN855VN855&hl=vi&sa=X&ved=2ahUKEwjgoNGUwu7uAhUMBqYKHSi_AbYQ_AUoAHoECAEQAA')"><i class="fa fa-comments"></i><span class="action__text">Reviews</span></button>
-				</div>
-			</div>	
-		<!-- sách 6 -->
-			<div class="product">
-				<div class="product__info">
-					<img class="product__image" src="images/The 7 Habits of Highly Effective People.jpg" alt="The 7 Habits of Highly Effective People" />
-					<h3 class="product__title">The 7 Habits of Highly Effective People</h3>
-					<span class="product__author highlight">Stephen R. Covey </span>
-					<button class="action action--button" onclick="window.open('https://www.amazon.com/gp/customer-reviews/R1NNZ9WNT4M4OW/ref=cm_cr_dp_d_rvw_ttl?ie=UTF8&ASIN=0743269519')"><i class="fa fa-comments"></i><span class="action__text">Reviews</span></button>
 				</div>
 			</div>	
 		</section>

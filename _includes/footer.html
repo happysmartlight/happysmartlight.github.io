@@ -14,6 +14,17 @@
             </a>
           </li>
           {% endif %}
+          {% if site.author.tiktok and site.footer-links-active.tiktok %}
+          <li>
+            <a href="https://www.tiktok.com/{{ site.author.tiktok }}" title="Tiktok Đèn thông minh Happy">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa-brands fa-tiktok fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Tiktok</span>
+            </a>
+          </li>
+          {% endif %}
           {% if site.author.github and site.footer-links-active.github %}
           <li>
             <a href="https://github.com/{{ site.author.github }}" title="GitHub">
@@ -168,15 +179,32 @@
             </a>
           </li>
           {% endif %}
+          {% if site.map-address and site.footer-links-active.map-address %}
+          <li>
+            <a href="{{ site.map-address }}" title="Google Map">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa-solid fa-map-location-dot fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Địa chỉ</span>
+            </a>
+          </li>
+          {% endif %}
         </ul>
-        
+
         <p class="copyright text-muted">
           ©Copyright
           &nbsp;&bull;&nbsp;
           {{ site.time | date: '%Y' }}
           <br>
-          {{ site.author.name }}
-          
+          {{ site.company }}
+          <br>
+          {{ site.Tax-code }}
+          <br>
+          {{ site.address-1 }}
+          <br>
+          {{ site.address-2 }}
+
           {% if site.url-pretty %}
           &nbsp;&bull;&nbsp;
           <a href="{{ site.url }}">{{ site.url-pretty }}</a>

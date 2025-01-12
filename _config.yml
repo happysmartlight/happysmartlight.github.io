@@ -7,26 +7,27 @@ site:
   baseurl: /
 navbar-links:
   🔥Catalog: none
-  🔥HOT Deal: HOT-product
+  🔥Best Seller: HOT-product
   🔥Mạch điều khiển:
     - Điều khiển LED Pixcel: none
     - Điều khiển LED Cabin: none
     - Phát - thu sóng: none
     - Card Cabin LED: none
-  🔥Phụ kiện: 
+  💡Phụ trợ LED: 
     - Led Pixel: none
     - Led Module: none
-    - Nguồn Pin: none
+    - Nguồn và Pin: none
     - Khác: none
   📌Chủ đề:
     - Tư vấn, thiết kế: none
     - Led Decor: none
     - Led Dance: none
     - Led Biển Hiệu: none
-  ⚙️Hướng dẫn HSL:
+    - Dịch vụ Order: none
+  ❓Về HSL:
     - Mạch ARGB HSL: Topic/ARGB-LED/index
     - Liên hệ: resume/aboutme
-    - Đối tác: none
+    - Đối tác HSL: none
   🗝️Tags: tags #thay thế bằng nút tìm kiếm.
 avatar: "/img/My_Picture/avatar_site.png"
 author:
@@ -39,13 +40,19 @@ author:
   youtube: '@HappySmartLight'
   telephone: 0784140494
   tiktok: '@denthongminhhappy'
+company: "CÔNG TY TNHH THƯƠNG MẠI VÀ CÔNG NGHỆ HAPPY SMART LIGHT"
+Tax-code: "MST: 123123132"
+address-1: "CN2: Sảnh S6.03, Vinhomes Grand Park, TP. Thủ Đức, TP. Hồ Chí Minh"
+address-2: "CN1: Số 42 Hà Đức Trọng, P. Long Toàn, TP. Bà Rịa, Bà Rịa - Vũng Tàu"
+map-address: https://maps.app.goo.gl/rMTH9mqSYXBorpZY9
 footer-links-active:
-  rss: true
+  rss: false
   facebook: true
   email: true
   telephone: true
   youtube: true
   tiktok: true
+  map-address: true
 share-links-active:
   facebook: true
   linkedin: true

@@ -4,6 +4,8 @@
 }
  .my__suggestion {
      -webkit-font-smoothing: antialiased;
+     margin-left: 50px;
+     margin-right: 50px;
 }
 /* product grid */
  .grid {
@@ -71,6 +73,7 @@
  .product__image {
      display: block;
      margin: 0 auto;
+     margin-bottom: 5px;
      max-width: 100%;
      -webkit-transform-origin: 50% 100%;
      transform-origin: 50% 100%;
@@ -143,17 +146,17 @@
  .action:focus {
      outline: none;
 }
- .action--button {
+ /* .action--button {
      background: #2C2D34;
      color: #fff;
-     border-radius: 2px;
+     border-radius: 15px;
      -webkit-transition: background 0.2s;
      transition: background 0.2s;
-     margin-top: 20px;
-}
- .action--button:hover {
+     margin: 5px;
+} */
+ /* .action--button:hover {
      background: #5C5EDC;
-}
+} */
  .action__text {
      font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
      font-weight: bold;
@@ -168,6 +171,60 @@
      opacity: 0;
      pointer-events: none;
 }
- .action--button i + span {
+ /* .action--button i + span {
      margin-left: 1em;
+} */
+
+/* bangnguyendev */
+/* Hiệu ứng lung linh với tông màu đậm */
+.action--button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #007bbf, #d900a7, #4b0082); /* Tông màu đậm */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    /* border: 2px solid #000; Viền đen để tăng độ nổi bật */
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 123, 191, 0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 5px;
+}
+
+.action--button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(217, 0, 167, 0.8); /* Bóng động đậm hơn khi hover */
+    background: linear-gradient(90deg, #4b0082, #d900a7, #007bbf);
+}
+
+.action--button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, rgba(0, 0, 0, 0) 70%);
+    opacity: 0;
+    border-radius: 50%;
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-50%) translateY(-50%) scale(0.5);
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateX(-50%) translateY(-50%) scale(2);
+        opacity: 0;
+    }
 }

@@ -682,6 +682,23 @@ footer .theme-by {
   -webkit-text-fill-color: transparent;
 }
 
+.gradient-text-hot {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  transition: all 1s ease-in-out; /* Hiệu ứng chuyển động mượt mà */
+}
+
+
+.gradient-text-hot p {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: clamp(1rem, 5vw, 3rem); /* Font size linh hoạt từ 1rem đến 3rem */
+  font-weight: 900;
+  display: inline-block;
+  background: linear-gradient(90deg, #00d3ff, #f00ac0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 /* Bang Nguyen thêm */
 .contact_NFC {

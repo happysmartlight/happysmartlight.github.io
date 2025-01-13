@@ -1053,30 +1053,42 @@ footer .theme-by {
 
 table {
   padding: 0;
+  border-collapse: collapse; /* Gộp viền cho gọn */
+  width: 100%;
+  overflow: hidden; /* Ẩn phần viền thừa ở góc */
+  border-radius: 15px; /* Bo tròn 4 góc */
+  margin: 20px;
+}
+
+table th {
+  border-top: 1px solid #cccccc00;
+  background: linear-gradient(0deg, #00d3ff, #f00ac0);
+  margin: 0;
+  padding: 0;
 }
 
 table tr {
-  border-top: 1px solid #cccccc;
-  background-color: #ffffff;
+  border-top: 1px solid #cccccc00;
+  background-color: #07015a;
   margin: 0;
   padding: 0;
 }
 
 table tr:nth-child(2n) {
-  background-color: #f8f8f8;
+  background: linear-gradient(90deg, #00d3ff, #f00ac0);
 }
 
 table tr th {
   font-weight: bold;
-  border: 1px solid #cccccc;
-  text-align: left;
+  border: 1px solid #cccccc00;
+  text-align: center;
   margin: 0;
   padding: 6px 13px;
 }
 
 table tr td {
-  border: 1px solid #cccccc;
-  text-align: left;
+  border: 1px solid #ffffff00;
+  text-align: center;
   margin: 0;
   padding: 6px 13px;
 }

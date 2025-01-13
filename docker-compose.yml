@@ -9,7 +9,7 @@ services:
       - "./:/home/app-jekyll"
 #      - web-volume:/home/data_export
     working_dir: /home/app-jekyll
-    command: jekyll serve -H 0.0.0.0 --livereload --force_polling --incremental
+    command: bundle exec jekyll serve -H 0.0.0.0 --livereload --force_polling --incremental
     stdin_open: true
     tty: true
     restart: always # Tự khởi động lại trong mọi trường hợp
@@ -20,3 +20,5 @@ services:
 
 # Định nghĩa tên của Compose
 name: happysmartlight-web
+
+# docker exec -it happysmartlight-web bash

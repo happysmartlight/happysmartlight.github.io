@@ -465,7 +465,7 @@ img {
 
 footer {
   padding: 30px 0;
-  background: #161616;
+  /* background: #161616; */
   background-color: #161616;
   /* border-top: 1px #EAEAEA solid; */
   border-top: 1px #0f0a38 solid;

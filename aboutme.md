@@ -33,9 +33,6 @@ HSL cung cấp một loạt các sản phẩm và dịch vụ, bao gồm:
 - **Chi Nhánh 1:** Số 42 Hà Đức Trọng, P. Long Toàn, TP. Bà Rịa, Bà Rịa - Vũng Tàu
 - **Chi Nhánh 2:** Sảnh S6.03, Vinhomes Grand Park, TP. Thủ Đức, TP. Hồ Chí Minh
 
-**MST:** 123123132  
-**Copyright © 2025**
-
 #### ⚡**Liên Hệ Chúng Tôi**
 Để biết thêm thông tin về sản phẩm và dịch vụ, xin vui lòng liên hệ với chúng tôi qua các kênh thông tin sau:  
 - **Điện thoại:** 0784140494 (Mr. Bằng), 0936601944 (Ms. Hiền)  

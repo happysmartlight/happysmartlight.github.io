@@ -6,7 +6,7 @@ site:
   url: /
   baseurl: /
 navbar-links:
-  🔥Catalog: catalog-hsl
+  🔖Catalog: catalog-hsl
   🔥Best Seller: best-seller
   🔥Mạch điều khiển:
     - Điều khiển LED Pixcel: pixel-controler
@@ -26,9 +26,9 @@ navbar-links:
     - Dịch vụ Order: none
   ❓Về HSL:
     - Mạch ARGB HSL: ARGB-LED/index
-    - Liên hệ: aboutme
-    - Đối tác HSL: none
-  🗝️Tags: tags #thay thế bằng nút tìm kiếm.
+    - Liên hệ với HSL: aboutme
+    - Đối tác với HSL: none
+  # 🗝️Tags: tags #thay thế bằng nút tìm kiếm.
 avatar: "/img/My_Picture/avatar_site.png"
 author:
   name: "\U0001F525HAPPY SMART LIGHT\U0001F525"

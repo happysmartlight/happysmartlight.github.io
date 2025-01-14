@@ -25,6 +25,27 @@ title: Chào mừng đến với BEST SELLER HSL
 		<!-- sách 1 -->
 			<div class="product">
 				<div class="product__info">
+					{%- assign bio-name-product = "MẠCH ARGB PIXEL - HSL"-%}<!--  Tên sản phẩm -->
+					{%- assign bio-image-product = "images/argb-v1.png"-%}<!--  Ảnh sản phẩm -->
+					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
+					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
+					{%- assign bio-price-product = " LIÊN HỆ "-%}<!--  Giá bán sản phẩm -->
+					{%- assign bio-descript-product = "
+					🔥 Nhận thiết kế mạch điều khiển LED PIXEL theo yêu cầu từ 1 cổng (1000 PIXEL) tới 8 cổng (8000 PIXEL)<br>
+					🔥 Mạch nhỏ gọn tiết kiệm chi phí<br>
+					🔥 Trang bị đầy đủ linh kiện bảo vệ mạch, led"-%}<!--  Mô tả sản phẩm -->
+					<a href="{{- bio-buy-product -}}" target="_blank"><img class="product__image"  src="{{- bio-image-product -}}" alt="{{- bio-name-product -}}"></a><!--  Ảnh sản phẩm -->
+					<button class="action action--button" onclick="window.open('{{- bio-review-product -}}')"><i class="fa fa-check-circle-o"></i><span class="action__text">Reviews</span></button> <!--  Link review sản phẩm -->
+					<button class="action action--button" onclick="window.open('{{- bio-buy-product -}}')"><i class="fa fa-shopping-cart"></i><span class="action__text">Lụm</span></button> <!--  Link mua sản phẩm -->
+					<br>
+					<button class="action action--button" onclick="window.open('{{- bio-buy-product -}}')"><i class="fa-solid fa-dollar-sign"></i><span class="action__text">{{- bio-price-product -}}</span></button> <!--  Giá mua sản phẩm -->
+					<h2 class="product__title">{{- bio-name-product -}}</h2> <!--  Tên sản phẩm -->
+					<p>{{- bio-descript-product -}}</p>
+				</div>
+			</div>	
+		<!-- sách 1 -->
+			<div class="product">
+				<div class="product__info">
 					{%- assign bio-name-product = "MẠCH ARGB V1.0.0 - HSL"-%}<!--  Tên sản phẩm -->
 					{%- assign bio-image-product = "images/argb-v1.png"-%}<!--  Ảnh sản phẩm -->
 					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
@@ -136,7 +157,7 @@ title: Chào mừng đến với BEST SELLER HSL
 					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
 					{%- assign bio-price-product = "3.550.000 VNĐ"-%}<!--  Giá bán sản phẩm -->
 					{%- assign bio-descript-product = "
-					🔥 Làm máy chủ điều khiển đồng bộ LED Pixel hoặc Cabin LED<br>
+					🔥 Làm máy chủ điều khiển đồng bộ LED PIXEL hoặc Cabin LED<br>
 					🔥 COMBO case, mạch FPP, nguồn, thẻ nhớ<br>
 					🔥 Trang bị đầy đủ cổng kết nối, âm thanh, HDMI, LAN, USB"-%}<!--  Mô tả sản phẩm -->
 					<a href="{{- bio-buy-product -}}" target="_blank"><img class="product__image"  src="{{- bio-image-product -}}" alt="{{- bio-name-product -}}"></a><!--  Ảnh sản phẩm -->
@@ -148,5 +169,28 @@ title: Chào mừng đến với BEST SELLER HSL
 					<p>{{- bio-descript-product -}}</p>
 				</div>
 			</div>	
+					<!-- sách 6 -->
+			<div class="product">
+				<div class="product__info">
+					{%- assign bio-name-product = "MOD phần mềm module phát WIFI"-%}<!--  Tên sản phẩm -->
+					{%- assign bio-image-product = "images/mod module.png"-%}<!--  Ảnh sản phẩm -->
+					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
+					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
+					{%- assign bio-price-product = "500.000 VNĐ"-%}<!--  Giá bán sản phẩm -->
+					{%- assign bio-descript-product = "
+					🔥 Lưu ý: Giá phí chưa bao gồm Module WIFI<br>
+					🔥 Loại bỏ mọi giới hạn từ ROM gốc nhà sản xuất<br>
+					🔥 Tăng cường sóng, quét chồng sóng, thêm tính năng hấp dãn<br>
+					🔥 Bản MOD dành riêng cho mạch điều khiển LED"-%}<!--  Mô tả sản phẩm -->
+					<a href="{{- bio-buy-product -}}" target="_blank"><img class="product__image"  src="{{- bio-image-product -}}" alt="{{- bio-name-product -}}"></a><!--  Ảnh sản phẩm -->
+					<button class="action action--button" onclick="window.open('{{- bio-review-product -}}')"><i class="fa fa-check-circle-o"></i><span class="action__text">Reviews</span></button> <!--  Link review sản phẩm -->
+					<button class="action action--button" onclick="window.open('{{- bio-buy-product -}}')"><i class="fa fa-shopping-cart"></i><span class="action__text">Lụm</span></button> <!--  Link mua sản phẩm -->
+					<br>
+					<button class="action action--button" onclick="window.open('{{- bio-buy-product -}}')"><i class="fa-solid fa-dollar-sign"></i><span class="action__text">{{- bio-price-product -}}</span></button> <!--  Giá mua sản phẩm -->
+					<h2 class="product__title">{{- bio-name-product -}}</h2> <!--  Tên sản phẩm -->
+					<p>{{- bio-descript-product -}}</p>
+				</div>
+			</div>	
 		</section>
 	</div>
+</div>

@@ -1,6 +1,6 @@
 ---
 layout: books
-title: Chào mừng đến với BEST SELLER HSL
+title: Mạch điều khiển LED PIXEL
 ---
 <head>
 	<link rel="stylesheet" type="text/css" href="css/book_style.css" />
@@ -8,6 +8,7 @@ title: Chào mừng đến với BEST SELLER HSL
 	<!-- Modernizr is used for flexbox fallback -->
 	<script src="js/modernizr.custom.js"></script>
 </head>
+
 <div class="view">
 	<div class="my__suggestion">
 		<h2 style="color: #f15a24;">Khám phá BEST SELLER tại HSL – Đỉnh cao công nghệ trình diễn ánh sáng!</h2>

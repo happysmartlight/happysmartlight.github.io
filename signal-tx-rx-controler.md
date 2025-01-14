@@ -1,6 +1,6 @@
 ---
 layout: books
-title: Chào mừng đến với BEST SELLER HSL
+title: Mạch chuyên về phát sóng tín hiệu
 ---
 <head>
 	<link rel="stylesheet" type="text/css" href="css/book_style.css" />
@@ -8,6 +8,7 @@ title: Chào mừng đến với BEST SELLER HSL
 	<!-- Modernizr is used for flexbox fallback -->
 	<script src="js/modernizr.custom.js"></script>
 </head>
+
 <div class="view">
 	<div class="my__suggestion">
 		<h2 style="color: #f15a24;">Khám phá BEST SELLER tại HSL – Đỉnh cao công nghệ trình diễn ánh sáng!</h2>
@@ -22,69 +23,6 @@ title: Chào mừng đến với BEST SELLER HSL
 	</div>
 	<div>
 		<section class="grid">
-		<!-- sách 1 -->
-			<div class="product">
-				<div class="product__info">
-					{%- assign bio-name-product = "MẠCH ARGB V1.0.0 - HSL"-%}<!--  Tên sản phẩm -->
-					{%- assign bio-image-product = "images/argb-v1.png"-%}<!--  Ảnh sản phẩm -->
-					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
-					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
-					{%- assign bio-price-product = "999.999.999 VNĐ"-%}<!--  Giá bán sản phẩm -->
-					{%- assign bio-descript-product = "
-					🔥 Mạch có 2 ngõ ra led, mỗi ngõ ra 1000 led Pixel<br>
-					🔥 Trang bị đầy đủ linh kiện bảo vệ mạch, led, điều khiển hồng ngoại, cảm nhiệt"-%}<!--  Mô tả sản phẩm -->
-					<a href="{{- bio-buy-product -}}" target="_blank"><img class="product__image"  src="{{- bio-image-product -}}" alt="{{- bio-name-product -}}"></a><!--  Ảnh sản phẩm -->
-					<button class="action action--button" onclick="window.open('{{- bio-review-product -}}')"><i class="fa fa-check-circle-o"></i><span class="action__text">Reviews</span></button> <!--  Link review sản phẩm -->
-					<button class="action action--button" onclick="window.open('{{- bio-buy-product -}}')"><i class="fa fa-shopping-cart"></i><span class="action__text">Lụm</span></button> <!--  Link mua sản phẩm -->
-					<br>
-					<button class="action action--button" onclick="window.open('{{- bio-buy-product -}}')"><i class="fa-solid fa-dollar-sign"></i><span class="action__text">{{- bio-price-product -}}</span></button> <!--  Giá mua sản phẩm -->
-					<h2 class="product__title">{{- bio-name-product -}}</h2> <!--  Tên sản phẩm -->
-					<p>{{- bio-descript-product -}}</p>
-				</div>
-			</div>	
-		<!-- sách 6 -->
-			<div class="product">
-				<div class="product__info">
-					{%- assign bio-name-product = "MẠCH ARGB V2.0.0 - HSL"-%}<!--  Tên sản phẩm -->
-					{%- assign bio-image-product = "images/argb-v2.png"-%}<!--  Ảnh sản phẩm -->
-					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
-					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
-					{%- assign bio-price-product = "999.999.999 VNĐ"-%}<!--  Giá bán sản phẩm -->
-					{%- assign bio-descript-product = "
-					🔥 Mạch có 2 ngõ ra led, mỗi ngõ ra 1000 led Pixel<br>
-					🔥 Mạch có kích thước siêu nhỏ gọn<br>
-					🔥 Trang bị đầy đủ linh kiện bảo vệ mạch"-%}<!--  Mô tả sản phẩm -->
-					<a href="{{- bio-buy-product -}}" target="_blank"><img class="product__image"  src="{{- bio-image-product -}}" alt="{{- bio-name-product -}}"></a><!--  Ảnh sản phẩm -->
-					<button class="action action--button" onclick="window.open('{{- bio-review-product -}}')"><i class="fa fa-check-circle-o"></i><span class="action__text">Reviews</span></button> <!--  Link review sản phẩm -->
-					<button class="action action--button" onclick="window.open('{{- bio-buy-product -}}')"><i class="fa fa-shopping-cart"></i><span class="action__text">Lụm</span></button> <!--  Link mua sản phẩm -->
-					<br>
-					<button class="action action--button" onclick="window.open('{{- bio-buy-product -}}')"><i class="fa-solid fa-dollar-sign"></i><span class="action__text">{{- bio-price-product -}}</span></button> <!--  Giá mua sản phẩm -->
-					<h2 class="product__title">{{- bio-name-product -}}</h2> <!--  Tên sản phẩm -->
-					<p>{{- bio-descript-product -}}</p>
-				</div>
-			</div>	
-					<!-- sách 6 -->
-			<div class="product">
-				<div class="product__info">
-					{%- assign bio-name-product = "MẠCH ARGB V2.1.0 - HSL"-%}<!--  Tên sản phẩm -->
-					{%- assign bio-image-product = "images/argb-v2.1.png"-%}<!--  Ảnh sản phẩm -->
-					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
-					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
-					{%- assign bio-price-product = "999.999.999 VNĐ"-%}<!--  Giá bán sản phẩm -->
-					{%- assign bio-descript-product = "
-					🔥 Mạch có 2 ngõ ra led, mỗi ngõ ra 1000 led Pixel<br>
-					🔥 Mạch có kích thước siêu nhỏ gọn<br>
-					🔥 Sử dụng nguồn pin sạc, tích hợp mạch sạc nhanh Type-C<br>
-					🔥 Trang bị đầy đủ linh kiện bảo vệ mạch"-%}<!--  Mô tả sản phẩm -->
-					<a href="{{- bio-buy-product -}}" target="_blank"><img class="product__image"  src="{{- bio-image-product -}}" alt="{{- bio-name-product -}}"></a><!--  Ảnh sản phẩm -->
-					<button class="action action--button" onclick="window.open('{{- bio-review-product -}}')"><i class="fa fa-check-circle-o"></i><span class="action__text">Reviews</span></button> <!--  Link review sản phẩm -->
-					<button class="action action--button" onclick="window.open('{{- bio-buy-product -}}')"><i class="fa fa-shopping-cart"></i><span class="action__text">Lụm</span></button> <!--  Link mua sản phẩm -->
-					<br>
-					<button class="action action--button" onclick="window.open('{{- bio-buy-product -}}')"><i class="fa-solid fa-dollar-sign"></i><span class="action__text">{{- bio-price-product -}}</span></button> <!--  Giá mua sản phẩm -->
-					<h2 class="product__title">{{- bio-name-product -}}</h2> <!--  Tên sản phẩm -->
-					<p>{{- bio-descript-product -}}</p>
-				</div>
-			</div>	
 		<!-- sách 1 -->
 			<div class="product">
 				<div class="product__info">

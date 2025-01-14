@@ -271,8 +271,8 @@ img {
   z-index: 3;
   /* --- thêm line này để fix lỗi cho thanh navbar ẩn sau mục search --- */
   /* background: #F5F5F5; */
-  background-color: #161616;
-  border-bottom: 1px solid #01004b;
+  background-color: #16161600;
+  border-bottom: 1px solid #01004b00;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -315,6 +315,10 @@ img {
   -webkit-transition: height .5s ease-in-out;
   -moz-transition: height .5s ease-in-out;
   transition: height .5s ease-in-out;
+}
+
+.navbar-custom.top-nav-short {
+  background-color: #161616a1;
 }
 
 .navbar-custom.top-nav-short .navbar-brand-logo {

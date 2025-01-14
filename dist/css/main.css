@@ -342,6 +342,12 @@ img {
   }
 }
 
+@media (max-width: 786px) {
+  .navbar-custom .navbar-brand {
+    font-size: 4vw;
+  }
+}
+
 .navbar-custom .avatar-container {
   position: absolute;
   left: 50%;
@@ -785,7 +791,7 @@ footer .theme-by {
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-  margin-top: 51px;
+  margin-top: 0px; /* bangnguyendev fix */
   /* The small navbar is 50px tall + 1px border */
   margin-bottom: -10px;
 }
@@ -881,7 +887,7 @@ footer .theme-by {
   }
 
   .intro-header.big-img {
-    margin-top: 91px;
+    margin-top: 0px; /* bangnguyendev fix */
     /* Full navbar is small navbar + 20px padding on each side when expanded */
     margin-bottom: -10px;
   }

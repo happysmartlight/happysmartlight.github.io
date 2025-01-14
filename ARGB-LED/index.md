@@ -6,7 +6,7 @@ meta-title: Bộ điều khiển PIXEL ARGB HSL
 bigimg:
   - "/img/My_Picture/BANER__ARGB_1.jpg"
 tags: [ARGB, ws2811, ws2812b, strip leds]
-category: Programming MCU
+category: ARGB PIXEL HSL
 # gh-repo: bangnguyendev/flash-esp-web-bangnguyendev
 # gh-badge: [fork]
 # author: "BangNguyen"

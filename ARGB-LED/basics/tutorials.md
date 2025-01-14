@@ -8,7 +8,7 @@ bigimg:
   - "/Topic/ARGB-LED/image/BANER__ARGB.jpg"
 image: "/Topic/ARGB-LED/image/BANER__ARGB.jpg"
 tags: [Tutorialss, ARGBl, bluetooth]
-category: Programming MCU
+category: ARGB PIXEL HSL
 # gh-repo: bangnguyendev/flash-esp-web-bangnguyendev
 # gh-badge: [fork]
 # author: "BangNguyen"

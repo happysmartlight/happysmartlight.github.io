@@ -6,7 +6,7 @@ bigimg:
   - "/Topic/ARGB-LED/image\/BANER__ARGB.jpg"
 image: "/Topic/ARGB-LED/image\/BANER__ARGB.jpg"
 tags: [ARGB, hồng ngoại, IR, strip leds]
-category: Programming MCU
+category: ARGB PIXEL HSL
 hide:
   # - navigation
   # - toc

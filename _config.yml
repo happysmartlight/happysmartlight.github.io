@@ -46,7 +46,7 @@ address-1: "CN2: Sảnh S6.03, Vinhomes Grand Park, TP. Thủ Đức, TP. Hồ
 address-2: "CN1: Số 42 Hà Đức Trọng, P. Long Toàn, TP. Bà Rịa, Bà Rịa - Vũng Tàu"
 map-address: https://maps.app.goo.gl/rMTH9mqSYXBorpZY9
 footer-links-active:
-  rss: false
+  rss: true
   facebook: true
   email: true
   telephone: true

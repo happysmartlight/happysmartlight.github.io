@@ -5,9 +5,9 @@
     background: var(--code-bg);
     border-radius: var(--radius);
     padding: .4em;
-    background-color: rgba(70, 67, 63, 0.204);
+    background-color: rgba(15, 9, 0, 0.26);
     border-radius: 20px;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .toc details summary {

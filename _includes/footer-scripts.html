@@ -34,7 +34,9 @@
 
 <!-- Simple Jekyll Search -->
 <script src="/dist/js/jquery-3.5.1.js"></script>
-<script src="/dist/js/simple-jekyll-search.min.js" | {{ prepend: site.baseurl }}></script>
+<!-- or without installing anything -->
+<script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
+<!-- <script src="/dist/js/simple-jekyll-search.min.js" | {{ prepend: site.baseurl }}></script> -->
 <!-- Simple Jekyll Search -->
 <script>
   // https://stackoverflow.com/questions/1912501/unescape-html-entities-in-javascript
@@ -49,10 +51,16 @@
       searchInput: document.getElementById('search-input'),
       resultsContainer: document.getElementById('search-results'),
       json: '/search.json',
-      searchResultTemplate: '<div class="post-preview item"><a href="{url}"><h2 class="post-title">{title}</h2><h3 class="post-subtitle">{subtitle}</h3><hr></a></div>',
+      searchResultTemplate: '\
+      <div class="post-preview item">\
+        <a href="{url}">\
+          <h2 class="post-title">{title}</h2>\
+          <p class="post-title">{subtitle}</p>\
+          </a>\
+        </div>',
       noResultsText: '🕵 No results 🔍',
       limit: 50,
-      fuzzy: false,
+      fuzzy: true,
       templateMiddleware: function (prop, value, template) {
           if (prop === 'subtitle' || prop === 'title') {
               if (value.indexOf("code")) {

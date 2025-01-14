@@ -659,13 +659,13 @@ footer .theme-by {
 } */
 
 .ndb-transbox {
+  display: flex; /* Sử dụng Flexbox */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  justify-content: center; /* Căn giữa theo chiều ngang */
   height: max-content;
   width: auto;
   padding-left: 10px;
   padding-right: 10px;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 15px;
-
 }
 
 .ndb-transbox h1 {
@@ -674,6 +674,12 @@ footer .theme-by {
   -webkit-text-fill-color: transparent; /* Làm chữ trong suốt */
   text-align: center; /* Căn giữa nội dung nếu cần */
   border-width: 15px;
+}
+
+
+.gradient-bg {
+  background: #000;
+  background: linear-gradient(90deg,#000,#2c2c2d 50%,#000)
 }
 
 .gradient-text {
@@ -685,9 +691,12 @@ footer .theme-by {
 
 
 .gradient-text p {
-  font-family: 'Courier New', Courier, monospace;
-  font-size: clamp(1rem, 5vw, 3rem); /* Font size linh hoạt từ 1rem đến 3rem */
-  font-weight: bold;
+  /* font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; */
+  font-family: Poppins,Arial,sans-serif;
+  font-size: clamp(1rem, 5vw, 4rem); /* Font size linh hoạt từ 1rem đến 3rem */
+  /* font-weight: 600; */
+  padding-top: 40px;
+  padding-bottom: 40px;
   display: inline-block;
   background: linear-gradient(90deg, #00d3ff, #f00ac0);
   -webkit-background-clip: text;
@@ -744,8 +753,8 @@ footer .theme-by {
   width: auto;
   margin-left: auto;
   margin-right: auto;
-  padding-bottom: 10px;
-  padding-top: 20px;
+  /* padding-bottom: 10px;
+  padding-top: 20px; */
 }
 
 /* --- Tags --- */
@@ -798,6 +807,10 @@ footer .theme-by {
   margin-bottom: -10px;
 }
 
+.intro-header.big-img.container {
+  max-height: 100%;
+}
+
 .intro-header.big-img .big-img-transition {
   position: absolute;
   width: 100%;
@@ -818,7 +831,7 @@ footer .theme-by {
 }
 
 .big-img {
-  height: 450px;
+  height: 1012px;
 }
 
 .intro-header.big-img .page-heading,
@@ -1419,3 +1432,12 @@ option:hover {
   background-color: #ddd;
 }
 
+
+
+.container {
+  width: 100vw; /* Chiều rộng bằng với chiều rộng của viewport */
+  max-width: 100%; /* Đảm bảo không vượt quá chiều rộng của phần tử cha */
+  box-sizing: border-box; /* Đảm bảo padding và border không làm thay đổi kích thước tổng thể */
+  padding-left: 0%;
+  padding-right: 0%;  
+}

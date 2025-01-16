@@ -1,12 +1,29 @@
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" id="viewport">
+  <title>Responsive Viewport</title>
+  <script>
+      function adjustViewport() {
+          const viewport = document.getElementById('viewport');
+          if (window.innerWidth <= 768) {
+              viewport.setAttribute('content', 'width=device-width, initial-scale=0.8'); // Màn hình nhỏ
+          } else {
+              viewport.setAttribute('content', 'width=device-width, initial-scale=1.0'); // Màn hình lớn
+          }
+      }
+
+      // Gọi hàm khi trang được tải
+      window.onload = adjustViewport;
+
+      // Gọi hàm mỗi khi kích thước cửa sổ thay đổi
+      window.onresize = adjustViewport;
+  </script>
   <!--  jekyll-seo-tag -->
   {% seo %} 
 
-  <meta name="theme-color" content="#a50509" />
+  <meta name="theme-color" content="#161616" />
   <meta name="keywords"
-    content="linux, python, math, bash, google summer of code, raspberry pi, music, Internet of Things, research, android" />
+    content="led, mạch điều khiển led, module led, panel led, led dance, led man, lazer dance" />
 
   <!-- lightbox : https://github.com/lokesh/lightbox2.git -->
   <!-- lightbox : https://lokeshdhakar.com/projects/lightbox2/ -->

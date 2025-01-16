@@ -193,10 +193,6 @@
         </ul>
 
         <p class="copyright text-muted">
-          ©Copyright
-          &nbsp;&bull;&nbsp;
-          {{ site.time | date: '%Y' }}
-          <br>
           {{ site.company }}
           <br>
           {{ site.Tax-code }}
@@ -204,13 +200,12 @@
           {{ site.address-1 }}
           <br>
           {{ site.address-2 }}
-
-          {% if site.url-pretty %}
+          <br>
+          ©Copyright
           &nbsp;&bull;&nbsp;
-          <a href="{{ site.url }}">{{ site.url-pretty }}</a>
-          {% endif %}
-            <br>
-          <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/bangnguyendev/bangnguyendev.github.io?color=success&logo=github">
+          {{ site.time | date: '%Y' }}
+
+          <img alt="Lượt người xem trang" src="https://komarev.com/ghpvc/?username=bangnguyendev&base=23000&abbreviated=true&color=orange">
         </p>
       </div>
     </div>

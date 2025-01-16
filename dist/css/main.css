@@ -869,9 +869,37 @@ footer .theme-by {
   font-size: 3rem;
 }
 
+/* Kích thước cho màn hình nhỏ hơn */
+@media (max-width: 768px) { /* Có thể điều chỉnh giá trị này theo yêu cầu */
+  .intro-header .page-heading h1 {
+      font-size: 2rem; /* Kích thước cho màn hình di động */
+  }
+}
+
+/* Kích thước cho màn hình rất nhỏ (di động nhỏ hơn) */
+@media (max-width: 480px) {
+  .intro-header .page-heading h1 {
+      font-size: 1.5rem; /* Kích thước cho các thiết bị di động nhỏ */
+  }
+}
+
 .intro-header .post-heading h1 {
   margin-top: 0;
   font-size: 2.5rem;
+}
+
+/* Kích thước cho màn hình nhỏ hơn */
+@media (max-width: 768px) { /* Có thể điều chỉnh giá trị này theo yêu cầu */
+  .intro-header .post-heading h1 {
+      font-size: 2rem; /* Kích thước cho màn hình di động */
+  }
+}
+
+/* Kích thước cho màn hình rất nhỏ (di động nhỏ hơn) */
+@media (max-width: 480px) {
+  .intro-header .post-heading h1 {
+      font-size: 1.5rem; /* Kích thước cho các thiết bị di động nhỏ */
+  }
 }
 
 .intro-header .page-heading .page-subheading,

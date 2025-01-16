@@ -1550,13 +1550,15 @@ option:hover {
   align-items: center; /* Căn giữa nội dung */
   justify-content: center; /* Căn giữa theo chiều dọc */
   flex: 1 1 calc(25% - 10px); /* Chia đều các component */
-  background-color: rgba(0, 0, 0, 0.25);
+  /* background-color: rgba(0, 0, 0, 0.25); */
   color: #ffffff;
   text-align: center;
-  padding: 10px;
+  padding: 30px;
   border: 1px solid #cccccc00;
   border-radius: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transform: scale(1); /* Đặt trạng thái mặc định */
+  transition: transform 0.5s ease, box-shadow 0.5s ease; /* Hiệu ứng mượt */
 }
 /* Media Query cho màn hình nhỏ */
 @media (max-width: 768px) {
@@ -1578,13 +1580,14 @@ option:hover {
 
 .component:hover {
   /* background-color: rgba(200, 200, 255, 0.8); */
-  transform: scale(1.05);
-  transition: 0.3s;
+  transform: scale(1.1);
+  /* transition: 0.5s; */
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); Thêm hiệu ứng đổ bóng */
 }
 
 .avatar {
-  width: 120px; /* Kích thước avatar */
-  height: 120px; /* Kích thước avatar */
+  width: 150px; /* Kích thước avatar */
+  height: 150px; /* Kích thước avatar */
   border-radius: 50%; /* Hình tròn */
   object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
   margin-bottom: 10px; /* Khoảng cách với tên */

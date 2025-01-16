@@ -859,48 +859,22 @@ footer .theme-by {
   display: flex;
   justify-content: center; /* Canh giữa ngang */
   align-items: center;    /* Canh giữa dọc */
-  text-shadow: 7px 4px 0px #002e7882;
+  /* text-shadow: 7px 4px 0px #002e7882; */
   padding-top: 3em;
   padding-bottom: 3em;
 }
 
 .intro-header .page-heading h1 {
   margin-top: 0;
-  font-size: 3rem;
+  font-size: 40px;
 }
 
-/* Kích thước cho màn hình nhỏ hơn */
-@media (max-width: 768px) { /* Có thể điều chỉnh giá trị này theo yêu cầu */
-  .intro-header .page-heading h1 {
-      font-size: 2rem; /* Kích thước cho màn hình di động */
-  }
-}
-
-/* Kích thước cho màn hình rất nhỏ (di động nhỏ hơn) */
-@media (max-width: 480px) {
-  .intro-header .page-heading h1 {
-      font-size: 1.5rem; /* Kích thước cho các thiết bị di động nhỏ */
-  }
-}
 
 .intro-header .post-heading h1 {
   margin-top: 0;
-  font-size: 2.5rem;
+  font-size: 40px;
 }
 
-/* Kích thước cho màn hình nhỏ hơn */
-@media (max-width: 768px) { /* Có thể điều chỉnh giá trị này theo yêu cầu */
-  .intro-header .post-heading h1 {
-      font-size: 2rem; /* Kích thước cho màn hình di động */
-  }
-}
-
-/* Kích thước cho màn hình rất nhỏ (di động nhỏ hơn) */
-@media (max-width: 480px) {
-  .intro-header .post-heading h1 {
-      font-size: 1.5rem; /* Kích thước cho các thiết bị di động nhỏ */
-  }
-}
 
 .intro-header .page-heading .page-subheading,
 .intro-header .post-heading .post-subheading {
@@ -1539,12 +1513,27 @@ option:hover {
   text-align: center; /* Căn giữa văn bản */
   padding: 20px;
 }
+
 .summary {
   font-size: 5rem;
   font-weight: 900;
   background-color: rgba(0, 0, 0, 0); /* Nền mờ cho nội dung tóm gọn */
   padding: 10px 20px;
   border-radius: 10px;
+}
+
+/* Kích thước cho màn hình nhỏ hơn */
+@media (max-width: 768px) { /* Có thể điều chỉnh giá trị này theo yêu cầu */
+  .summary {
+      font-size: 3rem; /* Kích thước cho màn hình di động */
+  }
+}
+
+/* Kích thước cho màn hình rất nhỏ (di động nhỏ hơn) */
+@media (max-width: 480px) {
+  .summary {
+      font-size: 2rem; /* Kích thước cho các thiết bị di động nhỏ */
+  }
 }
 
 .details {
@@ -1568,6 +1557,23 @@ option:hover {
   border: 1px solid #cccccc00;
   border-radius: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/* Media Query cho màn hình nhỏ */
+@media (max-width: 768px) {
+  .component {
+      flex: 1 1 calc(50% - 10px); /* Chia thành 2 cột trên màn hình nhỏ */
+      max-width: 220px; /* Giảm chiều rộng tối đa trên màn hình nhỏ */
+      padding: 5px; /* Giảm padding để tạo thêm không gian */
+  }
+}
+
+/* Media Query cho màn hình rất nhỏ (di động nhỏ hơn) */
+@media (max-width: 480px) {
+  .component {
+      flex: 1 1 100%; /* Mỗi component sẽ chiếm toàn bộ chiều rộng */
+      max-width: 180px; /* Giảm chiều rộng tối đa trên màn hình rất nhỏ */
+      padding: 5px; /* Giảm padding để tạo thêm không gian */
+  }
 }
 
 .component:hover {

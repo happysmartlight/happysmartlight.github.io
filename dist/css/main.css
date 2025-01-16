@@ -1536,6 +1536,18 @@ option:hover {
   }
 }
 
+.description-content-index-sp {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #ffffff; /* Màu chữ trắng */
+  background-color: rgba(0, 0, 0, 0.4); /* Nền mờ */
+  text-align: center;
+  padding: 0px 20px;
+  margin: 10px auto; /* Căn giữa nội dung */
+  max-width: 450px; /* Giới hạn chiều rộng tối đa */
+  border-radius: 10px;
+}
+
 .details {
   display: flex;
   flex-wrap: wrap;
@@ -1553,7 +1565,7 @@ option:hover {
   /* background-color: rgba(0, 0, 0, 0.25); */
   color: #ffffff;
   text-align: center;
-  padding: 30px;
+  padding: 0px 30px;
   border: 1px solid #cccccc00;
   border-radius: 15px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);

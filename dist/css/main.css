@@ -1469,50 +1469,21 @@ option:hover {
 }
 
 
-.content-index-sp-1 {
+.content-index {
   display: flex; /* Sử dụng flexbox */
   flex-direction: column;
   justify-content: flex-end; /* Căn giữa theo chiều dọc */
   align-items: center; /* Căn giữa theo chiều ngang */
   height: 100vh; /* Chiều cao bằng toàn màn hình (hoặc tùy chỉnh) */
-  background-image: url('/img/My_Picture/BANER__ARGB_1.jpg'); /* Đường dẫn tới ảnh nền */
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%); /* Hiệu ứng chuyển màu */
   background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
   background-position: center; /* Căn giữa ảnh nền */
   background-repeat: no-repeat; /* Không lặp lại ảnh nền */
   color: white;
   text-align: center; /* Căn giữa văn bản */
-  padding: 20px;
+  padding: 40px 20px;
 }
 
-.content-index-sp-2 {
-  display: flex; /* Sử dụng flexbox */
-  flex-direction: column;
-  justify-content: flex-end; /* Căn giữa theo chiều dọc */
-  align-items: center; /* Căn giữa theo chiều ngang */
-  height: 100vh; /* Chiều cao bằng toàn màn hình (hoặc tùy chỉnh) */
-  background-image: url('/img/My_Picture/BANER__ARGB_2.jpg'); /* Đường dẫn tới ảnh nền */
-  background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
-  background-position: center; /* Căn giữa ảnh nền */
-  background-repeat: no-repeat; /* Không lặp lại ảnh nền */
-  color: white;
-  text-align: center; /* Căn giữa văn bản */
-  padding: 20px;
-}
-
-.content-index-sp-3 {
-  display: flex; /* Sử dụng flexbox */
-  flex-direction: column;
-  justify-content: flex-end; /* Căn giữa theo chiều dọc */
-  align-items: center; /* Căn giữa theo chiều ngang */
-  height: 100vh; /* Chiều cao bằng toàn màn hình (hoặc tùy chỉnh) */
-  background-image: url('/img/My_Picture/BANER__ARGB.jpg'); /* Đường dẫn tới ảnh nền */
-  background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
-  background-position: center; /* Căn giữa ảnh nền */
-  background-repeat: no-repeat; /* Không lặp lại ảnh nền */
-  color: white;
-  text-align: center; /* Căn giữa văn bản */
-  padding: 20px;
-}
 
 .summary {
   font-size: 5rem;
@@ -1537,14 +1508,14 @@ option:hover {
 }
 
 .description-content-index-sp {
+  max-width: 768px; /* Giới hạn chiều rộng tối đa */
+  text-align: left;
   font-size: 2rem;
   font-weight: 400;
   color: #ffffff; /* Màu chữ trắng */
   background-color: rgba(0, 0, 0, 0.4); /* Nền mờ */
-  text-align: center;
   padding: 0px 20px;
   margin: 10px auto; /* Căn giữa nội dung */
-  max-width: 450px; /* Giới hạn chiều rộng tối đa */
   border-radius: 10px;
 }
 
@@ -1594,7 +1565,6 @@ option:hover {
   /* background-color: rgba(200, 200, 255, 0.8); */
   transform: scale(1.1);
   /* transition: 0.5s; */
-  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); Thêm hiệu ứng đổ bóng */
 }
 
 .avatar {
@@ -1607,14 +1577,16 @@ option:hover {
 }
 
 .component-name {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 1.5rem;
+  font-weight: normal;
   color: #ffffff;
   border-radius: 20px; /* Hình tròn */
   padding-inline: inherit;
+  padding: 5px 15px;
 }
 
 .component:hover .component-name {
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.438);
   background: linear-gradient(90deg, #00d3ff, #f00ac0); /* Thay đổi nền khi hover */
 }
 

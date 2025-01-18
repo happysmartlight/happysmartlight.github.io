@@ -4,7 +4,7 @@ title: Chào mừng đến với Catalog HSL
 meta-title: Catalog HSL
 subtitle: "ENJOY YOUR SHINING FLOW JOURNEY"
 bigimg:
-  - "/img/My_Picture/BANER__ARGB_1.jpg"
+  - "/img/Picture-HSL/BANER__ARGB_1.jpg"
 ---
 <head>
 	<link rel="stylesheet" type="text/css" href="css/book_style.css" />

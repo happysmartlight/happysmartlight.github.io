@@ -13,7 +13,7 @@ navbar-links:
     - Điều khiển LED Cabin: cabin-controler
     - Phát - thu sóng: signal-tx-rx-controler
     - Card Cabin LED: card-cabin-controler
-  💡Phụ trợ LED: 
+  💡Đạo cụ LED: 
     - Led Pixel: none
     - Led Module: none
     - Nguồn và Pin: none
@@ -29,7 +29,7 @@ navbar-links:
     - Liên hệ với HSL: aboutme
     - Đối tác với HSL: none
   # 🗝️Tags: tags #thay thế bằng nút tìm kiếm.
-avatar: "/img/My_Picture/avatar_site.png"
+avatar: "/img/Picture-HSL/avatar_site.png"
 author:
   name: "\U0001F525HAPPY SMART LIGHT\U0001F525"
   rss: true

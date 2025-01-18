@@ -20,7 +20,7 @@ title: Card thu - phát tín hiệu LED CABIN
   <br>
   <div class="text-center">
     <a target="_blank" rel="noopener" href="/" class="project-link" title="✨HAPPY SMART LIGHT✨">
-      <img src="{{ site.baseurl }}/img/My_Picture/avatar_site.png" class="img-rounded" alt="✨HAPPY SMART LIGHT✨" width="30%" />
+      <img src="{{ site.baseurl }}/img/Picture-HSL/avatar_site.png" class="img-rounded" alt="✨HAPPY SMART LIGHT✨" width="30%" />
     </a>
     <h2>✨HAPPY SMART LIGHT✨</h2>
   </div>
@@ -41,6 +41,6 @@ title: Card thu - phát tín hiệu LED CABIN
 
 <div class="text-center">
   <a target="_blank" rel="noopener" href="/" class="project-link" title="✨HAPPY SMART LIGHT✨">
-    <img src="{{ site.baseurl }}/img/My_Picture/BANER__ARGB_2.jpg" class="img-rounded" alt="✨HAPPY SMART LIGHT✨" width="80%" />
+    <img src="{{ site.baseurl }}/img/Picture-HSL/BANER__ARGB_2.jpg" class="img-rounded" alt="✨HAPPY SMART LIGHT✨" width="80%" />
   </a>
 </div>

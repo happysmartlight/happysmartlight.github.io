@@ -4,7 +4,7 @@ title: Happy Smart Light
 meta-title: Happy Smart Light
 subtitle: "HSL – Nơi ánh sáng trở thành nghệ thuật!"
 bigimg:
-- "/img/My_Picture/BANER__ARGB.jpg"
+- "/img/Picture-HSL/BANER__ARGB.jpg"
 ---
 
 ## **Giới Thiệu Về Công Ty TNHH Thương Mại và Công Nghệ Happy Smart Light**
@@ -14,7 +14,7 @@ bigimg:
 #### ⚡Nhận diện thương hiệu
 <div class="text-center">
   <a target="_blank" rel="noopener" href="/" class="project-link" title="✨HAPPY SMART LIGHT✨">
-    <img src="{{ site.baseurl }}/img/My_Picture/avatar_site.png" class="img-rounded" alt="✨HAPPY SMART LIGHT✨" width="30%" />
+    <img src="{{ site.baseurl }}/img/Picture-HSL/avatar_site.png" class="img-rounded" alt="✨HAPPY SMART LIGHT✨" width="30%" />
   </a>
   <h2 style="text-align: center;">✨HAPPY SMART LIGHT✨</h2>
 </div>

@@ -4,7 +4,7 @@ title: Compatible LED strips
 meta-title: Compatible LED strips
 # subtitle: "... Welcome to ARGB"
 bigimg:
-  - "/img/My_Picture/BANER__ARGB_1.jpg"
+  - "/img/Picture-HSL/BANER__ARGB_1.jpg"
 tags: [ARGB, ws2811, ws2812b, strip leds]
 
 ---

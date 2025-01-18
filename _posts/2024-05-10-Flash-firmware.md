@@ -4,8 +4,8 @@ title: "Flash firmware using ESP Web Tools"
 meta-title: "ESP Web Tools"
 subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
-  - "/img/My_Picture/BANER__ARGB_1.jpg"
-image: "/img/My_Picture/avatar_site.png"
+  - "/img/Picture-HSL/BANER__ARGB_1.jpg"
+image: "/img/Picture-HSL/avatar_site.png"
 tags: [esp web tools, Web serial, bluetooth]
 category: Programming MCU
 # gh-repo: bangnguyendev/flash-esp-web-bangnguyendev

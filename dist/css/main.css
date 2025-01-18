@@ -1475,10 +1475,6 @@ option:hover {
   justify-content: flex-end; /* Căn giữa theo chiều dọc */
   align-items: center; /* Căn giữa theo chiều ngang */
   height: 100vh; /* Chiều cao bằng toàn màn hình (hoặc tùy chỉnh) */
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%); /* Hiệu ứng chuyển màu */
-  background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
-  background-position: center; /* Căn giữa ảnh nền */
-  background-repeat: no-repeat; /* Không lặp lại ảnh nền */
   color: white;
   text-align: center; /* Căn giữa văn bản */
   padding: 40px 20px;
@@ -1513,7 +1509,7 @@ option:hover {
   font-size: 2rem;
   font-weight: 400;
   color: #ffffff; /* Màu chữ trắng */
-  background-color: rgba(0, 0, 0, 0.4); /* Nền mờ */
+  /* background-color: rgba(0, 0, 0, 0.4); Nền mờ */
   padding: 0px 20px;
   margin: 10px auto; /* Căn giữa nội dung */
   border-radius: 10px;
@@ -1583,10 +1579,11 @@ option:hover {
   border-radius: 20px; /* Hình tròn */
   padding-inline: inherit;
   padding: 5px 15px;
+
 }
 
 .component:hover .component-name {
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.438);
+  box-shadow: 0 0 35px rgb(49, 138, 255);
   background: linear-gradient(90deg, #00d3ff, #f00ac0); /* Thay đổi nền khi hover */
 }
 

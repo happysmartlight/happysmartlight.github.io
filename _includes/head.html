@@ -1,23 +1,6 @@
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" id="viewport">
-  <title>Responsive Viewport</title>
-  <script>
-      function adjustViewport() {
-          const viewport = document.getElementById('viewport');
-          if (window.innerWidth <= 768) {
-              viewport.setAttribute('content', 'width=device-width, initial-scale=0.8'); // Màn hình nhỏ
-          } else {
-              viewport.setAttribute('content', 'width=device-width, initial-scale=1.0'); // Màn hình lớn
-          }
-      }
-
-      // Gọi hàm khi trang được tải
-      window.onload = adjustViewport;
-
-      // Gọi hàm mỗi khi kích thước cửa sổ thay đổi
-      window.onresize = adjustViewport;
-  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!--  jekyll-seo-tag -->
   {% seo %} 
 

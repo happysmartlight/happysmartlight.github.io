@@ -1,8 +1,8 @@
 ---
-layout: page
+layout: page-bio
 title: Happy Smart Light
-meta-title: Happy Smart Light
-subtitle: "HSL – Nơi ánh sáng trở thành nghệ thuật!"
+# meta-title: Happy Smart Light
+# subtitle: "HSL – Nơi ánh sáng trở thành nghệ thuật!"
 bigimg:
 - "/img/Picture-HSL/BANER__ARGB.jpg"
 ---

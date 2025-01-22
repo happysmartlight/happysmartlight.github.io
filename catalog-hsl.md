@@ -1,8 +1,8 @@
 ---
-layout: page
-title: Chào mừng đến với Catalog HSL
-meta-title: Catalog HSL
-subtitle: "ENJOY YOUR SHINING FLOW JOURNEY"
+layout: page-bio
+title: Catalog HSL
+# meta-title: Catalog HSL
+# subtitle: "ENJOY YOUR SHINING FLOW JOURNEY"
 bigimg:
   - "/img/Picture-HSL/BANER__ARGB_1.jpg"
 ---

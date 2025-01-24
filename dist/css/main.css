@@ -885,7 +885,9 @@ Chỉnh sửa
   justify-content: center; /* Canh giữa ngang */
   align-items: center;    /* Canh giữa dọc */
   width: 100vw; /* Chiều rộng toàn màn hình */
-  height: auto;
+  height: 100vh; /* Chiều cao toàn màn hình */
+  background-size: cover;
+  background-position: center; 
 }
 
 .intro-header.big-img .page-heading,

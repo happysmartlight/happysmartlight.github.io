@@ -662,22 +662,56 @@ footer .theme-by {
   display: flex; /* Sử dụng Flexbox */
   align-items: center; /* Căn giữa theo chiều dọc */
   justify-content: center; /* Căn giữa theo chiều ngang */
-  height: max-content;
-  width: auto;
+  height: 100vh; /* Chiều cao bằng với chiều cao */
+  width: 100vw; /* Chiều rộng bằng với chiều ngang */
   padding-left: 10px;
   padding-right: 10px;
 }
 
+
 .ndb-transbox h1 {
-  background: linear-gradient(90deg, #00d3ff, #f00ac0); /* Gradient nền */
-  -webkit-background-clip: text; /* Cắt gradient theo text */
-  -webkit-text-fill-color: transparent; /* Làm chữ trong suốt */
-  text-align: center; /* Căn giữa nội dung nếu cần */
-  border-width: 15px;
-  padding-top: 25vw;
-  padding-bottom: 25vw;
+  -webkit-text-stroke: 2px #0195b3; /* Viền chữ xanh dương neon */
+  text-shadow: 
+    0 0 5px #00d3ff,  /* Hiệu ứng sáng gần */
+    0 0 10px #00d3ff, /* Hiệu ứng sáng trung bình */
+    0 0 15px #00d3ff; /* Hiệu ứng sáng xa, mờ hơn */
+  animation: glowing 3s infinite; /* Hiệu ứng phát sáng động */
+  text-align: center; /* Căn giữa nội dung */
+  padding: 25px; /* Khoảng cách bên trong để nội dung không sát viền */
+  padding-bottom: 25vw; /* Khoảng cách dưới */
 }
 
+
+Hiểu rồi! Dưới đây là phiên bản điều chỉnh với màu xanh dương neon, tạo cảm giác hiện đại và nổi bật nhưng vẫn nhẹ nhàng.
+
+CSS: Hiệu ứng hào quang xanh dương neon
+css
+Sao chép
+Chỉnh sửa
+.ndb-transbox h1 {
+  color: #ffffff; /* Màu chữ */
+  -webkit-text-stroke: 1px #00d3ff; /* Viền chữ xanh dương neon */
+  text-shadow: 
+    0 0 5px #00d3ff,  /* Hiệu ứng sáng gần */
+    0 0 10px #00d3ff, /* Hiệu ứng sáng trung bình */
+    0 0 15px #00d3ff; /* Hiệu ứng sáng xa, mờ hơn */
+  animation: glowing 3s infinite; /* Hiệu ứng phát sáng động */
+  text-align: center; /* Căn giữa nội dung */
+  padding: 25px; /* Khoảng cách bên trong để nội dung không sát viền */
+  padding-bottom: 25vw; /* Khoảng cách dưới */
+}
+
+@keyframes glowing {
+  0% {
+    text-shadow: 0 0 5px #00d3ff, 0 0 10px #00d3ff, 0 0 15px #00d3ff;
+  }
+  50% {
+    text-shadow: 0 0 10px #00eaff, 0 0 15px #00eaff, 0 0 20px #00bfff; /* Nhấn mạnh ánh sáng ở giữa */
+  }
+  100% {
+    text-shadow: 0 0 5px #00d3ff, 0 0 10px #00d3ff, 0 0 15px #00d3ff;
+  }
+}
 
 .gradient-bg {
   width: 100vw;
@@ -760,7 +794,7 @@ footer .theme-by {
 
 /* Cập nhật khoảng cách cho bài viết với ảnh bìa.  */
 .row {
-  width: auto;
+  width: 100vw;
   margin-left: auto;
   margin-right: auto;
   /* padding-bottom: 10px;
@@ -934,7 +968,7 @@ footer .theme-by {
   }
 
   .intro-header .page-heading h1 {
-    font-size: 80px;
+    font-size: 55px;
   }
 
   .intro-header .post-heading h1 {
@@ -1475,6 +1509,7 @@ option:hover {
   justify-content: flex-end; /* Căn giữa theo chiều dọc */
   align-items: center; /* Căn giữa theo chiều ngang */
   height: 100vh; /* Chiều cao bằng toàn màn hình (hoặc tùy chỉnh) */
+  width: 100vw; /* Chiều rộng bằng với chiều rộng của viewport */
   color: white;
   text-align: center; /* Căn giữa văn bản */
   padding: 40px 20px;
@@ -1482,7 +1517,7 @@ option:hover {
 
 
 .summary {
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 900;
   background-color: rgba(0, 0, 0, 0); /* Nền mờ cho nội dung tóm gọn */
   padding: 10px 20px;

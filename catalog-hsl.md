@@ -1,17 +1,61 @@
 ---
-layout: page-bio
+layout: page
 title: Catalog HSL
-# meta-title: Catalog HSL
+meta-title: Catalog HSL
 # subtitle: "ENJOY YOUR SHINING FLOW JOURNEY"
 bigimg:
   - "/img/Picture-HSL/BANER__ARGB_1.jpg"
 ---
 <head>
-	<link rel="stylesheet" type="text/css" href="css/book_style.css" />
-	<link rel="stylesheet" type="text/css" href="css/books_component.css" />
+	<link rel="stylesheet" type="text/css" href="css/calalog_style.css" />
+	<link rel="stylesheet" type="text/css" href="css/catalog_component.css" />
 	<!-- Modernizr is used for flexbox fallback -->
 	<script src="js/modernizr.custom.js"></script>
 </head>
+
+<!-- 
+<div class="gradient-bg">
+  <div class="gradient-text">
+    <p>Tỏa sáng theo cách của riêng bạn</p>
+  </div>
+</div> -->
+
+<div class="content-index" style="
+      background: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
+        url('/img/Picture-HSL/BANER__ARGB_1.jpg');
+      background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
+      background-position: center; /* Căn giữa ảnh nền */
+      background-repeat: no-repeat; /* Không lặp lại ảnh nền */
+        ">
+  <div class="summary">
+    DÒNG SẢN PHẨM LED 1 ✨
+  </div>
+  <div class="description-content-index-sp">
+    💡Đây là dòng sản phẩm LED hiện đại.<br>
+    💡Mang lại hiệu suất cao, bền bỉ và đa dạng về mẫu mã. <br>
+    💡Trình diễn ánh sáng chất lượng cao.
+  </div>
+  <div class="details">
+    <div class="component">
+      <img src="/img/dong_san_pham_1/20170906_terkavpoi4classic_019.jpg" alt="Avatar 1" class="avatar" loading="lazy">
+      <div class="component-name">Sản phẩm 1</div>
+    </div>
+    <div class="component">
+        <img src="/img/dong_san_pham_1/20240330_VisualPoiV5_043.jpg" alt="Avatar 2" class="avatar" loading="lazy">
+        <div class="component-name">Sản phẩm 2</div>
+    </div>
+    <div class="component">
+        <img src="/img/dong_san_pham_1/20240329_VisualPoiV5_012.jpg" alt="Avatar 3" class="avatar" loading="lazy">
+        <div class="component-name">Sản phẩm 3</div>
+    </div>
+    <div class="component">
+        <img src="/img/dong_san_pham_1/20240330_VisualPoiV5_044.jpg" alt="Avatar 4" class="avatar" loading="lazy">
+        <div class="component-name">Sản phẩm 4</div>
+    </div>
+  </div>
+</div>
+
 
 ## **Khám Phá Catalog Đẳng Cấp Từ HSL – Giải Pháp LED Toàn Diện**
 

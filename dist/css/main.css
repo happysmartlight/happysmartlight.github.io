@@ -1486,160 +1486,135 @@ option:hover {
   padding-right: 0%;  
 }
 
-
+/* Tổng quan bố cục của phần content */
 .content-index {
-  display: flex; /* Sử dụng flexbox */
-  flex-direction: column;
-  justify-content: flex-end; /* Căn giữa theo chiều dọc */
-  align-items: center; /* Căn giữa theo chiều ngang */
-  height: 100vh; /* Chiều cao bằng toàn màn hình (hoặc tùy chỉnh) */
-  width: 100vw; /* Chiều rộng bằng với chiều rộng của viewport */
-  color: white;
+  display: flex; /* Sử dụng flexbox để sắp xếp nội dung */
+  flex-direction: column; /* Sắp xếp theo chiều dọc */
+  justify-content: flex-end; /* Canh nội dung về cuối theo chiều dọc */
+  align-items: center; /* Canh giữa theo chiều ngang */
+  height: 100vh; /* Chiều cao bằng với toàn màn hình */
+  width: 100vw; /* Chiều rộng bằng với toàn màn hình */
+  color: white; /* Màu chữ trắng */
   text-align: center; /* Căn giữa văn bản */
-  padding: 40px 20px;
+  padding: 40px 20px; /* Khoảng cách bên trong */
 }
 
-
+/* Phần tiêu đề chính (summary) */
 .summary {
-  font-size: 4rem;
-  font-weight: 900;
-  background-color: rgba(0, 0, 0, 0); /* Nền mờ cho nội dung tóm gọn */
-  padding: 10px 20px;
-  border-radius: 10px;
+  font-size: 4rem; /* Kích thước chữ lớn */
+  font-weight: 900; /* Chữ đậm */
+  background-color: rgba(0, 0, 0, 0); /* Không có nền (trong suốt) */
+  padding: 10px 20px; /* Khoảng cách bên trong */
+  border-radius: 10px; /* Bo tròn các góc */
 }
 
-/* Kích thước cho màn hình nhỏ hơn */
-@media (max-width: 768px) { /* Có thể điều chỉnh giá trị này theo yêu cầu */
-  .summary {
-      font-size: 3rem; /* Kích thước cho màn hình di động */
-  }
-}
-
-/* Kích thước cho màn hình rất nhỏ (di động nhỏ hơn) */
-@media (max-width: 480px) {
-  .summary {
-      font-size: 2rem; /* Kích thước cho các thiết bị di động nhỏ */
-  }
-}
-
+/* Mô tả nội dung */
 .description-content-index-sp {
   max-width: 768px; /* Giới hạn chiều rộng tối đa */
-  text-align: left;
-  font-size: 2rem;
-  font-weight: 400;
+  text-align: left; /* Văn bản căn trái */
+  font-size: 2rem; /* Kích thước chữ vừa phải */
+  font-weight: 400; /* Chữ thường (không đậm) */
   color: #ffffff; /* Màu chữ trắng */
-  /* background-color: rgba(0, 0, 0, 0.4); Nền mờ */
-  padding: 0px 20px;
-  margin: 10px auto; /* Căn giữa nội dung */
-  border-radius: 10px;
+  padding: 0px 20px; /* Khoảng cách bên trong theo chiều ngang */
+  margin: 10px auto; /* Căn giữa và tạo khoảng cách trên/dưới */
+  border-radius: 10px; /* Bo tròn các góc */
 }
 
+/* Khu vực chứa các thành phần (components) */
 .details {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin-top: 20px;
+  display: flex; /* Sử dụng flexbox */
+  flex-wrap: wrap; /* Nội dung sẽ tự xuống dòng nếu không đủ không gian */
+  gap: 10px; /* Khoảng cách giữa các components */
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  margin-top: 20px; /* Khoảng cách phía trên */
 }
 
+/* Định dạng từng thành phần trong khu vực components */
 .component {
-  display: flex;
-  flex-direction: column; /* Xếp chồng avatar và tên */
-  align-items: center; /* Căn giữa nội dung */
+  display: flex; /* Sử dụng flexbox */
+  flex-direction: column; /* Xếp chồng các phần tử bên trong */
+  align-items: center; /* Căn giữa theo chiều ngang */
   justify-content: center; /* Căn giữa theo chiều dọc */
-  flex: 1 1 calc(25% - 10px); /* Chia đều các component */
-  /* background-color: rgba(0, 0, 0, 0.25); */
-  color: #ffffff;
-  text-align: center;
-  padding: 0px 30px;
-  border: 1px solid #cccccc00;
-  border-radius: 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transform: scale(1); /* Đặt trạng thái mặc định */
-  transition: transform 0.5s ease, box-shadow 0.5s ease; /* Hiệu ứng mượt */
+  flex: 1 1 calc(25% - 10px); /* Chia đều thành 4 cột (25% chiều rộng mỗi cột) */
+  color: #ffffff; /* Màu chữ trắng */
+  text-align: center; /* Căn giữa văn bản */
+  padding: 0px 30px; /* Khoảng cách bên trong */
+  border: 1px solid #cccccc00; /* Viền ẩn (có thể điều chỉnh nếu cần) */
+  border-radius: 15px; /* Bo tròn góc của component */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Tạo bóng mờ nhẹ */
+  transform: scale(1); /* Kích thước mặc định */
+  transition: transform 0.5s ease, box-shadow 0.5s ease; /* Hiệu ứng mượt khi hover */
 }
 
-
+/* Hiệu ứng khi hover vào một component */
 .component:hover {
-  /* background-color: rgba(200, 200, 255, 0.8); */
-  transform: scale(1.1);
-  /* transition: 0.5s; */
+  transform: scale(1.1); /* Tăng kích thước component */
 }
 
+/* Avatar bên trong component */
 .avatar {
-  width: 150px; /* Kích thước avatar */
-  height: 150px; /* Kích thước avatar */
-  border-radius: 50%; /* Hình tròn */
+  width: 150px; /* Kích thước chiều ngang của avatar */
+  height: 150px; /* Kích thước chiều cao của avatar */
+  border-radius: 50%; /* Làm avatar thành hình tròn */
   object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
-  margin-bottom: 10px; /* Khoảng cách với tên */
-  /* border: 2px solid #007acc; Viền cho avatar */
+  margin-bottom: 10px; /* Khoảng cách dưới avatar */
 }
 
+/* Tên của component */
 .component-name {
-  font-size: 1.5rem;
-  font-weight: normal;
-  color: #ffffff;
-  border-radius: 20px; /* Hình tròn */
-  padding-inline: inherit;
-  padding: 5px 15px;
-
+  font-size: 1.5rem; /* Kích thước chữ của tên */
+  font-weight: normal; /* Độ dày bình thường */
+  color: #ffffff; /* Màu chữ trắng */
+  padding: 5px 15px; /* Khoảng cách bên trong */
+  border-radius: 20px; /* Bo tròn góc của nền tên */
 }
 
+/* Hiệu ứng hover trên tên của component */
 .component:hover .component-name {
-  box-shadow: 0 0 35px rgb(49, 138, 255);
-  background: linear-gradient(90deg, #00d3ff, #f00ac0); /* Thay đổi nền khi hover */
+  box-shadow: 0 0 35px rgb(49, 138, 255); /* Tạo bóng sáng xanh xung quanh */
+  background: linear-gradient(90deg, #00d3ff, #f00ac0); /* Hiệu ứng nền gradient khi hover */
 }
 
-/* Media Query cho màn hình nhỏ */
+/* Media query cho màn hình nhỏ (tối đa 768px) */
 @media (max-width: 768px) {
   .component {
-      flex: 1 1 calc(50% - 10px); /* Chia thành 2 cột trên màn hình nhỏ */
-      max-width: 150px; /* Giảm chiều rộng tối đa trên màn hình nhỏ */
-      padding: 5px; /* Giảm padding để tạo thêm không gian */
+    flex: 1 1 calc(50% - 10px); /* Chia thành 2 cột */
+    max-width: 150px; /* Giảm chiều rộng tối đa */
+    padding: 5px; /* Giảm khoảng cách bên trong */
   }
   .summary {
-    font-size: 3rem; /* Kích thước cho màn hình di động */
+    font-size: 3rem; /* Giảm kích thước chữ */
   }
   .description-content-index-sp {
-    font-size: 1.5rem;
-    font-weight: 400;
+    font-size: 1.5rem; /* Giảm kích thước chữ mô tả */
   }
   .avatar {
-    width: 100px; /* Kích thước avatar */
-    height: 100px; /* Kích thước avatar */
-    border-radius: 50%; /* Hình tròn */
-    object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
-    margin-bottom: 10px; /* Khoảng cách với tên */
-    /* border: 2px solid #007acc; Viền cho avatar */
+    width: 100px; /* Giảm kích thước avatar */
+    height: 100px;
   }
   .component-name {
-    font-size: 1.4rem;
+    font-size: 1.4rem; /* Giảm kích thước tên */
   }
 }
 
-/* Media Query cho màn hình rất nhỏ (di động nhỏ hơn) */
+/* Media query cho màn hình rất nhỏ (tối đa 480px) */
 @media (max-width: 480px) {
   .component {
-      flex: 1 1 100%; /* Mỗi component sẽ chiếm toàn bộ chiều rộng */
-      max-width: 70px; /* Giảm chiều rộng tối đa trên màn hình rất nhỏ */
-      padding: 5px; /* Giảm padding để tạo thêm không gian */
+    flex: 1 1 100%; /* Chiếm toàn bộ chiều rộng */
+    max-width: 70px; /* Thu nhỏ chiều rộng tối đa */
+    padding: 5px;
   }
   .summary {
-    font-size: 2rem; /* Kích thước cho các thiết bị di động nhỏ */
+    font-size: 2rem; /* Kích thước tiêu đề nhỏ hơn */
   }
   .description-content-index-sp {
     font-size: 1.4rem;
-    font-weight: 400;
   }
   .avatar {
-    width: 50px; /* Kích thước avatar */
-    height: 50px; /* Kích thước avatar */
-    border-radius: 50%; /* Hình tròn */
-    object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
-    margin-bottom: 10px; /* Khoảng cách với tên */
-    /* border: 2px solid #007acc; Viền cho avatar */
+    width: 50px; /* Avatar rất nhỏ */
+    height: 50px;
   }
   .component-name {
-    font-size: 1.4rem;
+    font-size: 1.2rem; /* Thu nhỏ tên component */
   }
 }

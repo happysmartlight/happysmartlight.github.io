@@ -670,27 +670,9 @@ footer .theme-by {
 
 
 .ndb-transbox h1 {
-  -webkit-text-stroke: 2px #0195b3; /* Viền chữ xanh dương neon */
-  text-shadow: 
-    0 0 5px #00d3ff,  /* Hiệu ứng sáng gần */
-    0 0 10px #00d3ff, /* Hiệu ứng sáng trung bình */
-    0 0 15px #00d3ff; /* Hiệu ứng sáng xa, mờ hơn */
-  animation: glowing 3s infinite; /* Hiệu ứng phát sáng động */
-  text-align: center; /* Căn giữa nội dung */
-  padding: 25px; /* Khoảng cách bên trong để nội dung không sát viền */
-  padding-bottom: 25vw; /* Khoảng cách dưới */
-}
-
-
-Hiểu rồi! Dưới đây là phiên bản điều chỉnh với màu xanh dương neon, tạo cảm giác hiện đại và nổi bật nhưng vẫn nhẹ nhàng.
-
-CSS: Hiệu ứng hào quang xanh dương neon
-css
-Sao chép
-Chỉnh sửa
-.ndb-transbox h1 {
+  font-family: 'Baloo 2', cursive;
   color: #ffffff; /* Màu chữ */
-  -webkit-text-stroke: 1px #00d3ff; /* Viền chữ xanh dương neon */
+  -webkit-text-stroke: 0.7px #00d3ff; /* Viền chữ xanh dương neon */
   text-shadow: 
     0 0 5px #00d3ff,  /* Hiệu ứng sáng gần */
     0 0 10px #00d3ff, /* Hiệu ứng sáng trung bình */
@@ -970,7 +952,7 @@ Chỉnh sửa
   }
 
   .intro-header .page-heading h1 {
-    font-size: 55px;
+    font-size: 70px;
   }
 
   .intro-header .post-heading h1 {
@@ -1576,23 +1558,7 @@ option:hover {
   transform: scale(1); /* Đặt trạng thái mặc định */
   transition: transform 0.5s ease, box-shadow 0.5s ease; /* Hiệu ứng mượt */
 }
-/* Media Query cho màn hình nhỏ */
-@media (max-width: 768px) {
-  .component {
-      flex: 1 1 calc(50% - 10px); /* Chia thành 2 cột trên màn hình nhỏ */
-      max-width: 220px; /* Giảm chiều rộng tối đa trên màn hình nhỏ */
-      padding: 5px; /* Giảm padding để tạo thêm không gian */
-  }
-}
 
-/* Media Query cho màn hình rất nhỏ (di động nhỏ hơn) */
-@media (max-width: 480px) {
-  .component {
-      flex: 1 1 100%; /* Mỗi component sẽ chiếm toàn bộ chiều rộng */
-      max-width: 180px; /* Giảm chiều rộng tối đa trên màn hình rất nhỏ */
-      padding: 5px; /* Giảm padding để tạo thêm không gian */
-  }
-}
 
 .component:hover {
   /* background-color: rgba(200, 200, 255, 0.8); */
@@ -1624,3 +1590,56 @@ option:hover {
   background: linear-gradient(90deg, #00d3ff, #f00ac0); /* Thay đổi nền khi hover */
 }
 
+/* Media Query cho màn hình nhỏ */
+@media (max-width: 768px) {
+  .component {
+      flex: 1 1 calc(50% - 10px); /* Chia thành 2 cột trên màn hình nhỏ */
+      max-width: 150px; /* Giảm chiều rộng tối đa trên màn hình nhỏ */
+      padding: 5px; /* Giảm padding để tạo thêm không gian */
+  }
+  .summary {
+    font-size: 3rem; /* Kích thước cho màn hình di động */
+  }
+  .description-content-index-sp {
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+  .avatar {
+    width: 100px; /* Kích thước avatar */
+    height: 100px; /* Kích thước avatar */
+    border-radius: 50%; /* Hình tròn */
+    object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+    margin-bottom: 10px; /* Khoảng cách với tên */
+    /* border: 2px solid #007acc; Viền cho avatar */
+  }
+  .component-name {
+    font-size: 1.4rem;
+  }
+}
+
+/* Media Query cho màn hình rất nhỏ (di động nhỏ hơn) */
+@media (max-width: 480px) {
+  .component {
+      flex: 1 1 100%; /* Mỗi component sẽ chiếm toàn bộ chiều rộng */
+      max-width: 70px; /* Giảm chiều rộng tối đa trên màn hình rất nhỏ */
+      padding: 5px; /* Giảm padding để tạo thêm không gian */
+  }
+  .summary {
+    font-size: 2rem; /* Kích thước cho các thiết bị di động nhỏ */
+  }
+  .description-content-index-sp {
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+  .avatar {
+    width: 50px; /* Kích thước avatar */
+    height: 50px; /* Kích thước avatar */
+    border-radius: 50%; /* Hình tròn */
+    object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+    margin-bottom: 10px; /* Khoảng cách với tên */
+    /* border: 2px solid #007acc; Viền cho avatar */
+  }
+  .component-name {
+    font-size: 1.4rem;
+  }
+}

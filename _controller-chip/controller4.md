@@ -5,7 +5,7 @@ meta-title: "ESP Web Tools"
 subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/Picture-HSL/BANER__ARGB_1.jpg"
-image: "/controller-chip/controller4.jpg"
+image: "/img/controller-chip/controller4.jpg"
 tags: [esp web tools, Web serial, bluetooth]
 category: Programming MCU
 # gh-repo: bangnguyendev/flash-esp-web-bangnguyendev

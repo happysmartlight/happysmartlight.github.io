@@ -93,6 +93,20 @@ exclude:
   - LICENSE
   - README.md
   - Vagrantfile
+collections:
+  poi-tools:
+    output: true       # Bật output để Jekyll tạo file HTML cho các bài viết trong collection này
+    permalink: /poi-tools/:name/  # Định nghĩa cấu trúc URL cho bài viết
+  led-matrix:
+    output: true
+    permalink: /led-matrix/:name/
+  controler-chip:
+    output: true
+    permalink: /controler-chip/:name/
+
+# Optionally, add permalink defaults (for better structure)
+permalink: pretty
+
 metadata:
   _posts:
     - name: layout

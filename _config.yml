@@ -100,9 +100,9 @@ collections:
   led-matrix:
     output: true
     permalink: /led-matrix/:name/
-  controler-chip:
+  controller-chip:
     output: true
-    permalink: /controler-chip/:name/
+    permalink: /controller-chip/:name/
 
 # Optionally, add permalink defaults (for better structure)
 permalink: pretty

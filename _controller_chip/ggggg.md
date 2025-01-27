@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "C1 Poi 6"
+title: "Controller 2"
 meta-title: "ESP Web Tools"
 subtitle: "... Connect device to the Wi-Fi network"
 bigimg:

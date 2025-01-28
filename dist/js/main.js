@@ -124,7 +124,10 @@ var main = {
   },
 
   setImg: function (src, desc) {
-    $(".intro-header.big-img").css("background-image", 'url(' + src + ')');
+    $(".intro-header.big-img").css(
+      "background-image",
+      'linear-gradient(to top, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 1) 120%), url(' + src + ')'
+    );
     if (typeof desc !== typeof undefined && desc !== false) {
       $(".img-desc").text(desc).show();
     } else {

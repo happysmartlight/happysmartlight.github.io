@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Controller 3"
-meta-title: "ESP Web Tools"
+title: "ARGB V2"
+meta-title: "ARGB V2"
 subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/Picture-HSL/BANER__ARGB_1.jpg"
-image: "/img/controller-chip/controller3.jpg"
+image: "/img/controller-chip/argb-v2.png"
 tags: [esp web tools, Web serial, bluetooth]
 category: Programming MCU
 # gh-repo: bangnguyendev/flash-esp-web-bangnguyendev

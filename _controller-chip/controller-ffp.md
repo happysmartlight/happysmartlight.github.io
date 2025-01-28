@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Controller 2"
-meta-title: "ESP Web Tools"
+title: "Controller FFP"
+meta-title: "Controller FFP"
 subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/Picture-HSL/BANER__ARGB_1.jpg"
-image: "/img/controller-chip/controller2.jpg"
+image: "/img/controller-chip/FPP.png"
 tags: [esp web tools, Web serial, bluetooth]
 category: Programming MCU
 # gh-repo: bangnguyendev/flash-esp-web-bangnguyendev

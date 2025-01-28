@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Controller 4"
-meta-title: "ESP Web Tools"
+title: "Boost WIFI 4W"
+meta-title: "Boost WIFI 4W"
 subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/Picture-HSL/BANER__ARGB_1.jpg"
-image: "/img/controller-chip/controller4.jpg"
+image: "/img/controller-chip/kich song 4w.png"
 tags: [esp web tools, Web serial, bluetooth]
 category: Programming MCU
 # gh-repo: bangnguyendev/flash-esp-web-bangnguyendev

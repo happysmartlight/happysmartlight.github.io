@@ -1,14 +1,14 @@
 ---
-layout: page
+layout: post
 title: Bộ điều khiển PIXEL ARGB HSL
 meta-title: Bộ điều khiển PIXEL ARGB HSL
 # subtitle: "... Welcome to ARGB"
 bigimg:
-  - "/img/Picture-HSL/BANER__ARGB_1.jpg"
+  - "/img/Picture-HSL/AI-HSL-1.png"
 tags: [ARGB, ws2811, ws2812b, strip leds]
 category: ARGB PIXEL HSL
-# gh-repo: bangnguyendev/flash-esp-web-bangnguyendev
-# gh-badge: [fork]
+
+
 # author: "BangNguyen"
 # comments: true
 ---

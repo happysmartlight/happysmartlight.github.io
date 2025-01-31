@@ -1,149 +1,77 @@
 ---
 layout: post
 title: "H1 Poi 5"
-meta-title: "ESP Web Tools"
-subtitle: "... Connect device to the Wi-Fi network"
+meta-title: "HSL VISUAL POI"
+# subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
-  - "/img/Picture-HSL/BANER__ARGB_1.jpg"
+  - "/img/Picture-HSL/AI-HSL-1.png"
 image: "/img/poi-tools/poi5.jpg"
-tags: [esp web tools, Web serial, bluetooth]
-category: Programming MCU
-# gh-repo: bangnguyendev/flash-esp-web-bangnguyendev
-# gh-badge: [fork]
+tags: hsl, happy, smart, light, visual, led, poi
+category: HAPPY SMART LIGHT
+
+
 # author: "BangNguyen"
 # comments: true
 ---
-**Web Serial** có sẵn trong trình duyệt **Google Chrome** và **Microsoft Edge**. Có thể hỗ trợ Android nhưng vẫn chưa được triển khai.
+# 🌟 Đạo Cụ LED Visual Tạo Hiệu Ứng POV – Đỉnh Cao Trình Diễn Ánh Sáng!
 
-<!-- Sử dụng cho button class="action action--button" -->
-<link rel="stylesheet" href="/dist/css/main-bio.css"> 
+## 🎭 Mang Nghệ Thuật Ánh Sáng Vào Trình Diễn
 
-{: .box-warning}
-**Warning:** Có nạp mạch điều khiển LED **ARGB Happy Smart Light**
+Bạn muốn biến những buổi trình diễn thành một màn biểu diễn ánh sáng mãn nhãn? **Đạo cụ LED Visual tạo hiệu ứng POV** từ **Happy Smart Light** chính là lựa chọn hoàn hảo để mang lại trải nghiệm thị giác độc đáo, đẳng cấp chuyên nghiệp!
 
-<div style="text-align: center;">
-  <h4>ESP Web Tools - bangnguyendev</h4>
-  <!-- Lựa chọn các option -->
-  <div>
-    <label for="optiongroup">Choose a firmware:</label>
-    <select id="optiongroup">
-      <optgroup label="Example ESP Web Tools - OTA">
-        <option value="/dist/json/manifest_ESP8266_ESP32.json">ESP Web Tools - OTA - v1.0.0</option>
-      </optgroup>
-      <optgroup label="Ươm mầm lập trình nhí">
-        <option value="/dist/json/manifest_UOMMAMLAPTRINHNHI.json">UMLTN - Yolo Bit - v1.12.0</option>
-      </optgroup>
-    </select>
-  </div>
-  Plug in your ESP to a USB port. <br>We will install <span style="font-weight: bold;" id="verstr"></span> to it.<br>
-  <!-- Button install ESP -->
-  <esp-web-install-button id="espInstallButton">
-  <button class="action action--button" slot="activate"><i class="fa fa-usb"></i><span class="action__text">Connect & Install</span></button>
-  </esp-web-install-button>
-</div>
+---
 
-### Introducing ESP Web Tools
+## 🔥 Công Nghệ POV (Persistence of Vision) – Hiệu Ứng Hình Ảnh Trên Không
 
->User friendly tools to manage **ESP8266** and **ESP32** devices in the browser:
->
->- Install & update firmware
->
->- Connect device to the Wi-Fi network
->
->- Visit the device's hosted web interface
->
->- Access logs and send terminal commands
->
->- Add devices to [Home Assistant](https://www.home-assistant.io/)
+🔹 **Tái tạo hình ảnh động, logo, chữ viết và hiệu ứng đặc biệt** bằng công nghệ lưu ảnh của mắt người.
 
-```
-npm i flash-esp-web-bangnguyendev
-```
-### Link repo:
+🔹 **Hệ thống LED tốc độ cao** tạo ra những dải ánh sáng ấn tượng khi xoay hoặc di chuyển.
 
-- [NPM flash-esp-web-bangnguyendev@1.0.0](https://www.npmjs.com/package/flash-esp-web-bangnguyendev)
+🔹 **Điều khiển từ xa & đồng bộ nhạc** giúp trình diễn chuyên nghiệp và sinh động hơn.
 
-- [UNPKG flash-esp-web-bangnguyendev@1.0.0](https://unpkg.com/browse/flash-esp-web-bangnguyendev@1.0.0/)
+🔹 **Tùy chỉnh nội dung dễ dàng** qua phần mềm chuyên dụng, hỗ trợ nhiều định dạng hình ảnh.
 
+---
 
------------------------------
+## 🚀 Tính Năng Nổi Bật
+✅ **Thiết kế linh hoạt**: Dạng gậy, quạt, vòng đeo tay hoặc đạo cụ cầm tay tùy theo nhu cầu trình diễn.
 
-### Adding ESP Web Tools to your website
+✅ **Độ sáng cao & tiết kiệm năng lượng**: LED chất lượng cao với hiệu suất tối ưu.
 
-```html
-<script
-  type="module"
-  src="https://unpkg.com/flash-esp-web-bangnguyendev@1.0.1/dist/web/install-button.js?module">
-</script>
+✅ **Pin dung lượng lớn**: Giúp hoạt động liên tục trong nhiều giờ.
 
-<esp-web-install-button  manifest="/dist/json/manifest_ESP8266_ESP32.json">
-  <button slot="activate"><i class="fa fa-usb"></i><span class="action__text">Connect & Install</span></button>
-</esp-web-install-button>
+✅ **Tích hợp kết nối không dây**: Điều khiển từ xa hoặc đồng bộ qua ứng dụng.
 
-```
+✅ **Chế độ hiển thị đa dạng**: Hình ảnh tĩnh, động, sóng nhạc, hiệu ứng đặc biệt.
 
------------------------------
+---
 
-### How it works
+## 🎶 Ứng Dụng Tuyệt Vời
 
-**ESP Web Tools** works by combining **Web Serial**, **Improv Wi-Fi** (optional), and a manifest which describes the firmware. 
+🎤 **Biểu diễn nghệ thuật ánh sáng**: Dành cho dancer, DJ, ca sĩ, ban nhạc.
 
-**ESP Web Tools** detects the chipset of the connected ESP device and **automatically selects the right firmware** variant from the manifest.
+🎭 **Sự kiện, lễ hội & tiệc tùng**: Tạo điểm nhấn độc đáo, hút mắt khán giả.
 
-Web Serial is **available** in `Google Chrome` and `Microsoft Edge` browsers. Android support should be possible but has not been implemented yet.
+🎆 **Trình diễn thương hiệu & quảng bá**: Hiển thị logo, thông điệp một cách ấn tượng.
 
-### Configuring Wi-Fi
+🎪 **Chụp ảnh & quay video nghệ thuật**: Hiệu ứng POV tạo khung hình lung linh đầy sáng tạo.
 
-**ESP Web Tools** supports the `Improv` Wi-Fi serial standard. This is an open standard to allow configuring Wi-Fi via the serial port.
+---
 
-If the firmware supports `Improv`, a user will be asked to connect the device to the network after installing the firmware. 
+## 📦 Bộ Sản Phẩm Bao Gồm
+🔹 1x Đạo cụ LED Visual theo mẫu yêu cầu.
 
-Once connected, the device can send the user to a URL to finish configuration. For example, this can be a link to the device's IP address where it serves a local UI.
+🔹 1x Bộ sạc & pin dung lượng cao.
 
-At any time in the future a user can use ESP Web Tools to find the device link or to reconfigure the Wi-Fi settings without doing a reinstall.
+🔹 1x Hướng dẫn sử dụng & phần mềm hỗ trợ.
 
------------------------------
+🔹 1x Điều khiển từ xa (tùy model).
 
-### Thank you ESP Web Tools team
+---
 
-- *ESP Web Tools is a project by [ESPHome](https://esphome.io/).*
+## 🎯 Happy Smart Light – Định Hình Nghệ Thuật Ánh Sáng!
 
-- *Development is funded by [Nabu Casa](https://www.nabucasa.com/).*
+Hãy để ánh sáng kể câu chuyện của bạn! 💡✨
 
-- *ESP Web Tools is [open source](https://github.com/esphome/esp-web-tools).*
+📩 Liên hệ ngay để được tư vấn & đặt hàng!
 
-
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  var optiongroup = document.getElementById("optiongroup");
-  var espButton = document.getElementById("espInstallButton");
-  
-
-  
-  // Thiết lập mặc định cho option đầu tiên
-  espButton.setAttribute("manifest", optiongroup.options[0].value);
-  document.getElementById('verstr').textContent = optiongroup.options[0].text;
-
-  // Lắng nghe sự kiện khi người dùng thay đổi tùy chọn
-  optiongroup.addEventListener("change", function() {
-    var selectedManifest = this.value;
-    
-    if (!selectedManifest) {
-      // Nếu không có tùy chọn nào được chọn, sử dụng tùy chọn đầu tiên
-      espButton.setAttribute("manifest", optiongroup.options[0].value);
-      document.getElementById('verstr').textContent = optiongroup.options[0].text;
-    } else {
-      // Sử dụng tùy chọn được chọn
-      espButton.setAttribute("manifest", selectedManifest);
-      document.getElementById('verstr').textContent = optiongroup.options[optiongroup.selectedIndex].text;
-    }
-  });
-});
-</script>
-
-<script
-  type="module"
-  src="https://unpkg.com/flash-esp-web-bangnguyendev@1.0.1/dist/web/install-button.js?module">
-</script>

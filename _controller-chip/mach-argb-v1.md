@@ -2,14 +2,14 @@
 layout: post
 title: "ARGB V1"
 meta-title: "ARGB V1"
-#subtitle: "... Connect device to the Wi-Fi network"
+## subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
-  - "/img/Picture-HSL/BANER__ARGB_1.jpg"
+  - "/img/Picture-HSL/AI-HSL-1.png"
 image: "/img/controller-chip/argb-v1.png"
-tags: [esp web tools, Web serial, bluetooth]
-category: Programming MCU
-# gh-repo: bangnguyendev/flash-esp-web-bangnguyendev
-# gh-badge: [fork]
+tags: hsl, happy, smart, light, visual, led, poi
+category: HAPPY SMART LIGHT
+
+
 # author: "BangNguyen"
 # comments: true
 ---

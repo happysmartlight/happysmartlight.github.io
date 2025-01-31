@@ -5,11 +5,6 @@ bigimg:
 - "/img/Picture-HSL/BANER__ARGB_2.jpg"
 ---
 
-<!-- subtitle: Khởi Nguồn Ánh Sáng
-meta-title: "Happy Smart Light" -->
-
-<!-- Layer 1 -->
-
 <div class="gradient-bg">
   <div class="gradient-text">
     <p>Tỏa sáng theo cách của riêng bạn</p>
@@ -25,7 +20,7 @@ meta-title: "Happy Smart Light" -->
       background-repeat: no-repeat; /* Không lặp lại ảnh nền */
         ">
   <div class="summary">
-    ✨ CATALOG 1 ✨
+    ✨Visual LED✨
   </div>
   <div class="description-content-index-sp">
     💡Đây là dòng sản phẩm LED hiện đại.<br>
@@ -33,38 +28,20 @@ meta-title: "Happy Smart Light" -->
     💡Trình diễn ánh sáng chất lượng cao.
   </div>
   <div class="details">
+    {% for post in site.poi-tools %}
     <div class="component">
-      <img src="/img/dong_san_pham_1/20170906_terkavpoi4classic_019.jpg" alt="Avatar 1" class="avatar" loading="lazy">
-      <div class="component-name">Sản phẩm 1</div>
+      {% if post.image %}
+      <!-- Ảnh đại diện bài đăng -->
+      <a href="{{ post.url | prepend: site.baseurl }}">
+        <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
+      </a>
+      {% endif %}
+      <!-- Tiêu đề bài đăng -->
+      <a href="{{ post.url | prepend: site.baseurl }}">
+        <div class="component-name">{{ post.title }}</div>
+      </a>
     </div>
-    <div class="component">
-        <img src="/img/dong_san_pham_1/20240330_VisualPoiV5_043.jpg" alt="Avatar 2" class="avatar" loading="lazy">
-        <div class="component-name">Sản phẩm 2</div>
-    </div>
-    <div class="component">
-        <img src="/img/dong_san_pham_1/20240329_VisualPoiV5_012.jpg" alt="Avatar 3" class="avatar" loading="lazy">
-        <div class="component-name">Sản phẩm 3</div>
-    </div>
-    <div class="component">
-        <img src="/img/dong_san_pham_1/20240330_VisualPoiV5_044.jpg" alt="Avatar 4" class="avatar" loading="lazy">
-        <div class="component-name">Sản phẩm 4</div>
-    </div>
-    <div class="component">
-      <img src="/img/dong_san_pham_1/20170906_terkavpoi4classic_019.jpg" alt="Avatar 1" class="avatar" loading="lazy">
-      <div class="component-name">Sản phẩm 1</div>
-    </div>
-    <div class="component">
-        <img src="/img/dong_san_pham_1/20240330_VisualPoiV5_043.jpg" alt="Avatar 2" class="avatar" loading="lazy">
-        <div class="component-name">Sản phẩm 2</div>
-    </div>
-    <div class="component">
-        <img src="/img/dong_san_pham_1/20240329_VisualPoiV5_012.jpg" alt="Avatar 3" class="avatar" loading="lazy">
-        <div class="component-name">Sản phẩm 3</div>
-    </div>
-    <div class="component">
-        <img src="/img/dong_san_pham_1/20240330_VisualPoiV5_044.jpg" alt="Avatar 4" class="avatar" loading="lazy">
-        <div class="component-name">Sản phẩm 4</div>
-    </div>
+    {% endfor %}
   </div>
 </div>
 
@@ -86,7 +63,7 @@ meta-title: "Happy Smart Light" -->
       background-repeat: no-repeat; /* Không lặp lại ảnh nền */
         ">
   <div class="summary">
-    ✨ CATALOG 2 ✨
+    ✨LED Matrix✨
   </div>
   <div class="description-content-index-sp">
     💡Đây là dòng sản phẩm LED hiện đại.<br>
@@ -94,30 +71,20 @@ meta-title: "Happy Smart Light" -->
     💡Trình diễn ánh sáng chất lượng cao.
   </div>
   <div class="details">
+    {% for post in site.led-matrix %}
     <div class="component">
-      <img src="/img/dong_san_pham_2/20161128_ftproducts_003-1024x1024.jpg" alt="Avatar 1" class="avatar" loading="lazy">
-      <div class="component-name">Sản phẩm 5</div>
+      {% if post.image %}
+      <!-- Ảnh đại diện bài đăng -->
+      <a href="{{ post.url | prepend: site.baseurl }}">
+        <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
+      </a>
+      {% endif %}
+      <!-- Tiêu đề bài đăng -->
+      <a href="{{ post.url | prepend: site.baseurl }}">
+        <div class="component-name">{{ post.title }}</div>
+      </a>
     </div>
-    <div class="component">
-        <img src="/img/dong_san_pham_2/20181030_moonfansprodukt_024-1-1024x732.jpg" alt="Avatar 2" class="avatar" loading="lazy">
-        <div class="component-name">Sản phẩm 6</div>
-    </div>
-    <div class="component">
-        <img src="/img/dong_san_pham_2/20231030_LumiStaffProduct_047-1024x683.jpg" alt="Avatar 3" class="avatar" loading="lazy">
-        <div class="component-name">Sản phẩm 7</div>
-    </div>
-    <div class="component">
-        <img src="/img/dong_san_pham_2/20240326_LumiCubeFT2Product_028-732x1024.jpg" alt="Avatar 4" class="avatar" loading="lazy">
-        <div class="component-name">Sản phẩm 8</div>
-    </div>
-    <div class="component">
-      <img src="/img/dong_san_pham_2/20231030_LumiStaffProduct_047-1024x683.jpg" alt="Avatar 3" class="avatar" loading="lazy">
-      <div class="component-name">Sản phẩm 7</div>
-    </div>
-    <div class="component">
-        <img src="/img/dong_san_pham_2/20240326_LumiCubeFT2Product_028-732x1024.jpg" alt="Avatar 4" class="avatar" loading="lazy">
-        <div class="component-name">Sản phẩm 8</div>
-    </div>
+    {% endfor %}
   </div>
 </div>
 
@@ -138,38 +105,28 @@ meta-title: "Happy Smart Light" -->
       background-repeat: no-repeat; /* Không lặp lại ảnh nền */
         ">
   <div class="summary">
-    ✨ CATALOG 3 ✨
+    ✨Mạch Điều Khiển✨
   </div>
   <div class="description-content-index-sp">
-    💡Đây là dòng sản phẩm LED hiện đại.<br>
-    💡Mang lại hiệu suất cao, bền bỉ và đa dạng về mẫu mã. <br>
-    💡Trình diễn ánh sáng chất lượng cao.
+    💡Đây là dòng sản phẩm chất lượng cao.<br>
+    💡Được thiết kế và gia công trên dây chuyển hiện đại. <br>
+    💡Công suất tác chiến thực tế lớn, tính đa dụng cao.
   </div>
   <div class="details">
+    {% for post in site.controller-chip %}
     <div class="component">
-      <img src="/img/dong_san_pham_3/20140312_rgbledfans_012-1024x684.jpg" alt="Avatar 1" class="avatar" loading="lazy">
-      <div class="component-name">Sản phẩm 10</div>
+      {% if post.image %}
+      <!-- Ảnh đại diện bài đăng -->
+      <a href="{{ post.url | prepend: site.baseurl }}">
+        <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
+      </a>
+      {% endif %}
+      <!-- Tiêu đề bài đăng -->
+      <a href="{{ post.url | prepend: site.baseurl }}">
+        <div class="component-name">{{ post.title }}</div>
+      </a>
     </div>
-    <div class="component">
-        <img src="/img/dong_san_pham_3/20170223_ftproductsii_009-1024x732.jpg" alt="Avatar 2" class="avatar" loading="lazy">
-        <div class="component-name">Sản phẩm 10</div>
-    </div>
-    <div class="component">
-        <img src="/img/dong_san_pham_3/20210807_LEDClubFT2_021-1024x683.jpg" alt="Avatar 3" class="avatar" loading="lazy">
-        <div class="component-name">Sản phẩm 11</div>
-    </div>
-    <div class="component">
-        <img src="/img/dong_san_pham_3/20210808_LEDClubFT2_043-1024x683.jpg" alt="Avatar 4" class="avatar" loading="lazy">
-        <div class="component-name">Sản phẩm 12</div>
-    </div>
-    <div class="component">
-      <img src="/img/dong_san_pham_3/20210807_LEDClubFT2_021-1024x683.jpg" alt="Avatar 3" class="avatar" loading="lazy">
-      <div class="component-name">Sản phẩm 11</div>
-    </div>
-    <div class="component">
-        <img src="/img/dong_san_pham_3/20210808_LEDClubFT2_043-1024x683.jpg" alt="Avatar 4" class="avatar" loading="lazy">
-        <div class="component-name">Sản phẩm 12</div>
-    </div>
+    {% endfor %}
   </div>
 </div>
 
@@ -194,4 +151,3 @@ meta-title: "Happy Smart Light" -->
     </div>
   </div>
 </div>
-

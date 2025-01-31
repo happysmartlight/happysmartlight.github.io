@@ -670,7 +670,7 @@ footer .theme-by {
 
 
 .ndb-transbox h1 {
-  font-family: 'Baloo 2', cursive;
+  /* font-family: 'Baloo 2', cursive; */
   color: #ffffff; /* Màu chữ */
   -webkit-text-stroke: 0.7px #00d3ff; /* Viền chữ xanh dương neon */
   text-shadow: 

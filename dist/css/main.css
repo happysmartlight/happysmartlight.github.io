@@ -1625,6 +1625,7 @@ option:hover {
   box-sizing: border-box; /* Đảm bảo padding và border không làm thay đổi kích thước tổng thể */
   padding-left: 15%;
   padding-right: 15%;  
+  position: relative;
 }
 
 /* Cập nhật khoảng cách cho bài viết với ảnh bìa.  */
@@ -1633,4 +1634,33 @@ option:hover {
   margin-right: auto;
   /* padding-bottom: 10px;
   padding-top: 20px; */
+}
+
+
+/* Media query cho màn hình nhỏ (tối đa 768px) */
+@media (max-width: 768px) {
+  .container-post {
+    padding-left: 5%;
+    padding-right: 5%;  
+  }
+  .row-post {
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-bottom: 10px;
+    padding-top: 20px; */
+  }
+}
+
+/* Media query cho màn hình rất nhỏ (tối đa 480px) */
+@media (max-width: 480px) {
+  .container-post {
+    padding-left: 2%;
+    padding-right: 2%;  
+  }
+  .row-post {
+    margin-left: auto;
+    margin-right: auto;
+    /* padding-bottom: 10px;
+    padding-top: 20px; */
+  }
 }

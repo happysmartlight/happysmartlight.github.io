@@ -4,7 +4,7 @@ title: "ARGB V1"
 meta-title: "ARGB V1"
 ## subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
-  - "/img/Picture-HSL/AI-HSL-1.png"
+  - "/img/Picture-HSL/AI-HSL-7.png"
 image: "/img/controller-chip/argb-v1.png"
 tags: hsl, happy, smart, light, visual, led, poi
 category: HAPPY SMART LIGHT

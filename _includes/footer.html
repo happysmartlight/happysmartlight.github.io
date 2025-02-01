@@ -179,14 +179,25 @@
             </a>
           </li>
           {% endif %}
-          {% if site.map-address and site.footer-links-active.map-address %}
+          {% if site.map-address-1 and site.footer-links-active.map-address-1 %}
           <li>
             <a href="{{ site.map-address }}" title="Google Map">
               <span class="fa-stack fa-lg" aria-hidden="true">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa-solid fa-map-location-dot fa-stack-1x fa-inverse"></i>
               </span>
-              <span class="sr-only">Địa chỉ</span>
+              <span class="sr-only">Địa chỉ TP HCM</span>
+            </a>
+          </li>
+          {% endif %}
+          {% if site.map-address-2 and site.footer-links-active.map-address-2 %}
+          <li>
+            <a href="{{ site.map-address }}" title="Google Map">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa-solid fa-map-location-dot fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Địa chỉ TP Bà Rịa</span>
             </a>
           </li>
           {% endif %}
@@ -197,9 +208,9 @@
           <br>
           {{ site.company }} 
           <br>
-          {{ site.address-1 }}
+          <a href="{{ site.map-address-1 }}" title="Google Map">{{ site.address-1 }}</a>
           <br>
-          {{ site.address-2 }}
+          <a href="{{ site.map-address-2 }}" title="Google Map">{{ site.address-2 }}</a>
           <br>
           ©Copyright
           &nbsp;&bull;&nbsp;

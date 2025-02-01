@@ -70,9 +70,10 @@
     color: #fff;
 }
 
-/* If the screen size is 1024px wide or less, hide the element */
+/* If the screen size is 480px wide or less, hide the element */
 
-/* @media only screen and (min-width: 1024px) {
+/* Media query cho màn hình rất nhỏ (tối đa 480px) */
+@media (max-width: 480px) {
     .toc {
         display: none;
     }
@@ -80,4 +81,4 @@
     .post-directory-mini {
         display: none;
     }
-} */
+}

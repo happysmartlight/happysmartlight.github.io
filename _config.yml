@@ -42,17 +42,19 @@ author:
   tiktok: '@denthongminhhappy'
 company: "CÔNG TY TNHH THƯƠNG MẠI VÀ CÔNG NGHỆ HAPPY SMART LIGHT"
 Tax-code: "MST: 3502535621"
-address-1: "CN2: Sảnh S6.03, Vinhomes Grand Park, TP. Thủ Đức, TP. Hồ Chí Minh"
-address-2: "CN1: Số 42 Hà Đức Trọng, P. Long Toàn, TP. Bà Rịa, Bà Rịa - Vũng Tàu"
-map-address: https://maps.app.goo.gl/rMTH9mqSYXBorpZY9
+address-1: "📌: Sảnh S6.03, Vinhomes Grand Park, TP. Thủ Đức, TP. Hồ Chí Minh"
+address-2: "📌: Số 42 Hà Đức Trọng, P. Long Toàn, TP. Bà Rịa, Bà Rịa - Vũng Tàu"
+map-address-1: https://maps.app.goo.gl/rMTH9mqSYXBorpZY9
+map-address-2: https://maps.app.goo.gl/rjQizjWgt69466Es6
 footer-links-active:
-  rss: true
+  rss: false
   facebook: true
   email: true
   telephone: true
   youtube: true
   tiktok: true
-  map-address: true
+  map-address-1: true
+  map-address-2: true
 share-links-active:
   facebook: true
   linkedin: true

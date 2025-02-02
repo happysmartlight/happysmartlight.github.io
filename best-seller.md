@@ -26,7 +26,7 @@ title: Chào mừng đến với BEST SELLER HSL
 			<div class="product">
 				<div class="product__info">
 					{%- assign bio-name-product = "MẠCH ARGB PIXEL - HSL"-%}<!--  Tên sản phẩm -->
-					{%- assign bio-image-product = "images/argb-v1.png"-%}<!--  Ảnh sản phẩm -->
+					{%- assign bio-image-product = "images/argb-v1.0.png"-%}<!--  Ảnh sản phẩm -->
 					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
 					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
 					{%- assign bio-price-product = " LIÊN HỆ "-%}<!--  Giá bán sản phẩm -->
@@ -46,8 +46,8 @@ title: Chào mừng đến với BEST SELLER HSL
 		<!-- sách 1 -->
 			<div class="product">
 				<div class="product__info">
-					{%- assign bio-name-product = "MẠCH ARGB V1.0.0 - HSL"-%}<!--  Tên sản phẩm -->
-					{%- assign bio-image-product = "images/argb-v1.png"-%}<!--  Ảnh sản phẩm -->
+					{%- assign bio-name-product = "MẠCH ARGB V1.0 - HSL"-%}<!--  Tên sản phẩm -->
+					{%- assign bio-image-product = "images/argb-v1.0.png"-%}<!--  Ảnh sản phẩm -->
 					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
 					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
 					{%- assign bio-price-product = " LIÊN HỆ "-%}<!--  Giá bán sản phẩm -->
@@ -66,8 +66,8 @@ title: Chào mừng đến với BEST SELLER HSL
 		<!-- sách 6 -->
 			<div class="product">
 				<div class="product__info">
-					{%- assign bio-name-product = "MẠCH ARGB V2.0.0 - HSL"-%}<!--  Tên sản phẩm -->
-					{%- assign bio-image-product = "images/argb-v2.png"-%}<!--  Ảnh sản phẩm -->
+					{%- assign bio-name-product = "MẠCH ARGB V2.0 - HSL"-%}<!--  Tên sản phẩm -->
+					{%- assign bio-image-product = "images/argb-v2.0.png"-%}<!--  Ảnh sản phẩm -->
 					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
 					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
 					{%- assign bio-price-product = " LIÊN HỆ "-%}<!--  Giá bán sản phẩm -->
@@ -87,8 +87,8 @@ title: Chào mừng đến với BEST SELLER HSL
 					<!-- sách 6 -->
 			<div class="product">
 				<div class="product__info">
-					{%- assign bio-name-product = "MẠCH ARGB V2.1.0 - HSL"-%}<!--  Tên sản phẩm -->
-					{%- assign bio-image-product = "images/argb-v2.1.png"-%}<!--  Ảnh sản phẩm -->
+					{%- assign bio-name-product = "MẠCH ARGB V3.0 - HSL"-%}<!--  Tên sản phẩm -->
+					{%- assign bio-image-product = "images/argb-v3.0.png"-%}<!--  Ảnh sản phẩm -->
 					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
 					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
 					{%- assign bio-price-product = " LIÊN HỆ "-%}<!--  Giá bán sản phẩm -->

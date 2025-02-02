@@ -8,7 +8,12 @@ title: Mạch điều khiển LED PIXEL
 	<!-- Modernizr is used for flexbox fallback -->
 	<script src="js/modernizr.custom.js"></script>
 </head>
-
+<head>
+	<link rel="stylesheet" type="text/css" href="css/book_style.css" />
+	<link rel="stylesheet" type="text/css" href="css/books_component.css" />
+	<!-- Modernizr is used for flexbox fallback -->
+	<script src="js/modernizr.custom.js"></script>
+</head>
 <div class="view">
 	<div class="my__suggestion">
 		<h2 style="color: #f15a24;">Khám phá BEST SELLER tại HSL – Đỉnh cao công nghệ trình diễn ánh sáng!</h2>
@@ -26,11 +31,32 @@ title: Mạch điều khiển LED PIXEL
 		<!-- sách 1 -->
 			<div class="product">
 				<div class="product__info">
-					{%- assign bio-name-product = "MẠCH ARGB V1.0.0 - HSL"-%}<!--  Tên sản phẩm -->
-					{%- assign bio-image-product = "images/argb-v1.png"-%}<!--  Ảnh sản phẩm -->
+					{%- assign bio-name-product = "MẠCH ARGB PIXEL - HSL"-%}<!--  Tên sản phẩm -->
+					{%- assign bio-image-product = "images/argb-v1.0.png"-%}<!--  Ảnh sản phẩm -->
 					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
 					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
-					{%- assign bio-price-product = "999.999.999 VNĐ"-%}<!--  Giá bán sản phẩm -->
+					{%- assign bio-price-product = " LIÊN HỆ "-%}<!--  Giá bán sản phẩm -->
+					{%- assign bio-descript-product = "
+					🔥 Nhận thiết kế mạch điều khiển LED PIXEL theo yêu cầu từ 1 cổng (1000 PIXEL) tới 8 cổng (8000 PIXEL)<br>
+					🔥 Mạch nhỏ gọn tiết kiệm chi phí<br>
+					🔥 Trang bị đầy đủ linh kiện bảo vệ mạch, led"-%}<!--  Mô tả sản phẩm -->
+					<a href="{{- bio-buy-product -}}" target="_blank"><img class="product__image"  src="{{- bio-image-product -}}" alt="{{- bio-name-product -}}"></a><!--  Ảnh sản phẩm -->
+					<button class="action action--button" onclick="window.open('{{- bio-review-product -}}')"><i class="fa fa-check-circle-o"></i><span class="action__text">Reviews</span></button> <!--  Link review sản phẩm -->
+					<button class="action action--button" onclick="window.open('{{- bio-buy-product -}}')"><i class="fa fa-shopping-cart"></i><span class="action__text">Lụm</span></button> <!--  Link mua sản phẩm -->
+					<br>
+					<button class="action action--button" onclick="window.open('{{- bio-buy-product -}}')"><i class="fa-solid fa-dollar-sign"></i><span class="action__text">{{- bio-price-product -}}</span></button> <!--  Giá mua sản phẩm -->
+					<h2 class="product__title">{{- bio-name-product -}}</h2> <!--  Tên sản phẩm -->
+					<p>{{- bio-descript-product -}}</p>
+				</div>
+			</div>	
+		<!-- sách 1 -->
+			<div class="product">
+				<div class="product__info">
+					{%- assign bio-name-product = "MẠCH ARGB V1.0 - HSL"-%}<!--  Tên sản phẩm -->
+					{%- assign bio-image-product = "images/argb-v1.0.png"-%}<!--  Ảnh sản phẩm -->
+					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
+					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
+					{%- assign bio-price-product = " LIÊN HỆ "-%}<!--  Giá bán sản phẩm -->
 					{%- assign bio-descript-product = "
 					🔥 Mạch có 2 ngõ ra led, mỗi ngõ ra 1000 led Pixel<br>
 					🔥 Trang bị đầy đủ linh kiện bảo vệ mạch, led, điều khiển hồng ngoại, cảm nhiệt"-%}<!--  Mô tả sản phẩm -->
@@ -46,11 +72,11 @@ title: Mạch điều khiển LED PIXEL
 		<!-- sách 6 -->
 			<div class="product">
 				<div class="product__info">
-					{%- assign bio-name-product = "MẠCH ARGB V2.0.0 - HSL"-%}<!--  Tên sản phẩm -->
-					{%- assign bio-image-product = "images/argb-v2.png"-%}<!--  Ảnh sản phẩm -->
+					{%- assign bio-name-product = "MẠCH ARGB V2.0 - HSL"-%}<!--  Tên sản phẩm -->
+					{%- assign bio-image-product = "images/argb-v2.0.png"-%}<!--  Ảnh sản phẩm -->
 					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
 					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
-					{%- assign bio-price-product = "999.999.999 VNĐ"-%}<!--  Giá bán sản phẩm -->
+					{%- assign bio-price-product = " LIÊN HỆ "-%}<!--  Giá bán sản phẩm -->
 					{%- assign bio-descript-product = "
 					🔥 Mạch có 2 ngõ ra led, mỗi ngõ ra 1000 led Pixel<br>
 					🔥 Mạch có kích thước siêu nhỏ gọn<br>
@@ -67,11 +93,11 @@ title: Mạch điều khiển LED PIXEL
 					<!-- sách 6 -->
 			<div class="product">
 				<div class="product__info">
-					{%- assign bio-name-product = "MẠCH ARGB V2.1.0 - HSL"-%}<!--  Tên sản phẩm -->
-					{%- assign bio-image-product = "images/argb-v2.1.png"-%}<!--  Ảnh sản phẩm -->
+					{%- assign bio-name-product = "MẠCH ARGB V3.0 - HSL"-%}<!--  Tên sản phẩm -->
+					{%- assign bio-image-product = "images/argb-v3.0.png"-%}<!--  Ảnh sản phẩm -->
 					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
 					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
-					{%- assign bio-price-product = "999.999.999 VNĐ"-%}<!--  Giá bán sản phẩm -->
+					{%- assign bio-price-product = " LIÊN HỆ "-%}<!--  Giá bán sản phẩm -->
 					{%- assign bio-descript-product = "
 					🔥 Mạch có 2 ngõ ra led, mỗi ngõ ra 1000 led Pixel<br>
 					🔥 Mạch có kích thước siêu nhỏ gọn<br>
@@ -93,7 +119,7 @@ title: Mạch điều khiển LED PIXEL
 					{%- assign bio-image-product = "images/kich song 4w.png"-%}<!--  Ảnh sản phẩm -->
 					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
 					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
-					{%- assign bio-price-product = "999.999.999 VNĐ"-%}<!--  Giá bán sản phẩm -->
+					{%- assign bio-price-product = "2.500.000 VNĐ"-%}<!--  Giá bán sản phẩm -->
 					{%- assign bio-descript-product = "
 					🔥 Lưu ý: Đây là ăn-ten kích, không bao gồm module phát sóng<br>
 					🔥 Hổ trợ kích sóng cho thiết bị phát lên tới 3000m<br>
@@ -114,7 +140,7 @@ title: Mạch điều khiển LED PIXEL
 					{%- assign bio-image-product = "images/kich song 8w.png"-%}<!--  Ảnh sản phẩm -->
 					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
 					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
-					{%- assign bio-price-product = "999.999.999 VNĐ"-%}<!--  Giá bán sản phẩm -->
+					{%- assign bio-price-product = "4.000.000 VNĐ"-%}<!--  Giá bán sản phẩm -->
 					{%- assign bio-descript-product = "
 					🔥 Lưu ý: Đây là ăn-ten kích, không bao gồm module phát sóng<br>
 					🔥 Hổ trợ kích sóng cho thiết bị phát lên tới 7000m<br>
@@ -131,15 +157,37 @@ title: Mạch điều khiển LED PIXEL
 					<!-- sách 6 -->
 			<div class="product">
 				<div class="product__info">
-					{%- assign bio-name-product = "MẠCH FPP cấu hình cao - HSL"-%}<!--  Tên sản phẩm -->
+					{%- assign bio-name-product = "COMBO FPP cấu hình cao - HSL"-%}<!--  Tên sản phẩm -->
 					{%- assign bio-image-product = "images/FPP.png"-%}<!--  Ảnh sản phẩm -->
 					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
 					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
-					{%- assign bio-price-product = "999.999.999 VNĐ"-%}<!--  Giá bán sản phẩm -->
+					{%- assign bio-price-product = "3.550.000 VNĐ"-%}<!--  Giá bán sản phẩm -->
 					{%- assign bio-descript-product = "
-					🔥 Làm máy chủ điều khiển đồng bộ LED Pixel hoặc Cabin LED<br>
-					🔥 Tản nhiệt tốt, hoạt động bền bỉ<br>
+					🔥 Làm máy chủ điều khiển đồng bộ LED PIXEL hoặc Cabin LED<br>
+					🔥 COMBO case, mạch FPP, nguồn, thẻ nhớ<br>
 					🔥 Trang bị đầy đủ cổng kết nối, âm thanh, HDMI, LAN, USB"-%}<!--  Mô tả sản phẩm -->
+					<a href="{{- bio-buy-product -}}" target="_blank"><img class="product__image"  src="{{- bio-image-product -}}" alt="{{- bio-name-product -}}"></a><!--  Ảnh sản phẩm -->
+					<button class="action action--button" onclick="window.open('{{- bio-review-product -}}')"><i class="fa fa-check-circle-o"></i><span class="action__text">Reviews</span></button> <!--  Link review sản phẩm -->
+					<button class="action action--button" onclick="window.open('{{- bio-buy-product -}}')"><i class="fa fa-shopping-cart"></i><span class="action__text">Lụm</span></button> <!--  Link mua sản phẩm -->
+					<br>
+					<button class="action action--button" onclick="window.open('{{- bio-buy-product -}}')"><i class="fa-solid fa-dollar-sign"></i><span class="action__text">{{- bio-price-product -}}</span></button> <!--  Giá mua sản phẩm -->
+					<h2 class="product__title">{{- bio-name-product -}}</h2> <!--  Tên sản phẩm -->
+					<p>{{- bio-descript-product -}}</p>
+				</div>
+			</div>	
+					<!-- sách 6 -->
+			<div class="product">
+				<div class="product__info">
+					{%- assign bio-name-product = "MOD phần mềm module phát WIFI"-%}<!--  Tên sản phẩm -->
+					{%- assign bio-image-product = "images/mod module.png"-%}<!--  Ảnh sản phẩm -->
+					{%- assign bio-review-product = "none"-%}<!--  Link review sản phẩm -->
+					{%- assign bio-buy-product = "none"-%}<!--  Link mua sản phẩm -->
+					{%- assign bio-price-product = "500.000 VNĐ"-%}<!--  Giá bán sản phẩm -->
+					{%- assign bio-descript-product = "
+					🔥 Lưu ý: Giá phí chưa bao gồm Module WIFI<br>
+					🔥 Loại bỏ mọi giới hạn từ ROM gốc nhà sản xuất<br>
+					🔥 Tăng cường sóng, quét chồng sóng, thêm tính năng hấp dãn<br>
+					🔥 Bản MOD dành riêng cho mạch điều khiển LED"-%}<!--  Mô tả sản phẩm -->
 					<a href="{{- bio-buy-product -}}" target="_blank"><img class="product__image"  src="{{- bio-image-product -}}" alt="{{- bio-name-product -}}"></a><!--  Ảnh sản phẩm -->
 					<button class="action action--button" onclick="window.open('{{- bio-review-product -}}')"><i class="fa fa-check-circle-o"></i><span class="action__text">Reviews</span></button> <!--  Link review sản phẩm -->
 					<button class="action action--button" onclick="window.open('{{- bio-buy-product -}}')"><i class="fa fa-shopping-cart"></i><span class="action__text">Lụm</span></button> <!--  Link mua sản phẩm -->
@@ -151,3 +199,4 @@ title: Mạch điều khiển LED PIXEL
 			</div>	
 		</section>
 	</div>
+</div>

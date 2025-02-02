@@ -109,7 +109,7 @@ Save a named preset with `{"psave":<preset number here>;"n":"Preset name","ib":t
 
 #### Backing up/restoring presets
 
-To backup all presets, go to `[WLED-IP]/edit` (OTA lock must be off), right click the `presets.json` file and download!  
+To backup all presets, go to `[ARGB-IP]/edit` (OTA lock must be off), right click the `presets.json` file and download!  
 To restore, use the `Choose file` and `Upload` buttons.  
 
 #### Applying presets at a certain time of day

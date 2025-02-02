@@ -17,7 +17,7 @@ There are three ways to install the pixel art converter:
 
 ### Approach 1: Local Browser
 
-1. Download the `pixartmin.htm` from the [WLED-PixelArtConverter](https://github.com/werkstrom/WLED-PixelArtConverter/) repository
+1. Download the `pixartmin.htm` from the [ARGB-PixelArtConverter](https://github.com/werkstrom/WLED-PixelArtConverter/) repository
 2. Open `pixartmin.htm` in a browser
 3. Head over to the [Setup 2D Matrix](#setup-2d-matrix) point
 
@@ -37,7 +37,7 @@ There are three ways to install the pixel art converter:
 !!! note "Network connection"
     A network connection is required to connect to the CDN, hosting the JS library [Ace](https://github.com/ajaxorg/ace), an embedded code editor.
 
-1. Download the `pixartmin.html` file from the [WLED-PixelArtConverter](https://github.com/werkstrom/WLED-PixelArtConverter/) repository
+1. Download the `pixartmin.html` file from the [ARGB-PixelArtConverter](https://github.com/werkstrom/WLED-PixelArtConverter/) repository
 2. Go to the URL `http://[device_ip_address]/edit`
 3. Upload the `pixartmin.html` file using the UI
 4. Go to `http://[device_ip_address]/pixartmin.html`

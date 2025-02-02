@@ -10,7 +10,7 @@ hide:
 !!! tip
     This is by far the easiest and fastest way to get WLED up and running!
 
-Make sure you are running a recent desktop Chrome or Edge browser and head over to the [WLED installer site](https://install.wled.me)!
+Make sure you are running a recent desktop Chrome or Edge browser and head over to the [ARGB installer site](https://install.wled.me)!
 If you are updating an existing version of WLED, make sure to uncheck "Clean install" so that your settings are kept.
 This installer is not yet available for ESPs with flash chips smaller than 4MB (e.g. ESP01)
 
@@ -62,7 +62,7 @@ If you have a MagicHome controller, here is a [good video tutorial](https://www.
 !!! warning
     Don't use ESP Home Flasher for ESP32 boards.   
     On ESP32, ESP Home Flasher will make the filesystem very small (61kB), which leads to issues making presets. 
-    Please consider using [WLED ESP Flasher](/basics/install-wled-flasher), or the web installer or esptool.
+    Please consider using [ARGB ESP Flasher](/basics/install-wled-flasher), or the web installer or esptool.
 
 This is a GUI-based tool recommended by some users as easier to use than esptool.
 For some boards, you might have to press some buttons after uploading:
@@ -72,7 +72,7 @@ If running Windows, you need a driver from here: <https://www.wemos.cc/en/latest
 
 
 !!! tip
-    For ESP32 boards, you can use this [WLED ESP Flasher](/basics/install-wled-flasher) instead of ESP Home Flasher.
+    For ESP32 boards, you can use this [ARGB ESP Flasher](/basics/install-wled-flasher) instead of ESP Home Flasher.
 
 
 ### Flashing method 4: OTA update

@@ -107,11 +107,11 @@ category: HAPPY SMART LIGHT
 ## 🎛 Ứng dụng điều khiển  
 
 ### 🖥 **Trên PC/Laptop:**  
-- 🔥 [WLED PC – LED Control](https://github.com/w00000dy/WLED-GUI/releases)  
+- 🔥 [ARGB PC – LED Control](https://github.com/w00000dy/WLED-GUI/releases)  
 
 ### 📱 **Trên Smartphone:**  
-- 🔥 [WLED Android](https://play.google.com/store/apps/details?id=ca.cgagnier.wlednativeandroid)  
-- 🔥 [WLED iOS](https://apps.apple.com/us/app/wled-native/id6446207239)  
+- 🔥 [ARGB Android](https://play.google.com/store/apps/details?id=ca.cgagnier.wlednativeandroid)  
+- 🔥 [ARGB iOS](https://apps.apple.com/us/app/wled-native/id6446207239)  
 
 ### ⚡ **Phần mềm tùy chọn:**  
 - 🔥 [xLights](https://xlights.org/releases) – lập trình LED chuyên nghiệp.  

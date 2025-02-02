@@ -4,7 +4,7 @@ title: "H1 Poi 2"
 meta-title: "HSL VISUAL POI"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
-  - "/img/Picture-HSL/AI-HSL-7.png"
+  - "/img/poi-tools/banner.jpg"
 image: "/img/poi-tools/poi2.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
 category: HAPPY SMART LIGHT

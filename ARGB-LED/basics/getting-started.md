@@ -151,11 +151,11 @@ Khi sử dụng dãy **LED 5V**, quá trình đấu nối rất đơn giản vì
 #### ⚡Phần mềm bắt buộc:
 
 - 💻Trên PC/laptop:
-   - 🔥 [WLED PC – LED Control](https://github.com/w00000dy/WLED-GUI/releases/): Công cụ **điều khiển chính**
+   - 🔥 [ARGB PC – LED Control](https://github.com/w00000dy/WLED-GUI/releases/): Công cụ **điều khiển chính**
 
 - 📱Trên Smartphone:
-   - 🔥 Ứng dụng **Android**: [WLED](https://play.google.com/store/apps/details?id=ca.cgagnier.wlednativeandroid)
-   - 🔥 Ứng dụng **iOS**: [WLED](https://apps.apple.com/us/app/wled-native/id6446207239)
+   - 🔥 Ứng dụng **Android**: [ARGB](https://play.google.com/store/apps/details?id=ca.cgagnier.wlednativeandroid)
+   - 🔥 Ứng dụng **iOS**: [ARGB](https://apps.apple.com/us/app/wled-native/id6446207239)
 
 #### ⚡Phần mềm tùy chọn trên PC/laptop:
 - 🔥 [xLights – LED Control](https://xlights.org/releases/): Điều khiển và lập trình LED chuyên nghiệp.

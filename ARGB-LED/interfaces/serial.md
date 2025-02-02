@@ -26,7 +26,7 @@ To request a JSON response containing the `state` and `info` objects, send `{"v"
 ### Improv
 
 Improv Serial is supported and can be used to check the installed software version as well as connect your device to WiFi without needing to connect to the WLED access point.  
-Improv is used by the [WLED web installer](https://install.wled.me) for an easy installation and setup process.  
+Improv is used by the [ARGB web installer](https://install.wled.me) for an easy installation and setup process.  
 Note that the baud rate must remain at the default `115200` setting for the device to be detected as Improv-capable.
 
 ### Other

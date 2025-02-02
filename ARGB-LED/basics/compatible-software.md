@@ -18,8 +18,8 @@ Danh sách các phần mềm thứ 3 có thể điều khiển mạch led ARGB H
 | [node-red-contrib-wled](https://flows.nodered.org/node/node-red-contrib-wled) | Các node [Node-RED](https://nodered.org) dành cho WLED. |
 | [OctoPrint-WLED](https://plugins.octoprint.org/plugins/wled) | Kết nối cài đặt [OctoPrint](https://octoprint.org) của bạn với WLED để hiển thị trạng thái máy in, tiến độ và nhiều thứ khác. |
 | [openHAB](https://community.openhab.org/t/wled-a-binding-for-controlling-led-strips-and-strings-from-an-opensource-esp8266-project/87286) | Một hệ thống tự động hóa gia đình chuyên nghiệp và giàu tính năng, tích hợp WLED dễ dàng. [Liên kết 2](https://community.openhab.org/t/solved-wled-please-make-this-work-in-openhab/82783) |
-| [WLED-GUI](https://github.com/w00000dy/WLED-GUI) | Ứng dụng máy tính đa nền tảng dành cho WLED, tương thích với Windows, Linux và Mac. |
-| [WLED Native cho Android](https://github.com/Moustachauve/WLED-Native-Android) <br /> [WLED Native cho iOS](https://github.com/Moustachauve/WLED-Native-iOS/) | Phiên bản thay thế của ứng dụng WLED với giao diện người dùng tương tự như ứng dụng chính thức, tuân theo các hướng dẫn phong cách hệ điều hành gốc và bổ sung thêm một số tính năng. |
+| [ARGB-GUI](https://github.com/w00000dy/WLED-GUI) | Ứng dụng máy tính đa nền tảng dành cho WLED, tương thích với Windows, Linux và Mac. |
+| [ARGB Native cho Android](https://github.com/Moustachauve/WLED-Native-Android) <br /> [ARGB Native cho iOS](https://github.com/Moustachauve/WLED-Native-iOS/) | Phiên bản thay thế của ứng dụng WLED với giao diện người dùng tương tự như ứng dụng chính thức, tuân theo các hướng dẫn phong cách hệ điều hành gốc và bổ sung thêm một số tính năng. |
 | [wledQuickControl](https://github.com/satrik/wledQuickControl) | Ứng dụng Menu Bar cho macOS 11.0+ để điều khiển nguồn và độ sáng. |
 | [WinLED](https://github.com/clusterzx/WinLED) | Ứng dụng Windows để điều khiển WLED (độ sáng, nguồn, cài đặt sẵn, hiệu ứng...), có thể sử dụng từ khay hệ thống để thực hiện các thao tác nhanh. |
 

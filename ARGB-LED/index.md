@@ -4,7 +4,7 @@ title: Bộ điều khiển PIXEL ARGB HSL
 meta-title: Bộ điều khiển PIXEL ARGB HSL
 # subtitle: "... Welcome to ARGB"
 bigimg:
-  - "/img/Picture-HSL/AI-HSL-1.png"
+  - "/img/poi-tools/banner.jpg"
 tags: [ARGB, ws2811, ws2812b, strip leds]
 category: ARGB PIXEL HSL
 

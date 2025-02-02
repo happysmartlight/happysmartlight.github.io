@@ -27,7 +27,7 @@ You may also obtain those objects individually using the URLs `/json/state` `/js
     To improve user experience, it is recommended to remove effects with the names `RSVD` or `-` form the UI effect selection.
 
 ### Example Library
-[WLED JSON API Library in rust](https://github.com/paulwrath1223/wled-json-api-library).
+[ARGB JSON API Library in rust](https://github.com/paulwrath1223/wled-json-api-library).
 Even if you are not using rust, or don't know how to read rust,
 the up-to-date JSON structure is included and documented in this project.
 
@@ -40,7 +40,7 @@ Example: `{"on":true,"bri":255}` sets the brightness to maximum. `{"seg":[{"col"
 
 !!! tldr "CURL example"
     This will toggle on and off and return the new state (v0.13+):
-    `curl -X POST "http://[WLED-IP]/json/state" -d '{"on":"t","v":true}' -H "Content-Type: application/json"`
+    `curl -X POST "http://[ARGB-IP]/json/state" -d '{"on":"t","v":true}' -H "Content-Type: application/json"`
 
 Sample JSON API response (v0.8.4):
 

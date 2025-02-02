@@ -8,7 +8,7 @@ hide:
 !!! info "Version Info"
     Since WLED 0.10.2, a WebSocket server is enabled by default and can be used to access a subset of the [JSON API](/interfaces/json-api).
 
-The server is available at the `/ws` endpoint, you can access it like `ws://[WLED-IP]/ws`.
+The server is available at the `/ws` endpoint, you can access it like `ws://[ARGB-IP]/ws`.
 
 You may send any JSON state update to the socket.
 On change of the lighting state, the server will send a JSON object containing the state and info objects (this is equivalent to HTTP GET `/json/si`) to all connected clients. This object will also be sent to a client upon connecting.

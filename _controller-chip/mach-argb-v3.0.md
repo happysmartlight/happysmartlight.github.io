@@ -41,9 +41,7 @@ category: HAPPY SMART LIGHT
 
 🖼 **Hình ảnh PCB V3.0:**  
 
-![3D PCB V3.0](/ARGB-LED/image/v3.0_3D_PCB1.png)  
-![Mặt trước PCB V3.0](/ARGB-LED/image/v3.0_PCB1_mat-truoc.png)  
-![Mặt sau PCB V3.0](/ARGB-LED/image/v3.0_PCB1_mat-sau.png)  
+![3D PCB V3.0](/img/controller-chip/argb-v2.png)  
 
 ---
 
@@ -99,11 +97,11 @@ category: HAPPY SMART LIGHT
 ### ⚡ Phần Mềm Bắt Buộc  
 
 #### 💻 Trên PC/Laptop  
-- 🔥 [WLED PC – LED Control](https://github.com/w00000dy/WLED-GUI/releases)  
+- 🔥 [ARGB PC – LED Control](https://github.com/w00000dy/WLED-GUI/releases)  
 
 #### 📱 Trên Smartphone  
-- 🔥 Ứng dụng **Android**: [WLED](https://play.google.com/store/apps/details?id=ca.cgagnier.wlednativeandroid)  
-- 🔥 Ứng dụng **iOS**: [WLED](https://apps.apple.com/us/app/wled-native/id6446207239)  
+- 🔥 Ứng dụng **Android**: [ARGB](https://play.google.com/store/apps/details?id=ca.cgagnier.wlednativeandroid)  
+- 🔥 Ứng dụng **iOS**: [ARGB](https://apps.apple.com/us/app/wled-native/id6446207239)  
 
 ---
 

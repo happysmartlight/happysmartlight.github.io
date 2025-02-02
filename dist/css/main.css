@@ -1126,7 +1126,7 @@ table {
   width: 100%;
   overflow: hidden; /* Ẩn phần viền thừa ở góc */
   border-radius: 15px; /* Bo tròn 4 góc */
-  margin: 20px;
+  /* margin: 20px; */
 }
 
 table th {
@@ -1623,6 +1623,7 @@ option:hover {
 .container-post {
   max-width: 100%; /* Đảm bảo không vượt quá chiều rộng của phần tử cha */
   box-sizing: border-box; /* Đảm bảo padding và border không làm thay đổi kích thước tổng thể */
+  margin-top: 2em;
   padding-left: 15%;
   padding-right: 15%;  
   position: relative;

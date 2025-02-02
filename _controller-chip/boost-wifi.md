@@ -4,7 +4,7 @@ title: "Boost WIFI"
 meta-title: "Boost WIFI 4W/8w"
 # # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
-  - "/img/Picture-HSL/AI-HSL-1.png"
+  - "/img/controller-chip/banner.png"
 image: "/img/controller-chip/kich song 4w.png"
 tags: hsl, happy, smart, light, visual, led, poi
 category: HAPPY SMART LIGHT

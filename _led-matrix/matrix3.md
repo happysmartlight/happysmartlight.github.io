@@ -4,7 +4,7 @@ title: "H2 Matrix 3"
 meta-title: "HSL MATRIX LED"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
-  - "/img/led-matrix/AI-HSL-2.png"
+  - "/img/led-matrix/BANNER.png"
 image: "/img/led-matrix/matrix3.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
 category: HAPPY SMART LIGHT

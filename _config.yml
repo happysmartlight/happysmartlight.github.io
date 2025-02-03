@@ -53,8 +53,8 @@ footer-links-active:
   telephone: true
   youtube: true
   tiktok: true
-  map-address-1: true
-  map-address-2: true
+  map-address-1: false
+  map-address-2: false
 share-links-active:
   facebook: true
   linkedin: true

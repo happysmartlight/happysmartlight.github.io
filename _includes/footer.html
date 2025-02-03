@@ -52,7 +52,7 @@
 
           {% if site.author.telephone and site.footer-links-active.telephone %}
           <li>
-            <a href="tel:{{ site.author.telephone }}" title="Phone">
+            <a href="tel:{{ site.author.telephone }}" title="Phone & Zalo">
               <span class="fa-stack fa-lg" aria-hidden="true">
                 <!-- <i class="fa fa-circle fa-stack-2x"></i> -->
                 <i class="fa fa-phone fa-stack-1x fa-inverse"></i>
@@ -112,6 +112,9 @@
           {{ site.Tax-code }}
           <br>
           {{ site.company }} 
+          <br>
+          Liên hệ chúng tôi: <a href="tel:+84{{ site.author.telephone }}" title="{{ site.author.telephone }}">📞{{ site.author.telephone }}</a>  - 
+                            <a href="mailto:{{ site.author.email  }}" title="{{ site.author.email  }}">✉️{{ site.author.email  }}</a> 
           <br>
           <a href="{{ site.map-address-1 }}" title="Google Map">{{ site.address-1 }}</a>
           <br>

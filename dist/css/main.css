@@ -1665,3 +1665,9 @@ option:hover {
     padding-top: 20px; */
   }
 }
+
+
+.zalo-chat-widget {
+  right: 25px !important;
+  bottom: 80px !important;
+}

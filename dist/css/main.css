@@ -519,6 +519,26 @@ footer .theme-by {
   }
 }
 
+.qr-code p {
+  color: #acacac;
+  display: flex;          /* Thiết lập Flexbox cho thẻ a */
+  justify-content: center; /* Canh giữa theo chiều ngang */
+  align-items: center;    /* Canh giữa theo chiều dọc */
+}
+
+.qr-code a {
+  display: flex;          /* Thiết lập Flexbox cho thẻ a */
+  justify-content: center; /* Canh giữa theo chiều ngang */
+  align-items: center;    /* Canh giữa theo chiều dọc */
+}
+
+
+.qr-code a img {
+  width: 120px;
+  height: 120px;
+  align-items: center;
+}
+
 
 /* --- Post preview --- */
 

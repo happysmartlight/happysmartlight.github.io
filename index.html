@@ -43,7 +43,11 @@ meta-title: "Happy Smart Light" -->
       {% endif %}
       <!-- Tiêu đề bài đăng -->
       <a href="{{ post.url | prepend: site.baseurl }}">
+        {% if post.meta-title %}
+        <div class="component-name">{{ post["meta-title"] }}</div>
+        {% else %}
         <div class="component-name">{{ post.title }}</div>
+        {% endif %}
       </a>
     </div>
     {% endfor %}
@@ -86,7 +90,11 @@ meta-title: "Happy Smart Light" -->
       {% endif %}
       <!-- Tiêu đề bài đăng -->
       <a href="{{ post.url | prepend: site.baseurl }}">
+        {% if post.meta-title %}
+        <div class="component-name">{{ post["meta-title"] }}</div>
+        {% else %}
         <div class="component-name">{{ post.title }}</div>
+        {% endif %}
       </a>
     </div>
     {% endfor %}
@@ -128,7 +136,11 @@ meta-title: "Happy Smart Light" -->
       {% endif %}
       <!-- Tiêu đề bài đăng -->
       <a href="{{ post.url | prepend: site.baseurl }}">
+        {% if post.meta-title %}
+        <div class="component-name">{{ post["meta-title"] }}</div>
+        {% else %}
         <div class="component-name">{{ post.title }}</div>
+        {% endif %}
       </a>
     </div>
     {% endfor %}

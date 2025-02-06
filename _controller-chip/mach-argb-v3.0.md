@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "ARGB V3.0"
+title: "Bộ mạch điều khiển đa năng các loại Chip LED PIXEL ARGB V3.0"
 meta-title: "Controller ARGB V3.0"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:

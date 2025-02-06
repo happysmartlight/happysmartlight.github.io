@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Boost WIFI"
-meta-title: "Boost WIFI 4W/8w"
+title: "Anten tăng cường phát sóng Boost WIFI 4W/8W"
+meta-title: "Boost WIFI"
 # # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/controller-chip/banner.png"

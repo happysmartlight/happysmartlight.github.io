@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "H2 Matrix 1"
-meta-title: "HSL MATRIX LED"
+title: "Bảng Led cầm tay MATRIX LED 1"
+meta-title: "H2 Matrix 1"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/led-matrix/BANNER.png"

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Controller FFP"
+title: "Bộ điều khiển master/client FFP"
 meta-title: "Controller FFP"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:

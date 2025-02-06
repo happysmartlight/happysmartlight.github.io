@@ -1554,7 +1554,6 @@ option:hover {
   display: flex; /* Sử dụng flexbox */
   flex-direction: column; /* Xếp chồng các phần tử bên trong */
   align-items: center; /* Căn giữa theo chiều ngang */
-  justify-content: center; /* Căn giữa theo chiều dọc */
   flex: 1 1 calc(25% - 10px); /* Chia đều thành 4 cột (25% chiều rộng mỗi cột) */
   color: #ffffff; /* Màu chữ trắng */
   text-align: center; /* Căn giữa văn bản */

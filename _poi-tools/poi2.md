@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "H1 Poi 2"
-meta-title: "HSL VISUAL POI"
+title: "Đạo cụ VISUAL POI 2"
+meta-title: "H1 Poi 2"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/poi-tools/banner.jpg"

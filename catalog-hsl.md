@@ -28,7 +28,7 @@ bigimg:
     💡Trình diễn ánh sáng chất lượng cao.
   </div>
   <div class="details">
-    {% for post in site.poi-tools %}
+    {% for post in site.poi-tools limit:8 %}
     <div class="component">
       {% if post.image %}
       <!-- Ảnh đại diện bài đăng -->
@@ -38,7 +38,11 @@ bigimg:
       {% endif %}
       <!-- Tiêu đề bài đăng -->
       <a href="{{ post.url | prepend: site.baseurl }}">
+        {% if post.meta-title %}
+        <div class="component-name">{{ post["meta-title"] }}</div>
+        {% else %}
         <div class="component-name">{{ post.title }}</div>
+        {% endif %}
       </a>
     </div>
     {% endfor %}
@@ -63,7 +67,7 @@ bigimg:
       background-repeat: no-repeat; /* Không lặp lại ảnh nền */
         ">
   <div class="summary">
-    ✨LED Matrix✨
+    ✨Matrix LED✨
   </div>
   <div class="description-content-index-sp">
     💡Đây là dòng sản phẩm LED hiện đại.<br>
@@ -71,7 +75,7 @@ bigimg:
     💡Trình diễn ánh sáng chất lượng cao.
   </div>
   <div class="details">
-    {% for post in site.led-matrix %}
+    {% for post in site.led-matrix limit:8 %}
     <div class="component">
       {% if post.image %}
       <!-- Ảnh đại diện bài đăng -->
@@ -81,7 +85,11 @@ bigimg:
       {% endif %}
       <!-- Tiêu đề bài đăng -->
       <a href="{{ post.url | prepend: site.baseurl }}">
+        {% if post.meta-title %}
+        <div class="component-name">{{ post["meta-title"] }}</div>
+        {% else %}
         <div class="component-name">{{ post.title }}</div>
+        {% endif %}
       </a>
     </div>
     {% endfor %}
@@ -113,7 +121,7 @@ bigimg:
     💡Công suất tác chiến thực tế lớn, tính đa dụng cao.
   </div>
   <div class="details">
-    {% for post in site.controller-chip %}
+    {% for post in site.controller-chip limit:8 %}
     <div class="component">
       {% if post.image %}
       <!-- Ảnh đại diện bài đăng -->
@@ -123,7 +131,11 @@ bigimg:
       {% endif %}
       <!-- Tiêu đề bài đăng -->
       <a href="{{ post.url | prepend: site.baseurl }}">
+        {% if post.meta-title %}
+        <div class="component-name">{{ post["meta-title"] }}</div>
+        {% else %}
         <div class="component-name">{{ post.title }}</div>
+        {% endif %}
       </a>
     </div>
     {% endfor %}
@@ -151,3 +163,4 @@ bigimg:
     </div>
   </div>
 </div>
+

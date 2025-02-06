@@ -33,7 +33,7 @@ meta-title: "Happy Smart Light" -->
     💡Trình diễn ánh sáng chất lượng cao.
   </div>
   <div class="details">
-    {% for post in site.poi-tools %}
+    {% for post in site.poi-tools limit:8 %}
     <div class="component">
       {% if post.image %}
       <!-- Ảnh đại diện bài đăng -->
@@ -80,7 +80,7 @@ meta-title: "Happy Smart Light" -->
     💡Trình diễn ánh sáng chất lượng cao.
   </div>
   <div class="details">
-    {% for post in site.led-matrix %}
+    {% for post in site.led-matrix limit:8 %}
     <div class="component">
       {% if post.image %}
       <!-- Ảnh đại diện bài đăng -->
@@ -126,7 +126,7 @@ meta-title: "Happy Smart Light" -->
     💡Công suất tác chiến thực tế lớn, tính đa dụng cao.
   </div>
   <div class="details">
-    {% for post in site.controller-chip %}
+    {% for post in site.controller-chip limit:8 %}
     <div class="component">
       {% if post.image %}
       <!-- Ảnh đại diện bài đăng -->

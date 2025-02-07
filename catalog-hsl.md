@@ -156,11 +156,3 @@ bigimg:
   </div>
 </div>
 
-<div class="gradient-bg">
-  <div class="text-center">
-    <div class="gradient-text">
-      <h2>🚧🚧🚧🚧🚧🚧<br>Grand opening on February 14, 2025.</h2>
-    </div>
-  </div>
-</div>
-

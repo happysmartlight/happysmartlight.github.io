@@ -3,7 +3,7 @@ layout: page
 title: "Gậy LED Magic -  Magic LED HSL"
 meta-title: "Light Up Your Style"
 bigimg:
-- "/img/Picture-HSL/HSL-index.png"
+- "/img/Picture-HSL/BANER__ARGB.jpg"
 ---
 
 <!-- Layer 1 -->
@@ -17,7 +17,7 @@ bigimg:
 <div id="visualPoi" class="content-index" style="
       background: 
         linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
-        url('/img/Picture-HSL/BANER__ARGB.jpg');
+        url('/img/poi-tools/visual-poi/20240330_VisualPoiV5_067.jpg');
       background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
       background-position: center; /* Căn giữa ảnh nền */
       background-repeat: no-repeat; /* Không lặp lại ảnh nền */
@@ -66,7 +66,7 @@ bigimg:
 <div id="visualHoop" class="content-index" style="
       background: 
         linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
-        url('/img/Picture-HSL/BANER__ARGB.jpg');
+        url('/img/poi-tools/visual-hoop/20210115_VisualHoop_016.jpg');
       background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
       background-position: center; /* Căn giữa ảnh nền */
       background-repeat: no-repeat; /* Không lặp lại ảnh nền */

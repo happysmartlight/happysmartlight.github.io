@@ -3,7 +3,7 @@ layout: page
 title: "Pixel và Mega Pixel -  Magic LED HSL"
 meta-title: "Light Up Your Style"
 bigimg:
-- "/img/Picture-HSL/HSL-index.png"
+- "/img/poi-tools/visual-poi/20240330_VisualPoiV5_067.jpg"
 ---
 
 <!-- Layer 1 -->
@@ -17,7 +17,7 @@ bigimg:
 <div id="ledPixel" class="content-index" style="
       background: 
         linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
-        url('/img/Picture-HSL/BANER__ARGB.jpg');
+        url('/img/led-matrix/vtttt-min-concentrate.jpeg');
       background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
       background-position: center; /* Căn giữa ảnh nền */
       background-repeat: no-repeat; /* Không lặp lại ảnh nền */

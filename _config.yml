@@ -7,27 +7,29 @@ site:
   baseurl: /
 navbar-links:
   🔖Catalog: catalog-hsl
-  🔥Best Seller: best-seller
   🔥Mạch điều khiển:
-    - Điều khiển LED Pixcel: pixel-controler
-    - Điều khiển LED Cabin: cabin-controler
-    - Phát - thu sóng: signal-tx-rx-controler
-    - Card Cabin LED: card-cabin-controler
+    - Điều khiển LED Pixcel: controller-chip#ledPixel
+    - Điều khiển LED Cabin: controller-chip#ledMatrix
+    - Phát - thu sóng: controller-chip#signalWifi
+  💡Visual LED: 
+    - Visual POI: poi-tools#visualPoi
+    - Visual HOOP: poi-tools#visualHoop
+    - Nguồn và Pin: poi-tools#power
+    - Khác: poi-tools#other
   💡Đạo cụ LED: 
-    - Led Pixel: none
-    - Led Module: none
-    - Nguồn và Pin: none
-    - Khác: none
-  📌Chủ đề:
+    - Led Pixel: led-matrix#ledPixel
+    - Led Module: led-matrix#ledMatrix
+    - Nguồn và Pin: led-matrix#power
+    - Khác: led-matrix#other
+  ❓Về HSL:
+    - Mạch ARGB HSL: ARGB-LED/index
+    - Liên hệ với HSL: aboutme
+    - Đối tác với HSL: none
     - Tư vấn, thiết kế: none
     - Led Decor: none
     - Led Dance: none
     - Led Biển Hiệu: none
     - Dịch vụ Order: none
-  ❓Về HSL:
-    - Mạch ARGB HSL: ARGB-LED/index
-    - Liên hệ với HSL: aboutme
-    - Đối tác với HSL: none
   # 🗝️Tags: tags #thay thế bằng nút tìm kiếm.
 avatar: "/img/Picture-HSL/logo_hsl.png"
 author:

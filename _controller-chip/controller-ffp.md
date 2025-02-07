@@ -7,8 +7,7 @@ bigimg:
   - "/img/controller-chip/banner.png"
 image: "/img/controller-chip/FPP.png"
 tags: hsl, happy, smart, light, visual, led, poi
-category: HAPPY SMART LIGHT
-
+category: CONTROLLER MATRIX
 
 # author: "BangNguyen"
 # comments: true

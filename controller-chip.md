@@ -1,12 +1,10 @@
 ---
 layout: page
+title: "Mạch điều khiển Magic - Controller Magic HSL"
 meta-title: "Light Up Your Style"
 bigimg:
 - "/img/Picture-HSL/HSL-index.png"
 ---
-
-<!-- subtitle: Khởi Nguồn Ánh Sáng
-meta-title: "Happy Smart Light" -->
 
 <!-- Layer 1 -->
 
@@ -16,100 +14,7 @@ meta-title: "Happy Smart Light" -->
   </div>
 </div>
 
-<div class="content-index" style="
-      background: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
-        url('/img/Picture-HSL/BANER__ARGB_1.jpg');
-      background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
-      background-position: center; /* Căn giữa ảnh nền */
-      background-repeat: no-repeat; /* Không lặp lại ảnh nền */
-        ">
-  <div class="summary">
-    ✨Visual LED✨
-  </div>
-  <div class="description-content-index-sp">
-    💡Đây là dòng sản phẩm LED hiện đại.<br>
-    💡Mang lại hiệu suất cao, bền bỉ và đa dạng về mẫu mã. <br>
-    💡Trình diễn ánh sáng chất lượng cao.
-  </div>
-  <div class="details">
-    {% for post in site.poi-tools limit:8 %}
-    <div class="component">
-      {% if post.image %}
-      <!-- Ảnh đại diện bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
-      </a>
-      {% endif %}
-      <!-- Tiêu đề bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        {% if post.meta-title %}
-        <div class="component-name">{{ post["meta-title"] }}</div>
-        {% else %}
-        <div class="component-name">{{ post.title }}</div>
-        {% endif %}
-      </a>
-    </div>
-    {% endfor %}
-  </div>
-</div>
-
-<!-- Layer 2 -->
-
-<div class="gradient-bg">
-  <div class="gradient-text">
-    <p>với mạch led, đạo cụ led lập trình đa hiệu ứng</p>
-  </div>
-</div>
-
-
-<div class="content-index" style="
-      background: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
-        url('/img/Picture-HSL/BANER__ARGB_2.jpg');
-      background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
-      background-position: center; /* Căn giữa ảnh nền */
-      background-repeat: no-repeat; /* Không lặp lại ảnh nền */
-        ">
-  <div class="summary">
-    ✨Pixel & Matrix LED✨
-  </div>
-  <div class="description-content-index-sp">
-    💡Đây là dòng sản phẩm LED hiện đại.<br>
-    💡Mang lại hiệu suất cao, bền bỉ và đa dạng về mẫu mã. <br>
-    💡Trình diễn ánh sáng chất lượng cao.
-  </div>
-  <div class="details">
-    {% for post in site.led-matrix limit:8 %}
-    <div class="component">
-      {% if post.image %}
-      <!-- Ảnh đại diện bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
-      </a>
-      {% endif %}
-      <!-- Tiêu đề bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        {% if post.meta-title %}
-        <div class="component-name">{{ post["meta-title"] }}</div>
-        {% else %}
-        <div class="component-name">{{ post.title }}</div>
-        {% endif %}
-      </a>
-    </div>
-    {% endfor %}
-  </div>
-</div>
-
-<!-- Layer 3 -->
-
-<div class="gradient-bg">
-  <div class="gradient-text">
-    <p>phối hợp nhịp nhàng, đồng bộ mượt mà</p>
-  </div>
-</div>
-
-<div class="content-index" style="
+<div id="ledPixel" class="content-index" style="
       background: 
         linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
         url('/img/Picture-HSL/BANER__ARGB.jpg');
@@ -118,15 +23,17 @@ meta-title: "Happy Smart Light" -->
       background-repeat: no-repeat; /* Không lặp lại ảnh nền */
         ">
   <div class="summary">
-    ✨Mạch Điều Khiển✨
+    ✨Mạch Điều Khiển ARGB PIXEL✨
   </div>
   <div class="description-content-index-sp">
     💡Đây là dòng sản phẩm chất lượng cao.<br>
     💡Được thiết kế và gia công trên dây chuyển hiện đại. <br>
     💡Công suất tác chiến thực tế lớn, tính đa dụng cao.
   </div>
+  {% assign hascategoryPosts = false %}
   <div class="details">
     {% for post in site.controller-chip limit:8 %}
+	{% if post.category == 'LED PIXEL' %}
     <div class="component">
       {% if post.image %}
       <!-- Ảnh đại diện bài đăng -->
@@ -143,9 +50,118 @@ meta-title: "Happy Smart Light" -->
         {% endif %}
       </a>
     </div>
+	{% assign hascategoryPosts = true %}
+	{% endif %}
     {% endfor %}
+	<!-- Report hascategoryPosts -->
+	{% unless hascategoryPosts %}
+	<div class="text-center">
+		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng chờ thêm một thời gian ngắn nữa.
+		</p>
+	</div>
+	{% endunless %}
   </div>
 </div>
+
+<div id="ledMatrix" class="content-index" style="
+      background: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
+        url('/img/Picture-HSL/BANER__ARGB.jpg');
+      background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
+      background-position: center; /* Căn giữa ảnh nền */
+      background-repeat: no-repeat; /* Không lặp lại ảnh nền */
+        ">
+	<div class="summary">
+	✨Mạch Điều Khiển Cabin Matrix✨
+	</div>
+	<div class="description-content-index-sp">
+	💡Đây là dòng sản phẩm chất lượng cao.<br>
+	💡Được thiết kế và gia công trên dây chuyển hiện đại. <br>
+	💡Công suất tác chiến thực tế lớn, tính đa dụng cao.
+	</div>
+	{% assign hascategoryPosts = false %}
+	<div class="details">
+    {% for post in site.controller-chip limit:8 %}
+	{% if post.category == 'CONTROLLER MATRIX' %}
+    <div class="component">
+      {% if post.image %}
+      <!-- Ảnh đại diện bài đăng -->
+      <a href="{{ post.url | prepend: site.baseurl }}">
+        <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
+      </a>
+      {% endif %}
+      <!-- Tiêu đề bài đăng -->
+      <a href="{{ post.url | prepend: site.baseurl }}">
+        {% if post.meta-title %}
+        <div class="component-name">{{ post["meta-title"] }}</div>
+        {% else %}
+        <div class="component-name">{{ post.title }}</div>
+        {% endif %}
+      </a>
+    </div>
+	{% assign hascategoryPosts = true %}
+	{% endif %}
+    {% endfor %}
+	<!-- Report hascategoryPosts -->
+	{% unless hascategoryPosts %}
+	<div class="text-center">
+		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng chờ thêm một thời gian ngắn nữa.
+		</p>
+	</div>
+	{% endunless %}
+  </div>
+</div>
+
+
+<div id="signalWifi" class="content-index" style="
+      background: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
+        url('/img/Picture-HSL/BANER__ARGB.jpg');
+      background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
+      background-position: center; /* Căn giữa ảnh nền */
+      background-repeat: no-repeat; /* Không lặp lại ảnh nền */
+        ">
+	<div class="summary">
+	✨Mạch Tăng Cường Sóng✨
+	</div>
+	<div class="description-content-index-sp">
+	💡Đây là dòng sản phẩm chất lượng cao.<br>
+	💡Được thiết kế và gia công trên dây chuyển hiện đại. <br>
+	💡Công suất tác chiến thực tế lớn, tính đa dụng cao.
+	</div>
+  	{% assign hascategoryPosts = false %}
+	<div class="details">
+    {% for post in site.controller-chip limit:8 %}
+	{% if post.category == 'BOOST SIGNAL' %}
+    <div class="component">
+      {% if post.image %}
+      <!-- Ảnh đại diện bài đăng -->
+      <a href="{{ post.url | prepend: site.baseurl }}">
+        <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
+      </a>
+      {% endif %}
+      <!-- Tiêu đề bài đăng -->
+      <a href="{{ post.url | prepend: site.baseurl }}">
+        {% if post.meta-title %}
+        <div class="component-name">{{ post["meta-title"] }}</div>
+        {% else %}
+        <div class="component-name">{{ post.title }}</div>
+        {% endif %}
+      </a>
+    </div>
+	{% assign hascategoryPosts = true %}
+	{% endif %}
+    {% endfor %}
+	<!-- Report hascategoryPosts -->
+	{% unless hascategoryPosts %}
+	<div class="text-center">
+		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng chờ thêm một thời gian ngắn nữa.
+		</p>
+	</div>
+	{% endunless %}
+  </div>
+</div>
+
 
 <!-- Layer 4 -->
 
@@ -161,11 +177,4 @@ meta-title: "Happy Smart Light" -->
   </div>
 </div>
 
-<div class="gradient-bg">
-  <div class="text-center">
-    <div class="gradient-text">
-      <h2>🚧🚧🚧🚧🚧🚧<br>Grand opening on February 14, 2025.</h2>
-    </div>
-  </div>
-</div>
 

@@ -7,12 +7,14 @@ bigimg:
   - "/img/controller-chip/banner.png"
 image: "/img/controller-chip/argb-v2.png"
 tags: hsl, happy, smart, light, visual, led, poi
-category: HAPPY SMART LIGHT
+category: LED PIXEL
 
 
 # author: "BangNguyen"
 # comments: true
 ---
+
+{{ post.image }}
 
 # 🎉 Bộ Điều Khiển LED ARGB V3.0 – Nhỏ Gọn, Sạc Pin Type-C! 🔥  
 

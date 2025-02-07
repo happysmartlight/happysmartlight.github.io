@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Bộ mạch điều khiển đa năng các loại Chip LED PIXEL ARGB V3.0"
-meta-title: "Controller ARGB V3.0"
+title: "Bộ mạch điều khiển đa năng các loại Chip LED PIXEL ARGB IPEX V2.0"
+meta-title: "Controller ARGB IPEX V2.0"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/controller-chip/banner.png"
-image: "/img/controller-chip/argb-v2.png"
+image: "/img/controller-chip/argb_IPEX_ver2.0.png"
 tags: hsl, happy, smart, light, visual, led, poi
 category: LED PIXEL
 
@@ -14,9 +14,7 @@ category: LED PIXEL
 # comments: true
 ---
 
-{{ post.image }}
-
-# 🎉 Bộ Điều Khiển LED ARGB V3.0 – Nhỏ Gọn, Sạc Pin Type-C! 🔥  
+# 🎉 Bộ Điều Khiển Chip LED PIXEL ARGB IPEX V2.0 – Nhỏ Gọn, Sạc Pin Type-C! 🔥  
 
 📌 **Hướng dẫn nhanh:**  
 - [🛠 Bắt đầu cơ bản](basics/getting-started)  
@@ -33,7 +31,7 @@ category: LED PIXEL
 
 ---
 
-## 🔥 Bộ Điều Khiển ARGB V3.0 – Cải Tiến Mới  
+## 🔥 Bộ Điều Khiển LED PIXEL ARGB IPEX V2.0 – Cải Tiến Mới  
 
 - **Sạc pin thông qua Type-C**, dễ dàng sử dụng với pin lithium  
 - **Bảo vệ pin an toàn**, không lo quá tải hoặc xả quá mức  
@@ -41,9 +39,10 @@ category: LED PIXEL
 - **Tích hợp 2 ngõ ra LED**, linh hoạt trong điều khiển hiệu ứng  
 - **Hỗ trợ cập nhật OTA**, dễ dàng nâng cấp firmware  
 
-🖼 **Hình ảnh PCB V3.0:**  
+🖼 **Hình ảnh PCB LED PIXEL ARGB IPEX V2.0:**  
 
-![3D PCB V3.0](/img/controller-chip/argb-v2.png)  
+![3D PCB LED PIXEL ARGB IPEX V2.0](/img/controller-chip/argb_IPEX_ver2.0_TOP.png)  
+![3D PCB LED PIXEL ARGB IPEX V2.0](/img/controller-chip/argb_IPEX_ver2.0_BOT.png)  
 
 ---
 
@@ -94,18 +93,28 @@ category: LED PIXEL
 
 ---
 
-## 💡 Ứng Dụng Điều Khiển  
+---
 
-### ⚡ Phần Mềm Bắt Buộc  
+## 🎛 Ứng dụng điều khiển  
 
-#### 💻 Trên PC/Laptop  
+### 🖥 **Trên PC/Laptop:**  
 - 🔥 [ARGB PC – LED Control](https://github.com/w00000dy/WLED-GUI/releases)  
 
-#### 📱 Trên Smartphone  
-- 🔥 Ứng dụng **Android**: [ARGB](https://play.google.com/store/apps/details?id=ca.cgagnier.wlednativeandroid)  
-- 🔥 Ứng dụng **iOS**: [ARGB](https://apps.apple.com/us/app/wled-native/id6446207239)  
+### 📱 **Trên Smartphone:**  
+- 🔥 [ARGB Android](https://play.google.com/store/apps/details?id=ca.cgagnier.wlednativeandroid)  
+- 🔥 [ARGB iOS](https://apps.apple.com/us/app/wled-native/id6446207239)  
+
+### ⚡ **Phần mềm tùy chọn:**  
+- 🔥 [xLights](https://xlights.org/releases) – lập trình LED chuyên nghiệp.  
+- 🔥 [Jinx!](https://live-leds.de/) – điều khiển LED ma trận.  
+- 🔥 [LedFx](https://www.ledfx.app/) – LED nhấp nháy theo nhạc.  
+- 🔥 [Hyperion](https://github.com/hyperion-project/hyperion.ng) – hiệu ứng Ambilight cho TV.  
+
+🔗 [Danh sách phần mềm đầy đủ](basics/compatible-software)  
 
 ---
+
+## 🔗 Kết nối & API  
 
 ## 💡 Các Chuẩn Kết Nối ARGB Có Thể Sử Dụng  
 
@@ -121,4 +130,4 @@ category: LED PIXEL
 
 ---
 
-## ✌️ Happy Smart Light - bangnguyendev
+## ✌️ Happy Smart Light – bangnguyendev  

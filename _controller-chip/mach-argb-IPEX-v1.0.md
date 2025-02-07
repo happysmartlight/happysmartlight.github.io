@@ -14,7 +14,7 @@ category: LED PIXEL
 # comments: true
 ---
 
-# 🎉 Chào mừng đến với Bộ Điều Khiển LED ARGB! ✨  
+# 🎉 Chào mừng đến với Bộ Điều Khiển Chip LED PIXEL ARGB IPEX V1.0! ✨  
 
 📌 **Hướng dẫn nhanh:**  
 
@@ -27,12 +27,12 @@ category: LED PIXEL
 
 ---
 
-## 🔥 Bộ điều khiển V1.0.0  
+## 🔥 Bộ điều khiển Chip LED PIXEL ARGB IPEX V1.0  
 
 ✅ Hỗ trợ **IR hồng ngoại**, cảm biến nhiệt, **cầu chì bảo vệ** LED.  
 ✅ 2 ngõ ra LED **3 chân độc lập** (hoặc 1 ngõ ra LED **4 chân**).  
 
-🖼 **Hình ảnh PCB V1.0.0:**  
+🖼 **Hình ảnh PCB Chip LED PIXEL ARGB IPEX V1.0:**  
 
 <div class="image-gallery">
    <img src="/img/controller-chip/argb_IPEX_ver1.0_TOP.png" alt="MẶT TRƯỚC">
@@ -109,12 +109,17 @@ category: LED PIXEL
 
 ## 🔗 Kết nối & API  
 
-✅ **JSON & HTTP API**  
-✅ **MQTT**  
-✅ **E1.31, Art-Net, DDP, TPM2.net**  
-✅ **Alexa Voice Control**  
-✅ **Sync Philips Hue**  
-✅ **Infrared Remote (IR 24-key)**  
+## 💡 Các Chuẩn Kết Nối ARGB Có Thể Sử Dụng  
+
+- [JSON API](interfaces/json-api) & [HTTP request](interfaces/http-api)  
+- [MQTT](interfaces/mqtt)  
+- [E1.31](interfaces/e1.31-dmx), [Art-Net](interfaces/e1.31-dmx), DDP và [TPM2.net](interfaces/udp-realtime)  
+- [UDP realtime](interfaces/udp-realtime)  
+- [Alexa voice control](interfaces/remote-access-ifttt)  
+- [Sync to Philips Hue lights](interfaces/philips-hue)  
+- **Adalight (PC Ambilight via Serial) & TPM2**  
+- [Sync color giữa nhiều bộ điều khiển (UDP notifier)](interfaces/udp-notifier)  
+- [Điều khiển qua Remote Hồng Ngoại (IR)](interfaces/infrared)  
 
 ---
 

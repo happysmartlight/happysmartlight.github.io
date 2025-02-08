@@ -1,11 +1,11 @@
 ---
-layout: page
+layout: post
 title: Effects ARGB
 meta-title: "Effects ARGB"
 subtitle: "Các hiệu ứng Led"
 bigimg:
-  - "/Topic/ARGB-LED/image/BANER__ARGB.jpg"
-image: "/Topic/ARGB-LED/image/BANER__ARGB.jpg"
+  - "/img/controller-chip/banner.png"
+image: "/img/controller-chip/argb-v1.png"
 tags: [esp web tools, LED, ARGB, led strip]
 category: ARGB PIXEL HSL
 

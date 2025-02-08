@@ -943,7 +943,7 @@ footer .theme-by {
 }
 
 .img-desc {
-  border-radius: 10px;
+  border-top-left-radius: 10px;
 }
 
 .intro-header.big-img .img-desc {
@@ -951,7 +951,7 @@ footer .theme-by {
   position: absolute;
   padding: 5px 10px;
   font-size: 11px;
-  color: #EEE;
+  color: #383838;
   /* color: linear-gradient(90deg, #00d3ff, #f00ac0);; */
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   right: 0;

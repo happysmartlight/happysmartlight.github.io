@@ -18,10 +18,14 @@ category: LED PIXEL
 
 📌 **Hướng dẫn nhanh:**  
 
-- [🛠 Bắt đầu cơ bản](basics/getting-started)  
-- [🎨 Hiệu ứng LED](features/effects)  
-- [🌈 Bảng màu LED](features/palettes)  
-- [📺 Video hướng dẫn](basics/tutorials)  
+- [🛠 Bắt đầu cơ bản](/argb-hsl/basics/getting-started)  
+- [🎨 Hiệu ứng LED](/argb-hsl/features/effects)  
+  - Ví dụ: ![Ví dụ](https://raw.githubusercontent.com/scottrbailey/WLED-Utils/master/gifs/FX_112.gif)
+- [🌈 Bảng màu LED](/argb-hsl/features/palettes)  
+  - Ví dụ: ![Ví dụ](https://raw.githubusercontent.com/scottrbailey/WLED-Utils/master/gifs/PAL_46.gif)               
+- [📺 Video hướng dẫn](/argb-hsl/basics/tutorials)  
+
+🚀 Các **hiệu ứng có thể pha trộn (mix) với nhau** nên gần như **không giới hạn hiệu ứng** mà chỉ phụ thuộc vào sự sáng tạo của người sử dụng mạch.
 
 🚀 **Bộ điều khiển mạnh mẽ với khả năng triển khai nhanh chóng**, hỗ trợ **LED NeoPixel** (WS2812B, WS2811, SK6812, …) và các dòng LED SPI như WS2801, APA102!  
 
@@ -31,6 +35,8 @@ category: LED PIXEL
 
 ✅ Hỗ trợ **IR hồng ngoại**, cảm biến nhiệt, **cầu chì bảo vệ** LED.  
 ✅ 2 ngõ ra LED **3 chân độc lập** (hoặc 1 ngõ ra LED **4 chân**).  
+✅ PCB được thiết kế chắc chắn, **linh kiện chất lượng cao**, lắp ráp hoàn toàn bằng **dây chuyền robot tự động**.  
+✅ **2 ngõ ra LED 3 chân độc lập** (hoặc **1 ngõ ra LED 4 chân**).  
 
 🖼 **Hình ảnh PCB V1.0.0:**  
 
@@ -104,7 +110,6 @@ category: LED PIXEL
 
 ---
 
----
 
 ## 🎛 Ứng dụng điều khiển  
 
@@ -125,7 +130,6 @@ category: LED PIXEL
 
 ---
 
-## 🔗 Kết nối & API  
 
 ## 💡 Các Chuẩn Kết Nối ARGB Có Thể Sử Dụng  
 

@@ -17,27 +17,29 @@ category: LED PIXEL
 # 🎉 Bộ Điều Khiển Chip LED PIXEL ARGB IPEX V2.0 – Nhỏ Gọn, Sạc Pin Type-C! 🔥  
 
 📌 **Hướng dẫn nhanh:**  
-- [🛠 Bắt đầu cơ bản](basics/getting-started)  
-- [🎨 Hiệu ứng LED](features/effects)  
-- [🌈 Bảng màu LED](features/palettes)  
-- [📺 Video hướng dẫn](basics/tutorials)  
+- [🛠 Bắt đầu cơ bản](/argb-hsl/basics/getting-started)  
+- [🎨 Hiệu ứng LED](/argb-hsl/features/effects)  
+  - Ví dụ: ![Ví dụ](https://raw.githubusercontent.com/scottrbailey/WLED-Utils/master/gifs/FX_112.gif)
+- [🌈 Bảng màu LED](/argb-hsl/features/palettes)  
+  - Ví dụ: ![Ví dụ](https://raw.githubusercontent.com/scottrbailey/WLED-Utils/master/gifs/PAL_46.gif)               
+- [📺 Video hướng dẫn](/argb-hsl/basics/tutorials)  
 
-🚀 **Phiên bản V3.0 nâng cấp mạnh mẽ** với:  
-✅ **Sạc pin tiện lợi** qua cổng **USB Type-C**  
-✅ **Bảo vệ pin thông minh** với **IC quản lý sạc**  
-✅ **Siêu nhỏ gọn**, kích thước **chỉ 18mm x 45mm**  
-✅ Hỗ trợ **LED NeoPixel (WS2812B, WS2811, SK6812, …) & SPI LED (WS2801, APA102)**  
-✅ **2 ngõ ra LED** – tối đa **800 LED mỗi đầu ra**  
+🚀 Các **hiệu ứng có thể pha trộn (mix) với nhau** nên gần như **không giới hạn hiệu ứng** mà chỉ phụ thuộc vào sự sáng tạo của người sử dụng mạch.
+
+🚀 **Bộ điều khiển mạnh mẽ với khả năng triển khai nhanh chóng**, hỗ trợ **LED NeoPixel** (WS2812B, WS2811, SK6812, …) và các dòng LED SPI như WS2801, APA102!   
 
 ---
 
 ## 🔥 Bộ Điều Khiển LED PIXEL ARGB IPEX V2.0 – Cải Tiến Mới  
 
-- **Sạc pin thông qua Type-C**, dễ dàng sử dụng với pin lithium  
-- **Bảo vệ pin an toàn**, không lo quá tải hoặc xả quá mức  
-- **Kích thước nhỏ gọn**, thích hợp cho mọi dự án LED di động  
-- **Tích hợp 2 ngõ ra LED**, linh hoạt trong điều khiển hiệu ứng  
-- **Hỗ trợ cập nhật OTA**, dễ dàng nâng cấp firmware  
+✅ **Sạc pin qua Type-C**, dễ dàng sử dụng với pin lithium.  
+✅ **Bảo vệ pin an toàn**, chống quá tải và xả quá mức.  
+✅ **Kích thước nhỏ gọn**, phù hợp cho mọi dự án LED di động.  
+✅ **Tích hợp 2 ngõ ra LED**, linh hoạt trong điều khiển hiệu ứng.  
+✅ **Hỗ trợ cập nhật OTA**, dễ dàng nâng cấp firmware.  
+✅ **Hỗ trợ anten rời**, giúp tăng tầm bắt sóng.  
+✅ **Điện áp 5V**, PCB chắc chắn, linh kiện chất lượng cao.  
+✅ **Lắp ráp hoàn toàn bằng dây chuyền robot tự động**.   
 
 🖼 **Hình ảnh PCB LED PIXEL ARGB IPEX V2.0:**  
 
@@ -93,8 +95,6 @@ category: LED PIXEL
 
 ---
 
----
-
 ## 🎛 Ứng dụng điều khiển  
 
 ### 🖥 **Trên PC/Laptop:**  
@@ -114,7 +114,7 @@ category: LED PIXEL
 
 ---
 
-## 🔗 Kết nối & API  
+
 
 ## 💡 Các Chuẩn Kết Nối ARGB Có Thể Sử Dụng  
 

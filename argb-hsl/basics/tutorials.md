@@ -1,12 +1,12 @@
 ---
 title: Tutorials
-layout: page
+layout: post
 title: ARGB Tutorials
 meta-title: ARGB Tutorials
 # subtitle: "... Welcome to ARGB"
 bigimg:
-  - "/Topic/ARGB-LED/image/BANER__ARGB.jpg"
-image: "/Topic/ARGB-LED/image/BANER__ARGB.jpg"
+  - "/img/controller-chip/banner.png"
+image: "/img/controller-chip/argb-v1.png"
 tags: [Tutorialss, ARGBl, bluetooth]
 category: ARGB PIXEL HSL
 

@@ -60,6 +60,45 @@ Bạn muốn biến những buổi trình diễn thành một màn biểu diễn
 
 ✅ **Chế độ hiển thị đa dạng**: Hình ảnh tĩnh, động, sóng nhạc, hiệu ứng đặc biệt.
 
+---
+
+<h2>🚀 Thông số kĩ thuật</h2>
+<div class="specification">
+    <div class="box-spec">
+        <div class="icon-spec">
+          <img src="/img/img-common/dimension-icon-110x110px.png" alt="Visual Poi V5 Family">
+        </div>
+        <p><strong>Chiều dài ống:</strong><span style="float: right;"> 40 cm</span></p>
+        <p><strong>Đường kính ống:</strong><span style="float: right;"> 25 mm</span></p>
+        <p><strong>Trọng lượng:</strong><span style="float: right;"> 177 g</span></p>
+    </div>
+    <div class="box-spec">
+        <div class="icon-spec">
+          <img src="/img/img-common/led-icon-110x110px.png" alt="Visual Poi V5 Family">
+        </div>
+        <p><strong>Độ phân giải:</strong><span style="float: right;"> 160 px</span></p>
+        <p><strong>Số lượng LED:</strong><span style="float: right;" >320</span></p>
+        <p><strong>Độ sáng:</strong><span style="float: right;"> 1100 lm</span></p>
+    </div>
+    <div class="box-spec">
+        <div class="icon-spec">
+          <img src="/img/img-common/gear_icon-110x110px.png" alt="Visual Poi V5 Family">
+        </div>
+        <p><strong>Độ dài vệt sáng:</strong><span style="float: right;"> 350 mm</span> </p>
+        <p><strong>Tốc độ Render:</strong><span style="float: right;"> 1:1</span></p>
+        <p><strong>Color depth:</strong><span style="float: right;"> 12 bit / color</span></p>
+    </div>
+    <div class="box-spec">
+        <div class="icon-spec">
+          <img src="/img/img-common/battery_time_icon-110x110px.png" alt="Visual Poi V5 Family">
+        </div>
+        <p><strong>Thời lượng pin:</strong><span style="float: right;"> ~1.5 h</span></p>
+        <p><strong>Chế độ sáng tối đa:</strong><span style="float: right;"> 20 min</span></p>
+        <p><strong>Thời gian sạc:</strong><span style="float: right;"> 1.5 h</span></p>
+    </div>
+</div>
+
+
 !["Ảnh poi"](/img/poi-tools/visual-poi/poi4.jpg)
 
 

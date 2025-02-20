@@ -2,7 +2,7 @@
 layout: page
 meta-title: "Catalog HSL"
 bigimg:
-- "/img/Picture-HSL/BANER__ARGB_2.jpg"
+- "/img/Picture-HSL/HSL-index.png"
 ---
 
 <div class="gradient-bg">

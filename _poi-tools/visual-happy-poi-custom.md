@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Size tùy chọn | Gậy Led Magic - Đạo cụ VISUAL POI"
+title: "Size tùy chọn | Gậy Led Magic - Đạo cụ Visual HAPPY POI"
 meta-title: "Happy Poi - CUSTOM"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:

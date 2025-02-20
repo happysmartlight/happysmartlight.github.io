@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Size Cơ bản | Gậy Led Magic - Đạo cụ VISUAL POI"
+title: "Size Cơ bản | Gậy Led Magic - Đạo cụ Visual HAPPY POI"
 meta-title: "Happy Poi - CLASSIC"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:

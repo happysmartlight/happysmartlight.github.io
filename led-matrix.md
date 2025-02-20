@@ -3,7 +3,7 @@ layout: page
 title: "Pixel và Mega Pixel -  Magic LED HSL"
 meta-title: "Light Up Your Style"
 bigimg:
-- "/img/poi-tools/visual-poi/20240330_VisualPoiV5_067.jpg"
+- "/img/Picture-HSL/HSL-index.png"
 ---
 
 <!-- Layer 1 -->

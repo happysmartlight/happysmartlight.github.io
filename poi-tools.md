@@ -3,7 +3,7 @@ layout: page
 title: "Gậy LED Magic -  Magic LED HSL"
 meta-title: "Light Up Your Style"
 bigimg:
-- "/img/Picture-HSL/BANER__ARGB.jpg"
+- "/img/Picture-HSL/HSL-index.png"
 ---
 
 <!-- Layer 1 -->
@@ -23,7 +23,7 @@ bigimg:
       background-repeat: no-repeat; /* Không lặp lại ảnh nền */
         ">
   <div class="summary">
-    ✨Visual POI ARGB PIXEL✨
+    ✨Happy POI ARGB PIXEL✨
   </div>
   <div class="description-content-index-sp">
     💡Đây là dòng sản phẩm chất lượng cao.<br>
@@ -72,7 +72,7 @@ bigimg:
       background-repeat: no-repeat; /* Không lặp lại ảnh nền */
         ">
 	<div class="summary">
-	✨Visual HOOP ARGB PIXEL✨
+	✨Happy HOOP ARGB PIXEL✨
 	</div>
 	<div class="description-content-index-sp">
 	💡Đây là dòng sản phẩm chất lượng cao.<br>

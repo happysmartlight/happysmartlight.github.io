@@ -12,8 +12,8 @@ navbar-links:
     - Điều khiển LED Cabin: controller-chip#ledMatrix
     - Phát - thu sóng: controller-chip#signalWifi
   💡Visual LED: 
-    - Visual POI: poi-tools#visualPoi
-    - Visual HOOP: poi-tools#visualHoop
+    - Happy POI: poi-tools#visualPoi
+    - Happy HOOP: poi-tools#visualHoop
     - Nguồn và Pin: poi-tools#power
     - Khác: poi-tools#other
   💡Đạo cụ LED: 

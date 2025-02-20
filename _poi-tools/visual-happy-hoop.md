@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Múa vòng điệu nghệ - Đạo cụ VISUAL HOOP"
+title: "Múa vòng điệu nghệ - Đạo cụ Visual HAPPY HOOP"
 meta-title: "Happy Hoop"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:

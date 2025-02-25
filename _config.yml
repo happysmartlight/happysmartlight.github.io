@@ -1,7 +1,7 @@
 title: ✨Happy Smart Light✨
 description: >-
   Chuyên tư vấn giải pháp kỹ thuật, thiết kế, led Decor, quảng cáo,
-  sự kiện, led đạo cụ sân khấu, trình diển ánh sáng
+  sự kiện, led visual poi đạo cụ sân khấu, trình diển ánh sáng.
 site:
   url: /
   baseurl: /
@@ -24,12 +24,12 @@ navbar-links:
   ❓Về HSL:
     - Mạch ARGB HSL: ARGB-LED/index
     - Liên hệ với HSL: aboutme
-    - Đối tác với HSL: none
-    - Tư vấn, thiết kế: none
-    - Led Decor: none
-    - Led Dance: none
-    - Led Biển Hiệu: none
-    - Dịch vụ Order: none
+    - Đối tác với HSL: service#partner
+    - Tư vấn, thiết kế: service#consult
+    - Led Decor: service#decor
+    - Led Dance: service#dance
+    - Led Biển Hiệu: service#advertising
+    - Dịch vụ Order: service#order
   # 🗝️Tags: tags #thay thế bằng nút tìm kiếm.
 avatar: "/img/Picture-HSL/logo_hsl.png"
 author:
@@ -107,6 +107,9 @@ collections:
   controller-chip:
     output: true
     permalink: /controller-chip/:name/
+  service:
+    output: true
+    permalink: /service/:name/
 
 # Optionally, add permalink defaults (for better structure)
 permalink: pretty

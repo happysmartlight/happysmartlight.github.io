@@ -63,6 +63,14 @@ bigimg:
   </div>
 </div>
 
+<!-- Layer 1 -->
+
+<div class="gradient-bg">
+  <div class="gradient-text">
+    <p>Tỏa sáng theo cách của riêng bạn</p>
+  </div>
+</div>
+
 <div id="visualHoop" class="content-index" style="
       background: 
         linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
@@ -112,6 +120,14 @@ bigimg:
   </div>
 </div>
 
+<!-- Layer 1 -->
+
+<div class="gradient-bg">
+  <div class="gradient-text">
+    <p>Tỏa sáng theo cách của riêng bạn</p>
+  </div>
+</div>
+
 <div id="power" class="content-index" style="
       background: 
         linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
@@ -158,6 +174,15 @@ bigimg:
 		</p>
 	</div>
 	{% endunless %}
+  </div>
+</div>
+
+
+<!-- Layer 1 -->
+
+<div class="gradient-bg">
+  <div class="gradient-text">
+    <p>Tỏa sáng theo cách của riêng bạn</p>
   </div>
 </div>
 

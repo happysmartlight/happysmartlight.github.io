@@ -14,7 +14,7 @@ bigimg:
 <div class="content-index" style="
       background: 
         linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
-        url('/img/Picture-HSL/BANER__ARGB_1.jpg');
+        url('/img/Picture-HSL/HSL-index.png');
       background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
       background-position: center; /* Căn giữa ảnh nền */
       background-repeat: no-repeat; /* Không lặp lại ảnh nền */
@@ -61,7 +61,7 @@ bigimg:
 <div class="content-index" style="
       background: 
         linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
-        url('/img/Picture-HSL/BANER__ARGB_2.jpg');
+        url('/img/Picture-HSL/HSL-index.png');
       background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
       background-position: center; /* Căn giữa ảnh nền */
       background-repeat: no-repeat; /* Không lặp lại ảnh nền */
@@ -107,7 +107,7 @@ bigimg:
 <div class="content-index" style="
       background: 
         linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
-        url('/img/Picture-HSL/BANER__ARGB.jpg');
+        url('/img/Picture-HSL/HSL-index.png');
       background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
       background-position: center; /* Căn giữa ảnh nền */
       background-repeat: no-repeat; /* Không lặp lại ảnh nền */

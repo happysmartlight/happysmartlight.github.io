@@ -5,7 +5,7 @@ meta-title: "CUBE PIXEL LED"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/led-matrix/20240303_LumiCubeFT2InAction_029.jpg"
-image: "/img/led-matrix/20240326_LumiCubeFT2Product_028-732x1024.jpg"
+image: "/img/led-matrix/led-cube.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
 category: LED PIXEL
 

@@ -4,8 +4,8 @@ title: "Khối Led cầm tay CUBE PIXEL LED"
 meta-title: "CUBE PIXEL LED"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
-  - "/img/led-matrix/20240303_LumiCubeFT2InAction_029.jpg"
-image: "/img/led-matrix/led-cube.jpg"
+  - "/img/led-props/led-cube/BANNER.png"
+image: "/img/led-props/led-cube/led-cube.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
 category: LED PIXEL
 
@@ -15,16 +15,15 @@ category: LED PIXEL
 ---
 
 # LED CUBE – BƯỚC ĐỘT PHÁ TRONG NGHỆ THUẬT TRÌNH DIỄN ÁNH SÁNG
-
 ## Giới thiệu sản phẩm
 **LED CUBE** là một sản phẩm trình diễn ánh sáng đỉnh cao, được tạo nên từ những thanh LED Pixel khổng lồ. Thiết kế hình khối ba chiều kết hợp công nghệ hiển thị tiên tiến giúp LED CUBE mang lại hiệu ứng ánh sáng mãn nhãn, phù hợp với nhiều loại hình biểu diễn nghệ thuật hiện đại.
 
-!["led-fan"](/img/led-matrix/20240303_LumiCubeFT2InAction_002.jpg)
+!["led-fan"](/img/led-props/led-cube/20240303_LumiCubeFT2InAction_002.jpg)
 
 ## Công nghệ LED Pixel hiện đại
 Sử dụng công nghệ **LED Pixel thông minh**, LED CUBE có khả năng hiển thị hàng loạt hiệu ứng ánh sáng động theo nhạc, lập trình để đồng bộ với các yếu tố trình diễn khác. Nhờ khả năng điều khiển linh hoạt, sản phẩm có thể biến hóa không giới hạn, mang lại những trải nghiệm thị giác tuyệt vời.
 
-!["led-fan"](/img/led-matrix/20240303_LumiCubeFT2InAction_029.jpg)
+!["led-fan"](/img/led-props/led-cube/20240303_LumiCubeFT2InAction_029.jpg)
 
 ### Đặc điểm nổi bật:
 - **Hiệu ứng ánh sáng 3D sống động**: LED CUBE tạo ra một không gian ánh sáng huyền ảo, giúp người biểu diễn có thể sáng tạo không giới hạn.

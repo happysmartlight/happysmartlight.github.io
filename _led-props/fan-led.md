@@ -4,8 +4,8 @@ title: "Quạt Led cầm tay PIXEL - PIXEL Moon LED Fan v2"
 meta-title: "LED Fan"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
-  - "/img/led-matrix/20140909_crossclubfoceni_022.jpg"
-image: "/img/led-matrix/20130227_rgbledfans_012-495x495.jpg"
+  - "/img/led-props/led-fan/led-fan.jpg"
+image: "/img/led-props/led-fan/led-fan.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
 category: LED PIXEL
 
@@ -19,7 +19,7 @@ category: LED PIXEL
 
 **LED Matrix** từ **Happy Smart Light** là giải pháp đột phá dành cho sự kiện, sân khấu chuyên nghiệp. Hệ thống LED thông minh cho phép hiển thị **văn bản, hình ảnh, video** với độ sáng cao, hiệu ứng mượt mà, giúp tạo điểm nhấn ấn tượng cho mọi chương trình!
 
-!["led-fan"](/img/led-matrix/20140909_crossclubfoceni_019-495x495.jpg)
+!["led-fan"](/img/led-props/20140909_crossclubfoceni_019-495x495.jpg)
 
 ---
 
@@ -35,7 +35,7 @@ category: LED PIXEL
 
 🔹 **Tiết kiệm điện năng, tuổi thọ bền bỉ**.
 
-!["led-fan"](/img/led-matrix/20130227_rgbledfans_012-495x495.jpg)
+!["led-fan"](/img/led-props/20130227_rgbledfans_012-495x495.jpg)
 
 ---
 

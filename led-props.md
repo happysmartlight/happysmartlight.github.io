@@ -17,7 +17,7 @@ bigimg:
 <div id="ledPixel" class="content-index" style="
       background: 
         linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
-        url('/img/led-matrix/vtttt-min-concentrate.jpeg');
+        url('/img/Picture-HSL/HSL-index.png');
       background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
       background-position: center; /* Căn giữa ảnh nền */
       background-repeat: no-repeat; /* Không lặp lại ảnh nền */
@@ -32,7 +32,7 @@ bigimg:
   </div>
   {% assign hascategoryPosts = false %}
   <div class="details">
-    {% for post in site.led-matrix limit:8 %}
+    {% for post in site.led-props limit:8 %}
 	  {% if post.category == 'LED PIXEL' %}
     <div class="component">
       {% if post.image %}
@@ -89,8 +89,65 @@ bigimg:
 	</div>
 	{% assign hascategoryPosts = false %}
 	<div class="details">
-    {% for post in site.led-matrix limit:8 %}
+    {% for post in site.led-props limit:8 %}
 	  {% if post.category == 'MATRIX' %}
+    <div class="component">
+      {% if post.image %}
+      <!-- Ảnh đại diện bài đăng -->
+      <a href="{{ post.url | prepend: site.baseurl }}">
+        <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
+      </a>
+      {% endif %}
+      <!-- Tiêu đề bài đăng -->
+      <a href="{{ post.url | prepend: site.baseurl }}">
+        {% if post.meta-title %}
+        <div class="component-name">{{ post["meta-title"] }}</div>
+        {% else %}
+        <div class="component-name">{{ post.title }}</div>
+        {% endif %}
+      </a>
+    </div>
+	{% assign hascategoryPosts = true %}
+	{% endif %}
+    {% endfor %}
+	<!-- Report hascategoryPosts -->
+	{% unless hascategoryPosts %}
+	<div class="text-center">
+		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng chờ thêm một thời gian ngắn nữa.
+		</p>
+	</div>
+	{% endunless %}
+  </div>
+</div>
+
+<!-- Layer 1 -->
+
+<div class="gradient-bg">
+  <div class="gradient-text">
+    <p>Tỏa sáng theo cách của riêng bạn</p>
+  </div>
+</div>
+
+<div id="laser" class="content-index" style="
+      background: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
+        url('/img/Picture-HSL/HSL-index.png');
+      background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
+      background-position: center; /* Căn giữa ảnh nền */
+      background-repeat: no-repeat; /* Không lặp lại ảnh nền */
+        ">
+	<div class="summary">
+	✨Laser Series✨
+	</div>
+	<div class="description-content-index-sp">
+	💡Đèn laser hiệu suất cao, đa dạng mẫu mã.<br>
+	💡Được thiết kế và gia công trên dây chuyển hiện đại. <br>
+	💡Chùm tia sắc nét, mạnh mẽ, phù hợp sân khấu & trình diễn.
+	</div>
+  	{% assign hascategoryPosts = false %}
+	<div class="details">
+    {% for post in site.led-props limit:8 %}
+	{% if post.category == 'Laser' %}
     <div class="component">
       {% if post.image %}
       <!-- Ảnh đại diện bài đăng -->
@@ -146,7 +203,7 @@ bigimg:
 	</div>
   	{% assign hascategoryPosts = false %}
 	<div class="details">
-    {% for post in site.controller-chip limit:8 %}
+    {% for post in site.led-props limit:8 %}
 	{% if post.category == 'POWER' %}
     <div class="component">
       {% if post.image %}
@@ -203,7 +260,7 @@ bigimg:
 	</div>
   	{% assign hascategoryPosts = false %}
 	<div class="details">
-    {% for post in site.controller-chip limit:8 %}
+    {% for post in site.led-props limit:8 %}
 	{% if post.category == 'OTHER' %}
     <div class="component">
       {% if post.image %}

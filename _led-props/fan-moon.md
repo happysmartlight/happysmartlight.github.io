@@ -4,8 +4,8 @@ title: "Quạt Led cầm tay PIXEL - PIXEL Moon LED Fan v1"
 meta-title: "Moon Fan"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
-  - "/img/led-matrix/20181120_moonfanspetraskodova_019.jpg"
-image: "/img/led-matrix/20181120_moonfanspetraskodova_034-495x495.jpg"
+  - "/img/led-props/led-fan/led-fan.jpg"
+image: "/img/led-props/led-fan/led-fan.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
 category: LED PIXEL
 
@@ -19,12 +19,12 @@ category: LED PIXEL
 ## Giới thiệu sản phẩm
 Quạt LED PIXEL cầm tay là sự kết hợp hoàn hảo giữa nghệ thuật múa quạt truyền thống và công nghệ LED hiện đại. Với khả năng hiển thị hình ảnh, hiệu ứng ánh sáng đầy mê hoặc, sản phẩm này giúp người biểu diễn tạo ra những màn trình diễn huyền ảo và ấn tượng.
 
-!["led-fan"](/img/led-matrix/20181120_vividlightshow_012.jpg)
+!["led-fan"](/img/led-props/20181120_vividlightshow_012.jpg)
 
 ## Công nghệ hiển thị hình ảnh động
 Quạt LED PIXEL sử dụng công nghệ **Persistence of Vision (POV)**, cho phép hiển thị hình ảnh, hoa văn và hiệu ứng ánh sáng theo từng chuyển động của nghệ sĩ. Nhờ vào hệ thống LED độ phân giải cao, sản phẩm có thể đồng bộ hiệu ứng với nhạc, giúp tăng tính tương tác và sáng tạo trong các màn trình diễn.
 
-!["led-fan"](/img/led-matrix/20181120_vividlightshow_021.jpg)
+!["led-fan"](/img/led-props/20181120_vividlightshow_021.jpg)
 
 ### Đặc điểm nổi bật:
 - **Hiển thị hình ảnh sống động**: Quạt có thể lập trình để hiển thị logo, ký tự, hoa văn và hiệu ứng theo yêu cầu.

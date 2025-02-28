@@ -4,8 +4,8 @@ title: "Bảng Led cầm tay MATRIX LED"
 meta-title: "H2 Matrix"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
-  - "/img/led-matrix/BANNER.png"
-image: "/img/led-matrix/matrix4.jpg"
+  - "/img/led-props/BANNER.png"
+image: "/img/led-props/matrix4.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
 category: MATRIX
 

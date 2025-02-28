@@ -67,7 +67,7 @@ bigimg:
       background-repeat: no-repeat; /* Không lặp lại ảnh nền */
         ">
   <div class="summary">
-    ✨Matrix LED✨
+    ✨Đạo cụ LED trình diễn✨
   </div>
   <div class="description-content-index-sp">
     💡Đây là dòng sản phẩm LED hiện đại.<br>
@@ -75,7 +75,7 @@ bigimg:
     💡Trình diễn ánh sáng chất lượng cao.
   </div>
   <div class="details">
-    {% for post in site.led-matrix limit:8 %}
+    {% for post in site.led-props limit:8 %}
     <div class="component">
       {% if post.image %}
       <!-- Ảnh đại diện bài đăng -->

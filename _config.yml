@@ -17,10 +17,11 @@ navbar-links:
     - Nguồn và Pin: poi-tools#power
     - Khác: poi-tools#other
   💡Đạo cụ LED: 
-    - Led Pixel: led-matrix#ledPixel
-    - Led Module: led-matrix#ledMatrix
-    - Nguồn và Pin: led-matrix#power
-    - Khác: led-matrix#other
+    - Led Pixel: led-props#ledPixel
+    - Led Module: led-props#ledMatrix
+    - Laser Series: led-props#laser
+    - Nguồn và Pin: led-props#power
+    - Khác: led-props#other
   ❓Về HSL:
     - Mạch ARGB HSL: ARGB-LED/index
     - Liên hệ với HSL: aboutme
@@ -101,9 +102,9 @@ collections:
   poi-tools:
     output: true       # Bật output để Jekyll tạo file HTML cho các bài viết trong collection này
     permalink: /poi-tools/:name/  # Định nghĩa cấu trúc URL cho bài viết
-  led-matrix:
+  led-props:
     output: true
-    permalink: /led-matrix/:name/
+    permalink: /led-props/:name/
   controller-chip:
     output: true
     permalink: /controller-chip/:name/

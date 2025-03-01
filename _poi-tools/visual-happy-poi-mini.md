@@ -4,8 +4,8 @@ title: "Size MINI | Gậy Led Magic - Đạo cụ Visual HAPPY POI"
 meta-title: "Happy Poi - MINI"
 # # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
-  - "/img/poi-tools/visual-poi-banner.jpg"
-image: "/img/poi-tools/visual-poi/poi1.jpg"
+  - "/img/poi-tools/visual-poi/center-poi.jpg"
+image: "/img/poi-tools/visual-poi/center-poi.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
 category: VISUAL POI PIXEL
 # author: "BangNguyen"
@@ -14,13 +14,13 @@ category: VISUAL POI PIXEL
 # 🌟 Đạo Cụ LED Visual Tạo Hiệu Ứng POV – Đỉnh Cao Trình Diễn Ánh Sáng!
 
 <div class="post-img-post">
-  <img src="/img/poi-tools/visual-poi/Visual-Poi-V5-family-1024x683.jpg" alt="Visual Poi V5 Family">
+  <img src="/img/poi-tools/visual-poi/full-poi.jpg" alt="Visual Poi V5 Family">
   <p>Các kích thước HSL cung cấp sẳn</p>
 </div>
 
 
 <div class="post-img-post">
-  <img src="/img/poi-tools/visual-poi/Visual-Poi-V5-MINI-catalog-1024x819.jpg">
+  <img src="/img/poi-tools/visual-poi/poi.jpg">
   <p>Sự lựa chọn tối ưu - MINI</p>
 </div>
 
@@ -29,7 +29,7 @@ category: VISUAL POI PIXEL
 
 Bạn muốn biến những buổi trình diễn thành một màn biểu diễn ánh sáng mãn nhãn? **Đạo cụ LED Visual tạo hiệu ứng POV** từ **Happy Smart Light** chính là lựa chọn hoàn hảo để mang lại trải nghiệm thị giác độc đáo, đẳng cấp chuyên nghiệp!
 
-!["Ảnh poi"](/img/poi-tools/visual-poi/poi2.jpg)
+!["Ảnh poi"](/img/poi-tools/visual-poi/left-poi.jpg)
 
 ---
 
@@ -43,7 +43,7 @@ Bạn muốn biến những buổi trình diễn thành một màn biểu diễn
 
 🔹 **Tùy chỉnh nội dung dễ dàng** qua phần mềm chuyên dụng, hỗ trợ nhiều định dạng hình ảnh.
 
-!["Ảnh poi"](/img/poi-tools/visual-poi/poi1.jpg)
+!["Ảnh poi"](/img/poi-tools/visual-poi/left-poi.jpg)
 
 ---
 
@@ -58,7 +58,7 @@ Bạn muốn biến những buổi trình diễn thành một màn biểu diễn
 
 ✅ **Chế độ hiển thị đa dạng**: Hình ảnh tĩnh, động, sóng nhạc, hiệu ứng đặc biệt.
 
-!["Ảnh poi"](/img/poi-tools/visual-poi/poi4.jpg)
+!["Ảnh poi"](/img/poi-tools/visual-poi/left-poi.jpg)
 
 ---
 
@@ -104,7 +104,7 @@ Bạn muốn biến những buổi trình diễn thành một màn biểu diễn
 
 🎪 **Chụp ảnh & quay video nghệ thuật**: Hiệu ứng POV tạo khung hình lung linh đầy sáng tạo.
 
-!["Ảnh poi"](/img/poi-tools/visual-poi/poi6.jpg)
+!["Ảnh poi"](/img/poi-tools/visual-poi/left-poi.jpg)
 
 ---
 

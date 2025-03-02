@@ -5,7 +5,7 @@ meta-title: "Happy Hoop"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/poi-tools/Visual-Hoop-banner.jpg"
-image: "/img/poi-tools/visual-hoop/visual-hoop.jpg"
+image: "/img/poi-tools/visual-poi/ung-dung-2.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
 category: VISUAL HOOP PIXEL
 

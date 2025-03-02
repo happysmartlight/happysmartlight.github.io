@@ -5,7 +5,7 @@ meta-title: "Happy Poi - CUSTOM"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/poi-tools/visual-poi/center-poi.jpg"
-image: "/img/poi-tools/visual-poi/center-poi.jpg"
+image: "/img/poi-tools/visual-poi/ung-dung-1.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
 category: VISUAL POI PIXEL
 
@@ -39,7 +39,7 @@ Bạn muốn biến những buổi trình diễn thành một màn biểu diễn
 
 🔹 **Tùy chỉnh nội dung dễ dàng** qua phần mềm chuyên dụng, hỗ trợ nhiều định dạng hình ảnh.
 
-!["Ảnh poi"](/img/poi-tools/visual-poi/left-poi.jpg)
+!["Ảnh poi"](/img/poi-tools/visual-poi/ung-dung-3.jpg)
 
 ---
 
@@ -54,7 +54,7 @@ Bạn muốn biến những buổi trình diễn thành một màn biểu diễn
 
 ✅ **Chế độ hiển thị đa dạng**: Hình ảnh tĩnh, động, sóng nhạc, hiệu ứng đặc biệt.
 
-!["Ảnh poi"](/img/poi-tools/visual-poi/left-poi.jpg)
+!["Ảnh poi"](/img/poi-tools/visual-poi/ung-dung-2.jpg)
 
 ---
 
@@ -99,7 +99,7 @@ Bạn muốn biến những buổi trình diễn thành một màn biểu diễn
 
 🎪 **Chụp ảnh & quay video nghệ thuật**: Hiệu ứng POV tạo khung hình lung linh đầy sáng tạo.
 
-!["Ảnh poi"](/img/poi-tools/visual-poi/left-poi.jpg)
+!["Ảnh poi"](/img/poi-tools/visual-poi/ung-dung-1.jpg)
 
 ---
 

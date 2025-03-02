@@ -20,7 +20,7 @@ category: VISUAL POI PIXEL
   <p>Các kích thước HSL cung cấp sẳn</p>
 </div>
 
-<div style="text-align: center;">
+<div class="post-img-post">
   <video width="360" height="640" controls>
     <source src="/img/poi-tools/visual-poi/video/6367212513783.mp4" type="video/mp4">
     Your browser does not support the video tag.
@@ -33,6 +33,7 @@ category: VISUAL POI PIXEL
     <source src="/img/poi-tools/visual-poi/video/6367212530616.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+  <p>Cosmic Light sử dụng Chip FT2 Lighttoys</p>
 </div>
 
 <div class="post-img-post">

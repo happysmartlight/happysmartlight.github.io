@@ -33,6 +33,21 @@ Bạn muốn biến những buổi trình diễn thành một màn biểu diễn
 
 🔹 **Tùy chỉnh nội dung dễ dàng** qua phần mềm chuyên dụng, hỗ trợ nhiều định dạng hình ảnh.
 
+<div class="post-img-post">
+  <video width="360" height="640" controls>
+    <source src="/img/poi-tools/visual-poi/video/6367212513783.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <video width="360" height="640" controls>
+    <source src="/img/poi-tools/visual-poi/video/6367212530350.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <video width="360" height="640" controls>
+    <source src="/img/poi-tools/visual-poi/video/6367212530616.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <p>Cosmic Light sử dụng Chip FT2 Lighttoys</p>
+</div>
 
 !["Ảnh hoop"](/img/poi-tools/visual-hoop/20210115_VisualHoop_016.jpg)
 

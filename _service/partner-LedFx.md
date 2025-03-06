@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Bộ mạch điều khiển đa năng các loại Chip LED PIXEL ARGB IPEX V1.0"
-meta-title: "Controller ARGB IPEX V1.0"
+title: "LedFx Tech"
+meta-title: "LedFx Tech"
 ## subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/controller-chip/banner.png"
 image: "/img/controller-chip/argb_IPEX_ver1.0.png"
 tags: hsl, happy, smart, light, visual, led, poi
-category: LED PIXEL
+category: partner
 
 
 # author: "BangNguyen"

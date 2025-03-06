@@ -4,7 +4,7 @@ title: Happy Smart Light
 meta-title: Happy Smart Light
 # subtitle: "HSL – Nơi ánh sáng trở thành nghệ thuật!"
 bigimg:
-- "/img/Picture-HSL/banner-aboutme.png"
+- "/img/Picture-HSL/banner-bale.jpg"
 ---
 
 ## **Giới Thiệu Về Công Ty TNHH Thương Mại và Công Nghệ Happy Smart Light**

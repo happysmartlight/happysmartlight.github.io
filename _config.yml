@@ -23,8 +23,8 @@ navbar-links:
     - Nguồn và Pin: led-props#power
     - Khác: led-props#other
   ❓Về HSL:
-    - Mạch ARGB HSL: ARGB-LED/index
     - Liên hệ với HSL: aboutme
+    - Training: service#training
     - Đối tác với HSL: service#partner
     - Tư vấn, thiết kế: service#consult
     - Led Decor: service#decor

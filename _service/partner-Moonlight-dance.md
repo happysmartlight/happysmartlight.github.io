@@ -1,20 +1,20 @@
 ---
 layout: post
-title: "Bộ mạch điều khiển đa năng các loại Chip LED PIXEL ARGB V1.0"
-meta-title: "Controller ARGB V1.0"
+title: "Moonlight Dance Group"
+meta-title: "Moonlight Dance"
 ## subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/controller-chip/banner.png"
-image: "/img/controller-chip/argb-v1.png"
+image: "/img/controller-chip/argb_IPEX_ver1.0.png"
 tags: hsl, happy, smart, light, visual, led, poi
-category: LED PIXEL
+category: partner
 
 
 # author: "BangNguyen"
 # comments: true
 ---
 
-# 🎉 Chào mừng đến với Bộ Điều Khiển LED ARGB! ✨  
+# 🎉 Chào mừng đến với Bộ Điều Khiển Chip LED PIXEL ARGB IPEX V1.0! ✨  
 
 📌 **Hướng dẫn nhanh:**  
 
@@ -28,37 +28,20 @@ category: LED PIXEL
 🚀 Các **hiệu ứng có thể pha trộn (mix) với nhau** nên gần như **không giới hạn hiệu ứng** mà chỉ phụ thuộc vào sự sáng tạo của người sử dụng mạch.
 
 🚀 **Bộ điều khiển mạnh mẽ với khả năng triển khai nhanh chóng**, hỗ trợ **LED NeoPixel** (WS2812B, WS2811, SK6812, …) và các dòng LED SPI như WS2801, APA102!  
-
 ---
 
-## 🔥 Bộ điều khiển V1.0.0  
+## 🔥 Bộ điều khiển Chip LED PIXEL ARGB IPEX V1.0  
 
-✅ Hỗ trợ **IR hồng ngoại**, cảm biến nhiệt, **cầu chì bảo vệ** LED.  
-✅ 2 ngõ ra LED **3 chân độc lập** (hoặc 1 ngõ ra LED **4 chân**).  
+✅ Với bộ điều khiển thế hệ mới **ARGB IPEX V1.0**, hỗ trợ **anten rời** giúp tăng tầm bắt sóng.  
+✅ **Điện áp 5V**, kích thước mạch nhỏ gọn, **tích hợp cổng Type-C** tiện lợi.  
 ✅ PCB được thiết kế chắc chắn, **linh kiện chất lượng cao**, lắp ráp hoàn toàn bằng **dây chuyền robot tự động**.  
 ✅ **2 ngõ ra LED 3 chân độc lập** (hoặc **1 ngõ ra LED 4 chân**).  
 
-🖼 **Hình ảnh PCB V1.0.0:**  
+🖼 **Hình ảnh PCB Chip LED PIXEL ARGB IPEX V1.0:**  
 
 <div class="image-gallery">
-   <img src="/ARGB-LED/image/3D_box_PCB1_2024-06-16.png" alt="3D PCB 1">
-   <img src="/ARGB-LED/image/3D_PCB1_mat-truoc.png" alt="Mặt trước PCB 1">
-   <img src="/ARGB-LED/image/3D_PCB1_mat-sau.png" alt="Mặt sau PCB 1">
-   <img src="/ARGB-LED/image/3D_PCB1.png" alt="3D PCB tổng thể">
-</div>
-
----
-
-## 🔥 Bộ điều khiển V2.0.0  
-
-✅ Kích thước **siêu nhỏ gọn**: **22mm x 52mm**.  
-
-🖼 **Hình ảnh PCB V2.0.0:**  
-
-<div class="image-gallery">
-   <img src="/ARGB-LED/image/v2.0.0_3D_PCB1_2024-12-04.png" alt="3D PCB 2">
-   <img src="/ARGB-LED/image/v2.0.0-3D_PCB1_2024-12-04-mat truoc.png" alt="Mặt trước PCB 2">
-   <img src="/ARGB-LED/image/v2.0.0-3D_PCB1_2024-12-04-mat sau.png" alt="Mặt sau PCB 2">
+   <img src="/img/controller-chip/argb_IPEX_ver1.0_TOP.png" alt="MẶT TRƯỚC">
+   <img src="/img/controller-chip/argb_IPEX_ver1.0_BOT.png" alt="MẶT SAU">
 </div>
 
 ---
@@ -109,7 +92,6 @@ category: LED PIXEL
 ✅ **Tự động giới hạn độ sáng** – bảo vệ thiết bị.  
 
 ---
-
 
 ## 🎛 Ứng dụng điều khiển  
 

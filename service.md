@@ -6,6 +6,64 @@ bigimg:
 - "/img/Picture-HSL/HSL-index.png"
 ---
 
+<div class="gradient-bg">
+  <div class="gradient-text">
+    <p>Tỏa sáng theo cách của riêng bạn</p>
+  </div>
+</div>
+
+<div id="training" class="content-index" style="
+      background: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
+        url('/img/Picture-HSL/HSL-index.png');
+      background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
+      background-position: center; /* Căn giữa ảnh nền */
+      background-repeat: no-repeat; /* Không lặp lại ảnh nền */
+        ">
+  <div class="summary">
+    ✨Support & Training✨
+  </div>
+  <div class="description-content-index-sp">
+  💡Tài liệu sử dụng cơ bản mạch ARGB.<br>
+  💡Hợp tác nhằm mang lại giải pháp công nghệ tiên tiến nhất.<br>
+  💡Cùng phát triển hệ sinh thái LED thông minh, sáng tạo.<br>
+  💡Cam kết chất lượng và sự hài lòng của khách hàng.<br>
+  </div>
+
+  {% assign hascategoryPosts = false %}
+  <div class="details">
+    {% for post in site.service limit:8 %}
+	  {% if post.category == 'training' %}
+    <div class="component">
+      {% if post.image %}
+      <!-- Ảnh đại diện bài đăng -->
+      <a href="{{ post.url | prepend: site.baseurl }}">
+        <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
+      </a>
+      {% endif %}
+      <!-- Tiêu đề bài đăng -->
+      <a href="{{ post.url | prepend: site.baseurl }}">
+        {% if post.meta-title %}
+        <div class="component-name">{{ post["meta-title"] }}</div>
+        {% else %}
+        <div class="component-name">{{ post.title }}</div>
+        {% endif %}
+      </a>
+    </div>
+	{% assign hascategoryPosts = true %}
+	{% endif %}
+    {% endfor %}
+	<!-- Report hascategoryPosts -->
+	{% unless hascategoryPosts %}
+	<div class="text-center">
+		<p>Hiện danh sách đối tác đang được cập nhật, quý khách vui lòng chờ thêm một thời gian ngắn nữa.
+		</p>
+	</div>
+	{% endunless %}
+  </div>
+</div>
+
+
 <!-- Layer 1 -->
 
 <div class="gradient-bg">

@@ -1,22 +1,23 @@
 ---
 layout: post
-title: "Bộ mạch điều khiển đa năng các loại Chip LED PIXEL ARGB IPEX V2.0"
-meta-title: "Controller ARGB IPEX V2.0"
-# subtitle: "... Connect device to the Wi-Fi network"
+title: "Sức Sống Dance Group"
+meta-title: "Sức Sống Dance"
+## subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/controller-chip/banner.png"
-image: "/img/controller-chip/argb_IPEX_ver2.0.png"
+image: "/img/controller-chip/argb_IPEX_ver1.0.png"
 tags: hsl, happy, smart, light, visual, led, poi
-category: LED PIXEL
+category: partner
 
 
 # author: "BangNguyen"
 # comments: true
 ---
 
-# 🎉 Bộ Điều Khiển Chip LED PIXEL ARGB IPEX V2.0 – Nhỏ Gọn, Sạc Pin Type-C! 🔥  
+# 🎉 Chào mừng đến với Bộ Điều Khiển Chip LED PIXEL ARGB IPEX V1.0! ✨  
 
 📌 **Hướng dẫn nhanh:**  
+
 - [🛠 Bắt đầu cơ bản](/argb-hsl/basics/getting-started)  
 - [🎨 Hiệu ứng LED](/argb-hsl/features/effects)  
   - Ví dụ: ![Ví dụ](https://raw.githubusercontent.com/scottrbailey/WLED-Utils/master/gifs/FX_112.gif)
@@ -26,29 +27,26 @@ category: LED PIXEL
 
 🚀 Các **hiệu ứng có thể pha trộn (mix) với nhau** nên gần như **không giới hạn hiệu ứng** mà chỉ phụ thuộc vào sự sáng tạo của người sử dụng mạch.
 
-🚀 **Bộ điều khiển mạnh mẽ với khả năng triển khai nhanh chóng**, hỗ trợ **LED NeoPixel** (WS2812B, WS2811, SK6812, …) và các dòng LED SPI như WS2801, APA102!   
+🚀 **Bộ điều khiển mạnh mẽ với khả năng triển khai nhanh chóng**, hỗ trợ **LED NeoPixel** (WS2812B, WS2811, SK6812, …) và các dòng LED SPI như WS2801, APA102!  
+---
+
+## 🔥 Bộ điều khiển Chip LED PIXEL ARGB IPEX V1.0  
+
+✅ Với bộ điều khiển thế hệ mới **ARGB IPEX V1.0**, hỗ trợ **anten rời** giúp tăng tầm bắt sóng.  
+✅ **Điện áp 5V**, kích thước mạch nhỏ gọn, **tích hợp cổng Type-C** tiện lợi.  
+✅ PCB được thiết kế chắc chắn, **linh kiện chất lượng cao**, lắp ráp hoàn toàn bằng **dây chuyền robot tự động**.  
+✅ **2 ngõ ra LED 3 chân độc lập** (hoặc **1 ngõ ra LED 4 chân**).  
+
+🖼 **Hình ảnh PCB Chip LED PIXEL ARGB IPEX V1.0:**  
+
+<div class="image-gallery">
+   <img src="/img/controller-chip/argb_IPEX_ver1.0_TOP.png" alt="MẶT TRƯỚC">
+   <img src="/img/controller-chip/argb_IPEX_ver1.0_BOT.png" alt="MẶT SAU">
+</div>
 
 ---
 
-## 🔥 Bộ Điều Khiển LED PIXEL ARGB IPEX V2.0 – Cải Tiến Mới  
-
-✅ **Sạc pin qua Type-C**, dễ dàng sử dụng với pin lithium.  
-✅ **Bảo vệ pin an toàn**, chống quá tải và xả quá mức.  
-✅ **Kích thước nhỏ gọn**, phù hợp cho mọi dự án LED di động.  
-✅ **Tích hợp 2 ngõ ra LED**, linh hoạt trong điều khiển hiệu ứng.  
-✅ **Hỗ trợ cập nhật OTA**, dễ dàng nâng cấp firmware.  
-✅ **Hỗ trợ anten rời**, giúp tăng tầm bắt sóng.  
-✅ **Điện áp 5V**, PCB chắc chắn, linh kiện chất lượng cao.  
-✅ **Lắp ráp hoàn toàn bằng dây chuyền robot tự động**.   
-
-🖼 **Hình ảnh PCB LED PIXEL ARGB IPEX V2.0:**  
-
-![3D PCB LED PIXEL ARGB IPEX V2.0](/img/controller-chip/argb_IPEX_ver2.0_TOP.png)  
-![3D PCB LED PIXEL ARGB IPEX V2.0](/img/controller-chip/argb_IPEX_ver2.0_BOT.png)  
-
----
-
-## 💡 Các Loại LED Được Hỗ Trợ  
+## 💡 Các loại chip LED được hỗ trợ  
 
 🔗 [Danh sách chi tiết các chip LED](basics/compatible-led-strips)  
 
@@ -65,7 +63,7 @@ category: LED PIXEL
 | UCS8904 RGBW         |                         |
 | WS2801               |                         |
 
-### 📌 PWM & Các Giao Thức Khác  
+### 📌 PWM & Các giao thức khác  
 
 | **PWM**              | **Khác**                 |
 |----------------------|-------------------------|
@@ -79,19 +77,19 @@ category: LED PIXEL
 
 ---
 
-## ⚙️ Tính Năng Nổi Bật  
+## ⚙️ Tính năng nổi bật  
 
-✅ **180+ hiệu ứng đặc biệt** với thư viện **WS2812FX**  
-✅ **FastLED** hỗ trợ **50 bảng màu** sinh động  
-✅ **Phân đoạn LED linh hoạt** – tạo hiệu ứng riêng cho từng phần  
-✅ **Kết nối WiFi thông minh**, quản lý từ xa  
-✅ **Hỗ trợ 2 ngõ ra LED** – tối đa **800 LED mỗi đầu ra**  
-✅ **Lưu trữ đến 250 Preset** – dễ dàng chuyển đổi giữa các hiệu ứng  
-✅ **Tích hợp API, MQTT, HTTP, UDP**  
-✅ **Hỗ trợ cập nhật OTA** – bảo mật bằng mật khẩu  
-✅ **Chức năng đèn ngủ** – giảm độ sáng tự động  
-✅ **Đồng hồ LED Analog & Cronixie**  
-✅ **Tự động giới hạn độ sáng** – an toàn cho LED  
+✅ **180+ hiệu ứng đặc biệt** với thư viện **WS2812FX**.  
+✅ **FastLED** hỗ trợ **50 bảng màu** sinh động.  
+✅ **Phân đoạn LED linh hoạt** – tạo hiệu ứng riêng cho từng phần.  
+✅ **Kết nối WiFi thông minh**, quản lý từ xa.  
+✅ **Hỗ trợ 2 ngõ ra LED** – tối đa **800 LED mỗi đầu ra**.  
+✅ **Lưu trữ đến 250 Preset** – dễ dàng chuyển đổi giữa các hiệu ứng.  
+✅ **Tích hợp API, MQTT, HTTP, UDP**.  
+✅ **Hỗ trợ cập nhật OTA** – bảo mật bằng mật khẩu.  
+✅ **Chức năng đèn ngủ** – giảm độ sáng tự động.  
+✅ **Đồng hồ LED Analog & Cronixie**.  
+✅ **Tự động giới hạn độ sáng** – bảo vệ thiết bị.  
 
 ---
 

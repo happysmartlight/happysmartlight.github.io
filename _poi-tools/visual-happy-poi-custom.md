@@ -5,7 +5,7 @@ meta-title: "Happy Poi - CUSTOM"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/poi-tools/visual-poi/center-poi.jpg"
-image: "/img/poi-tools/visual-poi/ung-dung-1.jpg"
+image: "/img/poi-tools/visual-poi/visual-poi-2.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
 category: VISUAL POI PIXEL
 

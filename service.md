@@ -25,7 +25,7 @@ bigimg:
   </div>
   <div class="description-content-index-sp">
   💡Tài liệu sử dụng cơ bản mạch ARGB.<br>
-  💡Hợp tác nhằm mang lại giải pháp công nghệ tiên tiến nhất.<br>
+  💡Các khóa học từ cơ bản đến nâng cao kiến thức LED, lập trình LED, cài đặt thiết bị.<br>
   💡Cùng phát triển hệ sinh thái LED thông minh, sáng tạo.<br>
   💡Cam kết chất lượng và sự hài lòng của khách hàng.<br>
   </div>

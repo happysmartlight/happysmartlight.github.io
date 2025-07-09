@@ -38,16 +38,7 @@ category: LED PIXEL
 ✅ PCB được thiết kế chắc chắn, **linh kiện chất lượng cao**, lắp ráp hoàn toàn bằng **dây chuyền robot tự động**.  
 ✅ **2 ngõ ra LED 3 chân độc lập** (hoặc **1 ngõ ra LED 4 chân**).  
 
-🖼 **Hình ảnh PCB V1.0.0:**  
 
-<div class="image-gallery">
-   <img src="/ARGB-LED/image/3D_box_PCB1_2024-06-16.png" alt="3D PCB 1">
-   <img src="/ARGB-LED/image/3D_PCB1_mat-truoc.png" alt="Mặt trước PCB 1">
-   <img src="/ARGB-LED/image/3D_PCB1_mat-sau.png" alt="Mặt sau PCB 1">
-   <img src="/ARGB-LED/image/3D_PCB1.png" alt="3D PCB tổng thể">
-</div>
-
----
 
 ## 🔥 Bộ điều khiển V2.0.0  
 
@@ -56,10 +47,26 @@ category: LED PIXEL
 🖼 **Hình ảnh PCB V2.0.0:**  
 
 <div class="image-gallery">
-   <img src="/ARGB-LED/image/v2.0.0_3D_PCB1_2024-12-04.png" alt="3D PCB 2">
-   <img src="/ARGB-LED/image/v2.0.0-3D_PCB1_2024-12-04-mat truoc.png" alt="Mặt trước PCB 2">
-   <img src="/ARGB-LED/image/v2.0.0-3D_PCB1_2024-12-04-mat sau.png" alt="Mặt sau PCB 2">
+   <img src="/argb-hsl/image/v2.0.0_3D_PCB1_2024-12-04.png" alt="3D PCB 2">
 </div>
+
+<link rel="stylesheet" href="/argb-hsl/assets/js/styles.css">
+<div class="image-gallery">
+   <div class="image-item">
+      <img src="/argb-hsl/image/v2.0.0_3D_PCB1_2024-12-04.png" alt="Image 1" onclick="openModal(this.src)">
+   </div>
+   <div class="image-item">
+      <img src="/argb-hsl/image/v2.0.0-3D_PCB1_2024-12-04-mat truoc.png" alt="Image 2" onclick="openModal(this.src)">
+   </div>
+   <div class="image-item">
+      <img src="/argb-hsl/image/3D_PCB1_mat-sau.png" alt="Image 3" onclick="openModal(this.src)">
+   </div>
+   <div class="image-item">
+      <img src="/argb-hsl/image/v2.0.0-3D_PCB1_2024-12-04-mat sau.png" alt="Image 4" onclick="openModal(this.src)">
+   </div>
+</div>
+
+
 
 ---
 

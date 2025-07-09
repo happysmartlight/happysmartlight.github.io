@@ -14,19 +14,19 @@ hide:
 
 ### 💡 Thông tin chi tiết sản phẩm
 
-<link rel="stylesheet" href="/Topic/ARGB-LED/assets/js/styles.css">
+<link rel="stylesheet" href="/argb-hsl/assets/js/styles.css">
 <div class="image-gallery">
    <div class="image-item">
-      <img src="/ARGB-LED/image/3D_box_PCB1_2024-06-16.png" alt="Image 1" onclick="openModal(this.src)">
+      <img src="/argb-hsl/image/3D_box_PCB1_2024-06-16.png" alt="Image 1" onclick="openModal(this.src)">
    </div>
    <div class="image-item">
-      <img src="/ARGB-LED/image/3D_PCB1_mat-truoc.png" alt="Image 2" onclick="openModal(this.src)">
+      <img src="/argb-hsl/image/3D_PCB1_mat-truoc.png" alt="Image 2" onclick="openModal(this.src)">
    </div>
    <div class="image-item">
-      <img src="/ARGB-LED/image/3D_PCB1_mat-sau.png" alt="Image 3" onclick="openModal(this.src)">
+      <img src="/argb-hsl/image/3D_PCB1_mat-sau.png" alt="Image 3" onclick="openModal(this.src)">
    </div>
    <div class="image-item">
-      <img src="/ARGB-LED/image/3D_PCB1.png" alt="Image 4" onclick="openModal(this.src)">
+      <img src="/argb-hsl/image/3D_PCB1.png" alt="Image 4" onclick="openModal(this.src)">
    </div>
 </div>
 
@@ -99,7 +99,7 @@ Khi sử dụng dãy **LED 5V**, quá trình đấu nối rất đơn giản vì
 
 3. **Dữ liệu điều khiển**: Đấu nối dây **DATA** từ bo mạch tới chân **DATA IN** của dãy LED để truyền tín hiệu điều khiển màu sắc.
 
-![strip_led_5v.png](/Topic/ARGB-LED/image/strip_led_5v.png)
+![strip_led_5v.png](/argb-hsl/image/strip_led_5v.png)
 
 <div class="post-img-post">
   <iframe width="300px" src="https://www.youtube.com/embed/DeOOavXX0Rc?si=2wvS_iYyyimDP4ao" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -171,7 +171,7 @@ Khi sử dụng dãy **LED 5V**, quá trình đấu nối rất đơn giản vì
 
 <div class="image-gallery">
    <div class="image-item">
-      <img src="/ARGB-LED/image/nguon led 5v.webp" alt="Image 1" onclick="openModal(this.src)">
+      <img src="/argb-hsl/image/nguon led 5v.webp" alt="Image 1" onclick="openModal(this.src)">
    </div>
 </div>
 
@@ -199,7 +199,7 @@ Những yếu tố này giúp hệ thống hoạt động ổn định và an to
 
 
 <div class="post-img-post">
-    <img src="/ARGB-LED/image/SW_BTN.png" loading="lazy">
+    <img src="/argb-hsl/image/SW_BTN.png" loading="lazy">
 </div>
 
 ### Reset mềm

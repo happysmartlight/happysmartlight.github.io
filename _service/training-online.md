@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "TĐào tạo chuyên sâu các kỹ năng về điều khiển LED"
+title: "Đào tạo chuyên sâu các kỹ năng về điều khiển LED"
 meta-title: "Đào tạo Online"
 ## subtitle: "... Connect device to the Wi-Fi network"
 bigimg:

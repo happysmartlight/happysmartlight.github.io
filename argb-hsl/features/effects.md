@@ -32,7 +32,7 @@ Nếu tùy chọn Lớp phủ được chọn, nền sẽ không được vẽ v
 Bên trong mỗi một hiệu ứng còn có nhiều tùy biến cho mỗi hiệu ứng.
 
 Tùy chỉnh màu thông qua bảng màu RGB colors và thư viện màu **"palette"**
-![](/Topic/ARGB-LED/image/color_palette.png)  <br />
+![](/argb-hsl/image/color_palette.png)  <br />
 ![](https://raw.githubusercontent.com/scottrbailey/WLED-Utils/master/gifs/PAL_06.gif)  <br />
 ![](https://raw.githubusercontent.com/scottrbailey/WLED-Utils/master/gifs/color_1.gif) primary _Fx_<br />
 ![](https://raw.githubusercontent.com/scottrbailey/WLED-Utils/master/gifs/color_2.gif) secondary _Bg_<br />

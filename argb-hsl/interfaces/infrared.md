@@ -3,8 +3,8 @@ title: Infrared
 meta-title: Bộ điều khiển hồng ngoại
 subtitle: Các remote IR được hỗ trợ
 bigimg:
-  - "/Topic/ARGB-LED/image\/BANER__ARGB.jpg"
-image: "/Topic/ARGB-LED/image\/BANER__ARGB.jpg"
+  - "/argb-hsl/image\/BANER__ARGB.jpg"
+image: "/argb-hsl/image\/BANER__ARGB.jpg"
 tags: [ARGB, hồng ngoại, IR, strip leds]
 category: ARGB PIXEL HSL
 hide:
@@ -22,7 +22,7 @@ hide:
 4. Remote IR 44 phím màu trắng với mũi tên lên/xuống cho các màu R, G và B  
 5. Remote IR 21 phím màu trắng với R, G, B + 9 tông màu  
 6. Remote IR 6 phím màu đen với CH lên/xuống + âm lượng lên/xuống  
-7. [JSON IR remote](/Topic/ARGB-LED/interfaces/json-ir/json_infrared.md) - Cấu hình dễ dàng và sử dụng bất kỳ remote IR nào.
+7. [JSON IR remote](/argb-hsl/interfaces/json-ir/json_infrared.md) - Cấu hình dễ dàng và sử dụng bất kỳ remote IR nào.
 
 ## Điều khiển từ xa dựa trên ESP-NOW  
 Từ phiên bản WLED 14.0-beta3: Điều khiển từ xa tương thích ESP-NOW đã được hỗ trợ. Một ví dụ về điều khiển từ xa này là remote „WIZmote“. Điều này dựa trên vi điều khiển ESP. ESP-NOW có thể được kích hoạt trong cài đặt WLED. Bạn cần nhập địa chỉ MAC của phần cứng điều khiển từ xa. Điều này được xác định bằng cách nhấn bất kỳ nút nào trên remote và sao chép địa chỉ MAC cuối cùng nhận được từ trường "Last Seen" vào trường "Hardware MAC" trong cài đặt ESP-NOW của WLED (“Config->WiFi Setup”) và lưu lại bằng cách nhấn "Save". Ưu điểm: không cần gắn thêm bộ thu đặc biệt vào bộ điều khiển WLED và tín hiệu được truyền qua mạng radio. Do đó, không cần đường truyền thẳng giữa điều khiển từ xa và bộ điều khiển WLED như trong trường hợp của remote IR. 

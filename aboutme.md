@@ -13,10 +13,10 @@ bigimg:
 
 #### ⚡Nhận diện thương hiệu
 <div class="text-center">
-  <a target="_blank" rel="noopener" href="/" class="project-link" title="✨HAPPY SMART LIGHT✨">
-    <img src="{{ site.baseurl }}/img/Picture-HSL/trans_hsl.svg" class="img-rounded" alt="✨HAPPY SMART LIGHT✨" width="30%" />
+  <a target="_blank" rel="noopener" href="/" class="project-link" title="{{ site.company }} ">
+    <img src="{{ site.baseurl }}/img/Picture-HSL/trans_hsl.svg" class="img-rounded" alt="{{ site.company }} " width="30%" />
   </a>
-  <h2 style="text-align: center;">✨HAPPY SMART LIGHT✨</h2>
+  <h2 style="text-align: center;">{{ site.company_SHORT_NAME }} </h2>
 </div>
 
 
@@ -30,13 +30,14 @@ HSL cung cấp một loạt các sản phẩm và dịch vụ, bao gồm:
 - **Dịch Vụ Tư Vấn và Thiết Kế:** Đội ngũ chuyên gia dày dạn kinh nghiệm sẵn sàng hỗ trợ bạn từ khâu ý tưởng đến triển khai thực tế.
 
 #### ⚡**Chi Nhánh và Liên Hệ**
-- **Chi Nhánh 1:** Số 42 Hà Đức Trọng, P. Long Toàn, TP. Bà Rịa, Bà Rịa - Vũng Tàu
-- **Chi Nhánh 2:** Sảnh S6.03, Vinhomes Grand Park, TP. Thủ Đức, TP. Hồ Chí Minh
+- **Chi Nhánh 1:** [{{ site.address-1 }}]({{ site.map-address-1 }})
+- **Chi Nhánh 2:** [{{ site.address-2 }}]({{ site.map-address-2 }})
+
 
 #### ⚡**Liên Hệ Chúng Tôi**
 Để biết thêm thông tin về sản phẩm và dịch vụ, xin vui lòng liên hệ với chúng tôi qua các kênh thông tin sau:  
-- **Điện thoại:** 0784140494 (Mr. Bằng), 0936601944 (Ms. Hiền)  
-- **Email:** happysmartlight@outlook.com  
+- **Điện thoại:** {{ site.author.telephone }} (Mr. Bằng), 0936601944 (Ms. Hiền)  
+- **Email:** {{ site.author.email  }}
 
 ---
 

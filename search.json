@@ -2,24 +2,55 @@
 layout: none
 ---
 [
-  {% for post in site.posts %}
+    {% for post in site.led-props %}
     {
       "title"    : "{{ post.title | escape }}",
       "subtitle" : "{{ post.subtitle | escape }}",
+      "author"   : "{{ post.author | escape }}",
+      "category" : "{{ post.category }}",
       "tags"     : "{{ post.tags | join: ', ' }}",
-      "url"      : "{{ site.baseurl }}{{ post.url }}"
+      "url"      : "{{ site.baseurl }}{{ post.url }}",
+      "date"     : "{{ post.date }}",
+      "content": {{ post.content | strip_html | strip_newlines | truncatewords: 50 | jsonify }}
     } {% unless forloop.last %},{% endunless %}
   {% endfor %}
-  ,
-  {% for page in site.pages %}
-   {
-     {% if page.title != nil %}
-        "title"    : "{{ page.title | escape }}",
-        "subtitle" : "{{ page.subtitle | escape }}",
-        "category" : "{{ page.category }}",
-        "tags"     : "{{ page.tags | join: ', ' }}",
-        "url"      : "{{ site.baseurl }}{{ page.url }}"
-     {% endif %}
-   } {% unless forloop.last %},{% endunless %}
+,
+    {% for post in site.controller-chip %}
+    {
+      "title"    : "{{ post.title | escape }}",
+      "subtitle" : "{{ post.subtitle | escape }}",
+      "author"   : "{{ post.author | escape }}",
+      "category" : "{{ post.category }}",
+      "tags"     : "{{ post.tags | join: ', ' }}",
+      "url"      : "{{ site.baseurl }}{{ post.url }}",
+      "date"     : "{{ post.date }}",
+      "content": {{ post.content | strip_html | strip_newlines | truncatewords: 50 | jsonify }}
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+,
+    {% for post in site.poi-tools %}
+    {
+      "title"    : "{{ post.title | escape }}",
+      "subtitle" : "{{ post.subtitle | escape }}",
+      "author"   : "{{ post.author | escape }}",
+      "category" : "{{ post.category }}",
+      "tags"     : "{{ post.tags | join: ', ' }}",
+      "url"      : "{{ site.baseurl }}{{ post.url }}",
+      "date"     : "{{ post.date }}",
+      "content": {{ post.content | strip_html | strip_newlines | truncatewords: 50 | jsonify }}
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+,
+    {% for post in site.service %}
+    {
+      "title"    : "{{ post.title | escape }}",
+      "subtitle" : "{{ post.subtitle | escape }}",
+      "author"   : "{{ post.author | escape }}",
+      "category" : "{{ post.category }}",
+      "tags"     : "{{ post.tags | join: ', ' }}",
+      "url"      : "{{ site.baseurl }}{{ post.url }}",
+      "date"     : "{{ post.date }}",
+      "content": {{ post.content | strip_html | strip_newlines | truncatewords: 50 | jsonify }}
+    } {% unless forloop.last %},{% endunless %}
   {% endfor %}
 ]

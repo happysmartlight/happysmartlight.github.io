@@ -55,20 +55,22 @@
       <div class="post-preview item">\
         <a href="{url}">\
           <h2 class="post-title">{title}</h2>\
-          <p class="post-title">{subtitle}</p>\
-          </a>\
-        </div>',
+          <p class="post-title">{content}</p>\
+        </a>\
+      </div>'
+      ,
       noResultsText: '🕵 No results 🔍',
       limit: 50,
       fuzzy: true,
       templateMiddleware: function (prop, value, template) {
           if (prop === 'subtitle' || prop === 'title') {
-              if (value.indexOf("code")) {
+              if (value.indexOf("code") !== -1) {
                   return htmlDecode(value);
               } else {
                   return value;
               }
           }
+          return value;
       }
   });
 

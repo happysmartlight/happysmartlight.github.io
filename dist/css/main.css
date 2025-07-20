@@ -585,28 +585,34 @@ footer .theme-by {
   font-size: 25px;
 }
 
+  /* bangnguyendev add */
+  .post-preview .post-title {
+    font-size: 36px;
+  }
+  .post-preview .post-subtitle {
+    font-size: 20px;
+  }
+  /* Tiêu đề chính */
+  .post-title.main-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+  }
 
-/* Tiêu đề chính */
-.post-title.main-title {
-  font-size: 24px;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 10px;
-  transition: color 0.3s ease;
-}
+  /* Đoạn nội dung mô tả */
+  .post-title.sub-content {
+    font-size: 16px;
+    font-weight: 400;
+    color: #a1a1a1;
+    line-height: 1.6;
+  }
 
-/* Đoạn nội dung mô tả */
-.post-title.sub-content {
-  font-size: 6px;
-  font-weight: 400;
-  color: #666;
-  line-height: 1.6;
-}
-
-/* Hover hiệu ứng tiêu đề */
-.post-preview:hover .post-title.main-title {
-  color: #007bff;
-}
+  /* Hover hiệu ứng tiêu đề */
+  .post-preview:hover .post-title.sub-content {
+    color: #00FFC6;
+  }
 
 .post-preview .post-meta,
 .post-heading .post-meta {

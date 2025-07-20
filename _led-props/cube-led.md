@@ -19,10 +19,12 @@ category: LED PIXEL
 **LED CUBE** là một sản phẩm trình diễn ánh sáng đỉnh cao, được tạo nên từ những thanh LED Pixel khổng lồ. Thiết kế hình khối ba chiều kết hợp công nghệ hiển thị tiên tiến giúp LED CUBE mang lại hiệu ứng ánh sáng mãn nhãn, phù hợp với nhiều loại hình biểu diễn nghệ thuật hiện đại.
 
 <div class="post-img-post">
-  <video controls>
-  <source src="/img/led-props/led-cube/video-led-cube.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <div class="video-wrapper">
+    <video controls>
+      <source src="/img/led-props/led-cube/video-led-cube.mp4" type="video/mp4">
+      Trình duyệt của bạn không hỗ trợ video.
+    </video>
+  </div>
   <p>Cube Light sử dụng Chip nhập khẩu</p>
 </div>
 

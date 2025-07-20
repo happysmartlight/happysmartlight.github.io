@@ -4,7 +4,6 @@
   <div class="text-center">
     <div class="waviy">
       <h2>
-      <br>
       <span style="--i:1">H</span>
       <span style="--i:2">a</span>
       <span style="--i:3">p</span>
@@ -24,7 +23,7 @@
       </h2>
     </div>
   </div>
-  <!-- Nút tìm kiếm  -->
+  <!-- Nút close tìm kiếm  -->
   <div class="search-icon-close-container">
     <span class="search-icon-close">
       <i class="fa-solid fa-chevron-down"></i>
@@ -34,8 +33,11 @@
   <div class="search-main container">
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        <form></form>
-        <input type="text" id="search-input" placeholder="Tìm kiếm bài viết đạo cụ, dịch vụ, hướng dẫn ..." class="form-control" autocomplete="off" />
+          <!-- Input text -->
+        <h3 class="search-title">Tìm kiếm bài viết về đạo cụ, dịch vụ, hướng dẫn ...</h3>
+        <form id="search-form" onsubmit="return false;">
+          <label for="search-input" class="sr-only">Tìm kiếm bài viết về đạo cụ, dịch vụ, hướng dẫn ...</label>
+          <input type="text" id="search-input" placeholder="Tìm kiếm 🔎..." class="form-control" autocomplete="off" />
         </form>
         <div id="search-results" class="mini-post-list"></div>
       </div>

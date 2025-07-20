@@ -6,7 +6,7 @@ bigimg:
 - "/img/Picture-HSL/HSL-index.png"
 ---
 
-<!-- Layer 1 -->
+<!-- Layer 1 LED PIXEL -->
 
 <div class="gradient-bg">
   <div class="gradient-text">
@@ -64,7 +64,7 @@ bigimg:
   </div>
 </div>
 
-<!-- Layer 1 -->
+<!-- Layer 1 MATRIX -->
 
 <div class="gradient-bg">
   <div class="gradient-text">
@@ -122,7 +122,7 @@ bigimg:
   </div>
 </div>
 
-<!-- Layer 1 -->
+<!-- Layer 1 Laser -->
 
 <div class="gradient-bg">
   <div class="gradient-text">
@@ -180,7 +180,7 @@ bigimg:
   </div>
 </div>
 
-<!-- Layer 1 -->
+<!-- Layer 1 POWER -->
 
 <div class="gradient-bg">
   <div class="gradient-text">
@@ -238,7 +238,7 @@ bigimg:
   </div>
 </div>
 
-<!-- Layer 1 -->
+<!-- Layer 1 OTHER -->
 
 <div class="gradient-bg">
   <div class="gradient-text">

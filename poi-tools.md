@@ -6,7 +6,7 @@ bigimg:
 - "/img/Picture-HSL/HSL-index.png"
 ---
 
-<!-- Layer 1 -->
+<!-- Layer 1 VISUAL POI PIXEL -->
 
 <div class="gradient-bg">
   <div class="gradient-text">
@@ -64,7 +64,7 @@ bigimg:
   </div>
 </div>
 
-<!-- Layer 1 -->
+<!-- Layer 1 VISUAL HOOP PIXEL -->
 
 <div class="gradient-bg">
   <div class="gradient-text">
@@ -122,7 +122,7 @@ bigimg:
   </div>
 </div>
 
-<!-- Layer 1 -->
+<!-- Layer 1 POWER -->
 
 <div class="gradient-bg">
   <div class="gradient-text">
@@ -181,7 +181,7 @@ bigimg:
 </div>
 
 
-<!-- Layer 1 -->
+<!-- Layer 1 OTHER -->
 
 <div class="gradient-bg">
   <div class="gradient-text">

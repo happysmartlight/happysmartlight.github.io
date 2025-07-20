@@ -56,8 +56,9 @@ bigimg:
 	<!-- Report hascategoryPosts -->
 	{% unless hascategoryPosts %}
 	<div class="text-center">
-		<p>Hiện danh sách đối tác đang được cập nhật, quý khách vui lòng chờ thêm một thời gian ngắn nữa.
+		<p>Hiện danh sách đối tác đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
 		</p>
+    {% include qr-zalo.html %}
 	</div>
 	{% endunless %}
   </div>
@@ -116,8 +117,9 @@ bigimg:
 	<!-- Report hascategoryPosts -->
 	{% unless hascategoryPosts %}
 	<div class="text-center">
-		<p>Hiện danh sách đối tác đang được cập nhật, quý khách vui lòng chờ thêm một thời gian ngắn nữa.
+		<p>Hiện danh sách đối tác đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
 		</p>
+    {% include qr-zalo.html %}
 	</div>
 	{% endunless %}
   </div>
@@ -292,6 +294,7 @@ bigimg:
 	{% unless hascategoryPosts %}
 	<div class="text-center">
     <p>Quý khách vui lòng liên hệ với Happy Smart Light để được tư vấn chu đáo và hỗ trợ tận tình.</p>
+    {% include qr-zalo.html %}
 	</div>
 	{% endunless %}
   </div>

@@ -56,8 +56,9 @@ bigimg:
 	<!-- Report hascategoryPosts -->
 	{% unless hascategoryPosts %}
 	<div class="text-center">
-		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng chờ thêm một thời gian ngắn nữa.
+		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
 		</p>
+    {% include qr-zalo.html %}
 	</div>
 	{% endunless %}
   </div>
@@ -113,8 +114,9 @@ bigimg:
 	<!-- Report hascategoryPosts -->
 	{% unless hascategoryPosts %}
 	<div class="text-center">
-		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng chờ thêm một thời gian ngắn nữa.
+		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
 		</p>
+    {% include qr-zalo.html %}
 	</div>
 	{% endunless %}
   </div>
@@ -170,8 +172,9 @@ bigimg:
 	<!-- Report hascategoryPosts -->
 	{% unless hascategoryPosts %}
 	<div class="text-center">
-		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng chờ thêm một thời gian ngắn nữa.
+		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
 		</p>
+    {% include qr-zalo.html %}
 	</div>
 	{% endunless %}
   </div>

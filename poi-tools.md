@@ -56,8 +56,9 @@ bigimg:
 	<!-- Report hascategoryPosts -->
 	{% unless hascategoryPosts %}
 	<div class="text-center">
-		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng chờ thêm một thời gian ngắn nữa.
+		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
 		</p>
+    {% include qr-zalo.html %}
 	</div>
 	{% endunless %}
   </div>
@@ -113,8 +114,9 @@ bigimg:
 	<!-- Report hascategoryPosts -->
 	{% unless hascategoryPosts %}
 	<div class="text-center">
-		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng chờ thêm một thời gian ngắn nữa.
+		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
 		</p>
+    {% include qr-zalo.html %}
 	</div>
 	{% endunless %}
   </div>
@@ -146,7 +148,7 @@ bigimg:
 	</div>
   	{% assign hascategoryPosts = false %}
 	<div class="details">
-    {% for post in site.controller-chip limit:8 %}
+  {% for post in site.controller-chip limit:8 %}
 	{% if post.category == 'POWER' %}
     <div class="component">
       {% if post.image %}
@@ -170,8 +172,9 @@ bigimg:
 	<!-- Report hascategoryPosts -->
 	{% unless hascategoryPosts %}
 	<div class="text-center">
-		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng chờ thêm một thời gian ngắn nữa.
+		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
 		</p>
+    {% include qr-zalo.html %}
 	</div>
 	{% endunless %}
   </div>
@@ -228,8 +231,9 @@ bigimg:
 	<!-- Report hascategoryPosts -->
 	{% unless hascategoryPosts %}
 	<div class="text-center">
-		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng chờ thêm một thời gian ngắn nữa.
+		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
 		</p>
+    {% include qr-zalo.html %}
 	</div>
 	{% endunless %}
   </div>

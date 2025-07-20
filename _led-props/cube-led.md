@@ -18,18 +18,26 @@ category: LED PIXEL
 ## Giới thiệu sản phẩm
 **LED CUBE** là một sản phẩm trình diễn ánh sáng đỉnh cao, được tạo nên từ những thanh LED Pixel khổng lồ. Thiết kế hình khối ba chiều kết hợp công nghệ hiển thị tiên tiến giúp LED CUBE mang lại hiệu ứng ánh sáng mãn nhãn, phù hợp với nhiều loại hình biểu diễn nghệ thuật hiện đại.
 
-!["led-fan"](/img/led-props/led-cube/20240303_LumiCubeFT2InAction_002.jpg)
+<div class="post-img-post">
+  <video controls>
+  <source src="/img/led-props/led-cube/video-led-cube.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <p>Cube Light sử dụng Chip nhập khẩu</p>
+</div>
 
 ## Công nghệ LED Pixel hiện đại
 Sử dụng công nghệ **LED Pixel thông minh**, LED CUBE có khả năng hiển thị hàng loạt hiệu ứng ánh sáng động theo nhạc, lập trình để đồng bộ với các yếu tố trình diễn khác. Nhờ khả năng điều khiển linh hoạt, sản phẩm có thể biến hóa không giới hạn, mang lại những trải nghiệm thị giác tuyệt vời.
 
-!["led-fan"](/img/led-props/led-cube/20240303_LumiCubeFT2InAction_029.jpg)
+!["led-fan"](/img/led-props/led-cube/led-cube.jpg)
 
 ### Đặc điểm nổi bật:
 - **Hiệu ứng ánh sáng 3D sống động**: LED CUBE tạo ra một không gian ánh sáng huyền ảo, giúp người biểu diễn có thể sáng tạo không giới hạn.
 - **Điều khiển từ xa & đồng bộ nhạc**: Hệ thống LED có thể được điều chỉnh bằng phần mềm chuyên dụng, tạo nên hiệu ứng đồng bộ hoàn hảo với âm thanh.
 - **Thiết kế gọn nhẹ, chắc chắn**: Mặc dù có kích thước lớn, LED CUBE được thiết kế tối ưu về trọng lượng giúp dễ dàng di chuyển và biểu diễn.
 - **Pin sạc dung lượng cao**: Đảm bảo thời gian hoạt động dài, phù hợp với các show diễn chuyên nghiệp.
+
+!["led-fan"](/img/led-props/led-cube/led-cube-1.jpg)
 
 ## Ứng dụng thực tế
 LED CUBE là sự lựa chọn lý tưởng cho các loại hình biểu diễn như:

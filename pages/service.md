@@ -179,6 +179,7 @@ permalink: /service
 	{% unless hascategoryPosts %}
 	<div class="text-center">
     <p>Quý khách vui lòng liên hệ với Happy Smart Light để được tư vấn chu đáo và hỗ trợ tận tình.</p>
+    {% include qr-zalo.html %}
 	</div>
 	{% endunless %}
   </div>
@@ -237,6 +238,7 @@ permalink: /service
 	{% unless hascategoryPosts %}
 	<div class="text-center">
     <p>Quý khách vui lòng liên hệ với Happy Smart Light để được tư vấn chu đáo và hỗ trợ tận tình.</p>
+    {% include qr-zalo.html %}
 	</div>
 	{% endunless %}
   </div>
@@ -354,6 +356,7 @@ permalink: /service
 	{% unless hascategoryPosts %}
 	<div class="text-center">
     <p>Quý khách vui lòng liên hệ với Happy Smart Light để được tư vấn chu đáo và hỗ trợ tận tình.</p>
+    {% include qr-zalo.html %}
 	</div>
 	{% endunless %}
   </div>
@@ -414,6 +417,7 @@ permalink: /service
 	{% unless hascategoryPosts %}
 	<div class="text-center">
     <p>Quý khách vui lòng liên hệ với Happy Smart Light để được tư vấn chu đáo và hỗ trợ tận tình.</p>
+    {% include qr-zalo.html %}
 	</div>
 	{% endunless %}
   </div>

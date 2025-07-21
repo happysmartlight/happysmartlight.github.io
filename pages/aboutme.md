@@ -7,38 +7,89 @@ bigimg:
 - "/img/Picture-HSL/banner-bale.jpg"
 permalink: /aboutme
 ---
+# 💡 **HAPPY SMART LIGHT** – CHUYÊN GIA GIẢI PHÁP ÁNH SÁNG THÔNG MINH VIỆT NAM 🇻🇳
 
-## **Giới Thiệu Về Công Ty TNHH Thương Mại và Công Nghệ Happy Smart Light**
+## 🌟 **“Chạm vào ánh sáng – Kích hoạt cảm hứng!”**
 
-**Công ty TNHH Thương Mại và Công Nghệ Happy Smart Light** (`HSL`) chuyên cung cấp giải pháp ánh sáng thông minh và thiết bị LED chất lượng. Chúng tôi cam kết mang đến cho khách hàng những sản phẩm và dịch vụ tối ưu, giúp hiện thực hóa mọi ý tưởng sáng tạo.
+---
 
-#### ⚡Nhận diện thương hiệu
-<div class="text-center">
-  <a target="_blank" rel="noopener" href="/" class="project-link" title="{{ site.company }} ">
-    <img src="{{ site.baseurl }}/img/Picture-HSL/trans_hsl.svg" class="img-rounded" alt="{{ site.company }} " width="30%" />
-  </a>
-  <h2 style="text-align: center;">{{ site.company_SHORT_NAME }} </h2>
-</div>
+## 🏢 **Giới Thiệu Về Happy Smart Light**
 
+**Công ty TNHH Thương Mại và Công Nghệ Happy Smart Light** (`HSL`) là đơn vị tiên phong trong lĩnh vực cung cấp **thiết bị LED thông minh**, giải pháp ánh sáng nghệ thuật, hiệu ứng sân khấu và hệ thống điều khiển LED chuyên dụng.
 
-#### ⚡**Sứ Mệnh Của Chúng Tôi**
-HSL không ngừng đổi mới và phát triển để cung cấp các sản phẩm tiên tiến và dịch vụ chuyên nghiệp, từ thiết kế đến thi công các giải pháp ánh sáng cho sự kiện, không gian sống và doanh nghiệp. Chúng tôi luôn hướng đến việc tạo ra những trải nghiệm ánh sáng độc đáo, giúp nâng cao giá trị nghệ thuật và truyền tải thông điệp hiệu quả.
+🔧 Chúng tôi **nghiên cứu, sản xuất và phân phối** thiết bị điều khiển ánh sáng với nền tảng công nghệ hiện đại như **ESP32-S3**, **LED Pixel**, **DDP**, tích hợp cùng các nền tảng như **LedFX**, **xLights**, **Home Assistant**,...
 
-#### ⚡**Sản Phẩm và Dịch Vụ Chính**
-HSL cung cấp một loạt các sản phẩm và dịch vụ, bao gồm:
-- **Mạch Điều Khiển LED:** Tối ưu hóa khả năng điều khiển các loại LED Pixel, Cabin LED với công nghệ không dây tiên tiến.
-- **Phụ Kiện LED:** Đảm bảo mọi nhu cầu về nguồn và thiết bị hỗ trợ cho hệ thống ánh sáng.
-- **Dịch Vụ Tư Vấn và Thiết Kế:** Đội ngũ chuyên gia dày dạn kinh nghiệm sẵn sàng hỗ trợ bạn từ khâu ý tưởng đến triển khai thực tế.
+🎯 Mục tiêu của chúng tôi là giúp **khách hàng hiện thực hóa mọi ý tưởng ánh sáng** – từ biểu diễn sân khấu, LED xe nghệ thuật, dance crew, quán bar – club, studio, đến chiếu sáng không gian sống cao cấp.
 
-#### ⚡**Chi Nhánh và Liên Hệ**
-- **Chi Nhánh 1:** [{{ site.address-1 }}]({{ site.map-address-1 }})
-- **Chi Nhánh 2:** [{{ site.address-2 }}]({{ site.map-address-2 }})
+---
 
+## 🎖️ **Điểm Mạnh Nổi Bật Của HSL**
 
-#### ⚡**Liên Hệ Chúng Tôi**
-Để biết thêm thông tin về sản phẩm và dịch vụ, xin vui lòng liên hệ với chúng tôi qua các kênh thông tin sau:  
-- **Điện thoại:** {{ site.author.telephone }} (Mr. Bằng), 0936601944 (Ms. Hiền)  
-- **Email:** {{ site.author.email  }}
+| 🌈 Ưu điểm | 💬 Mô tả |
+|-----------|----------|
+| 🔬 **Công nghệ tiên tiến** | Chip ESP32-S3, điều khiển không dây, đồng bộ LedFX, hỗ trợ DDP/ArtNet |
+| 🛠️ **Thiết kế riêng** | Bo mạch do HSL tự phát triển, tối ưu cho LED Pixel – ARGB |
+| 💼 **Ứng dụng đa dạng** | Sân khấu, xe LED, club, biểu diễn đường phố, không gian nghệ thuật |
+| 🤝 **Hợp tác rộng rãi** | Kết nối với các nhóm nhảy, nghệ sĩ biểu diễn, studio LED, nhà tổ chức sự kiện |
+| 💯 **Bảo hành & hỗ trợ tận tâm** | Hỗ trợ kỹ thuật trọn đời – nâng cấp firmware miễn phí |
+
+---
+
+## 🧠 **Sứ Mệnh Của Chúng Tôi**
+
+> “Mang ánh sáng đến mọi cảm xúc – kết nối công nghệ với nghệ thuật biểu diễn.”
+
+Chúng tôi luôn đổi mới để mang đến những giải pháp:
+- 🎨 **Độc đáo về thẩm mỹ**
+- ⚙️ **Mạnh mẽ về kỹ thuật**
+- 💡 **Dễ dùng cho người mới – chuyên sâu cho dân kỹ**
+
+---
+
+## 🛍️ **Sản Phẩm & Dịch Vụ Tiêu Biểu**
+
+✨ **Mạch điều khiển LED Pixel** – dòng HSL-PIXEL-S3:  
+✅ Kết nối WiFi, hỗ trợ LedFX, Web UI dễ sử dụng  
+✅ Điều khiển mượt mà hàng ngàn bóng LED
+
+🔌 **Phụ kiện LED thông minh**:  
+Nguồn, splitter, hub, thiết bị hỗ trợ – đồng bộ toàn hệ thống ánh sáng.
+
+🎯 **Thiết kế – tư vấn giải pháp ánh sáng toàn diện**:  
+Hỗ trợ từ ý tưởng đến bản vẽ, lắp đặt, cài đặt hiệu ứng và bảo trì.
+
+🎉 **Workshop & Hướng dẫn kỹ thuật**:  
+Đào tạo sử dụng LedFX, xLights, cấu hình ánh sáng theo nhạc, hỗ trợ LED biểu diễn.
+
+---
+
+## 🔗 **Hợp Tác Chiến Lược**
+
+Happy Smart Light tự hào là **đối tác chiến lược** của:
+- 🔥 **Ignis Pixel** – nhập khẩu và phân phối chính hãng LED biểu diễn pixel
+- 💃 **Moonlight Dance Studio**, **Sức Sống Dance Group** – hỗ trợ ánh sáng biểu diễn
+- 🎵 **LedFX Tech** – nền tảng mã nguồn mở điều khiển ánh sáng theo nhạc
+
+---
+
+## 🗺️ **Chi Nhánh HSL**
+
+- 📍 **Chi nhánh 1:** [{{ site.address-1 }}]({{ site.map-address-1 }})
+- 📍 **Chi nhánh 2:** [{{ site.address-2 }}]({{ site.map-address-2 }})
+
+---
+
+## 📞 **Liên Hệ Ngay – Nhận Tư Vấn Miễn Phí!**
+
+- ☎️ **Mr. Bằng:** {{ site.author.telephone }}  
+- 📞 **Trợ lý Hiền:** 0936 601 944  
+- 📧 **Email:** {{ site.author.email }}  
+- 🌐 **Website:** [happysmartlight.github.io](https://happysmartlight.github.io)
+
+---
+
+> ✨ **Happy Smart Light** – Nơi ánh sáng không chỉ để nhìn, mà để *thể hiện cá tính* và *đánh thức cảm xúc*.  
+> 📦 Đặt hàng hôm nay – nhận tư vấn 1-1 – giao hàng toàn quốc!
 
 ---
 

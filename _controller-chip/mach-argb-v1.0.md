@@ -109,6 +109,10 @@ category: LED PIXEL
 
 ---
 
+> 📢 **Giá mạch điều khiển: 649.000đ/mạch** (đã bao gồm VAT)  
+> ✅ Khuyến khích dùng **2 mạch trở lên** để lập trình hiệu ứng đồng bộ  
+
+---
 
 ## 🎛 Ứng dụng điều khiển  
 

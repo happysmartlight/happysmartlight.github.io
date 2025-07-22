@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "LedFx Tech"
-meta-title: "LedFx Tech"
+title: "LedFx Tool"
+meta-title: "LedFx Tool"
 ## subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/service/partner-LedFX-banner.png"

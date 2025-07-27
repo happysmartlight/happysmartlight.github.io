@@ -77,7 +77,7 @@ category: partner
 ## 📞 LIÊN HỆ
 
 **Happy Smart Light**  
-🌐 [happysmartlight.github.io](https://happysmartlight.github.io)  
+🌐 [happysmartlight.com](https://happysmartlight.com)  
 📧 happysmartlight@outlook.com  
 📱 Zalo/Hotline: 0784 140 494 – 0936 601 944
 

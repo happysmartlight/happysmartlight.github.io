@@ -84,7 +84,7 @@ Happy Smart Light tự hào là **đối tác chiến lược** của:
 - ☎️ **Mr. Bằng:** {{ site.author.telephone }}  
 - 📞 **Trợ lý Hiền:** 0936 601 944  
 - 📧 **Email:** {{ site.author.email }}  
-- 🌐 **Website:** [happysmartlight.github.io](https://happysmartlight.github.io)
+- 🌐 **Website:** [happysmartlight.com](https://happysmartlight.com)
 
 ---
 

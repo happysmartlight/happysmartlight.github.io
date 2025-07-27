@@ -104,7 +104,7 @@ Cùng tổ chức các sự kiện nghệ thuật, workshop trải nghiệm vũ 
 🌐 [Facebook chính thức](https://www.facebook.com/PhiToanManage)
 
 📍 **Happy Smart Light**  
-🌐 [happysmartlight.github.io](https://happysmartlight.github.io)  
+🌐 [happysmartlight.com](https://happysmartlight.com)  
 📞 0784 140 494 – 0936 601 944  
 📧 happysmartlight@outlook.com
 

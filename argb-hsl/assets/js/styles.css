@@ -69,11 +69,16 @@ body {
     position: absolute;
     top: 20px;
     right: 30px;
-    font-size: 30px;
+    font-size: 60px;
     color: white;
     cursor: pointer;
+    z-index: 1001;
 }
 
+.close:hover {
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
 /* Responsive styles */
 @media (max-width: 768px) {
     .image-item {

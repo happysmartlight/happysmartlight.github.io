@@ -51,10 +51,12 @@ EXPOSE 4000
 CMD ["/bin/bash"]
 
 ### how to run?
+
+##Step 1:
 #### Terminal:
-### $ docker build -t jekyll-bangnguyendev .  
+### $ docker build -t jekyll-happysmartlight .  
 ### $ docker run -it \
-###		--name bangnguyendev_web1 \
+###		--name happysmartlight_web1 \
 ### 	-p 4000:4000 \
 ### 	-p 35729:35729 \
 ### 	-v "D:\Github\bangnguyendev.github.io":/home/app-jekyll \
@@ -66,5 +68,6 @@ CMD ["/bin/bash"]
 
 
 ### docker compose
-#### docker-compose up
-#### docker-compose down
+##Step 2:
+#### docker-compose up (for turn on)
+#### docker-compose down (for turn off)

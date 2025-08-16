@@ -16,9 +16,8 @@ category: LED PIXEL
 
 # 🎉 Chào mừng đến với Bộ Điều Khiển LED ARGB! ✨  
 
-📌 **Hướng dẫn nhanh:**  
+📌 **Giới thiệu nhanh:**  
 
-- [🛠 Bắt đầu cơ bản](/argb-hsl/basics/getting-started)  
 - [🎨 Hiệu ứng LED](/argb-hsl/features/effects)  
   - Ví dụ: ![Ví dụ](https://raw.githubusercontent.com/scottrbailey/WLED-Utils/master/gifs/FX_112.gif)
 - [🌈 Bảng màu LED](/argb-hsl/features/palettes)  
@@ -89,7 +88,116 @@ category: LED PIXEL
 | PWM RGB+CCT         |                         |
 | PWM RGB+DCCT        |                         |
 
+
 ---
+
+## 💡 Thông tin chi tiết sản phẩm
+
+| **Thông tin**                  | **Chi tiết**                                                                 |
+|---------------------------------|------------------------------------------------------------------------------|
+| **Tên sản phẩm**                | Happy Smart Light                                                           |
+| **Model**                       | ARGB_1CH_100                                                                |
+| **Nguồn cấp**                   | VLED (+5V DC)                                                               |
+| **Số kênh**                     | 1 hoặc 2 kênh:                                                              |
+|                                 | - 1 kênh: DATA `IO16` (CLK: `IO43`)                                              |
+|                                 | - 2 kênh: DATA1: `IO16` (DATA), DATA2: `IO43` (CLK)                             |
+| **Tải**                         | 800 Led/kênh                                                                |
+| **Dòng điện tải tối đa**         | **10A Max** (Có thể thay đổi cầu chì nếu cần dòng lớn hơn)                      |
+| **Nhiệt độ hoạt động**          | -20°C đến +60°C                                                             |
+| **Chỉ số bảo vệ IP**            | IP20                                                                        |
+| **Chân kết nối**                | - **GND**: Nối đất                                                         |
+|                                 | - **VLED**: Nguồn cấp cho đèn (+5V DC)                                          |
+|                                 | - **DATA**: Dữ liệu đầu vào                                                  |
+|                                 | - **CLK**: Xung nhịp đầu vào                                                 |
+| **Chân kết nối nguồn**          | VIN (VCC = +5V DC) và GND                                                   |
+
+---
+
+## ❓ Hướng Dẫn Sử Dụng
+
+#### 1. **Kết Nối Nguồn**
+- Kết nối nguồn **+5V DC** vào chân **VLED** và **GND**.
+
+- Khi nguồn được kết nối chính xác, **LED báo nguồn** màu đỏ sẽ sáng lên. 
+
+- Nếu **LED nguồn không sáng**, hãy thực hiện các bước kiểm tra sau:
+   1. Kiểm tra bộ cấp nguồn để đảm bảo vẫn hoạt động bình thường.
+   2. Xác nhận kết nối đúng chân **+** và **-** của nguồn DC với mạch ARGB.
+   3. Kiểm tra **cầu chì FH1** trên mạch có bị đứt không.
+   4. Kiểm tra mạch có phát được **WiFi ARGB-AP** hoặc điều khiển LED bình thường hay không. Nếu mạch vẫn hoạt động, **LED báo nguồn** có thể bị hỏng mà không ảnh hưởng đến hiệu suất mạch.
+
+- **Mạch** được bảo vệ bằng **hai cầu chì**:
+   - **FH1**: Bảo vệ quá dòng.
+   - **F1**: Bảo vệ chống đấu ngược cực và chập mạch dây LED.
+
+#### 2. **Kết Nối Điều Khiển**
+   - Đối với **1 kênh**: Kết nối chân **DATA** với **IO16** và **CLK** với **IO43**. (tùy phiên bản)
+   - Đối với **2 kênh**: Kết nối **DATA1** với **IO16** và **DATA2** với **IO43**. (tùy phiên bản)
+
+#### 3. **Kiểm Tra Tải**
+Đảm bảo tổng số LED không vượt quá **1000 LED mỗi kênh**. (tùy phiên bản)
+
+#### 4. **Kiểm Tra Nhiệt Độ Hoạt Động**
+Thiết bị hoạt động tốt trong khoảng nhiệt độ từ **-20°C đến +60°C**.
+
+#### 5. **Chỉ Số Bảo Vệ IP**
+Với chỉ số **IP20**, thiết bị **không có khả năng chống nước**, cần tránh lắp đặt tại các khu vực ẩm ướt.
+
+##### 🗒️ Lưu Ý
+- **Dòng điện tải tối đa 10A**: Để sử dụng dòng điện lớn hơn, hãy thay thế cầu chì **FH1** với cầu chì có dòng định mức phù hợp, tối đa là **65A**.
+- Đảm bảo kết nối đúng nguồn **+5V DC** để tránh gây hư hại thiết bị.
+
+
+## ❓ Hướng dẫn kết nối chi tiết
+
+Mạch điều khiển ARGB LED có khả năng hỗ trợ cả dãy đèn LED ARGB **5V** và **12V**. Dưới đây là hướng dẫn chi tiết và hai phương án kết nối khi sử dụng **LED 12V**.
+
+### ⚡ Kết nối mạch với dãy LED 5V
+
+Khi sử dụng dãy **LED 5V**, quá trình đấu nối rất đơn giản vì **nguồn cung cấp và điều khiển** chỉ cần một loại điện áp. Cụ thể:
+
+1. **Nguồn điện**: Cấp nguồn **5V DC** với dòng từ **1A đến 10A** tùy vào tổng số lượng LED được sử dụng. Đảm bảo kết nối:
+   - **Chân VIN** trên bo mạch nối với **cực dương(+)** của nguồn 5V (**V+/5V**).
+   - **Chân GND** nối với **cực âm(-)** của nguồn 5V (**GND**).
+
+2. **VLED**: Vì bo mạch và dãy LED cùng sử dụng **nguồn 5V**, bạn có thể kết nối trực tiếp chân **VLED** trên bo mạch với chân **V+/5V** của nguồn điện. Điều này giúp nguồn 5V dùng chung cho cả bo mạch điều khiển và dãy LED.
+
+3. **Dữ liệu điều khiển**: Đấu nối dây **DATA** từ bo mạch tới chân **DATA IN** của dãy LED để truyền tín hiệu điều khiển màu sắc.
+
+![strip_led_5v.png](/argb-hsl/image/strip_led_5v.png)
+
+---
+
+[🎬🎬🎬 VIDEO 🎬🎬🎬 Kết nối mạch với dãy LED ](https://www.youtube.com/embed/DeOOavXX0Rc?si=2wvS_iYyyimDP4ao)
+
+---
+
+### ⚡ Kết nối mạch với dãy LED 12V
+
+Đối với dãy **LED 12V**, **cần đảm bảo rằng GND của nguồn cấp cho bo mạch điều khiển và GND của dãy LED phải được nối chung** để đảm bảo sự ổn định của hệ thống.
+
+#### ⚡ Sử dụng mạch giảm áp từ 12V xuống 5V
+
+1. **Mạch giảm áp**: Sử dụng **mạch giảm áp** từ 12V xuống 5V để cấp nguồn cho bo mạch điều khiển.
+   - **Đầu vào** của mạch giảm áp kết nối với nguồn **12V**.
+   - **Đầu ra** của mạch giảm áp cấp nguồn **5V** cho bo mạch điều khiển thông qua chân **VIN** và **GND**.
+
+2. **Nguồn điện cho dãy LED**: 
+   - Dãy LED **12V** được cấp điện trực tiếp từ nguồn **12V**.
+   - **Chân VLED** trên bo mạch **ARGB HSL** vẫn **bỏ trống - KHÔNG KẾT NỐI**.
+
+3. **Kết nối chung GND**: Cần đảm bảo rằng **GND của nguồn 12V**, **GND của mạch giảm áp**, **GND của bo mạch điều khiển**, và **GND của dãy LED** đều được nối chung để tránh gây ra các vấn đề về xung điện và tín hiệu điều khiển.
+
+4. **Dữ liệu điều khiển**: Như thường lệ, kết nối dây **DATA** từ bo mạch tới chân **DATA IN** của dãy LED để truyền tín hiệu điều khiển.
+
+#### 🗒️ Lưu ý kỹ thuật
+- Với **LED 12V**, **bất kể sử dụng phương án nào**, **GND của nguồn điều khiển bo mạch** và **GND của dãy LED** phải được **nối chung** để hệ thống hoạt động ổn định và chính xác.
+- Nếu sử dụng **mạch giảm áp**, đảm bảo mạch giảm áp có khả năng cung cấp đủ dòng **5V** cho bo mạch điều khiển.
+
+
+**Note:** _Hãy đãm bảo rằng tất cả các dây led được nối chung GND nếu sử dụng nhiều dây led_
+
+![connectionsA](/img/controller-chip/ket-noi-5v-12v.png)
 
 ## ⚙️ Tính năng nổi bật  
 
@@ -97,7 +205,7 @@ category: LED PIXEL
 ✅ **FastLED** hỗ trợ **50 bảng màu** sinh động.  
 ✅ **Phân đoạn LED linh hoạt** – tạo hiệu ứng riêng cho từng phần.  
 ✅ **Kết nối WiFi thông minh**, quản lý từ xa.  
-✅ **Hỗ trợ 2 ngõ ra LED** – tối đa **800 LED mỗi đầu ra**.  
+✅ **Hỗ trợ 2 ngõ ra LED** – tối đa **1000 LED mỗi đầu ra**. (tùy phiên bản)  
 ✅ **Lưu trữ đến 250 Preset** – dễ dàng chuyển đổi giữa các hiệu ứng.  
 ✅ **Tích hợp API, MQTT, HTTP, UDP**.  
 ✅ **Hỗ trợ cập nhật OTA** – bảo mật bằng mật khẩu.  
@@ -109,7 +217,7 @@ category: LED PIXEL
 
 ---
 
-> 📢 **Giá mạch điều khiển: 649.000đ/mạch** (đã bao gồm VAT)  
+> 📢 **Giá mạch điều khiển: 649.000đ/mạch** (đã bao gồm VAT - và tùy thời điểm)  
 > ✅ Khuyến khích dùng **2 mạch trở lên** để lập trình hiệu ứng đồng bộ  
 
 ---
@@ -132,8 +240,6 @@ category: LED PIXEL
 🔗 [Danh sách phần mềm đầy đủ](/argb-hsl/basics/compatible-software)  
 
 ---
-
-
 
 ## 💡 Các Chuẩn Kết Nối ARGB Có Thể Sử Dụng  
 

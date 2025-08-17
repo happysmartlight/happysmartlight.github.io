@@ -50,7 +50,7 @@ category: LED PIXEL
    <img src="/argb-hsl/image/v2.0.0_3D_PCB1_2024-12-04.png" alt="3D PCB 2">
 </div>
 
-<link rel="stylesheet" href="/argb-hsl/assets/js/styles.css">
+{% include gallery-modal.html%}
 <div class="image-gallery">
    <div class="image-item">
       <img src="/argb-hsl/image/v2.0.0_3D_PCB1_2024-12-04.png" alt="Image 1" onclick="openModal(this.src)">

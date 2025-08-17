@@ -39,7 +39,9 @@ category: LED PIXEL
 
 🖼 **Hình ảnh PCB V1.0.0:**  
 
-<link rel="stylesheet" href="/argb-hsl/assets/js/styles.css">
+
+
+{% include gallery-modal.html%}
 <div class="image-gallery">
    <div class="image-item">
       <img src="/argb-hsl/image/3D_box_PCB1_2024-06-16.png" alt="Image 1" onclick="openModal(this.src)">

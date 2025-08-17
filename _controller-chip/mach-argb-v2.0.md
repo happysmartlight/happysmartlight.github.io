@@ -53,9 +53,6 @@ category: LED PIXEL
 {% include gallery-modal.html%}
 <div class="image-gallery">
    <div class="image-item">
-      <img src="/argb-hsl/image/v2.0.0_3D_PCB1_2024-12-04.png" alt="Image 1" onclick="openModal(this.src)">
-   </div>
-   <div class="image-item">
       <img src="/argb-hsl/image/v2.0.0-3D_PCB1_2024-12-04-mat truoc.png" alt="Image 2" onclick="openModal(this.src)">
    </div>
    <div class="image-item">

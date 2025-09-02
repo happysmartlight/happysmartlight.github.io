@@ -1,8 +1,12 @@
 
-| Lighthouse CI | Jekyll CI | Release | Release date |
-| :----:        | :----:    | :----:  | :----:       |
-|[![Lighthouse CI](https://github.com/happysmartlight/happysmartlight.github.io/actions/workflows/Lighthouse_CI.yml/badge.svg)](https://github.com/happysmartlight/happysmartlight.github.io/actions/workflows/Lighthouse_CI.yml) | [![pages-build-deployment](https://github.com/happysmartlight/happysmartlight.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/happysmartlight/happysmartlight.github.io/actions/workflows/pages/pages-build-deployment) | <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/happysmartlight/happysmartlight.github.io"> | <img alt="GitHub Release Date" src="https://img.shields.io/github/release-date/happysmartlight/happysmartlight.github.io"> |
+## CI/CD Status
 
+| Workflow               | Status |
+|-------------------------|--------|
+| Deploy Jekyll site      | [![Deploy Jekyll site to Pages](https://github.com/happysmartlight/happysmartlight.github.io/actions/workflows/jekyll.yml/badge.svg)](https://github.com/happysmartlight/happysmartlight.github.io/actions/workflows/jekyll.yml) |
+| Jekyll site CI          | [![Jekyll site CI](https://github.com/happysmartlight/happysmartlight.github.io/actions/workflows/Jekyll_CI.yml/badge.svg?branch=master)](https://github.com/happysmartlight/happysmartlight.github.io/actions/workflows/Jekyll_CI.yml) |
+| Lighthouse CI           | [![Lighthouse CI](https://github.com/happysmartlight/happysmartlight.github.io/actions/workflows/Lighthouse_CI.yml/badge.svg?branch=master)](https://github.com/happysmartlight/happysmartlight.github.io/actions/workflows/Lighthouse_CI.yml) |
+| Pages build deployment  | [![pages-build-deployment](https://github.com/happysmartlight/happysmartlight.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/happysmartlight/happysmartlight.github.io/actions/workflows/pages/pages-build-deployment) |
 
 <!-- 
 Ghi Chú:

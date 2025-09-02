@@ -1,29 +1,26 @@
 name: Lighthouse CI
-
 on:
   push:
     branches:
       - master
-  workflow_dispatch:
 
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Chrome stable
+      - name: Install Chrome
         run: |
-          wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt-get update
-          sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt-get install -f -y
+          sudo apt install -y ./google-chrome-stable_current_amd64.deb
 
-      - name: Run Lighthouse CI
+      - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v9
         with:
           urls: |
             https://happysmartlight.com/
-          uploadArtifacts: true   # ✅ Tự tạo và lưu artifact
-          temporaryPublicStorage: true
+          uploadArtifacts: true      # ✅ để action tự lưu báo cáo
+          temporaryPublicStorage: false

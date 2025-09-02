@@ -1,15 +1,21 @@
 name: Lighthouse CI
+
 on:
   push:
     branches:
       - master
+  workflow_dispatch:
+
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
+
     steps:
+      # Lấy code
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Cache Chrome để tiết kiệm thời gian build
       - name: Cache Chrome
         uses: actions/cache@v4
         with:
@@ -18,12 +24,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-chrome-
 
+      # Cài Chrome stable
       - name: Install Chrome
         run: |
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt-get install -f -y
-          sudo apt install -y ./google-chrome-stable_current_amd64.deb
+          wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt-get update
+          sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
 
+      # Chạy Lighthouse
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v9
         with:
@@ -31,4 +39,13 @@ jobs:
             https://happysmartlight.com/
           budgetPath: ./budget.json
           uploadArtifacts: true
+          artifactName: lighthouse_report
           temporaryPublicStorage: true
+
+      # Upload báo cáo HTML làm artifact (nếu cần tải về xem offline)
+      - name: Upload Lighthouse Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse_html_report
+          path: ".lighthouseci/*"

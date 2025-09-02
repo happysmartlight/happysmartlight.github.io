@@ -28,7 +28,7 @@ jobs:
         uses: treosh/lighthouse-ci-action@v9
         with:
           urls: |
-            https://happysmartlight.github.io/
+            https://happysmartlight.com/
           budgetPath: ./budget.json
           uploadArtifacts: true
           temporaryPublicStorage: true

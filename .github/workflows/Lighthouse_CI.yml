@@ -15,7 +15,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Cache Chrome để tiết kiệm thời gian build
+      # Cache Chrome
       - name: Cache Chrome
         uses: actions/cache@v4
         with:
@@ -31,21 +31,20 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
 
-      # Chạy Lighthouse
+      # Chạy Lighthouse (tắt uploadArtifacts vì API cũ bị lỗi)
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v9
         with:
           urls: |
             https://happysmartlight.com/
           budgetPath: ./budget.json
-          uploadArtifacts: true
-          artifactName: lighthouse_report
+          uploadArtifacts: false
           temporaryPublicStorage: true
 
-      # Upload báo cáo HTML làm artifact (nếu cần tải về xem offline)
+      # Upload báo cáo Lighthouse bằng actions/upload-artifact v4
       - name: Upload Lighthouse Report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: lighthouse_html_report
+          name: lighthouse-report
           path: ".lighthouseci/*"

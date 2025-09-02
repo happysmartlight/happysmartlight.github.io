@@ -39,6 +39,7 @@ jobs:
             https://happysmartlight.com/
           uploadArtifacts: false
           temporaryPublicStorage: true
+          outputPath: ".lighthouseci"
 
       # Upload báo cáo Lighthouse bằng actions/upload-artifact v4
       - name: Upload Lighthouse Report

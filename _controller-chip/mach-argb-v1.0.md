@@ -40,19 +40,22 @@ category: LED PIXEL
 🖼 **Hình ảnh PCB V1.0.0:**  
 
 <div class="image-gallery">
-   <img src="/argb-hsl/image/3D_PCB1.png" alt="3D PCB 2">
+   <img src="/img/controller-chip/argb-v1.1-color-top.png" alt="3D PCB 2">
 </div>
 
 {% include gallery-modal.html%}
 <div class="image-gallery">
    <div class="image-item">
-      <img src="/argb-hsl/image/3D_box_PCB1_2024-06-16.png" alt="Image 1" onclick="openModal(this.src)">
+      <img src="/img/controller-chip/argb-v1.1-color-bottom.png" alt="Image 1" onclick="openModal(this.src)">
    </div>
    <div class="image-item">
-      <img src="/argb-hsl/image/3D_PCB1_mat-truoc.png" alt="Image 2" onclick="openModal(this.src)">
+      <img src="/img/controller-chip/argb-v1.1-top.png" alt="Image 2" onclick="openModal(this.src)">
    </div>
    <div class="image-item">
-      <img src="/argb-hsl/image/3D_PCB1_mat-sau.png" alt="Image 3" onclick="openModal(this.src)">
+      <img src="/img/controller-chip/argb-v1.1-bottom.png" alt="Image 3" onclick="openModal(this.src)">
+   </div>
+   <div class="image-item">
+      <img src="/img/controller-chip/argb-v1-product.jpg" alt="Image 3" onclick="openModal(this.src)">
    </div>
 </div>
 

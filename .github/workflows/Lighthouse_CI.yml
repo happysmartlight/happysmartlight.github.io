@@ -1,31 +1,49 @@
 name: Lighthouse CI
-on: push
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
 
+    steps:
+      # Lấy code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Cache Chrome
       - name: Cache Chrome
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/.cache
           key: ${{ runner.os }}-chrome-${{ hashFiles('google-chrome-stable_current_amd64.deb') }}
           restore-keys: |
             ${{ runner.os }}-chrome-
 
+      # Cài Chrome stable
       - name: Install Chrome
         run: |
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt-get install -f -y
-          sudo apt install -y ./google-chrome-stable_current_amd64.deb
+          wget -q https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo apt-get update
+          sudo apt-get install -y ./google-chrome-stable_current_amd64.deb
 
+      # Chạy Lighthouse (không dùng budget.json nữa)
       - name: Audit URLs using Lighthouse
         uses: treosh/lighthouse-ci-action@v9
         with:
           urls: |
-            https://happysmartlight.github.io/
-          budgetPath: ./budget.json
-          uploadArtifacts: true
+            https://happysmartlight.com/
+          uploadArtifacts: false
           temporaryPublicStorage: true
+
+      # Upload báo cáo Lighthouse bằng actions/upload-artifact v4
+      - name: Upload Lighthouse Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: .lighthouseci/**

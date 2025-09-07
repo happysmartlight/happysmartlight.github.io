@@ -93,7 +93,9 @@ category: LED PIXEL
 ✅ **Đồng hồ LED Analog & Cronixie**  
 ✅ **Tự động giới hạn độ sáng** – an toàn cho LED  
 
-<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@denthongminhhappy/video/7380609403973602577" data-video-id="7380609403973602577" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@denthongminhhappy" href="https://www.tiktok.com/@denthongminhhappy?refer=embed">@denthongminhhappy</a> Chạy chữ trên nền động. Phù hợp những tiệm trà sữa, chè, …<a title="happysmartlight" target="_blank" href="https://www.tiktok.com/tag/happysmartlight?refer=embed">#happysmartlight</a> <a title="led" target="_blank" href="https://www.tiktok.com/tag/led?refer=embed">#led</a> <a title="argb" target="_blank" href="https://www.tiktok.com/tag/argb?refer=embed">#argb</a> <a target="_blank" title="♬ nhạc nền  - Đèn thông minh Happy" href="https://www.tiktok.com/music/nhạc-nền-Đèn-thông-minh-Happy-7380609451478305553?refer=embed">♬ nhạc nền  - Đèn thông minh Happy</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+<div class="cliptiktok">
+   <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@denthongminhhappy/video/7380609403973602577" data-video-id="7380609403973602577" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@denthongminhhappy" href="https://www.tiktok.com/@denthongminhhappy?refer=embed">@denthongminhhappy</a> Chạy chữ trên nền động. Phù hợp những tiệm trà sữa, chè, …<a title="happysmartlight" target="_blank" href="https://www.tiktok.com/tag/happysmartlight?refer=embed">#happysmartlight</a> <a title="led" target="_blank" href="https://www.tiktok.com/tag/led?refer=embed">#led</a> <a title="argb" target="_blank" href="https://www.tiktok.com/tag/argb?refer=embed">#argb</a> <a target="_blank" title="♬ nhạc nền  - Đèn thông minh Happy" href="https://www.tiktok.com/music/nhạc-nền-Đèn-thông-minh-Happy-7380609451478305553?refer=embed">♬ nhạc nền  - Đèn thông minh Happy</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+</div>
 
 ---
 

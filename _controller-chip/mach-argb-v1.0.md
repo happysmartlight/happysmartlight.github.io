@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Bộ mạch điều khiển đa năng các loại Chip LED PIXEL ARGB V1.0"
-meta-title: "Controller ARGB V1.0"
+title: "Bộ mạch điều khiển đa năng các loại Chip LED PIXEL ARGB V1.1"
+meta-title: "Controller ARGB V1.1"
 ## subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/controller-chip/banner.png"
@@ -30,14 +30,14 @@ category: LED PIXEL
 
 ---
 
-## 🔥 Bộ điều khiển V1.0.0  
+## 🔥 Bộ điều khiển V1.1.0  
 
 ✅ Hỗ trợ **IR hồng ngoại**, cảm biến nhiệt, **cầu chì bảo vệ** LED.  
 ✅ 2 ngõ ra LED **3 chân độc lập** (hoặc 1 ngõ ra LED **4 chân**).  
 ✅ PCB được thiết kế chắc chắn, **linh kiện chất lượng cao**, lắp ráp hoàn toàn bằng **dây chuyền robot tự động**.  
 ✅ **2 ngõ ra LED 3 chân độc lập** (hoặc **1 ngõ ra LED 4 chân**).  
 
-🖼 **Hình ảnh PCB V1.0.0:**  
+🖼 **Hình ảnh PCB V1.1.0:**  
 
 <div class="image-gallery">
    <img src="/img/controller-chip/argb-v1.1-color-top.png" alt="3D PCB 2">
@@ -99,18 +99,18 @@ category: LED PIXEL
 | **Thông tin**                  | **Chi tiết**                                                                 |
 |---------------------------------|------------------------------------------------------------------------------|
 | **Tên sản phẩm**                | Happy Smart Light                                                           |
-| **Model**                       | ARGB_1CH_100                                                                |
+| **Model**                       | ARGB_2CH_110                                                                |
 | **Nguồn cấp**                   | VLED (+5V DC)                                                               |
 | **Số kênh**                     | 1 hoặc 2 kênh:                                                              |
-|                                 | - 1 kênh: DATA `IO16` (CLK: `IO43`)                                              |
-|                                 | - 2 kênh: DATA1: `IO16` (DATA), DATA2: `IO43` (CLK)                             |
-| **Tải**                         | 800 Led/kênh                                                                |
+|                                 | - 1 kênh: DATA `D0` (CLK: `D1`)                                              |
+|                                 | - 2 kênh: DATA0: `D0` (DATA), DATA1: `D1` (DATA)                             |
+| **Tải**                         | 1000 Led/kênh                                                                |
 | **Dòng điện tải tối đa**         | **10A Max** (Có thể thay đổi cầu chì nếu cần dòng lớn hơn)                      |
 | **Nhiệt độ hoạt động**          | -20°C đến +60°C                                                             |
 | **Chỉ số bảo vệ IP**            | IP20                                                                        |
 | **Chân kết nối**                | - **GND**: Nối đất                                                         |
 |                                 | - **VLED**: Nguồn cấp cho đèn (+5V DC)                                          |
-|                                 | - **DATA**: Dữ liệu đầu vào                                                  |
+|                                 | - **D0/D1**: Dữ liệu đầu vào                                                  |
 |                                 | - **CLK**: Xung nhịp đầu vào                                                 |
 | **Chân kết nối nguồn**          | VIN (VCC = +5V DC) và GND                                                   |
 
@@ -216,7 +216,10 @@ Khi sử dụng dãy **LED 5V**, quá trình đấu nối rất đơn giản vì
 ✅ **Đồng hồ LED Analog & Cronixie**.  
 ✅ **Tự động giới hạn độ sáng** – bảo vệ thiết bị.  
 
-<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@denthongminhhappy/video/7380609403973602577" data-video-id="7380609403973602577" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@denthongminhhappy" href="https://www.tiktok.com/@denthongminhhappy?refer=embed">@denthongminhhappy</a> Chạy chữ trên nền động. Phù hợp những tiệm trà sữa, chè, …<a title="happysmartlight" target="_blank" href="https://www.tiktok.com/tag/happysmartlight?refer=embed">#happysmartlight</a> <a title="led" target="_blank" href="https://www.tiktok.com/tag/led?refer=embed">#led</a> <a title="argb" target="_blank" href="https://www.tiktok.com/tag/argb?refer=embed">#argb</a> <a target="_blank" title="♬ nhạc nền  - Đèn thông minh Happy" href="https://www.tiktok.com/music/nhạc-nền-Đèn-thông-minh-Happy-7380609451478305553?refer=embed">♬ nhạc nền  - Đèn thông minh Happy</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+<div class="cliptiktok">
+   <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@denthongminhhappy/video/7380609403973602577" data-video-id="7380609403973602577" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@denthongminhhappy" href="https://www.tiktok.com/@denthongminhhappy?refer=embed">@denthongminhhappy</a> Chạy chữ trên nền động. Phù hợp những tiệm trà sữa, chè, …<a title="happysmartlight" target="_blank" href="https://www.tiktok.com/tag/happysmartlight?refer=embed">#happysmartlight</a> <a title="led" target="_blank" href="https://www.tiktok.com/tag/led?refer=embed">#led</a> <a title="argb" target="_blank" href="https://www.tiktok.com/tag/argb?refer=embed">#argb</a> <a target="_blank" title="♬ nhạc nền  - Đèn thông minh Happy" href="https://www.tiktok.com/music/nhạc-nền-Đèn-thông-minh-Happy-7380609451478305553?refer=embed">♬ nhạc nền  - Đèn thông minh Happy</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+</div>
+
 
 ---
 

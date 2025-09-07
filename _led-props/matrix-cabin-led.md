@@ -33,7 +33,9 @@ category: MATRIX
 
 🔹 **Tiết kiệm điện năng, tuổi thọ bền bỉ**.
 
-<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@denthongminhhappy/video/7453107020544183560" data-video-id="7453107020544183560" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@denthongminhhappy" href="https://www.tiktok.com/@denthongminhhappy?refer=embed">@denthongminhhappy</a> Nhận setup card chạy các loại màn P2 -&gt; P10 giá siêu cạnh canh <a title="led" target="_blank" href="https://www.tiktok.com/tag/led?refer=embed">#led</a> <a title="quangcao" target="_blank" href="https://www.tiktok.com/tag/quangcao?refer=embed">#quangcao</a> <a title="panel" target="_blank" href="https://www.tiktok.com/tag/panel?refer=embed">#panel</a> <a title="cardled" target="_blank" href="https://www.tiktok.com/tag/cardled?refer=embed">#cardled</a> <a title="giare" target="_blank" href="https://www.tiktok.com/tag/giare?refer=embed">#giare</a> <a title="cheap" target="_blank" href="https://www.tiktok.com/tag/cheap?refer=embed">#cheap</a> <a target="_blank" title="♬ Biệt Tri Kỷ - user27979387016" href="https://www.tiktok.com/music/Biệt-Tri-Kỷ-7152170645928545050?refer=embed">♬ Biệt Tri Kỷ - user27979387016</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+<div class="cliptiktok">
+   <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@denthongminhhappy/video/7453107020544183560" data-video-id="7453107020544183560" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@denthongminhhappy" href="https://www.tiktok.com/@denthongminhhappy?refer=embed">@denthongminhhappy</a> Nhận setup card chạy các loại màn P2 -&gt; P10 giá siêu cạnh canh <a title="led" target="_blank" href="https://www.tiktok.com/tag/led?refer=embed">#led</a> <a title="quangcao" target="_blank" href="https://www.tiktok.com/tag/quangcao?refer=embed">#quangcao</a> <a title="panel" target="_blank" href="https://www.tiktok.com/tag/panel?refer=embed">#panel</a> <a title="cardled" target="_blank" href="https://www.tiktok.com/tag/cardled?refer=embed">#cardled</a> <a title="giare" target="_blank" href="https://www.tiktok.com/tag/giare?refer=embed">#giare</a> <a title="cheap" target="_blank" href="https://www.tiktok.com/tag/cheap?refer=embed">#cheap</a> <a target="_blank" title="♬ Biệt Tri Kỷ - user27979387016" href="https://www.tiktok.com/music/Biệt-Tri-Kỷ-7152170645928545050?refer=embed">♬ Biệt Tri Kỷ - user27979387016</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+</div>
 
 ---
 
@@ -49,7 +51,9 @@ category: MATRIX
 
 ✅ **Hỗ trợ nhiều kích thước và độ phân giải**: Phù hợp với mọi nhu cầu trình diễn.
 
-<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@denthongminhhappy/video/7477363498780085512" data-video-id="7477363498780085512" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@denthongminhhappy" href="https://www.tiktok.com/@denthongminhhappy?refer=embed">@denthongminhhappy</a> <p>Màn hình LED </p> <a target="_blank" title="♬ nhạc nền  - Khoa Lộc Anh Yên" href="https://www.tiktok.com/music/nhạc-nền-Khoa-Lộc-Anh-Yên-7461418353565125392?refer=embed">♬ nhạc nền  - Khoa Lộc Anh Yên</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+<div class="cliptiktok">
+   <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@denthongminhhappy/video/7477363498780085512" data-video-id="7477363498780085512" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@denthongminhhappy" href="https://www.tiktok.com/@denthongminhhappy?refer=embed">@denthongminhhappy</a> <p>Màn hình LED </p> <a target="_blank" title="♬ nhạc nền  - Khoa Lộc Anh Yên" href="https://www.tiktok.com/music/nhạc-nền-Khoa-Lộc-Anh-Yên-7461418353565125392?refer=embed">♬ nhạc nền  - Khoa Lộc Anh Yên</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+</div>
 
 ---
 

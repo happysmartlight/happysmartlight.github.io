@@ -127,6 +127,18 @@ category: LED PIXEL
 
 ---
 
+## 🎬🎬🎬 VIDEO 🎬🎬🎬 Demo sản phẩm
+
+<div class="cliptiktok">
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@denthongminhhappy/video/7477953088481922312" data-video-id="7477953088481922312" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@denthongminhhappy" href="https://www.tiktok.com/@denthongminhhappy?refer=embed">@denthongminhhappy</a> Resolume điều khiển led Pixel dạng thang led hoặc ma trix led. <a title="hsl" target="_blank" href="https://www.tiktok.com/tag/hsl?refer=embed">#hsl</a> <a title="resolume" target="_blank" href="https://www.tiktok.com/tag/resolume?refer=embed">#resolume</a> <a title="pixel" target="_blank" href="https://www.tiktok.com/tag/pixel?refer=embed">#pixel</a> <a title="led" target="_blank" href="https://www.tiktok.com/tag/led?refer=embed">#led</a> <a title="light" target="_blank" href="https://www.tiktok.com/tag/light?refer=embed">#light</a> <a target="_blank" title="♬ nhạc nền - user00931528601" href="https://www.tiktok.com/music/nhạc-nền-7274620162584791851?refer=embed">♬ nhạc nền - user00931528601</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@denthongminhhappy/video/7452132920799661320" data-video-id="7452132920799661320" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@denthongminhhappy" href="https://www.tiktok.com/@denthongminhhappy?refer=embed">@denthongminhhappy</a> Led ARGB V2.1.0 <a title="led" target="_blank" href="https://www.tiktok.com/tag/led?refer=embed">#led</a> <a title="dance" target="_blank" href="https://www.tiktok.com/tag/dance?refer=embed">#dance</a>  <a title="lighttoys" target="_blank" href="https://www.tiktok.com/tag/lighttoys?refer=embed">#lighttoys</a> <a title="leddancer" target="_blank" href="https://www.tiktok.com/tag/leddancer?refer=embed">#leddancer</a> <a target="_blank" title="♬ Epic Cinematic Motivation Trailer - CinematicHub" href="https://www.tiktok.com/music/Epic-Cinematic-Motivation-Trailer-7376260653160646695?refer=embed">♬ Epic Cinematic Motivation Trailer - CinematicHub</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+
+<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@denthongminhhappy/video/7379796015752203536" data-video-id="7379796015752203536" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@denthongminhhappy" href="https://www.tiktok.com/@denthongminhhappy?refer=embed">@denthongminhhappy</a> Happy Smart Light ARGB V1.0.0 <a title="led" target="_blank" href="https://www.tiktok.com/tag/led?refer=embed">#led</a> <a title="argb" target="_blank" href="https://www.tiktok.com/tag/argb?refer=embed">#argb</a> <a title="happysmartlight" target="_blank" href="https://www.tiktok.com/tag/happysmartlight?refer=embed">#happysmartlight</a> <a title="denthongminhhappy" target="_blank" href="https://www.tiktok.com/tag/denthongminhhappy?refer=embed">#denthongminhhappy</a> <a target="_blank" title="♬ nhạc nền  - Đèn thông minh Happy" href="https://www.tiktok.com/music/nhạc-nền-Đèn-thông-minh-Happy-7379796080601008897?refer=embed">♬ nhạc nền  - Đèn thông minh Happy</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+</div>
+
+---
+
 
 ## 🎛 Ứng dụng điều khiển  
 

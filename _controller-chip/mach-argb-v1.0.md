@@ -59,6 +59,15 @@ category: LED PIXEL
    </div>
 </div>
 
+---
+
+## 🎬🎬🎬 VIDEO 🎬🎬🎬 Kết nối mạch với dãy LED 
+
+<div class="cliptiktok">
+   <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@denthongminhhappy/video/7482259628428987666" data-video-id="7482259628428987666" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@denthongminhhappy" href="https://www.tiktok.com/@denthongminhhappy?refer=embed">@denthongminhhappy</a> Hướng dẫn sử dụng mạch ARGB IPEX V1.0.0 <a title="happysmartlight" target="_blank" href="https://www.tiktok.com/tag/happysmartlight?refer=embed">#happysmartlight</a> <a title="pixelart" target="_blank" href="https://www.tiktok.com/tag/pixelart?refer=embed">#pixelart</a> <a title="pixel" target="_blank" href="https://www.tiktok.com/tag/pixel?refer=embed">#pixel</a> <a title="hsl" target="_blank" href="https://www.tiktok.com/tag/hsl?refer=embed">#hsl</a> <a title="ledperformance" target="_blank" href="https://www.tiktok.com/tag/ledperformance?refer=embed">#LEDPerformance</a> <a title="led" target="_blank" href="https://www.tiktok.com/tag/led?refer=embed">#led</a> <a title="light" target="_blank" href="https://www.tiktok.com/tag/light?refer=embed">#light</a> <a title="ledchayduoi" target="_blank" href="https://www.tiktok.com/tag/ledchayduoi?refer=embed">#ledchayduoi</a> <a target="_blank" title="♬ We Dont Talk(抖音原版) - 珊爷" href="https://www.tiktok.com/music/We-Dont-Talk-抖音原版-6891677881726928910?refer=embed">♬ We Dont Talk(抖音原版) - 珊爷</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+
+   <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@denthongminhhappy/video/7380609403973602577" data-video-id="7380609403973602577" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@denthongminhhappy" href="https://www.tiktok.com/@denthongminhhappy?refer=embed">@denthongminhhappy</a> Chạy chữ trên nền động. Phù hợp những tiệm trà sữa, chè, …<a title="happysmartlight" target="_blank" href="https://www.tiktok.com/tag/happysmartlight?refer=embed">#happysmartlight</a> <a title="led" target="_blank" href="https://www.tiktok.com/tag/led?refer=embed">#led</a> <a title="argb" target="_blank" href="https://www.tiktok.com/tag/argb?refer=embed">#argb</a> <a target="_blank" title="♬ nhạc nền  - Đèn thông minh Happy" href="https://www.tiktok.com/music/nhạc-nền-Đèn-thông-minh-Happy-7380609451478305553?refer=embed">♬ nhạc nền  - Đèn thông minh Happy</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
+</div>
 
 ---
 
@@ -169,9 +178,6 @@ Khi sử dụng dãy **LED 5V**, quá trình đấu nối rất đơn giản vì
 
 ![strip_led_5v.png](/argb-hsl/image/strip_led_5v.png)
 
----
-
-[🎬🎬🎬 VIDEO 🎬🎬🎬 Kết nối mạch với dãy LED ](https://www.youtube.com/embed/DeOOavXX0Rc?si=2wvS_iYyyimDP4ao)
 
 ---
 
@@ -215,13 +221,6 @@ Khi sử dụng dãy **LED 5V**, quá trình đấu nối rất đơn giản vì
 ✅ **Chức năng đèn ngủ** – giảm độ sáng tự động.  
 ✅ **Đồng hồ LED Analog & Cronixie**.  
 ✅ **Tự động giới hạn độ sáng** – bảo vệ thiết bị.  
-
-<div class="cliptiktok">
-   <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@denthongminhhappy/video/7482259628428987666" data-video-id="7482259628428987666" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@denthongminhhappy" href="https://www.tiktok.com/@denthongminhhappy?refer=embed">@denthongminhhappy</a> Hướng dẫn sử dụng mạch ARGB IPEX V1.0.0 <a title="happysmartlight" target="_blank" href="https://www.tiktok.com/tag/happysmartlight?refer=embed">#happysmartlight</a> <a title="pixelart" target="_blank" href="https://www.tiktok.com/tag/pixelart?refer=embed">#pixelart</a> <a title="pixel" target="_blank" href="https://www.tiktok.com/tag/pixel?refer=embed">#pixel</a> <a title="hsl" target="_blank" href="https://www.tiktok.com/tag/hsl?refer=embed">#hsl</a> <a title="ledperformance" target="_blank" href="https://www.tiktok.com/tag/ledperformance?refer=embed">#LEDPerformance</a> <a title="led" target="_blank" href="https://www.tiktok.com/tag/led?refer=embed">#led</a> <a title="light" target="_blank" href="https://www.tiktok.com/tag/light?refer=embed">#light</a> <a title="ledchayduoi" target="_blank" href="https://www.tiktok.com/tag/ledchayduoi?refer=embed">#ledchayduoi</a> <a target="_blank" title="♬ We Dont Talk(抖音原版) - 珊爷" href="https://www.tiktok.com/music/We-Dont-Talk-抖音原版-6891677881726928910?refer=embed">♬ We Dont Talk(抖音原版) - 珊爷</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
-
-   <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@denthongminhhappy/video/7380609403973602577" data-video-id="7380609403973602577" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@denthongminhhappy" href="https://www.tiktok.com/@denthongminhhappy?refer=embed">@denthongminhhappy</a> Chạy chữ trên nền động. Phù hợp những tiệm trà sữa, chè, …<a title="happysmartlight" target="_blank" href="https://www.tiktok.com/tag/happysmartlight?refer=embed">#happysmartlight</a> <a title="led" target="_blank" href="https://www.tiktok.com/tag/led?refer=embed">#led</a> <a title="argb" target="_blank" href="https://www.tiktok.com/tag/argb?refer=embed">#argb</a> <a target="_blank" title="♬ nhạc nền  - Đèn thông minh Happy" href="https://www.tiktok.com/music/nhạc-nền-Đèn-thông-minh-Happy-7380609451478305553?refer=embed">♬ nhạc nền  - Đèn thông minh Happy</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
-</div>
-
 
 ---
 

@@ -93,6 +93,10 @@ category: LED PIXEL
 ✅ **Đồng hồ LED Analog & Cronixie**  
 ✅ **Tự động giới hạn độ sáng** – an toàn cho LED  
 
+---
+
+## 🎬🎬🎬 VIDEO 🎬🎬🎬 Kết nối mạch với dãy LED 
+
 <div class="cliptiktok">
    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@denthongminhhappy/video/7482259628428987666" data-video-id="7482259628428987666" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@denthongminhhappy" href="https://www.tiktok.com/@denthongminhhappy?refer=embed">@denthongminhhappy</a> Hướng dẫn sử dụng mạch ARGB IPEX V1.0.0 <a title="happysmartlight" target="_blank" href="https://www.tiktok.com/tag/happysmartlight?refer=embed">#happysmartlight</a> <a title="pixelart" target="_blank" href="https://www.tiktok.com/tag/pixelart?refer=embed">#pixelart</a> <a title="pixel" target="_blank" href="https://www.tiktok.com/tag/pixel?refer=embed">#pixel</a> <a title="hsl" target="_blank" href="https://www.tiktok.com/tag/hsl?refer=embed">#hsl</a> <a title="ledperformance" target="_blank" href="https://www.tiktok.com/tag/ledperformance?refer=embed">#LEDPerformance</a> <a title="led" target="_blank" href="https://www.tiktok.com/tag/led?refer=embed">#led</a> <a title="light" target="_blank" href="https://www.tiktok.com/tag/light?refer=embed">#light</a> <a title="ledchayduoi" target="_blank" href="https://www.tiktok.com/tag/ledchayduoi?refer=embed">#ledchayduoi</a> <a target="_blank" title="♬ We Dont Talk(抖音原版) - 珊爷" href="https://www.tiktok.com/music/We-Dont-Talk-抖音原版-6891677881726928910?refer=embed">♬ We Dont Talk(抖音原版) - 珊爷</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
 

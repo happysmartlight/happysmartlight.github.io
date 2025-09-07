@@ -1792,25 +1792,30 @@ option:hover {
   height: 100%;
 }
 
-/* Container chính: fit-content + canh giữa */
+/* Container chính */
 .cliptiktok {
-  display: block;                 /* để margin: 0 auto hoạt động */
-  width: fit-content;            /* chuẩn hiện đại */
-  width: -moz-fit-content;       /* Firefox fallback */
-  width: -webkit-fit-content;    /* WebKit fallback */
-  max-width: 100%;               /* không vượt quá khung màn hình */
-  margin: 0 auto;                /* canh giữa ngang */
-  border-radius: 12px;           /* bo tròn góc */
-  overflow: hidden;              /* ẩn phần thừa để giữ bo tròn sạch */
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08); /* tuỳ chọn: đổ bóng nhẹ */
+  display: flex;
+  flex-wrap: wrap;               /* Cho phép xuống hàng khi không đủ chỗ */
+  justify-content: center;       /* Canh giữa các item */
+  gap: 16px;                     /* Khoảng cách giữa các video */
+  max-width: 100%;               /* Không vượt quá màn hình */
+  margin: 25px auto;                /* Canh giữa container */
+  border-radius: 20px;           /* Bo tròn góc */
+  overflow: hidden;              /* Ẩn phần thừa để giữ bo tròn */
+  box-shadow: 
+    -20px -20px 40px rgba(0, 211, 255, 0.7),   /* xanh neon góc trên trái */
+    20px  20px 40px rgba(240, 10, 192, 0.7);  /* hồng neon góc dưới phải */
+
+  box-sizing: border-box;
 }
-/* Đảm bảo blockquote/iframe bám chặt vào container và bo tròn theo container */
+
+/* Các item bên trong */
 .cliptiktok .tiktok-embed,
 .cliptiktok blockquote,
-.cliptiktok iframe {
-  display: block;
-  width: 100% !important;
-  border-radius: inherit;  /* kế thừa radius từ .cliptiktok */
+.cliptiktok iframe,
+.cliptiktok div {
+  flex: 1 1 content;        /* Tối thiểu 300px, co giãn linh hoạt */
+  border-radius: 20px;    /* Bo tròn cho từng item */
   overflow: hidden;
   box-sizing: border-box;
 }

@@ -6,7 +6,7 @@ site:
   url: /
   baseurl: /
 navbar-links:
-  🔖Catalog: catalog-hsl
+  🔖PostNews: post-news
   🔥Mạch điều khiển:
     - Điều khiển LED Pixel: controller-chip#ledPixel
     - Điều khiển LED Cabin: controller-chip#ledMatrix
@@ -100,8 +100,11 @@ exclude:
   - README.md
   - Vagrantfile
 collections:
+  post-news:
+    output: true       # Bài viết trong collection này sẽ được xuất ra file HTML
+    permalink: /post-news/:name/  # Định nghĩa cấu trúc URL cho bài viết
   poi-tools:
-    output: true       # Bật output để Jekyll tạo file HTML cho các bài viết trong collection này
+    output: true       # Bài viết trong collection này sẽ được xuất ra file HTML
     permalink: /poi-tools/:name/  # Định nghĩa cấu trúc URL cho bài viết
   led-props:
     output: true

@@ -1,18 +1,20 @@
 ---
 layout: page
-meta-title: "Catalog HSL"
+meta-title: "✨Post News✨"
 bigimg:
 - "/img/Picture-HSL/HSL-index.png"
-permalink: /catalog-hsl
+permalink: /post-news
 ---
+
+<!-- Layer 1 -->
 
 <div class="gradient-bg">
   <div class="gradient-text">
-    <p>Tỏa sáng theo cách của riêng bạn</p>
+    <p>Post News – Bright Ideas, Bright Lights</p>
   </div>
 </div>
 
-<div class="content-index" style="
+<div id="ledPixel" class="content-index" style="
       background: 
         linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
         url('/img/Picture-HSL/HSL-index.png');
@@ -21,15 +23,17 @@ permalink: /catalog-hsl
       background-repeat: no-repeat; /* Không lặp lại ảnh nền */
         ">
   <div class="summary">
-    ✨Visual LED✨
+    ✨Post News✨
   </div>
   <div class="description-content-index-sp">
-    💡Đây là dòng sản phẩm LED hiện đại.<br>
-    💡Mang lại hiệu suất cao, bền bỉ và đa dạng về mẫu mã. <br>
-    💡Trình diễn ánh sáng chất lượng cao.
+    💡Các bài viết chi tiết về các sản phẩm.<br>
+    💡Các dự án đã và đang được HSL triển khai.<br>
+    💡Công suất tác chiến thực tế lớn, tính đa dụng cao.
   </div>
+  {% assign hascategoryPosts = false %}
   <div class="details">
-    {% for post in site.poi-tools limit:8 %}
+    {% for post in site.post-news limit:8 %}
+	{% if post.category == 'POST NEWS' %}
     <div class="component">
       {% if post.image %}
       <!-- Ảnh đại diện bài đăng -->
@@ -46,7 +50,17 @@ permalink: /catalog-hsl
         {% endif %}
       </a>
     </div>
+	{% assign hascategoryPosts = true %}
+	{% endif %}
     {% endfor %}
+	<!-- Report hascategoryPosts -->
+	{% unless hascategoryPosts %}
+	<div class="text-center">
+		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
+		</p>
+    {% include qr-zalo.html %}
+	</div>
+	{% endunless %}
   </div>
 </div>
 

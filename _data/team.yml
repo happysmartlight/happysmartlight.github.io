@@ -1,0 +1,8 @@
+# file: _data/team.yml
+- name: Bằng
+  role: Founder
+  email: bang@example.com
+
+- name: Hiền
+  role: Assistant
+  phone: "0936601944"

@@ -2,9 +2,9 @@ title: ✨Happy Smart Light✨
 description: >-
   Chuyên tư vấn giải pháp kỹ thuật, thiết kế, led Decor, quảng cáo,
   sự kiện, led visual poi đạo cụ sân khấu, trình diển ánh sáng.
-site:
-  url: /
-  baseurl: /
+url: "https://happysmartlight.com"
+baseurl: "" # the subpath of your site, e.g. /blog
+lang: "vi"
 navbar-links:
   🔖PostNews: post-news
   🔥Mạch điều khiển:

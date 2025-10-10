@@ -24,27 +24,7 @@ Tuy nhiên, sau thời gian dài sử dụng, **đèn trần Lightdown** có th�
 
 Đừng lo — **Happy Smart Light** có giải pháp cho bạn!
 
-
-<div class="image-gallery">
-   <img src="/img/service/decor/z7102199475493_ce9c3213623c72135993172320795592.jpg" alt="3D PCB 2">
-</div>
-
-{% include gallery-modal.html%}
-<div class="image-gallery">
-   <div class="image-item">
-      <img src="/img/service/decor/z7102199463677_0182efa8a4cc987d612788a07cdb9494.jpg" alt="Image 2" onclick="openModal(this.src)">
-   </div>
-   <div class="image-item">
-      <img src="/img/service/decor/z7102199463844_006b8bd895931ca3a420dc6502c3730f.jpg" alt="Image 3" onclick="openModal(this.src)">
-   </div>
-   <div class="image-item">
-      <img src="/img/service/decor/z7102199473142_9641945dceff4ee29da0feb4a6399d47.jpg" alt="Image 4" onclick="openModal(this.src)">
-   </div>
-    <div class="image-item">
-      <img src="/img/service/decor/z7102199475498_a0d503af6a5e7a2f4eeceac8ac01cd55.jpg" alt="Image 4" onclick="openModal(this.src)">
-   </div>
-</div>
-
+{% include gallery.html images=site.data.galleries.vinhome_decor %}
 
 ---
 

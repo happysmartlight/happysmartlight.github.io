@@ -1,0 +1,145 @@
+<!-- _includes/gallery.html -->
+<div class="gallery">
+  {% for image in include.images %}
+    <img src="{{ image }}" alt="Gallery Image {{ forloop.index }}">
+  {% endfor %}
+</div>
+
+<div id="modal" class="modal">
+  <span class="close">&times;</span>
+  <span class="nav prev">&#10094;</span>
+  <img id="modalImage" src="" alt="">
+  <span class="nav next">&#10095;</span>
+</div>
+
+<style>
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gallery img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px;
+  transition: transform 0.2s;
+}
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  transition: transform 0.3s;
+}
+
+.modal .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.modal .nav {
+  position: absolute;
+  top: 50%;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  user-select: none;
+  transform: translateY(-50%);
+}
+.modal .prev { left: 20px; }
+.modal .next { right: 20px; }
+
+@media (hover: none) {
+  .gallery img:hover {
+    transform: none;
+  }
+}
+</style>
+
+<script>
+(function() {
+  const galleryImages = document.querySelectorAll(".gallery img");
+  const modal = document.getElementById("modal");
+  const modalImage = document.getElementById("modalImage");
+  const closeBtn = document.querySelector(".close");
+  const nextBtn = document.querySelector(".next");
+  const prevBtn = document.querySelector(".prev");
+  let currentIndex = 0;
+  let touchStartX = 0;
+
+  galleryImages.forEach((img, index) => {
+    img.addEventListener("click", () => openModal(img, index));
+  });
+
+  function openModal(img, index) {
+    modal.style.display = "flex";
+    modalImage.src = img.src;
+    currentIndex = index;
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeModal() {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+
+  function showNextImage() {
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    modalImage.src = galleryImages[currentIndex].src;
+  }
+  function showPrevImage() {
+    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    modalImage.src = galleryImages[currentIndex].src;
+  }
+
+  closeBtn.addEventListener("click", closeModal);
+  nextBtn.addEventListener("click", showNextImage);
+  prevBtn.addEventListener("click", showPrevImage);
+
+  window.addEventListener("keydown", (e) => {
+    if (modal.style.display === "flex") {
+      if (e.key === "Escape") closeModal();
+      if (e.key === "ArrowRight") showNextImage();
+      if (e.key === "ArrowLeft") showPrevImage();
+    }
+  });
+
+  modal.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+
+  modal.addEventListener("touchend", (e) => {
+    const touchEndX = e.changedTouches[0].clientX;
+    const diff = touchEndX - touchStartX;
+    if (Math.abs(diff) > 50) {
+      if (diff < 0) showNextImage();
+      else showPrevImage();
+    }
+  });
+
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
+  });
+})();
+</script>

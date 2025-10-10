@@ -49,18 +49,7 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
    <img src="/argb-hsl/image/v2.0.0_3D_PCB1_2024-12-04.png" alt="3D PCB 2">
 </div>
 
-{% include gallery-modal.html%}
-<div class="image-gallery">
-   <div class="image-item">
-      <img src="/argb-hsl/image/v2.0.0-3D_PCB1_2024-12-04-mat truoc.png" alt="Image 2" onclick="openModal(this.src)">
-   </div>
-   <div class="image-item">
-      <img src="/argb-hsl/image/3D_PCB1_mat-sau.png" alt="Image 3" onclick="openModal(this.src)">
-   </div>
-   <div class="image-item">
-      <img src="/argb-hsl/image/v2.0.0-3D_PCB1_2024-12-04-mat sau.png" alt="Image 4" onclick="openModal(this.src)">
-   </div>
-</div>
+{% include gallery.html images=site.data.galleries.mach-argb-v2 %}
 
 ---
 

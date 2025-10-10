@@ -14,21 +14,9 @@ hide:
 
 ### 💡 Thông tin chi tiết sản phẩm
 
-{% include gallery-modal.html%}
-<div class="image-gallery">
-   <div class="image-item">
-      <img src="/argb-hsl/image/3D_box_PCB1_2024-06-16.png" alt="Image 1" onclick="openModal(this.src)">
-   </div>
-   <div class="image-item">
-      <img src="/argb-hsl/image/3D_PCB1_mat-truoc.png" alt="Image 2" onclick="openModal(this.src)">
-   </div>
-   <div class="image-item">
-      <img src="/argb-hsl/image/3D_PCB1_mat-sau.png" alt="Image 3" onclick="openModal(this.src)">
-   </div>
-   <div class="image-item">
-      <img src="/argb-hsl/image/3D_PCB1.png" alt="Image 4" onclick="openModal(this.src)">
-   </div>
-</div>
+{% include gallery.html images=site.data.galleries.ach-argb-v1 %}
+
+
 
 | **Thông tin**                  | **Chi tiết**                                                                 |
 |---------------------------------|------------------------------------------------------------------------------|

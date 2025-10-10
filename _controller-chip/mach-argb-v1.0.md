@@ -42,21 +42,8 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
    <img src="/img/controller-chip/argb-v1.1-color-top.png" alt="3D PCB 2">
 </div>
 
-{% include gallery-modal.html%}
-<div class="image-gallery">
-   <div class="image-item">
-      <img src="/img/controller-chip/argb-v1.1-color-bottom.png" alt="Image 1" onclick="openModal(this.src)">
-   </div>
-   <div class="image-item">
-      <img src="/img/controller-chip/argb-v1.1-top.png" alt="Image 2" onclick="openModal(this.src)">
-   </div>
-   <div class="image-item">
-      <img src="/img/controller-chip/argb-v1.1-bottom.png" alt="Image 3" onclick="openModal(this.src)">
-   </div>
-   <div class="image-item">
-      <img src="/img/controller-chip/argb-v1-product.jpg" alt="Image 3" onclick="openModal(this.src)">
-   </div>
-</div>
+{% include gallery.html images=site.data.galleries.mach-argb-v1 %}
+
 
 ---
 

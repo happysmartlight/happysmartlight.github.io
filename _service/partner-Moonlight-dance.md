@@ -20,22 +20,9 @@ categories: [service#partner]
 
 🎉 **Moonlight Dance Studio** – một trong những trung tâm đào tạo vũ đạo chuyên nghiệp và giàu cảm hứng – chính thức trở thành **đối tác chiến lược** của **Happy Smart Light** – thương hiệu hàng đầu về giải pháp chiếu sáng thông minh tại Việt Nam 🇻🇳.
 
-{% include gallery-modal.html%}
+{% include gallery.html images=site.data.galleries.partner-moonlight %}
 
-<div class="image-gallery">
-   <div class="image-item">
-      <img src="/img/service/partner-MOONLIGHT-DANCE-STUDIO/led_violin.png" alt="Image 1" onclick="openModal(this.src)">
-   </div>
-   <div class="image-item">
-      <img src="/img/service/partner-MOONLIGHT-DANCE-STUDIO/led_windown.jpg" alt="Image 2" onclick="openModal(this.src)">
-   </div>
-   <div class="image-item">
-      <img src="/img/service/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO-banner.jpg" alt="Image 3" onclick="openModal(this.src)">
-   </div>
-   <div class="image-item">
-      <img src="/img/service/partner-MOONLIGHT-DANCE-STUDIO/trong-nuoc.jpg" alt="Image 4" onclick="openModal(this.src)">
-   </div>
-</div>
+
 
 ---
 

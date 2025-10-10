@@ -3,3 +3,20 @@ vinhome_decor:
   - /img/service/decor/z7102199463844_006b8bd895931ca3a420dc6502c3730f.jpg
   - /img/service/decor/z7102199473142_9641945dceff4ee29da0feb4a6399d47.jpg
   - /img/service/decor/z7102199475498_a0d503af6a5e7a2f4eeceac8ac01cd55.jpg
+mach-argb-v1:
+  - /img/controller-chip/argb-v1.1-color-top.png
+  - /img/controller-chip/argb-v1.1-color-bottom.png
+  - /img/controller-chip/argb-v1.1-color-top.png
+  - /img/controller-chip/argb-v1.1-bottom.png
+  - /img/controller-chip/argb-v1-product.jpg
+mach-argb-v2:
+  - /argb-hsl/image/v2.0.0_3D_PCB1_2024-12-04.png
+  - /argb-hsl/image/v2.0.0-3D_PCB1_2024-12-04-mat truoc.png
+  - /argb-hsl/image/3D_PCB1_mat-sau.png
+  - /argb-hsl/image/v2.0.0-3D_PCB1_2024-12-04-mat sau.png
+partner-moonlight:
+  - /img/service/partner-MOONLIGHT-DANCE-STUDIO/led_violin.png
+  - /img/service/partner-MOONLIGHT-DANCE-STUDIO/led_windown.jpg
+  - /img/service/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO-banner.jpg
+  - /img/service/partner-MOONLIGHT-DANCE-STUDIO/trong-nuoc.jpg
+

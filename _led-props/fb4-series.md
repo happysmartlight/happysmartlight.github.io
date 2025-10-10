@@ -7,7 +7,7 @@ bigimg:
   - "/img/led-props/laser-series/fb4-laser.jpg"
 image: "/img/led-props/laser-series/fb4-laser.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
-category: Laser
+categories: [LED PIXEL, led-props, led-props#laser]
 
 # author: "BangNguyen"
 # comments: true

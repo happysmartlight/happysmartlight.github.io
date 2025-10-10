@@ -7,7 +7,7 @@ bigimg:
   - "/img/led-props/led-man/vtttt-min-concentrate.jpeg" : "HSL-Skeleton Dance Crew"
 image: "/img/led-props/led-man/Visual-Tron456.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
-category: LED PIXEL
+categories: [LED PIXEL, led-props, led-props#ledPixel]
 
 # author: "BangNguyen"
 # comments: true

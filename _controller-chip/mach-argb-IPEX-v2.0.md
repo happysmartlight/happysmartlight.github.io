@@ -7,8 +7,7 @@ bigimg:
   - "/img/controller-chip/banner.png"
 image: "/img/controller-chip/argb_IPEX_ver2.0.png"
 tags: hsl, happy, smart, light, visual, led, poi
-category: LED PIXEL
-
+categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 
 # author: "BangNguyen"
 # comments: true

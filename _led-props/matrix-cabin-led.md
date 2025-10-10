@@ -7,7 +7,7 @@ bigimg:
   - "/img/controller-chip/banner.png"
 image: "/img/led-props/matrix4.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
-category: MATRIX
+categories: [LED PIXEL, led-props, led-props#ledMatrix]
 
 
 # author: "BangNguyen"

@@ -8,21 +8,29 @@ lang: "vi"
 navbar-links:
   🔖PostNews: post-news
   🔥Mạch điều khiển:
-    - Điều khiển LED Pixel: controller-chip#ledPixel
-    - Điều khiển LED Cabin: controller-chip#ledMatrix
-    - Phát - thu sóng: controller-chip#signalWifi
+    url: /controller-chip
+    children:
+      - Điều khiển LED Pixel: controller-chip#ledPixel
+      - Điều khiển LED Cabin: controller-chip#ledMatrix
+      - Phát - thu sóng: controller-chip#signalWifi
   💡Visual LED: 
+    url: /poi-tools
+    children:
     - Happy POI: poi-tools#visualPoi
     - Happy HOOP: poi-tools#visualHoop
     - Nguồn và Pin: poi-tools#power
     - Khác: poi-tools#other
   💡Đạo cụ LED: 
+    url: /led-props
+    children:
     - Led Pixel: led-props#ledPixel
     - Led Module: led-props#ledMatrix
     - Laser Series: led-props#laser
     - Nguồn và Pin: led-props#power
     - Khác: led-props#other
   ❓Về HSL:
+    url: /service
+    children:
     - Liên hệ với HSL: aboutme
     - Đào tạo: service#training
     - Đối tác với HSL: service#partner
@@ -44,10 +52,13 @@ author:
   telephone: 0784140494
   tiktok: '@denthongminhhappy'
 company: "CÔNG TY TNHH THƯƠNG MẠI VÀ CÔNG NGHỆ HAPPY SMART LIGHT"
+company_EN: "HAPPY SMART LIGHT TRADING AND TECHNOLOGY COMPANY LIMITED"
 company_SHORT_NAME: "✨HAPPY SMART LIGHT✨"
-Tax-code: "MST: 3502535621"
-address-1: "📌: Sảnh S6.03, Vinhomes Grand Park, P. Long Bình, TP. Hồ Chí Minh"
-address-2: "📌: Số 42 Hà Đức Trọng, P. Bà Rịa, TP. Hồ Chí Minh"
+director: "Nguyễn Duy Bảng"
+established: "2025-01-13"
+Tax-code: "3502535621"
+address-1: "Sảnh S6.03, Vinhomes Grand Park, P. Long Bình, TP. Hồ Chí Minh"
+address-2: "Số 42 Hà Đức Trọng, P. Bà Rịa, TP. Hồ Chí Minh"
 map-address-1: https://maps.app.goo.gl/rMTH9mqSYXBorpZY9
 map-address-2: https://maps.app.goo.gl/rjQizjWgt69466Es6
 footer-links-active:
@@ -116,46 +127,17 @@ collections:
     output: true
     permalink: /service/:name/
 
+feed:
+  collections:
+    - post-news
+    - poi-tools
+    - led-props
+    - controller-chip
+    - service
+
 # Optionally, add permalink defaults (for better structure)
 permalink: pretty
 
-metadata:
-  _posts:
-    - name: layout
-      field:
-        element: hidden
-        value: post
-    - name: title
-      field:
-        element: text
-        label: Post title
-        placeholder: Title
-        alterable: true
-    - name: subtitle
-      field:
-        element: textarea
-        label: Subtitle
-        placeholder: A description of your post.
-        alterable: true
-    - name: date
-      field:
-        element: text
-        label: Date
-        help: Enter date of post.
-        placeholder: yyyy-mm-dd
-        alterable: true
-    - name: image
-      field:
-        element: text
-        label: Image
-        help: Add a thumbnail image to your post.
-        placeholder: Thumbnail
-        alterable: true
-    - name: published
-      field:
-        element: checkbox
-        label: Publish
-        help: 'Check to publish post, uncheck to hide.'
 plugins:
   - jekyll-paginate
   - jekyll-sitemap

@@ -7,7 +7,7 @@ bigimg:
   - "/img/service/partner-espressif-banner.jpg"
 image: "/img/service/partner-espressif.webp"
 tags: hsl, happy, smart, light, visual, led, poi
-category: partner
+categories: [service#partner]
 
 
 # author: "BangNguyen"

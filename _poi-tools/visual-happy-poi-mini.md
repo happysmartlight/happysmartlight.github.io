@@ -7,9 +7,8 @@ bigimg:
   - "/img/poi-tools/visual-poi/center-poi.jpg"
 image: "/img/poi-tools/visual-poi/ung-dung-1.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
-category: VISUAL POI PIXEL
-# author: "BangNguyen"
-# comments: true
+categories: [VISUAL HOOP PIXEL, poi-tools, poi-tools#visualPoi]
+
 ---
 # 🌟 Đạo Cụ LED Visual Tạo Hiệu Ứng POV – Đỉnh Cao Trình Diễn Ánh Sáng!
 

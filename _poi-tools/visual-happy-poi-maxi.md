@@ -7,7 +7,7 @@ bigimg:
   - "/img/poi-tools/visual-poi/center-poi.jpg"
 image: "/img/poi-tools/visual-poi/visual-poi-3.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
-category: VISUAL POI PIXEL
+categories: [VISUAL HOOP PIXEL, poi-tools, poi-tools#visualPoi]
 
 
 # author: "BangNguyen"

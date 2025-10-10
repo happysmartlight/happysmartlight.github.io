@@ -424,7 +424,7 @@ img {
   background-color: #161616;
   text-decoration: none !important;
   border-width: 0 1px 1px 1px;
-  font-weight: normal;
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 767px) {
@@ -498,6 +498,10 @@ footer .copyright {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   text-align: center;
   margin-bottom: 0;
+}
+
+footer .copyright h2 {
+  font-size: 20px;
 }
 
 footer .theme-by {
@@ -736,7 +740,7 @@ footer .theme-by {
   align-items: center; /* Căn giữa theo chiều dọc */
   justify-content: center; /* Căn giữa theo chiều ngang */
   height: 100vh; /* Chiều cao bằng với chiều cao */
-  width: 100vw; /* Chiều rộng bằng với chiều ngang */
+  width: 100%; /* Chiều rộng bằng với chiều ngang */
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -769,7 +773,7 @@ footer .theme-by {
 }
 
 .gradient-bg {
-  width: 100vw;
+  /* width: 100vw; */
   height: auto;
   background: #000;
   background: linear-gradient(90deg,#000,#2c2c2d 50%,#000)
@@ -815,7 +819,7 @@ footer .theme-by {
 }
 
 .img-index {
-  width: 100vw;        /* Chiều rộng bằng với chiều ngang màn hình */
+  width: 100%;        /* Chiều rộng bằng với chiều ngang màn hình */
   height: auto;        /* Giữ tỉ lệ ảnh */
   object-fit: cover;
 }
@@ -849,7 +853,7 @@ footer .theme-by {
 
 /* Cập nhật khoảng cách cho bài viết với ảnh bìa.  */
 .row {
-  width: 100vw;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   /* padding-bottom: 10px;
@@ -938,8 +942,8 @@ footer .theme-by {
   display: flex;
   justify-content: center; /* Canh giữa ngang */
   align-items: center;    /* Canh giữa dọc */
-  width: 100vw; /* Chiều rộng toàn màn hình */
-  height: 100vh; /* Chiều cao toàn màn hình */
+  width: 100%; /* Chiều rộng toàn màn hình */
+  height: 100%; /* Chiều cao toàn màn hình */
   background-size: cover;
   background-position: center; 
 }
@@ -1552,7 +1556,7 @@ option:hover {
 
 
 .container {
-  width: 100vw; /* Chiều rộng bằng với chiều rộng của viewport */
+  width: 100%; /* Chiều rộng bằng với chiều rộng của viewport */
   max-width: 100%; /* Đảm bảo không vượt quá chiều rộng của phần tử cha */
   box-sizing: border-box; /* Đảm bảo padding và border không làm thay đổi kích thước tổng thể */
   padding-left: 0%;
@@ -1565,8 +1569,8 @@ option:hover {
   flex-direction: column; /* Sắp xếp theo chiều dọc */
   justify-content: flex-end; /* Canh nội dung về cuối theo chiều dọc */
   align-items: center; /* Canh giữa theo chiều ngang */
-  height: 100vh; /* Chiều cao bằng với toàn màn hình */
-  width: 100vw; /* Chiều rộng bằng với toàn màn hình */
+  /*height: 100%;  Chiều cao bằng với toàn màn hình */
+  width: 100%; /* Chiều rộng bằng với toàn màn hình */
   color: white; /* Màu chữ trắng */
   text-align: center; /* Căn giữa văn bản */
   padding: 40px 20px; /* Khoảng cách bên trong */

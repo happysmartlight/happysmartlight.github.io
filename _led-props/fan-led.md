@@ -7,7 +7,7 @@ bigimg:
   - "/img/led-props/led-fan/led-fan.jpg"
 image: "/img/led-props/led-fan/led-fan.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
-category: LED PIXEL
+categories: [LED PIXEL, led-props, led-props#ledPixel]
 
 
 # author: "BangNguyen"

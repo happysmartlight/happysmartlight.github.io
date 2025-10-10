@@ -7,7 +7,7 @@ bigimg:
   - "/img/controller-chip/banner.png"
 image: "/img/controller-chip/kich song 4w.png"
 tags: hsl, happy, smart, light, visual, led, poi
-category: BOOST SIGNAL
+categories: [LED PIXEL, controller-chip, controller-chip#signalWifi]
 # comments: true
 ---
 

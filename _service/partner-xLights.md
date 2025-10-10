@@ -7,8 +7,7 @@ bigimg:
   - "/img/service/partner-xlights-banner.jpg"
 image: "/img/service/partner-xlights-banner.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
-category: partner
-
+categories: [service#partner]
 
 # author: "BangNguyen"
 # comments: true

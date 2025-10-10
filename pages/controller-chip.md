@@ -7,179 +7,53 @@ bigimg:
 permalink: /controller-chip
 ---
 
-<!-- Layer 1 -->
+<!-- Layer Con -->
+{% include swiper-section.html
+  group="controller-chip"
+  id="ledPixel" 
+  title="✨Mạch Điều Khiển ARGB PIXEL✨"
+  slogan="Thắp sáng không gian, khơi gợi cảm hứng."
+  desc="
+    💡Đây là dòng sản phẩm LED hiện đại.<br>
+    💡Mang lại hiệu suất cao, bền bỉ và đa dạng về mẫu mã. <br>
+    💡Trình diễn ánh sáng chất lượng cao.
+  "
+  category="controller-chip#ledPixel"
+  limit=99 
+  bg="/img/Picture-HSL/banner-index.jpg"
+%}
 
-<div class="gradient-bg">
-  <div class="gradient-text">
-    <p>Tỏa sáng theo cách của riêng bạn</p>
-  </div>
-</div>
+<!-- Layer Con -->
+{% include swiper-section.html
+  group="controller-chip"
+  id="ledMatrix" 
+  title="✨Mạch Điều Khiển Cabin Matrix✨"
+  slogan="Ánh sáng thông minh – khởi nguồn từ đam mê kỹ thuật."
+  desc="
+    💡Đây là dòng sản phẩm LED hiện đại.<br>
+    💡Mang lại hiệu suất cao, bền bỉ và đa dạng về mẫu mã. <br>
+    💡Trình diễn ánh sáng chất lượng cao.
+  "
+  category="controller-chip#ledMatrix"
+  limit=99 
+  bg="/img/Picture-HSL/banner-index.jpg"
+%}
 
-<div id="ledPixel" class="content-index" style="
-      background: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
-        url('/img/Picture-HSL/HSL-index.png');
-      background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
-      background-position: center; /* Căn giữa ảnh nền */
-      background-repeat: no-repeat; /* Không lặp lại ảnh nền */
-        ">
-  <div class="summary">
-    ✨Mạch Điều Khiển ARGB PIXEL✨
-  </div>
-  <div class="description-content-index-sp">
-    💡Đây là dòng sản phẩm chất lượng cao.<br>
-    💡Được thiết kế và gia công trên dây chuyển hiện đại. <br>
-    💡Công suất tác chiến thực tế lớn, tính đa dụng cao.
-  </div>
-  {% assign hascategoryPosts = false %}
-  <div class="details">
-    {% for post in site.controller-chip limit:8 %}
-	{% if post.category == 'LED PIXEL' %}
-    <div class="component">
-      {% if post.image %}
-      <!-- Ảnh đại diện bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
-      </a>
-      {% endif %}
-      <!-- Tiêu đề bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        {% if post.meta-title %}
-        <div class="component-name">{{ post["meta-title"] }}</div>
-        {% else %}
-        <div class="component-name">{{ post.title }}</div>
-        {% endif %}
-      </a>
-    </div>
-	{% assign hascategoryPosts = true %}
-	{% endif %}
-    {% endfor %}
-	<!-- Report hascategoryPosts -->
-	{% unless hascategoryPosts %}
-	<div class="text-center">
-		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
-		</p>
-    {% include qr-zalo.html %}
-	</div>
-	{% endunless %}
-  </div>
-</div>
-
-<!-- Layer 1 -->
-
-<div class="gradient-bg">
-  <div class="gradient-text">
-    <p>Tỏa sáng theo cách của riêng bạn</p>
-  </div>
-</div>
-
-<div id="ledMatrix" class="content-index" style="
-      background: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
-        url('/img/Picture-HSL/HSL-index.png');
-      background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
-      background-position: center; /* Căn giữa ảnh nền */
-      background-repeat: no-repeat; /* Không lặp lại ảnh nền */
-        ">
-	<div class="summary">
-	✨Mạch Điều Khiển Cabin Matrix✨
-	</div>
-	<div class="description-content-index-sp">
-	💡Đây là dòng sản phẩm chất lượng cao.<br>
-	💡Được thiết kế và gia công trên dây chuyển hiện đại. <br>
-	💡Công suất tác chiến thực tế lớn, tính đa dụng cao.
-	</div>
-	{% assign hascategoryPosts = false %}
-	<div class="details">
-    {% for post in site.controller-chip limit:8 %}
-	{% if post.category == 'CONTROLLER MATRIX' %}
-    <div class="component">
-      {% if post.image %}
-      <!-- Ảnh đại diện bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
-      </a>
-      {% endif %}
-      <!-- Tiêu đề bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        {% if post.meta-title %}
-        <div class="component-name">{{ post["meta-title"] }}</div>
-        {% else %}
-        <div class="component-name">{{ post.title }}</div>
-        {% endif %}
-      </a>
-    </div>
-	{% assign hascategoryPosts = true %}
-	{% endif %}
-    {% endfor %}
-	<!-- Report hascategoryPosts -->
-	{% unless hascategoryPosts %}
-	<div class="text-center">
-		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
-		</p>
-    {% include qr-zalo.html %}
-	</div>
-	{% endunless %}
-  </div>
-</div>
-
-<!-- Layer 1 -->
-
-<div class="gradient-bg">
-  <div class="gradient-text">
-    <p>Tỏa sáng theo cách của riêng bạn</p>
-  </div>
-</div>
-
-<div id="signalWifi" class="content-index" style="
-      background: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
-        url('/img/Picture-HSL/HSL-index.png');
-      background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
-      background-position: center; /* Căn giữa ảnh nền */
-      background-repeat: no-repeat; /* Không lặp lại ảnh nền */
-        ">
-	<div class="summary">
-	✨Mạch Tăng Cường Sóng✨
-	</div>
-	<div class="description-content-index-sp">
-	💡Đây là dòng sản phẩm chất lượng cao.<br>
-	💡Được thiết kế và gia công trên dây chuyển hiện đại. <br>
-	💡Công suất tác chiến thực tế lớn, tính đa dụng cao.
-	</div>
-  	{% assign hascategoryPosts = false %}
-	<div class="details">
-    {% for post in site.controller-chip limit:8 %}
-	{% if post.category == 'BOOST SIGNAL' %}
-    <div class="component">
-      {% if post.image %}
-      <!-- Ảnh đại diện bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
-      </a>
-      {% endif %}
-      <!-- Tiêu đề bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        {% if post.meta-title %}
-        <div class="component-name">{{ post["meta-title"] }}</div>
-        {% else %}
-        <div class="component-name">{{ post.title }}</div>
-        {% endif %}
-      </a>
-    </div>
-	{% assign hascategoryPosts = true %}
-	{% endif %}
-    {% endfor %}
-	<!-- Report hascategoryPosts -->
-	{% unless hascategoryPosts %}
-	<div class="text-center">
-		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
-		</p>
-    {% include qr-zalo.html %}
-	</div>
-	{% endunless %}
-  </div>
-</div>
+<!-- Layer Con -->
+{% include swiper-section.html
+  group="controller-chip"
+  id="signalWifi" 
+  title="✨Mạch Tăng Cường Sóng✨"
+  slogan="Khi LED trở nên thông minh, ánh sáng trở nên sống động."
+  desc="
+    💡Đây là dòng sản phẩm LED hiện đại.<br>
+    💡Mang lại hiệu suất cao, bền bỉ và đa dạng về mẫu mã. <br>
+    💡Trình diễn ánh sáng chất lượng cao.
+  "
+  category="controller-chip#signalWifi"
+  limit=99 
+  bg="/img/Picture-HSL/banner-index.jpg"
+%}
 
 
 <!-- Layer 4 -->

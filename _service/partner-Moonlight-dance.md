@@ -7,7 +7,7 @@ bigimg:
   - "/img/service/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO-banner.jpg"
 image: "/img/service/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
-category: partner
+categories: [service#partner]
 
 
 # author: "BangNguyen"

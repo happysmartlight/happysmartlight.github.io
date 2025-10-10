@@ -7,7 +7,7 @@ bigimg:
   - "/img/poi-tools/visual-hoop/banner-visual-hoop.jpg"
 image: "/img/poi-tools/visual-hoop/visual-hoop.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
-category: VISUAL HOOP PIXEL
+categories: [VISUAL HOOP PIXEL, poi-tools, poi-tools#visualHoop]
 
 
 # author: "BangNguyen"

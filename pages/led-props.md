@@ -7,295 +7,87 @@ bigimg:
 permalink: /led-props
 ---
 
-<!-- Layer 1 LED PIXEL -->
+<!-- Layer Con -->
+{% include swiper-section.html
+  group="led-props"
+  id="ledPixel" 
+  title="✨ARGB PIXEL✨"
+  slogan="Tạo nên chuẩn mực mới cho ngành LED nghệ thuật."
+  desc="
+    💡Đây là dòng sản phẩm LED hiện đại.<br>
+    💡Mang lại hiệu suất cao, bền bỉ và đa dạng về mẫu mã. <br>
+    💡Trình diễn ánh sáng chất lượng cao.
+  "
+  category="led-props#ledPixel"
+  limit=99 
+  bg="/img/Picture-HSL/banner-index.jpg"
+%}
 
-<div class="gradient-bg">
-  <div class="gradient-text">
-    <p>Tỏa sáng theo cách của riêng bạn</p>
-  </div>
-</div>
+<!-- Layer Con -->
+{% include swiper-section.html
+  group="led-props"
+  id="ledMatrix" 
+  title="✨MEGA PIXEL - MATRIX LED✨"
+  slogan="Khi LED trở nên thông minh, ánh sáng trở nên sống động."
+  desc="
+    💡Đây là dòng sản phẩm LED hiện đại.<br>
+    💡Mang lại hiệu suất cao, bền bỉ và đa dạng về mẫu mã. <br>
+    💡Trình diễn ánh sáng chất lượng cao.
+  "
+  category="led-props#ledMatrix"
+  limit=99 
+  bg="/img/Picture-HSL/banner-index.jpg"
+%}
 
-<div id="ledPixel" class="content-index" style="
-      background: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
-        url('/img/Picture-HSL/HSL-index.png');
-      background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
-      background-position: center; /* Căn giữa ảnh nền */
-      background-repeat: no-repeat; /* Không lặp lại ảnh nền */
-        ">
-  <div class="summary">
-    ✨ARGB PIXEL✨
-  </div>
-  <div class="description-content-index-sp">
+<!-- Layer Con -->
+{% include swiper-section.html
+  group="led-props"
+  id="laser" 
+  title="✨Laser Series✨"
+  slogan="Làm đúng từ điều nhỏ nhất – tỏa sáng từ điều lớn lao."
+  desc="
+    💡Đèn laser hiệu suất cao, đa dạng mẫu mã.<br>
+    💡Được thiết kế và gia công trên dây chuyển hiện đại. <br>
+    💡Chùm tia sắc nét, mạnh mẽ, phù hợp sân khấu & trình diễn.
+  "
+  category="led-props#laser"
+  limit=99 
+  bg="/img/Picture-HSL/banner-index.jpg"
+%}
+
+
+<!-- Layer Con -->
+{% include swiper-section.html
+  group="led-props"
+  id="power" 
+  title="✨Nguồn và Pin✨"
+  slogan="Chúng tôi thắp sáng niềm tin bằng chất lượng."
+  desc="
     💡Đây là dòng sản phẩm chất lượng cao.<br>
     💡Được thiết kế và gia công trên dây chuyển hiện đại. <br>
     💡Công suất tác chiến thực tế lớn, tính đa dụng cao.
-  </div>
-  {% assign hascategoryPosts = false %}
-  <div class="details">
-    {% for post in site.led-props limit:8 %}
-	  {% if post.category == 'LED PIXEL' %}
-    <div class="component">
-      {% if post.image %}
-      <!-- Ảnh đại diện bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
-      </a>
-      {% endif %}
-      <!-- Tiêu đề bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        {% if post.meta-title %}
-        <div class="component-name">{{ post["meta-title"] }}</div>
-        {% else %}
-        <div class="component-name">{{ post.title }}</div>
-        {% endif %}
-      </a>
-    </div>
-	{% assign hascategoryPosts = true %}
-	{% endif %}
-    {% endfor %}
-	<!-- Report hascategoryPosts -->
-	{% unless hascategoryPosts %}
-	<div class="text-center">
-		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
-		</p>
-    {% include qr-zalo.html %}
-	</div>
-	{% endunless %}
-  </div>
-</div>
+  "
+  category="led-props#power"
+  limit=99 
+  bg="/img/Picture-HSL/banner-index.jpg"
+%}
 
-<!-- Layer 1 MATRIX -->
 
-<div class="gradient-bg">
-  <div class="gradient-text">
-    <p>Tỏa sáng theo cách của riêng bạn</p>
-  </div>
-</div>
-
-<div id="ledMatrix" class="content-index" style="
-      background: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
-        url('/img/Picture-HSL/HSL-index.png');
-      background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
-      background-position: center; /* Căn giữa ảnh nền */
-      background-repeat: no-repeat; /* Không lặp lại ảnh nền */
-        ">
-	<div class="summary">
-	✨MEGA PIXEL - MATRIX LED✨
-	</div>
-	<div class="description-content-index-sp">
-	💡Đây là dòng sản phẩm chất lượng cao.<br>
-	💡Được thiết kế và gia công trên dây chuyển hiện đại. <br>
-	💡Công suất tác chiến thực tế lớn, tính đa dụng cao.
-	</div>
-	{% assign hascategoryPosts = false %}
-	<div class="details">
-    {% for post in site.led-props limit:8 %}
-	  {% if post.category == 'MATRIX' %}
-    <div class="component">
-      {% if post.image %}
-      <!-- Ảnh đại diện bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
-      </a>
-      {% endif %}
-      <!-- Tiêu đề bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        {% if post.meta-title %}
-        <div class="component-name">{{ post["meta-title"] }}</div>
-        {% else %}
-        <div class="component-name">{{ post.title }}</div>
-        {% endif %}
-      </a>
-    </div>
-	{% assign hascategoryPosts = true %}
-	{% endif %}
-    {% endfor %}
-	<!-- Report hascategoryPosts -->
-	{% unless hascategoryPosts %}
-	<div class="text-center">
-		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
-		</p>
-    {% include qr-zalo.html %}
-	</div>
-	{% endunless %}
-  </div>
-</div>
-
-<!-- Layer 1 Laser -->
-
-<div class="gradient-bg">
-  <div class="gradient-text">
-    <p>Tỏa sáng theo cách của riêng bạn</p>
-  </div>
-</div>
-
-<div id="laser" class="content-index" style="
-      background: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
-        url('/img/Picture-HSL/HSL-index.png');
-      background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
-      background-position: center; /* Căn giữa ảnh nền */
-      background-repeat: no-repeat; /* Không lặp lại ảnh nền */
-        ">
-	<div class="summary">
-	✨Laser Series✨
-	</div>
-	<div class="description-content-index-sp">
-	💡Đèn laser hiệu suất cao, đa dạng mẫu mã.<br>
-	💡Được thiết kế và gia công trên dây chuyển hiện đại. <br>
-	💡Chùm tia sắc nét, mạnh mẽ, phù hợp sân khấu & trình diễn.
-	</div>
-  	{% assign hascategoryPosts = false %}
-	<div class="details">
-    {% for post in site.led-props limit:8 %}
-	{% if post.category == 'Laser' %}
-    <div class="component">
-      {% if post.image %}
-      <!-- Ảnh đại diện bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
-      </a>
-      {% endif %}
-      <!-- Tiêu đề bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        {% if post.meta-title %}
-        <div class="component-name">{{ post["meta-title"] }}</div>
-        {% else %}
-        <div class="component-name">{{ post.title }}</div>
-        {% endif %}
-      </a>
-    </div>
-	{% assign hascategoryPosts = true %}
-	{% endif %}
-    {% endfor %}
-	<!-- Report hascategoryPosts -->
-	{% unless hascategoryPosts %}
-	<div class="text-center">
-		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
-		</p>
-    {% include qr-zalo.html %}
-	</div>
-	{% endunless %}
-  </div>
-</div>
-
-<!-- Layer 1 POWER -->
-
-<div class="gradient-bg">
-  <div class="gradient-text">
-    <p>Tỏa sáng theo cách của riêng bạn</p>
-  </div>
-</div>
-
-<div id="power" class="content-index" style="
-      background: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
-        url('/img/Picture-HSL/HSL-index.png');
-      background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
-      background-position: center; /* Căn giữa ảnh nền */
-      background-repeat: no-repeat; /* Không lặp lại ảnh nền */
-        ">
-	<div class="summary">
-	✨Nguồn và Pin✨
-	</div>
-	<div class="description-content-index-sp">
-	💡Đây là dòng sản phẩm chất lượng cao.<br>
-	💡Được thiết kế và gia công trên dây chuyển hiện đại. <br>
-	💡Công suất tác chiến thực tế lớn, tính đa dụng cao.
-	</div>
-  	{% assign hascategoryPosts = false %}
-	<div class="details">
-    {% for post in site.led-props limit:8 %}
-	{% if post.category == 'POWER' %}
-    <div class="component">
-      {% if post.image %}
-      <!-- Ảnh đại diện bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
-      </a>
-      {% endif %}
-      <!-- Tiêu đề bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        {% if post.meta-title %}
-        <div class="component-name">{{ post["meta-title"] }}</div>
-        {% else %}
-        <div class="component-name">{{ post.title }}</div>
-        {% endif %}
-      </a>
-    </div>
-	{% assign hascategoryPosts = true %}
-	{% endif %}
-    {% endfor %}
-	<!-- Report hascategoryPosts -->
-	{% unless hascategoryPosts %}
-	<div class="text-center">
-		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
-		</p>
-    {% include qr-zalo.html %}
-	</div>
-	{% endunless %}
-  </div>
-</div>
-
-<!-- Layer 1 OTHER -->
-
-<div class="gradient-bg">
-  <div class="gradient-text">
-    <p>Tỏa sáng theo cách của riêng bạn</p>
-  </div>
-</div>
-
-<div id="other" class="content-index" style="
-      background: 
-        linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%), 
-        url('/img/Picture-HSL/HSL-index.png');
-      background-size: cover; /* Ảnh nền bao phủ toàn bộ vùng */
-      background-position: center; /* Căn giữa ảnh nền */
-      background-repeat: no-repeat; /* Không lặp lại ảnh nền */
-        ">
-	<div class="summary">
-	✨Các mục liên quan khác✨
-	</div>
-	<div class="description-content-index-sp">
-	💡Đây là dòng sản phẩm chất lượng cao.<br>
-	💡Được thiết kế và gia công trên dây chuyển hiện đại. <br>
-	💡Công suất tác chiến thực tế lớn, tính đa dụng cao.
-	</div>
-  	{% assign hascategoryPosts = false %}
-	<div class="details">
-    {% for post in site.led-props limit:8 %}
-	{% if post.category == 'OTHER' %}
-    <div class="component">
-      {% if post.image %}
-      <!-- Ảnh đại diện bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
-      </a>
-      {% endif %}
-      <!-- Tiêu đề bài đăng -->
-      <a href="{{ post.url | prepend: site.baseurl }}">
-        {% if post.meta-title %}
-        <div class="component-name">{{ post["meta-title"] }}</div>
-        {% else %}
-        <div class="component-name">{{ post.title }}</div>
-        {% endif %}
-      </a>
-    </div>
-	{% assign hascategoryPosts = true %}
-	{% endif %}
-    {% endfor %}
-	<!-- Report hascategoryPosts -->
-	{% unless hascategoryPosts %}
-	<div class="text-center">
-		<p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.
-		</p>
-    {% include qr-zalo.html %}
-	</div>
-	{% endunless %}
-  </div>
-</div>
+<!-- Layer Con -->
+{% include swiper-section.html
+  group="led-props"
+  id="other" 
+  title="✨Các mục liên quan khác✨"
+  slogan="Sáng tạo bằng tâm – chiếu sáng bằng tầm."
+  desc="
+    💡Đây là dòng sản phẩm chất lượng cao.<br>
+    💡Được thiết kế và gia công trên dây chuyển hiện đại. <br>
+    💡Công suất tác chiến thực tế lớn, tính đa dụng cao.
+  "
+  category="led-props#other"
+  limit=99 
+  bg="/img/Picture-HSL/banner-index.jpg"
+%}
 
 <!-- Layer 4 -->
 

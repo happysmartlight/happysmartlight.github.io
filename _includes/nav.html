@@ -20,9 +20,13 @@
         {% for link in site.navbar-links %}
         {% if link[1].first %}
         <li class="navlinks-container">
-          <a class="navlinks-parent" href="#" aria-label="{{ link[0] }}">{{ link[0] }}</a>
+          <a class="navlinks-parent" 
+            href="{% if link[1].url %}{{ link[1].url | relative_url }}{% else %}#{% endif %}" 
+            aria-label="{{ link[0] }}">
+            {{ link[0] }}
+          </a>
           <div class="navlinks-children">
-            {% for childlink in link[1] %}
+            {% for childlink in link[1].children %}
               {% for linkparts in childlink %}
                 {% include navbarlink.html link=linkparts %}
               {% endfor %}

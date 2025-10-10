@@ -1,0 +1,75 @@
+
+<div class="gradient-bg">
+  <div class="gradient-text">
+    <div class="summary">
+      <h2>{{ include.slogan | default: '✨Đạo cụ LED trình diễn✨' }}</h2>
+    </div>
+  </div>
+</div>
+
+<div id="{{ include.id | default: 'section-default' }}" class="content-index"
+  style="
+    background:
+      linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%),
+      url('{{ include.bg }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  "
+>
+
+  <!-- Tiêu đề -->
+  <div class="summary">
+    {{ include.title | default: '✨LED SECTION✨' }}
+  </div>
+
+  <!-- Mô tả -->
+  <div class="description-content-index-sp">
+    {{ include.desc }}
+  </div>
+
+  <!-- Danh sách sản phẩm -->
+  {% assign hascategoryPosts = false %}
+  {% assign filter_cats = include.category | split: "," %}
+
+  <div class="details">
+    {% assign limit = include.limit | default: 8 %}
+    {% assign group = include.group | default: 'led-props' %}
+
+    {% for post in site[group] limit: limit %}
+      {% assign match = false %}
+      {% for cat in filter_cats %}
+        {% assign cat_trim = cat | strip %}
+        {% if post.categories contains cat_trim %}
+          {% assign match = true %}
+        {% endif %}
+      {% endfor %}
+
+      {% if match %}
+        <div class="component">
+          {% if post.image %}
+          <a href="{{ post.url | prepend: site.baseurl }}">
+            <img src="{{ post.image }}" alt="{{ post.title }}" class="avatar" loading="lazy">
+          </a>
+          {% endif %}
+          <a href="{{ post.url | prepend: site.baseurl }}">
+            {% if post.meta-title %}
+              <div class="component-name">{{ post["meta-title"] }}</div>
+            {% else %}
+              <div class="component-name">{{ post.title }}</div>
+            {% endif %}
+          </a>
+        </div>
+        {% assign hascategoryPosts = true %}
+      {% endif %}
+    {% endfor %}
+
+    <!-- Nếu chưa có bài viết -->
+    {% unless hascategoryPosts %}
+    <div class="text-center">
+      <p>Hiện danh sách sản phẩm đang được cập nhật, quý khách vui lòng liên hệ HSL để nhận thông tin tư vấn chính xác.</p>
+      {% include qr-zalo.html %}
+    </div>
+    {% endunless %}
+  </div>
+</div>

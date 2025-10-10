@@ -111,23 +111,16 @@
           {% endif %}
         </ul>
 
-        <p class="copyright text-muted">
-          <a href="tel:+84{{ site.author.telephone }}" title="{{ site.author.telephone }}">📞(+84) {{ site.author.telephone }}</a> 
-          <br>
-          <a href="mailto:{{ site.author.email  }}" title="{{ site.author.email  }}">✉️ {{ site.author.email  }}</a> 
-          <br>
-          {{ site.Tax-code }}
-          <br>
-          {{ site.company }} 
-          <br>
-          <a href="{{ site.map-address-1 }}" title="Google Map">{{ site.address-1 }}</a>
-          <br>
-          <a href="{{ site.map-address-2 }}" title="Google Map">{{ site.address-2 }}</a>
-          <br>
-          © {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.
-          <br>
-          <img alt="Lượt người xem trang" src="https://komarev.com/ghpvc/?username=bangnguyendev&base=23000&abbreviated=true&color=orange">
-        </p>
+        <div class="copyright text-muted">
+          <h2>{{ site.company_EN }}</h2><br>
+          <B>📜Mã số thuế:</B> {{ site.Tax-code }}<br>
+          <a href="tel:+84{{ site.author.telephone }}" title="{{ site.author.telephone }}"><B>📞Hotline:</B> (+84) {{ site.author.telephone }}</a><br>
+          <a href="mailto:{{ site.author.email }}" title="{{ site.author.email }}"><B>✉️Email:</B> {{ site.author.email }}</a><br>
+          <a href="{{ site.map-address-1 }}" title="Google Map"><B>📌Địa chỉ:</B> {{ site.address-1 }}</a><br>
+          <!-- <a href="{{ site.map-address-2 }}" title="Google Map">{{ site.address-2 }}</a><br> -->
+          <B>Người đại diện:</B> {{ site.director }}<br>
+          © {{ site.time | date: '%Y' }} {{ site.title }}. <br> <B>All rights reserved.</B>
+        </div> <!-- .copyright -->
       </div>
     </div>
   </div>

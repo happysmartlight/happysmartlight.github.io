@@ -7,7 +7,7 @@ bigimg:
   - "/img/controller-chip/banner.png"
 image: "/img/service/training-offline.png"
 tags: hsl, happy, smart, light, visual, led, poi
-category: training
+categories: [service#training]
 
 
 # author: "BangNguyen"

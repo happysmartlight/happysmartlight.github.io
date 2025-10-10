@@ -7,7 +7,7 @@ bigimg:
   - "/img/service/partner-LedFX-banner.png"
 image: "/img/service/partner-LedFX.png"
 tags: hsl, happy, smart, light, visual, led, poi
-category: partner
+categories: [service#partner]
 
 
 # author: "BangNguyen"

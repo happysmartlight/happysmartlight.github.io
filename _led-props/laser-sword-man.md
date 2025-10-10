@@ -7,7 +7,7 @@ bigimg:
   - "/img/led-props/laser-series/lll2-min-concentrate.jpg"
 image: "/img/led-props/laser-series/LSM-Oman-7-min-scaled-1.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
-category: Laser
+categories: [LED PIXEL, led-props, led-props#laser]
 
 # author: "BangNguyen"
 # comments: true

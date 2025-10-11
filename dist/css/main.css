@@ -427,6 +427,14 @@ img {
   font-weight: bold;
 }
 
+.navlinks-children {
+  display: none;
+}
+.navlinks-children.show {
+  display: block;
+}
+
+
 @media only screen and (max-width: 767px) {
   .navbar-custom .nav .navlinks-container.show-children {
     background: none;

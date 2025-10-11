@@ -22,6 +22,7 @@
         <li class="navlinks-container">
           <a class="navlinks-parent" 
             href="{% if link[1].url %}{{ link[1].url | relative_url }}{% else %}#{% endif %}" 
+            data-toggle="dropdown"
             aria-label="{{ link[0] }}">
             {{ link[0] }}
           </a>
@@ -44,8 +45,35 @@
           <a href="#" aria-label="Search"> 
               <i class="fa fa-search"></i>
           </a>
-      </li>
+        </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const parents = document.querySelectorAll(".navlinks-parent");
+
+  parents.forEach(parent => {
+    let tappedOnce = false;
+
+    parent.addEventListener("click", function(e) {
+      // Nếu có menu con
+      const hasChildren = this.nextElementSibling && this.nextElementSibling.classList.contains("navlinks-children");
+      if (window.innerWidth <= 992 && hasChildren) { // chỉ áp dụng cho mobile/tablet
+        if (!tappedOnce) {
+          e.preventDefault(); // chặn chuyển trang
+          this.nextElementSibling.classList.toggle("show"); // hiện menu con
+          tappedOnce = true;
+          // reset sau 1s nếu không bấm lần 2
+          setTimeout(() => tappedOnce = false, 1000);
+        } else {
+          // lần thứ 2 → cho phép truy cập link thật
+          window.location = this.getAttribute("href");
+        }
+      }
+    });
+  });
+});
+</script>

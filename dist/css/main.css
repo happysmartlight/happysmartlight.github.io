@@ -1687,7 +1687,7 @@ option:hover {
 @media (max-width: 480px) {
   .component {
     flex: 1 1 100%; /* Chiếm toàn bộ chiều rộng */
-    max-width: 70px; /* Thu nhỏ chiều rộng tối đa */
+    max-width: 140px; /* Thu nhỏ chiều rộng tối đa */
     padding: 5px;
   }
   .summary {

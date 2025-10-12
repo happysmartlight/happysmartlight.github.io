@@ -1751,12 +1751,6 @@ option:hover {
 }
 
 
-.zalo-chat-widget {
-  right: 25px !important;
-  bottom: 80px !important;
-}
-
-
 .specification {
   display: flex;
   justify-content: space-around;
@@ -1830,4 +1824,100 @@ option:hover {
   border-radius: 20px;    /* Bo tròn cho từng item */
   overflow: hidden;
   box-sizing: border-box;
+}
+
+/* zalo oa */
+.zalo-chat-widget {
+  left: 20px !important;
+  bottom: 100px !important;
+}
+
+
+/* Zalo chat button custom */
+/* Kiểu chung cho icon */
+.social-icon {
+  position: fixed;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 28px;
+  text-decoration: none;
+  z-index: 9999;
+}
+.social-icon:hover {
+  text-decoration: none;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Icon Zalo (màu xanh nhạt) */
+.social-icon.zalo {
+  bottom: 100px;
+  background: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.8);
+  animation: ring 1.2s infinite, glow-lightblue 1.5s infinite alternate;
+}
+
+/* Icon điện thoại (màu vàng) */
+.social-icon.phone {
+  bottom: 20px;
+  background: #ffc400;
+  box-shadow: 0 0 15px rgba(255, 196, 0, 0.8);
+  animation: ring 1.2s infinite, glow-yellow 1.5s infinite alternate;
+}
+
+
+/* Hiệu ứng rung lắc (lung lay) */
+@keyframes ring {
+  0%   { transform: rotate(0); }
+  10%  { transform: rotate(15deg); }
+  20%  { transform: rotate(-15deg); }
+  30%  { transform: rotate(10deg); }
+  40%  { transform: rotate(-10deg); }
+  50%  { transform: rotate(5deg); }
+  60%  { transform: rotate(-5deg); }
+  70%  { transform: rotate(0); }
+  100% { transform: rotate(0); }
+}
+
+/* Hiệu ứng phát quang */
+/* Glow vàng */
+@keyframes glow-yellow {
+  from {
+    box-shadow: 0 0 10px rgba(255, 196, 0, 0.5),
+                0 0 20px rgba(255, 196, 0, 0.5);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(255, 196, 0, 1),
+                0 0 40px rgba(255, 196, 0, 1);
+  }
+}
+
+/* Glow xanh đậm */
+@keyframes glow-blue {
+  from {
+    box-shadow: 0 0 10px rgba(24, 119, 242, 0.5),
+                0 0 20px rgba(24, 119, 242, 0.5);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(24, 119, 242, 1),
+                0 0 40px rgba(24, 119, 242, 1);
+  }
+}
+
+/* Glow xanh nhạt (Zalo) */
+@keyframes glow-lightblue {
+  from {
+    box-shadow: 0 0 10px rgba(0, 128, 255, 0.5),
+                0 0 20px rgba(0, 128, 255, 0.5);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(0, 128, 255, 1),
+                0 0 40px rgba(0, 128, 255, 1);
+  }
 }

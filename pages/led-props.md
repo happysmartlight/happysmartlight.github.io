@@ -97,7 +97,7 @@ permalink: /led-props
     <br>
     <div class="text-center">
       <a target="_blank" rel="noopener" href="/" class="project-link" title="✨HAPPY SMART LIGHT✨">
-        <img src="{{ site.baseurl }}/img/Picture-HSL/trans_hsl.svg" class="img-rounded" loading="lazy" alt="✨HAPPY SMART LIGHT✨" width="30%" />
+        <img src="{{ site.baseurl }}/img/Picture-HSL/trans_hsl.svg" class="img-rounded" loading="lazy" alt="✨HAPPY SMART LIGHT✨" width="15%" />
       </a>
     </div>
   </div>

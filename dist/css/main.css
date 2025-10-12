@@ -1651,6 +1651,8 @@ option:hover {
   color: #ffffff; /* Màu chữ trắng */
   padding: 5px 15px; /* Khoảng cách bên trong */
   border-radius: 20px; /* Bo tròn góc của nền tên */
+  background: #3e004aa3; /* Nền mờ đen */
+  transition: box-shadow 0.3s ease, background 0.3s ease
 }
 
 /* Hiệu ứng hover trên tên của component */

@@ -14,6 +14,13 @@ mach-argb-v2:
   - /argb-hsl/image/v2.0.0-3D_PCB1_2024-12-04-mat truoc.png
   - /argb-hsl/image/3D_PCB1_mat-sau.png
   - /argb-hsl/image/v2.0.0-3D_PCB1_2024-12-04-mat sau.png
+mach-argb-ipex-v2:
+  - /img/controller-chip/ARGB_HSL_TOP.png
+  - /img/controller-chip/ARGB_HSL_BOTTOM.png
+  - /img/controller-chip/ARGB_HSL_2.png
+  - /img/controller-chip/ARGB_HSL_3.png
+  - /img/controller-chip/ARGB_HSL_4.png
+  - /img/controller-chip/ARGB_HSL_5.png
 partner-moonlight:
   - /img/service/partner-MOONLIGHT-DANCE-STUDIO/led_violin.png
   - /img/service/partner-MOONLIGHT-DANCE-STUDIO/led_windown.jpg

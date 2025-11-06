@@ -4,8 +4,8 @@ title: "Bộ mạch điều khiển đa năng các loại Chip LED PIXEL ARG
 meta-title: "Controller ARGB IPEX V2.0"
 # subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
-  - "/img/controller-chip/banner.png"
-image: "/img/controller-chip/argb_IPEX_ver2.0.png"
+  - "/img/controller-chip/ARGB_HSL_4.png"
+image: "/img/controller-chip/ARGB_HSL_4.png"
 tags: hsl, happy, smart, light, visual, led, poi
 categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 
@@ -14,6 +14,9 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 ---
 
 # 🎉 Bộ Điều Khiển Chip LED PIXEL ARGB IPEX V2.0 – Nhỏ Gọn, Sạc Pin Type-C! 🔥  
+
+> 📢 **Giá mạch điều khiển: 739.000đ/mạch** (đã bao gồm VAT)  
+> ✅ Khuyến khích dùng **2 mạch trở lên** để lập trình hiệu ứng đồng bộ  
 
 📌 **Hướng dẫn nhanh:**  
 - [🛠 Bắt đầu cơ bản](/argb-hsl/basics/getting-started)  
@@ -34,7 +37,7 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 ✅ **Sạc pin qua Type-C**, dễ dàng sử dụng với pin lithium.  
 ✅ **Bảo vệ pin an toàn**, chống quá tải và xả quá mức.  
 ✅ **Kích thước nhỏ gọn**, phù hợp cho mọi dự án LED di động.  
-✅ **Tích hợp 2 ngõ ra LED**, linh hoạt trong điều khiển hiệu ứng.  
+✅ **Tích hợp 4 ngõ ra LED**, linh hoạt trong điều khiển hiệu ứng.  
 ✅ **Hỗ trợ cập nhật OTA**, dễ dàng nâng cấp firmware.  
 ✅ **Hỗ trợ anten rời**, giúp tăng tầm bắt sóng.  
 ✅ **Điện áp 5V**, PCB chắc chắn, linh kiện chất lượng cao.  
@@ -42,8 +45,10 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 
 🖼 **Hình ảnh PCB LED PIXEL ARGB IPEX V2.0:**  
 
-![3D PCB LED PIXEL ARGB IPEX V2.0](/img/controller-chip/argb_IPEX_ver2.0_TOP.png)  
-![3D PCB LED PIXEL ARGB IPEX V2.0](/img/controller-chip/argb_IPEX_ver2.0_BOT.png)  
+![3D PCB LED PIXEL ARGB IPEX V2.0](/img/controller-chip/ARGB_HSL_TOP.png)  
+
+{% include gallery.html images=site.data.galleries.mach-argb-ipex-v2 %}
+
 
 ---
 
@@ -84,7 +89,7 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 ✅ **FastLED** hỗ trợ **50 bảng màu** sinh động  
 ✅ **Phân đoạn LED linh hoạt** – tạo hiệu ứng riêng cho từng phần  
 ✅ **Kết nối WiFi thông minh**, quản lý từ xa  
-✅ **Hỗ trợ 2 ngõ ra LED** – tối đa **800 LED mỗi đầu ra**  
+✅ **Hỗ trợ 4 ngõ ra LED** – tối đa **800-1200 LED mỗi đầu ra**  
 ✅ **Lưu trữ đến 250 Preset** – dễ dàng chuyển đổi giữa các hiệu ứng  
 ✅ **Tích hợp API, MQTT, HTTP, UDP**  
 ✅ **Hỗ trợ cập nhật OTA** – bảo mật bằng mật khẩu  
@@ -135,7 +140,7 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 
 ---
 
-> 📢 **Giá mạch điều khiển: 649.000đ/mạch** (đã bao gồm VAT)  
+> 📢 **Giá mạch điều khiển: 739.000đ/mạch** (đã bao gồm VAT)  
 > ✅ Khuyến khích dùng **2 mạch trở lên** để lập trình hiệu ứng đồng bộ  
 
 ---

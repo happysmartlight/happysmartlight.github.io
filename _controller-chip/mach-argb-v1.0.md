@@ -21,7 +21,7 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
   - Ví dụ: ![Ví dụ](https://raw.githubusercontent.com/scottrbailey/WLED-Utils/master/gifs/FX_112.gif)
 - [🌈 Bảng màu LED](/argb-hsl/features/palettes)  
   - Ví dụ: ![Ví dụ](https://raw.githubusercontent.com/scottrbailey/WLED-Utils/master/gifs/PAL_46.gif)               
-- [📺 Video hướng dẫn](/argb-hsl/basics/tutorials)  
+- [📺 Video hướng dẫn](dang-xay-dung)  
 
 🚀 Các **hiệu ứng có thể pha trộn (mix) với nhau** nên gần như **không giới hạn hiệu ứng** mà chỉ phụ thuộc vào sự sáng tạo của người sử dụng mạch.
 

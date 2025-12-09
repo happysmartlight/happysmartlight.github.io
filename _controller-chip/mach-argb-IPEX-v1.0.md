@@ -18,12 +18,12 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 
 📌 **Hướng dẫn nhanh:**  
 
-- [🛠 Bắt đầu cơ bản](/argb-hsl/basics/getting-started)  
+- [🛠 Bắt đầu cơ bản](dang-xay-dung)  
 - [🎨 Hiệu ứng LED](/argb-hsl/features/effects)  
   - Ví dụ: ![Ví dụ](https://raw.githubusercontent.com/scottrbailey/WLED-Utils/master/gifs/FX_112.gif)
 - [🌈 Bảng màu LED](/argb-hsl/features/palettes)  
   - Ví dụ: ![Ví dụ](https://raw.githubusercontent.com/scottrbailey/WLED-Utils/master/gifs/PAL_46.gif)               
-- [📺 Video hướng dẫn](/argb-hsl/basics/tutorials)  
+- [📺 Video hướng dẫn](dang-xay-dung)  
 
 🚀 Các **hiệu ứng có thể pha trộn (mix) với nhau** nên gần như **không giới hạn hiệu ứng** mà chỉ phụ thuộc vào sự sáng tạo của người sử dụng mạch.
 

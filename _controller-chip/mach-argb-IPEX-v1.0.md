@@ -20,9 +20,9 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 
 - 🔧 **POI TOOL HSL v1.5** → 
 
-   - [Download Poi Tool HSL v1.5](/documents/POI_TOOL_HSL_v1.5_2025.exe)
+   - [Download Poi Tool HSL v1.5](/documents/POI_TOOL_HSL_v1.5_2025.exe.zip)
 
-   - [Download Poi Tool HSL v1.5 có hiện log báo thông tin](/documents/POI_TOOL_HSL_TERMINAL_v1.5_2025.exe)
+   - [Download Poi Tool HSL v1.5 có hiện log báo thông tin](/documents/POI_TOOL_HSL_TERMINAL_v1.5_2025.exe.zip)
 
 - 🎭 **Đạo cụ & Trang phục (TimeCode / xLights)** → 
 

@@ -20,17 +20,7 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 
 - 🔧 **POI TOOL HSL v1.5** 
 
-   - [Download Poi Tool HSL v1.5](/documents/POI_TOOL_HSL_v1.5_2025.zip)
-
-   - [Download Poi Tool HSL v1.5 có hiện log báo thông tin](/documents/POI_TOOL_HSL_TERMINAL_v1.5_2025.zip)
-
 - 🎭 **Đạo cụ & Trang phục (TimeCode / xLights)** 
-
-  - Tải cả 2 phần, đặt cùng thư mục và giải nén!
-
-  - [Download P1](/documents/xLights64_2025_13.7z.001)
-
-  - [Download P2](/documents/xLights64_2025_13.7z.002)
 
 - **Link Đầy Đủ** [Download Tất Cả](https://drive.google.com/drive/folders/1sPGiqML3gM14iFop44tH6MFm2_VKa3mB?usp=sharing)
 

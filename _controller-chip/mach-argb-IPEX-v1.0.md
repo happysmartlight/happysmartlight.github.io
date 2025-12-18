@@ -16,6 +16,20 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 
 # 🎉 Chào mừng đến với Bộ Điều Khiển Chip LED PIXEL ARGB IPEX V1.0! ✨  
 
+# 🚀 Tải phẩn mềm Happy Smart Light
+
+- 🔧 **POI TOOL HSL v1.5** → 
+
+   - [Download P1](/documents/TOOL_POI_HSL.7z.001)
+
+   - [Download P2](/documents/TOOL_POI_HSL.7z.002)
+
+- 🎭 **Đạo cụ & Trang phục (TimeCode / xLights)** → 
+
+  - [Download P1](/documents/xLights64_2025_13.7z.001)
+
+  - [Download P2](/documents/xLights64_2025_13.7z.002)
+
 📌 **Hướng dẫn nhanh:**  
 
 - [🛠 Bắt đầu cơ bản](dang-xay-dung)  

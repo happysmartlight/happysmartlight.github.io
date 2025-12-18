@@ -15,6 +15,21 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 
 # 🎉 Chào mừng đến với Bộ Điều Khiển LED ARGB! ✨  
 
+
+# 🚀 Tải phẩn mềm Happy Smart Light
+
+- 🔧 **POI TOOL HSL v1.5** → 
+
+   - [Download P1](/documents/TOOL_POI_HSL.7z.001)
+
+   - [Download P2](/documents/TOOL_POI_HSL.7z.002)
+
+- 🎭 **Đạo cụ & Trang phục (TimeCode / xLights)** → 
+
+  - [Download P1](/documents/xLights64_2025_13.7z.001)
+
+  - [Download P2](/documents/xLights64_2025_13.7z.002)
+  
 📌 **Giới thiệu nhanh:**  
 
 - [🎨 Hiệu ứng LED](/argb-hsl/features/effects)  

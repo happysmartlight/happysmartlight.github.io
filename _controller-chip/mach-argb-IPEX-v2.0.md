@@ -18,21 +18,8 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 > 📢 **Giá mạch điều khiển: 739.000đ/mạch** (đã bao gồm VAT)  
 > ✅ Khuyến khích dùng **2 mạch trở lên** để lập trình hiệu ứng đồng bộ  
 
-# 🚀 Tải phẩn mềm Happy Smart Light
+{% include download %}
 
-- 🔧 **POI TOOL HSL v1.5** → 
-
-   - [Download Poi Tool HSL v1.5](/documents/POI_TOOL_HSL_v1.5_2025.zip)
-
-   - [Download Poi Tool HSL v1.5 có hiện log báo thông tin](/documents/POI_TOOL_HSL_TERMINAL_v1.5_2025.zip)
-- 🎭 **Đạo cụ & Trang phục (TimeCode / xLights)** → 
-
-  - Tải cả 2 phần, đặt cùng thư mục và giải nén!
-
-  - [Download P1](/documents/xLights64_2025_13.7z.001)
-
-  - [Download P2](/documents/xLights64_2025_13.7z.002)
-  
 📌 **Hướng dẫn nhanh:**  
 - [🛠 Bắt đầu cơ bản](dang-xay-dung)  
 - [🎨 Hiệu ứng LED](/argb-hsl/features/effects)  

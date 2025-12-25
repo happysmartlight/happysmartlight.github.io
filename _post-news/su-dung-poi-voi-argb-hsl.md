@@ -103,12 +103,12 @@ Bài viết dưới đây sẽ hướng dẫn khách hàng cấu hình LED, kế
 **Lưu ý:** Việc lưu cấu hình LED sử dụng cho mục đích POI là cài đặt cứng các thuộc tính trong "Tùy Chọn LED", muốn tùy chỉnh lại buộc chúng ta phải **KHÔI PHỤC CÀI ĐẶT GỐC**
 
 <div class="post-img-post">
-  <img src="/img/post-news/poi/b5.png" alt="Khôi phục cài đặt gốc bước 1">
+  <img src="/img/post-news/poi/b5.png" alt="Khôi phục cài đặt gốc 1">
   <p>Khôi phục cài đặt gốc – bước 1</p>
 </div>
 
 <div class="post-img-post">
-  <img src="/img/post-news/poi/b6.png" alt="Khôi phục cài đặt gốc bước 2">
+  <img src="/img/post-news/poi/b6.png" alt="Khôi phục cài đặt gốc 2">
   <p>Khôi phục cài đặt gốc – bước 2</p>
 </div>
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hướng dẫn thiết lập tính năng POI với ARGB HSL"
-meta-title: "Thiết lập POI Pixel"
+meta-title: "CẤU HÌNH POI PIXEL"
 ## subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
   - "/img/post-news/poi/hinh-anh-su-dung/hinh-dep/189547626772519281043.jpg"
@@ -31,7 +31,7 @@ Bài viết dưới đây sẽ hướng dẫn khách hàng cấu hình LED, kế
 
 <div class="post-img-post">
   <img src="/img/post-news/poi/LED.jpg" alt="LED sử dụng">
-  <p>LED chuyên dụng</p>
+  <p>LED chuyên dụng - HSL có cung cấp LED</p>
 </div>
 
 * **Không hỗ trợ LED loại thường**, bao gồm:
@@ -126,7 +126,7 @@ Sau khi cấu hình phần cứng:
 
 Hình ảnh sẽ được lưu trong bộ nhớ và có thể phát trong quá trình biểu diễn.
 
-### 🚀 Tải phẩn mềm Happy Smart Light
+## 🚀 Tải phẩn mềm Happy Smart Light
 
 - 🔧 **POI TOOL HSL** 
 
@@ -135,27 +135,44 @@ Hình ảnh sẽ được lưu trong bộ nhớ và có thể phát trong quá t
 - **Link Đầy Đủ** [Download Tất Cả](https://drive.google.com/drive/folders/1sPGiqML3gM14iFop44tH6MFm2_VKa3mB?usp=sharing)
 
 
-### Hướng dẫn sử dụng POI TOOL HSL
+## Giới thiệu POI TOOL HSL
 
 - Lựa phiên bản tải về, khuyến khích sử dụng bản Terminal để kiểm tra đầy đủ thông tin hoạt động của mạch và bộ điều khiển.
 
-![Lựa chọn phiên bản tải về](/img/post-news/poi/p1.png)
-
+<div class="post-img-post">
+  <img src="/img/post-news/poi/p1.png" alt="Lựa chọn phiên bản tải về">
+  <p>Lựa chọn phiên bản tải về - KHUYẾN NGHỊ BẢN TEMINAL</p>
+</div>
 
 - Lần đầu khi mở ứng dụng, hệ thống sẽ hỏi cấp quyền truy cập mạng của ứng dụng. Bấm Cho phép để ứng dụng hoạt động tốt nhất nhé!
 
-![Cho phép ứng dụng truy cập mạng](/img/post-news/poi/p2.png)
+<div class="post-img-post">
+  <img src="/img/post-news/poi/p2.png" alt="Cho phép ứng dụng truy cập mạng">
+  <p>Cho phép ứng dụng truy cập mạng</p>
+</div>
 
 - Giao diện của ứng dụng
 
-![Giao diện ứng dụng](/img/post-news/poi/p3.png)
+<div class="post-img-post">
+  <img src="/img/post-news/poi/p3.png" alt="Giao diện ứng dụng">
+  <p>Giao diện ứng dụng</p>
+</div>
 
 - Kho ảnh các bạn có thể tham khảo thử nghiệm
 
-![Kho ảnh template](/img/post-news/poi/p4.png)
+<div class="post-img-post">
+  <img src="/img/post-news/poi/p4.png" alt="Kho ảnh">
+  <p>Kho ảnh mẫu</p>
+  <a href="https://drive.google.com/drive/folders/14ozaEHE8HaMdTXV2ijaSowQ5bVf4-Zvf?usp=sharing"
+     class="btn-download"
+     target="_blank" rel="noopener">
+    ⬇️ Tải / Truy cập kho ảnh
+  </a>
+</div>
 
 
-### Clip Tiktok thử nghiệm từ nhà HSL
+
+## Clip Tiktok thử nghiệm từ nhà HSL
 
 <div class="cliptiktok">
   <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@denthongminhhappy/video/7584604893197946132" data-video-id="7584604893197946132" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@denthongminhhappy" href="https://www.tiktok.com/@denthongminhhappy?refer=embed">@denthongminhhappy</a> Tool Poi HSL <a title="happysmartlight" target="_blank" href="https://www.tiktok.com/tag/happysmartlight?refer=embed">#happysmartlight</a> <a title="poi" target="_blank" href="https://www.tiktok.com/tag/poi?refer=embed">#poi</a> <a title="argb" target="_blank" href="https://www.tiktok.com/tag/argb?refer=embed">#argb</a> <a target="_blank" title="♬ Stories 2 - Danilo Stankovic" href="https://www.tiktok.com/music/Stories-2-6777279827805390850?refer=embed">♬ Stories 2 - Danilo Stankovic</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
@@ -204,14 +221,12 @@ Hình ảnh sẽ được lưu trong bộ nhớ và có thể phát trong quá t
 Nếu cần hỗ trợ cấu hình hoặc giải đáp kỹ thuật, vui lòng liên hệ đội ngũ **Happy Smart Light**.
 Chúng tôi luôn sẵn sàng đồng hành cùng khách hàng trong quá trình sử dụng sản phẩm.
 
+
+{% include gallery.html images=site.data.galleries.poi-sample-2 %}
+
 ---
 
 > **Happy Smart Light — Giải pháp ánh sáng sáng tạo cho biểu diễn chuyên nghiệp ✨**
-
----
-
-Bạn cần mình **thêm ảnh minh họa / CTA liên hệ / button download phần mềm** cho phù hợp layout website không?
-
 
 ---
 

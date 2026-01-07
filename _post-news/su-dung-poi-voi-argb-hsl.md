@@ -4,8 +4,8 @@ title: "Hướng dẫn thiết lập tính năng POI với ARGB HSL"
 meta-title: "CẤU HÌNH POI PIXEL"
 ## subtitle: "... Connect device to the Wi-Fi network"
 bigimg:
-  - "/img/post-news/poi/hinh-anh-su-dung/hinh-dep/189547626772519281043.jpg"
-image: "/img/post-news/poi/hinh-anh-su-dung/hinh-dep/189547626772519281043.jpg"
+  - "/img/post-news/poi/hinh-anh-su-dung/hinh-dep/9ec3b7f727c6a898f1d750.jpg"
+image: "/img/post-news/poi/hinh-anh-su-dung/hinh-dep/9ec3b7f727c6a898f1d750.jpg"
 tags: hsl, happy, smart, light, visual, led, poi
 category: post-news#visualPoi
 categories: [VISUAL HOOP PIXEL, poi-tools, post-news#visualPoi]

@@ -18,7 +18,7 @@
         "board_version": "v3.0.0",
         "product": "any",
         "repo": "any",
-        "url": "https://your-server.example.com/firmware/ARGB_HSL_HW_v3.0.0_ESP32S3_N8R8_vid2605250.bin",
+        "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/ARGB_v3.0.0_ESP32-S3_8MB_opi.bin",
         "size": null,
         "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
       },

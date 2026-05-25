@@ -19,8 +19,8 @@
         "product": "any",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/ARGB_v3.0.0_ESP32-S3_8MB_opi.bin",
-        "size": null,
-        "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+        "size": 1264512,
+        "sha256": "680d6178ba9c14036d45269839f63c845df620bb820bb9f78fe5f339df141cf7"
       },
       {
         "version": "3.3.0",

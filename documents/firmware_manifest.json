@@ -1,13 +1,13 @@
 {
   "schema": 1,
   "channel": "stable",
-  "instructions": "Thay url, size va sha256 bang file bin that truoc khi upload len server. Neu khong muon check size, dat size = null. Firmware app se tu match board_version neu cfg/info cua mach co tra ve HW version.",
+  "instructions": "Moi file firmware co board_version rieng va build vid rieng. App match board_version cua mach truoc, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "version": "3.3.0",
-    "vid": 2605250,
     "notes": "Build 2605250 cho ESP32-S3 N8R8. Co 2 file rieng cho HW board v3.0.0 va v4.0.0.",
     "files": [
       {
+        "version": "3.3.0",
+        "vid": 2605250,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -23,6 +23,8 @@
         "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
       },
       {
+        "version": "3.3.0",
+        "vid": 2605250,
         "target": [
           "esp32s3",
           "esp32-s3",

@@ -3,11 +3,11 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2605250 cho ESP32-S3 N8R8. Co 2 file rieng cho HW board v3.0.0 va v4.0.0.",
+    "notes": "Build 2605260 cho ESP32-S3 N8R8. Co 2 file rieng cho HW board ARGB HSL Controller va ARGB HSL Controller 4X.",
     "files": [
       {
         "version": "3.3.0",
-        "vid": 2605250,
+        "vid": 2605260,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -15,17 +15,17 @@
         ],
         "chip": "esp32-s3",
         "flash_psram": "n8r8",
-        "hw_version": "v3.0.0",
         "bootloaderSHA256": "a02af2aaee12f83ad96f58ceb710d114f11d33a30cf84765660b23f1a300c5bb",
         "product": "ARGB HSL Controller",
+		    "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/ARGB_v3.0.0_ESP32-S3_8MB_opi.bin",
-        "size": 1264512,
-        "sha256": "680d6178ba9c14036d45269839f63c845df620bb820bb9f78fe5f339df141cf7"
+        "size": 1264208,
+        "sha256": "7865c9cfd914879e8b90c22bfd36e6142a1739c8507c23c6409827c106778b64"
       },
       {
-        "version": "3.3.0",
-        "vid": 2605250,
+        "version": "3.0.0",
+        "vid": 2605260,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -33,13 +33,13 @@
         ],
         "chip": "esp32-s3",
         "flash_psram": "n8r8",
-        "hw_version": "v4.0.0",
         "bootloaderSHA256": "a02af2aaee12f83ad96f58ceb710d114f11d33a30cf84765660b23f1a300c5bb",
-        "product": "ARGB HSL Controller 8x",
+        "product": "ARGB HSL Controller 4X",
+		    "hw_version": "v1.0.0",
         "repo": "any",
-        "url": "https://your-server.example.com/firmware/ARGB_HSL_HW_v4.0.0_ESP32S3_N8R8_vid2605250.bin",
-        "size": null,
-        "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+        "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/ARGB_v3.0.0_ESP32-S3_8MB_opi.bin",
+        "size": 1264208,
+        "sha256": "7865c9cfd914879e8b90c22bfd36e6142a1739c8507c23c6409827c106778b64"
       }
     ]
   }

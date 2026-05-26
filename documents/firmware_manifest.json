@@ -1,13 +1,13 @@
 {
   "schema": 1,
   "channel": "stable",
-  "instructions": "Moi file firmware co board_version rieng va build vid rieng. App match board_version cua mach truoc, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
+  "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2605230 cho ESP32-S3 N8R8. Co 2 file rieng cho HW board v3.0.0 va v4.0.0.",
+    "notes": "Build 2605250 cho ESP32-S3 N8R8. Co 2 file rieng cho HW board v3.0.0 va v4.0.0.",
     "files": [
       {
         "version": "3.3.0",
-        "vid": 2605230,
+        "vid": 2605250,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -15,9 +15,9 @@
         ],
         "chip": "esp32-s3",
         "flash_psram": "n8r8",
-        "board_version": "v3.0.0",
+        "hw_version": "v3.0.0",
         "bootloaderSHA256": "a02af2aaee12f83ad96f58ceb710d114f11d33a30cf84765660b23f1a300c5bb",
-        "product": "any",
+        "product": "ARGB HSL Controller",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/ARGB_v3.0.0_ESP32-S3_8MB_opi.bin",
         "size": 1264512,
@@ -25,7 +25,7 @@
       },
       {
         "version": "3.3.0",
-        "vid": 2605230,
+        "vid": 2605250,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -33,8 +33,9 @@
         ],
         "chip": "esp32-s3",
         "flash_psram": "n8r8",
-        "board_version": "v4.0.0",
-        "product": "any",
+        "hw_version": "v4.0.0",
+        "bootloaderSHA256": "a02af2aaee12f83ad96f58ceb710d114f11d33a30cf84765660b23f1a300c5bb",
+        "product": "ARGB HSL Controller 8x",
         "repo": "any",
         "url": "https://your-server.example.com/firmware/ARGB_HSL_HW_v4.0.0_ESP32S3_N8R8_vid2605250.bin",
         "size": null,

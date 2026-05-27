@@ -3,12 +3,12 @@
   "channel": "stable",
   "latest": {
     "version": "3.4.0",
-    "version_label": "v3.4 - June 2026",
-    "release_date": "2026-06-15",
+    "version_label": "v3.4 - May 2026",
+    "release_date": "2026-05-27",
     "release_notes": "- Thêm tính năng auto-update từ xa.\n- Sửa lỗi timeline...\n- Cải thiện hiệu năng scan.",
     "min_supported_version": "3.0.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.3.0.exe",
-    "size": 287385565,
-    "sha256": "A1C7D04E15153DAFBE380613AEC29351633A3334991BC756063054B722CD95CB"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.4.0.exe",
+    "size": 287406325,
+    "sha256": "406b326b78181de64b58bb7a1f5137fcae55ea3dbaa85d77bbacb033cd66e1fb"
   }
 }

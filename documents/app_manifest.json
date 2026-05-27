@@ -7,8 +7,8 @@
     "release_date": "2026-06-15",
     "release_notes": "- Thêm tính năng auto-update từ xa.\n- Sửa lỗi timeline...\n- Cải thiện hiệu năng scan.",
     "min_supported_version": "3.0.0",
-    "url": "https://drive.google.com/file/d/18c_R19AXuJvg_hTbHnFOS1S1ITuMI971/view?usp=drive_link",
-    "size": 78643200,
-    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.3.0.exe",
+    "size": 287385565,
+    "sha256": "A1C7D04E15153DAFBE380613AEC29351633A3334991BC756063054B722CD95CB"
   }
 }

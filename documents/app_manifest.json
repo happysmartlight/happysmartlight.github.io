@@ -1,0 +1,14 @@
+{
+  "schema": 1,
+  "channel": "stable",
+  "latest": {
+    "version": "3.4.0",
+    "version_label": "v3.4 - June 2026",
+    "release_date": "2026-06-15",
+    "release_notes": "- Thêm tính năng auto-update từ xa.\n- Sửa lỗi timeline...\n- Cải thiện hiệu năng scan.",
+    "min_supported_version": "3.0.0",
+    "url": "https://drive.google.com/file/d/18c_R19AXuJvg_hTbHnFOS1S1ITuMI971/view?usp=drive_link",
+    "size": 78643200,
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

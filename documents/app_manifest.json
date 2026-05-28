@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.4.0",
-    "version_label": "v3.4 - May 2026",
-    "release_date": "2026-05-27",
-    "release_notes": "- Thêm tính năng auto-update từ xa.\n- Sửa lỗi timeline...\n- Cải thiện hiệu năng scan.",
+    "version": "3.4.1",
+    "version_label": "v3.4.1 - May 2026",
+    "release_date": "2026-05-28",
+    "release_notes": "🎬 Tab Timecode — thiết bị mô phỏng:\n- Cho phép kéo Effect/Palette/Preset xuống track thiết bị mô phỏng để lập trình timeline khi chưa có thiết bị thật.\n- Khi bấm \"Auto gán mock → thật\", clip mô phỏng được tự động bake xuống mạch thật (chạy nền, 1 upload/mạch).\n- Drop preset có file ảnh: app copy luôn nguyên payload + tải file phụ thuộc về snapshot; auto-gán sẽ upload file sang mạch đích trước khi ghi presets.json.\n- Save/load project giữ nguyên snapshot.\n\n",
     "min_supported_version": "3.0.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.4.0.exe",
-    "size": 287406325,
-    "sha256": "406b326b78181de64b58bb7a1f5137fcae55ea3dbaa85d77bbacb033cd66e1fb"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.4.1.exe",
+    "size": 287414397,
+    "sha256": "2dba2b7beed536b359cd7fb814b4c032f88b32d395f75d8c140b48c9e1e3efd8"
   }
 }

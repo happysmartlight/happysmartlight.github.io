@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.4.1",
-    "version_label": "v3.4.1 - May 2026",
+    "version": "3.4.2",
+    "version_label": "v3.4.2 - May 2026",
     "release_date": "2026-05-28",
-    "release_notes": "🎬 Tab Timecode — thiết bị mô phỏng:\n- Cho phép kéo Effect/Palette/Preset xuống track thiết bị mô phỏng để lập trình timeline khi chưa có thiết bị thật.\n- Khi bấm \"Auto gán mock → thật\", clip mô phỏng được tự động bake xuống mạch thật (chạy nền, 1 upload/mạch).\n- Drop preset có file ảnh: app copy luôn nguyên payload + tải file phụ thuộc về snapshot; auto-gán sẽ upload file sang mạch đích trước khi ghi presets.json.\n- Save/load project giữ nguyên snapshot.\n\n",
+    "release_notes": "🎬 Tab Timecode:\n- Thêm Mode \"📦 Có sẵn\" (220 effect + 71 palette đóng gói trong app, không cần thiết bị) và \"📡 Tải từ mạch\" (cơ chế cũ). Auto-switch sang Có sẵn khi không có mạch online.\n- Bố trí lại header thành 3 cụm có vạch ngăn dọc; chuyển nút \"Làm mới thiết bị\" kế combo \"Nguồn preset\".\n- Sửa lỗi Play câm lặng khi clip toàn trên mock / mạch thật offline — giờ phát preview ảo (clock + playhead + audio).\n- Cột Preset mẫu tách thành 2 badge: 🖼 logo/ảnh (1-59) và 🎬 timecode (60-240, used/total). Badge tự refresh realtime sau khi load / bake / xoá / auto-gán.\n- Sau \"Xóa all Preset\" và auto-gán mock→real: tự reload bảng preset.\n\n🔧 Tab Cấu hình phần cứng:\n- Tự động reload cfg.json + /json/info sau khi OTA xong, không cần bấm \"Tải lại\" thủ công.\n\n🧩 Tab Matrix Led + Gen JSON Matrix:\n- Badge thiết bị online tự co giãn theo độ dài tên, không còn cắt khi nhiều mạch tên dài.\n\n🔄 Tab Log:\n- Đổi tên thành \"Update & Log\".",
     "min_supported_version": "3.0.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.4.1.exe",
-    "size": 287414397,
-    "sha256": "2dba2b7beed536b359cd7fb814b4c032f88b32d395f75d8c140b48c9e1e3efd8"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.4.2.exe",
+    "size": 287396154,
+    "sha256": "d44c909f407f53d2b5fa1f31d6ca01768437c206c83b6dd6ee72b096cd5c973b"
   }
 }

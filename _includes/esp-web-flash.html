@@ -39,8 +39,8 @@
     </div>
 
     <p class="esp-flash-note">
-      💡 Chỉ mạch điều khiển <strong>Happy Smart Light</strong> chính hãng mới được phép cài đặt.
-      Dữ liệu hiệu ứng hiện tại sẽ được giữ nguyên.
+      <em>💡 Chỉ mạch điều khiển <strong>Happy Smart Light - chính hãng</strong> mới được phép cài đặt.
+      Dữ liệu hiệu ứng hiện tại sẽ được giữ nguyên.</em>
     </p>
   </div>
 
@@ -77,7 +77,7 @@
 <script type="module">
 (function () {
   const MANIFEST_URL = "{{ include.manifest | default: '/dist/json/fw-3b9ac82d.json' }}";
-  const DIALOG_MODULE = "/dist/js/esp-web-tools/install-dialog-B_krvFt9.js";
+  const DIALOG_MODULE = "/dist/js/esp-web-tools/install-dialog--Rul5pBA.js";
   const ALLOWED_KEYWORD = atob("QVJHQiBIU0w=");
 
   // --- Kiểm tra môi trường khi load ---
@@ -319,17 +319,22 @@
   margin-top: 0.75rem;
   padding: 0.7rem 1rem;
   border-radius: 8px;
-  font-size: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 .esp-flash-status--checking {
   background: #071826;
   border: 1px solid #00d3ff66;
   color: #5ee7ff;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 .esp-flash-status--error {
   background: #200a0a;
   border: 1px solid #ff444466;
   color: #ff7070;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 .esp-flash-status--warn {
   background: #1c1400;

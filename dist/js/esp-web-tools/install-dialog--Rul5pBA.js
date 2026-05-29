@@ -1,4 +1,4 @@
-import { e as e$1, _ as __decorate, o as o$2, i as i$2, x, a as i$3, n as n$3, t, m as mixinDelegatesAria, b as e$2, E, c as e$3, s as styles$g, D as Divider, d as internals, f as mixinElementInternals, r as r$1, g as isActivationClick, h as dispatchActivationClick, j as redispatchEvent, k as setupFormSubmitter, B, l as EASING, p as e$4, q as i$4, u as t$1, T, v as createAnimationSignal, w as b, y as dialogStyles } from './styles-BZNm4DtV.js';
+import { e as e$1, _ as __decorate, o as o$2, i as i$2, x, a as i$3, n as n$3, t, m as mixinDelegatesAria, b as e$2, E, c as e$3, s as styles$g, D as Divider, d as internals, f as mixinElementInternals, r as r$1, g as isActivationClick, h as dispatchActivationClick, j as redispatchEvent, k as setupFormSubmitter, B, l as EASING, p as e$4, q as i$4, u as t$1, T, v as createAnimationSignal, w as b, y as dialogStyles } from './styles-DROXTthT.js';
 
 /**
  * @license
@@ -16150,7 +16150,7 @@ const flash = async (onEvent, port, manifestPath, manifest, eraseFirst) => {
     const url = new URL(part.path, manifestURL).toString();
     const resp = await fetch(url);
     if (!resp.ok) {
-      throw new Error(`Downloading firmware ${part.path} failed: ${resp.status}`);
+      throw new Error(`Tải firmware thất bại (HTTP ${resp.status}). Vui lòng thử lại sau.`);
     }
     const reader = new FileReader();
     const blob = await resp.blob();
@@ -17096,6 +17096,11 @@ EwtInstallDialog.styles = [dialogStyles, i$3`
       }
       div[slot="headline"] {
         padding-right: 48px;
+        font-weight: 700;
+        background: linear-gradient(90deg, #00d3ff, #f00ac0);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
       }
       ew-icon-button[slot="headline"] {
         position: absolute;
@@ -17104,10 +17109,13 @@ EwtInstallDialog.styles = [dialogStyles, i$3`
       }
       ew-icon-button[slot="headline"] svg {
         padding: 8px;
-        color: var(--text-color);
+        color: rgba(255,255,255,0.6);
+      }
+      ew-icon-button[slot="headline"]:hover svg {
+        color: #00d3ff;
       }
       .dialog-nav svg {
-        color: var(--text-color);
+        color: rgba(255,255,255,0.6);
       }
       .table-row {
         display: flex;

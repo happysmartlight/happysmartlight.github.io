@@ -45,28 +45,30 @@
   </div>
 
   <div class="esp-flash-legal">
-    <div class="esp-flash-legal-title">⚖️ Bản Quyền &amp; Cảnh Báo Pháp Lý</div>
-    <p class="esp-flash-legal-body">
-      Toàn bộ firmware, phần mềm nhúng, thuật toán điều khiển và giao thức truyền thông trong hệ thống
-      <strong>Happy Smart Light</strong> là tài sản trí tuệ được bảo hộ theo
-      <strong>Luật Sở hữu trí tuệ Việt Nam</strong> (Luật số 50/2005/QH11, sửa đổi bổ sung năm 2009, 2019, 2022)
-      và <strong>Công ước Berne</strong> về bảo hộ các tác phẩm văn học và nghệ thuật.
-    </p>
-    <p class="esp-flash-legal-body">
-      Mọi hành vi <strong>sao chép, dịch ngược, crack, giả mạo chữ ký thiết bị, hoặc cố tình vượt qua
-      cơ chế xác thực</strong> của hệ thống này đều cấu thành hành vi xâm phạm quyền tác giả và có thể
-      bị truy cứu trách nhiệm hình sự theo <strong>Điều 225, 226 Bộ luật Hình sự 2015</strong>
-      (sửa đổi, bổ sung 2017), với mức phạt lên đến <strong>1 tỷ đồng</strong> và
-      <strong>3 năm tù</strong> đối với cá nhân; <strong>3 tỷ đồng</strong> và đình chỉ hoạt động
-      đối với tổ chức.
-    </p>
-    <p class="esp-flash-legal-body">
-      Happy Smart Light bảo lưu quyền <strong>ghi nhận, truy vết và khởi kiện</strong> mọi hành vi
-      xâm phạm tại cơ quan có thẩm quyền. Nếu phát hiện hành vi vi phạm, vui lòng báo cáo qua
-      <strong>info@happysmartlight.com</strong>.
-    </p>
-    <div class="esp-flash-legal-footer">
-      © 2025–2026 Happy Smart Light. All rights reserved. Bảo hộ tại Việt Nam và quốc tế.
+    <div class="esp-flash-legal-title">🚨 Cảnh Báo Vi Phạm Bản Quyền &amp; Pháp Lý</div>
+    <div class="esp-flash-legal-content">
+      <p class="esp-flash-legal-body">
+        Toàn bộ firmware, phần mềm nhúng, thuật toán điều khiển và giao thức truyền thông trong hệ thống
+        <strong>Happy Smart Light</strong> là tài sản trí tuệ được bảo hộ theo
+        <strong>Luật Sở hữu trí tuệ Việt Nam</strong> (Luật số 50/2005/QH11, sửa đổi bổ sung năm 2009, 2019, 2022)
+        và <strong>Công ước Berne</strong> về bảo hộ các tác phẩm văn học và nghệ thuật.
+      </p>
+      <p class="esp-flash-legal-body">
+        Mọi hành vi <strong>sao chép, dịch ngược, crack, giả mạo chữ ký thiết bị, hoặc cố tình vượt qua
+        cơ chế xác thực</strong> của hệ thống này đều cấu thành hành vi xâm phạm quyền tác giả và có thể
+        bị truy cứu trách nhiệm hình sự theo <strong>Điều 225, 226 Bộ luật Hình sự 2015</strong>
+        (sửa đổi, bổ sung 2017), với mức phạt lên đến <strong>1 tỷ đồng</strong> và
+        <strong>3 năm tù</strong> đối với cá nhân; <strong>3 tỷ đồng</strong> và đình chỉ hoạt động
+        đối với tổ chức.
+      </p>
+      <p class="esp-flash-legal-body">
+        Happy Smart Light bảo lưu quyền <strong>ghi nhận, truy vết và khởi kiện</strong> mọi hành vi
+        xâm phạm tại cơ quan có thẩm quyền. Nếu phát hiện hành vi vi phạm, vui lòng báo cáo qua
+        <strong>happysmartlight@outlook.com</strong>.
+      </p>
+      <div class="esp-flash-legal-footer">
+        © 2025–2026 Happy Smart Light. All rights reserved. Bảo hộ tại Việt Nam và quốc tế.
+      </div>
     </div>
   </div>
 
@@ -217,13 +219,13 @@
 
 /* ── Main flash card ── */
 .esp-flash-card {
-  background: #1a1a1a;
-  border: 1px solid #2a2a2a;
+  background: #12121f;
+  border: 1px solid #00d3ff33;
   border-radius: 12px;
   padding: 1.5rem;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+  box-shadow: 0 4px 32px rgba(0,211,255,0.08), 0 2px 8px rgba(0,0,0,0.5);
 }
 .esp-flash-card::before {
   content: "";
@@ -231,7 +233,7 @@
   inset: 0;
   border-radius: 12px;
   padding: 1px;
-  background: linear-gradient(135deg, #00d3ff44, #f00ac022);
+  background: linear-gradient(135deg, #00d3ff88, #f00ac044);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -246,13 +248,18 @@
   margin-bottom: 1rem;
 }
 .esp-flash-icon {
-  font-size: 2rem;
+  font-size: 2.2rem;
   line-height: 1;
-  filter: drop-shadow(0 0 8px #00d3ff88);
+  filter: drop-shadow(0 0 10px #00d3ffcc);
+  animation: esp-icon-glow 2.5s ease-in-out infinite alternate;
+}
+@keyframes esp-icon-glow {
+  from { filter: drop-shadow(0 0 6px #00d3ff99); }
+  to   { filter: drop-shadow(0 0 14px #00d3ffff); }
 }
 .esp-flash-title {
-  margin: 0 0 0.25rem 0;
-  font-size: 1.1rem;
+  margin: 0 0 0.3rem 0;
+  font-size: 25px;
   font-weight: 700;
   background: linear-gradient(90deg, #00d3ff, #f00ac0);
   -webkit-background-clip: text;
@@ -261,8 +268,8 @@
 }
 .esp-flash-subtitle {
   margin: 0;
-  color: #888;
-  font-size: 0.875rem;
+  color: #aaa;
+  font-size: 18px;
 }
 
 .esp-flash-requirements {
@@ -272,12 +279,12 @@
   margin-bottom: 1.25rem;
 }
 .esp-flash-req-item {
-  background: #111;
-  border: 1px solid #00d3ff33;
+  background: #0d1f2e;
+  border: 1px solid #00d3ff55;
   border-radius: 20px;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.78rem;
-  color: #00d3ff;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.9rem;
+  color: #5ee7ff;
 }
 
 .esp-flash-btn {
@@ -285,20 +292,20 @@
   color: #fff;
   border: none;
   border-radius: 8px;
-  padding: 0.75rem 2rem;
-  font-size: 1rem;
+  padding: 0.8rem 2.2rem;
+  font-size: 1.05rem;
   font-weight: 700;
   cursor: pointer;
   transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  box-shadow: 0 4px 18px rgba(0,211,255,0.25);
+  box-shadow: 0 4px 20px rgba(0,211,255,0.4), 0 2px 8px rgba(240,10,192,0.2);
   text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 }
 .esp-flash-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(0,211,255,0.45);
+  box-shadow: 0 8px 28px rgba(0,211,255,0.6), 0 4px 12px rgba(240,10,192,0.3);
 }
 .esp-flash-btn:disabled {
   opacity: 0.45;
@@ -310,31 +317,31 @@
   align-items: center;
   gap: 0.6rem;
   margin-top: 0.75rem;
-  padding: 0.6rem 1rem;
+  padding: 0.7rem 1rem;
   border-radius: 8px;
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 .esp-flash-status--checking {
-  background: #0a1f2e;
-  border: 1px solid #00d3ff55;
-  color: #00d3ff;
+  background: #071826;
+  border: 1px solid #00d3ff66;
+  color: #5ee7ff;
 }
 .esp-flash-status--error {
-  background: #1f0a0a;
-  border: 1px solid #f4433666;
-  color: #ff6b6b;
+  background: #200a0a;
+  border: 1px solid #ff444466;
+  color: #ff7070;
 }
 .esp-flash-status--warn {
-  background: #1a1500;
-  border: 1px solid #ff996644;
-  color: #ff9966;
+  background: #1c1400;
+  border: 1px solid #ffaa4455;
+  color: #ffb347;
 }
 .esp-flash-status--warn a { color: #00d3ff; }
 
 .esp-flash-spinner {
   width: 16px;
   height: 16px;
-  border: 2px solid #00d3ff33;
+  border: 2px solid #00d3ff44;
   border-top-color: #00d3ff;
   border-radius: 50%;
   animation: esp-spin 0.7s linear infinite;
@@ -344,43 +351,52 @@
 
 .esp-flash-note {
   margin: 1rem 0 0;
-  color: #666;
-  font-size: 0.82rem;
-  border-top: 1px solid #2a2a2a;
+  color: #888;
+  font-size: 18px;
+  border-top: 1px solid #00d3ff1a;
   padding-top: 0.75rem;
 }
-.esp-flash-note strong { color: #aaa; }
+.esp-flash-note strong { color: #ccc; }
 
 /* ── Legal / Copyright block ── */
 .esp-flash-legal {
-  background: #111;
-  border: 1px solid #1f1f1f;
-  border-left: 3px solid #f00ac0;
-  border-radius: 8px;
-  padding: 1.25rem 1.5rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  background: #1a0808;
+  border: 2px solid #ff444455;
+  border-top: 3px solid #ff3333;
+  border-radius: 10px;
+  padding: 0;
+  box-shadow: 0 4px 28px rgba(255,50,50,0.18), 0 0 0 1px #ff222211;
+  overflow: hidden;
 }
 .esp-flash-legal-title {
-  font-size: 0.85rem;
+  font-size: 18px;
   font-weight: 700;
-  color: #f00ac0;
-  letter-spacing: 0.04em;
+  color: #fff;
+  background: linear-gradient(90deg, #cc0000, #ff4444);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  margin-bottom: 0.75rem;
+  padding: 0.7rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+}
+.esp-flash-legal-content {
+  padding: 1.25rem 1.5rem 1rem;
 }
 .esp-flash-legal-body {
-  font-size: 0.8rem;
-  color: #777;
-  line-height: 1.65;
-  margin: 0 0 0.6rem;
+  font-size: 18px;
+  color: #cc9999;
+  line-height: 1.75;
+  margin: 0 0 0.75rem;
 }
-.esp-flash-legal-body strong { color: #aaa; }
+.esp-flash-legal-body strong { color: #ffaaaa; }
 .esp-flash-legal-footer {
-  margin-top: 0.9rem;
+  margin-top: 0.75rem;
   padding-top: 0.75rem;
-  border-top: 1px solid #1f1f1f;
-  font-size: 0.75rem;
-  color: #444;
+  border-top: 1px solid #ff333322;
+  font-size: 15px;
+  color: #884444;
   font-style: italic;
 }
 </style>

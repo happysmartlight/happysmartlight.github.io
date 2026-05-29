@@ -110,6 +110,7 @@ exclude:
   - LICENSE
   - README.md
   - Vagrantfile
+  - vendor/
 collections:
   post-news:
     output: true       # Bài viết trong collection này sẽ được xuất ra file HTML

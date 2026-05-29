@@ -19,9 +19,9 @@
         "product": "ARGB HSL Controller",
 		    "hw_version": "v1.0.0",
         "repo": "any",
-        "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/ARGB_v3.0.0_ESP32-S3_8MB_opi.bin",
-        "size": 1264208,
-        "sha256": "7865c9cfd914879e8b90c22bfd36e6142a1739c8507c23c6409827c106778b64"
+        "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware.bin",
+        "size": 1264192,
+        "sha256": "1e34e7bcb1af53f2212005ddb81d6103f1f42097f1ce2218b13fc1eae97b4ba7"
       },
       {
         "version": "3.0.0",
@@ -37,9 +37,9 @@
         "product": "ARGB HSL Controller 4X",
 		    "hw_version": "v1.0.0",
         "repo": "any",
-        "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/ARGB_v3.0.0_ESP32-S3_8MB_opi.bin",
-        "size": 1264208,
-        "sha256": "7865c9cfd914879e8b90c22bfd36e6142a1739c8507c23c6409827c106778b64"
+        "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware.bin",
+        "size": 1264192,
+        "sha256": "1e34e7bcb1af53f2212005ddb81d6103f1f42097f1ce2218b13fc1eae97b4ba7"
       }
     ]
   }

@@ -20,7 +20,7 @@
                     "offset": 57344
                 },
                 {
-                    "path": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/ARGB_v3.0.0_ESP32-S3_8MB_opi.bin",
+                    "path": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware.bin",
                     "offset": 65536
                 }
             ]

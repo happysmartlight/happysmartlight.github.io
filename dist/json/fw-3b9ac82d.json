@@ -1,8 +1,7 @@
 {
     "name": "ARGB LED - HappySmartLight IPEX V2.0 - 4X",
     "version": "v3.0.0",
-    "home_assistant_domain": "esphome",
-    "new_install_prompt_erase": false,
+    "new_install_prompt_erase": true,
     "new_install_improv_wait_time": 20,
     "builds": [
         {

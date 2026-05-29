@@ -22,7 +22,7 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 # 🚀 Tải phẩn mềm Happy Smart Light
 
 - 🔧 **TOOL ARGB HSL v3.4.3** 
-  - [ARGB Happy Smart Light](https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.4.3.exe)
+  - [ARGB Happy Smart Light](/download/argb-tool)
   
 <div class="post-img-post">
   <img src="/img/controller-chip/tool_argb_hsl.png" alt="APP ARGB HSL">

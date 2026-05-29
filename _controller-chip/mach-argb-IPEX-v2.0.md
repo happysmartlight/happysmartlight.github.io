@@ -60,6 +60,15 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 
 ---
 
+## ⚡ Cài Firmware Trực Tiếp Từ Trình Duyệt
+
+> 🔥 Tính năng **Web Flash** – Không cần cài phần mềm, không cần driver phức tạp!  
+> Chỉ cần **Chrome/Edge** trên máy tính và cáp **USB**, bạn có thể cài firmware mới nhất lên mạch chỉ trong vài giây.
+
+{% include esp-web-flash.html manifest="/dist/json/manifest_ARGB_IPEX_v2.0.json" %}
+
+---
+
 ## 💡 Các Loại LED Được Hỗ Trợ  
 
 🔗 [Danh sách chi tiết các chip LED](basics/compatible-led-strips)  

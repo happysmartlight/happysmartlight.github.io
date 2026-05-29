@@ -9,3 +9,7 @@ _site/
 .DS_Store
 Thumbs.db
 ehthumbs.db
+
+# submodule build artifacts
+vendor/esp-web-tools/node_modules/
+vendor/esp-web-tools/dist/

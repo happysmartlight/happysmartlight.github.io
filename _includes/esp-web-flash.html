@@ -1,0 +1,112 @@
+<div class="esp-web-flash-section">
+  <script type="module" src="/dist/js/esp-web-tools/install-button.js"></script>
+
+  <div class="esp-flash-card">
+    <div class="esp-flash-header">
+      <span class="esp-flash-icon">⚡</span>
+      <div>
+        <h4 class="esp-flash-title">Cài Firmware Qua Trình Duyệt</h4>
+        <p class="esp-flash-subtitle">Kết nối mạch ARGB IPEX V2.0 qua cổng USB, sau đó nhấn nút bên dưới</p>
+      </div>
+    </div>
+
+    <div class="esp-flash-requirements">
+      <span class="esp-flash-req-item">🌐 Trình duyệt: Chrome hoặc Edge (desktop)</span>
+      <span class="esp-flash-req-item">🔌 Kết nối: USB trực tiếp vào máy tính</span>
+      <span class="esp-flash-req-item">🔒 Yêu cầu: HTTPS (trang này đã đáp ứng)</span>
+    </div>
+
+    <esp-web-install-button manifest="{{ include.manifest | default: '/dist/json/manifest_ARGB_IPEX_v2.0.json' }}">
+      <button slot="activate" class="esp-flash-btn">
+        ⚡ Cài Firmware ARGB IPEX V2.0
+      </button>
+      <span slot="unsupported">
+        ❌ Trình duyệt không hỗ trợ. Vui lòng dùng <a href="https://www.google.com/chrome/" target="_blank">Chrome</a> hoặc <a href="https://www.microsoft.com/edge" target="_blank">Edge</a> trên máy tính để bàn.
+      </span>
+      <span slot="not-allowed">
+        ⚠️ Cần truy cập qua HTTPS. Vui lòng mở trang qua <strong>https://happysmartlight.com</strong>
+      </span>
+    </esp-web-install-button>
+
+    <p class="esp-flash-note">
+      💡 Firmware sẽ được cài đặt trực tiếp lên chip ESP32-S3 trên mạch.
+      Dữ liệu hiệu ứng hiện tại sẽ được giữ nguyên.
+    </p>
+  </div>
+</div>
+
+<style>
+.esp-web-flash-section {
+  margin: 2rem 0;
+}
+.esp-flash-card {
+  border: 2px solid #f0a500;
+  border-radius: 12px;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #fffdf0 0%, #fff8e1 100%);
+  box-shadow: 0 4px 15px rgba(240, 165, 0, 0.15);
+}
+.esp-flash-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.esp-flash-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+.esp-flash-title {
+  margin: 0 0 0.25rem 0;
+  color: #c47a00;
+  font-size: 1.1rem;
+}
+.esp-flash-subtitle {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+.esp-flash-requirements {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+.esp-flash-req-item {
+  background: #fff3cd;
+  border: 1px solid #ffc107;
+  border-radius: 20px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  color: #856404;
+}
+.esp-flash-btn {
+  background: linear-gradient(135deg, #f0a500, #e08000);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.esp-flash-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(240, 165, 0, 0.4);
+}
+.esp-flash-note {
+  margin: 1rem 0 0 0;
+  color: #666;
+  font-size: 0.85rem;
+  border-top: 1px solid #ffe082;
+  padding-top: 0.75rem;
+}
+esp-web-install-button[install-supported] .esp-flash-btn {
+  background: linear-gradient(135deg, #28a745, #218838);
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+}
+</style>

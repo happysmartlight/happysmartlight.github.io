@@ -1,5 +1,8 @@
 services:
   jekyll:
+    build:
+      context: .
+      dockerfile: Dockerfile
     image: jekyll-happysmartlight
     container_name: happysmartlight-web
     ports:

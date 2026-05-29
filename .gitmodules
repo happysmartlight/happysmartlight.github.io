@@ -1,0 +1,3 @@
+[submodule "vendor/esp-web-tools"]
+	path = vendor/esp-web-tools
+	url = https://github.com/esphome/esp-web-tools.git

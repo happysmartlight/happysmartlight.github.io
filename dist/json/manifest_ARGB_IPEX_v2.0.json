@@ -1,0 +1,18 @@
+{
+    "name": "ARGB LED - HappySmartLight IPEX V2.0",
+    "version": "v3.3.0",
+    "home_assistant_domain": "esphome",
+    "new_install_prompt_erase": false,
+    "new_install_improv_wait_time": 20,
+    "builds": [
+        {
+            "chipFamily": "ESP32-S3",
+            "parts": [
+                {
+                    "path": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/ARGB_v3.0.0_ESP32-S3_8MB_opi.bin",
+                    "offset": 0
+                }
+            ]
+        }
+    ]
+}

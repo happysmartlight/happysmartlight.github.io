@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.4.2",
-    "version_label": "v3.4.2 - May 2026",
-    "release_date": "2026-05-28",
-    "release_notes": "🎬 Tab Timecode:\n- Thêm Mode \"📦 Có sẵn\" (220 effect + 71 palette đóng gói trong app, không cần thiết bị) và \"📡 Tải từ mạch\" (cơ chế cũ). Auto-switch sang Có sẵn khi không có mạch online.\n- Bố trí lại header thành 3 cụm có vạch ngăn dọc; chuyển nút \"Làm mới thiết bị\" kế combo \"Nguồn preset\".\n- Sửa lỗi Play câm lặng khi clip toàn trên mock / mạch thật offline — giờ phát preview ảo (clock + playhead + audio).\n- Cột Preset mẫu tách thành 2 badge: 🖼 logo/ảnh (1-59) và 🎬 timecode (60-240, used/total). Badge tự refresh realtime sau khi load / bake / xoá / auto-gán.\n- Sau \"Xóa all Preset\" và auto-gán mock→real: tự reload bảng preset.\n\n🔧 Tab Cấu hình phần cứng:\n- Tự động reload cfg.json + /json/info sau khi OTA xong, không cần bấm \"Tải lại\" thủ công.\n\n🧩 Tab Matrix Led + Gen JSON Matrix:\n- Badge thiết bị online tự co giãn theo độ dài tên, không còn cắt khi nhiều mạch tên dài.\n\n🔄 Tab Log:\n- Đổi tên thành \"Update & Log\".",
+    "version": "3.4.3",
+    "version_label": "v3.4.3 - May 2026",
+    "release_date": "2026-05-29",
+    "release_notes": "🎬 Timeline — Ẩn/hiện track:\n- Thêm nút ẩn/hiện track từng thiết bị; track ẩn không tham gia compile/play.\n- Nút 'đang ẩn' hiển thị amber accent, nổi bật báo có track bị ẩn.\n- Sửa lỗi clip thuộc track ẩn nhảy đè lên track 0 (giờ skip hoàn toàn).\n- Auto-relaunch app sau khi silent install hoàn tất.\n⚡ Hiệu suất:\n- Lazy-import zeroconf + boot mDNS background thread (~1.2s nhanh hơn).",
     "min_supported_version": "3.0.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.4.2.exe",
-    "size": 287396154,
-    "sha256": "d44c909f407f53d2b5fa1f31d6ca01768437c206c83b6dd6ee72b096cd5c973b"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.4.3.exe",
+    "size": 287408917,
+    "sha256": "35e0e7af8348aa3e96a92e9ac687d275d94061fb8e280753e73c96027f5388d8"
   }
 }

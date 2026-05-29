@@ -9,8 +9,20 @@
             "chipFamily": "ESP32-S3",
             "parts": [
                 {
-                    "path": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/ARGB_v3.0.0_ESP32-S3_8MB_opi.bin",
+                    "path": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/bootloader.bin",
                     "offset": 0
+                },
+                {
+                    "path": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/partitions.bin",
+                    "offset": 32768
+                },
+                {
+                    "path": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/boot_app0.bin",
+                    "offset": 57344
+                },
+                {
+                    "path": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/ARGB_v3.0.0_ESP32-S3_8MB_opi.bin",
+                    "offset": 65536
                 }
             ]
         }

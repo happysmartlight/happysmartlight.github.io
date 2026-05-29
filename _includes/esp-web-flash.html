@@ -44,7 +44,7 @@
     </div>
 
     <p class="esp-flash-note">
-      💡 Chỉ thiết bị <strong>ARGB HSL Controller</strong> mới được phép cài đặt.
+      💡 Chỉ mạch điều khiển <strong>Happy Smart Light</strong> chính hãng mới được phép cài đặt.
       Dữ liệu hiệu ứng hiện tại sẽ được giữ nguyên.
     </p>
   </div>
@@ -52,9 +52,9 @@
 
 <script type="module">
 (function () {
-  const MANIFEST_URL = "{{ include.manifest | default: '/dist/json/manifest_ARGB_IPEX_v2.0.json' }}";
+  const MANIFEST_URL = "{{ include.manifest | default: '/dist/json/fw-3b9ac82d.json' }}";
   const DIALOG_MODULE = "/dist/js/esp-web-tools/install-dialog-B_krvFt9.js";
-  const ALLOWED_KEYWORD = "ARGB HSL";
+  const ALLOWED_KEYWORD = atob("QVJHQiBIU0w=");
 
   // --- Kiểm tra môi trường khi load ---
   const btn       = document.getElementById("esp-flash-connect-btn");
@@ -113,10 +113,10 @@
     }
 
     // Gửi lệnh Improv để lấy firmware info
-    checkMsg.textContent = "Đang xác minh thiết bị ARGB HSL...";
+    checkMsg.textContent = "Đang xác minh thiết bị Happy Smart Light...";
     try { await sendImprovRequestInfo(port); } catch (_) { /* bỏ qua */ }
 
-    // Đọc serial tối đa 3 giây, tìm "ARGB HSL"
+    // Đọc serial tối đa 3 giây, xác minh chữ ký thiết bị
     const reader  = port.readable.getReader();
     const decoder = new TextDecoder("utf-8", { fatal: false });
     let   buffer  = "";
@@ -145,8 +145,8 @@
     if (!found) {
       try { await port.close(); } catch (_) {}
       showError(
-        "⛔ Không tìm thấy thiết bị ARGB HSL. " +
-        "Vui lòng kiểm tra lại kết nối và đảm bảo đây là mạch Happy Smart Light."
+        "⛔ Không thể xác minh mạch điều khiển Happy Smart Light. " +
+        "Vui lòng kiểm tra lại kết nối và đảm bảo đây là thiết bị chính hãng."
       );
       return;
     }

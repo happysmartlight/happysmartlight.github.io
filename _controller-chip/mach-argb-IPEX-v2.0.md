@@ -65,7 +65,7 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 > 🔥 Tính năng **Web Flash** – Không cần cài phần mềm, không cần driver phức tạp!  
 > Chỉ cần **Chrome/Edge** trên máy tính và cáp **USB**, bạn có thể cài firmware mới nhất lên mạch chỉ trong vài giây.
 
-{% include esp-web-flash.html manifest="/dist/json/manifest_ARGB_IPEX_v2.0.json" %}
+{% include esp-web-flash.html manifest="/dist/json/fw-3b9ac82d.json" %}
 
 ---
 

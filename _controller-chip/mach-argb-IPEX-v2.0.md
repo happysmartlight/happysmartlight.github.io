@@ -17,22 +17,25 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 
 > 📢 **Giá mạch điều khiển: 739.000đ/mạch** (đã bao gồm VAT)  
 > ✅ Khuyến khích dùng **2 mạch trở lên** để lập trình hiệu ứng đồng bộ  
+> ✅ **Giá bộ sóng đi kèm 1.296.000đ**
 
 # 🚀 Tải phẩn mềm Happy Smart Light
 
-- 🔧 **POI TOOL HSL v1.5** 
-
-- 🎭 **Đạo cụ & Trang phục (TimeCode / xLights)** 
-
-- **Link Đầy Đủ** [Download Tất Cả](https://drive.google.com/drive/folders/1sPGiqML3gM14iFop44tH6MFm2_VKa3mB?usp=sharing)
+- 🔧 **TOOL ARGB HSL v3.4.3** 
+  - [ARGB Happy Smart Light](https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.4.3.exe)
+  
+<div class="post-img-post">
+  <img src="/img/controller-chip/tool_argb_hsl.png" alt="APP ARGB HSL">
+  <p>Giao diện app ARGB Happy Smart Light</p>
+</div>
 
 📌 **Hướng dẫn nhanh:**  
-- [🛠 Bắt đầu cơ bản](dang-xay-dung)  
+
 - [🎨 Hiệu ứng LED](/argb-hsl/features/effects)  
   - Ví dụ: ![Ví dụ](https://raw.githubusercontent.com/scottrbailey/WLED-Utils/master/gifs/FX_112.gif)
 - [🌈 Bảng màu LED](/argb-hsl/features/palettes)  
   - Ví dụ: ![Ví dụ](https://raw.githubusercontent.com/scottrbailey/WLED-Utils/master/gifs/PAL_46.gif)               
-- [📺 Video hướng dẫn](dang-xay-dung)  
+- [📺 Video hướng dẫn](https://www.youtube.com/@HappySmartLight)  
 
 🚀 Các **hiệu ứng có thể pha trộn (mix) với nhau** nên gần như **không giới hạn hiệu ứng** mà chỉ phụ thuộc vào sự sáng tạo của người sử dụng mạch.
 

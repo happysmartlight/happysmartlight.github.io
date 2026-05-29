@@ -1,5 +1,4 @@
 <div class="esp-web-flash-section">
-  <script type="module" src="/dist/js/esp-web-tools/install-button.js"></script>
 
   <div class="esp-flash-card">
     <div class="esp-flash-header">
@@ -16,24 +15,180 @@
       <span class="esp-flash-req-item">🔒 Yêu cầu: HTTPS (trang này đã đáp ứng)</span>
     </div>
 
-    <esp-web-install-button manifest="{{ include.manifest | default: '/dist/json/manifest_ARGB_IPEX_v2.0.json' }}">
-      <button slot="activate" class="esp-flash-btn">
+    <!-- Nút chính: chỉ hiện khi browser hỗ trợ Web Serial + HTTPS -->
+    <div id="esp-flash-action">
+      <button id="esp-flash-connect-btn" class="esp-flash-btn" onclick="hslVerifyAndInstall()">
         ⚡ Cài Firmware ARGB IPEX V2.0
       </button>
-      <span slot="unsupported">
-        ❌ Trình duyệt không hỗ trợ. Vui lòng dùng <a href="https://www.google.com/chrome/" target="_blank">Chrome</a> hoặc <a href="https://www.microsoft.com/edge" target="_blank">Edge</a> trên máy tính để bàn.
-      </span>
-      <span slot="not-allowed">
+
+      <!-- Trạng thái đang kiểm tra -->
+      <div id="esp-flash-checking" style="display:none;" class="esp-flash-status esp-flash-status--checking">
+        <span class="esp-flash-spinner"></span>
+        <span id="esp-flash-checking-msg">Đang kiểm tra thiết bị...</span>
+      </div>
+
+      <!-- Lỗi -->
+      <div id="esp-flash-error" style="display:none;" class="esp-flash-status esp-flash-status--error"></div>
+
+      <!-- Browser không hỗ trợ -->
+      <div id="esp-flash-unsupported" style="display:none;" class="esp-flash-status esp-flash-status--warn">
+        ❌ Trình duyệt không hỗ trợ Web Serial. Vui lòng dùng
+        <a href="https://www.google.com/chrome/" target="_blank">Chrome</a> hoặc
+        <a href="https://www.microsoft.com/edge" target="_blank">Edge</a> trên máy tính.
+      </div>
+
+      <!-- Không phải HTTPS -->
+      <div id="esp-flash-notallowed" style="display:none;" class="esp-flash-status esp-flash-status--warn">
         ⚠️ Cần truy cập qua HTTPS. Vui lòng mở trang qua <strong>https://happysmartlight.com</strong>
-      </span>
-    </esp-web-install-button>
+      </div>
+    </div>
 
     <p class="esp-flash-note">
-      💡 Firmware sẽ được cài đặt trực tiếp lên chip ESP32-S3 trên mạch.
+      💡 Chỉ thiết bị <strong>ARGB HSL Controller</strong> mới được phép cài đặt.
       Dữ liệu hiệu ứng hiện tại sẽ được giữ nguyên.
     </p>
   </div>
 </div>
+
+<script type="module">
+(function () {
+  const MANIFEST_URL = "{{ include.manifest | default: '/dist/json/manifest_ARGB_IPEX_v2.0.json' }}";
+  const DIALOG_MODULE = "/dist/js/esp-web-tools/install-dialog-B_krvFt9.js";
+  const ALLOWED_KEYWORD = "ARGB HSL";
+
+  // --- Kiểm tra môi trường khi load ---
+  const btn       = document.getElementById("esp-flash-connect-btn");
+  const checking  = document.getElementById("esp-flash-checking");
+  const checkMsg  = document.getElementById("esp-flash-checking-msg");
+  const errorBox  = document.getElementById("esp-flash-error");
+
+  if (!("serial" in navigator)) {
+    btn.style.display = "none";
+    document.getElementById("esp-flash-unsupported").style.display = "flex";
+  } else if (!window.isSecureContext) {
+    btn.style.display = "none";
+    document.getElementById("esp-flash-notallowed").style.display = "flex";
+  }
+
+  // --- Gửi lệnh Improv REQUEST_INFO ---
+  async function sendImprovRequestInfo(port) {
+    const writer = port.writable.getWriter();
+    try {
+      // Packet: IMPROV | version=1 | type=3(RPC) | len=1 | cmd=3(REQUEST_INFO) | checksum
+      const magic   = [0x49, 0x4D, 0x50, 0x52, 0x4F, 0x56];
+      const version = 0x01;
+      const type    = 0x03; // RPC_COMMAND
+      const data    = [0x03]; // REQUEST_INFO
+      const length  = data.length;
+      let   chk     = version + type + length + data[0];
+      chk &= 0xFF;
+      const packet = new Uint8Array([...magic, version, type, length, ...data, chk]);
+      await writer.write(packet);
+    } finally {
+      writer.releaseLock();
+    }
+  }
+
+  // --- Luồng chính: verify → flash ---
+  async function verifyAndInstall() {
+    errorBox.style.display  = "none";
+    checking.style.display  = "flex";
+    checkMsg.textContent    = "Đang chọn cổng serial...";
+    btn.disabled            = true;
+
+    let port;
+    try {
+      port = await navigator.serial.requestPort();
+    } catch (err) {
+      if (err.name === "NotFoundError") { reset(); return; }
+      showError("❌ Không thể chọn cổng: " + err.message);
+      return;
+    }
+
+    try {
+      await port.open({ baudRate: 115200, bufferSize: 8192 });
+    } catch (err) {
+      showError("❌ Không mở được cổng serial: " + err.message);
+      return;
+    }
+
+    // Gửi lệnh Improv để lấy firmware info
+    checkMsg.textContent = "Đang xác minh thiết bị ARGB HSL...";
+    try { await sendImprovRequestInfo(port); } catch (_) { /* bỏ qua */ }
+
+    // Đọc serial tối đa 3 giây, tìm "ARGB HSL"
+    const reader  = port.readable.getReader();
+    const decoder = new TextDecoder("utf-8", { fatal: false });
+    let   buffer  = "";
+    let   found   = false;
+
+    try {
+      const deadline = Date.now() + 3000;
+      while (Date.now() < deadline) {
+        const remaining = deadline - Date.now();
+        const timedOut  = new Promise(r => setTimeout(() => r({ done: true, value: null }), remaining));
+        const { value, done } = await Promise.race([reader.read(), timedOut]);
+        if (done) break;
+        if (value) {
+          buffer += decoder.decode(value, { stream: true });
+          if (buffer.includes(ALLOWED_KEYWORD)) { found = true; break; }
+        }
+      }
+    } catch (_) {
+      /* bỏ qua lỗi đọc */
+    } finally {
+      try { reader.cancel(); } catch (_) {}
+      reader.releaseLock();
+    }
+
+    // Thiết bị không hợp lệ → đóng port, báo lỗi
+    if (!found) {
+      try { await port.close(); } catch (_) {}
+      showError(
+        "⛔ Không tìm thấy thiết bị ARGB HSL. " +
+        "Vui lòng kiểm tra lại kết nối và đảm bảo đây là mạch Happy Smart Light."
+      );
+      return;
+    }
+
+    // Thiết bị hợp lệ → load dialog và mở cài đặt
+    checkMsg.textContent = "Thiết bị hợp lệ, đang mở cửa sổ cài đặt...";
+    try {
+      await import(DIALOG_MODULE);
+      await customElements.whenDefined("ewt-install-dialog");
+
+      const dialog = document.createElement("ewt-install-dialog");
+      dialog.port         = port;
+      dialog.manifestPath = MANIFEST_URL;
+      dialog.addEventListener("closed", () => {
+        port.close().catch(() => {});
+        reset();
+      }, { once: true });
+      document.body.appendChild(dialog);
+    } catch (err) {
+      try { await port.close(); } catch (_) {}
+      showError("❌ Không tải được cửa sổ cài đặt: " + err.message);
+    }
+
+    checking.style.display = "none";
+  }
+
+  function showError(msg) {
+    checking.style.display  = "none";
+    errorBox.textContent    = msg;
+    errorBox.style.display  = "flex";
+    btn.disabled            = false;
+  }
+
+  function reset() {
+    checking.style.display = "none";
+    btn.disabled           = false;
+  }
+
+  // Expose ra global để onclick gọi được
+  window.hslVerifyAndInstall = verifyAndInstall;
+})();
+</script>
 
 <style>
 .esp-web-flash-section {
@@ -81,7 +236,7 @@
   color: #856404;
 }
 .esp-flash-btn {
-  background: linear-gradient(135deg, #f0a500, #e08000);
+  background: linear-gradient(135deg, #28a745, #218838);
   color: white;
   border: none;
   border-radius: 8px;
@@ -93,10 +248,51 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
 }
-.esp-flash-btn:hover {
+.esp-flash-btn:hover:not(:disabled) {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(240, 165, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.45);
+}
+.esp-flash-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.esp-flash-status {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.esp-flash-status--checking {
+  background: #e8f4fd;
+  border: 1px solid #90caf9;
+  color: #1565c0;
+}
+.esp-flash-status--error {
+  background: #fdecea;
+  border: 1px solid #f44336;
+  color: #b71c1c;
+}
+.esp-flash-status--warn {
+  background: #fff8e1;
+  border: 1px solid #ffc107;
+  color: #7a5c00;
+}
+.esp-flash-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #90caf9;
+  border-top-color: #1565c0;
+  border-radius: 50%;
+  animation: esp-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes esp-spin {
+  to { transform: rotate(360deg); }
 }
 .esp-flash-note {
   margin: 1rem 0 0 0;
@@ -104,9 +300,5 @@
   font-size: 0.85rem;
   border-top: 1px solid #ffe082;
   padding-top: 0.75rem;
-}
-esp-web-install-button[install-supported] .esp-flash-btn {
-  background: linear-gradient(135deg, #28a745, #218838);
-  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
 }
 </style>

@@ -70,25 +70,6 @@
     document.getElementById("esp-flash-notallowed").style.display = "flex";
   }
 
-  // --- Gửi lệnh Improv REQUEST_INFO ---
-  async function sendImprovRequestInfo(port) {
-    const writer = port.writable.getWriter();
-    try {
-      // Packet: IMPROV | version=1 | type=3(RPC) | len=1 | cmd=3(REQUEST_INFO) | checksum
-      const magic   = [0x49, 0x4D, 0x50, 0x52, 0x4F, 0x56];
-      const version = 0x01;
-      const type    = 0x03; // RPC_COMMAND
-      const data    = [0x03]; // REQUEST_INFO
-      const length  = data.length;
-      let   chk     = version + type + length + data[0];
-      chk &= 0xFF;
-      const packet = new Uint8Array([...magic, version, type, length, ...data, chk]);
-      await writer.write(packet);
-    } finally {
-      writer.releaseLock();
-    }
-  }
-
   // --- Luồng chính: verify → flash ---
   async function verifyAndInstall() {
     errorBox.style.display  = "none";
@@ -112,18 +93,32 @@
       return;
     }
 
-    // Gửi lệnh Improv để lấy firmware info
     checkMsg.textContent = "Đang xác minh thiết bị Happy Smart Light...";
-    try { await sendImprovRequestInfo(port); } catch (_) { /* bỏ qua */ }
 
-    // Đọc serial tối đa 3 giây, xác minh chữ ký thiết bị
+    // Setup reader trước, sau đó gửi Improv REQUEST_INFO để không bỏ lỡ response
     const reader  = port.readable.getReader();
     const decoder = new TextDecoder("utf-8", { fatal: false });
     let   buffer  = "";
     let   found   = false;
 
+    // Gửi Improv REQUEST_INFO — format giống hệt improv-wifi-serial-sdk
+    // packet = [IMPROV+ver, type=RPC, data_len, cmd=3, inner_len=0, checksum, \n]
+    (async () => {
+      try {
+        const header  = [0x49, 0x4D, 0x50, 0x52, 0x4F, 0x56, 0x01];
+        const data    = [0x03, 0x00]; // cmd=REQUEST_INFO, inner_data_length=0
+        const payload = [...header, 0x03, data.length, ...data, 0, 0];
+        payload[payload.length - 2] = payload.reduce((s, b) => s + b, 0) & 0xFF;
+        payload[payload.length - 1] = 0x0A; // newline — bắt buộc theo spec
+        const writer  = port.writable.getWriter();
+        await writer.write(new Uint8Array(payload));
+        writer.releaseLock();
+      } catch (_) {}
+    })();
+
+    // Đọc response tối đa 5 giây
     try {
-      const deadline = Date.now() + 3000;
+      const deadline = Date.now() + 5000;
       while (Date.now() < deadline) {
         const remaining = deadline - Date.now();
         const timedOut  = new Promise(r => setTimeout(() => r({ done: true, value: null }), remaining));

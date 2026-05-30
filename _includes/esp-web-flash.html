@@ -80,6 +80,11 @@
   const DIALOG_MODULE = "/dist/js/esp-web-tools/install-dialog--Rul5pBA.js";
   const ALLOWED_KEYWORD = atob("QVJHQiBIU0w=");
 
+  const FAIL_KEY      = "hsl_fail_count";
+  const LOCK_KEY      = "hsl_lock_until";
+  const MAX_FAILS     = 3;
+  const LOCK_MS       = 5 * 60 * 1000; // 5 phút
+
   // --- Kiểm tra môi trường khi load ---
   const btn       = document.getElementById("esp-flash-connect-btn");
   const checking  = document.getElementById("esp-flash-checking");
@@ -94,8 +99,45 @@
     document.getElementById("esp-flash-notallowed").style.display = "flex";
   }
 
+  // --- Fail2ban mềm ---
+  function getLockRemaining() {
+    const until = parseInt(localStorage.getItem(LOCK_KEY) || "0", 10);
+    return Math.max(0, until - Date.now());
+  }
+
+  function recordFail() {
+    const count = parseInt(localStorage.getItem(FAIL_KEY) || "0", 10) + 1;
+    localStorage.setItem(FAIL_KEY, count);
+    if (count >= MAX_FAILS) {
+      localStorage.setItem(LOCK_KEY, Date.now() + LOCK_MS);
+      localStorage.setItem(FAIL_KEY, "0");
+    }
+  }
+
+  function resetFails() {
+    localStorage.removeItem(FAIL_KEY);
+    localStorage.removeItem(LOCK_KEY);
+  }
+
+  // Kiểm tra lock khi trang load
+  (function checkLockOnLoad() {
+    const remaining = getLockRemaining();
+    if (remaining > 0) {
+      const mins = Math.ceil(remaining / 60000);
+      btn.disabled = true;
+      showError(`🔒 Quá nhiều lần thử thất bại. Vui lòng thử lại sau ${mins} phút.`);
+    }
+  })();
+
   // --- Luồng chính: verify → flash ---
   async function verifyAndInstall() {
+    const remaining = getLockRemaining();
+    if (remaining > 0) {
+      const mins = Math.ceil(remaining / 60000);
+      showError(`🔒 Quá nhiều lần thử thất bại. Vui lòng thử lại sau ${mins} phút.`);
+      return;
+    }
+
     errorBox.style.display  = "none";
     checking.style.display  = "flex";
     checkMsg.textContent    = "Đang chọn cổng serial...";
@@ -117,7 +159,8 @@
       return;
     }
 
-    checkMsg.textContent = "Đang xác minh thiết bị Happy Smart Light...";
+    checkMsg.textContent  = "Đang xác minh thiết bị Happy Smart Light...";
+    checkMsg.style.color  = "#ffb347";
 
     // Setup reader trước, sau đó gửi Improv REQUEST_INFO để không bỏ lỡ response
     const reader  = port.readable.getReader();
@@ -160,18 +203,31 @@
       reader.releaseLock();
     }
 
-    // Thiết bị không hợp lệ → đóng port, báo lỗi
+    // Thiết bị không hợp lệ → đóng port, báo lỗi, ghi nhận thất bại
     if (!found) {
       try { await port.close(); } catch (_) {}
-      showError(
-        "⛔ Không thể xác minh mạch điều khiển Happy Smart Light. " +
-        "Vui lòng kiểm tra lại kết nối và đảm bảo đây là thiết bị chính hãng."
-      );
+      recordFail();
+      const remaining = getLockRemaining();
+      if (remaining > 0) {
+        const mins = Math.ceil(remaining / 60000);
+        showError(`🔒 Xác minh thất bại quá nhiều lần. Hệ thống tạm khóa ${mins} phút.`);
+      } else {
+        const count = parseInt(localStorage.getItem(FAIL_KEY) || "0", 10);
+        const left  = MAX_FAILS - count;
+        showError(
+          `⛔ Không thể xác minh mạch điều khiển Happy Smart Light. ` +
+          `Vui lòng kiểm tra lại kết nối và đảm bảo đây là thiết bị chính hãng. ` +
+          `(Còn ${left} lần thử)`
+        );
+      }
       return;
     }
 
-    // Thiết bị hợp lệ → load dialog và mở cài đặt
-    checkMsg.textContent = "Thiết bị hợp lệ, đang mở cửa sổ cài đặt...";
+    // Thiết bị hợp lệ → reset bộ đếm, mở dialog ngay, giữ thông báo
+    resetFails();
+    checkMsg.textContent  = "✅ Thiết bị hợp lệ, đang mở cửa sổ cài đặt...";
+    checkMsg.style.color  = "";
+    const hideChecking = new Promise(r => setTimeout(r, 3500));
     try {
       await import(DIALOG_MODULE);
       await customElements.whenDefined("ewt-install-dialog");
@@ -189,6 +245,7 @@
       showError("❌ Không tải được cửa sổ cài đặt: " + err.message);
     }
 
+    await hideChecking;
     checking.style.display = "none";
   }
 

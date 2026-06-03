@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.4.6",
-    "version_label": "v3.4.6 - June 2026",
+    "version": "3.4.7",
+    "version_label": "v3.4.7 - June 2026",
     "release_date": "2026-06-03",
-    "release_notes": "🎬 Tab Matrix LED — nút \"Upload Visual\" (video/GIF → GIF):\n- Convert video (mp4/mov/...) hoặc tối ưu/thu nhỏ GIF sẵn có thành GIF bằng\nffmpeg bundled: resize theo ô W×H, GIỮ NGUYÊN tốc độ (thời lượng), nén nhỏ\nnhất cho filesystem ESP32 (4MB) — chỉnh fps/số màu/dither + cảnh báo ngân sách.\n- Convert chạy nền có tiến trình + Huỷ; xong cho Lưu file và/hoặc Upload thẳng\n(tạo preset luôn, không convert lại). Tên file tạm chuẩn ASCII để LittleFS\nlưu được (tránh GIF 0 byte với tên có dấu).\n🧊 Tab Timecode — đóng băng ruler + track nhạc khi cuộn:\n- Thước thời gian và track Audio luôn ghim ở đỉnh khi cuộn dọc qua nhiều thiết\nbị, để canh clip chính xác. Playhead/timing mark/END vẽ thành một vạch xuyên\nsuốt (không bị track audio che) và nằm sau cột tên thiết bị khi cuộn ngang.\n- Cache waveform để phát nhạc không phải dựng lại mỗi khung (mượt hơn).\n⏯ Tab Timecode — sửa transport sau khi tua trên ruler:\n- Click/kéo trên ruler để tua playhead xong vẫn Tạm dừng/Tiếp tục/Space được\n(trước đây rơi vào trạng thái dừng \"chết\", các nút không tác dụng).\n🧩 Tab xLights Model — mở file ledmap.json:\n- Nút \"Mở...\" nhận thêm định dạng ledmap.json (đảo ngược của chức năng tạo\nledmap.json), dựng lại model từ map để chỉnh sửa tiếp.",
+    "release_notes": "🛠 Sửa lỗi:\n- Tab Matrix LED — \"Upload Visual\": sửa lỗi \"Read timed out\" khi upload GIF\nvisual nặng (>1MB) lên thiết bị. Timeout upload giờ co giãn theo dung lượng\nfile (~40KB/s + 30s đệm, tối đa 300s) thay vì cố định 12s — GIF lớn ghi vào\nfilesystem ESP32 chậm nên trước đây bị timeout.",
     "min_supported_version": "3.0.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.4.6.exe",
-    "size": 338960182,
-    "sha256": "633aa17f52d4c954da1865a760fcf4fd3eb542c651fb20f14ff429d4a83b9b9b"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.4.7.exe",
+    "size": 338990717,
+    "sha256": "0d18f150987168e445207a3c81df615023802f7f4e82b9c8bc26b492e05287a6"
   }
 }

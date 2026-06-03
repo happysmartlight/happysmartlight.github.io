@@ -20,8 +20,8 @@
 		    "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware.bin",
-        "size": 1264192,
-        "sha256": "2fd2131260a0ef0c22c0a60344a99db6d8b6f6204ea33f1bc765dc9095b58c50"
+        "size": 1264480,
+        "sha256": "8b0a614e7bf07d1c8bac6400739b61d2917e31ddc8defc17ad756a9abf99cbf3"
       },
       {
         "version": "3.0.0",
@@ -38,8 +38,8 @@
 		    "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware.bin",
-        "size": 1264192,
-        "sha256": "2fd2131260a0ef0c22c0a60344a99db6d8b6f6204ea33f1bc765dc9095b58c50"
+        "size": 1264480,
+        "sha256": "8b0a614e7bf07d1c8bac6400739b61d2917e31ddc8defc17ad756a9abf99cbf3"
       }
     ]
   }

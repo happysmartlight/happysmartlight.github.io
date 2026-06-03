@@ -3,11 +3,11 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2605260 cho ESP32-S3 N8R8. Co 2 file rieng cho HW board ARGB HSL Controller va ARGB HSL Controller 4X.",
+    "notes": "Build 2606030 cho ESP32-S3 N8R8. Co 2 file rieng cho HW board ARGB HSL Controller va ARGB HSL Controller 4X.",
     "files": [
       {
         "version": "3.3.0",
-        "vid": 2605260,
+        "vid": 2606030,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -21,7 +21,7 @@
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware.bin",
         "size": 1264192,
-        "sha256": "1e34e7bcb1af53f2212005ddb81d6103f1f42097f1ce2218b13fc1eae97b4ba7"
+        "sha256": "2fd2131260a0ef0c22c0a60344a99db6d8b6f6204ea33f1bc765dc9095b58c50"
       },
       {
         "version": "3.0.0",
@@ -39,7 +39,7 @@
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware.bin",
         "size": 1264192,
-        "sha256": "1e34e7bcb1af53f2212005ddb81d6103f1f42097f1ce2218b13fc1eae97b4ba7"
+        "sha256": "2fd2131260a0ef0c22c0a60344a99db6d8b6f6204ea33f1bc765dc9095b58c50"
       }
     ]
   }

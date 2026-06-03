@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-  "version": "3.4.5",
-  "version_label": "v3.4.5 - June 2026",
-  "release_date": "2026-06-01",
+  "version": "3.4.6",
+  "version_label": "v3.4.6 - June 2026",
+  "release_date": "2026-06-03",
     "release_notes": "🎬 Timeline — Ẩn/hiện track:\n- Thêm nút ẩn/hiện track từng thiết bị; track ẩn không tham gia compile/play.\n- Nút 'đang ẩn' hiển thị amber accent, nổi bật báo có track bị ẩn.\n- Sửa lỗi clip thuộc track ẩn nhảy đè lên track 0 (giờ skip hoàn toàn).\n- Auto-relaunch app sau khi silent install hoàn tất.\n⚡ Hiệu suất:\n- Lazy-import zeroconf + boot mDNS background thread (~1.2s nhanh hơn).",
     "min_supported_version": "3.0.0",
     "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.4.5.exe",
-    "size": 287438813,
-    "sha256": "1dc59f0fb6a4b53fbfeff0596904d38bd785dfaa9456d404d27e6e0fe78d0407"
+    "size": 338995813,
+    "sha256": "5188029e56013ddca5d74b6163ed6898ed3b0a5ad068019889adf44c28ecaa72"
   }
 }

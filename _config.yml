@@ -39,6 +39,7 @@ navbar-links:
     - Led Dance: service#dance
     - Led Biển Hiệu: service#advertising
     - Dịch vụ Order: service#order
+    - 🔒Quyền riêng tư App: app-privacy-policy
   # 🗝️Tags: tags #thay thế bằng nút tìm kiếm.
 avatar: "/img/Picture-HSL/logo_hsl.png"
 author:

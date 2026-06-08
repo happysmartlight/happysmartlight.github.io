@@ -4,11 +4,11 @@
   "latest": {
     "version": "3.4.8",
     "version_label": "v3.4.8 - June 2026",
-    "release_date": "2026-06-04",
-    "release_notes": "🎬 Tab Matrix LED — preset đúng group logo/ảnh:\n- Upload ảnh/GIF và Upload Visual giờ chỉ ghi preset trong range POI/Matrix\n1-59 theo services.preset_groups; không còn tính \"ID lớn nhất + 1\" khiến\npreset nhảy sang range Timecode 60-240 khi thiết bị đã có preset timecode.\n- Chế độ \"Ghi vào ID trống\" bỏ qua thiết bị nếu không đọc được presets.json,\ntránh đoán sai slot và ghi đè ngoài ý muốn.\n- Click vào preset mẫu trong cột Preset của Tab Matrix LED sẽ chạy demo preset\nngay trên thiết bị đích, đồng bộ hành vi với Tab POI và Tab Timecode.",
+    "release_date": "2026-06-08",
+    "release_notes": "🐞 Tab Matrix LED — sửa lỗi ghi preset tràn sang range Timecode:\n- Chế độ \"Ghi vào ID trống\" (kể cả mode GHÉP MẠCH) trước đây tính ID kế tiếp\nkiểu max+1 nên ghi đè cả vùng timecode 60-240. Nay chỉ ghi vào slot TRỐNG\ntrong group logo 1-59 (dùng chung services/preset_groups); hết slot thì báo\n& bỏ qua thay vì tràn sang preset timecode.\n🎛 Tab Matrix LED — tinh gọn giao diện:\n- Bỏ group \"Play Preset (theo ID)\"; đưa các nút test LED nhanh (Tắt ALL / Đỏ /\nLục / Lam / Trắng / Play ALL) lên header, ngang hàng nút \"Làm mới Preset\".\n- Tách nút Upload + Xóa ra group \"Thao tác\" riêng cho gọn gàng.\n- Mode GHÉP MẠCH: tăng chiều cao bảng cấu hình W×H của từng mạch.\n- Mode ALL/SINGLE: thêm bảng \"Mạch sẽ nhận upload\" liệt kê mạch đích + kích\nthước W×H sẽ ghi — lấp khoảng trống group Upload, đồng bộ style với GHÉP.",
     "min_supported_version": "3.0.0",
     "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.4.8.exe",
-    "size": 338962816,
-    "sha256": "c3d15b388d4b9b61c60f25eef75c6dfb904080989ec6ca1569837b20f112404d"
+    "size": 338995075,
+    "sha256": "ada360243bc077255410a487f20505254cfbfe25599e559c3dc9b6df228b9ea8"
   }
 }

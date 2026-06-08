@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.4.8",
-    "version_label": "v3.4.8 - June 2026",
+    "version": "3.4.9",
+    "version_label": "v3.4.9 - June 2026",
     "release_date": "2026-06-08",
-    "release_notes": "🐞 Tab Matrix LED — sửa lỗi ghi preset tràn sang range Timecode:\n- Chế độ \"Ghi vào ID trống\" (kể cả mode GHÉP MẠCH) trước đây tính ID kế tiếp\nkiểu max+1 nên ghi đè cả vùng timecode 60-240. Nay chỉ ghi vào slot TRỐNG\ntrong group logo 1-59 (dùng chung services/preset_groups); hết slot thì báo\n& bỏ qua thay vì tràn sang preset timecode.\n🎛 Tab Matrix LED — tinh gọn giao diện:\n- Bỏ group \"Play Preset (theo ID)\"; đưa các nút test LED nhanh (Tắt ALL / Đỏ /\nLục / Lam / Trắng / Play ALL) lên header, ngang hàng nút \"Làm mới Preset\".\n- Tách nút Upload + Xóa ra group \"Thao tác\" riêng cho gọn gàng.\n- Mode GHÉP MẠCH: tăng chiều cao bảng cấu hình W×H của từng mạch.\n- Mode ALL/SINGLE: thêm bảng \"Mạch sẽ nhận upload\" liệt kê mạch đích + kích\nthước W×H sẽ ghi — lấp khoảng trống group Upload, đồng bộ style với GHÉP.",
+    "release_notes": "🧩 Tab Matrix LED — chế độ GHÉP MẠCH (ghép nhiều mạch thành 1 ma trận lớn):\n- Thêm mode GHÉP: ảnh/visual được scale về tổng W×H rồi cắt theo cấu hình từng\nmạch và upload song song; ghi preset đúng group logo 1-59 (chung POI/Matrix),\nhết slot trong 1-59 thì báo & bỏ qua, không tràn sang range Timecode.\n🎛 Tab Matrix LED — tinh gọn giao diện:\n- Bỏ group \"Play Preset (theo ID)\"; đưa các nút test LED nhanh (Tắt ALL / Đỏ /\nLục / Lam / Trắng / Play ALL) lên header, ngang hàng nút \"Làm mới Preset\".\n- Tách nút Upload + Xóa ra group \"Thao tác\" riêng cho gọn gàng.\n- Mode GHÉP MẠCH: tăng chiều cao bảng cấu hình W×H của từng mạch.\n- Mode ALL/SINGLE: thêm bảng \"Mạch sẽ nhận upload\" liệt kê mạch đích + kích\nthước W×H sẽ ghi — lấp khoảng trống group Upload, đồng bộ style với GHÉP.",
     "min_supported_version": "3.0.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.4.8.exe",
-    "size": 338995075,
-    "sha256": "ada360243bc077255410a487f20505254cfbfe25599e559c3dc9b6df228b9ea8"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.4.9.exe",
+    "size": 339007835,
+    "sha256": "12ccd45d4791269734374b9737b742d594f2247dccdce354bab5466756951f23"
   }
 }

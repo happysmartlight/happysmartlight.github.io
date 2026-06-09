@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.4.9",
-    "version_label": "v3.4.9 - June 2026",
-    "release_date": "2026-06-08",
-    "release_notes": "🧩 Tab Matrix LED — chế độ GHÉP MẠCH (ghép nhiều mạch thành 1 ma trận lớn):\n- Thêm mode GHÉP: ảnh/visual được scale về tổng W×H rồi cắt theo cấu hình từng\nmạch và upload song song; ghi preset đúng group logo 1-59 (chung POI/Matrix),\nhết slot trong 1-59 thì báo & bỏ qua, không tràn sang range Timecode.\n🎛 Tab Matrix LED — tinh gọn giao diện:\n- Bỏ group \"Play Preset (theo ID)\"; đưa các nút test LED nhanh (Tắt ALL / Đỏ /\nLục / Lam / Trắng / Play ALL) lên header, ngang hàng nút \"Làm mới Preset\".\n- Tách nút Upload + Xóa ra group \"Thao tác\" riêng cho gọn gàng.\n- Mode GHÉP MẠCH: tăng chiều cao bảng cấu hình W×H của từng mạch.\n- Mode ALL/SINGLE: thêm bảng \"Mạch sẽ nhận upload\" liệt kê mạch đích + kích\nthước W×H sẽ ghi — lấp khoảng trống group Upload, đồng bộ style với GHÉP.",
-    "min_supported_version": "3.0.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.4.9.exe",
-    "size": 339007835,
-    "sha256": "12ccd45d4791269734374b9737b742d594f2247dccdce354bab5466756951f23"
+    "version": "3.5.0",
+    "version_label": "v3.5.0 - June 2026",
+    "release_date": "2026-06-09",
+    "release_notes": "🧩 Tab Matrix LED — GHÉP MẠCH: hiển thị dung lượng từng mạch + chặn khi thiếu chỗ:\n- Trước khi ghi, ước lượng dung lượng tệp sẽ vào TỪNG mạch sau khi cắt (theo tỉ\nlệ pixel của slice so với tổng cụm) thay vì chỉ báo dung lượng GIF tổng.\n- Hỏi chế độ ghi (Xóa hết / Ghi đè) trước, rồi kiểm tra dung lượng theo đúng\nbaseline: append → FS trống hiện tại; clear → sức chứa sau khi xoá GIF cũ.\n- So dung lượng slice với bộ nhớ trống của ĐÚNG mạch nhận nó; nếu BẤT KỲ mạch\nnào không đủ chỗ → CHẶN upload (buộc xoá bớt bộ nhớ rồi ghép lại).\n- Thêm bảng xác nhận cuối liệt kê dung lượng + bộ nhớ trống từng mạch (M1/M2…).\n- Dialog convert MP4→GIF ở mode GHÉP không còn chặn oan theo dung lượng GIF tổng.",
+    "min_supported_version": "3.4.5",
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.5.0.exe",
+    "size": 339011517,
+    "sha256": "e80ef2f8f453064db34b94d3149be8582835b0609419bf719baebc645fd8571d"
   }
 }

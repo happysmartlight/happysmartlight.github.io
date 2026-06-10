@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.5.1",
-    "version_label": "v3.5.1 - June 2026",
+    "version": "3.5.2",
+    "version_label": "v3.5.2 - June 2026",
     "release_date": "2026-06-10",
-    "release_notes": "🔌 Công cụ thiết bị ARGB HSL (Serial) — menu Công cụ:\n⚡ Tab Nạp Firmware:\n- Tải firmware mới nhất TỰ ĐỘNG từ manifest ESP Web Tools (link cố định trên\nhappysmartlight.github.io), không cần chọn file; nạp bootloader/partitions/\nboot_app0/firmware đúng offset ESP32-S3, tự xoá sạch flash trước khi nạp.\n- BẮT BUỘC xác minh thiết bị ARGB HSL chính hãng trước (Improv REQUEST_INFO →\nkiểm chuỗi nhận diện); sai 3 lần khoá 5 phút (fail2ban như trang web).\n- Hiện thông tin firmware (name + version) từ manifest sau khi xác minh OK.\n- Xoá vĩnh viễn file firmware tạm sau khi nạp (kể cả khi lỗi) — không lộ file.\n- Log gọn: chỉ cột mốc + lỗi; che tên chip, đường dẫn/tên tệp .bin, hash; lọc\nescape ANSI của esptool. 3 dòng trạng thái + nút \"Làm mới\".\n📶 Tab Cấu hình WiFi:\n- Quét WiFi lân cận qua Improv (REQUEST_SCANNED_WIFI) đổ vào danh sách chọn.\n- Gửi SSID/mật khẩu qua Improv; cũng xác minh thiết bị chính hãng trước.\n🎛 Khác: danh sách cổng chỉ hiện thiết bị USB Serial (lọc COM hệ thống/ảo);\ngiao diện neon dark (gradient cyan→magenta), tab active in đậm nổi bật.",
+    "release_notes": "🖼 Preset ảnh — set bounds segment tường minh (sửa lỗi map sai dải LED):\n- Tab POI (BMP): segment 0 giờ set start=0, stop=<số pixel LED> (= chiều rộng\nảnh) thay vì chỉ dựa vào sb:true nướng bounds sống → ảnh map đúng dải LED.\n- Tab Matrix (GIF): set thêm startY/stopY theo W×H (đọc kích thước GIF đã\nresize) → khung hình map đúng lưới ma trận.\n- WledClient.save_image_preset() thêm tham số seg_start/seg_stop/seg_start_y/\nseg_stop_y; có fallback giữ hành vi cũ khi không truyền (kèm test).",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.5.1.exe",
-    "size": 340348235,
-    "sha256": "4fcd56cd12495a2530b2173ffa82a306969cc183163fdeb3e73744ded01074e8"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.5.2.exe",
+    "size": 340361862,
+    "sha256": "e7103facf62d753b6b0885d7c9ca84e75cf0e47ca727c4f1925893a73dae0808"
   }
 }

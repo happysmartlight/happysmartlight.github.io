@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.5.0",
-    "version_label": "v3.5.0 - June 2026",
-    "release_date": "2026-06-09",
-    "release_notes": "🧩 Tab Matrix LED — GHÉP MẠCH: hiển thị dung lượng từng mạch + chặn khi thiếu chỗ:\n- Trước khi ghi, ước lượng dung lượng tệp sẽ vào TỪNG mạch sau khi cắt (theo tỉ\nlệ pixel của slice so với tổng cụm) thay vì chỉ báo dung lượng GIF tổng.\n- Hỏi chế độ ghi (Xóa hết / Ghi đè) trước, rồi kiểm tra dung lượng theo đúng\nbaseline: append → FS trống hiện tại; clear → sức chứa sau khi xoá GIF cũ.\n- So dung lượng slice với bộ nhớ trống của ĐÚNG mạch nhận nó; nếu BẤT KỲ mạch\nnào không đủ chỗ → CHẶN upload (buộc xoá bớt bộ nhớ rồi ghép lại).\n- Thêm bảng xác nhận cuối liệt kê dung lượng + bộ nhớ trống từng mạch (M1/M2…).\n- Dialog convert MP4→GIF ở mode GHÉP không còn chặn oan theo dung lượng GIF tổng.",
-    "min_supported_version": "3.4.5",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.5.0.exe",
-    "size": 339011517,
-    "sha256": "e80ef2f8f453064db34b94d3149be8582835b0609419bf719baebc645fd8571d"
+    "version": "3.5.1",
+    "version_label": "v3.5.1 - June 2026",
+    "release_date": "2026-06-10",
+    "release_notes": "🔌 Công cụ thiết bị ARGB HSL (Serial) — menu Công cụ:\n⚡ Tab Nạp Firmware:\n- Tải firmware mới nhất TỰ ĐỘNG từ manifest ESP Web Tools (link cố định trên\nhappysmartlight.github.io), không cần chọn file; nạp bootloader/partitions/\nboot_app0/firmware đúng offset ESP32-S3, tự xoá sạch flash trước khi nạp.\n- BẮT BUỘC xác minh thiết bị ARGB HSL chính hãng trước (Improv REQUEST_INFO →\nkiểm chuỗi nhận diện); sai 3 lần khoá 5 phút (fail2ban như trang web).\n- Hiện thông tin firmware (name + version) từ manifest sau khi xác minh OK.\n- Xoá vĩnh viễn file firmware tạm sau khi nạp (kể cả khi lỗi) — không lộ file.\n- Log gọn: chỉ cột mốc + lỗi; che tên chip, đường dẫn/tên tệp .bin, hash; lọc\nescape ANSI của esptool. 3 dòng trạng thái + nút \"Làm mới\".\n📶 Tab Cấu hình WiFi:\n- Quét WiFi lân cận qua Improv (REQUEST_SCANNED_WIFI) đổ vào danh sách chọn.\n- Gửi SSID/mật khẩu qua Improv; cũng xác minh thiết bị chính hãng trước.\n🎛 Khác: danh sách cổng chỉ hiện thiết bị USB Serial (lọc COM hệ thống/ảo);\ngiao diện neon dark (gradient cyan→magenta), tab active in đậm nổi bật.",
+    "min_supported_version": "3.5.0",
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.5.1.exe",
+    "size": 340348235,
+    "sha256": "4fcd56cd12495a2530b2173ffa82a306969cc183163fdeb3e73744ded01074e8"
   }
 }

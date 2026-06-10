@@ -177,6 +177,30 @@ a:focus {
   text-decoration: none;
 }
 
+/* Remove default browser/Bootstrap focus ring on mouse click */
+a:focus,
+button:focus,
+.btn:focus,
+.btn:active:focus,
+.btn.active:focus,
+.navbar-toggle:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Keep a visible focus style for keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+.btn:focus-visible,
+.navbar-toggle:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #00d3ff;
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
 blockquote {
   color: #808080;
   font-style: italic;

@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.5.2",
-    "version_label": "v3.5.2 - June 2026",
-    "release_date": "2026-06-10",
+    "version": "3.6.0",
+    "version_label": "v3.6.0 - June 2026",
+    "release_date": "2026-06-11",
     "release_notes": "🖼 Preset ảnh — set bounds segment tường minh (sửa lỗi map sai dải LED):\n- Tab POI (BMP): segment 0 giờ set start=0, stop=<số pixel LED> (= chiều rộng\nảnh) thay vì chỉ dựa vào sb:true nướng bounds sống → ảnh map đúng dải LED.\n- Tab Matrix (GIF): set thêm startY/stopY theo W×H (đọc kích thước GIF đã\nresize) → khung hình map đúng lưới ma trận.\n- WledClient.save_image_preset() thêm tham số seg_start/seg_stop/seg_start_y/\nseg_stop_y; có fallback giữ hành vi cũ khi không truyền (kèm test).",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.5.2.exe",
-    "size": 340361862,
-    "sha256": "e7103facf62d753b6b0885d7c9ca84e75cf0e47ca727c4f1925893a73dae0808"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.6.0.exe",
+    "size": 340403562,
+    "sha256": "fde418035b23af3b4eba3e61bbafff5a833ce1bb7792959eb6d6f99d122fdc7b"
   }
 }

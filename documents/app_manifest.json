@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.7.0",
-    "version_label": "v3.7.0 - June 2026",
+    "version": "3.7.1",
+    "version_label": "v3.7.1 - June 2026",
     "release_date": "2026-06-12",
-    "release_notes": "🧩 Tab Gen JSON Matrix — viết lại NATIVE, bỏ hẳn web UI (QtWebEngine/Chromium):\n- Trình thiết kế ledmap.json chạy thẳng bằng Qt thuần (services/ledmap_gen.py\nport 1:1 thuật toán XYmapper + ui/ledmap_designer.py) → mở tức thì, nhẹ máy,\nkhông còn spawn process Chromium nặng RAM/CPU.\n- Bảng matrix vẽ bằng ảnh chip WS2812 thật: ô sáng = chip màu + viền xanh lá,\nô tắt = chip xám mờ; số ID nằm gọn trong badge tối, tự co theo số chữ số.\n- Mũi tên hướng dây 2 màu: 🔵 chiều thuận / 🟠 chiều quay đầu (serpentine).\n- Ctrl + con lăn để zoom in/out; kéo chuột để bật tắt nhiều ô; đủ tuỳ chọn\nwiring (ngoằn ngoèo/dọc/lật/bỏ pixel) + chế độ Tự do như bản web cũ.\n- Nạp file backup → preview index nguyên văn; cần JSON thì nhấn 📋 Sao chép.\n🖼 Tab Matrix LED — kích thước Upload tự đọc từ ledmap.json (mapping 2D):\n- Card thiết bị có badge \"🧩 2D W×H\" khi mạch có ledmap; mạch không hỗ trợ 2D\nbị khoá chọn (mặc định). Kích thước Upload đọc tự động theo ledmap từng mạch\n— mỗi mạch nhận ảnh/visual convert đúng size riêng. Bật 🔧 Nhập tay để vọc.\n- Nút 🔄 Quét 2D để cập nhật badge/size sau khi nạp/xóa ledmap.\n⚡ Tab Thiết bị ARGB — Web UI nhúng mặc định TẮT cho khởi động nhanh, nhẹ máy:\n- Thêm toggle \"Bật Web UI\"; chỉ tải (và spawn Chromium) khi người dùng cần.\nTắt thì giải phóng RAM. Mẹo Ctrl+Click card để mở Web UI bằng trình duyệt ngoài.",
+    "release_notes": "🌡️ Tab Thiết bị ARGB — hiển thị nhiệt độ chip trên card thiết bị:\n- Card thiết bị hiện nhiệt độ chip (🌡️ XX°C) ngay sau FW version, đọc từ\n/json/info (block \"sensor\"/\"u\"). Cập nhật realtime theo health check.\n- Mạch dùng firmware chưa hỗ trợ cảm biến nhiệt độ → không hiển thị gì.\n💤 Tab Thiết bị ARGB — phóng to thông báo \"Web UI đang tắt\" cho dễ đọc.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.7.0.exe",
-    "size": 340627309,
-    "sha256": "fbd3eb41c6894701030ea203e30701b0354a4e845b817ba6a84eb1dd77d890a4"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.7.1.exe",
+    "size": 340642699,
+    "sha256": "e54c7ddcde8dac45bcb1f0d921e6e97d91004154af752767e34fa7b58e6eeeec"
   }
 }

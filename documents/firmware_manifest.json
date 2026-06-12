@@ -25,7 +25,7 @@
       },
       {
         "version": "3.0.0",
-        "vid": 2606030,
+        "vid": 2606120,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -38,8 +38,8 @@
 		    "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware.bin",
-        "size": 1264480,
-        "sha256": "8b0a614e7bf07d1c8bac6400739b61d2917e31ddc8defc17ad756a9abf99cbf3"
+        "size": 1267104,
+        "sha256": "d990eb4f9026a07e67834f16f656706d3b04baa0566309340ca1daa9a2fa814f"
       }
     ]
   }

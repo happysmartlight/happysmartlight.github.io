@@ -16,13 +16,19 @@ categories: [LED PIXEL, controller-chip, controller-chip#ledPixel]
 
 # 🎉 Chào mừng đến với Bộ Điều Khiển Chip LED PIXEL ARGB IPEX V1.0! ✨  
 
+> 📢 **Giá mạch điều khiển: 739.000đ/mạch** (đã bao gồm VAT)  
+> ✅ Khuyến khích dùng **2 mạch trở lên** để lập trình hiệu ứng đồng bộ  
+> ✅ **Giá bộ sóng đi kèm 1.296.000đ**
+
 # 🚀 Tải phẩn mềm Happy Smart Light
 
-- 🔧 **POI TOOL HSL v1.5** 
-
-- 🎭 **Đạo cụ & Trang phục (TimeCode / xLights)** 
-
-- **Link Đầy Đủ** [Download Tất Cả](https://drive.google.com/drive/folders/1sPGiqML3gM14iFop44tH6MFm2_VKa3mB?usp=sharing)
+- 🔧 **TOOL ARGB HSL v3.7.x** 
+  - [ARGB Happy Smart Light](/download/argb-tool)
+  
+<div class="post-img-post">
+  <img src="/img/controller-chip/tool_argb_hsl.png" alt="APP ARGB HSL">
+  <p>Giao diện app ARGB Happy Smart Light</p>
+</div>
 
 📌 **Hướng dẫn nhanh:**  
 

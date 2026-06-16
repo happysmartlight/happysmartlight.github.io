@@ -1,0 +1,6 @@
+{
+  "name": "Happy Smart Light",
+  "description": "Website giới thiệu thương hiệu Happy Smart Light - Hệ sinh thái điều khiển LED nghệ thuật và thiết bị điều khiển ánh sáng thông minh chuyên nghiệp.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

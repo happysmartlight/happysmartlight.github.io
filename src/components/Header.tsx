@@ -18,7 +18,7 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
     { id: "features", label: "Tính Năng" },
     { id: "ecosystem", label: "Hệ Sinh Thái" },
     { id: "applications", label: "Ứng Dụng" },
-    { id: "estimator", label: "Dự Toán LED" },
+    { id: "app-and-tool", label: "Download" },
     { id: "contact", label: "Liên Hệ" },
   ];
 

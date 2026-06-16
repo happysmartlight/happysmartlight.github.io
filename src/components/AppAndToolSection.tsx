@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { Smartphone, Laptop, Download, RefreshCw, Smartphone as PhoneIcon, Sliders, Play, CheckCircle2, QrCode, Monitor, Sparkles } from "lucide-react";
+import { Smartphone, Laptop, Download, RefreshCw, Smartphone as PhoneIcon, Sliders, Play, CheckCircle2, QrCode, Monitor, Sparkles, Info } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface AppAndToolSectionProps {
   onViewPrivacy?: () => void;
+  onViewAppDetails?: () => void;
+  onViewToolDetails?: () => void;
 }
 
-export default function AppAndToolSection({ onViewPrivacy }: AppAndToolSectionProps) {
+export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onViewToolDetails }: AppAndToolSectionProps) {
   const [downloading, setDownloading] = useState(false);
   const [downloadProgress, setDownloadProgress] = useState(0);
   const [downloadSuccess, setDownloadSuccess] = useState(false);
@@ -20,17 +22,33 @@ export default function AppAndToolSection({ onViewPrivacy }: AppAndToolSectionPr
   const colorsList = ["#ff2d95", "#00e5ff", "#a855f7", "#eab308", "#22c55e", "#ef4444"];
   const effectsList = ["Rainbow Flow", "Cosmic Strobe", "Pixel Wave", "Pulse Beat", "Metropoli Beat"];
 
+  const WINDOWS_TOOL_URL = "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.7.1.exe";
+
+  const startDownload = () => {
+    const link = document.createElement("a");
+    link.href = WINDOWS_TOOL_URL;
+    link.setAttribute("download", "");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const triggerDownload = () => {
     if (downloading || downloadSuccess) return;
     setDownloading(true);
     setDownloadProgress(0);
-    
+
+    let started = false;
     const interval = setInterval(() => {
       setDownloadProgress((prev) => {
         if (prev >= 100) {
           clearInterval(interval);
           setDownloading(false);
           setDownloadSuccess(true);
+          if (!started) {
+            started = true;
+            startDownload();
+          }
           setTimeout(() => setDownloadSuccess(false), 5000);
           return 100;
         }
@@ -150,8 +168,18 @@ export default function AppAndToolSection({ onViewPrivacy }: AppAndToolSectionPr
                   </div>
                 </div>
 
-                {onViewPrivacy && (
-                  <div className="pt-3">
+                <div className="pt-4 flex flex-col gap-3">
+                  {onViewAppDetails && (
+                    <button
+                      onClick={onViewAppDetails}
+                      className="w-full sm:w-auto py-2.5 px-5 rounded-xl bg-slate-900 border border-neon-pink/30 hover:border-neon-pink hover:bg-neon-pink/5 text-xs font-display font-bold uppercase tracking-wider text-white flex items-center justify-center gap-2 transition-all cursor-pointer"
+                    >
+                      <Info className="w-4 h-4 text-neon-pink" />
+                      Xem chi tiết & hướng dẫn sử dụng
+                    </button>
+                  )}
+
+                  {onViewPrivacy && (
                     <button
                       onClick={onViewPrivacy}
                       className="text-[11px] text-slate-400 hover:text-neon-pink underline transition-colors cursor-pointer font-sans flex items-center gap-1.5"
@@ -159,8 +187,8 @@ export default function AppAndToolSection({ onViewPrivacy }: AppAndToolSectionPr
                       <Sparkles className="w-3.5 h-3.5 text-neon-pink" />
                       Xem Chính sách bảo mật ARGB HSL (Google Play Compliance)
                     </button>
-                  </div>
-                )}
+                  )}
+                </div>
               </div>
 
               {/* Dynamic Interactive App Interface Simulator */}
@@ -341,7 +369,7 @@ export default function AppAndToolSection({ onViewPrivacy }: AppAndToolSectionPr
                       <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
                       <div>
                         <span className="text-white font-bold block">Tải xuống hoàn tất!</span>
-                        <span className="text-emerald-300">File cài đặt ARGB_HSL_Tool_v2.4_x64.msi đã sẵn sàng.</span>
+                        <span className="text-emerald-300">File cài đặt ToolARGB_HSL_Setup_3.7.1.exe đã sẵn sàng.</span>
                       </div>
                     </motion.div>
                   ) : downloading ? (
@@ -371,14 +399,27 @@ export default function AppAndToolSection({ onViewPrivacy }: AppAndToolSectionPr
                       id="btn-download-windows-tool"
                     >
                       <Download className="w-4 h-4 text-slate-950 animate-bounce" />
-                      <span>TẢI ARGB HSL WINDOWS TOOL (16.8 MB)</span>
+                      <span>TẢI ARGB HSL WINDOWS TOOL (325 MB)</span>
                     </button>
                   )}
                 </AnimatePresence>
                 
                 <span className="block text-[10px] text-center font-mono text-slate-500 uppercase">
-                  Phiên bản v2.4.2 mới nhất // Tương thích Windows 10/11 x64
+                  Phiên bản v3.7.1 mới nhất // Tương thích Windows 10/11 x64
                 </span>
+                <span className="block text-[9px] text-center font-mono text-slate-600 break-all leading-relaxed">
+                  SHA256: e54c7ddcde8dac45bcb1f0d921e6e97d91004154af752767e34fa7b58e6eeeec
+                </span>
+
+                {onViewToolDetails && (
+                  <button
+                    onClick={onViewToolDetails}
+                    className="w-full py-2.5 px-5 rounded-xl bg-slate-900 border border-neon-blue/30 hover:border-neon-blue hover:bg-neon-blue/5 text-xs font-display font-bold uppercase tracking-wider text-white flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Info className="w-4 h-4 text-neon-blue" />
+                    Xem chi tiết & hướng dẫn sử dụng
+                  </button>
+                )}
               </div>
 
             </div>

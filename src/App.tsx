@@ -13,6 +13,7 @@ import AppAndToolSection from "./components/AppAndToolSection";
 import DistributionService from "./components/DistributionService";
 import ProductDetailsPage from "./components/ProductDetailsPage";
 import AppPrivacyPolicy from "./components/AppPrivacyPolicy";
+import SoftwareDetailsPage from "./components/SoftwareDetailsPage";
 import FloatingActions from "./components/FloatingActions";
 
 type ThemeGlow = "pink" | "blue" | "emerald" | "amber" | "purple";
@@ -23,7 +24,23 @@ export default function App() {
   const [themeGlow, setThemeGlow] = useState<ThemeGlow>("pink");
   const [activeDetailedProductId, setActiveDetailedProductId] = useState<string | null>(null);
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
+  const [softwareDetail, setSoftwareDetail] = useState<"app" | "tool" | null>(null);
   const [savedScrollPos, setSavedScrollPos] = useState(0);
+
+  const openSoftwareDetail = (kind: "app" | "tool") => {
+    setSavedScrollPos(window.scrollY);
+    setSoftwareDetail(kind);
+    window.scrollTo({ top: 0, behavior: "instant" });
+    setTimeout(() => window.scrollTo({ top: 0, behavior: "instant" }), 50);
+  };
+
+  const closeSoftwareDetail = () => {
+    setSoftwareDetail(null);
+    // Restore previous scroll position. Scroll once immediately and again after
+    // the homepage re-renders so the long DOM is in place before we jump back.
+    window.scrollTo({ top: savedScrollPos, behavior: "instant" });
+    setTimeout(() => window.scrollTo({ top: savedScrollPos, behavior: "instant" }), 50);
+  };
 
   const isScrollingProgrammatically = useRef(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -48,6 +65,9 @@ export default function App() {
     }
     if (showPrivacyPolicy) {
       setShowPrivacyPolicy(false);
+    }
+    if (softwareDetail !== null) {
+      setSoftwareDetail(null);
     }
     setActiveSection(sectionId);
     isScrollingProgrammatically.current = true;
@@ -97,6 +117,7 @@ export default function App() {
       { id: "features", listId: "features" },
       { id: "ecosystem", listId: "ecosystem" },
       { id: "applications", listId: "applications" },
+      { id: "app-and-tool", listId: "app-and-tool" },
       { id: "estimator", listId: "estimator" },
     ];
 
@@ -176,12 +197,14 @@ export default function App() {
       {/* 2. Responsive Glassmorphic Navbar Header */}
       <Header activeSection={activeSection} onNavigate={handleNavigate} />
 
-      {showPrivacyPolicy ? (
-        <AppPrivacyPolicy 
+      {softwareDetail !== null ? (
+        <SoftwareDetailsPage type={softwareDetail} onBack={closeSoftwareDetail} />
+      ) : showPrivacyPolicy ? (
+        <AppPrivacyPolicy
           onBack={() => {
             setShowPrivacyPolicy(false);
             window.scrollTo({ top: 0, behavior: "instant" });
-          }} 
+          }}
         />
       ) : activeDetailedProductId !== null ? (
         <ProductDetailsPage 
@@ -214,10 +237,14 @@ export default function App() {
           <InteractiveAppShowcase onThemeChanged={(theme) => setThemeGlow(theme)} />
 
           {/* App and software utility downloads */}
-          <AppAndToolSection onViewPrivacy={() => {
-            setShowPrivacyPolicy(true);
-            window.scrollTo({ top: 0, behavior: "instant" });
-          }} />
+          <AppAndToolSection
+            onViewPrivacy={() => {
+              setShowPrivacyPolicy(true);
+              window.scrollTo({ top: 0, behavior: "instant" });
+            }}
+            onViewAppDetails={() => openSoftwareDetail("app")}
+            onViewToolDetails={() => openSoftwareDetail("tool")}
+          />
 
           {/* Chip and semiconductor authorized partnership distribution */}
           <DistributionService />

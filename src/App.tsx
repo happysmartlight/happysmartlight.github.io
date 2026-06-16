@@ -164,9 +164,11 @@ export default function App() {
   return (
     <div className="relative min-h-screen bg-[#020204] text-[#f8fafc] scroll-smooth antialiased pb-0 select-none">
       
-      {/* 1. Global Ambient Light Engine Layer */}
-      <div className={`fixed top-1/10 left-1/12 w-[550px] h-[550px] rounded-full blur-[160px] pointer-events-none -z-20 transition-colors duration-1000 ${currentGlows.blob1}`} />
-      <div className={`fixed bottom-1/10 right-1/12 w-[550px] h-[550px] rounded-full blur-[160px] pointer-events-none -z-20 transition-colors duration-1000 ${currentGlows.blob2}`} />
+      {/* 1. Global Ambient Light Engine Layer (clipped to viewport to avoid horizontal overflow) */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-20">
+        <div className={`absolute top-1/10 left-1/12 w-[550px] h-[550px] rounded-full blur-[160px] transition-colors duration-1000 ${currentGlows.blob1}`} />
+        <div className={`absolute bottom-1/10 right-1/12 w-[550px] h-[550px] rounded-full blur-[160px] transition-colors duration-1000 ${currentGlows.blob2}`} />
+      </div>
       
       {/* Fixed global subtle scanning line overlay for cyber/neon theme */}
       <div className="fixed inset-0 bg-radial-at-t from-transparent via-transparent to-black/35 pointer-events-none -z-10" />

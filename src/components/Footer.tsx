@@ -82,8 +82,8 @@ export default function Footer({ onNavigate, onViewPrivacy }: FooterProps) {
                 <div className="space-y-1">
                   <p><strong>CÔNG TY TNHH THƯƠNG MẠI VÀ CÔNG NGHỆ HAPPY SMART LIGHT</strong></p>
                   <p>MST: 3502535621</p>
-                  <p>Kỹ thuật: Sảnh S6.03, Vinhomes Grand Park, P. Long Bình, TP. Thủ Đức, HCM</p>
-                  <p>Trụ sở chính: Số 42 Hà Đức Trọng, P. Phước Hưng, TP. Bà Rịa, BR-VT</p>
+                  <p>Kỹ thuật: Tech Hub, Sảnh S6.03, Vinhomes Grand Park, P. Long Bình, TP. Hồ Chí Minh</p>
+                  <p>Trụ sở chính: Số 42 Hà Đức Trọng, P. Bà Rịa, TP. Hồ Chí Minh</p>
                 </div>
               </div>
               <div className="flex items-center">
@@ -114,7 +114,7 @@ export default function Footer({ onNavigate, onViewPrivacy }: FooterProps) {
               </>
             )}
           </p>
-          
+
           {/* Scroll to Top Trigger */}
           <button
             onClick={handleScrollToTop}

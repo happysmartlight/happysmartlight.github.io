@@ -8,6 +8,32 @@ interface HeroProps {
 
 type PresetMode = "rainbow" | "audio" | "aurora" | "fire";
 
+// 5-pixel-high font bitmaps for scrolling text (each char is 5 rows x variable width)
+const FONT_MAP: Record<string, number[][]> = {
+  H: [[1,0,1],[1,0,1],[1,1,1],[1,0,1],[1,0,1]],
+  A: [[0,1,0],[1,0,1],[1,1,1],[1,0,1],[1,0,1]],
+  P: [[1,1,0],[1,0,1],[1,1,0],[1,0,0],[1,0,0]],
+  Y: [[1,0,1],[1,0,1],[0,1,0],[0,1,0],[0,1,0]],
+  S: [[0,1,1],[1,0,0],[0,1,0],[0,0,1],[1,1,0]],
+  M: [[1,0,0,0,1],[1,1,0,1,1],[1,0,1,0,1],[1,0,0,0,1],[1,0,0,0,1]],
+  R: [[1,1,0],[1,0,1],[1,1,0],[1,0,1],[1,0,1]],
+  T: [[1,1,1],[0,1,0],[0,1,0],[0,1,0],[0,1,0]],
+  L: [[1,0,0],[1,0,0],[1,0,0],[1,0,0],[1,1,1]],
+  I: [[1,1,1],[0,1,0],[0,1,0],[0,1,0],[1,1,1]],
+  G: [[0,1,1],[1,0,0],[1,0,1],[1,0,1],[0,1,1]],
+  ' ': [[0],[0],[0],[0],[0]],
+};
+
+const SCROLL_TEXT = "HAPPY SMART LIGHT  ";
+const scrollBitmap: number[][] = [[], [], [], [], []];
+for (const char of SCROLL_TEXT) {
+  const glyph = FONT_MAP[char] || FONT_MAP[' '];
+  for (let row = 0; row < 5; row++) {
+    scrollBitmap[row].push(...glyph[row], 0); // 1-pixel gap between chars
+  }
+}
+const SCROLL_WIDTH = scrollBitmap[0].length;
+
 export default function Hero({ onNavigate }: HeroProps) {
   const [activePreset, setActivePreset] = useState<PresetMode>("aurora");
   const [ledSpeed, setLedSpeed] = useState<number>(50);
@@ -15,6 +41,7 @@ export default function Hero({ onNavigate }: HeroProps) {
   const [frameCount, setFrameCount] = useState<number>(0);
   const [fps, setFps] = useState<number>(60);
   const animateRef = useRef<number | null>(null);
+  const textOffsetRef = useRef<number>(0);
 
   // Stats generation helper based on state
   const getProtocolStats = () => {
@@ -35,13 +62,21 @@ export default function Hero({ onNavigate }: HeroProps) {
   // Animation frame loop to generate visual pulses or waves on the visualizer matrix
   useEffect(() => {
     let lastTime = performance.now();
+    let scrollAccum = 0;
     const tick = (now: number) => {
       // simulate speed effect
       const increment = ledSpeed / 100 * 2 + 0.2;
       setFrameCount((prev) => (prev + increment) % 360);
-      
-      // Calculate realistic FPS variance
+
+      // Advance scrolling text offset
       const delta = now - lastTime;
+      scrollAccum += delta * (ledSpeed / 100) * 0.0095;
+      if (scrollAccum >= 1) {
+        textOffsetRef.current = (textOffsetRef.current + Math.floor(scrollAccum)) % SCROLL_WIDTH;
+        scrollAccum = scrollAccum % 1;
+      }
+
+      // Calculate realistic FPS variance
       lastTime = now;
       const calculatedFps = Math.min(60, Math.round(1000 / delta));
       if (Math.random() < 0.05) {
@@ -94,15 +129,23 @@ export default function Hero({ onNavigate }: HeroProps) {
         break;
       }
       case "aurora": {
-        // Cyber neon pink and blue clouds drifting
-        const wave1 = Math.sin(row * 0.4 + col * 0.3 + speedScale * 1.5);
-        const wave2 = Math.cos(col * 0.5 - row * 0.3 + speedScale * 2);
-        const blend = (wave1 + wave2 + 2) / 4; // 0 to 1
-        
-        // Neon Pink (#ec4899 = RGB 236, 72, 153) and Neon Blue (#06b6d4 = RGB 6, 182, 212)
-        r = Math.round(236 * blend + 6 * (1 - blend));
-        g = Math.round(72 * blend + 182 * (1 - blend));
-        b = Math.round(153 * blend + 212 * (1 - blend));
+        // Scrolling "HAPPY SMART LIGHT" text across the 8x8 matrix
+        // Text is rendered in rows 1-5 (centered vertically), rows 0,6,7 are off
+        const textRow = row - 1; // offset to center 5-row font in 8-row grid
+        if (textRow >= 0 && textRow < 5) {
+          const bitmapCol = (col + textOffsetRef.current) % SCROLL_WIDTH;
+          if (scrollBitmap[textRow][bitmapCol] === 1) {
+            // Gradient color from neon pink to neon blue based on column position
+            const colBlend = col / 7;
+            r = Math.round(236 * (1 - colBlend) + 6 * colBlend);
+            g = Math.round(72 * (1 - colBlend) + 182 * colBlend);
+            b = Math.round(153 * (1 - colBlend) + 212 * colBlend);
+          } else {
+            return "transparent";
+          }
+        } else {
+          return "transparent";
+        }
         break;
       }
       case "fire": {
@@ -126,7 +169,7 @@ export default function Hero({ onNavigate }: HeroProps) {
   };
 
   const presetLabels = [
-    { id: "aurora", label: "Aurora Cyber", activeClass: "bg-neon-pink/20 text-neon-pink-bright border-neon-pink/50 shadow-[0_0_15px_rgba(255,0,127,0.4)]" },
+    { id: "aurora", label: "Text Scroll", activeClass: "bg-neon-pink/20 text-neon-pink-bright border-neon-pink/50 shadow-[0_0_15px_rgba(255,0,127,0.4)]" },
     { id: "audio", label: "LedFx Audio Sync", activeClass: "bg-emerald-500/20 text-emerald-400 border-emerald-500/50 shadow-[0_0_15px_rgba(16,185,129,0.4)]" },
     { id: "rainbow", label: "ARGB HSL Flow", activeClass: "bg-purple-500/20 text-purple-400 border-purple-500/50 shadow-[0_0_15px_rgba(168,85,247,0.4)]" },
     { id: "fire", label: "DMX Stage Fire", activeClass: "bg-amber-500/20 text-amber-400 border-amber-500/50 shadow-[0_0_15px_rgba(245,158,11,0.4)]" },

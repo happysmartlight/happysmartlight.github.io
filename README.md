@@ -30,8 +30,8 @@ Official landing page and interactive showcase for **Happy Smart Light (HSL)** -
 
 ## Information
 - **Company Name:** CÔNG TY TNHH THƯƠNG MẠI VÀ CÔNG NGHỆ HAPPY SMART LIGHT
-- **Main Office:** Số 42 Hà Đức Trọng, P. Phước Hưng, TP. Bà Rịa, BR-VT
-- **Tech / R&D:** Sảnh S6.03, Vinhomes Grand Park, P. Long Bình, TP. Thủ Đức, HCM
+- **Main Office:** Số 42 Hà Đức Trọng, P. Bà Rịa, TP. Hồ Chí Minh
+- **Tech / R&D:** Tech Hub, Sảnh S6.03, Vinhomes Grand Park, P. Long Bình, TP. Hồ Chí Minh
 - **Hotline & Zalo:** (+84) 0784 140 494
 - **Email:** happysmartlight@outlook.com
 - **Tax code (MST):** 3502535621

@@ -22,7 +22,7 @@ export default function AppPrivacyPolicy({ onBack }: AppPrivacyPolicyProps) {
       <div className="absolute bottom-20 right-10 w-96 h-96 bg-neon-blue-bright/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Breadcrumb / Navigation bar */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-8">
           <button
@@ -197,14 +197,14 @@ export default function AppPrivacyPolicy({ onBack }: AppPrivacyPolicyProps) {
                 <p>
                   Nếu bạn có bất cứ câu hỏi hoặc góp ý nào liên quan đến quyền riêng tư hoặc các thủ tục xử lý gói dữ liệu cục bộ trong ứng dụng ARGB HSL, vui lòng liên hệ với ban R&D chúng tôi theo địa chỉ chính thức:
                 </p>
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 font-mono text-xs text-slate-400">
                   <div className="p-4 rounded-xl bg-slate-900/60 border border-white/5 flex items-start">
                     <MapPin className="w-4 h-4 text-neon-pink mr-3 shrink-0 mt-0.5" />
                     <div>
                       <p className="font-semibold text-white mb-1">Happy Smart Light Co., Ltd</p>
-                      <p>Kỹ thuật: Sảnh S6.03, Vinhomes Grand Park, P. Long Bình, TP. Thủ Đức, HCM</p>
-                      <p className="mt-1 text-[10px]">Trụ sở: Số 42 Hà Đức Trọng, P. Phước Hưng, TP. Bà Rịa, BR-VT</p>
+                      <p>Kỹ thuật: Tech Hub, Sảnh S6.03, Vinhomes Grand Park, P. Long Bình, TP. Hồ Chí Minh</p>
+                      <p className="mt-1 text-[10px]">Trụ sở: Số 42 Hà Đức Trọng, P. Bà Rịa, TP. Hồ Chí Minh</p>
                     </div>
                   </div>
 
@@ -336,14 +336,14 @@ export default function AppPrivacyPolicy({ onBack }: AppPrivacyPolicyProps) {
                 <p>
                   If you have inquiries or feedback concerning offline packets execution, local systems or our privacy parameters, please dispatch direct messages to our official support team:
                 </p>
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 font-mono text-xs text-slate-400">
                   <div className="p-4 rounded-xl bg-slate-900/60 border border-white/5 flex items-start">
                     <MapPin className="w-4 h-4 text-neon-pink mr-3 shrink-0 mt-0.5" />
                     <div>
                       <p className="font-semibold text-white mb-1">Happy Smart Light Co., Ltd</p>
-                      <p>R&D: Lobby S6.03, Vinhomes Grand Park, Long Binh, Thu Duc City, HCM, VN</p>
-                      <p className="mt-1 text-[10px]">HQ: No. 42 Ha Duc Trong, Phuoc Hung Ward, Ba Ria City, BR-VT, VN</p>
+                      <p>R&D: Tech Hub, Sảnh S6.03, Vinhomes Grand Park, P. Long Bình, TP. Hồ Chí Minh</p>
+                      <p className="mt-1 text-[10px]">HQ: Số 42 Hà Đức Trọng, P. Bà Rịa, TP. Hồ Chí Minh</p>
                     </div>
                   </div>
 

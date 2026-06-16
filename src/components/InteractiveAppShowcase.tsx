@@ -245,191 +245,137 @@ export default function InteractiveAppShowcase({ onThemeChanged }: InteractiveAp
                           <div className="w-full h-40 sm:h-52 bg-black rounded-lg border border-white/5 relative overflow-hidden flex items-center justify-center" id={`demo-visual-${app.id}`}>
                             {app.id === "stage" && (
                               <div className="absolute inset-0">
-                                {/* Ceiling truss bar */}
-                                <div className="absolute top-0 inset-x-0 h-3 bg-slate-800 border-b border-white/10 z-20" />
-                                {/* Spotlight cones from ceiling */}
-                                {[
-                                  { left: "10%", color: "rgba(255,45,149,0.4)", delay: 0 },
-                                  { left: "30%", color: "rgba(138,43,226,0.35)", delay: 0.3 },
-                                  { left: "50%", color: "rgba(0,229,255,0.35)", delay: 0.6 },
-                                  { left: "70%", color: "rgba(255,45,149,0.35)", delay: 0.9 },
-                                  { left: "90%", color: "rgba(138,43,226,0.4)", delay: 1.2 },
-                                ].map((spot, i) => (
-                                  <motion.div
-                                    key={i}
-                                    style={{ left: spot.left, transformOrigin: "top center" }}
-                                    animate={{ rotate: [-12, 12, -12], opacity: [0.5, 1, 0.5] }}
-                                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: spot.delay }}
-                                    className="absolute top-3 w-0 h-0 z-10"
-                                  >
-                                    <div
-                                      className="w-0 h-0 -translate-x-1/2"
-                                      style={{
-                                        borderLeft: "25px solid transparent",
-                                        borderRight: "25px solid transparent",
-                                        borderTop: `120px solid ${spot.color}`,
-                                        filter: "blur(6px)",
-                                      }}
-                                    />
-                                  </motion.div>
-                                ))}
-                                {/* Horizontal sweeping laser */}
-                                <motion.div
-                                  animate={{ left: ["-10%", "110%"] }}
-                                  transition={{ duration: 2, repeat: Infinity, ease: "linear", repeatDelay: 0.5 }}
-                                  className="absolute top-[30%] w-[30%] h-[1px] z-10"
-                                  style={{ background: "linear-gradient(90deg, transparent, #ff2d95, transparent)", boxShadow: "0 0 8px 2px rgba(255,45,149,0.6)" }}
-                                />
-                                <motion.div
-                                  animate={{ right: ["-10%", "110%"] }}
-                                  transition={{ duration: 2.5, repeat: Infinity, ease: "linear", repeatDelay: 0.8 }}
-                                  className="absolute top-[45%] w-[25%] h-[1px] z-10"
-                                  style={{ background: "linear-gradient(90deg, transparent, #00e5ff, transparent)", boxShadow: "0 0 8px 2px rgba(0,229,255,0.5)" }}
-                                />
-                                {/* Stage floor with reflection */}
-                                <div className="absolute bottom-0 inset-x-0 h-8 bg-gradient-to-t from-slate-900 via-slate-900/90 to-transparent z-10">
-                                  <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-neon-pink/50 to-transparent" />
+                                {/* Lighting truss bar */}
+                                <div className="absolute top-0 inset-x-0 h-2.5 bg-slate-800 border-b border-white/10 z-20" />
+                                {/* Hanging LED beam bars (theme pink/purple) */}
+                                <div className="absolute top-2.5 inset-x-0 bottom-0 flex items-start justify-center gap-2 sm:gap-3 px-5">
+                                  {Array.from({ length: 7 }).map((_, i) => {
+                                    const isPink = i % 2 === 0;
+                                    return (
+                                      <motion.div
+                                        key={i}
+                                        animate={{
+                                          height: [`${30 + (i % 3) * 8}%`, `${72 + (i % 3) * 8}%`, `${30 + (i % 3) * 8}%`],
+                                          opacity: [0.45, 1, 0.45],
+                                        }}
+                                        transition={{ duration: 1.4 + (i % 3) * 0.35, repeat: Infinity, ease: "easeInOut", delay: i * 0.15 }}
+                                        className="w-2.5 sm:w-3.5 rounded-b-full"
+                                        style={{
+                                          background: isPink
+                                            ? "linear-gradient(to bottom, #ff2d95, rgba(255,45,149,0))"
+                                            : "linear-gradient(to bottom, #a855f7, rgba(168,85,247,0))",
+                                          boxShadow: isPink ? "0 0 12px rgba(255,45,149,0.7)" : "0 0 12px rgba(168,85,247,0.7)",
+                                        }}
+                                      />
+                                    );
+                                  })}
                                 </div>
-                                {/* Crowd silhouette */}
-                                <div className="absolute bottom-1 inset-x-0 flex items-end justify-center gap-[2px] z-20 px-2">
-                                  {Array.from({ length: 20 }).map((_, i) => (
-                                    <motion.div
-                                      key={i}
-                                      animate={{ y: [0, i % 3 === 0 ? -3 : -1, 0] }}
-                                      transition={{ duration: 0.8, repeat: Infinity, delay: i * 0.12, ease: "easeInOut" }}
-                                      className="rounded-full bg-slate-950"
-                                      style={{ width: `${4 + Math.random() * 3}%`, height: `${8 + Math.random() * 8}px` }}
-                                    />
-                                  ))}
-                                </div>
-                                {/* Floating particles */}
-                                {Array.from({ length: 12 }).map((_, i) => (
-                                  <motion.div
-                                    key={`p-${i}`}
-                                    animate={{ y: ["100%", "-20%"], opacity: [0, 1, 0], x: [0, (i % 2 === 0 ? 15 : -15)] }}
-                                    transition={{ duration: 3 + Math.random() * 2, repeat: Infinity, delay: i * 0.4, ease: "easeOut" }}
-                                    className="absolute w-1 h-1 rounded-full"
-                                    style={{ left: `${5 + i * 8}%`, background: i % 2 === 0 ? "#ff2d95" : "#00e5ff" }}
-                                  />
-                                ))}
+                                {/* Horizontal laser sweep */}
+                                <motion.div
+                                  animate={{ left: ["-15%", "115%"] }}
+                                  transition={{ duration: 2.4, repeat: Infinity, ease: "linear", repeatDelay: 0.4 }}
+                                  className="absolute top-[55%] w-[22%] h-[1px] z-10"
+                                  style={{ background: "linear-gradient(90deg, transparent, #ff2d95, transparent)", boxShadow: "0 0 8px 2px rgba(255,45,149,0.55)" }}
+                                />
+                                {/* Floor glow */}
+                                <div className="absolute bottom-0 inset-x-0 h-6 bg-gradient-to-t from-neon-pink/15 to-transparent z-10" />
                               </div>
                             )}
 
                             {app.id === "car" && (
-                              <div className="w-48 sm:w-64 h-20 relative flex items-center justify-center">
-                                {/* Car Body */}
-                                <div className="w-36 sm:w-44 h-12 bg-slate-800 rounded-t-2xl relative z-10 border border-white/5 border-b-0" />
-                                {/* Wheels */}
-                                <div className="absolute bottom-0 left-[15%] w-5 h-5 rounded-full bg-slate-700 border border-white/10 z-10" />
-                                <div className="absolute bottom-0 right-[15%] w-5 h-5 rounded-full bg-slate-700 border border-white/10 z-10" />
-                                {/* Underglow Effect */}
+                              <div className="relative w-52 sm:w-64 flex flex-col items-center justify-center">
+                                {/* Chassis silhouette */}
+                                <div className="relative z-10 w-40 sm:w-48 h-11 sm:h-12 bg-slate-800 rounded-t-[26px] rounded-b-md border border-white/5">
+                                  {/* cabin window */}
+                                  <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-20 sm:w-24 h-4 bg-slate-900/80 rounded-t-2xl border border-white/5" />
+                                  {/* wheels */}
+                                  <div className="absolute -bottom-2 left-[16%] w-5 h-5 rounded-full bg-slate-900 border border-white/10 z-20" />
+                                  <div className="absolute -bottom-2 right-[16%] w-5 h-5 rounded-full bg-slate-900 border border-white/10 z-20" />
+                                </div>
+                                {/* Underglow LED strip (row of glowing dots) */}
+                                <div className="relative z-0 mt-3 w-40 sm:w-48 flex justify-between px-1">
+                                  {Array.from({ length: 14 }).map((_, i) => (
+                                    <motion.div
+                                      key={i}
+                                      animate={{ opacity: [0.35, 1, 0.35] }}
+                                      transition={{ duration: 1.1, repeat: Infinity, ease: "easeInOut", delay: i * 0.07 }}
+                                      className="w-1.5 h-1.5 rounded-full bg-amber-400"
+                                      style={{ boxShadow: "0 0 8px 2px rgba(245,158,11,0.85)" }}
+                                    />
+                                  ))}
+                                </div>
+                                {/* Soft underglow pool */}
                                 <motion.div
-                                  animate={{
-                                    boxShadow: [
-                                      "0 12px 30px rgba(245, 158, 11, 0.5)",
-                                      "0 12px 45px rgba(245, 158, 11, 0.9)",
-                                      "0 12px 30px rgba(245, 158, 11, 0.5)",
-                                    ]
-                                  }}
+                                  animate={{ opacity: [0.4, 0.85, 0.4] }}
                                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                                  className="absolute bottom-1 w-36 sm:w-44 h-2 bg-amber-500 rounded-full blur-[8px]"
+                                  className="absolute -bottom-1 w-44 sm:w-52 h-3 bg-amber-500 blur-[10px] rounded-full"
                                 />
-                                {/* Sliding flow effect */}
+                                {/* Light sweep */}
                                 <motion.div
-                                  animate={{ x: ["-100%", "100%"] }}
-                                  transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                                  className="absolute bottom-1 w-1/3 h-2 bg-white blur-sm rounded-full mix-blend-overlay"
+                                  animate={{ x: ["-130%", "130%"] }}
+                                  transition={{ duration: 1.6, repeat: Infinity, ease: "linear" }}
+                                  className="absolute bottom-0 w-1/3 h-2 bg-white/70 blur-sm rounded-full mix-blend-overlay"
                                 />
-                                {/* Road line */}
-                                <div className="absolute bottom-0 inset-x-0 h-[1px] bg-slate-700" />
                               </div>
                             )}
 
                             {app.id === "gaming" && (
-                              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                                {/* Wall ambient LED strips */}
+                              <div className="relative w-44 sm:w-56 flex flex-col items-center justify-center">
+                                {/* Ambient back glow cycling RGB */}
                                 <motion.div
                                   animate={{
-                                    background: [
-                                      "linear-gradient(180deg, rgba(0,240,255,0.15), transparent 60%)",
-                                      "linear-gradient(180deg, rgba(255,0,127,0.15), transparent 60%)",
-                                      "linear-gradient(180deg, rgba(16,185,129,0.15), transparent 60%)",
-                                      "linear-gradient(180deg, rgba(139,92,246,0.15), transparent 60%)",
-                                      "linear-gradient(180deg, rgba(0,240,255,0.15), transparent 60%)",
-                                    ]
+                                    boxShadow: [
+                                      "0 0 45px 16px rgba(0,240,255,0.35)",
+                                      "0 0 45px 16px rgba(255,0,127,0.35)",
+                                      "0 0 45px 16px rgba(16,185,129,0.35)",
+                                      "0 0 45px 16px rgba(139,92,246,0.35)",
+                                      "0 0 45px 16px rgba(0,240,255,0.35)",
+                                    ],
                                   }}
                                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                  className="absolute inset-0"
+                                  className="absolute w-36 sm:w-44 h-20 sm:h-24 rounded-lg -z-10"
                                 />
-                                {/* Corner LED strips */}
-                                <motion.div
-                                  animate={{ background: ["rgba(0,240,255,0.5)", "rgba(255,0,127,0.5)", "rgba(16,185,129,0.5)", "rgba(0,240,255,0.5)"] }}
-                                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                  className="absolute left-0 top-0 bottom-0 w-[2px]"
-                                />
-                                <motion.div
-                                  animate={{ background: ["rgba(255,0,127,0.5)", "rgba(16,185,129,0.5)", "rgba(0,240,255,0.5)", "rgba(255,0,127,0.5)"] }}
-                                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                  className="absolute right-0 top-0 bottom-0 w-[2px]"
-                                />
-                                {/* Monitor */}
-                                <div className="relative z-10 mb-1">
-                                  <div className="w-36 sm:w-52 h-20 sm:h-28 bg-slate-900 border border-slate-700/80 rounded-md relative overflow-hidden shadow-2xl">
-                                    {/* Screen content - game scene simulation */}
-                                    <motion.div
-                                      animate={{
-                                        background: [
-                                          "linear-gradient(135deg, #0f172a 0%, #164e63 30%, #0f172a 60%, #831843 100%)",
-                                          "linear-gradient(135deg, #831843 0%, #0f172a 30%, #164e63 60%, #0f172a 100%)",
-                                          "linear-gradient(135deg, #0f172a 0%, #064e3b 30%, #0f172a 60%, #4c1d95 100%)",
-                                          "linear-gradient(135deg, #0f172a 0%, #164e63 30%, #0f172a 60%, #831843 100%)",
-                                        ]
-                                      }}
-                                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                                      className="absolute inset-0"
-                                    />
-                                    {/* HUD overlay */}
-                                    <div className="absolute top-1 left-1.5 text-[6px] sm:text-[8px] text-green-400/70 font-mono">FPS: 144</div>
-                                    <div className="absolute top-1 right-1.5 text-[6px] sm:text-[8px] text-cyan-400/70 font-mono">LED SYNC ●</div>
-                                    {/* Crosshair */}
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                      <div className="w-3 h-3 sm:w-4 sm:h-4 border border-red-500/60 rounded-full" />
-                                      <div className="absolute w-[1px] h-2 sm:h-3 bg-red-500/40" />
-                                      <div className="absolute w-2 sm:w-3 h-[1px] bg-red-500/40" />
-                                    </div>
-                                  </div>
-                                  {/* Monitor stand */}
-                                  <div className="w-4 h-2 bg-slate-700 mx-auto" />
-                                  <div className="w-12 h-1 bg-slate-700 rounded-sm mx-auto" />
-                                  {/* Monitor backlight glow */}
+                                {/* Monitor / screen */}
+                                <div className="relative z-10 w-36 sm:w-44 h-20 sm:h-24 rounded-md bg-slate-900 border border-slate-700 overflow-hidden">
                                   <motion.div
                                     animate={{
-                                      boxShadow: [
-                                        "0 0 40px 20px rgba(0,240,255,0.3)",
-                                        "0 0 50px 25px rgba(255,0,127,0.3)",
-                                        "0 0 40px 20px rgba(16,185,129,0.3)",
-                                        "0 0 40px 20px rgba(0,240,255,0.3)",
-                                      ]
+                                      background: [
+                                        "linear-gradient(135deg, #0f172a, #164e63, #0f172a, #831843)",
+                                        "linear-gradient(135deg, #831843, #0f172a, #164e63, #0f172a)",
+                                        "linear-gradient(135deg, #0f172a, #064e3b, #0f172a, #4c1d95)",
+                                        "linear-gradient(135deg, #0f172a, #164e63, #0f172a, #831843)",
+                                      ],
                                     }}
-                                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                    className="absolute -inset-2 -z-10 rounded-lg"
+                                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                                    className="absolute inset-0 opacity-90"
                                   />
+                                  <div className="absolute top-1 left-1.5 text-[7px] sm:text-[8px] text-green-400/70 font-mono">144 FPS</div>
+                                  <div className="absolute top-1 right-1.5 text-[7px] sm:text-[8px] text-cyan-300/80 font-mono">LED SYNC ●</div>
                                 </div>
-                                {/* RGB Keyboard below monitor */}
-                                <div className="relative z-10 mt-1 flex gap-[1px] sm:gap-[2px] flex-wrap justify-center w-32 sm:w-44">
-                                  {Array.from({ length: 30 }).map((_, i) => (
+                                {/* Stand */}
+                                <div className="w-5 h-2 bg-slate-700" />
+                                <div className="w-14 h-1 bg-slate-700 rounded-sm" />
+                                {/* RGB LED desk strip (row of glowing dots cycling hue) */}
+                                <div className="mt-2 w-44 sm:w-52 flex justify-between">
+                                  {Array.from({ length: 18 }).map((_, i) => (
                                     <motion.div
                                       key={i}
                                       animate={{
                                         backgroundColor: [
-                                          `hsl(${(i * 12) % 360}, 100%, 60%)`,
-                                          `hsl(${(i * 12 + 120) % 360}, 100%, 60%)`,
-                                          `hsl(${(i * 12 + 240) % 360}, 100%, 60%)`,
-                                          `hsl(${(i * 12) % 360}, 100%, 60%)`,
-                                        ]
+                                          `hsl(${(i * 18) % 360}, 100%, 62%)`,
+                                          `hsl(${(i * 18 + 140) % 360}, 100%, 62%)`,
+                                          `hsl(${(i * 18 + 260) % 360}, 100%, 62%)`,
+                                          `hsl(${(i * 18) % 360}, 100%, 62%)`,
+                                        ],
+                                        boxShadow: [
+                                          `0 0 6px 1px hsla(${(i * 18) % 360},100%,62%,0.8)`,
+                                          `0 0 6px 1px hsla(${(i * 18 + 140) % 360},100%,62%,0.8)`,
+                                          `0 0 6px 1px hsla(${(i * 18 + 260) % 360},100%,62%,0.8)`,
+                                          `0 0 6px 1px hsla(${(i * 18) % 360},100%,62%,0.8)`,
+                                        ],
                                       }}
-                                      transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: i * 0.05 }}
-                                      className="w-[8px] h-[5px] sm:w-[10px] sm:h-[6px] rounded-[1px]"
+                                      transition={{ duration: 2.5, repeat: Infinity, ease: "linear", delay: i * 0.05 }}
+                                      className="w-1.5 h-1.5 rounded-full"
                                     />
                                   ))}
                                 </div>

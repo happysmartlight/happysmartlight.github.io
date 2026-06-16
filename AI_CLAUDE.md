@@ -66,5 +66,5 @@ If updating templates or footers, ALWAYS use these exact details:
 - **Phone / Zalo:** (+84) 0784 140 494
 - **Email:** happysmartlight@outlook.com
 - **MST:** 3502535621
-- **Tech Address:** Sảnh S6.03, Vinhomes Grand Park, P. Long Bình, TP. Thủ Đức, HCM
-- **HQ Address:** Số 42 Hà Đức Trọng, P. Phước Hưng, TP. Bà Rịa, BR-VT
+- **Tech Address:** Tech Hub, Sảnh S6.03, Vinhomes Grand Park, P. Long Bình, TP. Hồ Chí Minh
+- **HQ Address:** Số 42 Hà Đức Trọng, P. Bà Rịa, TP. Hồ Chí Minh

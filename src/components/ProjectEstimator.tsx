@@ -1,4 +1,4 @@
-import { useState, useEffect, FormEvent } from "react";
+import { useState, useEffect, useRef, FormEvent } from "react";
 import { Sliders, CheckCircle2, Zap, HelpCircle, PhoneCall, Send, Sparkles, Loader2 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -7,6 +7,11 @@ interface ProjectEstimatorProps {
 }
 
 type LedType = "strip" | "matrix" | "other";
+
+// Anti-spam config
+const SUBMIT_COOLDOWN_MS = 60_000; // tối thiểu 60s giữa 2 lần gửi
+const MIN_FILL_MS = 3_000; // gửi nhanh hơn 3s sau khi mở form -> nghi là bot
+const LAST_SUBMIT_KEY = "hsl_last_submit_at";
 
 export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorProps) {
   // Calculator states
@@ -30,6 +35,10 @@ export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorP
   const [message, setMessage] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  // Anti-spam states
+  const [honeypot, setHoneypot] = useState(""); // ô ẩn, chỉ bot mới điền
+  const formOpenedAt = useRef<number>(Date.now()); // mốc thời gian mở form
 
   // Sync preFilledProduct with message
   useEffect(() => {
@@ -69,19 +78,75 @@ export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorP
     setMaxWatts(peakWatts < 5 ? 5 : peakWatts);
   }, [ledType, stripLength, ledDensity, matrixCols, matrixRows, poiCount]);
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!name || !phone) {
       alert("Vui lòng điền họ tên và số điện thoại liên hệ!");
       return;
     }
+
+    // --- Chống spam (kiểm tra trước khi gửi) ---
+    // 1. Honeypot: người dùng thật không thấy/không điền ô này; nếu có giá trị -> bot.
+    if (honeypot.trim() !== "") {
+      setSubmitted(true); // giả vờ thành công, không gửi gì cả
+      return;
+    }
+    // 2. Gửi quá nhanh sau khi mở form -> nghi bot.
+    if (Date.now() - formOpenedAt.current < MIN_FILL_MS) {
+      alert("Bạn thao tác hơi nhanh. Vui lòng kiểm tra lại thông tin rồi gửi lại sau giây lát.");
+      return;
+    }
+    // 3. Cooldown: chặn gửi liên tục trong thời gian ngắn.
+    const lastSubmit = Number(localStorage.getItem(LAST_SUBMIT_KEY) || 0);
+    const waitMs = SUBMIT_COOLDOWN_MS - (Date.now() - lastSubmit);
+    if (waitMs > 0) {
+      alert(`Bạn vừa gửi yêu cầu rồi. Vui lòng đợi ${Math.ceil(waitMs / 1000)} giây trước khi gửi tiếp.`);
+      return;
+    }
+
     setSubmitting(true);
 
-    // Simulate server side posting safely over 1.5 seconds
-    setTimeout(() => {
-      setSubmitting(false);
+    const token = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
+    const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
+
+    // Plain text (no parse_mode) so any character in user input is safe.
+    const text =
+      `🔔 YÊU CẦU TƯ VẤN MỚI\n\n` +
+      `👤 Họ tên: ${name}\n` +
+      `📞 SĐT: ${phone}\n` +
+      (email ? `✉️ Email: ${email}\n` : "") +
+      `\n📝 Yêu cầu:\n${message || "(không có lời nhắn)"}\n` +
+      `\n⏰ ${new Date().toLocaleString("vi-VN")}`;
+
+    try {
+      if (!token || !chatId) {
+        throw new Error(
+          "Chưa cấu hình Telegram. Hãy đặt VITE_TELEGRAM_BOT_TOKEN và VITE_TELEGRAM_CHAT_ID trong file .env"
+        );
+      }
+
+      const res = await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ chat_id: chatId, text }),
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        throw new Error(err.description || `Telegram trả về lỗi ${res.status}`);
+      }
+
+      localStorage.setItem(LAST_SUBMIT_KEY, String(Date.now())); // mốc cho cooldown
       setSubmitted(true);
-    }, 1500);
+    } catch (err) {
+      console.error("Gửi yêu cầu thất bại:", err);
+      alert(
+        "Gửi yêu cầu thất bại. Vui lòng gọi hotline 0784 140 494 hoặc thử lại sau.\n\n" +
+          (err instanceof Error ? err.message : "")
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleResetForm = () => {
@@ -321,6 +386,18 @@ export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorP
                         2. Biểu Mẫu Gửi Tư Vấn & Đặt Mua
                       </h3>
                     </div>
+
+                    {/* Honeypot chống bot: ẩn với người dùng thật, chỉ bot tự điền */}
+                    <input
+                      type="text"
+                      name="website"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      value={honeypot}
+                      onChange={(e) => setHoneypot(e.target.value)}
+                      className="absolute left-[-9999px] top-0 h-0 w-0 opacity-0 pointer-events-none"
+                    />
 
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-1.5">

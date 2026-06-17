@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from "react";
-import { Outlet, useNavigate, useLocation } from "react-router-dom";
+import { Outlet, useNavigate, useLocation, useNavigationType } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FloatingActions from "./components/FloatingActions";
+import CustomCursor from "./components/CustomCursor";
 
 export type ThemeGlow = "pink" | "blue" | "emerald" | "amber" | "purple";
 
@@ -15,6 +16,7 @@ export interface AppOutletContext {
 export default function Layout() {
   const navigate = useNavigate();
   const location = useLocation();
+  const navigationType = useNavigationType();
   const isHome = location.pathname === "/";
 
   const [activeSection, setActiveSection] = useState("hero");
@@ -61,6 +63,16 @@ export default function Layout() {
     scrollToSection("estimator");
   };
 
+  // Scroll to top on a new (forward) navigation so detail pages open at the top.
+  // Skip on POP (back/forward) so the browser can restore the previous position,
+  // and skip while an in-page section scroll is in progress.
+  useEffect(() => {
+    if (navigationType === "POP") return;
+    if (isScrollingProgrammatically.current) return;
+    window.scrollTo({ top: 0, behavior: "instant" });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname, location.key]);
+
   // Scrollspy — only relevant on the home page.
   useEffect(() => {
     if (!isHome) return;
@@ -70,7 +82,9 @@ export default function Layout() {
       "ecosystem", "applications", "app-and-tool", "estimator",
     ];
 
-    const handleScrollSpy = () => {
+    let ticking = false;
+    const update = () => {
+      ticking = false;
       if (isScrollingProgrammatically.current) return;
       const scrollPosition = window.scrollY + 200;
       for (const id of sections) {
@@ -86,7 +100,14 @@ export default function Layout() {
       }
     };
 
-    window.addEventListener("scroll", handleScrollSpy);
+    // Throttle the layout-reading work to once per animation frame.
+    const handleScrollSpy = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    };
+
+    window.addEventListener("scroll", handleScrollSpy, { passive: true });
     return () => window.removeEventListener("scroll", handleScrollSpy);
   }, [isHome]);
 
@@ -113,8 +134,11 @@ export default function Layout() {
 
   return (
     <div className="relative min-h-screen bg-[#020204] text-[#f8fafc] scroll-smooth antialiased pb-0 select-none">
-      {/* Global Ambient Light Engine */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-20">
+      {/* Custom Theme-Responsive Cursor */}
+      <CustomCursor themeGlow={themeGlow} />
+
+      {/* Global Ambient Light Engine (hidden on mobile — heavy blur causes scroll jank) */}
+      <div className="hidden md:block fixed inset-0 overflow-hidden pointer-events-none -z-20">
         <div className={`absolute top-1/10 left-1/12 w-[550px] h-[550px] rounded-full blur-[160px] transition-colors duration-1000 ${currentGlows.blob1}`} />
         <div className={`absolute bottom-1/10 right-1/12 w-[550px] h-[550px] rounded-full blur-[160px] transition-colors duration-1000 ${currentGlows.blob2}`} />
       </div>
@@ -129,7 +153,7 @@ export default function Layout() {
         onViewPrivacy={() => navigate("/chinh-sach-bao-mat")}
       />
 
-      <FloatingActions />
+      <FloatingActions themeGlow={themeGlow} />
     </div>
   );
 }

@@ -29,7 +29,7 @@ function renderGallery(key) {
   const items = imgs
     .map(
       (src) =>
-        `<a href="${src}" target="_blank" rel="noopener" class="hsl-gallery-item"><img src="${src}" loading="lazy" alt="" /></a>`
+        `<a href="${src}" target="_blank" rel="noopener" class="hsl-gallery-item"><img src="${src}" alt="" /></a>`
     )
     .join("");
   return `\n<div class="hsl-gallery">${items}</div>\n`;
@@ -77,7 +77,9 @@ for (const [coll, dir] of Object.entries(COLLECTIONS)) {
     const slug = file.replace(/\.md$/, "");
     const raw = readFileSync(join(base, file), "utf8");
     const { data, content } = matter(raw);
-    const html = md.render(preprocessLiquid(content));
+    let html = md.render(preprocessLiquid(content));
+    // Defer offscreen images for faster first paint on mobile.
+    html = html.replace(/<img(?![^>]*\bloading=)/gi, '<img loading="lazy" decoding="async"');
     const banner = Array.isArray(data.bigimg) ? data.bigimg[0] : data.bigimg || "";
     items.push({
       slug,

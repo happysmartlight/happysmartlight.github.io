@@ -138,7 +138,7 @@ export default function Products({ onQuoteRequested, onViewProductDetails }: Pro
   };
 
   return (
-    <section id="products" className="relative py-24 border-t border-white/5 bg-slate-950/20">
+    <section id="products" className="relative py-24 overflow-hidden border-t border-white/5 bg-slate-950/20">
       <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-cyber-dark to-transparent pointer-events-none -z-10" />
       <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-neon-pink-bright/5 rounded-full blur-[100px] pointer-events-none -z-10" />
       <div className="absolute top-1/4 left-0 w-80 h-80 bg-neon-blue-bright/5 rounded-full blur-[100px] pointer-events-none -z-10" />

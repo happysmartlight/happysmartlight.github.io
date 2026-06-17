@@ -158,7 +158,7 @@ export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorP
   };
 
   return (
-    <section id="estimator" className="relative py-24 border-t border-white/5 bg-slate-950/20">
+    <section id="estimator" className="relative py-24 overflow-hidden border-t border-white/5 bg-slate-950/20">
       <div className="absolute top-1/3 left-0 w-80 h-80 bg-neon-pink-bright/5 rounded-full blur-[100px] pointer-events-none -z-10 animate-pulse" />
       <div className="absolute bottom-1/3 right-0 w-80 h-80 bg-neon-blue-bright/5 rounded-full blur-[100px] pointer-events-none -z-10 animate-pulse" />
 

@@ -8,7 +8,7 @@ interface InteractiveAppShowcaseProps {
 }
 
 export default function InteractiveAppShowcase({ onThemeChanged }: InteractiveAppShowcaseProps) {
-  const [activeAppId, setActiveAppId] = useState<string>("stage");
+  const [activeAppId, setActiveAppId] = useState<string>("poi");
 
   const applications: ApplicationItem[] = [
     {
@@ -56,9 +56,23 @@ export default function InteractiveAppShowcase({ onThemeChanged }: InteractiveAp
       gradientClass: "from-emerald-400 to-teal-600",
       metrics: ["Thời lượng pin sạc tới 8 tiếng", "IMU 6 trục định vị tốc độ quay", "Vỏ siêu dẻo chống vỡ nứt"],
     },
+    {
+      id: "dance",
+      title: "LED Dance & Trang Phục Pixel",
+      tagline: "Trang phục phát sáng đồng bộ theo giai điệu nhạc",
+      description: "Dành cho nhóm nhảy, vũ đoàn và performer mặc trang phục gắn các đoạn LED pixel. Ánh sáng trên từng dải LED được sync theo beat, bass và melody của bài nhạc, giúp chuyển động cơ thể và hiệu ứng ánh sáng đối chọi nhau trên sân khấu.",
+      themeColor: "purple",
+      gradientClass: "from-fuchsia-500 via-neon-pink to-cyan-400",
+      metrics: ["Trang phục LED pixel theo nhóm", "Sync beat nhạc / bass / melody", "Kịch bản ánh sáng cho vũ đoàn"],
+    },
   ];
 
-  const activeApp = applications.find((a) => a.id === activeAppId) || applications[0];
+  const applicationOrder = ["poi", "dance", "stage", "gaming", "matrix", "car"];
+  const orderedApplications = applicationOrder
+    .map((id) => applications.find((app) => app.id === id))
+    .filter((app): app is ApplicationItem => Boolean(app));
+
+  const activeApp = orderedApplications.find((a) => a.id === activeAppId) || orderedApplications[0];
 
   const getIcon = (id: string, colorTheme: string) => {
     let style = "w-6 h-6";
@@ -79,6 +93,8 @@ export default function InteractiveAppShowcase({ onThemeChanged }: InteractiveAp
         return <Presentation className={style} />;
       case "poi":
         return <Flame className={style} />;
+      case "dance":
+        return <Sparkles className={style} />;
       default:
         return <Sparkles className={style} />;
     }
@@ -90,7 +106,7 @@ export default function InteractiveAppShowcase({ onThemeChanged }: InteractiveAp
   };
 
   return (
-    <section id="applications" className="relative py-24 border-t border-white/5">
+    <section id="applications" className="relative py-24 overflow-hidden border-t border-white/5">
       {/* Background light bubble simulating selected theme */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-900/5 rounded-full blur-[110px] pointer-events-none -z-10" />
 
@@ -116,7 +132,7 @@ export default function InteractiveAppShowcase({ onThemeChanged }: InteractiveAp
           <span className="font-mono text-[10px] uppercase text-slate-500 tracking-wider block text-center sm:text-left mb-2">
             CHỌN MÔI TRƯỜNG THỰC TẾ (TOUCH/CLICK ĐỂ MỞ RỘNG):
           </span>
-          {applications.map((app) => {
+          {orderedApplications.map((app) => {
             const isActive = app.id === activeAppId;
             let borderActiveColor = "border-white/5";
             let shadowClass = "";
@@ -270,15 +286,61 @@ export default function InteractiveAppShowcase({ onThemeChanged }: InteractiveAp
                                     );
                                   })}
                                 </div>
-                                {/* Horizontal laser sweep */}
-                                <motion.div
-                                  animate={{ left: ["-15%", "115%"] }}
-                                  transition={{ duration: 2.4, repeat: Infinity, ease: "linear", repeatDelay: 0.4 }}
-                                  className="absolute top-[55%] w-[22%] h-[1px] z-10"
-                                  style={{ background: "linear-gradient(90deg, transparent, #ff2d95, transparent)", boxShadow: "0 0 8px 2px rgba(255,45,149,0.55)" }}
-                                />
                                 {/* Floor glow */}
                                 <div className="absolute bottom-0 inset-x-0 h-6 bg-gradient-to-t from-neon-pink/15 to-transparent z-10" />
+                              </div>
+                            )}
+
+                            {app.id === "dance" && (
+                              <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+                                <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-fuchsia-500/15 via-cyan-400/10 to-transparent" />
+                                <div className="absolute inset-x-8 top-5 flex items-end justify-center gap-1.5 opacity-35">
+                                  {Array.from({ length: 18 }).map((_, i) => (
+                                    <motion.div
+                                      key={i}
+                                      animate={{ height: [`${18 + (i % 4) * 8}px`, `${44 + (i % 5) * 9}px`, `${18 + (i % 4) * 8}px`] }}
+                                      transition={{ duration: 0.75 + (i % 3) * 0.12, repeat: Infinity, ease: "easeInOut", delay: i * 0.035 }}
+                                      className="w-1 rounded-full bg-gradient-to-t from-neon-pink to-cyan-300"
+                                    />
+                                  ))}
+                                </div>
+
+                                <div className="relative z-10 flex items-end justify-center gap-6 sm:gap-10">
+                                  {[
+                                    { delay: 0, tilt: -8, color: "#ff2d95" },
+                                    { delay: 0.18, tilt: 7, color: "#00e5ff" },
+                                    { delay: 0.36, tilt: -5, color: "#a855f7" },
+                                  ].map((dancer, idx) => (
+                                    <motion.div
+                                      key={idx}
+                                      animate={{ y: [0, -9, 0], rotate: [0, dancer.tilt, 0] }}
+                                      transition={{ duration: 0.72, repeat: Infinity, ease: "easeInOut", delay: dancer.delay }}
+                                      className="relative h-28 sm:h-32 w-14 sm:w-16 flex items-center justify-center"
+                                    >
+                                      <div className="absolute top-0 left-1/2 h-7 w-7 -translate-x-1/2 rounded-full border border-white/15 bg-slate-900" />
+                                      <div className="absolute top-8 left-1/2 h-14 w-8 -translate-x-1/2 rounded-full border border-white/10 bg-slate-900/90">
+                                        {Array.from({ length: 8 }).map((_, dot) => (
+                                          <motion.span
+                                            key={dot}
+                                            animate={{ opacity: [0.35, 1, 0.35], scale: [0.85, 1.18, 0.85] }}
+                                            transition={{ duration: 0.62, repeat: Infinity, ease: "easeInOut", delay: dancer.delay + dot * 0.045 }}
+                                            className="absolute h-1.5 w-1.5 rounded-full"
+                                            style={{
+                                              left: `${20 + (dot % 2) * 44}%`,
+                                              top: `${12 + dot * 10}%`,
+                                              backgroundColor: dancer.color,
+                                              boxShadow: `0 0 10px ${dancer.color}`,
+                                            }}
+                                          />
+                                        ))}
+                                      </div>
+                                      <div className="absolute top-10 left-1 h-1.5 w-11 origin-right -rotate-12 rounded-full bg-gradient-to-l from-cyan-300 to-transparent shadow-[0_0_10px_rgba(0,229,255,0.7)]" />
+                                      <div className="absolute top-10 right-1 h-1.5 w-11 origin-left rotate-12 rounded-full bg-gradient-to-r from-neon-pink to-transparent shadow-[0_0_10px_rgba(255,45,149,0.7)]" />
+                                      <div className="absolute bottom-0 left-4 h-12 w-1.5 rotate-12 rounded-full bg-gradient-to-b from-slate-700 to-cyan-300 shadow-[0_0_8px_rgba(0,229,255,0.55)]" />
+                                      <div className="absolute bottom-0 right-4 h-12 w-1.5 -rotate-12 rounded-full bg-gradient-to-b from-slate-700 to-neon-pink shadow-[0_0_8px_rgba(255,45,149,0.55)]" />
+                                    </motion.div>
+                                  ))}
+                                </div>
                               </div>
                             )}
 

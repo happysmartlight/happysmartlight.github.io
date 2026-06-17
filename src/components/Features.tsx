@@ -68,7 +68,7 @@ export default function Features() {
   };
 
   return (
-    <section id="features" className="relative py-24 bg-[#080710]/50 border-t border-white/5">
+    <section id="features" className="relative py-24 overflow-hidden bg-[#080710]/50 border-t border-white/5">
       {/* Background neon glows */}
       <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-neon-blue-bright/5 rounded-full blur-[100px] pointer-events-none -z-10" />
       <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-neon-pink-bright/5 rounded-full blur-[100px] pointer-events-none -z-10" />

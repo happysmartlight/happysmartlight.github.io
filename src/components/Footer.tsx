@@ -1,6 +1,6 @@
-import { Mail, Phone, MapPin, ArrowUp, Zap } from "lucide-react";
+import { Mail, Phone, MapPin, ArrowUp } from "lucide-react";
 import { Link } from "react-router-dom";
-import { COLLECTION_META, COLLECTION_KEYS } from "../content/collections";
+import { COLLECTION_META, COLLECTION_KEYS } from "../content/collections-meta";
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;

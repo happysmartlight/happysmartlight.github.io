@@ -5,22 +5,10 @@ import AppDetailsRoute from "./pages/AppDetailsRoute";
 import ToolDetailsRoute from "./pages/ToolDetailsRoute";
 import PrivacyRoute from "./pages/PrivacyRoute";
 import ProductDetailsRoute from "./pages/ProductDetailsRoute";
-import CollectionListRoute from "./pages/CollectionListRoute";
-import CollectionItemRoute from "./pages/CollectionItemRoute";
-import { COLLECTIONS, COLLECTION_KEYS } from "./content/collections";
+import { COLLECTION_KEYS } from "./content/collections-meta";
 
 // Product slugs that have a (React-native) detail page.
 export const PRODUCT_IDS = ["v4pro", "matrix", "car", "poi"];
-
-// Build the Jekyll-ported collection routes (list + items), preserving old URLs.
-const collectionRoutes: RouteRecord[] = COLLECTION_KEYS.flatMap((key) => [
-  { path: key, element: <CollectionListRoute collection={key} /> },
-  {
-    path: `${key}/:slug`,
-    element: <CollectionItemRoute collection={key} />,
-    getStaticPaths: () => COLLECTIONS[key].map((i) => `/${key}/${i.slug}`),
-  },
-]);
 
 export const routes: RouteRecord[] = [
   {
@@ -36,7 +24,23 @@ export const routes: RouteRecord[] = [
         element: <ProductDetailsRoute />,
         getStaticPaths: () => PRODUCT_IDS.map((id) => `/san-pham/${id}`),
       },
-      ...collectionRoutes,
+      // Jekyll-ported collections — lazy-loaded so the article JSON is a separate
+      // chunk fetched only on these pages (keeps the main bundle small).
+      {
+        path: ":collection",
+        lazy: () => import("./pages/CollectionListRoute"),
+        getStaticPaths: () => COLLECTION_KEYS.map((k) => `/${k}`),
+      },
+      {
+        path: ":collection/:slug",
+        lazy: () => import("./pages/CollectionItemRoute"),
+        getStaticPaths: async () => {
+          const { COLLECTIONS } = await import("./content/collections");
+          return Object.values(COLLECTIONS)
+            .flat()
+            .map((i) => i.url);
+        },
+      },
     ],
   },
 ];

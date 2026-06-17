@@ -9,8 +9,8 @@ export default function CollectionList({ collection }: { collection: CollectionK
 
   return (
     <main className="relative min-h-screen pt-24 pb-20">
-      <div className="absolute top-20 left-10 w-96 h-96 bg-neon-pink-bright/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-neon-blue-bright/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="hidden md:block absolute top-20 left-10 w-96 h-96 bg-neon-pink-bright/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="hidden md:block absolute bottom-20 right-10 w-96 h-96 bg-neon-blue-bright/5 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <Seo title={meta.title} description={meta.description} path={`${meta.path}/`} />

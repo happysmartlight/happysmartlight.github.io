@@ -1,14 +1,17 @@
 import { useParams, Navigate } from "react-router-dom";
 import CollectionItem from "../components/CollectionItem";
-import { getItem, COLLECTION_META, type CollectionKey } from "../content/collections";
+import { getItem, COLLECTION_META } from "../content/collections";
+import type { CollectionKey } from "../content/collections-meta";
 
-export default function CollectionItemRoute({ collection }: { collection: CollectionKey }) {
-  const { slug } = useParams<{ slug: string }>();
-  const item = slug ? getItem(collection, slug) : undefined;
+// Exported as `Component` for lazy loading (keeps collection JSON out of main bundle).
+export function Component() {
+  const { collection, slug } = useParams<{ collection: string; slug: string }>();
+  const isKnown = collection && collection in COLLECTION_META;
+  const item = isKnown && slug ? getItem(collection as CollectionKey, slug) : undefined;
 
   if (!item) {
-    return <Navigate to={`${COLLECTION_META[collection].path}/`} replace />;
+    const fallback = isKnown ? COLLECTION_META[collection as CollectionKey].path + "/" : "/";
+    return <Navigate to={fallback} replace />;
   }
-
   return <CollectionItem item={item} />;
 }

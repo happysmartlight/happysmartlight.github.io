@@ -3,6 +3,258 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      #app-preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        box-sizing: border-box;
+        display: grid;
+        place-items: center;
+        min-height: 100svh;
+        width: 100%;
+        overflow: hidden;
+        padding: 24px;
+        color: #f8fafc;
+        background:
+          linear-gradient(135deg, rgba(255, 45, 149, 0.1), transparent 34%),
+          linear-gradient(225deg, rgba(0, 229, 255, 0.1), transparent 32%),
+          #020204;
+        font-family: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+        transition: opacity 420ms ease, visibility 420ms ease;
+      }
+
+      #app-preloader *,
+      #app-preloader *::before,
+      #app-preloader *::after {
+        box-sizing: border-box;
+      }
+
+      #app-preloader::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+        background-size: 42px 42px;
+        mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.95), transparent 82%);
+        pointer-events: none;
+      }
+
+      #app-preloader::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, transparent, rgba(0, 229, 255, 0.08), transparent);
+        transform: translateY(-100%);
+        animation: hsl-preloader-scan 2.4s ease-in-out infinite;
+        pointer-events: none;
+      }
+
+      .hsl-preloader--hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .hsl-loader-shell {
+        position: relative;
+        width: min(100%, 430px);
+        padding: 28px 24px 24px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 24px;
+        background: rgba(4, 6, 18, 0.78);
+        box-shadow:
+          0 0 34px rgba(255, 45, 149, 0.18),
+          0 0 44px rgba(0, 229, 255, 0.16),
+          inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(16px);
+        text-align: center;
+      }
+
+      .hsl-loader-brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 22px;
+      }
+
+      .hsl-loader-mark {
+        display: grid;
+        place-items: center;
+        width: 54px;
+        height: 54px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 14px;
+        background: linear-gradient(135deg, rgba(255, 45, 149, 0.18), rgba(0, 229, 255, 0.14));
+        box-shadow: 0 0 24px rgba(0, 229, 255, 0.16);
+      }
+
+      .hsl-loader-mark svg {
+        width: 32px;
+        height: 32px;
+        color: #fff;
+        filter: drop-shadow(0 0 8px rgba(255, 45, 149, 0.55));
+      }
+
+      .hsl-loader-title {
+        margin: 0;
+        font-size: 23px;
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: 0;
+        text-align: left;
+      }
+
+      .hsl-loader-title span {
+        display: block;
+        margin-top: 6px;
+        color: #00e5ff;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.28em;
+      }
+
+      .hsl-loader-grid {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 8px;
+        width: min(100%, 240px);
+        margin: 0 auto 22px;
+        padding: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 18px;
+        background: rgba(0, 0, 0, 0.42);
+      }
+
+      .hsl-loader-grid span {
+        aspect-ratio: 1;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.07);
+        animation: hsl-led-pulse 1.35s ease-in-out infinite;
+      }
+
+      .hsl-loader-grid span:nth-child(3n) {
+        animation-delay: 120ms;
+      }
+
+      .hsl-loader-grid span:nth-child(4n) {
+        animation-delay: 260ms;
+      }
+
+      .hsl-loader-grid span:nth-child(5n) {
+        animation-delay: 390ms;
+      }
+
+      .hsl-loader-kicker {
+        margin: 0 0 8px;
+        color: #ff2d95;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .hsl-loader-copy {
+        margin: 0 auto 20px;
+        max-width: 310px;
+        color: rgba(203, 213, 225, 0.86);
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .hsl-loader-rail {
+        position: relative;
+        height: 4px;
+        overflow: hidden;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .hsl-loader-rail span {
+        position: absolute;
+        inset-block: 0;
+        left: -35%;
+        width: 42%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, transparent, #ff2d95, #00e5ff, transparent);
+        box-shadow: 0 0 16px rgba(0, 229, 255, 0.5);
+        animation: hsl-loader-progress 1.25s ease-in-out infinite;
+      }
+
+      @keyframes hsl-loader-progress {
+        to {
+          transform: translateX(330%);
+        }
+      }
+
+      @keyframes hsl-led-pulse {
+        0%, 100% {
+          background: rgba(255, 255, 255, 0.07);
+          box-shadow: none;
+          transform: scale(1);
+        }
+        45% {
+          background: rgba(0, 229, 255, 0.95);
+          box-shadow: 0 0 14px rgba(0, 229, 255, 0.76);
+          transform: scale(1.08);
+        }
+        70% {
+          background: rgba(255, 45, 149, 0.88);
+          box-shadow: 0 0 14px rgba(255, 45, 149, 0.65);
+        }
+      }
+
+      @keyframes hsl-preloader-scan {
+        0% {
+          transform: translateY(-100%);
+          opacity: 0;
+        }
+        30%, 70% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100%);
+          opacity: 0;
+        }
+      }
+
+      @media (max-width: 420px) {
+        #app-preloader {
+          padding: 16px;
+        }
+
+        .hsl-loader-shell {
+          padding: 24px 18px 20px;
+          border-radius: 20px;
+        }
+
+        .hsl-loader-brand {
+          justify-content: flex-start;
+        }
+
+        .hsl-loader-title {
+          font-size: 21px;
+        }
+
+        .hsl-loader-grid {
+          gap: 7px;
+          padding: 14px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        #app-preloader::after,
+        .hsl-loader-grid span,
+        .hsl-loader-rail span {
+          animation: none;
+        }
+      }
+    </style>
 
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -82,7 +334,76 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
 
+    <div id="app-preloader" role="status" aria-live="polite" aria-label="&#272;ang t&#7843;i Happy Smart Light">
+      <div class="hsl-loader-shell">
+        <div class="hsl-loader-brand">
+          <div class="hsl-loader-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+              <circle cx="12" cy="12" r="4" stroke="#ff2d95" />
+            </svg>
+          </div>
+          <h1 class="hsl-loader-title">
+            HAPPY
+            <span>SMART LIGHT</span>
+          </h1>
+        </div>
+
+        <div class="hsl-loader-grid" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <p class="hsl-loader-kicker">SYSTEM BOOT</p>
+        <p class="hsl-loader-copy">&#272;ang kh&#7903;i &#273;&#7897;ng giao di&#7879;n &#273;i&#7873;u khi&#7875;n LED v&#224; &#273;&#7891;ng b&#7897; n&#7897;i dung Happy Smart Light.</p>
+        <div class="hsl-loader-rail" aria-hidden="true"><span></span></div>
+      </div>
+    </div>
     <div id="root"></div>
+    <script>
+      (function () {
+        var preloader = document.getElementById("app-preloader");
+        var root = document.getElementById("root");
+        if (!preloader || !root) return;
+
+        var hidden = false;
+        function hidePreloader() {
+          if (hidden) return;
+          hidden = true;
+          preloader.classList.add("hsl-preloader--hidden");
+          window.setTimeout(function () {
+            if (preloader && preloader.parentNode) {
+              preloader.parentNode.removeChild(preloader);
+            }
+          }, 520);
+        }
+
+        function rootHasContent() {
+          return root.children.length > 0 || root.textContent.trim().length > 0;
+        }
+
+        if (rootHasContent()) {
+          window.setTimeout(hidePreloader, 350);
+          return;
+        }
+
+        var observer = new MutationObserver(function () {
+          if (rootHasContent()) {
+            observer.disconnect();
+            window.setTimeout(hidePreloader, 420);
+          }
+        });
+        observer.observe(root, { childList: true, subtree: true });
+
+        window.addEventListener("load", function () {
+          window.setTimeout(function () {
+            if (!hidden && rootHasContent()) hidePreloader();
+          }, 900);
+        }, { once: true });
+      })();
+    </script>
     <div class="zalo-chat-widget" data-oaid="1321084611356589870" data-welcome-message="Rất vui khi được hỗ trợ bạn!" data-autopopup="0" data-width="300" data-height="330"></div>
     <script src="https://sp.zalo.me/plugins/sdk.js"></script>
     <script type="module" src="/src/main.tsx"></script>

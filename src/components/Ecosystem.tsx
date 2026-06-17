@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Laptop, Cpu, Layers, Radio, Network, SlidersHorizontal, Info } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { useInView } from "../hooks/perf";
 
 interface SoftwareNode {
   id: string;
@@ -76,16 +77,19 @@ export default function Ecosystem() {
     setSelectedNodeId(nodeId);
   };
 
-  // Particle pulse trigger simulation
+  const { ref: sectionRef, inView } = useInView<HTMLElement>();
+
+  // Particle pulse trigger simulation — paused while the section is off-screen.
   useEffect(() => {
+    if (!inView) return;
     const interval = setInterval(() => {
       setPulseCount((p) => p + 1);
     }, selectedNode ? (selectedNode.flowDirection === "fast" ? 1200 : selectedNode.flowDirection === "burst" ? 950 : 1600) : 1500);
     return () => clearInterval(interval);
-  }, [selectedNode?.flowDirection, selectedNode?.id]);
+  }, [selectedNode?.flowDirection, selectedNode?.id, inView]);
 
   return (
-    <section id="ecosystem" className="relative py-24 overflow-hidden">
+    <section ref={sectionRef} id="ecosystem" className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 bg-radial-at-t from-slate-900/40 via-cyber-dark to-cyber-dark -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

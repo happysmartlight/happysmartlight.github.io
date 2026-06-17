@@ -16,12 +16,27 @@
 }
 
 @layer base {
+  html,
+  body,
+  #root {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
   body {
     background-color: var(--color-cyber-dark);
     color: #f8fafc; /* slate-50 */
     font-family: var(--font-sans);
-    overflow-x: hidden;
     scroll-behavior: smooth;
+  }
+
+  @supports not (overflow: clip) {
+    html,
+    body,
+    #root {
+      overflow-x: hidden;
+    }
   }
 }
 
@@ -216,3 +231,12 @@
 }
 .hsl-prose .hsl-gallery-item { margin: 0; }
 .hsl-prose .hsl-gallery-item img { margin: 0; aspect-ratio: 1/1; object-fit: cover; width: 100%; }
+
+/* Custom Cursor Styles */
+@media (hover: hover) and (pointer: fine) {
+  html.custom-cursor-enabled,
+  html.custom-cursor-enabled body,
+  html.custom-cursor-enabled * {
+    cursor: none !important;
+  }
+}

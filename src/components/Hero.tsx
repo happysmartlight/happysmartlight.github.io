@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Zap, Play, Sliders, Settings, Wifi, Eye } from "lucide-react";
 import { motion } from "motion/react";
+import { useInView, usePrefersReducedMotion } from "../hooks/perf";
 
 interface HeroProps {
   onNavigate: (sectionId: string) => void;
@@ -42,6 +43,8 @@ export default function Hero({ onNavigate }: HeroProps) {
   const [fps, setFps] = useState<number>(60);
   const animateRef = useRef<number | null>(null);
   const textOffsetRef = useRef<number>(0);
+  const { ref: sectionRef, inView } = useInView<HTMLElement>();
+  const reducedMotion = usePrefersReducedMotion();
 
   // Stats generation helper based on state
   const getProtocolStats = () => {
@@ -59,28 +62,35 @@ export default function Hero({ onNavigate }: HeroProps) {
 
   const { protocol, streamType, ip, fps: currentFps } = getProtocolStats();
 
-  // Animation frame loop to generate visual pulses or waves on the visualizer matrix
+  // Animation frame loop driving the visualizer matrix. Paused when the Hero is
+  // off-screen or the user prefers reduced motion, and the React state update is
+  // throttled to ~15fps so we don't re-render the 8x8 grid on every frame.
   useEffect(() => {
+    if (!inView || reducedMotion) return;
+    const RENDER_INTERVAL = 66; // ms between visual state updates (~15fps)
     let lastTime = performance.now();
+    let lastRender = lastTime;
     let scrollAccum = 0;
+
     const tick = (now: number) => {
-      // simulate speed effect
-      const increment = ledSpeed / 100 * 2 + 0.2;
-      setFrameCount((prev) => (prev + increment) % 360);
-
-      // Advance scrolling text offset
       const delta = now - lastTime;
-      scrollAccum += delta * (ledSpeed / 100) * 0.0095;
-      if (scrollAccum >= 1) {
-        textOffsetRef.current = (textOffsetRef.current + Math.floor(scrollAccum)) % SCROLL_WIDTH;
-        scrollAccum = scrollAccum % 1;
-      }
-
-      // Calculate realistic FPS variance
       lastTime = now;
-      const calculatedFps = Math.min(60, Math.round(1000 / delta));
-      if (Math.random() < 0.05) {
-        setFps(calculatedFps === 0 ? 60 : calculatedFps);
+      scrollAccum += delta * (ledSpeed / 100) * 0.0095;
+
+      if (now - lastRender >= RENDER_INTERVAL) {
+        const frames = (now - lastRender) / 16.7;
+        const increment = (ledSpeed / 100 * 2 + 0.2) * frames;
+        setFrameCount((prev) => (prev + increment) % 360);
+
+        if (scrollAccum >= 1) {
+          textOffsetRef.current = (textOffsetRef.current + Math.floor(scrollAccum)) % SCROLL_WIDTH;
+          scrollAccum = scrollAccum % 1;
+        }
+        if (Math.random() < 0.2) {
+          const calculatedFps = Math.min(60, Math.round(1000 / delta));
+          setFps(calculatedFps === 0 ? 60 : calculatedFps);
+        }
+        lastRender = now;
       }
 
       animateRef.current = requestAnimationFrame(tick);
@@ -90,7 +100,7 @@ export default function Hero({ onNavigate }: HeroProps) {
     return () => {
       if (animateRef.current) cancelAnimationFrame(animateRef.current);
     };
-  }, [ledSpeed]);
+  }, [ledSpeed, inView, reducedMotion]);
 
   // Generate color values for an 8x8 matrix grid based on mode, scale, frameCount, and brightness
   const renderCellColor = (row: number, col: number) => {
@@ -179,6 +189,7 @@ export default function Hero({ onNavigate }: HeroProps) {
 
   return (
     <section
+      ref={sectionRef}
       id="hero"
       className="relative min-h-screen pt-28 pb-16 flex items-center overflow-hidden"
     >

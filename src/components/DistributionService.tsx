@@ -13,6 +13,8 @@ interface ChipItem {
   highlight: string;
   availability: "Sẵn hàng tại HCM" | "Hàng Oder (5-7 ngày)" | "Sắp có hàng";
   colorTheme: "pink" | "blue";
+  bestSeller?: boolean;
+  referenceUrl?: string;
 }
 
 export default function DistributionService() {
@@ -20,6 +22,26 @@ export default function DistributionService() {
   const [activeChipId, setActiveChipId] = useState<string | null>(null);
 
   const distributedChips: ChipItem[] = [
+    {
+      id: "lt-ft2-chip",
+      brand: "Lighttoys",
+      name: "Chip Điều Khiển FT2 (Future Technology)",
+      codeName: "LT-FT2-RX",
+      bestSeller: true,
+      referenceUrl: "https://www.lighttoys.cz/product/ft2-control-chip/",
+      originalProp: "Trang bị gốc trên Buugeng, Juggling Club & Aerial Hoop FT2 của Lighttoys",
+      description: "Dòng chip điều khiển bán chạy nhất của Lighttoys: bộ thu (receiver) điều khiển dải LED pixel digital 5V (APA102/WS2812, khuyến nghị APA102) cho đạo cụ biểu diễn. Tích hợp DC-DC ổn áp ngõ ra, sạc nhanh USB-C và đồng bộ vô tuyến tầm xa cho cả đội múa.",
+      specs: [
+        { label: "Ngõ ra LED", value: "2 cổng digital độc lập (mỗi bên 1 cổng) — APA102 / WS2812" },
+        { label: "Tầm sóng đồng bộ", value: "Điều khiển vô tuyến tới 200m qua FT Remote" },
+        { label: "Nguồn", value: "Pin Li-ion 3.7V đơn (hoặc ghép song song), sạc nhanh USB-C" },
+        { label: "Ổn áp ngõ ra", value: "DC-DC converter giữ điện áp ổn định, màu không lệch" },
+        { label: "Lập trình", value: "Cấu hình & nạp hiệu ứng bằng phần mềm LtComposer" }
+      ],
+      highlight: "Tương thích hoàn toàn với FT Remote, các đạo cụ Lighttoys khác và phần mềm LtComposer — chuẩn đồng bộ cho cả đội biểu diễn chuyên nghiệp",
+      availability: "Hàng Oder (5-7 ngày)",
+      colorTheme: "pink"
+    },
     {
       id: "lt-core-v2",
       brand: "Lighttoys",
@@ -53,28 +75,11 @@ export default function DistributionService() {
       highlight: "Nạp và quản lý ảnh mượt mà từ PC thông qua USB hoặc tải không dây Wifi nội bộ",
       availability: "Hàng Oder (5-7 ngày)",
       colorTheme: "blue"
-    },
-    {
-      id: "lt-driver-rgbw",
-      brand: "Lighttoys",
-      name: "Module Lái Nguồn Dòng RGBW Cao Cấp",
-      codeName: "LT-RGBW-AMPLI",
-      originalProp: "Trang bị trên Đèn led nhẫn, Quạt Led và Trang phục Staging",
-      description: "Bộ đệm dòng cao tần cách ly quang học, ngăn chặn 100% hiện tượng sụt áp gây lệch màu hồng/đỏ ở đuôi dải LED dài hoặc cháy bóng LED đầu nguồn do sốc dòng xung ngược.",
-      specs: [
-        { label: "Dòng tải tối đa", value: "30A phân bổ 4 kênh điều tốc (7.5A kịch khung mỗi kênh)" },
-        { label: "Điện áp hoạt động", value: "Từ 3.7V lipo đơn lên tới dải 36V DC" },
-        { label: "Hiệu suất chuyển đổi", value: "> 97% tản nhiệt lá nhôm mỏng thụ động" },
-        { label: "Khả năng ghép lớp", value: "Hỗ trợ lắp xếp tầng song song tăng tải dòng" }
-      ],
-      highlight: "Lựa chọn số 1 cho các đội múa biểu diễn trang phục LED chuyên nghiệp có mật độ bóng cực cao",
-      availability: "Sẵn hàng tại HCM",
-      colorTheme: "pink"
     }
   ];
 
   return (
-    <section id="distribution" className="relative py-24 border-t border-white/5 bg-slate-950/20">
+    <section id="distribution" className="relative py-24 overflow-hidden border-t border-white/5 bg-slate-950/20">
       
       {/* Dynamic graphic accents */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-500/5 rounded-full blur-[180px] pointer-events-none -z-10" />
@@ -178,6 +183,11 @@ export default function DistributionService() {
                     </div>
 
                     <div className="space-y-1">
+                      {chip.bestSeller && (
+                        <span className="inline-flex items-center gap-1 text-[9px] font-mono font-bold px-2 py-0.5 rounded-full bg-yellow-500/15 text-yellow-300 border border-yellow-500/30 mb-1">
+                          <Star className="w-3 h-3 fill-current" /> BÁN CHẠY #1
+                        </span>
+                      )}
                       <h4 className="font-display font-bold text-base text-zinc-100 group-hover:text-white transition-colors">
                         {chip.name}
                       </h4>
@@ -229,6 +239,17 @@ export default function DistributionService() {
                             <Star className="w-3.5 h-3.5 inline mr-1 text-yellow-500 shrink-0" />
                             {chip.highlight}
                           </div>
+
+                          {chip.referenceUrl && (
+                            <a
+                              href={chip.referenceUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-[9px] font-mono text-slate-500 hover:text-neon-blue-bright transition-colors"
+                            >
+                              <ExternalLink className="w-3 h-3" /> Thông số gốc: lighttoys.cz
+                            </a>
+                          )}
 
                           <div className="pt-2 flex justify-stretch w-full">
                             <a 

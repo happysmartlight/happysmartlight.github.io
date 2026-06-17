@@ -11,7 +11,7 @@ export default function ToolDetailsRoute() {
       <Seo
         title="Công Cụ Máy Tính ARGB HSL Control Tool 3.7.1 — Tải Về | Happy Smart Light"
         description="Phần mềm máy tính ARGB HSL Control Tool: nạp firmware qua COM, thiết kế layout Pixel Mapper 2D/3D, stream xLights qua Ethernet/Wi-Fi. Tải bản 3.7.1 cho Windows 10/11."
-        path="/cong-cu-may-tinh"
+        path="/cong-cu-may-tinh/"
       />
       <SoftwareDetailsPage type="tool" onBack={onBack} />
     </>

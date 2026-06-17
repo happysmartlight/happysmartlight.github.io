@@ -22,12 +22,12 @@ function walk(dir) {
 }
 
 function toUrl(file) {
-  // dist/index.html -> /, dist/cong-cu-may-tinh.html -> /cong-cu-may-tinh
+  // nested dirStyle: dist/foo/index.html -> /foo/ ; dist/index.html -> /
   let rel = relative(DIST, file).split(sep).join("/");
-  rel = rel.replace(/index\.html$/, "").replace(/\.html$/, "");
+  rel = rel.replace(/index\.html$/, "").replace(/\.html$/, "/");
   if (!rel.startsWith("/")) rel = "/" + rel;
-  if (rel.length > 1) rel = rel.replace(/\/$/, "");
-  return rel === "" ? "/" : rel;
+  if (rel !== "/" && !rel.endsWith("/")) rel += "/";
+  return rel;
 }
 
 const urls = [...new Set(walk(DIST).map(toUrl))].sort((a, b) =>

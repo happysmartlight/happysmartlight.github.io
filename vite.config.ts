@@ -6,6 +6,11 @@ import {defineConfig} from 'vite';
 export default defineConfig(() => {
   return {
     plugins: [react(), tailwindcss()],
+    // vite-react-ssg: emit <route>/index.html so trailing-slash URLs (Jekyll-style)
+    // resolve on GitHub Pages and old indexed URLs keep working.
+    ssgOptions: {
+      dirStyle: 'nested' as const,
+    },
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '.'),

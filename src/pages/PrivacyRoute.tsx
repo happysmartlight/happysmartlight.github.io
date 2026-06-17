@@ -11,7 +11,7 @@ export default function PrivacyRoute() {
       <Seo
         title="Chính Sách Bảo Mật Ứng Dụng ARGB HSL | Happy Smart Light"
         description="Chính sách bảo mật ứng dụng ARGB HSL: offline-first, không thu thập dữ liệu cá nhân, tuân thủ Google Play & COPPA."
-        path="/chinh-sach-bao-mat"
+        path="/chinh-sach-bao-mat/"
       />
       <AppPrivacyPolicy onBack={onBack} />
     </>

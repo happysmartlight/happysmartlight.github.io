@@ -34,7 +34,7 @@ export default function ProductDetailsRoute() {
 
   return (
     <>
-    <Seo title={meta.title} description={meta.description} path={`/san-pham/${pid}`} />
+    <Seo title={meta.title} description={meta.description} path={`/san-pham/${pid}/`} />
     <ProductDetailsPage
       productId={pid}
       onBack={onBack}

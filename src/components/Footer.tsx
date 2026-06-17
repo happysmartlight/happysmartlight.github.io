@@ -1,4 +1,6 @@
 import { Mail, Phone, MapPin, ArrowUp, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
+import { COLLECTION_META, COLLECTION_KEYS } from "../content/collections";
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
@@ -19,7 +21,7 @@ export default function Footer({ onNavigate, onViewPrivacy }: FooterProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" id="footer-container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-12 border-b border-white/5" id="footer-row-top">
           {/* Brand Intro Column */}
-          <div className="lg:col-span-5 space-y-4" id="footer-brand-intro">
+          <div className="lg:col-span-4 space-y-4" id="footer-brand-intro">
             <div className="flex items-center space-x-2 cursor-pointer group" onClick={handleScrollToTop}>
               <div className="relative w-9 h-9 flex items-center justify-center rounded-lg bg-slate-900 border border-white/10 overflow-hidden shadow-glow-blue/25">
                 <svg
@@ -51,9 +53,9 @@ export default function Footer({ onNavigate, onViewPrivacy }: FooterProps) {
           </div>
 
           {/* Quick Links Sitemap */}
-          <div className="lg:col-span-3 space-y-4" id="footer-sitemap">
+          <div className="lg:col-span-2 space-y-4" id="footer-sitemap">
             <h4 className="font-display font-bold text-sm text-white tracking-wider uppercase">Sơ Đồ Trang</h4>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="flex flex-col gap-2">
               {[
                 { id: "hero", label: "Trang chủ" },
                 { id: "about", label: "Giới thiệu" },
@@ -73,8 +75,24 @@ export default function Footer({ onNavigate, onViewPrivacy }: FooterProps) {
             </div>
           </div>
 
+          {/* Catalog / Collections (internal links for SEO) */}
+          <div className="lg:col-span-3 space-y-4" id="footer-catalog">
+            <h4 className="font-display font-bold text-sm text-white tracking-wider uppercase">Danh Mục</h4>
+            <div className="flex flex-col gap-2">
+              {COLLECTION_KEYS.map((key) => (
+                <Link
+                  key={key}
+                  to={`${COLLECTION_META[key].path}/`}
+                  className="text-slate-400 hover:text-[#00f0ff] text-xs font-sans transition-colors"
+                >
+                  {COLLECTION_META[key].heading}
+                </Link>
+              ))}
+            </div>
+          </div>
+
           {/* Contacts / Address details */}
-          <div className="lg:col-span-4 space-y-4" id="footer-contact-details">
+          <div className="lg:col-span-3 space-y-4" id="footer-contact-details">
             <h4 className="font-display font-bold text-sm text-white tracking-wider uppercase">Liên Hệ Pháp Nhân</h4>
             <div className="space-y-3 font-sans text-xs text-slate-400">
               <div className="flex items-start">

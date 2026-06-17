@@ -12,7 +12,7 @@ export default function AppDetailsRoute() {
       <Seo
         title="Ứng Dụng Di Động ARGB HSL — Điều Khiển LED Từ Điện Thoại | Happy Smart Light"
         description="ARGB HSL — ứng dụng Android điều khiển dải LED ARGB: 300+ hiệu ứng, đồng bộ âm thanh, kết nối WiFi tức thì, bảo mật offline-first. Tải miễn phí trên Google Play."
-        path="/ung-dung-di-dong"
+        path="/ung-dung-di-dong/"
       />
       <SoftwareDetailsPage type="app" onBack={onBack} />
     </>

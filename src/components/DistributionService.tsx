@@ -79,7 +79,7 @@ export default function DistributionService() {
   ];
 
   return (
-    <section id="distribution" className="relative py-24 overflow-hidden border-t border-white/5 bg-slate-950/20">
+    <section id="distribution" className="relative py-[65px] overflow-hidden border-t border-white/5 bg-slate-950/20">
       
       {/* Dynamic graphic accents */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-500/5 rounded-full blur-[180px] pointer-events-none -z-10" />

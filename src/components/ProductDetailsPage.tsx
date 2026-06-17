@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowLeft, Cpu, Columns, Layers, Radio, Sliders, Play, Check, Sparkles, Battery, Monitor, Code, Settings, AlertTriangle, Hammer } from "lucide-react";
+import { ArrowLeft, Cpu, Columns, Layers, Radio, Sliders, Play, Check, Sparkles, Battery, Monitor, Code, Settings, AlertTriangle, Hammer, Zap, Wifi } from "lucide-react";
 import { motion } from "motion/react";
 
 interface ProductDetailsPageProps {
@@ -17,10 +17,11 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
 
   const productsDetailedData: Record<string, {
     name: string;
+    price: string;
     tagline: string;
     description: string;
     badge: string;
-    glowColor: "pink" | "blue" | "purple";
+    glowColor: "pink" | "blue" | "purple" | "yellow";
     heroSpecs: { label: string; value: string }[];
     fullSpecs: { category: string; list: { label: string; value: string }[] }[];
     architectures: string[];
@@ -30,23 +31,24 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
   }> = {
     v4pro: {
       name: "Bộ Điều Khiển ARGB Happy Smart Light V4 PRO",
-      tagline: "Ông vua phân phối tín hiệu LED pixel đa cực cho sân khấu và nội thất cao cấp",
-      description: "Thoát ly hoàn toàn khỏi giới hạn của firmware cũ, dòng V4 PRO được kỹ sư Happy Smart Light tái kiến trúc nguyên bản phần cứng lẫn firmware dựa trên cốt lõi giao thức truyền thông ARGB HSL độc quyền. Điều này giảm thiểu tệp tin mào đầu (packet header overhead), cho khả năng truyền tải dải màu sRGB/HDR 60 FPS mượt mà vượt trội không bị rách khung hình hay rung giật.",
-      badge: "Flagship Bán Chạy",
-      glowColor: "pink",
+      price: "1.200.000 VND",
+      tagline: "Ông vua phân phối tín hiệu LED pixel đa cực cho sân khấu, nội thất và mạch POI chuyên dụng",
+      description: "Thoát ly hoàn toàn khỏi giới hạn của firmware cũ, dòng V4 PRO được kỹ sư Happy Smart Light tái kiến trúc nguyên bản phần cứng lẫn firmware dựa trên cốt lõi giao thức truyền thông ARGB HSL độc quyền. Phiên bản này được tối ưu đặc biệt hỗ trợ thiết kế mạch POI biểu diễn nghệ thuật mạnh mẽ, hoạt động với điện áp 5V ổn định và tương thích hoàn hảo với các cell pin Lithium 3.7V - 4.2V tiện dụng cho thiết bị di động.",
+      badge: "Flagship POI",
+      glowColor: "yellow",
       heroSpecs: [
         { label: "Chip xử lý", value: "Dual Core LX7 240MHz + Wi-Fi Co-Processor" },
         { label: "Số cổng ARGB", value: "2 cổng cách ly vật lý quang học độc lập" },
-        { label: "Tải pixel tối đa", value: "4,096 Pixels @ 30 FPS / 2,048 @ 60 FPS" },
+        { label: "Tải pixel tối đa", value: "2,048 Pixels @ 30 FPS / 1,024 @ 60 FPS" },
         { label: "Giao thức truyền", value: "ARGB HSL Sync (Độc quyền) / xLights DDP / Art-Net" }
       ],
       fullSpecs: [
         {
           category: "Thông số Nguồn & Điện áp",
           list: [
-            { label: "Điện áp danh định đầu vào", value: "DC 5V - 24V hỗ trợ cấp sườn rẽ nhánh điện áp rộng" },
+            { label: "Điện áp danh định đầu vào", value: "DC 5V (Tương thích hoàn hảo cell pin Lithium 3.7V - 4.2V cho các dự án di động/POI)" },
             { label: "Dòng chịu tải bo mạch tối đa", value: "15A liên tục, tích hợp cầu chì đồng thau chống cháy nổ" },
-            { label: "Mạch lọc nhiễu lọc nguồn", value: "Tụ phân cực rắn Nhật Bản ESR siêu thấp 470uF ngăn sụt dòng đột ngột" }
+            { label: "Mạch lọc nhiễu nguồn", value: "Tụ phân cực rắn Nhật Bản ESR siêu thấp 470uF ngăn sụt dòng đột ngột" }
           ]
         },
         {
@@ -54,20 +56,20 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
           list: [
             { label: "Bộ chuyển mức Logic (Level Shifter)", value: "Sử dụng IC chuyển mức chuẩn công nghiệp 3.3V lên đúng 5.0V" },
             { label: "Băng tải nhiễu tín hiệu", value: "Trở kháng đường truyền triệt tiêu 33 Ohm hạn chế sóng phản xạ đuôi" },
-            { label: "Cổng ra phụ trợ", value: "Khe cắm I2C và chân nạp GPIO mở rộng kết nối rơle cơ học" }
+            { label: "Cổng ra phụ trợ", value: "Khả năng tối ưu siêu gọn nhẹ gá lắp trực tiếp vào khung sườn POI" }
           ]
         },
         {
           category: "Khả năng truyền thông không dây",
           list: [
             { label: "Công nghệ BLE Antenna", value: "Chíp BLE v4.2 cự ly tầm gần quét cực tốc dưới 3 mét" },
-            { label: "Modem Wi-Fi nội bộ", value: "Trạm thu sóng IP độc lập 2.4Ghz, hỗ trợ mả hóa WPA2/WPA3 Personal" },
+            { label: "Modem Wi-Fi nội bộ", value: "Trạm thu sóng IP độc lập 2.4Ghz, hỗ trợ mã hóa WPA2/WPA3 Personal" },
             { label: "Chuẩn đóng vỏ", value: "Vỏ kim loại nhôm CNC anode cao cấp, chống bám vân tay tản nhiệt tốt" }
           ]
         }
       ],
       architectures: [
-        "Sơ đồ chân ra: GND | D1 (Cổng 1) | D2 (Cổng 2) | VCC (+5V -> +24V)",
+        "Sơ đồ chân ra: GND | D1 (Cổng 1) | D2 (Cổng 2) | VCC (Cấp nguồn 5V ổn định)",
         "Thiết đặt nút bấm: Nhấn giữ 3s Reset phát Wifi / Nhấn 1 lần chuyển hiệu ứng ARGB HSL ngoại tuyến"
       ],
       technicalPoints: [
@@ -77,8 +79,8 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
           icon: "code"
         },
         {
-          title: "Level Shifter Công Nghiệp",
-          desc: "Sơ mạch V4 PRO trang bị vi mạch khuếch đại điện áp logic tín hiệu chống suy hao. Dù gậy hay dải đèn LED cách bộ điều khiển tới 10 mét dây nối, chớp màu vẫn hiển thị hoàn hảo.",
+          title: "Hỗ Trợ Làm Mạch POI Biểu Diễn",
+          desc: "Sơ mạch V4 PRO cực kỳ nhỏ gọn, dễ dàng gá lắp vào các ống gậy POI, hỗ trợ tối đa việc cấp nguồn bằng pin sạc 3.7V - 4.2V vô cùng linh hoạt.",
           icon: "cpu"
         },
         {
@@ -88,25 +90,26 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         }
       ],
       connectionSteps: [
-        { step: "01", title: "Cấp Nguồn Cho Thiết bị", desc: "Đấu nối nguồn DC 5V-24V phù hợp với điện áp của cuộn dải LED (Dải WS2812B dùng 5V, dải GS8208 hoặc WS2811 dùng 12V) trực tiếp vào rắc vặn vít VCC và GND." },
-        { step: "02", title: "Kết Nối LED Pixel", desc: "Hàn dây tín hiệu (Data) vào cổng D1 hoặc D2 trên mạch. Bọc gen co nhiệt để phòng tránh đoản mạch làm cháy dải led." },
+        { step: "01", title: "Cấp Nguồn Cho Thiết bị", desc: "Đấu nối nguồn DC 5V (hoặc từ cell pin sạc Lithium 3.7V - 4.2V) phù hợp trực tiếp vào rắc vặn vít VCC và GND trên mạch." },
+        { step: "02", title: "Kết Nối LED Pixel/POI", desc: "Hàn dây tín hiệu (Data) vào cổng D1 hoặc D2 trên mạch. Bọc gen co nhiệt để phòng tránh đoản mạch làm cháy dải led." },
         { step: "03", title: "Scan BLE và nạp Wifi", desc: "Mở app ARGB HSL trên điện thoại Android bấm 'Tìm thiết bị'. Chọn V4 PRO sẵn có và nạp tên+mật khẩu Wi-Fi nhà bạn." },
         { step: "04", title: "Kích Hoạt & Trình Diễn", desc: "Giờ bạn có thể thoải mái chọn hàng trăm hiệu ứng có sẵn hoặc mở máy PC sử dụng thiết kế timeline kịch bản nhạc trên xLights phát sóng đồng bộ mượt mà." }
       ],
       changelog: [
-        "v4.2.1-stable: Cải tiến thuật toán phục hồi gói tin UDP bị mất (Packet loss recovery logic)",
+        "v4.2.1-stable: Tối ưu mạch sạc pin và tương thích cell pin 3.7-4.2V cho POI",
         "v4.0.0-release: Chuyển đổi toàn diện sang độc quyền giao thức ARGB HSL và tích hợp app di động mới"
       ]
     },
     matrix: {
       name: "Happy Smart LED Matrix Driver Pro",
-      tagline: "Bộ lái ma trận LED chuyên nghiệp hàng đầu cho Tranh điện, Biển hiệu kịch bản phức tạp",
-      description: "Không đơn giản là hiển thị dải màu chạy đuổi, Happy Smart LED Matrix Driver Pro tương đương một card máy tính mini hóa, hỗ trợ bóc tách từng điểm màu rực rỡ và lập sơ đồ tọa độ cho các tấm ma trận (panel) WS2812B/SK6812 ghép đôi với nhau thành những bức tường LED đa sắc khổng lồ chất lượng cao.",
-      badge: "Ông Vua Ma Trận LED",
+      price: "Tùy thời giá linh kiện",
+      tagline: "Bộ lái ma trận LED chuyên nghiệp hàng đầu cho các tấm Panel LED, Cabin LED lớn",
+      description: "Không đơn giản là hiển thị dải màu chạy đuổi, Happy Smart LED Matrix Driver Pro tương đương một card máy tính mini hóa, hỗ trợ lập sơ đồ tọa độ và điều khiển trực tiếp các tấm Panel LED (LED Cabin) ghép nối để tạo thành những bức tường LED đa sắc khổng lồ chất lượng cao, đồng bộ mạnh mẽ và mượt mà.",
+      badge: "Ông Vua Panel LED",
       glowColor: "blue",
       heroSpecs: [
         { label: "Vi xử lý", value: "ESP32-S3 High-Speed 32-bit MCU với 8MB PSRAM" },
-        { label: "Mật độ ma trận", value: "Hỗ trợ cấu hình tối đa tới sơ đồ 64x64 hoặc 128x32" },
+        { label: "Loại LED hỗ trợ", value: "Điều khiển Panel LED ma trận (LED Cabin) ghép chuỗi" },
         { label: "Bộ lưu trữ cứng", value: "Thẻ nhớ MicroSD FAT32 tích hợp sẵn (Lắp kèm thẻ 16GB)" },
         { label: "Giao thức truyền", value: "ARGB HSL Matrix stream / xLights DDP / TCP Ethernet" }
       ],
@@ -114,7 +117,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         {
           category: "Công năng hiển thị",
           list: [
-            { label: "Số lượng bóng gánh tối đa", value: "4,096 bóng (Tương đương tấm ma trận 64x64 mật độ cực cao)" },
+            { label: "Đối tượng điều khiển", value: "Các tấm Panel LED ma trận (LED Cabin) chuyên dụng" },
             { label: "Định dạng ảnh POV/Matrix", value: "Xử lý trực tiếp ảnh kịch bản BMP, GIF động, Video cắt phân đoạn" },
             { label: "Chế độ đồng bộ", value: "Tự động phát hiện kịch bản lưu trong thẻ nhớ SD khi ngắt Wi-Fi mạng" }
           ]
@@ -129,7 +132,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         }
       ],
       architectures: [
-        "Sơ đồ ghép: Ghép ngang và ghép đứng không giới hạn số lượng tấm (config qua app điện thoại dễ dàng)",
+        "Sơ đồ ghép: Ghép ngang và ghép đứng nhiều tấm cabin LED (config qua app điện thoại dễ dàng)",
         "Nạp kịch bản: Xuất file kịch bản trực tiếp từ Công cụ Windows ARGB HSL Control Tool nạp thẳng vào thẻ nhớ"
       ],
       technicalPoints: [
@@ -150,80 +153,82 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         }
       ],
       connectionSteps: [
-        { step: "01", title: "Cấp Nguồn Công Suất Lớn", desc: "Dải Ma trận 64x64 ngốn dòng điện rất lớn (tới 20A khi sáng trắng tối đa). Cấp nguồn nguồn 5V amper tương ứng vào gá kẹp đồng." },
-        { step: "02", title: "Đấu Tấm Ma Trận", desc: "Kết nối cổng Data Out trên Driver Pro vào chân Data In trên tấm ma trận LED, chú ý đúng hướng mũi tên chỉ dẫn tín hiệu." },
-        { step: "03", title: "Cấu Hình Tọa Độ", desc: "Mở app trên điện thoại Android, nhập kích thước ma trận (ví dụ: Rows 32, Cols 64) và chạy kịch bản quét tọa độ pixel." },
-        { step: "04", title: "Truyền Hoạt Ảnh", desc: "Đón nhận ảnh GIF động hoặc luồng video streaming từ PC điều khiển trực quan qua mạng hoặc chạy tệp tin nạp sẵn từ thẻ nhớ SD." }
+        { step: "01", title: "Cấp Nguồn Công Suất Lớn", desc: "Các tấm Panel LED tiêu thụ dòng điện rất lớn (đặc biệt khi hiển thị màu trắng tối đa). Cấp nguồn 5V ampere tương ứng vào gá kẹp đồng." },
+        { step: "02", title: "Đấu Nối Panel LED", desc: "Kết nối cáp tín hiệu phẳng từ Driver Pro vào chân Data In trên tấm ma trận LED Panel/Cabin đầu tiên." },
+        { step: "03", title: "Cấu Hình Tọa Độ", desc: "Mở app trên điện thoại Android, cấu hình số lượng tấm cabin LED ghép nối ngang dọc và quét tọa độ để căn chỉnh màn hình." },
+        { step: "04", title: "Truyền Hoạt Ảnh & Đồng Bộ", desc: "Đón nhận ảnh GIF động hoặc luồng video streaming từ PC điều khiển trực quan qua mạng hoặc chạy tệp tin nạp sẵn từ thẻ nhớ SD." }
       ],
       changelog: [
         "v2.12-stable: Bổ sung công cụ xoay xoay góc 90, 180, 270 trực quan ngay trên Dashboard",
         "v2.0.0-release: Thiết kế lại toàn bộ vi xử lý để tích hợp khe SD siêu tốc và ESP32-S3 thế hệ mới"
       ]
     },
-    car: {
-      name: "Happy Car Auto-Sync LED Controller",
-      tagline: "Bộ điều khiển LED gầm và nội thất xe hơi, xe máy chống sốc điện cực mạnh",
-      description: "Được thiết kế sinh ra để chinh chiến trên các nẻo đường cùng phương tiện di chuyển, bộ điều khiển Happy Car Auto-Sync mang cấu chế chịu lực, chống rung chấn mệt mỏi, chống chịu độ ẩm bụi bặm đường phố nặng nề, cùng mạch bảo vệ tụ lọc chống sốc điện áp máy nổ đột ngột cực kỳ bền bỉ.",
-      badge: "Chuyên Dụng Cho Xe",
+    hsl4x: {
+      name: "Bộ Điều Khiển ARGB Happy Smart Light 4X",
+      price: "930.000 VND",
+      tagline: "Bộ điều khiển ARGB công suất lớn gánh tải pixel matrix, trống led matrix, cờ led matrix sự kiện",
+      description: "Được thiết kế chuyên biệt chịu dòng cực lớn gánh tải các công trình LED chạy luồng phức tạp như Trống LED matrix, Cờ LED matrix sự kiện hay các mảng matrix pixel lớn. Được trang bị 4 cổng ra ARGB tích hợp diode cách ly chống dội ngược dòng và vi mạch Level Shifter nâng điện áp tín hiệu, thiết bị đảm bảo tín hiệu luôn ổn định, sắc nét và cực kỳ bền bỉ.",
+      badge: "Công Suất Cực Cao",
       glowColor: "purple",
       heroSpecs: [
-        { label: "Điện áp lấy trực tiếp", value: "Cơ chế ổn dải cực rộng DC 9V - 30V từ acquy" },
-        { label: "Mức Chống Nước", value: "IP68 Đổ keo silicon epoxide nguyên khối bảo vệ" },
-        { label: "Kênh Ra Độc Lập", value: "4 Cổng kiểm soát (Trước, Sau, Gầm Trái, Gầm Phải)" },
-        { label: "Bộ Cảm Nhận", value: "Cảm biến gia tốc IMU điều màu theo độ nghiêng/vận tốc xe" }
+        { label: "Điện áp hoạt động", value: "DC 5V - 24V cấp sườn chịu tải lớn" },
+        { label: "Mạch ra an toàn", value: "4 cổng ra ARGB có diode chống dội ngược dòng" },
+        { label: "IC chuyển mức logic", value: "Level Shifter 3.3V lên 5V vuông vắn ổn định" },
+        { label: "Gánh tải tối đa", value: "Cầu đấu đồng khối mạ niken gánh tới 30A liên tục" }
       ],
       fullSpecs: [
         {
-          category: "Chống chịu vật lý & Điện áp",
+          category: "Thông số Nguồn & Điện áp",
           list: [
-            { label: "Lọc nhiễu sườn", value: "Tích hợp cuộn cảm lọc tầng số cao nhiễu máy phát xoay chiều xe hơi" },
-            { label: "Chống sốc điện áp đề máy", value: "Diode TVS triệt tiêu quá áp tức thời lên tới 60V trong vòng 1 nano-giây" },
-            { label: "Giải nhiệt rảnh", value: "Không dùng quạt cơ học, tản nhiệt thụ động thông qua kết cấu keo đặc biệt" }
+            { label: "Ổn áp đầu vào rộng", value: "DC 5V - 24V hỗ trợ cấp sườn dòng lớn rẽ nhánh cực rộng" },
+            { label: "Khả năng chịu tải", value: "Mạch đồng dày chịu tải lớn, gá đồng chịu dòng tải lên tới 30A" },
+            { label: "Bảo vệ ngược cực", value: "Tích hợp diode chống cắm ngược cực và nổ cầu chì thông minh" }
           ]
         },
         {
-          category: "Khả năng đồng bộ kịch bản",
+          category: "Cổng ra & Bảo vệ tín hiệu",
           list: [
-            { label: "Auto-Reconnect bluetooth", value: "Khi chủ xe bước lên cabin mở khóa, app lập tức tự kết nối thiết bị" },
-            { label: "Phản hồi cảm biến âm thanh", value: "Tích hợp micro MEMS độ nhạy cao để nhấp nháy đèn theo nhạc của loa xe hơi" },
-            { label: "Đồng bộ phanh và xi nhan", value: "2 chân rơle đọc điện phanh và xi nhan để đổi màu vàng/đỏ tự động" }
+            { label: "Diode chống dội ngược dòng", value: "Trang bị diode chống dội ngược dòng điện cảm ứng từ cuộn LED công suất lớn về MCU" },
+            { label: "Level Shifter IC chuyên dụng", value: "Nâng mức tín hiệu lên 5V công nghiệp chuẩn chỉnh trên cả 4 cổng độc lập" },
+            { label: "Ứng dụng thi công chuyên biệt", value: "Chuyên dụng thi công Trống LED Matrix, Cờ LED Matrix, các dự án Pixel Matrix mật độ dày" }
           ]
         }
       ],
       architectures: [
-        "Lắp đặt: Bắt vít gầm xe hoặc dán keo 3M chuyên dụng (mạch đổ keo nguyên khối cứng cáp không ngại va đập)",
-        "Đấu nối rơ-le: Tín hiệu rẽ trái/phanh tự chuyển hệ thống đèn sang nhấp nháy đỏ cảnh báo siêu an toàn"
+        "Sơ đồ chân ra: GND | D1-D4 (4 cổng dữ liệu ARGB độc lập) | VCC (+5V -> +24V)",
+        "Bảo vệ dòng ngược: Diode chống ngược cực nguồn và mạch xả tải an toàn tránh chập cháy"
       ],
       technicalPoints: [
         {
-          title: "Thiết Kế Đúc Silicon Kín Mạch (IP68)",
-          desc: "Đạt chuẩn chống ngập nước vượt trội. Bạn có thể thoải mái rửa xe xịt vòi nước áp lực cao trực tiếp vào hộp điều khiển mà không sợ hư hỏng mạch.",
-          icon: "hammer"
+          title: "4 Cổng Ra Chống Dội Ngược",
+          desc: "Bảo vệ an toàn tuyệt đối cho vi xử lý trước hiện tượng dòng điện cảm ứng dội ngược từ các cuộn LED công suất lớn, tránh chập cháy.",
+          icon: "cpu"
         },
         {
-          title: "Bảo Vệ Đề Máy Sốc Điện",
-          desc: "Lọc gạt các điện áp nhiễu gai phát ra từ ác-quy lúc khởi động động cơ xe, đảm bảo tuổi thọ chip LED không bao giờ bị già yếu hay hư hỏng.",
-          icon: "settings"
+          title: "IC Chuyển Mức Level Shifter",
+          desc: "Đảm bảo tín hiệu logic xung 5V vuông vức chuẩn công nghiệp trên cả 4 cổng ra, giúp LED pixel chạy ổn định không bị nhiễu hay chớp sai màu.",
+          icon: "code"
         },
         {
-          title: "Cảm Biến Nhạc MEMS Thông Minh",
-          desc: "Không bị ảnh hưởng bởi tiếng gió rít bên ngoài cabin. Chỉ đón nhận năng lượng dải tần bass ấm của hệ thống loa để múa màu tương thích chân thực.",
-          icon: "radio"
+          title: "Chịu Dòng Tải Cực Cao",
+          desc: "Mạch đồng dày chịu tải lớn kết hợp với cầu đấu chịu dòng cao giúp thiết bị gánh được lượng bóng LED matrix khổng lồ mà không bị nóng hay sụt áp.",
+          icon: "layers"
         }
       ],
       connectionSteps: [
-        { step: "01", title: "Nối Nguồn Acquy", desc: "Đấu nối cực dương (+) và âm (-) trực tiếp vào cọc Acquy xe. Khuyên dùng thêm một cầu chì phụ 10A gần bình Acquy để an tâm." },
-        { step: "02", title: "Chạy Dải LED Gầm", desc: "Luồn dải LED bọc nhựa chống nước dọc thân xe, ghim vít chắc chắn vào mép gầm sắt tránh chạm trục các-đăng quay dầm xoay." },
-        { step: "03", title: "Kết App ARGB HSL Car", desc: "Mở app di động kết nối BLE siêu nhanh, chọn chế độ đồng màu dải gầm xe." },
-        { step: "04", title: "Đấu Chân Tín Hiệu Phanh", desc: "Bắt cầu tín hiệu từ dây đèn hậu và đèn xi nhan vào chân cảm ứng Trigger của bộ điều khiển để kích hoạt cảnh báo đổi màu tự động khi phanh gấp." }
+        { step: "01", title: "Cấp Nguồn Công Suất Lớn", desc: "Sử dụng nguồn DC 5V-24V chất lượng tốt gá vào cầu đấu chịu tải. Đảm bảo dây nguồn đủ tiết diện lớn để tránh tổn hao điện áp." },
+        { step: "02", title: "Đấu Nối 4 Cổng LED", desc: "Hàn dây tín hiệu từ các mảng matrix, trống led hoặc cờ led vào các cổng từ D1 đến D4. Mỗi cổng có thể chạy độc lập các nhánh khác nhau." },
+        { step: "03", title: "Cấu Hình Qua App", desc: "Quét thiết bị qua Bluetooth, nạp Wifi và phân chia số lượng bóng LED (Pixel Count) trên mỗi cổng thông qua giao diện quản trị web/app." },
+        { step: "04", title: "Đồng Bộ Trình Chiếu", desc: "Kết nối xLights hoặc LedFx để đồng bộ dữ liệu trình chiếu mượt mà trực quan hoặc chạy kịch bản offline lập trình sẵn." }
       ],
       changelog: [
-        "v3.1.0-release: Nâng cấp dải màu phanh cảnh báo xi-nhan chạy đuổi cực phong cách thể thao",
-        "v3.0.0-market: Bản thương mại hóa chuyên sâu đầu tiên dành riêng cho các xưởng Độ Xe Hơi chuyên nghiệp"
+        "v4.0.0-release: Phiên bản 4 cổng chuyên dụng cho Matrix & Sự kiện, tích hợp diode chống dội ngược dòng.",
+        "v3.0.0-design: Bản thử nghiệm phần cứng chịu tải 30A liên tục an toàn"
       ]
     },
     poi: {
       name: "Happy POI Performance Wand (Gậy LED Biểu Diễn)",
+      price: "Tùy thời giá linh kiện",
       tagline: "Bộ sản phẩm múa lửa ảo ảnh cao cấp chuyên sâu với chip LED siêu tần PWM",
       description: "Dành riêng cho nghệ sĩ xiếc ảo thuật, kịch nghệ, múa lửa ảo ảnh POV (Persistance of Vision). Gậy POI của chúng tôi được đóng gọn trong vỏ ống polycarbonate chống nứt vỡ chịu lực quăng quật va đập đập cực cao, tích hợp cảm biến IMU đo tốc độ lắc xoay để tự động điều chỉnh tốc độ tải mật độ ảnh bitmap vẽ ra giữa không trung rõ như pha lê.",
       badge: "Nghệ Thuật Độc Bản",
@@ -305,15 +310,21 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
     <div className="relative min-h-screen bg-[#020204] text-[#f8fafc] font-sans pt-24 pb-16 relative overflow-hidden" id="product-detail-subpage-container">
       {/* Decorative large blurry glowing bulbs */}
       <div className={`absolute -top-40 -left-40 w-96 h-96 rounded-full blur-[140px] pointer-events-none -z-10 ${
-        selectedProduct.glowColor === 'pink' ? "bg-neon-pink/15" : selectedProduct.glowColor === 'blue' ? "bg-neon-blue/15" : "bg-purple-500/15"
-      }`} />
+        selectedProduct.glowColor === 'pink' 
+          ? "bg-neon-pink/15" 
+          : selectedProduct.glowColor === 'yellow'
+            ? "bg-neon-yellow/15"
+            : selectedProduct.glowColor === 'blue' 
+              ? "bg-neon-blue/15" 
+              : "bg-purple-500/15"
+        }`} />
       <div className={`absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full blur-[160px] pointer-events-none -z-10 bg-slate-900/40`} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Back Button & Nav */}
         <div className="mb-8" id="detail-nav-back">
-          <button 
+          <button
             onClick={onBack}
             className="flex items-center space-x-2.5 py-2.5 px-5 rounded-full bg-slate-900/60 hover:bg-slate-900 border border-white/10 hover:border-white/20 text-xs font-mono uppercase tracking-wider text-slate-300 hover:text-white transition-all cursor-pointer shadow-md inline-flex"
             id="back-to-home-btn"
@@ -325,17 +336,19 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
 
         {/* Hero Section of this Product */}
         <div className="grid lg:grid-cols-12 gap-8 items-center mb-16" id="detail-hero-layout">
-          
+
           {/* Left Columns - Detail info text */}
           <div className="lg:col-span-7 space-y-6" id="detail-left-narrative">
             <div className="flex items-center space-x-3">
               <span className={`px-3.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-widest uppercase border ${
-                selectedProduct.glowColor === 'pink' 
-                  ? "bg-neon-pink/20 text-neon-pink-bright border-neon-pink/30" 
-                  : selectedProduct.glowColor === 'blue'
-                  ? "bg-neon-blue/20 text-neon-blue-bright border-neon-blue/30"
-                  : "bg-purple-500/20 text-purple-300 border-purple-400/30"
-              }`}>
+                selectedProduct.glowColor === 'pink'
+                  ? "bg-neon-pink/20 text-neon-pink-bright border-neon-pink/30"
+                  : selectedProduct.glowColor === 'yellow'
+                    ? "bg-gradient-to-r from-neon-yellow/20 to-amber-500/10 text-neon-yellow-bright border-neon-yellow/40 shadow-glow-yellow/10"
+                    : selectedProduct.glowColor === 'blue'
+                      ? "bg-neon-blue/20 text-neon-blue-bright border-neon-blue/30"
+                      : "bg-purple-500/20 text-purple-300 border-purple-400/30"
+                }`}>
                 {selectedProduct.badge}
               </span>
               <span className="text-slate-500 text-xs font-mono">
@@ -355,6 +368,14 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
               {selectedProduct.description}
             </p>
 
+            {/* Price display */}
+            <div className="flex items-center space-x-3 py-1">
+              <span className="text-slate-400 text-xs font-mono uppercase tracking-wider">Giá bán lẻ đề xuất:</span>
+              <span className="text-xl sm:text-2xl font-display font-bold text-[#00f0ff] tracking-wide">
+                {selectedProduct.price}
+              </span>
+            </div>
+
             {/* Core Stats highlights badge row */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 rounded-2xl bg-slate-900/50 border border-white/10" id="detail-core-stats">
               {selectedProduct.heroSpecs.map((spec, sIdx) => (
@@ -369,32 +390,34 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4" id="detail-actions-tray">
               <button
                 onClick={() => onQuoteRequested(selectedProduct.name)}
-                className="py-4 px-8 rounded-2xl bg-gradient-to-r from-neon-pink to-neon-blue text-center font-display text-xs font-bold uppercase tracking-wider text-white shadow-glow-dual hover:scale-103 transition-transform cursor-pointer"
+                className={`py-4 px-8 rounded-2xl text-center font-display text-xs font-bold uppercase tracking-wider text-white transition-all duration-300 hover:scale-103 cursor-pointer ${
+                  selectedProduct.glowColor === 'pink'
+                    ? "bg-gradient-to-r from-neon-pink to-purple-600 shadow-glow-pink"
+                    : selectedProduct.glowColor === 'yellow'
+                      ? "bg-gradient-to-r from-neon-yellow to-amber-600 shadow-glow-yellow"
+                      : selectedProduct.glowColor === 'blue'
+                        ? "bg-gradient-to-r from-neon-blue to-teal-600 shadow-glow-blue"
+                        : "bg-gradient-to-r from-purple-600 to-indigo-600 shadow-glow-dual"
+                }`}
                 id="btn-detail-order-quote"
               >
                 Nhận Báo Giá & Bản Vẽ Thiết Kế Đấu Nối ➔
               </button>
-              
-              <a 
-                href="#estimator"
-                onClick={() => {
-                  const element = document.getElementById("estimator");
-                  if (element) {
-                    element.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                className="py-4 px-6 rounded-2xl bg-slate-900 border border-white/10 hover:border-white/20 text-center font-display text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white transition-all cursor-pointer"
-              >
-                Tính dự toán LED ngay
-              </a>
+
             </div>
           </div>
 
           {/* Right Columns - Visual circuit mockup or diagram simulation */}
           <div className="lg:col-span-5 flex justify-center" id="detail-visual-chassis">
-            <div className={`w-full max-w-sm rounded-3xl bg-slate-950 border p-6 justify-between flex flex-col min-h-[380px] relative overflow-hidden shadow-glow-dual/20 ${
-              selectedProduct.glowColor === 'pink' ? "border-neon-pink/25" : selectedProduct.glowColor === 'blue' ? "border-neon-blue/25" : "border-purple-500/25"
-            }`}>
+            <div className={`w-full max-w-sm rounded-3xl bg-slate-950 border p-6 justify-between flex flex-col min-h-[380px] relative overflow-hidden ${
+              selectedProduct.glowColor === 'pink'
+                ? "shadow-glow-pink/10 border-neon-pink/25"
+                : selectedProduct.glowColor === 'yellow'
+                  ? "shadow-glow-yellow/10 border-neon-yellow/25"
+                  : selectedProduct.glowColor === 'blue'
+                    ? "shadow-glow-blue/10 border-neon-blue/25"
+                    : "shadow-glow-dual/20 border-purple-500/25"
+              }`}>
               <div className="absolute top-2 right-3 flex items-center space-x-1.5 opacity-40 font-mono text-[8px]">
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-ping" />
                 <span>STATE: CON_ACTIVE</span>
@@ -412,7 +435,13 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
                   <div className="space-y-1.5 text-slate-400">
                     <div className="flex justify-between items-center text-white font-bold border-b border-white/5 pb-1 mb-2">
                       <span>CHÂN RA TÍN HIỆU BO MẠCH</span>
-                      <span className="text-neon-pink-bright">HSL_V4_BUS</span>
+                      <span className={`font-mono ${
+                        selectedProduct.glowColor === 'pink'
+                          ? "text-neon-pink-bright"
+                          : selectedProduct.glowColor === 'yellow'
+                            ? "text-neon-yellow-bright"
+                            : "text-neon-blue-bright"
+                      }`}>HSL_V4_BUS</span>
                     </div>
                     {selectedProduct.architectures.map((arch, aIdx) => (
                       <p key={aIdx} className="leading-relaxed">
@@ -437,7 +466,13 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
                   </div>
                   {/* Waveform line SVG */}
                   <svg viewBox="0 0 100 20" className="w-full h-8 text-emerald-500 stroke-current stroke-1">
-                    <path d="M 0 10 L 10 10 L 12 2 L 14 18 L 16 10 L 30 10 L 32 2 L 34 18 L 36 10 L 55 10 L 57 2 L 59 18 L 61 10 L 80 10 L 82 2 L 84 18 L 86 10 L 100 10" fill="none" className="stroke-neon-blue animate-pulse" strokeWidth="1.5" />
+                    <path d="M 0 10 L 10 10 L 12 2 L 14 18 L 16 10 L 30 10 L 32 2 L 34 18 L 36 10 L 55 10 L 57 2 L 59 18 L 61 10 L 80 10 L 82 2 L 84 18 L 86 10 L 100 10" fill="none" className={`animate-pulse ${
+                      selectedProduct.glowColor === 'pink'
+                        ? "stroke-neon-pink"
+                        : selectedProduct.glowColor === 'yellow'
+                          ? "stroke-neon-yellow"
+                          : "stroke-neon-blue"
+                    }`} strokeWidth="1.5" />
                   </svg>
                 </div>
               </div>
@@ -454,7 +489,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
 
         {/* Detailed Specs Tab grid */}
         <div className="grid lg:grid-cols-12 gap-8 mb-16" id="detail-specs-grid">
-          
+
           {/* Left panel specs directory */}
           <div className="lg:col-span-8 space-y-8" id="detail-technical-specs">
             <h2 className="font-display font-bold text-xl sm:text-2xl text-white tracking-tight flex items-center">
@@ -520,27 +555,165 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         {/* Installation Connect guide section */}
         <div className="p-6 sm:p-8 bg-glass border border-white/10 rounded-3xl mb-16" id="detail-connection-guide">
           <h3 className="font-display font-bold text-lg sm:text-xl text-white mb-6 flex items-center">
-            <Hammer className="w-5 h-5 text-neon-pink-bright mr-3" />
+            <Hammer className="w-5 h-5 text-neon-pink-bright mr-3 animate-bounce" />
             Hướng Dẫn Ghép Đấu & Thi Công Cơ Bản (ARGB HSL Standard Workflow)
           </h3>
-          <div className="grid md:grid-cols-4 gap-6" id="setup-steps-row">
-            {selectedProduct.connectionSteps.map((step) => (
-              <div key={step.step} className="space-y-3 relative group" id={`connection-step-${step.step}`}>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="setup-steps-row">
+            {/* Step 1 */}
+            <div className="p-5 rounded-2xl bg-slate-900/40 hover:bg-slate-900/80 border border-white/5 hover:border-neon-pink/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="connection-step-01">
+              <div>
                 <div className="flex items-center justify-between">
-                  {/* Decorative step number big */}
-                  <span className="font-mono text-3xl font-extrabold text-white/10 group-hover:text-neon-blue-bright/20 transition-colors">
-                    {step.step}
-                  </span>
-                  <div className="w-6 h-[1px] bg-white/10 flex-1 mx-4 hidden md:block" />
+                  <span className="font-mono text-3xl font-extrabold bg-gradient-to-br from-white/20 to-white/5 bg-clip-text text-transparent group-hover:from-white group-hover:to-neon-pink-bright group-hover:text-glow-pink transition-all duration-500">01</span>
+                  <div className="p-2 rounded-lg bg-neon-pink/10 border border-neon-pink/20">
+                    <Wifi className="w-4 h-4 text-neon-pink-bright" />
+                  </div>
                 </div>
-                <h4 className="font-display font-bold text-xs sm:text-sm text-[#00e5ff] uppercase tracking-wide">
-                  {step.title}
+                <h4 className="font-display font-bold text-xs sm:text-sm text-[#00e5ff] uppercase tracking-wide mt-3 mb-2">
+                  Cấp Nguồn Bộ Phát Sóng
                 </h4>
                 <p className="font-sans text-xs text-slate-400 leading-relaxed font-light">
-                  {step.desc}
+                  Đảm bảo sóng đã kích hoạt và được kết nối đúng với PC/Laptop/điện thoại. Sóng chưa lên thì chưa tiến hành các bước tiếp theo.
                 </p>
               </div>
-            ))}
+              <div className="mt-4 h-10 w-full bg-black/40 rounded-lg flex items-center justify-center relative overflow-hidden border border-white/5">
+                <div className="absolute inset-0 flex items-center justify-center opacity-30">
+                  <div className="w-6 h-6 rounded-full border border-[#ff2d95] animate-ping" />
+                  <div className="w-10 h-10 rounded-full border border-[#ff2d95]/70 animate-ping [animation-delay:0.3s]" />
+                </div>
+                <Radio className="w-3.5 h-3.5 text-[#ff2d95] animate-pulse relative z-10" />
+                <span className="text-[8px] font-mono text-slate-500 ml-2 relative z-10">SIGNAL ACTIVE</span>
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div className="p-5 rounded-2xl bg-slate-900/40 hover:bg-slate-900/80 border border-white/5 hover:border-amber-500/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="connection-step-02">
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-3xl font-extrabold bg-gradient-to-br from-white/20 to-white/5 bg-clip-text text-transparent group-hover:from-white group-hover:to-amber-400 transition-all duration-500">02</span>
+                  <div className="p-2 rounded-lg bg-amber-500/10 border border-amber-500/20">
+                    <AlertTriangle className="w-4 h-4 text-amber-400" />
+                  </div>
+                </div>
+                <h4 className="font-display font-bold text-xs sm:text-sm text-[#00e5ff] uppercase tracking-wide mt-3 mb-2">
+                  Kiểm Tra Đường Kết Nối
+                </h4>
+                <p className="font-sans text-xs text-slate-400 leading-relaxed font-light">
+                  Kiểm tra kết nối LED vào các port LED, các điểm hàn dây tín hiệu và các cực nguồn (+/-) xem đã chính xác và an toàn chưa.
+                </p>
+              </div>
+              <div className="mt-4 h-10 w-full bg-black/40 rounded-lg flex items-center justify-center gap-1.5 border border-white/5">
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <span
+                    key={i}
+                    className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"
+                    style={{ animationDelay: `${i * 0.15}s`, boxShadow: "0 0 6px #10b981" }}
+                  />
+                ))}
+                <span className="text-[8px] font-mono text-slate-500 ml-1">PORT CHECK: OK</span>
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="p-5 rounded-2xl bg-slate-900/40 hover:bg-slate-900/80 border border-white/5 hover:border-yellow-500/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="connection-step-03">
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-3xl font-extrabold bg-gradient-to-br from-white/20 to-white/5 bg-clip-text text-transparent group-hover:from-white group-hover:to-yellow-400 transition-all duration-500">03</span>
+                  <div className="p-2 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
+                    <Zap className="w-4 h-4 text-yellow-400" />
+                  </div>
+                </div>
+                <h4 className="font-display font-bold text-xs sm:text-sm text-[#00e5ff] uppercase tracking-wide mt-3 mb-2">
+                  Cấp Nguồn Mạch LED
+                </h4>
+                <p className="font-sans text-xs text-slate-400 leading-relaxed font-light">
+                  Cấp nguồn thiết bị mạch điều khiển LED để khởi chạy hệ thống điều hành trung tâm và sẵn sàng nhận lệnh cấu hình.
+                </p>
+              </div>
+              <div className="mt-4 h-10 w-full bg-black/40 rounded-lg flex items-center justify-center relative border border-white/5">
+                <div className="flex items-center space-x-1.5 text-yellow-400">
+                  <Zap className="w-3.5 h-3.5 animate-bounce" />
+                  <span className="text-[8px] font-mono text-slate-400">DC INPUT ACTIVE ⚡</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 4 */}
+            <div className="p-5 rounded-2xl bg-slate-900/40 hover:bg-slate-900/80 border border-white/5 hover:border-neon-blue/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="connection-step-04">
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-3xl font-extrabold bg-gradient-to-br from-white/20 to-white/5 bg-clip-text text-transparent group-hover:from-white group-hover:to-neon-blue-bright group-hover:text-glow-blue transition-all duration-500">04</span>
+                  <div className="p-2 rounded-lg bg-neon-blue/10 border border-neon-blue/20">
+                    <Monitor className="w-4 h-4 text-neon-blue-bright" />
+                  </div>
+                </div>
+                <h4 className="font-display font-bold text-xs sm:text-sm text-[#00e5ff] uppercase tracking-wide mt-3 mb-2">
+                  Quét Dò Tìm Thiết Bị
+                </h4>
+                <p className="font-sans text-xs text-slate-400 leading-relaxed font-light">
+                  Mở App trên điện thoại hoặc Tool ARGB HSL máy tính để tiến hành quét và dò tìm các thiết bị hiện lên trong danh sách.
+                </p>
+              </div>
+              <div className="mt-4 h-10 w-full bg-black/40 rounded-lg flex items-center justify-center relative overflow-hidden border border-white/5">
+                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#00e5ff] to-transparent animate-pulse" />
+                <span className="text-[8px] font-mono text-slate-400 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#00e5ff] animate-ping" />
+                  HSL NETWORK SCANNING...
+                </span>
+              </div>
+            </div>
+
+            {/* Step 5 */}
+            <div className="p-5 rounded-2xl bg-slate-900/40 hover:bg-slate-900/80 border border-white/5 hover:border-purple-500/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="connection-step-05">
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-3xl font-extrabold bg-gradient-to-br from-white/20 to-white/5 bg-clip-text text-transparent group-hover:from-white group-hover:to-purple-400 transition-all duration-500">05</span>
+                  <div className="p-2 rounded-lg bg-purple-500/10 border border-purple-500/20">
+                    <Sliders className="w-4 h-4 text-purple-400" />
+                  </div>
+                </div>
+                <h4 className="font-display font-bold text-xs sm:text-sm text-[#00e5ff] uppercase tracking-wide mt-3 mb-2">
+                  Cấu Hình Port & Loại LED
+                </h4>
+                <p className="font-sans text-xs text-slate-400 leading-relaxed font-light">
+                  Tiến hành cấu hình Port LED, số lượng LED, nguồn, matrix hay strip, có kích hoạt Poi hay không (nếu là mạch mới chưa được cấu hình).
+                </p>
+              </div>
+              <div className="mt-4 h-10 w-full bg-black/40 rounded-lg flex items-center justify-around px-4 border border-white/5">
+                <div className="w-12 h-1 bg-slate-800 rounded-full relative">
+                  <div className="absolute top-1/2 -translate-y-1/2 left-1/3 w-2.5 h-2.5 rounded-full bg-purple-500" />
+                </div>
+                <div className="w-12 h-1 bg-slate-800 rounded-full relative">
+                  <div className="absolute top-1/2 -translate-y-1/2 left-2/3 w-2.5 h-2.5 rounded-full bg-purple-500" />
+                </div>
+                <span className="text-[8px] font-mono text-slate-500">CONFIG SLOTS</span>
+              </div>
+            </div>
+
+            {/* Step 6 */}
+            <div className="p-5 rounded-2xl bg-slate-900/40 hover:bg-slate-900/80 border border-white/5 hover:border-emerald-500/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden" id="connection-step-06">
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-3xl font-extrabold bg-gradient-to-br from-white/20 to-white/5 bg-clip-text text-transparent group-hover:from-white group-hover:to-emerald-400 transition-all duration-500">06</span>
+                  <div className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+                    <Code className="w-4 h-4 text-emerald-400" />
+                  </div>
+                </div>
+                <h4 className="font-display font-bold text-xs sm:text-sm text-[#00e5ff] uppercase tracking-wide mt-3 mb-2">
+                  Timecode & Nạp Chương Trình
+                </h4>
+                <p className="font-sans text-xs text-slate-400 leading-relaxed font-light">
+                  Đồng bộ thời gian trình diễn (timecode) và tiến hành nạp kịch bản hoặc chương trình chạy hiệu ứng ánh sáng hoàn chỉnh lên mạch.
+                </p>
+              </div>
+              <div className="mt-4 h-10 w-full bg-black/40 rounded-lg flex items-center justify-between px-3 border border-white/5 overflow-hidden">
+                <div className="flex items-center space-x-1.5 w-2/3">
+                  <div className="h-1 bg-emerald-500 rounded-sm w-full animate-pulse" />
+                </div>
+                <Play className="w-3 h-3 text-emerald-400 animate-pulse" />
+                <span className="text-[8px] font-mono text-slate-500">RUNNING</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -553,7 +726,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
             {[
               { id: "v4pro", name: "HSL V4 PRO" },
               { id: "matrix", name: "Matrix Driver Pro" },
-              { id: "car", name: "Car Auto-Sync" },
+              { id: "hsl4x", name: "HSL 4X Matrix" },
               { id: "poi", name: "POI Wand Performance" }
             ]
               .filter((item) => item.id !== productId)

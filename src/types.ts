@@ -1,13 +1,15 @@
 export interface Product {
   id: string;
   name: string;
+  price: string;
   description: string;
   features: string[];
   specs: { label: string; value: string }[];
   protocols: string[];
   badge?: string;
-  glowColor: "pink" | "blue" | "dual";
+  glowColor: "pink" | "blue" | "dual" | "yellow";
 }
+
 
 export interface FeatureItem {
   id: string;

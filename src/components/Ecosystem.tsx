@@ -89,7 +89,7 @@ export default function Ecosystem() {
   }, [selectedNode?.flowDirection, selectedNode?.id, inView]);
 
   return (
-    <section ref={sectionRef} id="ecosystem" className="relative py-24 overflow-hidden">
+    <section ref={sectionRef} id="ecosystem" className="relative py-[65px] overflow-hidden">
       <div className="absolute inset-0 bg-radial-at-t from-slate-900/40 via-cyber-dark to-cyber-dark -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

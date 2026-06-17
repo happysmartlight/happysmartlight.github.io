@@ -8,7 +8,7 @@ import ProductDetailsRoute from "./pages/ProductDetailsRoute";
 import { COLLECTION_KEYS } from "./content/collections-meta";
 
 // Product slugs that have a (React-native) detail page.
-export const PRODUCT_IDS = ["v4pro", "matrix", "car", "poi"];
+export const PRODUCT_IDS = ["v4pro", "matrix", "hsl4x", "poi"];
 
 export const routes: RouteRecord[] = [
   {

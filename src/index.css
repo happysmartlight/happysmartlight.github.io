@@ -11,6 +11,8 @@
   --color-neon-pink-bright: #ff2d95;
   --color-neon-blue: #00e5ff;
   --color-neon-blue-bright: #00e5ff;
+  --color-neon-yellow: #f59e0b;
+  --color-neon-yellow-bright: #fbbf24;
   --color-cyber-dark: #020204;
   --color-cyber-navy: #09090e;
 }
@@ -28,7 +30,10 @@
     background-color: var(--color-cyber-dark);
     color: #f8fafc; /* slate-50 */
     font-family: var(--font-sans);
-    scroll-behavior: smooth;
+    /* NOTE: KHÔNG đặt scroll-behavior: smooth toàn cục — khi kéo thanh cuộn
+       bằng chuột, smooth-scroll bị huỷ/khởi động lại liên tục gây khựng & nhảy
+       vị trí. Các lệnh window.scrollTo đã truyền behavior:"smooth" thủ công nên
+       chuyển section/scroll-to-top vẫn mượt. */
   }
 
   @supports not (overflow: clip) {
@@ -48,11 +53,17 @@
   .text-glow-blue {
     text-shadow: 0 0 10px rgba(0, 229, 255, 0.6), 0 0 20px rgba(0, 229, 255, 0.3);
   }
+  .text-glow-yellow {
+    text-shadow: 0 0 10px rgba(245, 158, 11, 0.6), 0 0 20px rgba(245, 158, 11, 0.3);
+  }
   .shadow-glow-pink {
     box-shadow: 0 0 15px rgba(255, 45, 149, 0.4), 0 0 30px rgba(255, 45, 149, 0.2);
   }
   .shadow-glow-blue {
     box-shadow: 0 0 15px rgba(0, 229, 255, 0.4), 0 0 30px rgba(0, 229, 255, 0.2);
+  }
+  .shadow-glow-yellow {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.4), 0 0 30px rgba(245, 158, 11, 0.2);
   }
   .shadow-glow-dual {
     box-shadow: 0 0 20px rgba(255, 45, 149, 0.25), 0 0 30px rgba(0, 229, 255, 0.25);
@@ -75,6 +86,12 @@
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(0, 229, 255, 0.2);
   }
+  .bg-glass-yellow {
+    background-color: rgba(245, 158, 11, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+  }
 }
 
 /* Custom Scrollbar */
@@ -93,21 +110,26 @@
   background: linear-gradient(to bottom, var(--color-neon-pink-bright), var(--color-neon-blue-bright));
 }
 
+/* Chỉ animate opacity + transform (cả hai chạy trên compositor, không repaint).
+   KHÔNG animate filter: blur() — đổi bán kính blur buộc re-rasterize vùng mờ mỗi
+   frame, rất tốn và gây giật khi cuộn. Bán kính blur giữ cố định qua class Tailwind
+   blur-[...] trên chính phần tử. */
 @keyframes pulse-light {
   0%, 100% {
     opacity: 0.3;
     transform: scale(1);
-    filter: blur(80px);
   }
   50% {
     opacity: 0.6;
     transform: scale(1.1);
-    filter: blur(100px);
   }
 }
 
 .anim-pulse-slow-1 {
   animation: pulse-light 12s infinite ease-in-out;
+  /* Cache texture đã blur lên compositor để animation scale chỉ biến đổi texture,
+     không vẽ lại vùng blur-[120px] mỗi frame. */
+  will-change: transform, opacity;
 }
 
 @keyframes float {

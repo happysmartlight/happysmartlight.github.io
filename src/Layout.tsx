@@ -1,11 +1,12 @@
-import { useState, useEffect, useRef } from "react";
-import { Outlet, useNavigate, useLocation, useNavigationType } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { useOutlet, useNavigate, useLocation, useNavigationType } from "react-router-dom";
+import { AnimatePresence } from "motion/react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FloatingActions from "./components/FloatingActions";
 import CustomCursor from "./components/CustomCursor";
 
-export type ThemeGlow = "pink" | "blue" | "emerald" | "amber" | "purple";
+export type ThemeGlow = "pink" | "blue" | "emerald" | "amber" | "purple" | "yellow";
 
 export interface AppOutletContext {
   setThemeGlow: (theme: ThemeGlow) => void;
@@ -121,6 +122,8 @@ export default function Layout() {
         return { blob1: "bg-emerald-500/10", blob2: "bg-teal-950/10" };
       case "amber":
         return { blob1: "bg-amber-500/10", blob2: "bg-orange-950/10" };
+      case "yellow":
+        return { blob1: "bg-neon-yellow-bright/10", blob2: "bg-amber-950/10" };
       case "purple":
         return { blob1: "bg-purple-500/10", blob2: "bg-pink-900/10" };
       default:
@@ -131,9 +134,10 @@ export default function Layout() {
   const currentGlows = getThemeGlowClasses();
 
   const outletContext: AppOutletContext = { setThemeGlow, quotedProduct, requestQuote };
+  const outlet = useOutlet(outletContext);
 
   return (
-    <div className="relative min-h-screen bg-[#020204] text-[#f8fafc] scroll-smooth antialiased pb-0 select-none">
+    <div className="relative min-h-screen bg-[#020204] text-[#f8fafc] antialiased pb-0 select-none">
       {/* Custom Theme-Responsive Cursor */}
       <CustomCursor themeGlow={themeGlow} />
 
@@ -146,7 +150,9 @@ export default function Layout() {
 
       <Header activeSection={isHome ? activeSection : ""} onNavigate={scrollToSection} />
 
-      <Outlet context={outletContext} />
+      <AnimatePresence mode="wait">
+        {outlet && React.cloneElement(outlet, { key: location.pathname })}
+      </AnimatePresence>
 
       <Footer
         onNavigate={scrollToSection}

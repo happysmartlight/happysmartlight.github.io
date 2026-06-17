@@ -11,6 +11,7 @@ const themeColors: Record<ThemeGlow, string> = {
   blue: "#00e5ff",
   emerald: "#10b981",
   amber: "#f59e0b",
+  yellow: "#fbbf24",
   purple: "#a855f7",
 };
 
@@ -23,9 +24,10 @@ export default function CustomCursor({ themeGlow }: CustomCursorProps) {
   const cursorX = useMotionValue(-100);
   const cursorY = useMotionValue(-100);
 
-  // Outer ring spring physics for the trailing liquid effect
-  const ringX = useSpring(cursorX, { stiffness: 220, damping: 26, mass: 0.6 });
-  const ringY = useSpring(cursorY, { stiffness: 220, damping: 26, mass: 0.6 });
+  // Moderate spring: trails smoothly behind the dot without oscillating in circles when idle.
+  // stiffness 300 + damping 28 + mass 0.5 = quick catch-up, minimal overshoot, no looping.
+  const ringX = useSpring(cursorX, { stiffness: 300, damping: 28, mass: 0.5 });
+  const ringY = useSpring(cursorY, { stiffness: 300, damping: 28, mass: 0.5 });
 
   useEffect(() => {
     // 1. Detect if touch device (no hover capabilities)
@@ -75,7 +77,7 @@ export default function CustomCursor({ themeGlow }: CustomCursorProps) {
       setIsHovered(!!interactiveEl);
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
     document.addEventListener("mouseenter", handleMouseEnter);
     document.addEventListener("mouseleave", handleMouseLeave);
     window.addEventListener("mousedown", handleMouseDown);
@@ -98,90 +100,67 @@ export default function CustomCursor({ themeGlow }: CustomCursorProps) {
 
   const themeColor = themeColors[themeGlow] || themeColors.pink;
 
-  // Custom animations for components via Framer Motion Variants
+  // GPU-accelerated scale transforms (no width/height/margin layout reflows).
+  // Base ring = 32px (w-8 h-8). Scale changes perceived size without triggering layout.
   const ringVariants = {
     default: {
-      width: 32,
-      height: 32,
-      marginLeft: -16,
-      marginTop: -16,
+      scale: 1,
       backgroundColor: "rgba(0, 0, 0, 0)",
-      borderWidth: 1.5,
-      opacity: isVisible ? 0.85 : 0,
+      opacity: isVisible ? 0.9 : 0,
     },
     hover: {
-      width: 56,
-      height: 56,
-      marginLeft: -28,
-      marginTop: -28,
-      backgroundColor: `${themeColor}15`, // ~8% opacity
-      borderWidth: 1.5,
+      scale: 1.75, // 32→56px perceived
+      backgroundColor: `${themeColor}18`, // ~9% fill
       opacity: isVisible ? 1 : 0,
     },
     click: {
-      width: 24,
-      height: 24,
-      marginLeft: -12,
-      marginTop: -12,
-      backgroundColor: `${themeColor}33`, // ~20% opacity
-      borderWidth: 2,
+      scale: 0.75, // 32→24px perceived
+      backgroundColor: `${themeColor}33`, // ~20% fill
       opacity: isVisible ? 1 : 0,
     },
   };
 
   const dotVariants = {
     default: {
-      width: 8,
-      height: 8,
-      marginLeft: -4,
-      marginTop: -4,
       scale: 1,
       opacity: isVisible ? 1 : 0,
     },
     hover: {
-      width: 8,
-      height: 8,
-      marginLeft: -4,
-      marginTop: -4,
-      scale: 0.5,
-      opacity: isVisible ? 0.7 : 0,
+      scale: 0.6,
+      opacity: isVisible ? 0.75 : 0,
     },
     click: {
-      width: 8,
-      height: 8,
-      marginLeft: -4,
-      marginTop: -4,
-      scale: 1.6,
+      scale: 1.5,
       opacity: isVisible ? 1 : 0,
     },
   };
 
   return (
     <>
-      {/* Outer Ring (smooth liquid lag) */}
+      {/* Outer Ring — 32px base, border-2 (2px) for visibility on dark backgrounds */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full border pointer-events-none z-[9999] will-change-transform"
+        className="fixed top-0 left-0 w-8 h-8 -ml-4 -mt-4 rounded-full border-2 pointer-events-none z-[9999] will-change-transform"
         style={{
           x: ringX,
           y: ringY,
           borderColor: themeColor,
           boxShadow: isHovered
-            ? `0 0 15px ${themeColor}4d, inset 0 0 10px ${themeColor}26`
-            : `0 0 8px ${themeColor}26`,
+            ? `0 0 18px ${themeColor}55, inset 0 0 12px ${themeColor}30`
+            : `0 0 8px ${themeColor}30`,
         }}
         variants={ringVariants}
         animate={isClicked ? "click" : isHovered ? "hover" : "default"}
-        transition={{ type: "spring", stiffness: 280, damping: 24, mass: 0.6 }}
+        transition={{ type: "spring", stiffness: 300, damping: 26, mass: 0.5 }}
       />
 
-      {/* Inner Dot (instant response) */}
+      {/* Inner Dot — 8px base, solid fill + bright neon glow */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] will-change-transform"
+        className="fixed top-0 left-0 w-2 h-2 -ml-1 -mt-1 rounded-full pointer-events-none z-[9999] will-change-transform"
         style={{
           x: cursorX,
           y: cursorY,
           backgroundColor: themeColor,
-          boxShadow: `0 0 10px ${themeColor}, 0 0 20px ${themeColor}80`,
+          boxShadow: `0 0 10px ${themeColor}, 0 0 22px ${themeColor}80`,
         }}
         variants={dotVariants}
         animate={isClicked ? "click" : isHovered ? "hover" : "default"}
@@ -190,3 +169,4 @@ export default function CustomCursor({ themeGlow }: CustomCursorProps) {
     </>
   );
 }
+

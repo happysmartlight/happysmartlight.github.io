@@ -106,7 +106,7 @@ export default function InteractiveAppShowcase({ onThemeChanged }: InteractiveAp
   };
 
   return (
-    <section id="applications" className="relative py-24 overflow-hidden border-t border-white/5">
+    <section id="applications" className="relative py-[65px] overflow-hidden border-t border-white/5">
       {/* Background light bubble simulating selected theme */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-purple-900/5 rounded-full blur-[110px] pointer-events-none -z-10" />
 

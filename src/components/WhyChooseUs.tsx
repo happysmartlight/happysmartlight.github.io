@@ -30,7 +30,7 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="relative py-24 bg-[#080710]/40 overflow-hidden border-t border-white/5">
+    <section className="relative py-[65px] bg-[#080710]/40 overflow-hidden border-t border-white/5">
       <div className="absolute top-1/2 left-1/4 w-80 h-80 bg-neon-pink-bright/5 rounded-full blur-[100px] pointer-events-none -z-10 animate-pulse" />
       <div className="absolute bottom-1/2 right-1/4 w-80 h-80 bg-neon-blue-bright/5 rounded-full blur-[100px] pointer-events-none -z-10 animate-pulse" />
 

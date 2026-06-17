@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { useOutletContext, useNavigate } from "react-router-dom";
+import { motion } from "motion/react";
 import Seo from "../components/Seo";
 import Hero from "../components/Hero";
 import About from "../components/About";
@@ -16,6 +18,23 @@ export default function Home() {
   const navigate = useNavigate();
   const { setThemeGlow, quotedProduct, requestQuote } = useOutletContext<AppOutletContext>();
 
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const targetId = hash.replace("#", "");
+      setTimeout(() => {
+        const el = document.getElementById(targetId);
+        if (el) {
+          const offset = 75;
+          const bodyRect = document.body.getBoundingClientRect().top;
+          const elementRect = el.getBoundingClientRect().top;
+          const offsetPosition = elementRect - bodyRect - offset;
+          window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+        }
+      }, 150);
+    }
+  }, []);
+
   // In-page section scroll helper (for buttons inside home sections).
   const scrollToSection = (sectionId: string) => {
     const targetId = sectionId === "contact" ? "estimator" : sectionId;
@@ -28,7 +47,12 @@ export default function Home() {
   };
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -15 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+    >
       <Seo
         title="Happy Smart Light — Đèn LED ARGB Thông Minh & Bộ Điều Khiển HSL"
         description="Hệ sinh thái đèn LED ARGB thông minh hàng đầu Việt Nam: bộ điều khiển HSL, ứng dụng di động & công cụ máy tính ARGB HSL điều khiển ma trận LED chuyên nghiệp cho trang trí, sân khấu và sự kiện."
@@ -51,6 +75,6 @@ export default function Home() {
       <DistributionService />
       <WhyChooseUs />
       <ProjectEstimator preFilledProduct={quotedProduct} />
-    </>
+    </motion.div>
   );
 }

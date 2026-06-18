@@ -17,8 +17,93 @@ export interface CollectionItem {
   html: string;
 }
 
-export const COLLECTIONS = data as Record<CollectionKey, CollectionItem[]>;
+const PORTED_SERVICES: CollectionItem[] = [
+  {
+    slug: "partner-xLights",
+    collection: "service",
+    url: "/service/partner-xLights/",
+    title: "Happy Smart Light hợp tác phát triển cùng xLights Việt Nam",
+    metaTitle: "xLights Partner",
+    image: "/img/service/partner-xlights-banner.jpg",
+    bigimg: "/img/service/partner-xlights-banner.jpg",
+    tags: ["partner", "xLights", "training"],
+    excerpt: "Happy Smart Light tự hào hợp tác cùng xLights Việt Nam mang đến giải pháp trình diễn ánh sáng chuyên nghiệp hàng đầu.",
+    html: ""
+  },
+  {
+    slug: "partner-Moonlight-dance",
+    collection: "service",
+    url: "/service/partner-Moonlight-dance/",
+    title: "Đối tác chiến lược ánh sáng biểu diễn Moonlight Dance Studio",
+    metaTitle: "Moonlight Dance Partner",
+    image: "/img/service/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO.jpg",
+    bigimg: "/img/service/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO-banner.jpg",
+    tags: ["partner", "led-dance", "performance"],
+    excerpt: "Sự kết hợp nghệ thuật nhảy múa đương đại và công nghệ ánh sáng thông minh giữa HSL và MoonLight Dance.",
+    html: ""
+  },
+  {
+    slug: "partner-LedFx",
+    collection: "service",
+    url: "/service/partner-LedFx/",
+    title: "Đồng bộ hiệu ứng âm thanh thời gian thực cùng đối tác LedFx",
+    metaTitle: "LedFx Partner",
+    image: "/img/service/partner-LedFX.png",
+    bigimg: "/img/service/partner-LedFX-banner.png",
+    tags: ["partner", "LedFx", "audio-sync"],
+    excerpt: "LedFx phản hồi âm thanh thời gian thực (Reactive Audio) kết hợp hệ sinh thái phần cứng ARGB HSL cực nhạy.",
+    html: ""
+  },
+  {
+    slug: "partner-anonymous",
+    collection: "service",
+    url: "/service/partner-anonymous/",
+    title: "Đối tác giấu tên — Dự án giải trí & Bar Club ngầm cao cấp",
+    metaTitle: "Secret Club Partner",
+    image: "/img/service/partner-anonymous/avatar-anonymous.jpg",
+    bigimg: "/img/service/partner-anonymous/photo-anonymous.jpg",
+    tags: ["partner", "club", "secret-project"],
+    excerpt: "Thi công thiết kế hệ thống ánh sáng ma trận LED độc quyền cho các Bar Club ngầm cao cấp yêu cầu bảo mật thông tin.",
+    html: ""
+  },
+  {
+    slug: "partner-ESP32",
+    collection: "service",
+    url: "/service/partner-ESP32/",
+    title: "Hợp tác kỹ thuật sâu rộng cùng Espressif Systems (ESP32 MCU)",
+    metaTitle: "Espressif Partner",
+    image: "/img/service/partner-espressif.webp",
+    bigimg: "/img/service/partner-espressif-banner.jpg",
+    tags: ["partner", "ESP32", "microcontroller"],
+    excerpt: "Happy Smart Light tự hào sử dụng dòng vi xử lý ESP32 của Espressif mang lại hiệu năng điều khiển LED vượt trội.",
+    html: ""
+  }
+];
+
+const PORTED_POSTS: CollectionItem[] = [
+  {
+    slug: "su-dung-poi-voi-argb-hsl",
+    collection: "post-news",
+    url: "/post-news/su-dung-poi-voi-argb-hsl/",
+    title: "Hướng dẫn thiết lập tính năng POI với ARGB HSL",
+    metaTitle: "Hướng Dẫn POI",
+    image: "/img/post-news/poi/LED.jpg",
+    bigimg: "/img/post-news/poi/p1.png",
+    tags: ["poi", "performance", "guide"],
+    excerpt: "Hướng dẫn chi tiết cách biên tập hình ảnh hiệu ứng POV và đồng bộ tính năng múa LED POI cùng phần mềm ARGB HSL.",
+    html: ""
+  }
+];
+
+const typedData = data as Record<CollectionKey, CollectionItem[]>;
+
+export const COLLECTIONS: Record<CollectionKey, CollectionItem[]> = {
+  ...typedData,
+  service: [...(typedData.service ?? []), ...PORTED_SERVICES],
+  "post-news": [...(typedData["post-news"] ?? []), ...PORTED_POSTS],
+};
 
 export function getItem(collection: CollectionKey, slug: string): CollectionItem | undefined {
   return COLLECTIONS[collection]?.find((i) => i.slug === slug);
 }
+

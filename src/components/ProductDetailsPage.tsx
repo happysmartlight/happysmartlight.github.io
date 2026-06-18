@@ -331,7 +331,10 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
       wiringDiagrams: [
         { label: "Sơ đồ chân (Pinout)", url: "/img/products/hsl4x/pinout_diagram.svg" },
         { label: "Kết nối 4 cổng ARGB", url: "/img/products/hsl4x/wiring_standard.svg" },
-        { label: "Kết nối 2 cổng SPI", url: "/img/products/hsl4x/wiring_spi.svg" }
+        { label: "Kết nối 2 cổng SPI", url: "/img/products/hsl4x/wiring_spi.svg" },
+        { label: "Kết nối LED 5V", url: "/argb-hsl/image/strip_led_5v.png" },
+        { label: "Kết nối LED 12V (Hạ áp)", url: "/argb-hsl/image/strip_led_12v.png" },
+        { label: "Kết nối LED 12V (Chung GND)", url: "/img/controller-chip/ket-noi-5v-12v.png" }
       ]
     },
     poi: {
@@ -1093,6 +1096,206 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
             </div>
           </div>
         </div>
+
+        {/* Detailed Connection Guide (5V & 12V LED strips) */}
+        {productId === "hsl4x" && (
+          <div className="p-6 sm:p-8 bg-glass border border-white/10 rounded-3xl mb-16 space-y-8" id="detail-voltage-wiring-guide">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/5 pb-4">
+              <h3 className="font-display font-bold text-lg sm:text-xl text-white flex items-center">
+                <Zap className="w-5 h-5 text-yellow-400 mr-3 animate-pulse" />
+                Hướng Dẫn Đấu Nối Nguồn Chi Tiết (LED 5V & 12V)
+              </h3>
+              <span className="text-[10px] font-mono bg-purple-500/20 text-purple-300 border border-purple-500/30 px-3 py-1 rounded-full uppercase tracking-wider self-start md:self-auto">
+                Điện Áp Đa Dải
+              </span>
+            </div>
+
+            <p className="font-sans text-xs text-slate-400 leading-relaxed max-w-3xl font-light">
+              Mạch điều khiển ARGB LED có khả năng hỗ trợ cả dải đèn LED ARGB <strong className="text-white">5V</strong> và <strong className="text-white">12V</strong>. Tùy thuộc vào loại dải LED của bạn, hãy làm theo hướng dẫn đấu nối tương ứng dưới đây để đảm bảo an toàn phần cứng và tín hiệu truyền tải luôn ổn định nhất.
+            </p>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Phương án 1: LED 5V */}
+              <div className="p-6 rounded-2xl bg-slate-900/30 border border-white/5 flex flex-col justify-between hover:border-emerald-500/20 transition-all duration-300">
+                <div>
+                  <div className="flex items-center space-x-2.5 mb-4">
+                    <div className="p-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                      <Check className="w-4 h-4" />
+                    </div>
+                    <h4 className="font-display font-bold text-sm text-white uppercase tracking-wide">
+                      Kết Nối Mạch Với Dãy LED 5V
+                    </h4>
+                  </div>
+                  
+                  <p className="font-sans text-xs text-slate-400 mb-4 font-light leading-relaxed">
+                    Khi sử dụng dãy <strong className="text-white">LED 5V</strong>, quá trình đấu nối rất đơn giản vì nguồn cung cấp và điều khiển chỉ cần một loại điện áp 5V.
+                  </p>
+
+                  <ul className="space-y-3 font-sans text-xs text-slate-400 font-light mb-6">
+                    <li className="flex items-start">
+                      <span className="text-emerald-400 font-mono font-bold mr-2">1.</span>
+                      <span>
+                        <strong className="text-slate-200">Nguồn điện:</strong> Cấp nguồn <strong className="text-white">5V DC</strong> với dòng từ <strong className="text-white">1A đến 10A</strong> tùy vào tổng số lượng LED được sử dụng. Đảm bảo kết nối chân <strong className="text-white">VIN</strong> trên bo mạch nối với cực dương (+) của nguồn 5V (<strong className="text-white">V+/5V</strong>), chân <strong className="text-white">GND</strong> nối với cực âm (-) của nguồn 5V (<strong className="text-white">GND</strong>).
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-emerald-400 font-mono font-bold mr-2">2.</span>
+                      <span>
+                        <strong className="text-slate-200">VLED chung:</strong> Vì bo mạch và dãy LED cùng sử dụng nguồn 5V, kết nối trực tiếp chân <strong className="text-white">VLED</strong> trên bo mạch với chân <strong className="text-white">V+/5V</strong> của nguồn điện để dùng chung cho cả bo mạch và dải LED.
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-emerald-400 font-mono font-bold mr-2">3.</span>
+                      <span>
+                        <strong className="text-slate-200">Dữ liệu điều khiển:</strong> Đấu nối dây <strong className="text-white">DATA</strong> từ cổng ra của bo mạch tới chân <strong className="text-white">DATA IN</strong> của dãy LED để truyền tín hiệu điều khiển.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="mt-auto pt-4 border-t border-white/5">
+                  <div className="relative group overflow-hidden rounded-xl border border-white/5 bg-black/40 p-2 cursor-pointer" onClick={() => {
+                    setActiveView("wiring");
+                    setSelectedWiringIndex(3);
+                    setIsZoomed(true);
+                  }}>
+                    <img 
+                      src="/argb-hsl/image/strip_led_5v.png" 
+                      alt="Sơ đồ kết nối LED 5V" 
+                      className="w-full h-auto object-cover rounded-lg group-hover:scale-[1.02] transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                      <span className="text-xs font-mono text-white bg-black/80 px-3 py-1.5 rounded-lg border border-white/10 flex items-center">
+                        <ZoomIn className="w-3.5 h-3.5 mr-1.5" /> Phóng to sơ đồ
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Phương án 2: LED 12V */}
+              <div className="p-6 rounded-2xl bg-slate-900/30 border border-white/5 flex flex-col justify-between hover:border-yellow-500/20 transition-all duration-300">
+                <div>
+                  <div className="flex items-center space-x-2.5 mb-4">
+                    <div className="p-2 rounded-lg bg-yellow-500/10 border border-yellow-500/20 text-yellow-400">
+                      <Zap className="w-4 h-4 animate-pulse" />
+                    </div>
+                    <h4 className="font-display font-bold text-sm text-white uppercase tracking-wide">
+                      Kết Nối Mạch Với Dãy LED 12V
+                    </h4>
+                  </div>
+                  
+                  <p className="font-sans text-xs text-slate-400 mb-4 font-light leading-relaxed">
+                    Đối với dãy <strong className="text-white">LED 12V</strong>, cần đảm bảo cực âm <strong className="text-white">GND</strong> của nguồn điều khiển và <strong className="text-white">GND</strong> của dãy LED phải được nối chung.
+                  </p>
+
+                  <ul className="space-y-3 font-sans text-xs text-slate-400 font-light mb-6">
+                    <li className="flex items-start">
+                      <span className="text-yellow-400 font-mono font-bold mr-2">1.</span>
+                      <span>
+                        <strong className="text-slate-200">Sử dụng mạch giảm áp (12V xuống 5V):</strong> Cấp nguồn 5V cho bo mạch điều khiển thông qua chân <strong className="text-white">VIN</strong> và <strong className="text-white">GND</strong>. Đầu vào của mạch giảm áp kết nối với nguồn 12V.
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-400 font-mono font-bold mr-2">2.</span>
+                      <span>
+                        <strong className="text-slate-200">Nguồn điện dãy LED:</strong> Dãy LED 12V được cấp điện trực tiếp từ nguồn 12V. Chân <strong className="text-white">VLED</strong> trên bo mạch ARGB HSL để trống (<strong className="text-yellow-500 font-semibold">KHÔNG KẾT NỐI</strong>).
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-400 font-mono font-bold mr-2">3.</span>
+                      <span>
+                        <strong className="text-slate-200">Kết nối chung GND (Rất quan trọng):</strong> GND của nguồn 12V, GND của mạch giảm áp, GND của bo mạch điều khiển, và GND của dãy LED đều phải được nối chung với nhau.
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-yellow-400 font-mono font-bold mr-2">4.</span>
+                      <span>
+                        <strong className="text-slate-200">Dữ liệu điều khiển:</strong> Kết nối dây <strong className="text-white">DATA</strong> từ cổng ra của bo mạch tới chân <strong className="text-white">DATA IN</strong> của dãy LED.
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="mt-auto pt-4 border-t border-white/5">
+                  <div className="relative group overflow-hidden rounded-xl border border-white/5 bg-black/40 p-2 cursor-pointer" onClick={() => {
+                    setActiveView("wiring");
+                    setSelectedWiringIndex(4);
+                    setIsZoomed(true);
+                  }}>
+                    <img 
+                      src="/argb-hsl/image/strip_led_12v.png" 
+                      alt="Sơ đồ 12V dùng mạch giảm áp" 
+                      className="w-full h-auto object-cover rounded-lg group-hover:scale-[1.02] transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                      <span className="text-xs font-mono text-white bg-black/80 px-3 py-1.5 rounded-lg border border-white/10 flex items-center">
+                        <ZoomIn className="w-3.5 h-3.5 mr-1.5" /> Phóng to sơ đồ hạ áp
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Lưu ý kỹ thuật & Warning */}
+            <div className="p-5 rounded-2xl bg-amber-500/5 border-l-4 border-amber-500 space-y-3 font-sans text-xs">
+              <div className="flex items-center space-x-2 text-amber-400 font-bold uppercase tracking-wider font-mono">
+                <AlertTriangle className="w-4 h-4 animate-pulse" />
+                <span>Lưu Ý Kỹ Thuật</span>
+              </div>
+              <div className="text-slate-300 space-y-2 leading-relaxed">
+                <p>
+                  ⚡ <strong className="text-white">Với LED 12V:</strong> Bất kể sử dụng phương án nào, cực âm (<strong className="text-white">GND</strong>) của nguồn điều khiển bo mạch và cực âm (<strong className="text-white">GND</strong>) của dãy LED <strong className="text-amber-400 font-bold">bắt buộc phải được nối chung</strong> để hệ thống hoạt động ổn định và chính xác.
+                </p>
+                <p>
+                  ⚡ Nếu sử dụng <strong className="text-white">mạch giảm áp</strong>, đảm bảo mạch giảm áp có khả năng cung cấp đủ dòng 5V cho bo mạch điều khiển.
+                </p>
+                <p>
+                  📝 <strong className="text-white">Ghi chú:</strong> Hãy đảm bảo rằng tất cả các dải LED được nối chung GND nếu sử dụng nhiều dãy LED song song.
+                </p>
+              </div>
+            </div>
+
+            {/* Sơ đồ tổng quát chung cho cả LED 5V và 12V */}
+            <div className="pt-6 border-t border-white/5 space-y-4">
+              <div className="flex items-center space-x-2">
+                <Columns className="w-4 h-4 text-[#00e5ff]" />
+                <span className="text-xs font-mono text-slate-300 uppercase tracking-wider">
+                  Sơ Đồ Đấu Nối Tổng Quát Chung (LED 5V & 12V)
+                </span>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                <div className="md:col-span-7 font-sans text-xs text-slate-400 space-y-2 font-light leading-relaxed">
+                  <p>
+                    Đây là sơ đồ tổng quan mô tả nguyên lý đấu nối chung giữa bo mạch điều khiển và dải LED. Sơ đồ minh họa rõ ràng các đường cấp nguồn dương (<strong className="text-emerald-400">V+</strong>), đường tín hiệu điều khiển (<strong className="text-white">DATA</strong>), và đặc biệt là cách đấu nối cực âm (<strong className="text-amber-400 font-bold">GND</strong>) chung của hệ thống.
+                  </p>
+                  <p>
+                    💡 <strong className="text-white">Nguyên tắc cốt lõi:</strong> Tất cả các cực âm (GND) của nguồn cấp, mạch giảm áp, bo mạch và dải LED phải được nối chung lại với nhau để tạo ra điện thế chuẩn đồng nhất, giúp tín hiệu không bị chớp hay sai màu.
+                  </p>
+                </div>
+                <div className="md:col-span-5">
+                  <div className="relative group overflow-hidden rounded-xl border border-white/5 bg-black/40 p-2 cursor-pointer" onClick={() => {
+                    setActiveView("wiring");
+                    setSelectedWiringIndex(5);
+                    setIsZoomed(true);
+                  }}>
+                    <img 
+                      src="/img/controller-chip/ket-noi-5v-12v.png" 
+                      alt="Sơ đồ đấu nối tổng quát 5V & 12V" 
+                      className="w-full h-auto object-cover rounded-lg group-hover:scale-[1.01] transition-transform duration-300"
+                    />
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
+                      <span className="text-xs font-mono text-white bg-black/80 px-3 py-1.5 rounded-lg border border-white/10 flex items-center">
+                        <ZoomIn className="w-3.5 h-3.5 mr-1.5" /> Phóng to sơ đồ chung
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Nav list - Browser other items bottom bar */}
         <div className="pt-12 border-t border-white/10 text-center" id="detail-foot-cross-nav">

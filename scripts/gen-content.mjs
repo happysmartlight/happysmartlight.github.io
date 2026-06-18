@@ -11,9 +11,6 @@ const md = new MarkdownIt({ html: true, linkify: true, breaks: false });
 
 // Jekyll permalink => collection folder
 const COLLECTIONS = {
-  "controller-chip": "_controller-chip",
-  "led-props": "_led-props",
-  "poi-tools": "_poi-tools",
   "post-news": "_post-news",
   "service": "_service",
 };

@@ -7,15 +7,18 @@ import { Cpu } from "lucide-react";
  * Thêm `logo: "/img/partners/ten-file.png"` vào từng phần tử trong mảng `PARTNERS`.
  * Khi có `logo`, component sẽ hiển thị ảnh thật thay cho placeholder.
  * Để ảnh trong: public/img/partners/  (đường dẫn bắt đầu bằng "/img/partners/...").
+ *
+ * 👉 LINK ĐỐI TÁC:
+ * Thêm `link: "/service/partner-TenDoiTac/"` để click vào logo sẽ mở trang đối tác.
  */
-type Partner = { name: string; logo?: string };
+type Partner = { name: string; logo?: string; link?: string };
 
 const PARTNERS: Partner[] = [
   // Dùng tạm ảnh đối tác có sẵn trong /img/service/ (trang dịch vụ)
-  { name: "xLights", logo: "/img/service/partner-xlights-banner.jpg" },
-  { name: "LedFx", logo: "/img/service/partner-LedFX.png" },
-  { name: "Espressif", logo: "/img/service/partner-espressif.webp" },
-  { name: "Moonlight Dance", logo: "/img/service/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO.jpg" },
+  { name: "xLights", logo: "/img/service/partner-xlights-banner.jpg", link: "/service/partner-xLights/" },
+  { name: "LedFx", logo: "/img/service/partner-LedFX.png", link: "/service/partner-LedFx/" },
+  { name: "Espressif", logo: "/img/service/partner-espressif.webp", link: "/service/partner-ESP32/" },
+  { name: "Moonlight Dance", logo: "/img/service/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO.jpg", link: "/service/partner-Moonlight-dance/" },
   // Placeholder SVG (chưa có logo thật)
   { name: "Art-Net", logo: "/img/partners/art-net.svg" },
   { name: "WLED", logo: "/img/partners/wled.svg" },
@@ -25,10 +28,11 @@ const PARTNERS: Partner[] = [
 function renderLogo(partner: Partner, key: string) {
   // SVG wordmark → object-contain (giữ trọn logo); ảnh thật (jpg/png/webp) → object-cover lấp đầy ô, cắt gọn.
   const isVector = partner.logo?.toLowerCase().endsWith(".svg");
-  return (
+
+  const content = (
     <div
       key={key}
-      className="group/logo relative flex items-center justify-center h-16 sm:h-[72px] w-40 sm:w-44 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/15 transition-colors shrink-0 overflow-hidden"
+      className={`group/logo relative flex items-center justify-center h-16 sm:h-[72px] w-40 sm:w-44 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/15 transition-colors shrink-0 overflow-hidden${partner.link ? " cursor-pointer" : ""}`}
       title={partner.name}
     >
       {partner.logo ? (
@@ -38,7 +42,7 @@ function renderLogo(partner: Partner, key: string) {
             alt={partner.name}
             loading="lazy"
             decoding="async"
-            className="max-h-9 sm:max-h-10 max-w-[80%] w-auto object-contain opacity-70 grayscale group-hover/logo:opacity-100 group-hover/logo:grayscale-0 transition-all duration-300"
+            className="max-h-9 sm:max-h-10 max-w-[80%] w-auto object-contain opacity-80 group-hover/logo:opacity-100 transition-all duration-300"
           />
         ) : (
           <img
@@ -46,7 +50,7 @@ function renderLogo(partner: Partner, key: string) {
             alt={partner.name}
             loading="lazy"
             decoding="async"
-            className="absolute inset-0 w-full h-full object-cover opacity-80 grayscale group-hover/logo:opacity-100 group-hover/logo:grayscale-0 transition-all duration-300"
+            className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover/logo:opacity-100 transition-all duration-300"
           />
         )
       ) : (
@@ -61,6 +65,16 @@ function renderLogo(partner: Partner, key: string) {
       )}
     </div>
   );
+
+  if (partner.link) {
+    return (
+      <a key={key} href={partner.link} className="no-underline" aria-label={`Xem trang đối tác ${partner.name}`}>
+        {content}
+      </a>
+    );
+  }
+
+  return content;
 }
 
 export default function PartnerMarquee() {

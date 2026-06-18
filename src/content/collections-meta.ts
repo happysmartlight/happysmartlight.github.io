@@ -3,9 +3,6 @@
 // (with rendered HTML) lives in ./collections and is loaded lazily.
 
 export type CollectionKey =
-  | "controller-chip"
-  | "led-props"
-  | "poi-tools"
   | "post-news"
   | "service";
 
@@ -19,33 +16,6 @@ export interface CollectionMeta {
 }
 
 export const COLLECTION_META: Record<CollectionKey, CollectionMeta> = {
-  "controller-chip": {
-    key: "controller-chip",
-    path: "/controller-chip",
-    title: "Mạch Điều Khiển LED ARGB — Controller HSL | Happy Smart Light",
-    heading: "Mạch Điều Khiển LED ARGB",
-    description:
-      "Bộ mạch điều khiển LED pixel ARGB của Happy Smart Light: hỗ trợ WS2812B, WS2811, SK6812, APA102… nạp firmware dễ dàng, điều khiển hiệu ứng không giới hạn.",
-    eyebrow: "CONTROLLER",
-  },
-  "led-props": {
-    key: "led-props",
-    path: "/led-props",
-    title: "Đạo Cụ LED Pixel & Module — Magic LED HSL | Happy Smart Light",
-    heading: "Đạo Cụ LED Pixel & Module",
-    description:
-      "Đạo cụ LED Pixel, LED Module, Laser Series và phụ kiện trình diễn ánh sáng của Happy Smart Light cho sân khấu, sự kiện và trang trí.",
-    eyebrow: "LED PROPS",
-  },
-  "poi-tools": {
-    key: "poi-tools",
-    path: "/poi-tools",
-    title: "Visual LED — Gậy POI & Hoop Biểu Diễn | Happy Smart Light",
-    heading: "Visual LED — Gậy POI & Hoop",
-    description:
-      "Gậy LED POI, Hoop và đạo cụ visual biểu diễn ánh sáng lập trình được của Happy Smart Light dành cho nghệ sĩ trình diễn.",
-    eyebrow: "VISUAL LED",
-  },
   "post-news": {
     key: "post-news",
     path: "/post-news",
@@ -67,3 +37,4 @@ export const COLLECTION_META: Record<CollectionKey, CollectionMeta> = {
 };
 
 export const COLLECTION_KEYS = Object.keys(COLLECTION_META) as CollectionKey[];
+

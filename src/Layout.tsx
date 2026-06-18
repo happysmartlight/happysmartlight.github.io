@@ -154,10 +154,7 @@ export default function Layout() {
         {outlet && React.cloneElement(outlet, { key: location.pathname })}
       </AnimatePresence>
 
-      <Footer
-        onNavigate={scrollToSection}
-        onViewPrivacy={() => navigate("/chinh-sach-bao-mat")}
-      />
+      <Footer onNavigate={scrollToSection} />
 
       <FloatingActions themeGlow={themeGlow} />
     </div>

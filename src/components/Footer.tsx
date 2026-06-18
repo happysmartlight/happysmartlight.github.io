@@ -4,10 +4,9 @@ import { COLLECTION_META, COLLECTION_KEYS } from "../content/collections-meta";
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
-  onViewPrivacy?: () => void;
 }
 
-export default function Footer({ onNavigate, onViewPrivacy }: FooterProps) {
+export default function Footer({ onNavigate }: FooterProps) {
   const handleScrollToTop = () => {
     onNavigate("hero");
   };
@@ -21,7 +20,7 @@ export default function Footer({ onNavigate, onViewPrivacy }: FooterProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" id="footer-container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 pb-12 border-b border-white/5" id="footer-row-top">
           {/* Brand Intro Column */}
-          <div className="lg:col-span-4 space-y-4" id="footer-brand-intro">
+          <div className="lg:col-span-3 space-y-4" id="footer-brand-intro">
             <div className="flex items-center space-x-2 cursor-pointer group" onClick={handleScrollToTop}>
               <div className="relative w-9 h-9 flex items-center justify-center rounded-lg bg-slate-900 border border-white/10 overflow-hidden shadow-glow-blue/25">
                 <svg
@@ -76,7 +75,7 @@ export default function Footer({ onNavigate, onViewPrivacy }: FooterProps) {
           </div>
 
           {/* Catalog / Collections (internal links for SEO) */}
-          <div className="lg:col-span-3 space-y-4" id="footer-catalog">
+          <div className="lg:col-span-2 space-y-4" id="footer-catalog">
             <h4 className="font-display font-bold text-sm text-white tracking-wider uppercase">Danh Mục</h4>
             <div className="flex flex-col gap-2">
               {COLLECTION_KEYS.map((key) => (
@@ -88,6 +87,31 @@ export default function Footer({ onNavigate, onViewPrivacy }: FooterProps) {
                   {COLLECTION_META[key].heading}
                 </Link>
               ))}
+            </div>
+          </div>
+
+          {/* Policy links cluster */}
+          <div className="lg:col-span-2 space-y-4" id="footer-policies">
+            <h4 className="font-display font-bold text-sm text-white tracking-wider uppercase">Chính Sách</h4>
+            <div className="flex flex-col gap-2">
+              <Link
+                to="/chinh-sach-ban-hang/"
+                className="text-slate-400 hover:text-[#00f0ff] text-xs font-sans transition-colors"
+              >
+                Bán hàng &amp; thanh toán
+              </Link>
+              <Link
+                to="/chinh-sach-ban-quyen/"
+                className="text-slate-400 hover:text-[#00f0ff] text-xs font-sans transition-colors"
+              >
+                Bản quyền &amp; SHTT
+              </Link>
+              <Link
+                to="/chinh-sach-bao-mat/"
+                className="text-slate-400 hover:text-[#00f0ff] text-xs font-sans transition-colors"
+              >
+                Bảo mật ARGB HSL
+              </Link>
             </div>
           </div>
 
@@ -118,35 +142,9 @@ export default function Footer({ onNavigate, onViewPrivacy }: FooterProps) {
 
         {/* Row bottom credits */}
         <div className="mt-8 pt-8 flex flex-col sm:flex-row items-center sm:justify-between text-[11px] font-mono text-slate-500 gap-4" id="footer-row-bottom">
-          <div className="flex flex-col gap-3 text-center sm:text-left">
-            <span>© {new Date().getFullYear()} Happy Smart Light. Thiết kế tối ưu cho trải nghiệm người dùng Việt Nam.</span>
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-2">
-              <Link
-                to="/chinh-sach-ban-hang/"
-                className="hover:text-neon-pink transition-colors text-slate-400 underline decoration-slate-600 hover:decoration-neon-pink font-sans"
-              >
-                Chính sách bán hàng &amp; thanh toán
-              </Link>
-              <span className="text-slate-700">|</span>
-              <Link
-                to="/chinh-sach-ban-quyen/"
-                className="hover:text-neon-pink transition-colors text-slate-400 underline decoration-slate-600 hover:decoration-neon-pink font-sans"
-              >
-                Chính sách bản quyền &amp; SHTT
-              </Link>
-              {onViewPrivacy && (
-                <>
-                  <span className="text-slate-700">|</span>
-                  <button
-                    onClick={onViewPrivacy}
-                    className="hover:text-neon-pink transition-colors text-slate-400 underline decoration-slate-600 hover:decoration-neon-pink cursor-pointer font-sans"
-                  >
-                    Chính sách bảo mật ARGB HSL (Google Play)
-                  </button>
-                </>
-              )}
-            </div>
-          </div>
+          <p className="text-center sm:text-left">
+            © {new Date().getFullYear()} Happy Smart Light. Thiết kế tối ưu cho trải nghiệm người dùng Việt Nam.
+          </p>
 
           {/* Scroll to Top Trigger */}
           <button

@@ -25,7 +25,7 @@ function renderLogo(partner: Partner, key: string) {
   return (
     <div
       key={key}
-      className="group/logo flex items-center gap-2.5 px-6 py-3 rounded-xl bg-slate-900/40 border border-white/5 hover:border-white/15 transition-colors shrink-0"
+      className="group/logo flex items-center justify-center h-16 sm:h-[72px] w-40 sm:w-44 px-5 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] hover:border-white/15 transition-colors shrink-0"
       title={partner.name}
     >
       {partner.logo ? (
@@ -34,17 +34,17 @@ function renderLogo(partner: Partner, key: string) {
           alt={partner.name}
           loading="lazy"
           decoding="async"
-          className="h-7 sm:h-8 w-auto object-contain opacity-60 grayscale group-hover/logo:opacity-100 group-hover/logo:grayscale-0 transition-all duration-300"
+          className="max-h-8 sm:max-h-9 w-auto object-contain opacity-70 grayscale group-hover/logo:opacity-100 group-hover/logo:grayscale-0 transition-all duration-300"
         />
       ) : (
-        <>
+        <div className="flex items-center gap-2.5">
           <span className="w-7 h-7 rounded-lg bg-slate-950 border border-white/10 flex items-center justify-center shrink-0">
             <Cpu className="w-3.5 h-3.5 text-slate-500 group-hover/logo:text-neon-blue-bright transition-colors" />
           </span>
           <span className="font-display font-bold text-sm sm:text-base text-slate-500 group-hover/logo:text-white tracking-tight whitespace-nowrap transition-colors">
             {partner.name}
           </span>
-        </>
+        </div>
       )}
     </div>
   );

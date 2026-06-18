@@ -1,5 +1,7 @@
-import { ArrowLeft, Smartphone, Laptop, Download, CheckCircle2, Cpu, Wifi, Sliders, Music, Camera, ShieldCheck, Mail, Phone, PlayCircle, Settings, Sparkles, type LucideIcon } from "lucide-react";
+import { useState } from "react";
+import { ArrowLeft, Smartphone, Laptop, Download, CheckCircle2, Cpu, Wifi, Sliders, Music, Camera, ShieldCheck, Mail, Phone, PlayCircle, Settings, Sparkles, Eye, type LucideIcon } from "lucide-react";
 import { motion } from "motion/react";
+import ImageZoomLightbox, { type ZoomGalleryItem } from "./ImageZoomLightbox";
 
 interface Feature {
   icon: LucideIcon;
@@ -51,9 +53,39 @@ interface SoftwareDetailsPageProps {
 const WINDOWS_TOOL_URL =
   "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.7.1.exe";
 
+const APP_SCREENSHOTS: (ZoomGalleryItem & { desc: string })[] = [
+  {
+    url: "/img/app-mobile/Screenshot_2026-06-18-21-43-57-964_com.happysmartlight.argb.jpg",
+    label: "Màn hình điều khiển chính",
+    desc: "Bật/tắt, chỉnh độ sáng và đổi kịch bản nhanh.",
+    alt: "Màn hình điều khiển chính của ứng dụng ARGB HSL",
+  },
+  {
+    url: "/img/app-mobile/Screenshot_2026-06-18-21-44-06-086_com.happysmartlight.argb.jpg",
+    label: "Danh sách hiệu ứng",
+    desc: "Hơn 300 hiệu ứng kịch bản chạy mượt mà.",
+    alt: "Danh sách hiệu ứng của ứng dụng ARGB HSL",
+  },
+  {
+    url: "/img/app-mobile/Screenshot_2026-06-18-21-44-21-470_com.happysmartlight.argb.jpg",
+    label: "Tùy biến dải màu",
+    desc: "Phối màu sRGB đa sắc độ cực kỳ trực quan.",
+    alt: "Màn hình tùy biến dải màu của ứng dụng ARGB HSL",
+  },
+  {
+    url: "/img/app-mobile/Screenshot_2026-06-18-21-44-32-337_com.happysmartlight.argb.jpg",
+    label: "Cài đặt & Ghép nối",
+    desc: "Cấu hình WiFi/Bluetooth BLE nhanh chóng.",
+    alt: "Màn hình cài đặt và ghép nối của ứng dụng ARGB HSL",
+  },
+];
+
 export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPageProps) {
   const isApp = type === "app";
   const t = THEME[type];
+  const [activeScreenshotIndex, setActiveScreenshotIndex] = useState<number>(0);
+  const [isScreenshotViewerOpen, setIsScreenshotViewerOpen] = useState<boolean>(false);
+  const activeScreenshot = APP_SCREENSHOTS[activeScreenshotIndex] ?? APP_SCREENSHOTS[0];
 
   const startToolDownload = () => {
     const link = document.createElement("a");
@@ -166,54 +198,81 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
             </div>
           )}
 
-          {/* Mobile App Screenshots Grid */}
+          {/* Mobile App Screenshots Showcase */}
           {isApp && (
             <div className="mb-10 space-y-4">
-              <h3 className="font-display font-bold text-xs text-slate-400 uppercase tracking-wider">
-                Giao diện ứng dụng thực tế
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {[
-                  {
-                    src: "/img/app-mobile/Screenshot_2026-06-18-21-43-57-964_com.happysmartlight.argb.jpg",
-                    label: "Màn hình điều khiển chính",
-                    desc: "Bật/tắt, chỉnh độ sáng và đổi kịch bản nhanh."
-                  },
-                  {
-                    src: "/img/app-mobile/Screenshot_2026-06-18-21-44-06-086_com.happysmartlight.argb.jpg",
-                    label: "Danh sách hiệu ứng",
-                    desc: "Hơn 300 hiệu ứng kịch bản chạy mượt mà."
-                  },
-                  {
-                    src: "/img/app-mobile/Screenshot_2026-06-18-21-44-21-470_com.happysmartlight.argb.jpg",
-                    label: "Tùy biến dải màu",
-                    desc: "Phối màu sRGB đa sắc độ cực kỳ trực quan."
-                  },
-                  {
-                    src: "/img/app-mobile/Screenshot_2026-06-18-21-44-32-337_com.happysmartlight.argb.jpg",
-                    label: "Cài đặt & Ghép nối",
-                    desc: "Cấu hình WiFi/Bluetooth BLE nhanh chóng."
-                  }
-                ].map((screen, idx) => (
-                  <div key={idx} className="group relative rounded-2xl overflow-hidden border border-white/5 bg-slate-900/40 p-2 hover:border-neon-pink/20 transition-all duration-300 flex flex-col justify-between">
-                    <div className="relative aspect-[9/19] rounded-xl overflow-hidden bg-black/40">
-                      <img 
-                        src={screen.src} 
-                        alt={screen.label} 
-                        loading="lazy"
-                        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="pt-3 px-1">
-                      <span className="block font-sans font-bold text-white text-[11px] leading-tight tracking-tight">
-                        {screen.label}
-                      </span>
-                      <span className="block font-sans text-slate-500 text-[9px] mt-1 leading-normal font-light">
-                        {screen.desc}
-                      </span>
-                    </div>
+              <div className="flex justify-center">
+                <div className="inline-flex rounded-2xl bg-slate-950 border border-white/10 p-1 shadow-inner">
+                  <button
+                    type="button"
+                    className="px-5 py-2 rounded-xl bg-white/10 text-white font-display text-xs font-bold uppercase tracking-wider"
+                  >
+                    Ảnh demo app
+                  </button>
+                </div>
+              </div>
+
+              <div className="w-full rounded-3xl bg-slate-950 border border-neon-pink/25 p-4 sm:p-5 flex flex-col items-center justify-between min-h-[420px] relative overflow-hidden shadow-glow-pink/10">
+                <div className="absolute top-2 right-3 flex items-center space-x-1.5 opacity-40 font-mono text-[8px] z-10">
+                  <span className="w-1.5 h-1.5 rounded-full bg-neon-pink animate-ping" />
+                  <span>APP SCREEN VIEW</span>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setIsScreenshotViewerOpen(true)}
+                  aria-label={`Xem lớn ${activeScreenshot.label}`}
+                  className="group/zoom w-full relative aspect-[1.65/1] overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 flex items-center justify-center cursor-zoom-in mt-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-pink/60"
+                >
+                  <img
+                    src={activeScreenshot.url}
+                    alt={activeScreenshot.alt ?? activeScreenshot.label}
+                    loading="eager"
+                    decoding="async"
+                    className="w-full h-full object-contain group-hover/zoom:scale-[1.02] transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/zoom:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-2xl">
+                    <span className="px-3.5 py-1.5 bg-slate-900/90 border border-white/10 rounded-lg text-[10px] font-mono text-white flex items-center space-x-1.5 shadow-lg">
+                      <Eye className="w-3 h-3 text-neon-pink-bright" />
+                      <span>CLICK ĐỂ PHÓNG TO</span>
+                    </span>
                   </div>
-                ))}
+                </button>
+
+                <div className="flex flex-wrap justify-center gap-2 mt-4 max-h-[84px] overflow-y-auto py-1 w-full">
+                  {APP_SCREENSHOTS.map((screen, idx) => {
+                    const selected = idx === activeScreenshotIndex;
+                    return (
+                      <button
+                        key={screen.url}
+                        type="button"
+                        onClick={() => setActiveScreenshotIndex(idx)}
+                        aria-pressed={selected}
+                        aria-label={`Chọn ${screen.label}`}
+                        className={`w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border bg-slate-900 transition-all duration-200 cursor-pointer flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-pink/60 ${
+                          selected
+                            ? "border-neon-pink shadow-glow-pink/30 scale-105"
+                            : "border-white/10 hover:border-white/30"
+                        }`}
+                      >
+                        <img
+                          src={screen.url}
+                          alt={screen.alt ?? screen.label}
+                          loading="lazy"
+                          decoding="async"
+                          className="w-full h-full object-cover"
+                        />
+                      </button>
+                    );
+                  })}
+                </div>
+
+                <div className="w-full pt-3 mt-3 border-t border-white/5 flex items-center justify-center text-center text-[10px] font-mono text-slate-500">
+                  <span className="text-slate-300 mr-2 tabular-nums">
+                    {activeScreenshotIndex + 1} / {APP_SCREENSHOTS.length}
+                  </span>
+                  <span>{activeScreenshot.label}</span>
+                </div>
               </div>
             </div>
           )}
@@ -322,6 +381,15 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
           </section>
         </motion.div>
       </div>
+
+      <ImageZoomLightbox
+        open={isScreenshotViewerOpen}
+        items={APP_SCREENSHOTS}
+        currentIndex={activeScreenshotIndex}
+        title="Ứng dụng di động ARGB HSL"
+        onClose={() => setIsScreenshotViewerOpen(false)}
+        onIndexChange={setActiveScreenshotIndex}
+      />
     </div>
   );
 }

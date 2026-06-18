@@ -61,6 +61,13 @@ When you need to style elements, heavily rely on these pre-built classes to main
 2. **Neon Accents:** Use intense, focused gradient text (`bg-gradient-to-r from-neon-pink to-neon-blue bg-clip-text text-transparent`) for major CTA text or important numbers.
 3. **Ghost Panels:** Use `bg-slate-900/60 border border-white/5` for subdued cards, saving the intense glowing borders (`border-neon-pink/40`) for active/selected states.
 
+### 4.3. Image Album / Gallery Pattern
+- For product/app image albums, follow the `/san-pham/hsl4x/` layout pattern: top tab/label control, one large primary image area inside a rounded dark framed panel, then a horizontal row of small thumbnails below.
+- Do not use a four-equal-card grid for narrow portrait screenshots; it makes mobile app screenshots too cramped.
+- The primary image should be the main clickable target for zoom/lightbox. Thumbnails should switch the active image and use a clear active border/glow.
+- Reuse the smart viewer behavior when available: click to open, zoom in/out, wheel zoom, pan while zoomed, keyboard left/right navigation, ESC close.
+- Keep gallery UI compact and product-like: no explanatory side lists, no oversized prose, no marketing layout inside the album block.
+
 ## 5. Contact Information Source of Truth
 If updating templates or footers, ALWAYS use these exact details:
 - **Phone / Zalo:** (+84) 0784 140 494

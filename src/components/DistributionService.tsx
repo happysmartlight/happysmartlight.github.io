@@ -13,6 +13,7 @@ interface ChipItem {
   highlight: string;
   availability: "Sẵn hàng tại HCM" | "Hàng Oder (5-7 ngày)" | "Sắp có hàng";
   colorTheme: "pink" | "blue";
+  badge?: string;
   bestSeller?: boolean;
   referenceUrl?: string;
 }
@@ -27,6 +28,7 @@ export default function DistributionService() {
       brand: "Lighttoys",
       name: "Chip Điều Khiển FT2 (Future Technology)",
       codeName: "LT-FT2-RX",
+      badge: "BÁN CHẠY #1",
       bestSeller: true,
       referenceUrl: "https://www.lighttoys.cz/product/ft2-control-chip/",
       originalProp: "Trang bị gốc trên Buugeng, Juggling Club & Aerial Hoop FT2 của Lighttoys",
@@ -43,19 +45,23 @@ export default function DistributionService() {
       colorTheme: "pink"
     },
     {
-      id: "lt-core-v2",
+      id: "lt-ft-remote",
       brand: "Lighttoys",
-      name: "Chip Điều Khiển Staging Core V2",
-      codeName: "LT-STG-MCU-V2",
-      originalProp: "Trang bị gốc trên Gậy Lighttoys Pyro & Buugeng LED",
-      description: "Chip xử lý nạp cực mạnh tích hợp sẵn phần cứng đồng bộ vô tuyến cực xa (truyền nhận tín hiệu RF tầm xa 868MHz), ổn định tín hiệu cho môi trường nhiễu sóng sân khấu nặng.",
+      name: "FT remote",
+      codeName: "LT-FT-REMOTE",
+      badge: "REMOTE 200M",
+      referenceUrl: "https://www.lighttoys.cz/product/ft-remote-controller/",
+      originalProp: "Bộ điều khiển từ xa chính hãng cho hệ sinh thái Visual & FT của Lighttoys",
+      description: "FT remote là bộ điều khiển cầm tay dùng công nghệ 2.4GHz cho các sản phẩm Visual & FT của Lighttoys. Thiết bị hỗ trợ sạc và lập trình qua USB-C, tầm tín hiệu lên tới 200m, nút bấm tactile feedback đáng tin cậy và hiệu năng đã được cải tiến.",
       specs: [
-        { label: "Tần số quét PWM", value: "Tới 19.2 KHz (Không nhấp nháy trên máy quay phim)" },
-        { label: "Băng tải Pixel", value: "Hỗ trợ tối đa 4096 dòng pixel APA102/WS2812" },
-        { label: "Bảo vệ dòng", value: "Cầu chì tự phục hồi dòng ngắn mạch 12A" },
-        { label: "Đế hàn", value: "Chuẩn SMD QFN48 siêu gọn cho gậy biểu diễn" }
+        { label: "Kết nối", value: "Công nghệ 2.4GHz cho hệ Visual & FT" },
+        { label: "Tầm tín hiệu", value: "Lên tới 200m theo thông số Lighttoys" },
+        { label: "Cổng sạc/lập trình", value: "USB-C charging & programming" },
+        { label: "Điều khiển", value: "Nút bấm tactile feedback, thao tác chắc tay trên sân khấu" },
+        { label: "Tương thích", value: "Hoạt động với toàn bộ sản phẩm Visual & FT" },
+        { label: "Giá tham khảo", value: "$30, đang hiển thị In stock trên lighttoys.cz" }
       ],
-      highlight: "Tương thích tuyệt hảo với các hệ thống phát tín hiệu điều khiển tập trung DMX và USB Transmitter của Lighttoys",
+      highlight: "Phù hợp làm remote đồng bộ và kiểm soát đội hình đạo cụ Lighttoys, đặc biệt khi cần thao tác nhanh, ổn định và gọn nhẹ trong môi trường biểu diễn.",
       availability: "Sẵn hàng tại HCM",
       colorTheme: "pink"
     },
@@ -64,6 +70,7 @@ export default function DistributionService() {
       brand: "Ignis",
       name: "Vi Xử Lý Ổn Định Điểm Ảnh Ignis P16",
       codeName: "IG-PXL-DRV-P16",
+      badge: "POV HD",
       originalProp: "Trang bị gốc trên dòng Ignis Pixel POI 80HD / 160HD",
       description: "IC điều khiển nén ảnh thông minh, đặc biệt tích hợp con quay hồi chuyển 6 trục IMU nhạy cao để tính toán vị trí góc quay thời gian thực (POV), tạo ảo ảnh logo/ảnh chân dung sắc nét kinh ngạc khi múa gậy xoay.",
       specs: [
@@ -131,7 +138,7 @@ export default function DistributionService() {
                   : "bg-slate-900/50 text-slate-400 border-white/5 hover:text-white hover:border-white/10"
               }`}
             >
-              Lighttoys Chips
+              Lighttoys
             </button>
             <button 
               onClick={() => setSelectedBrand("Ignis")}
@@ -153,6 +160,7 @@ export default function DistributionService() {
             .map((chip) => {
               const isActive = activeChipId === chip.id;
               const isPink = chip.colorTheme === "pink";
+              const itemKindLabel = chip.id === "lt-ft-remote" ? "REMOTE CONTROLLER" : "SEMICONDUCTOR";
 
               return (
                 <div
@@ -170,7 +178,7 @@ export default function DistributionService() {
                       <span className={`text-[10px] font-mono tracking-wider px-2 py-0.5 rounded font-bold ${
                         isPink ? "bg-neon-pink/10 text-neon-pink-bright" : "bg-neon-blue/10 text-neon-blue-bright"
                       }`}>
-                        {chip.brand.toUpperCase()} SEMICONDUCTOR
+                        {chip.brand.toUpperCase()} {itemKindLabel}
                       </span>
 
                       <span className={`text-[9px] font-mono px-2 py-0.5 rounded border ${
@@ -183,9 +191,9 @@ export default function DistributionService() {
                     </div>
 
                     <div className="space-y-1">
-                      {chip.bestSeller && (
+                      {chip.badge && (
                         <span className="inline-flex items-center gap-1 text-[9px] font-mono font-bold px-2 py-0.5 rounded-full bg-yellow-500/15 text-yellow-300 border border-yellow-500/30 mb-1">
-                          <Star className="w-3 h-3 fill-current" /> BÁN CHẠY #1
+                          <Star className="w-3 h-3 fill-current" /> {chip.badge}
                         </span>
                       )}
                       <h4 className="font-display font-bold text-base text-zinc-100 group-hover:text-white transition-colors">
@@ -211,7 +219,7 @@ export default function DistributionService() {
                         className="w-full py-2 bg-slate-950/60 hover:bg-slate-900 border border-white/5 rounded-xl text-[10px] font-mono text-slate-400 hover:text-white text-center tracking-widest uppercase cursor-pointer transition-all flex items-center justify-center space-x-1"
                       >
                         <Cpu className="w-3.5 h-3.5 mr-1" />
-                        <span>{isActive ? "Thu gọn thông số" : "Xem chi tiết thông số chip"}</span>
+                        <span>{isActive ? "Thu gọn thông số" : "Xem chi tiết thông số"}</span>
                       </button>
                     </div>
 

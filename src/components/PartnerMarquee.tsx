@@ -23,20 +23,32 @@ const PARTNERS: Partner[] = [
 ];
 
 function renderLogo(partner: Partner, key: string) {
+  // SVG wordmark → object-contain (giữ trọn logo); ảnh thật (jpg/png/webp) → object-cover lấp đầy ô, cắt gọn.
+  const isVector = partner.logo?.toLowerCase().endsWith(".svg");
   return (
     <div
       key={key}
-      className="group/logo flex items-center justify-center h-16 sm:h-[72px] w-40 sm:w-44 px-5 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] hover:border-white/15 transition-colors shrink-0 overflow-hidden"
+      className="group/logo relative flex items-center justify-center h-16 sm:h-[72px] w-40 sm:w-44 rounded-2xl bg-white/[0.03] border border-white/5 hover:border-white/15 transition-colors shrink-0 overflow-hidden"
       title={partner.name}
     >
       {partner.logo ? (
-        <img
-          src={partner.logo}
-          alt={partner.name}
-          loading="lazy"
-          decoding="async"
-          className="max-h-9 sm:max-h-10 max-w-full w-auto object-contain opacity-70 grayscale group-hover/logo:opacity-100 group-hover/logo:grayscale-0 transition-all duration-300"
-        />
+        isVector ? (
+          <img
+            src={partner.logo}
+            alt={partner.name}
+            loading="lazy"
+            decoding="async"
+            className="max-h-9 sm:max-h-10 max-w-[80%] w-auto object-contain opacity-70 grayscale group-hover/logo:opacity-100 group-hover/logo:grayscale-0 transition-all duration-300"
+          />
+        ) : (
+          <img
+            src={partner.logo}
+            alt={partner.name}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-cover opacity-80 grayscale group-hover/logo:opacity-100 group-hover/logo:grayscale-0 transition-all duration-300"
+          />
+        )
       ) : (
         <div className="flex items-center gap-2.5">
           <span className="w-7 h-7 rounded-lg bg-slate-950 border border-white/10 flex items-center justify-center shrink-0">

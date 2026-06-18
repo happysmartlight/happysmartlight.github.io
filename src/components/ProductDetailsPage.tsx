@@ -332,8 +332,8 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         { label: "Sơ đồ chân (Pinout)", url: "/img/products/hsl4x/pinout_diagram.svg" },
         { label: "Kết nối 4 cổng ARGB", url: "/img/products/hsl4x/wiring_standard.svg" },
         { label: "Kết nối 2 cổng SPI", url: "/img/products/hsl4x/wiring_spi.svg" },
-        { label: "Kết nối LED 5V", url: "/argb-hsl/image/strip_led_5v.png" },
-        { label: "Kết nối LED 12V (Hạ áp)", url: "/argb-hsl/image/strip_led_12v.png" },
+        { label: "Kết nối LED 5V", url: "/img/controller-chip/strip_led_5v.png" },
+        { label: "Kết nối LED 12V (Hạ áp)", url: "/img/controller-chip/strip_led_12v.png" },
         { label: "Kết nối LED 12V (Chung GND)", url: "/img/controller-chip/ket-noi-5v-12v.png" }
       ]
     },
@@ -1160,7 +1160,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
                     setIsZoomed(true);
                   }}>
                     <img 
-                      src="/argb-hsl/image/strip_led_5v.png" 
+                      src="/img/controller-chip/strip_led_5v.png" 
                       alt="Sơ đồ kết nối LED 5V" 
                       className="w-full h-auto object-cover rounded-lg group-hover:scale-[1.02] transition-transform duration-300"
                     />
@@ -1224,7 +1224,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
                     setIsZoomed(true);
                   }}>
                     <img 
-                      src="/argb-hsl/image/strip_led_12v.png" 
+                      src="/img/controller-chip/strip_led_12v.png" 
                       alt="Sơ đồ 12V dùng mạch giảm áp" 
                       className="w-full h-auto object-cover rounded-lg group-hover:scale-[1.02] transition-transform duration-300"
                     />

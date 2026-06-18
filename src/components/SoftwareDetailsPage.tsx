@@ -166,6 +166,58 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
             </div>
           )}
 
+          {/* Mobile App Screenshots Grid */}
+          {isApp && (
+            <div className="mb-10 space-y-4">
+              <h3 className="font-display font-bold text-xs text-slate-400 uppercase tracking-wider">
+                Giao diện ứng dụng thực tế
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {[
+                  {
+                    src: "/img/app-mobile/Screenshot_2026-06-18-21-43-57-964_com.happysmartlight.argb.jpg",
+                    label: "Màn hình điều khiển chính",
+                    desc: "Bật/tắt, chỉnh độ sáng và đổi kịch bản nhanh."
+                  },
+                  {
+                    src: "/img/app-mobile/Screenshot_2026-06-18-21-44-06-086_com.happysmartlight.argb.jpg",
+                    label: "Danh sách hiệu ứng",
+                    desc: "Hơn 300 hiệu ứng kịch bản chạy mượt mà."
+                  },
+                  {
+                    src: "/img/app-mobile/Screenshot_2026-06-18-21-44-21-470_com.happysmartlight.argb.jpg",
+                    label: "Tùy biến dải màu",
+                    desc: "Phối màu sRGB đa sắc độ cực kỳ trực quan."
+                  },
+                  {
+                    src: "/img/app-mobile/Screenshot_2026-06-18-21-44-32-337_com.happysmartlight.argb.jpg",
+                    label: "Cài đặt & Ghép nối",
+                    desc: "Cấu hình WiFi/Bluetooth BLE nhanh chóng."
+                  }
+                ].map((screen, idx) => (
+                  <div key={idx} className="group relative rounded-2xl overflow-hidden border border-white/5 bg-slate-900/40 p-2 hover:border-neon-pink/20 transition-all duration-300 flex flex-col justify-between">
+                    <div className="relative aspect-[9/19] rounded-xl overflow-hidden bg-black/40">
+                      <img 
+                        src={screen.src} 
+                        alt={screen.label} 
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                      />
+                    </div>
+                    <div className="pt-3 px-1">
+                      <span className="block font-sans font-bold text-white text-[11px] leading-tight tracking-tight">
+                        {screen.label}
+                      </span>
+                      <span className="block font-sans text-slate-500 text-[9px] mt-1 leading-normal font-light">
+                        {screen.desc}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Key features */}
           <section className="space-y-4 mb-10">
             <h2 className="font-display font-bold text-base sm:text-lg text-white flex items-center gap-2.5">

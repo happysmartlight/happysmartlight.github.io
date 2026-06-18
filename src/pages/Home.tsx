@@ -70,7 +70,7 @@ export default function Home() {
       <InteractiveAppShowcase onThemeChanged={(theme) => setThemeGlow(theme)} />
       <AppAndToolSection
         onViewPrivacy={() => navigate("/chinh-sach-bao-mat")}
-        onViewAppDetails={() => navigate("/ung-dung-di-dong")}
+        onViewAppDetails={() => navigate("/argb-hsl-tool-mobile")}
         onViewToolDetails={() => navigate("/argb-hsl-tool-pc")}
       />
       <DistributionService />

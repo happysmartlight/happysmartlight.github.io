@@ -158,6 +158,23 @@
   animation: rotate-slow 25s infinite linear;
 }
 
+/* Marquee chạy loop ngang vô tận cho dải logo đối tác.
+   Track chứa 2 bản sao danh sách, dịch -50% là khớp liền mạch. */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.anim-marquee {
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+.anim-marquee:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .anim-marquee { animation: none; }
+}
+
 /* Zalo Widget Custom Positioning (Bottom Right) */
 .zalo-chat-widget {
   left: auto !important;

@@ -12,6 +12,7 @@ import WhyChooseUs from "../components/WhyChooseUs";
 import ProjectEstimator from "../components/ProjectEstimator";
 import AppAndToolSection from "../components/AppAndToolSection";
 import DistributionService from "../components/DistributionService";
+import PartnerMarquee from "../components/PartnerMarquee";
 import type { AppOutletContext } from "../Layout";
 
 export default function Home() {
@@ -75,6 +76,7 @@ export default function Home() {
       <DistributionService />
       <WhyChooseUs />
       <ProjectEstimator preFilledProduct={quotedProduct} />
+      <PartnerMarquee />
     </motion.div>
   );
 }

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { ArrowLeft, Cpu, Columns, Layers, Radio, Sliders, Play, Check, Sparkles, Battery, Monitor, Code, Settings, AlertTriangle, Hammer, Zap, Wifi, Eye, X, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, RotateCcw } from "lucide-react";
+import { ArrowLeft, Cpu, Columns, Layers, Radio, Sliders, Play, Check, Sparkles, Battery, Monitor, Code, Settings, AlertTriangle, Hammer, Zap, Wifi, Eye, X, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, RotateCcw, Share2 } from "lucide-react";
 import { motion } from "motion/react";
 
 interface ProductDetailsPageProps {
@@ -14,6 +14,8 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
   const [selectedWiringIndex, setSelectedWiringIndex] = useState<number>(0);
   const [isZoomed, setIsZoomed] = useState<boolean>(false);
+  // "copied" hiển thị khi máy không hỗ trợ Web Share API và ta fallback copy link.
+  const [shareStatus, setShareStatus] = useState<"idle" | "copied">("idle");
   // Zoom modal pan/scale state
   const [scale, setScale] = useState<number>(1);
   const [offset, setOffset] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
@@ -533,6 +535,34 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
     }
   };
 
+  // Chia sẻ sản phẩm: ưu tiên Web Share API (mở khay chia sẻ gốc trên điện thoại —
+  // Zalo, Messenger, SMS, Facebook…). Máy tính không hỗ trợ thì fallback copy link.
+  const handleShare = async () => {
+    if (typeof window === "undefined") return;
+    const shareData = {
+      title: selectedProduct.name,
+      text: `${selectedProduct.name} — ${selectedProduct.tagline}`,
+      url: window.location.href,
+    };
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+        return;
+      } catch (err) {
+        // Người dùng đóng khay chia sẻ → không làm gì thêm.
+        if ((err as Error)?.name === "AbortError") return;
+        // Lỗi khác → rơi xuống fallback copy link bên dưới.
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(shareData.url);
+      setShareStatus("copied");
+      setTimeout(() => setShareStatus("idle"), 2000);
+    } catch {
+      /* không copy được thì bỏ qua */
+    }
+  };
+
   return (
     <div className="relative min-h-screen bg-[#020204] text-[#f8fafc] font-sans pt-24 pb-16 relative overflow-hidden" id="product-detail-subpage-container">
       {/* Decorative large blurry glowing bulbs */}
@@ -631,6 +661,19 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
                 Nhận Báo Giá & Bản Vẽ Thiết Kế Đấu Nối ➔
               </button>
 
+              <button
+                onClick={handleShare}
+                className="py-4 px-6 rounded-2xl text-center font-display text-xs font-bold uppercase tracking-wider text-white bg-slate-900/60 border border-white/10 hover:border-white/30 hover:bg-slate-900 transition-all duration-300 cursor-pointer inline-flex items-center justify-center gap-2"
+                id="btn-detail-share"
+                aria-label={`Chia sẻ ${selectedProduct.name}`}
+              >
+                {shareStatus === "copied" ? (
+                  <Check className="w-4 h-4 text-emerald-400" />
+                ) : (
+                  <Share2 className="w-4 h-4" />
+                )}
+                <span>{shareStatus === "copied" ? "Đã copy link" : "Chia sẻ"}</span>
+              </button>
             </div>
           </div>
 

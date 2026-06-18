@@ -194,6 +194,22 @@
   .anim-marquee { animation: none; }
 }
 
+/* ===== TikTok embed ===== */
+/* Khử nền trắng + viền + box-shadow mặc định mà embed.js gắn lên lớp bọc ngoài
+   (.tiktok-embed thuộc DOM của ta nên chỉnh được). Phần nền TRẮNG còn lại nằm
+   TRONG iframe cross-origin của TikTok (caption/tên kênh) — không đổi được; khung
+   .tiktok-bezel tối bọc ngoài giúp nó trông như nằm trong khung có chủ ý. */
+.tiktok-embed {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+}
+.tiktok-bezel .tiktok-embed iframe {
+  border-radius: 14px;
+  display: block;
+}
+
 /* Zalo Widget Custom Positioning (Bottom Right) */
 .zalo-chat-widget {
   left: auto !important;

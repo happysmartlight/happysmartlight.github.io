@@ -24,18 +24,20 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
     setIsZoomed(false);
   }, [productId]);
 
-  // Handle Escape key to close zoom modal
+  // Handle Escape key + lock background scroll while zoom modal is open
   useEffect(() => {
+    if (!isZoomed) return;
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         setIsZoomed(false);
       }
     };
-    if (isZoomed) {
-      window.addEventListener("keydown", handleKeyDown);
-    }
+    window.addEventListener("keydown", handleKeyDown);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = prevOverflow;
     };
   }, [isZoomed]);
 
@@ -332,6 +334,49 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
 
   const selectedProduct = productsDetailedData[productId] || productsDetailedData.v4pro;
 
+  // Centralized glow-color styling (tránh lặp ternary 4 nhánh ở nhiều nơi)
+  const glowStyles = {
+    pink: {
+      card: "shadow-glow-pink/10 border-neon-pink/25",
+      thumb: "border-neon-pink shadow-glow-pink/30 scale-105",
+      chip: "bg-neon-pink/20 text-neon-pink-bright border border-neon-pink/40",
+    },
+    yellow: {
+      card: "shadow-glow-yellow/10 border-neon-yellow/25",
+      thumb: "border-neon-yellow shadow-glow-yellow/30 scale-105",
+      chip: "bg-neon-yellow/20 text-neon-yellow-bright border border-neon-yellow/40",
+    },
+    blue: {
+      card: "shadow-glow-blue/10 border-neon-blue/25",
+      thumb: "border-neon-blue shadow-glow-blue/30 scale-105",
+      chip: "bg-neon-blue/20 text-neon-blue-bright border border-neon-blue/40",
+    },
+    purple: {
+      card: "shadow-glow-dual/20 border-purple-500/25",
+      thumb: "border-purple-500 shadow-glow-dual/30 scale-105",
+      chip: "bg-purple-500/20 text-purple-300 border border-purple-500/40",
+    },
+  } as const;
+  const glow = glowStyles[selectedProduct.glowColor] ?? glowStyles.purple;
+
+  // Nguồn ảnh cho modal phóng to — dùng chung cho cả ảnh sản phẩm & sơ đồ đấu nối
+  const zoomSource =
+    activeView === "wiring"
+      ? {
+          src: selectedProduct.wiringDiagrams
+            ? selectedProduct.wiringDiagrams[selectedWiringIndex].url
+            : selectedProduct.wiringDiagram,
+          label: selectedProduct.wiringDiagrams
+            ? selectedProduct.wiringDiagrams[selectedWiringIndex].label
+            : "Sơ đồ đấu nối",
+          title: "Sơ Đồ Đấu Nối",
+        }
+      : {
+          src: selectedProduct.images?.[selectedImageIndex],
+          label: `Ảnh ${selectedImageIndex + 1}/${selectedProduct.images?.length ?? 0}`,
+          title: "Ảnh Sản Phẩm",
+        };
+
   // Render correct icon based on name
   const renderIconComponent = (iconName: string) => {
     switch (iconName) {
@@ -452,8 +497,10 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
             {selectedProduct.images && selectedProduct.images.length > 0 ? (
               <div className="w-full max-w-lg flex flex-col space-y-4">
                 {/* View Tabs Selector */}
-                <div className="flex bg-slate-900/60 p-1 rounded-xl border border-white/5 self-center">
+                <div role="tablist" aria-label="Chế độ xem hình ảnh" className="flex bg-slate-900/60 p-1 rounded-xl border border-white/5 self-center">
                   <button
+                    role="tab"
+                    aria-selected={activeView === "product"}
                     onClick={() => setActiveView("product")}
                     className={`px-4 py-2 rounded-lg text-xs font-mono uppercase tracking-wider transition-all duration-200 cursor-pointer ${
                       activeView === "product"
@@ -465,6 +512,8 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
                   </button>
                   {(selectedProduct.wiringDiagram || selectedProduct.wiringDiagrams) && (
                     <button
+                      role="tab"
+                      aria-selected={activeView === "wiring"}
                       onClick={() => setActiveView("wiring")}
                       className={`px-4 py-2 rounded-lg text-xs font-mono uppercase tracking-wider transition-all duration-200 cursor-pointer ${
                         activeView === "wiring"
@@ -478,49 +527,50 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
                 </div>
 
                 {/* Main Visual Display Card */}
-                <div className={`w-full rounded-3xl bg-slate-950 border p-4 sm:p-5 flex flex-col items-center justify-between min-h-[380px] relative overflow-hidden group ${
-                  selectedProduct.glowColor === 'pink'
-                    ? "shadow-glow-pink/10 border-neon-pink/25"
-                    : selectedProduct.glowColor === 'yellow'
-                      ? "shadow-glow-yellow/10 border-neon-yellow/25"
-                      : selectedProduct.glowColor === 'blue'
-                        ? "shadow-glow-blue/10 border-neon-blue/25"
-                        : "shadow-glow-dual/20 border-purple-500/25"
-                }`}>
+                <div className={`w-full rounded-3xl bg-slate-950 border p-4 sm:p-5 flex flex-col items-center justify-between min-h-[380px] relative overflow-hidden ${glow.card}`}>
                   {activeView === "product" ? (
                     <div className="w-full flex flex-col items-center justify-between h-full flex-1">
                       <div className="absolute top-2 right-3 flex items-center space-x-1.5 opacity-40 font-mono text-[8px] z-10">
                         <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-ping" />
                         <span>3D MODEL VIEW</span>
                       </div>
-                      
-                      <div className="w-full relative aspect-[1.85/1] overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 flex items-center justify-center mt-2">
+
+                      <button
+                        type="button"
+                        onClick={() => setIsZoomed(true)}
+                        aria-label="Phóng to ảnh sản phẩm"
+                        className="group/zoom w-full relative aspect-[1.85/1] overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 flex items-center justify-center cursor-zoom-in mt-2"
+                      >
                         <img
                           src={selectedProduct.images[selectedImageIndex]}
-                          alt={`${selectedProduct.name} - View ${selectedImageIndex + 1}`}
-                          className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
+                          alt={`${selectedProduct.name} - Góc nhìn ${selectedImageIndex + 1}`}
+                          loading="eager"
+                          decoding="async"
+                          className="w-full h-full object-contain group-hover/zoom:scale-105 transition-transform duration-500"
                         />
-                      </div>
-                      
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/zoom:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-2xl">
+                          <span className="px-3.5 py-1.5 bg-slate-900/90 border border-white/10 rounded-lg text-[10px] font-mono text-white flex items-center space-x-1.5 shadow-lg">
+                            <Eye className="w-3 h-3 text-neon-blue-bright" />
+                            <span>CLICK ĐỂ PHÓNG TO</span>
+                          </span>
+                        </div>
+                      </button>
+
                       {/* Thumbnails Row */}
                       <div className="flex flex-wrap justify-center gap-2 mt-4 max-h-[80px] overflow-y-auto py-1 w-full">
                         {selectedProduct.images.map((img, idx) => (
                           <button
-                            key={idx}
+                            key={img}
                             onClick={() => setSelectedImageIndex(idx)}
+                            aria-label={`Xem ảnh ${idx + 1}`}
+                            aria-pressed={selectedImageIndex === idx}
                             className={`w-11 h-11 sm:w-12 sm:h-12 rounded-lg overflow-hidden border bg-slate-900 transition-all duration-200 cursor-pointer flex-shrink-0 ${
                               selectedImageIndex === idx
-                                ? selectedProduct.glowColor === "pink"
-                                  ? "border-neon-pink shadow-glow-pink/30 scale-105"
-                                  : selectedProduct.glowColor === "yellow"
-                                    ? "border-neon-yellow shadow-glow-yellow/30 scale-105"
-                                    : selectedProduct.glowColor === "blue"
-                                      ? "border-neon-blue shadow-glow-blue/30 scale-105"
-                                      : "border-purple-500 shadow-glow-dual/30 scale-105"
+                                ? glow.thumb
                                 : "border-white/10 hover:border-white/30"
                             }`}
                           >
-                            <img src={img} alt="thumbnail" className="w-full h-full object-cover" />
+                            <img src={img} alt={`${selectedProduct.name} thumbnail ${idx + 1}`} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                           </button>
                         ))}
                       </div>
@@ -537,17 +587,12 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
                         <div className="flex flex-wrap justify-center gap-1.5 mt-2 mb-2 w-full z-10">
                           {selectedProduct.wiringDiagrams.map((diag, idx) => (
                             <button
-                              key={idx}
+                              key={diag.url}
                               onClick={() => setSelectedWiringIndex(idx)}
+                              aria-pressed={selectedWiringIndex === idx}
                               className={`px-2.5 py-1 rounded-md text-[9px] font-mono transition-all duration-150 cursor-pointer ${
                                 selectedWiringIndex === idx
-                                  ? selectedProduct.glowColor === "pink"
-                                    ? "bg-neon-pink/20 text-neon-pink-bright border border-neon-pink/40"
-                                    : selectedProduct.glowColor === "yellow"
-                                      ? "bg-neon-yellow/20 text-neon-yellow-bright border border-neon-yellow/40"
-                                      : selectedProduct.glowColor === "blue"
-                                        ? "bg-neon-blue/20 text-neon-blue-bright border border-neon-blue/40"
-                                        : "bg-purple-500/20 text-purple-300 border border-purple-500/40"
+                                  ? glow.chip
                                   : "bg-slate-900/60 text-slate-400 border border-white/5 hover:text-slate-200"
                               }`}
                             >
@@ -557,9 +602,11 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
                         </div>
                       )}
 
-                      <div 
+                      <button
+                        type="button"
                         onClick={() => setIsZoomed(true)}
-                        className="w-full relative aspect-[1.41/1] overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 flex items-center justify-center cursor-zoom-in mt-1"
+                        aria-label="Phóng to sơ đồ đấu nối"
+                        className="group/zoom w-full relative aspect-[1.41/1] overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 flex items-center justify-center cursor-zoom-in mt-1"
                       >
                         <img
                           src={
@@ -567,17 +614,19 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
                               ? selectedProduct.wiringDiagrams[selectedWiringIndex].url
                               : selectedProduct.wiringDiagram
                           }
-                          alt="Sơ đồ đấu nối HSL 4X"
+                          alt={`Sơ đồ đấu nối ${selectedProduct.name}`}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-contain"
                         />
-                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-2xl">
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/zoom:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-2xl">
                           <span className="px-3.5 py-1.5 bg-slate-900/90 border border-white/10 rounded-lg text-[10px] font-mono text-white flex items-center space-x-1.5 shadow-lg">
                             <Eye className="w-3 h-3 text-neon-blue-bright" />
                             <span>CLICK ĐỂ PHÓNG TO</span>
                           </span>
                         </div>
-                      </div>
-                      
+                      </button>
+
                       <button
                         onClick={() => setIsZoomed(true)}
                         className="mt-2 text-[9px] font-mono text-slate-500 hover:text-white flex items-center space-x-1 transition-colors cursor-pointer"
@@ -934,43 +983,38 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
       </div>
 
       {/* Zoom Modal */}
-      {isZoomed && (selectedProduct.wiringDiagram || selectedProduct.wiringDiagrams) && (
-        <div 
+      {isZoomed && zoomSource.src && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${zoomSource.title} ${selectedProduct.name}`}
           className="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center p-4 backdrop-blur-md"
           onClick={() => setIsZoomed(false)}
         >
           <div className="w-full max-w-5xl flex justify-between items-center mb-4 text-white">
             <span className="font-display font-bold text-xs sm:text-sm uppercase tracking-wider text-slate-300">
-              Sơ Đồ Đấu Nối {selectedProduct.name} - {
-                selectedProduct.wiringDiagrams
-                  ? selectedProduct.wiringDiagrams[selectedWiringIndex].label
-                  : ""
-              }
+              {zoomSource.title} {selectedProduct.name} - {zoomSource.label}
             </span>
             <button
               onClick={() => setIsZoomed(false)}
               className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white border border-white/10 transition-colors cursor-pointer"
-              aria-label="Đóng sơ đồ"
+              aria-label="Đóng cửa sổ phóng to"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
-          <div 
+          <div
             className="w-full max-w-5xl max-h-[80vh] flex items-center justify-center bg-slate-950 rounded-2xl border border-white/10 p-2 overflow-auto relative"
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={
-                selectedProduct.wiringDiagrams
-                  ? selectedProduct.wiringDiagrams[selectedWiringIndex].url
-                  : selectedProduct.wiringDiagram
-              }
-              alt="Sơ đồ đấu nối HSL 4X phóng to"
+              src={zoomSource.src}
+              alt={`${zoomSource.title} ${selectedProduct.name} phóng to`}
               className="max-w-full max-h-[75vh] object-contain"
             />
           </div>
           <div className="mt-3 text-[10px] font-mono text-slate-500">
-            Ấn nút ESC hoặc click bên ngoài để đóng sơ đồ
+            Ấn nút ESC hoặc click bên ngoài để đóng
           </div>
         </div>
       )}

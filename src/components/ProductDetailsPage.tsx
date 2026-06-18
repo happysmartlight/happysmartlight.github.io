@@ -70,14 +70,18 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
       name: "Bộ Điều Khiển ARGB Happy Smart Light 2X PRO",
       price: "1.200.000 VND",
       tagline: "Ông vua phân phối tín hiệu LED pixel đa cực cho sân khấu, nội thất và mạch POI chuyên dụng",
-      description: "Thoát ly hoàn toàn khỏi giới hạn của firmware cũ, dòng 2X PRO được kỹ sư Happy Smart Light tái kiến trúc nguyên bản phần cứng lẫn firmware dựa trên cốt lõi giao thức truyền thông ARGB HSL độc quyền. Phiên bản này được tối ưu đặc biệt hỗ trợ thiết kế mạch POI biểu diễn nghệ thuật mạnh mẽ, hoạt động với điện áp 5V ổn định và tương thích hoàn hảo với các cell pin Lithium 3.7V - 4.2V tiện dụng cho thiết bị di động.",
+      description: "Thoát ly hoàn toàn khỏi giới hạn của firmware cũ, dòng 2X PRO được kỹ sư Happy Smart Light tái kiến trúc nguyên bản phần cứng lẫn firmware dựa trên cốt lõi giao thức truyền thông ARGB HSL độc quyền. Phiên bản này được tối ưu đặc biệt hỗ trợ thiết kế mạch POI biểu diễn nghệ thuật mạnh mẽ, hoạt động với điện áp 5V ổn định và tương thích hoàn hảo với các cell pin Lithium 3.7V - 4.2V tiện dụng cho thiết bị di động. Ưu điểm cốt lõi: PCB 4 lớp chất liệu cao cấp, anten rời truyền nhận sóng cực xa và ổn định, thiết kế nhỏ gọn phù hợp mọi đạo cụ cần tối ưu kích thước, hỗ trợ pin LiPo/Lithium và sạc trực tiếp tiện lợi.",
       badge: "Flagship POI",
       glowColor: "yellow",
       heroSpecs: [
         { label: "Chip xử lý", value: "Dual Core LX7 240MHz + Wi-Fi Co-Processor" },
         { label: "Số cổng ARGB", value: "2 cổng cách ly vật lý quang học độc lập" },
         { label: "Tải pixel tối đa", value: "2,048 Pixels @ 30 FPS / 1,024 @ 60 FPS" },
-        { label: "Giao thức truyền", value: "ARGB HSL Sync (Độc quyền) / xLights DDP / Art-Net" }
+        { label: "Giao thức truyền", value: "ARGB HSL Sync (Độc quyền) / xLights DDP / Art-Net" },
+        { label: "Cấu trúc bo mạch", value: "PCB 4 lớp chất liệu cao cấp, bền bỉ và ổn định tín hiệu" },
+        { label: "Anten rời tầm xa", value: "Anten rời truyền nhận sóng cực xa và ổn định" },
+        { label: "Nguồn linh hoạt", value: "Hỗ trợ pin LiPo/Lithium, hỗ trợ sạc trực tiếp" },
+        { label: "Thiết kế nhỏ gọn", value: "Tối ưu kích thước, phù hợp mọi đạo cụ cần gọn nhẹ" }
       ],
       fullSpecs: [
         {
@@ -99,8 +103,18 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         {
           category: "Khả năng truyền thông không dây",
           list: [
+            { label: "Anten rời tầm xa", value: "Anten rời truyền nhận sóng cực xa và ổn định, giữ kết nối tốt cả trong môi trường nhiễu hoặc khoảng cách lớn" },
             { label: "Công nghệ BLE Antenna", value: "Chíp BLE v4.2 cự ly tầm gần quét cực tốc dưới 3 mét" },
-            { label: "Modem Wi-Fi nội bộ", value: "Trạm thu sóng IP độc lập 2.4Ghz, hỗ trợ mã hóa WPA2/WPA3 Personal" },
+            { label: "Modem Wi-Fi nội bộ", value: "Trạm thu sóng IP độc lập 2.4Ghz, hỗ trợ mã hóa WPA2/WPA3 Personal" }
+          ]
+        },
+        {
+          category: "Cấu trúc phần cứng & Nguồn",
+          list: [
+            { label: "PCB 4 lớp cao cấp", value: "Bo mạch PCB 4 lớp chất liệu cao cấp cho độ bền cơ học, tản nhiệt và ổn định tín hiệu vượt trội" },
+            { label: "Thiết kế siêu nhỏ gọn", value: "Tối ưu kích thước tối đa, phù hợp gá lắp vào mọi đạo cụ cần gọn nhẹ như gậy POI, trang phục biểu diễn" },
+            { label: "Nguồn pin LiPo/Lithium", value: "Hỗ trợ pin LiPo/Lithium 3.7V - 4.2V cho thiết bị di động" },
+            { label: "Sạc trực tiếp tiện lợi", value: "Hỗ trợ sạc trực tiếp ngay trên mạch, không cần tháo pin" },
             { label: "Chuẩn đóng vỏ", value: "Vỏ kim loại nhôm CNC anode cao cấp, chống bám vân tay tản nhiệt tốt" }
           ]
         }
@@ -124,6 +138,16 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
           title: "Tản Nhiệt Anode Nguyên Khối",
           desc: "Được đúc gọt CNC từ hợp kim nhôm cao cấp giúp vi xử lý duy trì nhiệt độ dưới 48°C ngay cả khi truyền dữ liệu đầy công suất 2 cổng liên tục 24/7.",
           icon: "layers"
+        },
+        {
+          title: "PCB 4 Lớp & Anten Rời Tầm Xa",
+          desc: "Bo mạch PCB 4 lớp chất liệu cao cấp cho độ bền và ổn định tín hiệu vượt trội. Anten rời giúp truyền nhận sóng cực xa và ổn định, giữ kết nối tốt ngay cả ở khoảng cách lớn hay môi trường nhiễu.",
+          icon: "radio"
+        },
+        {
+          title: "Nhỏ Gọn & Nguồn Pin Linh Hoạt",
+          desc: "Thiết kế siêu nhỏ gọn tối ưu kích thước, phù hợp gá lắp vào mọi đạo cụ cần gọn nhẹ. Hỗ trợ pin LiPo/Lithium và sạc trực tiếp ngay trên mạch, cực tiện cho thiết bị di động.",
+          icon: "settings"
         }
       ],
       connectionSteps: [
@@ -133,6 +157,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         { step: "04", title: "Kích Hoạt & Trình Diễn", desc: "Giờ bạn có thể thoải mái chọn hàng trăm hiệu ứng có sẵn hoặc mở máy PC sử dụng thiết kế timeline kịch bản nhạc trên xLights phát sóng đồng bộ mượt mà." }
       ],
       changelog: [
+        "v4.3.0-release: Nâng cấp bo mạch PCB 4 lớp cao cấp, anten rời tầm xa, thiết kế nhỏ gọn hơn, hỗ trợ pin LiPo/Lithium và sạc trực tiếp.",
         "v4.2.1-stable: Tối ưu mạch sạc pin và tương thích cell pin 3.7-4.2V cho POI",
         "v4.0.0-release: Chuyển đổi toàn diện sang độc quyền giao thức ARGB HSL và tích hợp app di động mới"
       ]

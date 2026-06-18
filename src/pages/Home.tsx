@@ -71,7 +71,7 @@ export default function Home() {
       <AppAndToolSection
         onViewPrivacy={() => navigate("/chinh-sach-bao-mat")}
         onViewAppDetails={() => navigate("/ung-dung-di-dong")}
-        onViewToolDetails={() => navigate("/cong-cu-may-tinh")}
+        onViewToolDetails={() => navigate("/argb-hsl-tool-pc")}
       />
       <DistributionService />
       <WhyChooseUs />

@@ -155,6 +155,17 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
             </p>
           </div>
 
+          {/* Illustration image for PC tool */}
+          {!isApp && (
+            <div className="mb-10 rounded-2xl overflow-hidden border border-white/5 bg-slate-900/40 p-2 shadow-inner">
+              <img 
+                src="/img/controller-chip/tool_argb_hsl.png" 
+                alt="Giao diện ARGB HSL Control Tool" 
+                className="w-full h-auto object-cover rounded-xl"
+              />
+            </div>
+          )}
+
           {/* Key features */}
           <section className="space-y-4 mb-10">
             <h2 className="font-display font-bold text-base sm:text-lg text-white flex items-center gap-2.5">

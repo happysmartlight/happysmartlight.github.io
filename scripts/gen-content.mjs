@@ -44,7 +44,7 @@ function preprocessLiquid(body) {
   // {% include esp-web-flash.html ... %}
   body = body.replace(
     /\{%\s*include\s+esp-web-flash\.html[^%]*%\}/g,
-    '<div class="hsl-callout">🔌 Trình nạp firmware qua trình duyệt khả dụng trên trang <a href="/cong-cu-may-tinh">tải phần mềm ARGB HSL</a>.</div>'
+    '<div class="hsl-callout">🔌 Trình nạp firmware qua trình duyệt khả dụng trên trang <a href="/argb-hsl-tool-pc">tải phần mềm ARGB HSL</a>.</div>'
   );
   // {{ site.baseurl }} -> ""
   body = body.replace(/\{\{\s*site\.baseurl\s*\}\}/g, "");

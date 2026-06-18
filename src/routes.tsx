@@ -19,7 +19,7 @@ export const routes: RouteRecord[] = [
     children: [
       { index: true, element: <Home /> },
       { path: "ung-dung-di-dong", element: <AppDetailsRoute /> },
-      { path: "cong-cu-may-tinh", element: <ToolDetailsRoute /> },
+      { path: "argb-hsl-tool-pc", element: <ToolDetailsRoute /> },
       { path: "chinh-sach-bao-mat", element: <PrivacyRoute /> },
       { path: "chinh-sach-ban-hang", element: <SalesPolicyRoute /> },
       { path: "chinh-sach-ban-quyen", element: <IpPolicyRoute /> },

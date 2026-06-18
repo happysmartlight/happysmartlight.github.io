@@ -30,9 +30,13 @@ function toUrl(file) {
   return rel;
 }
 
-const urls = [...new Set(walk(DIST).map(toUrl))].sort((a, b) =>
-  a === "/" ? -1 : b === "/" ? 1 : a.localeCompare(b)
-);
+// Trang cố tình ẩn (vd công cụ nội bộ ký license) — không liệt kê trong sitemap.
+// Các route này cũng đặt <meta robots="noindex"> trong chính trang.
+const SITEMAP_DENY = new Set(["/tools/hsl-lic-7q3m9x/"]);
+
+const urls = [...new Set(walk(DIST).map(toUrl))]
+  .filter((u) => !SITEMAP_DENY.has(u))
+  .sort((a, b) => (a === "/" ? -1 : b === "/" ? 1 : a.localeCompare(b)));
 
 const body = urls
   .map(

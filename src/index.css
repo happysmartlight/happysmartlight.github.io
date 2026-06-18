@@ -210,6 +210,28 @@
   display: block;
 }
 
+/* ===== HSL License Signer (công cụ nội bộ) =====
+   Script gốc tự gán lại className các ô trạng thái thành 'status ok/err/warn',
+   xoá mọi class Tailwind — nên style các ô đó phải định nghĩa ở đây. Scope dưới
+   .signer-wrap để không rò rỉ ra phần còn lại của site. Màu khớp theme. */
+.signer-wrap .status {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  margin-top: 8px;
+  min-height: 16px;
+  color: #94a3b8; /* slate-400 */
+  word-break: break-word;
+}
+.signer-wrap .ok { color: #34d399; }   /* emerald-400 */
+.signer-wrap .err { color: #ff2d95; }  /* neon-pink */
+.signer-wrap .warn { color: #fbbf24; } /* amber-400 */
+.signer-wrap .mono-small {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #8aa0b6;
+  word-break: break-all;
+}
+
 /* Zalo Widget Custom Positioning (Bottom Right) */
 .zalo-chat-widget {
   left: auto !important;

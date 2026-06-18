@@ -6,6 +6,8 @@ interface SeoProps {
   path: string;
   /** Optional page-specific social image (absolute path like /img/x.png or full URL). */
   image?: string;
+  /** Hide the page from search engines (e.g. internal tools). */
+  noindex?: boolean;
 }
 
 const SITE = "https://happysmartlight.com";
@@ -14,7 +16,7 @@ const SITE = "https://happysmartlight.com";
  * Per-page SEO head. Overrides the default title/description/canonical and
  * the social tags from index.html for each route (deduped by unhead).
  */
-export default function Seo({ title, description, path, image }: SeoProps) {
+export default function Seo({ title, description, path, image, noindex }: SeoProps) {
   const url = `${SITE}${path}`;
   const imageUrl = image
     ? image.startsWith("http")
@@ -25,6 +27,7 @@ export default function Seo({ title, description, path, image }: SeoProps) {
     <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
+      <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow"} />
       <link rel="canonical" href={url} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />

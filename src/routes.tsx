@@ -7,6 +7,7 @@ import PrivacyRoute from "./pages/PrivacyRoute";
 import SalesPolicyRoute from "./pages/SalesPolicyRoute";
 import IpPolicyRoute from "./pages/IpPolicyRoute";
 import ProductDetailsRoute from "./pages/ProductDetailsRoute";
+import LicenseSignerRoute from "./pages/LicenseSignerRoute";
 import { COLLECTION_KEYS } from "./content/collections-meta";
 
 // Product slugs that have a (React-native) detail page.
@@ -23,6 +24,8 @@ export const routes: RouteRecord[] = [
       { path: "chinh-sach-bao-mat", element: <PrivacyRoute /> },
       { path: "chinh-sach-ban-hang", element: <SalesPolicyRoute /> },
       { path: "chinh-sach-ban-quyen", element: <IpPolicyRoute /> },
+      // Công cụ nội bộ ký license — URL khó đoán, noindex + ngoài sitemap (giữ ẩn).
+      { path: "tools/hsl-lic-7q3m9x", element: <LicenseSignerRoute /> },
       {
         path: "san-pham/:id",
         element: <ProductDetailsRoute />,

@@ -4,6 +4,8 @@ import Home from "./pages/Home";
 import AppDetailsRoute from "./pages/AppDetailsRoute";
 import ToolDetailsRoute from "./pages/ToolDetailsRoute";
 import PrivacyRoute from "./pages/PrivacyRoute";
+import SalesPolicyRoute from "./pages/SalesPolicyRoute";
+import IpPolicyRoute from "./pages/IpPolicyRoute";
 import ProductDetailsRoute from "./pages/ProductDetailsRoute";
 import { COLLECTION_KEYS } from "./content/collections-meta";
 
@@ -19,6 +21,8 @@ export const routes: RouteRecord[] = [
       { path: "ung-dung-di-dong", element: <AppDetailsRoute /> },
       { path: "cong-cu-may-tinh", element: <ToolDetailsRoute /> },
       { path: "chinh-sach-bao-mat", element: <PrivacyRoute /> },
+      { path: "chinh-sach-ban-hang", element: <SalesPolicyRoute /> },
+      { path: "chinh-sach-ban-quyen", element: <IpPolicyRoute /> },
       {
         path: "san-pham/:id",
         element: <ProductDetailsRoute />,

@@ -118,20 +118,35 @@ export default function Footer({ onNavigate, onViewPrivacy }: FooterProps) {
 
         {/* Row bottom credits */}
         <div className="mt-8 pt-8 flex flex-col sm:flex-row items-center sm:justify-between text-[11px] font-mono text-slate-500 gap-4" id="footer-row-bottom">
-          <p className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-center sm:text-left">
+          <div className="flex flex-col gap-3 text-center sm:text-left">
             <span>© {new Date().getFullYear()} Happy Smart Light. Thiết kế tối ưu cho trải nghiệm người dùng Việt Nam.</span>
-            {onViewPrivacy && (
-              <>
-                <span className="hidden sm:inline text-slate-700">|</span>
-                <button
-                  onClick={onViewPrivacy}
-                  className="hover:text-neon-pink transition-colors text-slate-400 underline decoration-slate-600 hover:decoration-neon-pink cursor-pointer font-sans"
-                >
-                  Chính sách bảo mật ARGB HSL (Google Play)
-                </button>
-              </>
-            )}
-          </p>
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-x-3 gap-y-2">
+              <Link
+                to="/chinh-sach-ban-hang/"
+                className="hover:text-neon-pink transition-colors text-slate-400 underline decoration-slate-600 hover:decoration-neon-pink font-sans"
+              >
+                Chính sách bán hàng &amp; thanh toán
+              </Link>
+              <span className="text-slate-700">|</span>
+              <Link
+                to="/chinh-sach-ban-quyen/"
+                className="hover:text-neon-pink transition-colors text-slate-400 underline decoration-slate-600 hover:decoration-neon-pink font-sans"
+              >
+                Chính sách bản quyền &amp; SHTT
+              </Link>
+              {onViewPrivacy && (
+                <>
+                  <span className="text-slate-700">|</span>
+                  <button
+                    onClick={onViewPrivacy}
+                    className="hover:text-neon-pink transition-colors text-slate-400 underline decoration-slate-600 hover:decoration-neon-pink cursor-pointer font-sans"
+                  >
+                    Chính sách bảo mật ARGB HSL (Google Play)
+                  </button>
+                </>
+              )}
+            </div>
+          </div>
 
           {/* Scroll to Top Trigger */}
           <button

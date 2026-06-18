@@ -18,6 +18,8 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
   const [scale, setScale] = useState<number>(1);
   const [offset, setOffset] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
   const dragRef = useRef<{ startX: number; startY: number; ox: number; oy: number } | null>(null);
+  const modalRef = useRef<HTMLDivElement>(null);
+  const lastFocusedRef = useRef<HTMLElement | null>(null);
 
   // Scroll to top on load & reset state
   useEffect(() => {
@@ -418,6 +420,43 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
     return () => window.removeEventListener("keydown", onKey);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isZoomed, activeView, selectedImageIndex, selectedWiringIndex, galleryItems.length]);
+
+  // Focus trap: giữ tiêu điểm trong modal + khôi phục khi đóng
+  useEffect(() => {
+    if (!isZoomed) return;
+    const modal = modalRef.current;
+    if (!modal) return;
+    lastFocusedRef.current = document.activeElement as HTMLElement | null;
+    modal.focus();
+    const getFocusable = (): HTMLElement[] =>
+      (Array.from(
+        modal.querySelectorAll(
+          'button:not([disabled]), [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        )
+      ) as HTMLElement[]).filter((el) => el.offsetParent !== null);
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+      const items = getFocusable();
+      if (items.length === 0) {
+        e.preventDefault();
+        return;
+      }
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    modal.addEventListener("keydown", onKeyDown);
+    return () => {
+      modal.removeEventListener("keydown", onKeyDown);
+      lastFocusedRef.current?.focus?.();
+    };
+  }, [isZoomed]);
 
   // Render correct icon based on name
   const renderIconComponent = (iconName: string) => {
@@ -1027,10 +1066,12 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
       {/* Zoom Modal */}
       {isZoomed && currentItem?.url && (
         <div
+          ref={modalRef}
           role="dialog"
           aria-modal="true"
           aria-label={`${viewTitle} ${selectedProduct.name}`}
-          className="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center p-4 backdrop-blur-md select-none"
+          tabIndex={-1}
+          className="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center p-4 backdrop-blur-md select-none outline-none"
           onClick={() => setIsZoomed(false)}
         >
           {/* Header: tiêu đề + điều khiển zoom + đóng */}

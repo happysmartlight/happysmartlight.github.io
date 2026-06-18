@@ -7,8 +7,8 @@ import type { AppOutletContext } from "../Layout";
 
 const PRODUCT_META: Record<string, { title: string; description: string }> = {
   v4pro: {
-    title: "Bộ Điều Khiển ARGB HSL V4 PRO — Flagship LED Pixel | Happy Smart Light",
-    description: "Bộ điều khiển LED pixel ARGB HSL V4 PRO: 2 cổng cách ly quang học, tải tối đa 4096 pixel, truyền 60FPS không rách hình. Giải pháp cao cấp cho sân khấu & nội thất.",
+    title: "Bộ Điều Khiển ARGB HSL 2X PRO — Flagship LED Pixel | Happy Smart Light",
+    description: "Bộ điều khiển LED pixel ARGB HSL 2X PRO: 2 cổng cách ly quang học, tải tối đa 4096 pixel, truyền 60FPS không rách hình. Giải pháp cao cấp cho sân khấu & nội thất.",
   },
   matrix: {
     title: "Happy Smart LED Matrix Driver Pro — Điều Khiển Ma Trận LED | Happy Smart Light",

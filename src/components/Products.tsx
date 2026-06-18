@@ -20,7 +20,7 @@ export default function Products({ onQuoteRequested, onViewProductDetails }: Pro
   const products: Product[] = [
     {
       id: "v4pro",
-      name: "Bộ Điều Khiển ARGB Happy Smart Light V4 PRO",
+      name: "Bộ Điều Khiển ARGB Happy Smart Light 2X PRO",
       price: "1.200.000 VND",
       description: "Bộ điều khiển ánh sáng độc quyền sử dụng giao thức ARGB HSL tốc độ cao, chuyên dụng cho các dải LED ARGB mật độ lớn. Tích hợp giải pháp phần cứng tối ưu hỗ trợ làm mạch Poi mạnh mẽ, bền bỉ và di động.",
       features: [

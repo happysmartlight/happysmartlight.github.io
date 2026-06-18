@@ -67,10 +67,10 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
     wiringDiagrams?: { label: string; url: string }[];
   }> = {
     v4pro: {
-      name: "Bộ Điều Khiển ARGB Happy Smart Light V4 PRO",
+      name: "Bộ Điều Khiển ARGB Happy Smart Light 2X PRO",
       price: "1.200.000 VND",
       tagline: "Ông vua phân phối tín hiệu LED pixel đa cực cho sân khấu, nội thất và mạch POI chuyên dụng",
-      description: "Thoát ly hoàn toàn khỏi giới hạn của firmware cũ, dòng V4 PRO được kỹ sư Happy Smart Light tái kiến trúc nguyên bản phần cứng lẫn firmware dựa trên cốt lõi giao thức truyền thông ARGB HSL độc quyền. Phiên bản này được tối ưu đặc biệt hỗ trợ thiết kế mạch POI biểu diễn nghệ thuật mạnh mẽ, hoạt động với điện áp 5V ổn định và tương thích hoàn hảo với các cell pin Lithium 3.7V - 4.2V tiện dụng cho thiết bị di động.",
+      description: "Thoát ly hoàn toàn khỏi giới hạn của firmware cũ, dòng 2X PRO được kỹ sư Happy Smart Light tái kiến trúc nguyên bản phần cứng lẫn firmware dựa trên cốt lõi giao thức truyền thông ARGB HSL độc quyền. Phiên bản này được tối ưu đặc biệt hỗ trợ thiết kế mạch POI biểu diễn nghệ thuật mạnh mẽ, hoạt động với điện áp 5V ổn định và tương thích hoàn hảo với các cell pin Lithium 3.7V - 4.2V tiện dụng cho thiết bị di động.",
       badge: "Flagship POI",
       glowColor: "yellow",
       heroSpecs: [
@@ -117,7 +117,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         },
         {
           title: "Hỗ Trợ Làm Mạch POI Biểu Diễn",
-          desc: "Sơ mạch V4 PRO cực kỳ nhỏ gọn, dễ dàng gá lắp vào các ống gậy POI, hỗ trợ tối đa việc cấp nguồn bằng pin sạc 3.7V - 4.2V vô cùng linh hoạt.",
+          desc: "Sơ mạch 2X PRO cực kỳ nhỏ gọn, dễ dàng gá lắp vào các ống gậy POI, hỗ trợ tối đa việc cấp nguồn bằng pin sạc 3.7V - 4.2V vô cùng linh hoạt.",
           icon: "cpu"
         },
         {
@@ -129,7 +129,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
       connectionSteps: [
         { step: "01", title: "Cấp Nguồn Cho Thiết bị", desc: "Đấu nối nguồn DC 5V (hoặc từ cell pin sạc Lithium 3.7V - 4.2V) phù hợp trực tiếp vào rắc vặn vít VCC và GND trên mạch." },
         { step: "02", title: "Kết Nối LED Pixel/POI", desc: "Hàn dây tín hiệu (Data) vào cổng D1 hoặc D2 trên mạch. Bọc gen co nhiệt để phòng tránh đoản mạch làm cháy dải led." },
-        { step: "03", title: "Scan BLE và nạp Wifi", desc: "Mở app ARGB HSL trên điện thoại Android bấm 'Tìm thiết bị'. Chọn V4 PRO sẵn có và nạp tên+mật khẩu Wi-Fi nhà bạn." },
+        { step: "03", title: "Scan BLE và nạp Wifi", desc: "Mở app ARGB HSL trên điện thoại Android bấm 'Tìm thiết bị'. Chọn 2X PRO sẵn có và nạp tên+mật khẩu Wi-Fi nhà bạn." },
         { step: "04", title: "Kích Hoạt & Trình Diễn", desc: "Giờ bạn có thể thoải mái chọn hàng trăm hiệu ứng có sẵn hoặc mở máy PC sử dụng thiết kế timeline kịch bản nhạc trên xLights phát sóng đồng bộ mượt mà." }
       ],
       changelog: [
@@ -1076,7 +1076,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
           </span>
           <div className="flex flex-wrap justify-center gap-3" id="cross-nav-buttons">
             {[
-              { id: "v4pro", name: "HSL V4 PRO" },
+              { id: "v4pro", name: "HSL 2X PRO" },
               { id: "matrix", name: "Matrix Driver Pro" },
               { id: "hsl4x", name: "HSL 4X Matrix" },
               { id: "poi", name: "POI Wand Performance" }

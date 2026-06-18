@@ -26,7 +26,7 @@ export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorP
   const [totalPixels, setTotalPixels] = useState<number>(300);
   const [maxAmpere, setMaxAmpere] = useState<number>(18); // 5V Amperes assuming 60mA max per pixel
   const [maxWatts, setMaxWatts] = useState<number>(90);
-  const [recommendedController, setRecommendedController] = useState<string>("Happy Smart Light V4 PRO");
+  const [recommendedController, setRecommendedController] = useState<string>("Happy Smart Light 2X PRO");
 
   // Contact form states
   const [name, setName] = useState("");
@@ -57,7 +57,7 @@ export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorP
     let pixels = 0;
     if (ledType === "strip") {
       pixels = stripLength * ledDensity;
-      setRecommendedController("Happy Smart Light V4 PRO");
+      setRecommendedController("Happy Smart Light 2X PRO");
     } else if (ledType === "matrix") {
       pixels = matrixCols * matrixRows;
       setRecommendedController("Bộ Điều Khiển ARGB Happy Smart Light 4X");

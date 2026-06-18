@@ -204,14 +204,16 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
       name: "Bộ Điều Khiển ARGB Happy Smart Light 4X",
       price: "930.000 VND",
       tagline: "Bộ điều khiển ARGB công suất lớn gánh tải pixel matrix, trống led matrix, cờ led matrix sự kiện",
-      description: "Được thiết kế chuyên biệt chịu dòng cực lớn gánh tải các công trình LED chạy luồng phức tạp như Trống LED matrix, Cờ LED matrix sự kiện hay các mảng matrix pixel lớn. Được trang bị 4 cổng ra ARGB tích hợp diode cách ly chống dội ngược dòng và vi mạch Level Shifter nâng điện áp tín hiệu, thiết bị đảm bảo tín hiệu luôn ổn định, sắc nét và cực kỳ bền bỉ.",
+      description: "Được thiết kế chuyên biệt chịu dòng cực lớn gánh tải các công trình LED chạy luồng phức tạp như Trống LED matrix, Cờ LED matrix sự kiện hay các mảng matrix pixel lớn. Được trang bị 4 cổng ra ARGB tích hợp diode cách ly chống dội ngược dòng và vi mạch Level Shifter nâng điện áp tín hiệu, thiết bị đảm bảo tín hiệu luôn ổn định, sắc nét và cực kỳ bền bỉ. Phiên bản mới nâng cấp X2 dung lượng bộ nhớ cho phép lưu trữ visual dài hơn, bổ sung vị trí hàn nút bấm riêng dễ thao tác, đồng thời hỗ trợ gắn thêm module Ethernet (ETH) và module thẻ nhớ SD để mở rộng kết nối và bộ nhớ.",
       badge: "Công Suất Cực Cao",
       glowColor: "purple",
       heroSpecs: [
         { label: "Điện áp hoạt động", value: "DC 5V - 24V cấp sườn chịu tải lớn" },
         { label: "Mạch ra an toàn", value: "4 cổng ra ARGB có diode chống dội ngược dòng" },
         { label: "IC chuyển mức logic", value: "Level Shifter 3.3V lên 5V vuông vắn ổn định" },
-        { label: "Gánh tải tối đa", value: "Cầu đấu đồng khối mạ niken gánh tới 30A liên tục" }
+        { label: "Gánh tải tối đa", value: "Cầu đấu đồng khối mạ niken gánh tới 30A liên tục" },
+        { label: "Bộ nhớ lưu visual", value: "Nâng cấp X2 dung lượng, lưu trữ kịch bản visual dài hơn" },
+        { label: "Khe cắm mở rộng", value: "Hỗ trợ gắn thêm module Ethernet (ETH) & module thẻ nhớ SD" }
       ],
       fullSpecs: [
         {
@@ -229,11 +231,21 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
             { label: "Level Shifter IC chuyên dụng", value: "Nâng mức tín hiệu lên 5V công nghiệp chuẩn chỉnh trên cả 4 cổng độc lập" },
             { label: "Ứng dụng thi công chuyên biệt", value: "Chuyên dụng thi công Trống LED Matrix, Cờ LED Matrix, các dự án Pixel Matrix mật độ dày" }
           ]
+        },
+        {
+          category: "Bộ nhớ & Khả năng mở rộng (Bản nâng cấp)",
+          list: [
+            { label: "Bộ nhớ visual X2", value: "Dung lượng lưu trữ tăng gấp đôi, chứa được kịch bản hiệu ứng/visual dài hơn ngay trên thiết bị" },
+            { label: "Module Ethernet (ETH) tùy chọn", value: "Khe cắm gắn thêm module mạng LAN có dây cho kết nối ổn định, độ trễ thấp khi trình chiếu sự kiện lớn" },
+            { label: "Module thẻ nhớ SD tùy chọn", value: "Khe gắn thêm module thẻ nhớ SD để mở rộng dung lượng lưu trữ visual offline" },
+            { label: "Vị trí hàn nút bấm riêng", value: "Pad hàn nút nhấn bố trí độc lập, gọn gàng và dễ thao tác hàn, thuận tiện tùy biến" }
+          ]
         }
       ],
       architectures: [
         "Sơ đồ chân ra: GND | D1-D4 (4 cổng dữ liệu ARGB độc lập) | VCC (+5V -> +24V)",
-        "Bảo vệ dòng ngược: Diode chống ngược cực nguồn và mạch xả tải an toàn tránh chập cháy"
+        "Bảo vệ dòng ngược: Diode chống ngược cực nguồn và mạch xả tải an toàn tránh chập cháy",
+        "Mở rộng: Khe cắm module ETH (Ethernet) & module thẻ nhớ SD, kèm pad hàn nút bấm riêng dễ thao tác"
       ],
       technicalPoints: [
         {
@@ -250,6 +262,11 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
           title: "Chịu Dòng Tải Cực Cao",
           desc: "Mạch đồng dày chịu tải lớn kết hợp với cầu đấu chịu dòng cao giúp thiết bị gánh được lượng bóng LED matrix khổng lồ mà không bị nóng hay sụt áp.",
           icon: "layers"
+        },
+        {
+          title: "Bộ Nhớ X2 & Khe Mở Rộng",
+          desc: "Bản nâng cấp gấp đôi bộ nhớ để lưu visual dài hơn, đồng thời mở thêm khe cắm module Ethernet (ETH) và module thẻ nhớ SD, kèm vị trí hàn nút bấm riêng dễ thao tác.",
+          icon: "database"
         }
       ],
       connectionSteps: [
@@ -259,6 +276,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         { step: "04", title: "Đồng Bộ Trình Chiếu", desc: "Kết nối xLights hoặc LedFx để đồng bộ dữ liệu trình chiếu mượt mà trực quan hoặc chạy kịch bản offline lập trình sẵn." }
       ],
       changelog: [
+        "v4.1.0-release: Nâng cấp X2 bộ nhớ lưu visual dài hơn, thêm vị trí hàn nút bấm riêng, hỗ trợ module ETH & module thẻ nhớ SD.",
         "v4.0.0-release: Phiên bản 4 cổng chuyên dụng cho Matrix & Sự kiện, tích hợp diode chống dội ngược dòng.",
         "v3.0.0-design: Bản thử nghiệm phần cứng chịu tải 30A liên tục an toàn"
       ],

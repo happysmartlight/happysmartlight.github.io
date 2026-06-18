@@ -11,14 +11,14 @@ import { Cpu } from "lucide-react";
 type Partner = { name: string; logo?: string };
 
 const PARTNERS: Partner[] = [
-  { name: "xLights" },
-  { name: "LedFx" },
-  { name: "Art-Net" },
-  { name: "WLED" },
-  { name: "Espressif" },
-  { name: "Vinhomes" },
-  { name: "Moonlight Dance" },
-  { name: "Pixel Pro" },
+  { name: "xLights", logo: "/img/partners/xlights.svg" },
+  { name: "LedFx", logo: "/img/partners/ledfx.svg" },
+  { name: "Art-Net", logo: "/img/partners/art-net.svg" },
+  { name: "WLED", logo: "/img/partners/wled.svg" },
+  { name: "Espressif", logo: "/img/partners/espressif.svg" },
+  { name: "Vinhomes", logo: "/img/partners/vinhomes.svg" },
+  { name: "Moonlight Dance", logo: "/img/partners/moonlight-dance.svg" },
+  { name: "Pixel Pro", logo: "/img/partners/pixel-pro.svg" },
 ];
 
 function renderLogo(partner: Partner, key: string) {

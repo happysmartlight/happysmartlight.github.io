@@ -16,7 +16,7 @@ const PRODUCT_META: Record<string, { title: string; description: string }> = {
   },
   hsl4x: {
     title: "Bộ Điều Khiển ARGB Happy Smart Light 4X — Flagship LED Matrix | Happy Smart Light",
-    description: "Happy Smart Light 4X: Bộ điều khiển LED ARGB công suất lớn, chịu dòng cực cao, chuyên làm matrix pixel, trống led matrix, cờ led matrix. 4 cổng ra chống dội ngược, IC chuyển mức ổn định tín hiệu. Bản nâng cấp X2 bộ nhớ, hỗ trợ module Ethernet (ETH) & thẻ nhớ SD, có vị trí hàn nút bấm riêng.",
+    description: "Happy Smart Light 4X: Bộ điều khiển LED ARGB công suất lớn, tối ưu 4.000-5.000 LED pixel, chuyên matrix pixel, trống led matrix, cờ led matrix. Mạch 5V điều khiển LED đa dải 5/12/24/48V, 4 cổng ra chống dội ngược, chống chập nguồn đấu nhầm cực. Bản nâng cấp X2 bộ nhớ, module ETH & thẻ nhớ SD, firmware báo nhiệt độ.",
   },
   poi: {
     title: "Happy POI Performance Wand — Gậy LED Biểu Diễn | Happy Smart Light",

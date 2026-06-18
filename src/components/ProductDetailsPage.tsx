@@ -208,10 +208,13 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
       badge: "Công Suất Cực Cao",
       glowColor: "purple",
       heroSpecs: [
-        { label: "Điện áp hoạt động", value: "DC 5V - 24V cấp sườn chịu tải lớn" },
+        { label: "Điện áp hoạt động", value: "Mạch chạy mức 5V, điều khiển LED đa dải DC 5V / 12V / 24V / 48V" },
+        { label: "Số lượng LED điều khiển", value: "Tối ưu vận hành 4.000 - 5.000 LED pixel" },
         { label: "Mạch ra an toàn", value: "4 cổng ra ARGB có diode chống dội ngược dòng" },
+        { label: "Chống đấu nhầm cực", value: "Bảo vệ chống chập nguồn khi đấu nhầm cực âm/dương" },
         { label: "IC chuyển mức logic", value: "Level Shifter 3.3V lên 5V vuông vắn ổn định" },
         { label: "Gánh tải tối đa", value: "Cầu đấu đồng khối mạ niken gánh tới 30A liên tục" },
+        { label: "Giám sát nhiệt độ", value: "Firmware mới báo nhiệt độ hoạt động của mạch theo thời gian thực" },
         { label: "Bộ nhớ lưu visual", value: "Nâng cấp X2 dung lượng, lưu trữ kịch bản visual dài hơn" },
         { label: "Khe cắm mở rộng", value: "Hỗ trợ gắn thêm module Ethernet (ETH) & module thẻ nhớ SD" }
       ],
@@ -219,9 +222,10 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         {
           category: "Thông số Nguồn & Điện áp",
           list: [
-            { label: "Ổn áp đầu vào rộng", value: "DC 5V - 24V hỗ trợ cấp sườn dòng lớn rẽ nhánh cực rộng" },
+            { label: "Mạch logic 5V, LED đa dải áp", value: "Mạch hoạt động ở mức 5V, điều khiển được LED ở nhiều dải điện áp DC khác nhau: 5V / 12V / 24V / 48V" },
+            { label: "Số lượng LED điều khiển", value: "Tối ưu vận hành mượt mà 4.000 - 5.000 LED pixel" },
             { label: "Khả năng chịu tải", value: "Mạch đồng dày chịu tải lớn, gá đồng chịu dòng tải lên tới 30A" },
-            { label: "Bảo vệ ngược cực", value: "Tích hợp diode chống cắm ngược cực và nổ cầu chì thông minh" }
+            { label: "Chống chập nguồn đấu nhầm cực", value: "Mạch bảo vệ chống chập nguồn khi đấu nhầm cực âm/dương, kết hợp diode chống cắm ngược cực và cầu chì thông minh" }
           ]
         },
         {
@@ -238,13 +242,14 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
             { label: "Bộ nhớ visual X2", value: "Dung lượng lưu trữ tăng gấp đôi, chứa được kịch bản hiệu ứng/visual dài hơn ngay trên thiết bị" },
             { label: "Module Ethernet (ETH) tùy chọn", value: "Khe cắm gắn thêm module mạng LAN có dây cho kết nối ổn định, độ trễ thấp khi trình chiếu sự kiện lớn" },
             { label: "Module thẻ nhớ SD tùy chọn", value: "Khe gắn thêm module thẻ nhớ SD để mở rộng dung lượng lưu trữ visual offline" },
-            { label: "Vị trí hàn nút bấm riêng", value: "Pad hàn nút nhấn bố trí độc lập, gọn gàng và dễ thao tác hàn, thuận tiện tùy biến" }
+            { label: "Vị trí hàn nút bấm riêng", value: "Pad hàn nút nhấn bố trí độc lập, gọn gàng và dễ thao tác hàn, thuận tiện tùy biến" },
+            { label: "Giám sát nhiệt độ (firmware mới)", value: "Phiên bản phần mềm mới của mạch báo nhiệt độ hoạt động theo thời gian thực, giúp theo dõi và vận hành an toàn" }
           ]
         }
       ],
       architectures: [
-        "Sơ đồ chân ra: GND | D1-D4 (4 cổng dữ liệu ARGB độc lập) | VCC (+5V -> +24V)",
-        "Bảo vệ dòng ngược: Diode chống ngược cực nguồn và mạch xả tải an toàn tránh chập cháy",
+        "Sơ đồ chân ra: GND | D1-D4 (4 cổng dữ liệu ARGB độc lập) | VCC (LED đa dải +5V / +12V / +24V / +48V)",
+        "Bảo vệ dòng ngược: Diode chống ngược cực nguồn, chống chập nguồn khi đấu nhầm cực và mạch xả tải an toàn tránh chập cháy",
         "Mở rộng: Khe cắm module ETH (Ethernet) & module thẻ nhớ SD, kèm pad hàn nút bấm riêng dễ thao tác"
       ],
       technicalPoints: [
@@ -267,6 +272,16 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
           title: "Bộ Nhớ X2 & Khe Mở Rộng",
           desc: "Bản nâng cấp gấp đôi bộ nhớ để lưu visual dài hơn, đồng thời mở thêm khe cắm module Ethernet (ETH) và module thẻ nhớ SD, kèm vị trí hàn nút bấm riêng dễ thao tác.",
           icon: "database"
+        },
+        {
+          title: "Điện Áp Đa Dải & Chống Đấu Nhầm Cực",
+          desc: "Mạch chạy ở mức logic 5V nhưng điều khiển được LED ở nhiều dải điện áp DC (5V/12V/24V/48V), tối ưu cho 4.000-5.000 LED pixel. Tích hợp bảo vệ chống chập nguồn khi đấu nhầm cực.",
+          icon: "settings"
+        },
+        {
+          title: "Giám Sát Nhiệt Độ Thời Gian Thực",
+          desc: "Phiên bản phần mềm mới của mạch báo nhiệt độ hoạt động theo thời gian thực, giúp theo dõi tình trạng vận hành và đảm bảo an toàn cho công trình.",
+          icon: "radio"
         }
       ],
       connectionSteps: [
@@ -276,7 +291,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         { step: "04", title: "Đồng Bộ Trình Chiếu", desc: "Kết nối xLights hoặc LedFx để đồng bộ dữ liệu trình chiếu mượt mà trực quan hoặc chạy kịch bản offline lập trình sẵn." }
       ],
       changelog: [
-        "v4.1.0-release: Nâng cấp X2 bộ nhớ lưu visual dài hơn, thêm vị trí hàn nút bấm riêng, hỗ trợ module ETH & module thẻ nhớ SD.",
+        "v4.1.0-release: Nâng cấp X2 bộ nhớ lưu visual dài hơn, thêm vị trí hàn nút bấm riêng, hỗ trợ module ETH & module thẻ nhớ SD, firmware mới báo nhiệt độ hoạt động và chống chập nguồn khi đấu nhầm cực.",
         "v4.0.0-release: Phiên bản 4 cổng chuyên dụng cho Matrix & Sự kiện, tích hợp diode chống dội ngược dòng.",
         "v3.0.0-design: Bản thử nghiệm phần cứng chịu tải 30A liên tục an toàn"
       ],

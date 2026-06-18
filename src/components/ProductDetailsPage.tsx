@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { ArrowLeft, Cpu, Columns, Layers, Radio, Sliders, Play, Check, Sparkles, Battery, Monitor, Code, Settings, AlertTriangle, Hammer, Zap, Wifi } from "lucide-react";
+import { ArrowLeft, Cpu, Columns, Layers, Radio, Sliders, Play, Check, Sparkles, Battery, Monitor, Code, Settings, AlertTriangle, Hammer, Zap, Wifi, Eye, X } from "lucide-react";
 import { motion } from "motion/react";
 
 interface ProductDetailsPageProps {
@@ -10,10 +10,34 @@ interface ProductDetailsPageProps {
 }
 
 export default function ProductDetailsPage({ productId, onBack, onQuoteRequested, onNavigateToProduct }: ProductDetailsPageProps) {
-  // Scroll to top on load
+  const [activeView, setActiveView] = useState<"product" | "wiring">("product");
+  const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
+  const [selectedWiringIndex, setSelectedWiringIndex] = useState<number>(0);
+  const [isZoomed, setIsZoomed] = useState<boolean>(false);
+
+  // Scroll to top on load & reset state
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+    setActiveView("product");
+    setSelectedImageIndex(0);
+    setSelectedWiringIndex(0);
+    setIsZoomed(false);
   }, [productId]);
+
+  // Handle Escape key to close zoom modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setIsZoomed(false);
+      }
+    };
+    if (isZoomed) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isZoomed]);
 
   const productsDetailedData: Record<string, {
     name: string;
@@ -28,6 +52,9 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
     technicalPoints: { title: string; desc: string; icon: string }[];
     connectionSteps: { step: string; title: string; desc: string }[];
     changelog: string[];
+    images?: string[];
+    wiringDiagram?: string;
+    wiringDiagrams?: { label: string; url: string }[];
   }> = {
     v4pro: {
       name: "Bộ Điều Khiển ARGB Happy Smart Light V4 PRO",
@@ -224,6 +251,19 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
       changelog: [
         "v4.0.0-release: Phiên bản 4 cổng chuyên dụng cho Matrix & Sự kiện, tích hợp diode chống dội ngược dòng.",
         "v3.0.0-design: Bản thử nghiệm phần cứng chịu tải 30A liên tục an toàn"
+      ],
+      images: [
+        "/img/products/hsl4x/ARGB_HSL_4.png",
+        "/img/products/hsl4x/ARGB_HSL_5.png",
+        "/img/products/hsl4x/ARGB_HSL_TOP.png",
+        "/img/products/hsl4x/ARGB_HSL_BOTTOM.png",
+        "/img/products/hsl4x/ARGB_HSL_2.png",
+        "/img/products/hsl4x/ARGB_HSL_3.png"
+      ],
+      wiringDiagrams: [
+        { label: "Sơ đồ chân (Pinout)", url: "/img/products/hsl4x/pinout_diagram.svg" },
+        { label: "Kết nối 4 cổng ARGB", url: "/img/products/hsl4x/wiring_standard.svg" },
+        { label: "Kết nối 2 cổng SPI", url: "/img/products/hsl4x/wiring_spi.svg" }
       ]
     },
     poi: {
@@ -409,80 +449,229 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
 
           {/* Right Columns - Visual circuit mockup or diagram simulation */}
           <div className="lg:col-span-5 flex justify-center" id="detail-visual-chassis">
-            <div className={`w-full max-w-sm rounded-3xl bg-slate-950 border p-6 justify-between flex flex-col min-h-[380px] relative overflow-hidden ${
-              selectedProduct.glowColor === 'pink'
-                ? "shadow-glow-pink/10 border-neon-pink/25"
-                : selectedProduct.glowColor === 'yellow'
-                  ? "shadow-glow-yellow/10 border-neon-yellow/25"
-                  : selectedProduct.glowColor === 'blue'
-                    ? "shadow-glow-blue/10 border-neon-blue/25"
-                    : "shadow-glow-dual/20 border-purple-500/25"
-              }`}>
-              <div className="absolute top-2 right-3 flex items-center space-x-1.5 opacity-40 font-mono text-[8px]">
-                <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-ping" />
-                <span>STATE: CON_ACTIVE</span>
-              </div>
-
-              {/* Decorative visual drawing logic */}
-              <div className="space-y-4 my-auto">
-                <div className="text-center font-mono">
-                  <span className="block text-[11px] text-[#00e5ff] font-bold">ARGB HSL HARDWARE LABS</span>
-                  <span className="text-[8px] text-slate-500 uppercase tracking-widest block mt-0.5">Sơ đồ khối vi xử lý & tản nhiệt cơ học</span>
+            {selectedProduct.images && selectedProduct.images.length > 0 ? (
+              <div className="w-full max-w-lg flex flex-col space-y-4">
+                {/* View Tabs Selector */}
+                <div className="flex bg-slate-900/60 p-1 rounded-xl border border-white/5 self-center">
+                  <button
+                    onClick={() => setActiveView("product")}
+                    className={`px-4 py-2 rounded-lg text-xs font-mono uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                      activeView === "product"
+                        ? "bg-white/10 text-white font-semibold shadow-sm"
+                        : "text-slate-400 hover:text-slate-200"
+                    }`}
+                  >
+                    Ảnh Sản Phẩm
+                  </button>
+                  {(selectedProduct.wiringDiagram || selectedProduct.wiringDiagrams) && (
+                    <button
+                      onClick={() => setActiveView("wiring")}
+                      className={`px-4 py-2 rounded-lg text-xs font-mono uppercase tracking-wider transition-all duration-200 cursor-pointer ${
+                        activeView === "wiring"
+                          ? "bg-white/10 text-white font-semibold shadow-sm"
+                          : "text-slate-400 hover:text-slate-200"
+                      }`}
+                    >
+                      Sơ Đồ Đấu Nối
+                    </button>
+                  )}
                 </div>
 
-                <div className="p-4 rounded-xl bg-[#0a0a10] border border-white/5 space-y-4 font-mono text-[9px] relative">
-                  {/* Mock logic wire paths layout */}
-                  <div className="space-y-1.5 text-slate-400">
-                    <div className="flex justify-between items-center text-white font-bold border-b border-white/5 pb-1 mb-2">
-                      <span>CHÂN RA TÍN HIỆU BO MẠCH</span>
-                      <span className={`font-mono ${
-                        selectedProduct.glowColor === 'pink'
-                          ? "text-neon-pink-bright"
-                          : selectedProduct.glowColor === 'yellow'
-                            ? "text-neon-yellow-bright"
-                            : "text-neon-blue-bright"
-                      }`}>HSL_V4_BUS</span>
+                {/* Main Visual Display Card */}
+                <div className={`w-full rounded-3xl bg-slate-950 border p-4 sm:p-5 flex flex-col items-center justify-between min-h-[380px] relative overflow-hidden group ${
+                  selectedProduct.glowColor === 'pink'
+                    ? "shadow-glow-pink/10 border-neon-pink/25"
+                    : selectedProduct.glowColor === 'yellow'
+                      ? "shadow-glow-yellow/10 border-neon-yellow/25"
+                      : selectedProduct.glowColor === 'blue'
+                        ? "shadow-glow-blue/10 border-neon-blue/25"
+                        : "shadow-glow-dual/20 border-purple-500/25"
+                }`}>
+                  {activeView === "product" ? (
+                    <div className="w-full flex flex-col items-center justify-between h-full flex-1">
+                      <div className="absolute top-2 right-3 flex items-center space-x-1.5 opacity-40 font-mono text-[8px] z-10">
+                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-ping" />
+                        <span>3D MODEL VIEW</span>
+                      </div>
+                      
+                      <div className="w-full relative aspect-[1.85/1] overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 flex items-center justify-center mt-2">
+                        <img
+                          src={selectedProduct.images[selectedImageIndex]}
+                          alt={`${selectedProduct.name} - View ${selectedImageIndex + 1}`}
+                          className="w-full h-full object-contain hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                      
+                      {/* Thumbnails Row */}
+                      <div className="flex flex-wrap justify-center gap-2 mt-4 max-h-[80px] overflow-y-auto py-1 w-full">
+                        {selectedProduct.images.map((img, idx) => (
+                          <button
+                            key={idx}
+                            onClick={() => setSelectedImageIndex(idx)}
+                            className={`w-11 h-11 sm:w-12 sm:h-12 rounded-lg overflow-hidden border bg-slate-900 transition-all duration-200 cursor-pointer flex-shrink-0 ${
+                              selectedImageIndex === idx
+                                ? selectedProduct.glowColor === "pink"
+                                  ? "border-neon-pink shadow-glow-pink/30 scale-105"
+                                  : selectedProduct.glowColor === "yellow"
+                                    ? "border-neon-yellow shadow-glow-yellow/30 scale-105"
+                                    : selectedProduct.glowColor === "blue"
+                                      ? "border-neon-blue shadow-glow-blue/30 scale-105"
+                                      : "border-purple-500 shadow-glow-dual/30 scale-105"
+                                : "border-white/10 hover:border-white/30"
+                            }`}
+                          >
+                            <img src={img} alt="thumbnail" className="w-full h-full object-cover" />
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                    {selectedProduct.architectures.map((arch, aIdx) => (
-                      <p key={aIdx} className="leading-relaxed">
-                        ➔ {arch}
-                      </p>
-                    ))}
+                  ) : (
+                    <div className="w-full flex flex-col items-center justify-between flex-1 h-full">
+                      <div className="absolute top-2 right-3 flex items-center space-x-1.5 opacity-40 font-mono text-[8px] z-10">
+                        <span className="w-1.5 h-1.5 rounded-full bg-yellow-500 animate-pulse" />
+                        <span>WIRING DIAGRAM</span>
+                      </div>
+
+                      {/* Sub-selector for multiple wiring diagrams */}
+                      {selectedProduct.wiringDiagrams && selectedProduct.wiringDiagrams.length > 0 && (
+                        <div className="flex flex-wrap justify-center gap-1.5 mt-2 mb-2 w-full z-10">
+                          {selectedProduct.wiringDiagrams.map((diag, idx) => (
+                            <button
+                              key={idx}
+                              onClick={() => setSelectedWiringIndex(idx)}
+                              className={`px-2.5 py-1 rounded-md text-[9px] font-mono transition-all duration-150 cursor-pointer ${
+                                selectedWiringIndex === idx
+                                  ? selectedProduct.glowColor === "pink"
+                                    ? "bg-neon-pink/20 text-neon-pink-bright border border-neon-pink/40"
+                                    : selectedProduct.glowColor === "yellow"
+                                      ? "bg-neon-yellow/20 text-neon-yellow-bright border border-neon-yellow/40"
+                                      : selectedProduct.glowColor === "blue"
+                                        ? "bg-neon-blue/20 text-neon-blue-bright border border-neon-blue/40"
+                                        : "bg-purple-500/20 text-purple-300 border border-purple-500/40"
+                                  : "bg-slate-900/60 text-slate-400 border border-white/5 hover:text-slate-200"
+                              }`}
+                            >
+                              {diag.label}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+
+                      <div 
+                        onClick={() => setIsZoomed(true)}
+                        className="w-full relative aspect-[1.41/1] overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 flex items-center justify-center cursor-zoom-in mt-1"
+                      >
+                        <img
+                          src={
+                            selectedProduct.wiringDiagrams
+                              ? selectedProduct.wiringDiagrams[selectedWiringIndex].url
+                              : selectedProduct.wiringDiagram
+                          }
+                          alt="Sơ đồ đấu nối HSL 4X"
+                          className="w-full h-full object-contain"
+                        />
+                        <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-2xl">
+                          <span className="px-3.5 py-1.5 bg-slate-900/90 border border-white/10 rounded-lg text-[10px] font-mono text-white flex items-center space-x-1.5 shadow-lg">
+                            <Eye className="w-3 h-3 text-neon-blue-bright" />
+                            <span>CLICK ĐỂ PHÓNG TO</span>
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <button
+                        onClick={() => setIsZoomed(true)}
+                        className="mt-2 text-[9px] font-mono text-slate-500 hover:text-white flex items-center space-x-1 transition-colors cursor-pointer"
+                      >
+                        <Eye className="w-3 h-3" />
+                        <span>Xem Sơ Đồ Toàn Màn Hình</span>
+                      </button>
+                    </div>
+                  )}
+
+                  {/* Shared bottom disclaimer */}
+                  <div className="w-full pt-3 mt-3 border-t border-white/5 flex items-center space-x-2.5 text-[9px] font-mono text-yellow-500">
+                    <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
+                    <span>Chú ý: Luôn ngắt nguồn điện trước khi hàn gá dải LED để tránh hư hỏng linh kiện.</span>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              // Fallback default diagram when no images defined
+              <div className={`w-full max-w-sm rounded-3xl bg-slate-950 border p-6 justify-between flex flex-col min-h-[380px] relative overflow-hidden ${
+                selectedProduct.glowColor === 'pink'
+                  ? "shadow-glow-pink/10 border-neon-pink/25"
+                  : selectedProduct.glowColor === 'yellow'
+                    ? "shadow-glow-yellow/10 border-neon-yellow/25"
+                    : selectedProduct.glowColor === 'blue'
+                      ? "shadow-glow-blue/10 border-neon-blue/25"
+                      : "shadow-glow-dual/20 border-purple-500/25"
+                }`}>
+                <div className="absolute top-2 right-3 flex items-center space-x-1.5 opacity-40 font-mono text-[8px]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-ping" />
+                  <span>STATE: CON_ACTIVE</span>
+                </div>
+
+                {/* Decorative visual drawing logic */}
+                <div className="space-y-4 my-auto">
+                  <div className="text-center font-mono">
+                    <span className="block text-[11px] text-[#00e5ff] font-bold">ARGB HSL HARDWARE LABS</span>
+                    <span className="text-[8px] text-slate-500 uppercase tracking-widest block mt-0.5">Sơ đồ khối vi xử lý & tản nhiệt cơ học</span>
                   </div>
 
-                  {/* Level Shift Diagram simulation */}
-                  <div className="pt-3 border-t border-white/5 flex justify-between items-center text-[8px] text-slate-500">
-                    <span>ESP32 MCU (3.3V)</span>
-                    <span className="text-yellow-400 animate-pulse font-bold">⚡ LEVEL SHIFTER IC ⚡</span>
-                    <span className="text-[#00e5ff] font-bold">LED TARGET (5.0V)</span>
+                  <div className="p-4 rounded-xl bg-[#0a0a10] border border-white/5 space-y-4 font-mono text-[9px] relative">
+                    {/* Mock logic wire paths layout */}
+                    <div className="space-y-1.5 text-slate-400">
+                      <div className="flex justify-between items-center text-white font-bold border-b border-white/5 pb-1 mb-2">
+                        <span>CHÂN RA TÍN HIỆU BO MẠCH</span>
+                        <span className={`font-mono ${
+                          selectedProduct.glowColor === 'pink'
+                            ? "text-neon-pink-bright"
+                            : selectedProduct.glowColor === 'yellow'
+                              ? "text-neon-yellow-bright"
+                              : "text-neon-blue-bright"
+                        }`}>HSL_V4_BUS</span>
+                      </div>
+                      {selectedProduct.architectures.map((arch, aIdx) => (
+                        <p key={aIdx} className="leading-relaxed">
+                          ➔ {arch}
+                        </p>
+                      ))}
+                    </div>
+
+                    {/* Level Shift Diagram simulation */}
+                    <div className="pt-3 border-t border-white/5 flex justify-between items-center text-[8px] text-slate-500">
+                      <span>ESP32 MCU (3.3V)</span>
+                      <span className="text-yellow-400 animate-pulse font-bold">⚡ LEVEL SHIFTER IC ⚡</span>
+                      <span className="text-[#00e5ff] font-bold">LED TARGET (5.0V)</span>
+                    </div>
+                  </div>
+
+                  {/* Simulated Oscilloscope Waveform */}
+                  <div className="p-3 bg-black rounded-lg border border-white/5 space-y-2">
+                    <div className="flex justify-between font-mono text-[8px] text-slate-500">
+                      <span>SÓNG TRUYỀN DẪN ARGB HSL (1Mbps)</span>
+                      <span className="text-emerald-400">SYNC OK</span>
+                    </div>
+                    {/* Waveform line SVG */}
+                    <svg viewBox="0 0 100 20" className="w-full h-8 text-emerald-500 stroke-current stroke-1">
+                      <path d="M 0 10 L 10 10 L 12 2 L 14 18 L 16 10 L 30 10 L 32 2 L 34 18 L 36 10 L 55 10 L 57 2 L 59 18 L 61 10 L 80 10 L 82 2 L 84 18 L 86 10 L 100 10" fill="none" className={`animate-pulse ${
+                        selectedProduct.glowColor === 'pink'
+                          ? "stroke-neon-pink"
+                          : selectedProduct.glowColor === 'yellow'
+                            ? "stroke-neon-yellow"
+                            : "stroke-neon-blue"
+                      }`} strokeWidth="1.5" />
+                    </svg>
                   </div>
                 </div>
 
-                {/* Simulated Oscilloscope Waveform */}
-                <div className="p-3 bg-black rounded-lg border border-white/5 space-y-2">
-                  <div className="flex justify-between font-mono text-[8px] text-slate-500">
-                    <span>SÓNG TRUYỀN DẪN ARGB HSL (1Mbps)</span>
-                    <span className="text-emerald-400">SYNC OK</span>
-                  </div>
-                  {/* Waveform line SVG */}
-                  <svg viewBox="0 0 100 20" className="w-full h-8 text-emerald-500 stroke-current stroke-1">
-                    <path d="M 0 10 L 10 10 L 12 2 L 14 18 L 16 10 L 30 10 L 32 2 L 34 18 L 36 10 L 55 10 L 57 2 L 59 18 L 61 10 L 80 10 L 82 2 L 84 18 L 86 10 L 100 10" fill="none" className={`animate-pulse ${
-                      selectedProduct.glowColor === 'pink'
-                        ? "stroke-neon-pink"
-                        : selectedProduct.glowColor === 'yellow'
-                          ? "stroke-neon-yellow"
-                          : "stroke-neon-blue"
-                    }`} strokeWidth="1.5" />
-                  </svg>
+                {/* Disclaimer warning info */}
+                <div className="pt-4 border-t border-white/5 flex items-center space-x-2.5 text-[9px] font-mono text-yellow-500">
+                  <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
+                  <span>Chú ý: Luôn ngắt nguồn điện trước khi hàn gá dải LED để tránh hư hỏng linh kiện.</span>
                 </div>
               </div>
-
-              {/* Disclaimer warning info */}
-              <div className="pt-4 border-t border-white/5 flex items-center space-x-2.5 text-[9px] font-mono text-yellow-500">
-                <AlertTriangle className="w-3.5 h-3.5 shrink-0" />
-                <span>Chú ý: Luôn ngắt nguồn điện trước khi hàn gá dải LED để tránh hư hỏng linh kiện.</span>
-              </div>
-            </div>
+            )}
           </div>
 
         </div>
@@ -743,6 +932,48 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         </div>
 
       </div>
+
+      {/* Zoom Modal */}
+      {isZoomed && (selectedProduct.wiringDiagram || selectedProduct.wiringDiagrams) && (
+        <div 
+          className="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center p-4 backdrop-blur-md"
+          onClick={() => setIsZoomed(false)}
+        >
+          <div className="w-full max-w-5xl flex justify-between items-center mb-4 text-white">
+            <span className="font-display font-bold text-xs sm:text-sm uppercase tracking-wider text-slate-300">
+              Sơ Đồ Đấu Nối {selectedProduct.name} - {
+                selectedProduct.wiringDiagrams
+                  ? selectedProduct.wiringDiagrams[selectedWiringIndex].label
+                  : ""
+              }
+            </span>
+            <button
+              onClick={() => setIsZoomed(false)}
+              className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white border border-white/10 transition-colors cursor-pointer"
+              aria-label="Đóng sơ đồ"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+          <div 
+            className="w-full max-w-5xl max-h-[80vh] flex items-center justify-center bg-slate-950 rounded-2xl border border-white/10 p-2 overflow-auto relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={
+                selectedProduct.wiringDiagrams
+                  ? selectedProduct.wiringDiagrams[selectedWiringIndex].url
+                  : selectedProduct.wiringDiagram
+              }
+              alt="Sơ đồ đấu nối HSL 4X phóng to"
+              className="max-w-full max-h-[75vh] object-contain"
+            />
+          </div>
+          <div className="mt-3 text-[10px] font-mono text-slate-500">
+            Ấn nút ESC hoặc click bên ngoài để đóng sơ đồ
+          </div>
+        </div>
+      )}
     </div>
   );
 }

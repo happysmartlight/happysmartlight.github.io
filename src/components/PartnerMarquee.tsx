@@ -11,13 +11,14 @@ import { Cpu } from "lucide-react";
 type Partner = { name: string; logo?: string };
 
 const PARTNERS: Partner[] = [
-  { name: "xLights", logo: "/img/partners/xlights.svg" },
-  { name: "LedFx", logo: "/img/partners/ledfx.svg" },
+  // Dùng tạm ảnh đối tác có sẵn trong /img/service/ (trang dịch vụ)
+  { name: "xLights", logo: "/img/service/partner-xlights-banner.jpg" },
+  { name: "LedFx", logo: "/img/service/partner-LedFX.png" },
+  { name: "Espressif", logo: "/img/service/partner-espressif.webp" },
+  { name: "Moonlight Dance", logo: "/img/service/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO.jpg" },
+  // Placeholder SVG (chưa có logo thật)
   { name: "Art-Net", logo: "/img/partners/art-net.svg" },
   { name: "WLED", logo: "/img/partners/wled.svg" },
-  { name: "Espressif", logo: "/img/partners/espressif.svg" },
-  { name: "Vinhomes", logo: "/img/partners/vinhomes.svg" },
-  { name: "Moonlight Dance", logo: "/img/partners/moonlight-dance.svg" },
   { name: "Pixel Pro", logo: "/img/partners/pixel-pro.svg" },
 ];
 
@@ -25,7 +26,7 @@ function renderLogo(partner: Partner, key: string) {
   return (
     <div
       key={key}
-      className="group/logo flex items-center justify-center h-16 sm:h-[72px] w-40 sm:w-44 px-5 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] hover:border-white/15 transition-colors shrink-0"
+      className="group/logo flex items-center justify-center h-16 sm:h-[72px] w-40 sm:w-44 px-5 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.06] hover:border-white/15 transition-colors shrink-0 overflow-hidden"
       title={partner.name}
     >
       {partner.logo ? (
@@ -34,7 +35,7 @@ function renderLogo(partner: Partner, key: string) {
           alt={partner.name}
           loading="lazy"
           decoding="async"
-          className="max-h-8 sm:max-h-9 w-auto object-contain opacity-70 grayscale group-hover/logo:opacity-100 group-hover/logo:grayscale-0 transition-all duration-300"
+          className="max-h-9 sm:max-h-10 max-w-full w-auto object-contain opacity-70 grayscale group-hover/logo:opacity-100 group-hover/logo:grayscale-0 transition-all duration-300"
         />
       ) : (
         <div className="flex items-center gap-2.5">

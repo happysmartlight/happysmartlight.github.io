@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useOutlet, useNavigate, useLocation, useNavigationType } from "react-router-dom";
-import { AnimatePresence } from "motion/react";
+import { AnimatePresence, MotionConfig } from "motion/react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FloatingActions from "./components/FloatingActions";
@@ -137,6 +137,7 @@ export default function Layout() {
   const outlet = useOutlet(outletContext);
 
   return (
+    <MotionConfig reducedMotion="user">
     <div className="relative min-h-screen bg-[#020204] text-[#f8fafc] antialiased pb-0 select-none">
       {/* Custom Theme-Responsive Cursor */}
       <CustomCursor themeGlow={themeGlow} />
@@ -158,5 +159,6 @@ export default function Layout() {
 
       <FloatingActions themeGlow={themeGlow} />
     </div>
+    </MotionConfig>
   );
 }

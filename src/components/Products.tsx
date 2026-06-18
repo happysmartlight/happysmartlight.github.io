@@ -209,7 +209,7 @@ export default function Products({ onQuoteRequested, onViewProductDetails }: Pro
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, margin: "-50px" }}
                   transition={{ duration: 0.4 }}
-                  className={`bg-glass rounded-3xl p-6 sm:p-8 flex flex-col justify-between border transition-all duration-300 relative group overflow-hidden ${getGlowBorderClass(
+                  className={`bg-glass rounded-3xl p-6 sm:p-8 flex flex-col justify-between border transition-[background-color,border-color,box-shadow] duration-300 relative group overflow-hidden ${getGlowBorderClass(
                     product.glowColor
                   )}`}
                   id={`product-card-${product.id}`}

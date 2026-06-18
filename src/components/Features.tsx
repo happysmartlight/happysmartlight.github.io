@@ -100,7 +100,7 @@ export default function Features() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className={`flex flex-col justify-between p-6 rounded-2xl bg-slate-950/40 backdrop-blur-md border border-white/5 hover:bg-slate-950/80 transition-all duration-300 relative group overflow-hidden ${
+                className={`flex flex-col justify-between p-6 rounded-2xl bg-slate-950/40 backdrop-blur-md max-md:backdrop-blur-none max-md:bg-slate-950/60 border border-white/5 hover:bg-slate-950/80 transition-[background-color,border-color,box-shadow] duration-300 relative group overflow-hidden ${
                   isPink
                     ? "hover:border-neon-pink/40 hover:shadow-glow-pink/5"
                     : "hover:border-neon-blue/40 hover:shadow-glow-blue/5"

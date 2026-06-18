@@ -63,7 +63,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className={`p-6 rounded-2xl bg-slate-950/40 backdrop-blur-md border ${pillar.color} transition-all duration-300 group flex flex-col justify-between`}
+              className={`p-6 rounded-2xl bg-slate-950/40 backdrop-blur-md max-md:backdrop-blur-none max-md:bg-slate-950/60 border ${pillar.color} transition-[background-color,border-color,box-shadow] duration-300 group flex flex-col justify-between`}
               id={`about-pillar-${idx}`}
             >
               <div>

@@ -58,7 +58,7 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.45, delay: idx * 0.05 }}
-              className="p-6 sm:p-8 rounded-3xl bg-glass border border-white/5 hover:border-white/10 hover:bg-slate-950/40 transition-all duration-300 flex flex-col sm:flex-row items-start gap-5 group"
+              className="p-6 sm:p-8 rounded-3xl bg-glass border border-white/5 hover:border-white/10 hover:bg-slate-950/40 transition-[background-color,border-color,box-shadow] duration-300 flex flex-col sm:flex-row items-start gap-5 group"
               id={`why-card-${point.num}`}
             >
               {/* Number and Icon container */}

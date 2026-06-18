@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { ArrowLeft, Cpu, Columns, Layers, Radio, Sliders, Play, Check, Sparkles, Battery, Monitor, Code, Settings, AlertTriangle, Hammer, Zap, Wifi, Eye, X } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { ArrowLeft, Cpu, Columns, Layers, Radio, Sliders, Play, Check, Sparkles, Battery, Monitor, Code, Settings, AlertTriangle, Hammer, Zap, Wifi, Eye, X, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, RotateCcw } from "lucide-react";
 import { motion } from "motion/react";
 
 interface ProductDetailsPageProps {
@@ -14,6 +14,10 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
   const [selectedWiringIndex, setSelectedWiringIndex] = useState<number>(0);
   const [isZoomed, setIsZoomed] = useState<boolean>(false);
+  // Zoom modal pan/scale state
+  const [scale, setScale] = useState<number>(1);
+  const [offset, setOffset] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const dragRef = useRef<{ startX: number; startY: number; ox: number; oy: number } | null>(null);
 
   // Scroll to top on load & reset state
   useEffect(() => {
@@ -22,6 +26,8 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
     setSelectedImageIndex(0);
     setSelectedWiringIndex(0);
     setIsZoomed(false);
+    setScale(1);
+    setOffset({ x: 0, y: 0 });
   }, [productId]);
 
   // Handle Escape key + lock background scroll while zoom modal is open
@@ -359,23 +365,59 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
   } as const;
   const glow = glowStyles[selectedProduct.glowColor] ?? glowStyles.purple;
 
-  // Nguồn ảnh cho modal phóng to — dùng chung cho cả ảnh sản phẩm & sơ đồ đấu nối
-  const zoomSource =
+  // Danh sách ảnh cho modal phóng to — dùng chung cho cả ảnh sản phẩm & sơ đồ đấu nối
+  const galleryItems: { label: string; url: string | undefined }[] =
     activeView === "wiring"
-      ? {
-          src: selectedProduct.wiringDiagrams
-            ? selectedProduct.wiringDiagrams[selectedWiringIndex].url
-            : selectedProduct.wiringDiagram,
-          label: selectedProduct.wiringDiagrams
-            ? selectedProduct.wiringDiagrams[selectedWiringIndex].label
-            : "Sơ đồ đấu nối",
-          title: "Sơ Đồ Đấu Nối",
-        }
-      : {
-          src: selectedProduct.images?.[selectedImageIndex],
-          label: `Ảnh ${selectedImageIndex + 1}/${selectedProduct.images?.length ?? 0}`,
-          title: "Ảnh Sản Phẩm",
-        };
+      ? selectedProduct.wiringDiagrams
+        ? selectedProduct.wiringDiagrams
+        : selectedProduct.wiringDiagram
+          ? [{ label: "Sơ đồ đấu nối", url: selectedProduct.wiringDiagram }]
+          : []
+      : (selectedProduct.images ?? []).map((url, i) => ({ label: `Ảnh ${i + 1}`, url }));
+
+  const viewTitle = activeView === "wiring" ? "Sơ Đồ Đấu Nối" : "Ảnh Sản Phẩm";
+  const currentIndex = activeView === "wiring" ? selectedWiringIndex : selectedImageIndex;
+  const currentItem = galleryItems[currentIndex];
+
+  const MIN_SCALE = 1;
+  const MAX_SCALE = 4;
+  const resetZoom = () => {
+    setScale(1);
+    setOffset({ x: 0, y: 0 });
+  };
+  const zoomIn = () => setScale((s) => Math.min(s + 0.5, MAX_SCALE));
+  const zoomOut = () =>
+    setScale((s) => {
+      const next = Math.max(s - 0.5, MIN_SCALE);
+      if (next <= 1) setOffset({ x: 0, y: 0 });
+      return next;
+    });
+  const changeSlide = (dir: number) => {
+    const len = galleryItems.length;
+    if (len <= 1) return;
+    const next = (currentIndex + dir + len) % len;
+    if (activeView === "wiring") setSelectedWiringIndex(next);
+    else setSelectedImageIndex(next);
+  };
+
+  // Reset zoom mỗi khi đổi ảnh / đổi tab / mở-đóng modal
+  useEffect(() => {
+    resetZoom();
+  }, [selectedImageIndex, selectedWiringIndex, activeView, isZoomed]);
+
+  // Phím mũi tên để chuyển ảnh, +/- để zoom trong modal
+  useEffect(() => {
+    if (!isZoomed) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") changeSlide(-1);
+      else if (e.key === "ArrowRight") changeSlide(1);
+      else if (e.key === "+" || e.key === "=") zoomIn();
+      else if (e.key === "-" || e.key === "_") zoomOut();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isZoomed, activeView, selectedImageIndex, selectedWiringIndex, galleryItems.length]);
 
   // Render correct icon based on name
   const renderIconComponent = (iconName: string) => {
@@ -983,38 +1025,126 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
       </div>
 
       {/* Zoom Modal */}
-      {isZoomed && zoomSource.src && (
+      {isZoomed && currentItem?.url && (
         <div
           role="dialog"
           aria-modal="true"
-          aria-label={`${zoomSource.title} ${selectedProduct.name}`}
-          className="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center p-4 backdrop-blur-md"
+          aria-label={`${viewTitle} ${selectedProduct.name}`}
+          className="fixed inset-0 z-[100] bg-black/95 flex flex-col items-center justify-center p-4 backdrop-blur-md select-none"
           onClick={() => setIsZoomed(false)}
         >
-          <div className="w-full max-w-5xl flex justify-between items-center mb-4 text-white">
-            <span className="font-display font-bold text-xs sm:text-sm uppercase tracking-wider text-slate-300">
-              {zoomSource.title} {selectedProduct.name} - {zoomSource.label}
-            </span>
-            <button
-              onClick={() => setIsZoomed(false)}
-              className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white border border-white/10 transition-colors cursor-pointer"
-              aria-label="Đóng cửa sổ phóng to"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          </div>
+          {/* Header: tiêu đề + điều khiển zoom + đóng */}
           <div
-            className="w-full max-w-5xl max-h-[80vh] flex items-center justify-center bg-slate-950 rounded-2xl border border-white/10 p-2 overflow-auto relative"
+            className="w-full max-w-5xl flex justify-between items-center gap-3 mb-4 text-white"
             onClick={(e) => e.stopPropagation()}
           >
+            <span className="font-display font-bold text-xs sm:text-sm uppercase tracking-wider text-slate-300 truncate">
+              {viewTitle} {selectedProduct.name} - {currentItem.label}
+            </span>
+            <div className="flex items-center gap-1.5 shrink-0">
+              <button
+                onClick={zoomOut}
+                disabled={scale <= MIN_SCALE}
+                className="p-2 rounded-full bg-white/5 hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-white/5 text-slate-300 hover:text-white border border-white/10 transition-colors cursor-pointer disabled:cursor-not-allowed"
+                aria-label="Thu nhỏ"
+              >
+                <ZoomOut className="w-4 h-4" />
+              </button>
+              <span className="text-[10px] font-mono text-slate-400 w-10 text-center tabular-nums">
+                {Math.round(scale * 100)}%
+              </span>
+              <button
+                onClick={zoomIn}
+                disabled={scale >= MAX_SCALE}
+                className="p-2 rounded-full bg-white/5 hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-white/5 text-slate-300 hover:text-white border border-white/10 transition-colors cursor-pointer disabled:cursor-not-allowed"
+                aria-label="Phóng to"
+              >
+                <ZoomIn className="w-4 h-4" />
+              </button>
+              <button
+                onClick={resetZoom}
+                disabled={scale === 1 && offset.x === 0 && offset.y === 0}
+                className="p-2 rounded-full bg-white/5 hover:bg-white/10 disabled:opacity-30 disabled:hover:bg-white/5 text-slate-300 hover:text-white border border-white/10 transition-colors cursor-pointer disabled:cursor-not-allowed"
+                aria-label="Đặt lại zoom"
+              >
+                <RotateCcw className="w-4 h-4" />
+              </button>
+              <span className="w-px h-5 bg-white/10 mx-1" />
+              <button
+                onClick={() => setIsZoomed(false)}
+                className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors cursor-pointer"
+                aria-label="Đóng cửa sổ phóng to"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+
+          {/* Khung ảnh + nút điều hướng */}
+          <div
+            className="w-full max-w-5xl h-[75vh] flex items-center justify-center bg-slate-950 rounded-2xl border border-white/10 p-2 relative overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+            onWheel={(e) => {
+              setScale((s) => {
+                const next = Math.min(Math.max(s + (e.deltaY < 0 ? 0.25 : -0.25), MIN_SCALE), MAX_SCALE);
+                if (next <= 1) setOffset({ x: 0, y: 0 });
+                return next;
+              });
+            }}
+          >
+            {galleryItems.length > 1 && (
+              <>
+                <button
+                  onClick={() => changeSlide(-1)}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 z-10 p-2.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white border border-white/10 transition-colors cursor-pointer backdrop-blur-sm"
+                  aria-label="Ảnh trước"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={() => changeSlide(1)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 z-10 p-2.5 rounded-full bg-slate-900/80 hover:bg-slate-800 text-white border border-white/10 transition-colors cursor-pointer backdrop-blur-sm"
+                  aria-label="Ảnh kế tiếp"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </>
+            )}
             <img
-              src={zoomSource.src}
-              alt={`${zoomSource.title} ${selectedProduct.name} phóng to`}
-              className="max-w-full max-h-[75vh] object-contain"
+              src={currentItem.url}
+              alt={`${viewTitle} ${selectedProduct.name} - ${currentItem.label} (phóng to)`}
+              draggable={false}
+              onPointerDown={(e) => {
+                if (scale <= 1) return;
+                dragRef.current = { startX: e.clientX, startY: e.clientY, ox: offset.x, oy: offset.y };
+                (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
+              }}
+              onPointerMove={(e) => {
+                if (!dragRef.current) return;
+                setOffset({
+                  x: dragRef.current.ox + (e.clientX - dragRef.current.startX),
+                  y: dragRef.current.oy + (e.clientY - dragRef.current.startY),
+                });
+              }}
+              onPointerUp={() => { dragRef.current = null; }}
+              onDoubleClick={() => (scale > 1 ? resetZoom() : setScale(2))}
+              style={{
+                transform: `translate(${offset.x}px, ${offset.y}px) scale(${scale})`,
+                cursor: scale > 1 ? (dragRef.current ? "grabbing" : "grab") : "zoom-in",
+                transition: dragRef.current ? "none" : "transform 0.2s ease-out",
+              }}
+              className="max-w-full max-h-full object-contain will-change-transform touch-none"
             />
           </div>
-          <div className="mt-3 text-[10px] font-mono text-slate-500">
-            Ấn nút ESC hoặc click bên ngoài để đóng
+
+          {/* Footer: bộ đếm + gợi ý */}
+          <div className="mt-3 flex items-center gap-3 text-[10px] font-mono text-slate-500">
+            {galleryItems.length > 1 && (
+              <span className="text-slate-300 tabular-nums">
+                {currentIndex + 1} / {galleryItems.length}
+              </span>
+            )}
+            <span>ESC để đóng · ← → đổi ảnh · cuộn/+− để zoom · kéo để di chuyển</span>
           </div>
         </div>
       )}

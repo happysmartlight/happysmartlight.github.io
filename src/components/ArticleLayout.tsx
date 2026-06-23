@@ -1,8 +1,8 @@
-import { useCallback } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion } from "motion/react";
-import { ArrowLeft, Share2, Phone, Mail, MessageCircle } from "lucide-react";
+import { ArrowLeft, Phone, Mail, MessageCircle } from "lucide-react";
 import Seo from "./Seo";
+import ShareButton from "./ShareButton";
 
 type AccentColor = "pink" | "blue" | "emerald" | "purple";
 
@@ -68,8 +68,8 @@ export default function ArticleLayout({
   bannerImg,
   accent = "pink",
   path,
-  backPath = "/service/",
-  backLabel = "DỊCH VỤ",
+  backPath = "/doi-tac/",
+  backLabel = "ĐỐI TÁC",
   children,
   hideContact,
 }: ArticleLayoutProps) {
@@ -81,17 +81,6 @@ export default function ArticleLayout({
     if (location.key !== "default") navigate(-1);
     else navigate(backPath);
   };
-
-  const handleShare = useCallback(async () => {
-    const url = window.location.href;
-    if (navigator.share) {
-      try { await navigator.share({ title, url }); } catch { /* cancelled */ }
-    } else {
-      await navigator.clipboard?.writeText(url);
-      // Fallback: simple alert
-      alert("Đã sao chép link bài viết!");
-    }
-  }, [title]);
 
   return (
     <motion.div
@@ -119,13 +108,7 @@ export default function ArticleLayout({
               <span>QUAY LẠI {backLabel}</span>
             </button>
 
-            <button
-              onClick={handleShare}
-              className="flex items-center space-x-1.5 py-1.5 px-3 rounded-lg bg-slate-900 border border-white/5 hover:border-neon-pink/20 text-xs font-mono text-slate-300 hover:text-white transition-all cursor-pointer"
-            >
-              <Share2 className="w-3.5 h-3.5 text-neon-pink" />
-              <span>Chia sẻ / Share</span>
-            </button>
+            <ShareButton title={title} />
           </div>
 
           {/* Main article container */}

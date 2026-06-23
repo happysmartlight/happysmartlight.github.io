@@ -4,7 +4,7 @@
 
 export type CollectionKey =
   | "post-news"
-  | "service";
+  | "doi-tac";
 
 export interface CollectionMeta {
   key: CollectionKey;
@@ -25,14 +25,14 @@ export const COLLECTION_META: Record<CollectionKey, CollectionMeta> = {
       "Tin tức, hướng dẫn và chia sẻ kinh nghiệm về LED ARGB, poi ánh sáng và các giải pháp chiếu sáng thông minh từ Happy Smart Light.",
     eyebrow: "POST NEWS",
   },
-  service: {
-    key: "service",
-    path: "/service",
-    title: "Dịch Vụ — Đào Tạo, Đối Tác, LED Decor | Happy Smart Light",
-    heading: "Dịch Vụ Happy Smart Light",
+  "doi-tac": {
+    key: "doi-tac",
+    path: "/doi-tac",
+    title: "Đối Tác Của Happy Smart Light — Hợp Tác & Hệ Sinh Thái LED",
+    heading: "Đối Tác Của Happy Smart Light",
     description:
-      "Các gói dịch vụ của Happy Smart Light: tư vấn thiết kế, LED Decor, LED Dance, biển hiệu, đào tạo và hợp tác đối tác.",
-    eyebrow: "SERVICE",
+      "Các đối tác chiến lược và hệ sinh thái tương thích của Happy Smart Light: xLights, LedFx, Espressif, Moonlight Dance, NCTA và nhiều đơn vị đồng hành trong lĩnh vực LED nghệ thuật.",
+    eyebrow: "PARTNER",
   },
 };
 

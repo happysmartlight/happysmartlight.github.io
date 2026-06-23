@@ -11,10 +11,10 @@ const NCTA_VIDEOS = [
 ];
 
 const NCTA_IMAGES = [
-  { src: "/img/service/partner-ncta-anh-1.jpg", caption: "Đạo cụ LED biểu diễn do NCTA chế tạo" },
-  { src: "/img/service/partner-ncta-anh-2.jpg", caption: "Trống đeo LED Matrix đồng bộ hiệu ứng" },
-  { src: "/img/service/partner-ncta-anh-3.jpg", caption: "Cờ LED nghệ thuật rực rỡ trên sân khấu" },
-  { src: "/img/service/partner-ncta-anh-4.jpg", caption: "Bộ đạo cụ LED dance hoàn thiện công phu" },
+  { src: "/img/partner/partner-ncta-anh-1.jpg", caption: "Đạo cụ LED biểu diễn do NCTA chế tạo" },
+  { src: "/img/partner/partner-ncta-anh-2.jpg", caption: "Trống đeo LED Matrix đồng bộ hiệu ứng" },
+  { src: "/img/partner/partner-ncta-anh-3.jpg", caption: "Cờ LED nghệ thuật rực rỡ trên sân khấu" },
+  { src: "/img/partner/partner-ncta-anh-4.jpg", caption: "Bộ đạo cụ LED dance hoàn thiện công phu" },
 ];
 
 export default function PartnerNCTA() {
@@ -23,11 +23,11 @@ export default function PartnerNCTA() {
       title="NCTA — Người Chế Tạo × Happy Smart Light — Đối Tác Sản Xuất Đạo Cụ LED"
       eyebrow="HAPPY SMART LIGHT — PARTNER × NCTA NGƯỜI CHẾ TẠO"
       description="NCTA — Người Chế Tạo trở thành đối tác sản xuất của Happy Smart Light, chuyên chế tạo và cung cấp đạo cụ biểu diễn LED nghệ thuật: led dance, trống LED, cờ LED và nhiều hơn nữa."
-      bannerImg="/img/service/partner-ncta-anh-1.jpg"
+      bannerImg="/img/partner/partner-ncta-anh-1.jpg"
       accent="blue"
-      path="/service/partner-NCTA/"
-      backPath="/service/"
-      backLabel="DỊCH VỤ"
+      path="/doi-tac/partner-NCTA/"
+      backPath="/doi-tac/"
+      backLabel="ĐỐI TÁC"
     >
       {/* Intro */}
       <Callout icon={<Wrench className="w-5 h-5 text-neon-blue-bright" />}>
@@ -142,7 +142,7 @@ export default function PartnerNCTA() {
             <span className="text-xs font-mono text-slate-500">HAPPY SMART LIGHT</span>
             <p className="text-sm text-neon-blue-bright group-hover:text-white transition-colors mt-1">happysmartlight.com →</p>
           </a>
-          <a href="/service/" className="p-4 rounded-xl bg-slate-900/40 border border-white/5 hover:border-neon-pink/20 transition-colors no-underline group">
+          <a href="/doi-tac/" className="p-4 rounded-xl bg-slate-900/40 border border-white/5 hover:border-neon-pink/20 transition-colors no-underline group">
             <span className="text-xs font-mono text-slate-500">NCTA — NGƯỜI CHẾ TẠO</span>
             <p className="text-sm text-neon-pink-bright group-hover:text-white transition-colors mt-1">Xem thêm đối tác →</p>
           </a>

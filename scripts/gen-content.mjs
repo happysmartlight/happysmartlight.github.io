@@ -12,7 +12,7 @@ const md = new MarkdownIt({ html: true, linkify: true, breaks: false });
 // Jekyll permalink => collection folder
 const COLLECTIONS = {
   "post-news": "_post-news",
-  "service": "_service",
+  "doi-tac": "_doi-tac",
 };
 
 const galleriesPath = "content-src/_data/galleries.yml";

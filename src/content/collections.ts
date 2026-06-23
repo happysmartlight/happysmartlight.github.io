@@ -17,75 +17,75 @@ export interface CollectionItem {
   html: string;
 }
 
-const PORTED_SERVICES: CollectionItem[] = [
+const PORTED_PARTNERS: CollectionItem[] = [
   {
     slug: "partner-xLights",
-    collection: "service",
-    url: "/service/partner-xLights/",
+    collection: "doi-tac",
+    url: "/doi-tac/partner-xLights/",
     title: "Happy Smart Light hợp tác phát triển cùng xLights Việt Nam",
     metaTitle: "xLights Partner",
-    image: "/img/service/partner-xlights-banner.jpg",
-    bigimg: "/img/service/partner-xlights-banner.jpg",
+    image: "/img/partner/partner-xlights-banner.jpg",
+    bigimg: "/img/partner/partner-xlights-banner.jpg",
     tags: ["partner", "xLights", "training"],
     excerpt: "Happy Smart Light tự hào hợp tác cùng xLights Việt Nam mang đến giải pháp trình diễn ánh sáng chuyên nghiệp hàng đầu.",
     html: ""
   },
   {
     slug: "partner-Moonlight-dance",
-    collection: "service",
-    url: "/service/partner-Moonlight-dance/",
+    collection: "doi-tac",
+    url: "/doi-tac/partner-Moonlight-dance/",
     title: "Đối tác chiến lược ánh sáng biểu diễn Moonlight Dance Studio",
     metaTitle: "Moonlight Dance Partner",
-    image: "/img/service/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO.jpg",
-    bigimg: "/img/service/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO-banner.jpg",
+    image: "/img/partner/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO.jpg",
+    bigimg: "/img/partner/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO-banner.jpg",
     tags: ["partner", "led-dance", "performance"],
     excerpt: "Sự kết hợp nghệ thuật nhảy múa đương đại và công nghệ ánh sáng thông minh giữa HSL và MoonLight Dance.",
     html: ""
   },
   {
     slug: "partner-LedFx",
-    collection: "service",
-    url: "/service/partner-LedFx/",
+    collection: "doi-tac",
+    url: "/doi-tac/partner-LedFx/",
     title: "Đồng bộ hiệu ứng âm thanh thời gian thực cùng đối tác LedFx",
     metaTitle: "LedFx Partner",
-    image: "/img/service/partner-LedFX.png",
-    bigimg: "/img/service/partner-LedFX-banner.png",
+    image: "/img/partner/partner-LedFX.png",
+    bigimg: "/img/partner/partner-LedFX-banner.png",
     tags: ["partner", "LedFx", "audio-sync"],
     excerpt: "LedFx phản hồi âm thanh thời gian thực (Reactive Audio) kết hợp hệ sinh thái phần cứng ARGB HSL cực nhạy.",
     html: ""
   },
   {
     slug: "partner-anonymous",
-    collection: "service",
-    url: "/service/partner-anonymous/",
+    collection: "doi-tac",
+    url: "/doi-tac/partner-anonymous/",
     title: "Đối tác giấu tên — Dự án giải trí & Bar Club ngầm cao cấp",
     metaTitle: "Secret Club Partner",
-    image: "/img/service/partner-anonymous/avatar-anonymous.jpg",
-    bigimg: "/img/service/partner-anonymous/photo-anonymous.jpg",
+    image: "/img/partner/partner-anonymous/avatar-anonymous.jpg",
+    bigimg: "/img/partner/partner-anonymous/photo-anonymous.jpg",
     tags: ["partner", "club", "secret-project"],
     excerpt: "Thi công thiết kế hệ thống ánh sáng ma trận LED độc quyền cho các Bar Club ngầm cao cấp yêu cầu bảo mật thông tin.",
     html: ""
   },
   {
     slug: "partner-ESP32",
-    collection: "service",
-    url: "/service/partner-ESP32/",
+    collection: "doi-tac",
+    url: "/doi-tac/partner-ESP32/",
     title: "Hợp tác kỹ thuật sâu rộng cùng Espressif Systems (ESP32 MCU)",
     metaTitle: "Espressif Partner",
-    image: "/img/service/partner-espressif.webp",
-    bigimg: "/img/service/partner-espressif-banner.jpg",
+    image: "/img/partner/partner-espressif.webp",
+    bigimg: "/img/partner/partner-espressif-banner.jpg",
     tags: ["partner", "ESP32", "microcontroller"],
     excerpt: "Happy Smart Light tự hào sử dụng dòng vi xử lý ESP32 của Espressif mang lại hiệu năng điều khiển LED vượt trội.",
     html: ""
   },
   {
     slug: "partner-NCTA",
-    collection: "service",
-    url: "/service/partner-NCTA/",
+    collection: "doi-tac",
+    url: "/doi-tac/partner-NCTA/",
     title: "NCTA — Người Chế Tạo: Đối tác sản xuất đạo cụ biểu diễn LED",
     metaTitle: "NCTA Partner",
-    image: "/img/service/partner-ncta.jpg",
-    bigimg: "/img/service/partner-ncta-anh-1.jpg",
+    image: "/img/partner/partner-ncta.jpg",
+    bigimg: "/img/partner/partner-ncta-anh-1.jpg",
     tags: ["partner", "led-dance", "manufacturing"],
     excerpt: "NCTA — Người Chế Tạo chuyên sản xuất đạo cụ biểu diễn LED nghệ thuật: led dance, trống LED, cờ LED — kết hợp công nghệ ARGB của HSL.",
     html: ""
@@ -111,7 +111,7 @@ const typedData = data as Record<CollectionKey, CollectionItem[]>;
 
 export const COLLECTIONS: Record<CollectionKey, CollectionItem[]> = {
   ...typedData,
-  service: [...(typedData.service ?? []), ...PORTED_SERVICES],
+  "doi-tac": [...(typedData["doi-tac"] ?? []), ...PORTED_PARTNERS],
   "post-news": [...(typedData["post-news"] ?? []), ...PORTED_POSTS],
 };
 

@@ -7,11 +7,11 @@ export default function PartnerAnonymous() {
       title="Hợp Tác Cùng Cộng Đồng Vũ Đoàn — HSL Tôn Vinh Mọi Phong Cách Biểu Diễn"
       eyebrow="HAPPY SMART LIGHT — ANONYMOUS PARTNERS"
       description="Happy Smart Light tự hào đồng hành cùng hàng chục nhóm nhảy, vũ đoàn, và nghệ sĩ biểu diễn. Cam kết bảo mật tuyệt đối thông tin khách hàng."
-      bannerImg="/img/service/partner-anonymous/photo-anonymous.jpg"
+      bannerImg="/img/partner/partner-anonymous/photo-anonymous.jpg"
       accent="purple"
-      path="/service/partner-anonymous/"
-      backPath="/service/"
-      backLabel="DỊCH VỤ"
+      path="/doi-tac/partner-anonymous/"
+      backPath="/doi-tac/"
+      backLabel="ĐỐI TÁC"
     >
       {/* Intro */}
       <Callout icon={<Eye className="w-5 h-5 text-purple-400" />}>

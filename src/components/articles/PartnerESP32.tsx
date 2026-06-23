@@ -21,11 +21,11 @@ export default function PartnerESP32() {
       title="Happy Smart Light × ESP32-S3 — Nâng Tầm Phần Cứng LED Thông Minh"
       eyebrow="HAPPY SMART LIGHT — PARTNER × ESPRESSIF"
       description="HSL chính thức lựa chọn dòng ESP32-S3 của Espressif Systems để tích hợp vào toàn bộ sản phẩm điều khiển LED ARGB thế hệ mới."
-      bannerImg="/img/service/partner-espressif-banner.jpg"
+      bannerImg="/img/partner/partner-espressif-banner.jpg"
       accent="blue"
-      path="/service/partner-ESP32/"
-      backPath="/service/"
-      backLabel="DỊCH VỤ"
+      path="/doi-tac/partner-ESP32/"
+      backPath="/doi-tac/"
+      backLabel="ĐỐI TÁC"
     >
       {/* Intro */}
       <Callout icon={<Cpu className="w-5 h-5 text-neon-blue-bright" />}>

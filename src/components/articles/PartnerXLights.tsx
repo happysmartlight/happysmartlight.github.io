@@ -22,11 +22,11 @@ export default function PartnerXLights() {
       title="HSL x xLights – Giải Pháp Hoàn Hảo Cho Trình Diễn Ánh Sáng Nghệ Thuật"
       eyebrow="HAPPY SMART LIGHT — PARTNER × xLIGHTS"
       description="Kết hợp mạch điều khiển LED ARGB HSL cùng phần mềm xLights nổi tiếng toàn cầu — bộ đôi hoàn hảo giúp biến mọi ý tưởng ánh sáng thành hiện thực."
-      bannerImg="/img/service/partner-xlights-banner.jpg"
+      bannerImg="/img/partner/partner-xlights-banner.jpg"
       accent="blue"
-      path="/service/partner-xLights/"
-      backPath="/service/"
-      backLabel="DỊCH VỤ"
+      path="/doi-tac/partner-xLights/"
+      backPath="/doi-tac/"
+      backLabel="ĐỐI TÁC"
     >
       {/* Intro */}
       <Callout icon={<Zap className="w-5 h-5 text-neon-blue-bright" />}>

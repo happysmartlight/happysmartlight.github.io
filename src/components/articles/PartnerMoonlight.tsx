@@ -13,10 +13,10 @@ const STAGE_VIDEOS = [
 ];
 
 const STAGE_IMAGES = [
-  { src: "/img/service/partner-MOONLIGHT-DANCE-STUDIO/trong-nuoc-1.jpg", caption: "Các vũ công cùng màn trình diễn trống nước LED" },
-  { src: "/img/service/partner-MOONLIGHT-DANCE-STUDIO/trong-nuoc.jpg", caption: "Trống nước LED ARGB đồng bộ âm nhạc" },
-  { src: "/img/service/partner-MOONLIGHT-DANCE-STUDIO/giap-led.jpg", caption: "Bộ giáp LED được MoonLight Dance chế tạo công phu" },
-  { src: "/img/service/partner-MOONLIGHT-DANCE-STUDIO/led_windown.jpg", caption: "Màn trình diễn của MoonLight Dance tại Bình Dương" },
+  { src: "/img/partner/partner-MOONLIGHT-DANCE-STUDIO/trong-nuoc-1.jpg", caption: "Các vũ công cùng màn trình diễn trống nước LED" },
+  { src: "/img/partner/partner-MOONLIGHT-DANCE-STUDIO/trong-nuoc.jpg", caption: "Trống nước LED ARGB đồng bộ âm nhạc" },
+  { src: "/img/partner/partner-MOONLIGHT-DANCE-STUDIO/giap-led.jpg", caption: "Bộ giáp LED được MoonLight Dance chế tạo công phu" },
+  { src: "/img/partner/partner-MOONLIGHT-DANCE-STUDIO/led_windown.jpg", caption: "Màn trình diễn của MoonLight Dance tại Bình Dương" },
 ];
 
 export default function PartnerMoonlight() {
@@ -25,11 +25,11 @@ export default function PartnerMoonlight() {
       title="Moonlight Dance Studio × Happy Smart Light — Hợp Tác Chiến Lược"
       eyebrow="HAPPY SMART LIGHT — PARTNER × MOONLIGHT DANCE"
       description="Moonlight Dance Studio chính thức trở thành đối tác chiến lược của Happy Smart Light — kết hợp nghệ thuật vũ đạo và công nghệ LED thông minh."
-      bannerImg="/img/service/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO-banner.jpg"
+      bannerImg="/img/partner/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO-banner.jpg"
       accent="pink"
-      path="/service/partner-Moonlight-dance/"
-      backPath="/service/"
-      backLabel="DỊCH VỤ"
+      path="/doi-tac/partner-Moonlight-dance/"
+      backPath="/doi-tac/"
+      backLabel="ĐỐI TÁC"
     >
       {/* Intro */}
       <Callout icon={<Heart className="w-5 h-5 text-neon-pink-bright" />}>

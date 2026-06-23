@@ -21,11 +21,11 @@ export default function PartnerLedFx() {
       title="Happy Smart Light × LedFX Tech — Kết Nối Ánh Sáng, Đồng Bộ Âm Thanh"
       eyebrow="HAPPY SMART LIGHT — PARTNER × LEDFX TECH"
       description="HSL chính thức hợp tác công nghệ chiến lược cùng LedFX Tech — nền tảng điều khiển ánh sáng theo nhạc mã nguồn mở hàng đầu thế giới."
-      bannerImg="/img/service/partner-LedFX-banner.png"
+      bannerImg="/img/partner/partner-LedFX-banner.png"
       accent="emerald"
-      path="/service/partner-LedFx/"
-      backPath="/service/"
-      backLabel="DỊCH VỤ"
+      path="/doi-tac/partner-LedFx/"
+      backPath="/doi-tac/"
+      backLabel="ĐỐI TÁC"
     >
       {/* Intro */}
       <Callout icon={<Music className="w-5 h-5 text-emerald-400" />}>

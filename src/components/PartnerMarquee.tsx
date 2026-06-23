@@ -9,17 +9,17 @@ import { Cpu } from "lucide-react";
  * Để ảnh trong: public/img/partners/  (đường dẫn bắt đầu bằng "/img/partners/...").
  *
  * 👉 LINK ĐỐI TÁC:
- * Thêm `link: "/service/partner-TenDoiTac/"` để click vào logo sẽ mở trang đối tác.
+ * Thêm `link: "/doi-tac/partner-TenDoiTac/"` để click vào logo sẽ mở trang đối tác.
  */
 type Partner = { name: string; logo?: string; link?: string };
 
 const PARTNERS: Partner[] = [
-  // Dùng tạm ảnh đối tác có sẵn trong /img/service/ (trang dịch vụ)
-  { name: "xLights", logo: "/img/service/partner-xlights-banner.jpg", link: "/service/partner-xLights/" },
-  { name: "LedFx", logo: "/img/service/partner-LedFX.png", link: "/service/partner-LedFx/" },
-  { name: "Espressif", logo: "/img/service/partner-espressif.webp", link: "/service/partner-ESP32/" },
-  { name: "Moonlight Dance", logo: "/img/service/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO.jpg", link: "/service/partner-Moonlight-dance/" },
-  { name: "NCTA — Người Chế Tạo", logo: "/img/service/partner-ncta.jpg", link: "/service/partner-NCTA/" },
+  // Dùng tạm ảnh đối tác có sẵn trong /img/partner/ (trang đối tác)
+  { name: "xLights", logo: "/img/partner/partner-xlights-banner.jpg", link: "/doi-tac/partner-xLights/" },
+  { name: "LedFx", logo: "/img/partner/partner-LedFX.png", link: "/doi-tac/partner-LedFx/" },
+  { name: "Espressif", logo: "/img/partner/partner-espressif.webp", link: "/doi-tac/partner-ESP32/" },
+  { name: "Moonlight Dance", logo: "/img/partner/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO.jpg", link: "/doi-tac/partner-Moonlight-dance/" },
+  { name: "NCTA — Người Chế Tạo", logo: "/img/partner/partner-ncta.jpg", link: "/doi-tac/partner-NCTA/" },
   // Placeholder SVG (chưa có logo thật)
   { name: "Art-Net", logo: "/img/partners/art-net.svg" },
   { name: "Pixel Pro", logo: "/img/partners/pixel-pro.svg" },

@@ -26,13 +26,24 @@ export default function Layout() {
 
   const isScrollingProgrammatically = useRef(false);
   const scrollTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Per-history-entry scroll positions (keyed by location.key) for back/forward restore.
+  const scrollPositions = useRef<Map<string, number>>(new Map());
+  // What the next page should do once the outgoing page finishes animating out.
+  const pendingRestore = useRef<{ key: string; type: "pop" | "fresh"; hash: string } | null>(null);
 
-  // Scroll to a section on the home page. If we are on a sub-route, go home first.
+  // Scroll to a section on the home page. If we are on a sub-route, navigate home
+  // with a #hash and let the Home page perform the scroll once it has mounted
+  // (reliable despite the AnimatePresence mount delay).
   const scrollToSection = (sectionId: string) => {
-    let targetId = sectionId === "contact" ? "estimator" : sectionId;
+    const targetId = sectionId === "contact" ? "estimator" : sectionId;
     setActiveSection(sectionId);
-    isScrollingProgrammatically.current = true;
 
+    if (!isHome) {
+      navigate(`/#${targetId}`);
+      return;
+    }
+
+    isScrollingProgrammatically.current = true;
     const doScroll = () => {
       const element = document.getElementById(targetId);
       if (element) {
@@ -48,14 +59,7 @@ export default function Layout() {
         }, 1000);
       }
     };
-
-    if (!isHome) {
-      navigate("/");
-      // wait for the home DOM to mount before scrolling
-      setTimeout(doScroll, 80);
-    } else {
-      setTimeout(doScroll, 50);
-    }
+    setTimeout(doScroll, 50);
   };
 
   // Prefill the estimator with a product and jump to it (from product detail page too).
@@ -64,15 +68,66 @@ export default function Layout() {
     scrollToSection("estimator");
   };
 
-  // Scroll to top on a new (forward) navigation so detail pages open at the top.
-  // Skip on POP (back/forward) so the browser can restore the previous position,
-  // and skip while an in-page section scroll is in progress.
+  // Manual scroll management. Native restoration is unreliable here because
+  // AnimatePresence (mode="wait") delays mounting the new page until the old one
+  // finishes exiting — so the browser would restore against the wrong (old) DOM.
   useEffect(() => {
-    if (navigationType === "POP") return;
-    if (isScrollingProgrammatically.current) return;
-    window.scrollTo({ top: 0, behavior: "instant" });
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
+  // Remember the scroll position of each visited history entry (by location.key).
+  useEffect(() => {
+    const key = location.key;
+    let ticking = false;
+    const save = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        ticking = false;
+        scrollPositions.current.set(key, window.scrollY);
+      });
+    };
+    window.addEventListener("scroll", save, { passive: true });
+    return () => {
+      // Capture the final position right before this entry is left behind.
+      scrollPositions.current.set(key, window.scrollY);
+      window.removeEventListener("scroll", save);
+    };
+  }, [location.key]);
+
+  // Decide where the next page should land — applied later in onExitComplete so the
+  // outgoing page isn't disturbed while it animates out.
+  useEffect(() => {
+    pendingRestore.current = isScrollingProgrammatically.current
+      ? null
+      : { key: location.key, type: navigationType === "POP" ? "pop" : "fresh", hash: location.hash };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location.pathname, location.key]);
+  }, [location.key]);
+
+  // Retry scrolling until the (possibly lazy / late-mounted) page is tall enough.
+  const scrollWithRetry = (top: number) => {
+    let frame = 0;
+    const attempt = () => {
+      window.scrollTo(0, top);
+      if (Math.abs(window.scrollY - top) > 2 && frame++ < 40) {
+        requestAnimationFrame(attempt);
+      }
+    };
+    requestAnimationFrame(attempt);
+  };
+
+  // Run once the previous page has finished animating out (page is now mounting).
+  const applyScrollRestore = () => {
+    const p = pendingRestore.current;
+    pendingRestore.current = null;
+    if (!p) return;
+    // Fresh navigation to a #hash anchor is handled by the destination page itself.
+    if (p.type === "fresh" && p.hash) return;
+    const top = p.type === "pop" ? scrollPositions.current.get(p.key) ?? 0 : 0;
+    scrollWithRetry(top);
+  };
 
   // Scrollspy — only relevant on the home page.
   useEffect(() => {
@@ -151,7 +206,7 @@ export default function Layout() {
 
       <Header activeSection={isHome ? activeSection : ""} onNavigate={scrollToSection} />
 
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" onExitComplete={applyScrollRestore}>
         {outlet && React.cloneElement(outlet, { key: location.pathname })}
       </AnimatePresence>
 

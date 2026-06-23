@@ -22,7 +22,6 @@ const PARTNERS: Partner[] = [
   { name: "NCTA — Người Chế Tạo", logo: "/img/service/partner-ncta.jpg", link: "/service/partner-NCTA/" },
   // Placeholder SVG (chưa có logo thật)
   { name: "Art-Net", logo: "/img/partners/art-net.svg" },
-  { name: "WLED", logo: "/img/partners/wled.svg" },
   { name: "Pixel Pro", logo: "/img/partners/pixel-pro.svg" },
 ];
 

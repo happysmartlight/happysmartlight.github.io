@@ -48,9 +48,10 @@ export default function ProductDetailsRoute() {
     setThemeGlow(mappedGlow);
   }, [pid, setThemeGlow]);
 
-  const onBack = () => {
-    navigate("/#products");
-  };
+  // Consistent with the other detail pages: go back (restores scroll) when we have
+  // history, otherwise fall back to the products section on the home page.
+  const onBack = () =>
+    location.key !== "default" ? navigate(-1) : navigate("/#products");
 
   return (
     <motion.div

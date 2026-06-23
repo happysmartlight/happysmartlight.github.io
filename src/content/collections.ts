@@ -77,6 +77,18 @@ const PORTED_SERVICES: CollectionItem[] = [
     tags: ["partner", "ESP32", "microcontroller"],
     excerpt: "Happy Smart Light tự hào sử dụng dòng vi xử lý ESP32 của Espressif mang lại hiệu năng điều khiển LED vượt trội.",
     html: ""
+  },
+  {
+    slug: "partner-NCTA",
+    collection: "service",
+    url: "/service/partner-NCTA/",
+    title: "NCTA — Người Chế Tạo: Đối tác sản xuất đạo cụ biểu diễn LED",
+    metaTitle: "NCTA Partner",
+    image: "/img/service/partner-ncta.jpg",
+    bigimg: "/img/service/partner-ncta-anh-1.jpg",
+    tags: ["partner", "led-dance", "manufacturing"],
+    excerpt: "NCTA — Người Chế Tạo chuyên sản xuất đạo cụ biểu diễn LED nghệ thuật: led dance, trống LED, cờ LED — kết hợp công nghệ ARGB của HSL.",
+    html: ""
   }
 ];
 

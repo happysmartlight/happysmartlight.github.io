@@ -19,6 +19,7 @@ const PARTNERS: Partner[] = [
   { name: "LedFx", logo: "/img/service/partner-LedFX.png", link: "/service/partner-LedFx/" },
   { name: "Espressif", logo: "/img/service/partner-espressif.webp", link: "/service/partner-ESP32/" },
   { name: "Moonlight Dance", logo: "/img/service/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO.jpg", link: "/service/partner-Moonlight-dance/" },
+  { name: "NCTA — Người Chế Tạo", logo: "/img/service/partner-ncta.jpg", link: "/service/partner-NCTA/" },
   // Placeholder SVG (chưa có logo thật)
   { name: "Art-Net", logo: "/img/partners/art-net.svg" },
   { name: "WLED", logo: "/img/partners/wled.svg" },

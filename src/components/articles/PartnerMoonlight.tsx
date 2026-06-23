@@ -1,6 +1,16 @@
 import { Heart, Users, Sparkles, Target, Music, Lightbulb, Star } from "lucide-react";
 import ArticleLayout, { SectionHeading, InfoCard, FeatureCard, ArtQuote, Callout } from "../ArticleLayout";
 import ArticleImageGallery from "../ArticleImageGallery";
+import ArticleVideoGallery from "../ArticleVideoGallery";
+
+const REL = "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/DATA_MEDIA";
+
+const STAGE_VIDEOS = [
+  { src: `${REL}/MoonLight.Dance.mp4`, title: "Video intro team Moonlight Dance" },
+  { src: `${REL}/gala-cuoi-nam-MOONLIGHT.mp4`, title: "Gala cuối năm 2025" },
+  { src: `${REL}/led-dance-nguoi-VIETNAM-MoonLight.mp4`, title: "LED Dance — Người Việt Nam" },
+  { src: `${REL}/Moonlight-led-dance.mp4`, title: "Moonlight LED Dance" },
+];
 
 const STAGE_IMAGES = [
   { src: "/img/service/partner-MOONLIGHT-DANCE-STUDIO/trong-nuoc-1.jpg", caption: "Các vũ công cùng màn trình diễn trống nước LED" },
@@ -37,6 +47,15 @@ export default function PartnerMoonlight() {
         <p>
           Ánh sáng chuyển màu linh hoạt, hiệu ứng bắt mắt kết hợp với vũ đạo cuốn hút khiến khán giả không thể rời mắt!
         </p>
+      </section>
+
+      {/* Video Gallery */}
+      <section className="space-y-3">
+        <SectionHeading accent="pink">Video Trình Diễn Của Moonlight Dance</SectionHeading>
+        <p>
+          Cùng xem những màn trình diễn ấn tượng của <strong className="text-white">Moonlight Dance</strong> — từ tiết mục giới thiệu đội, gala cuối năm cho đến các màn <strong className="text-white">LED Dance</strong> kết hợp công nghệ ánh sáng của Happy Smart Light.
+        </p>
+        <ArticleVideoGallery videos={STAGE_VIDEOS} columns={2} accent="pink" />
       </section>
 
       {/* Image Gallery */}

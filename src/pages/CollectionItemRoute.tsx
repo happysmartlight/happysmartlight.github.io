@@ -12,6 +12,7 @@ const CUSTOM_ARTICLES: Record<string, React.LazyExoticComponent<React.ComponentT
   "service/partner-LedFx": lazy(() => import("../components/articles/PartnerLedFx")),
   "service/partner-anonymous": lazy(() => import("../components/articles/PartnerAnonymous")),
   "service/partner-ESP32": lazy(() => import("../components/articles/PartnerESP32")),
+  "service/partner-NCTA": lazy(() => import("../components/articles/PartnerNCTA")),
   "post-news/su-dung-poi-voi-argb-hsl": lazy(() => import("../components/articles/ArticlePoiGuide")),
 };
 

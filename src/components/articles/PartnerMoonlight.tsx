@@ -1,15 +1,16 @@
-import { Heart, Users, Sparkles, Target, Music, Lightbulb, Star } from "lucide-react";
+import { Heart, Users, Sparkles, Target, Music, Lightbulb } from "lucide-react";
 import ArticleLayout, { SectionHeading, InfoCard, FeatureCard, ArtQuote, Callout } from "../ArticleLayout";
 import ArticleImageGallery from "../ArticleImageGallery";
 import ArticleVideoGallery from "../ArticleVideoGallery";
 
-const REL = "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/DATA_MEDIA";
-
 const STAGE_VIDEOS = [
-  { src: `${REL}/MoonLight.Dance.mp4`, title: "Video intro team Moonlight Dance" },
-  { src: `${REL}/gala-cuoi-nam-MOONLIGHT.mp4`, title: "Gala cuối năm 2025" },
-  { src: `${REL}/led-dance-nguoi-VIETNAM-MoonLight.mp4`, title: "LED Dance — Người Việt Nam" },
-  { src: `${REL}/Moonlight-led-dance.mp4`, title: "Moonlight LED Dance" },
+  // Dán link YouTube (hoặc video ID) vào "youtube". Chấp nhận youtu.be/…, watch?v=…, shorts/…
+  { youtube: "https://youtu.be/i-jIGipZQZ8", title: "Video intro team Moonlight Dance" },
+  { youtube: "https://youtu.be/wANtHJ4IMm4", title: "Gala cuối năm 2025" },
+  { youtube: "https://youtu.be/wmDUUixp9Cw", title: "LED Dance — Người Việt Nam" },
+  { youtube: "https://youtu.be/-Wf_L1X056w", title: "Moonlight LED Dance" },
+  { youtube: "https://youtu.be/mZymaHD9UGQ", title: "LED Dance — Quạt LED" },
+  { youtube: "https://youtu.be/malT8pf2CIA", title: "LED Dance — Performance" },
 ];
 
 const STAGE_IMAGES = [

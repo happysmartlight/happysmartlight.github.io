@@ -23,18 +23,13 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div className="lg:col-span-3 space-y-4" id="footer-brand-intro">
             <div className="flex items-center space-x-2 cursor-pointer group" onClick={handleScrollToTop}>
               <div className="relative w-9 h-9 flex items-center justify-center rounded-lg bg-slate-900 border border-white/10 overflow-hidden shadow-glow-blue/25">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="w-5 h-5 text-white relative z-10"
-                >
-                  <circle cx="12" cy="12" r="4" className="stroke-neon-pink" />
-                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4" />
-                </svg>
+                <img
+                  src="/logo_hsl.png"
+                  alt="Happy Smart Light"
+                  width={24}
+                  height={24}
+                  className="w-6 h-6 object-contain relative z-10 transition-transform duration-300 group-hover:scale-110"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-display font-bold text-base leading-none bg-gradient-to-r from-neon-pink-bright to-neon-blue-bright bg-clip-text text-transparent tracking-tight">

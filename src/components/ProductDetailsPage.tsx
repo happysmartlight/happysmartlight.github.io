@@ -554,10 +554,32 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         // Lỗi khác → rơi xuống fallback copy link bên dưới.
       }
     }
-    try {
-      await navigator.clipboard.writeText(shareData.url);
+    // Fallback copy link. clipboard API chỉ chạy ở secure context (https/localhost),
+    // nên có thêm fallback execCommand cho trường hợp mở qua http (IP mạng LAN…).
+    const flash = () => {
       setShareStatus("copied");
       setTimeout(() => setShareStatus("idle"), 2000);
+    };
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(shareData.url);
+        flash();
+        return;
+      }
+    } catch {
+      /* clipboard API thất bại → thử execCommand bên dưới */
+    }
+    try {
+      const ta = document.createElement("textarea");
+      ta.value = shareData.url;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      const ok = document.execCommand("copy");
+      document.body.removeChild(ta);
+      if (ok) flash();
     } catch {
       /* không copy được thì bỏ qua */
     }

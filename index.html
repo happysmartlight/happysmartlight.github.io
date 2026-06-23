@@ -92,11 +92,11 @@
         box-shadow: 0 0 24px rgba(0, 229, 255, 0.16);
       }
 
-      .hsl-loader-mark svg {
-        width: 32px;
-        height: 32px;
-        color: #fff;
-        filter: drop-shadow(0 0 8px rgba(255, 45, 149, 0.55));
+      .hsl-loader-mark img {
+        width: 34px;
+        height: 34px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 8px rgba(255, 45, 149, 0.45)) drop-shadow(0 0 8px rgba(0, 229, 255, 0.35));
       }
 
       .hsl-loader-title {
@@ -104,14 +104,21 @@
         font-size: 23px;
         font-weight: 800;
         line-height: 1;
-        letter-spacing: 0;
+        letter-spacing: -0.01em;
         text-align: left;
+        /* Đồng bộ với chữ "HAPPY" trên navbar/footer: gradient hồng → trắng → xanh */
+        background: linear-gradient(to right, #ff2d95, #ffffff, #00e5ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: transparent;
       }
 
       .hsl-loader-title span {
         display: block;
         margin-top: 6px;
-        color: #00e5ff;
+        color: #00f0ff;
+        -webkit-text-fill-color: #00f0ff;
         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
         font-size: 12px;
         font-weight: 800;
@@ -338,10 +345,7 @@
       <div class="hsl-loader-shell">
         <div class="hsl-loader-brand">
           <div class="hsl-loader-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-              <circle cx="12" cy="12" r="4" stroke="#ff2d95" />
-            </svg>
+            <img src="/logo_hsl.png" width="34" height="34" alt="Happy Smart Light" />
           </div>
           <h1 class="hsl-loader-title">
             HAPPY

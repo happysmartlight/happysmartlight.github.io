@@ -53,18 +53,13 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
             >
               <div className="relative w-10 h-10 flex items-center justify-center rounded-lg bg-slate-900 border border-white/10 overflow-hidden shadow-glow-dual">
                 <div className="absolute inset-0 bg-gradient-to-tr from-neon-pink/25 to-neon-blue/25 opacity-50 group-hover:opacity-100 transition-opacity duration-300" />
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="w-6 h-6 text-white relative z-10"
-                >
-                  <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-                  <circle cx="12" cy="12" r="4" className="stroke-neon-pink" />
-                </svg>
+                <img
+                  src="/logo_hsl.png"
+                  alt="Happy Smart Light"
+                  width={28}
+                  height={28}
+                  className="w-7 h-7 object-contain relative z-10 transition-transform duration-300 group-hover:scale-110"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-display font-bold text-lg leading-none bg-gradient-to-r from-neon-pink-bright via-white to-neon-blue-bright bg-clip-text text-transparent tracking-tight">

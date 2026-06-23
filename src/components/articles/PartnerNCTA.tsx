@@ -3,11 +3,10 @@ import ArticleLayout, { SectionHeading, InfoCard, FeatureCard, ArtQuote, Callout
 import ArticleImageGallery from "../ArticleImageGallery";
 import ArticleVideoGallery from "../ArticleVideoGallery";
 
-const REL = "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/DATA_MEDIA";
-
 const NCTA_VIDEOS = [
-  { src: `${REL}/co-led-NCT.mp4`, title: "Màn trình diễn Cờ LED" },
-  { src: `${REL}/trong-deo-matrix-NCT.mp4`, title: "Trống đeo LED Matrix" },
+  // Dán link YouTube (hoặc video ID) vào "youtube". Chấp nhận youtu.be/…, watch?v=…, shorts/…
+  { youtube: "https://youtu.be/S2NIzwRTaWY", title: "Màn trình diễn Cờ LED" },
+  { youtube: "https://youtu.be/Oo7MfDPyOu0", title: "Trống đeo LED Matrix" },
 ];
 
 const NCTA_IMAGES = [

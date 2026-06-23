@@ -23,6 +23,7 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
   const effectsList = ["Rainbow Flow", "Cosmic Strobe", "Pixel Wave", "Pulse Beat", "Metropoli Beat"];
 
   const WINDOWS_TOOL_URL = "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.7.1.exe";
+  const ANDROID_APP_URL = "https://play.google.com/store/apps/details?id=com.happysmartlight.argb";
 
   const startDownload = () => {
     const link = document.createElement("a");
@@ -122,50 +123,62 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
                     <CheckCircle2 className="w-3.5 h-3.5 text-neon-pink-bright mr-2 shrink-0" />
                     <span>Lên lịch hẹn giờ thông minh, chế độ theo nhạc nhảy cực nhạy</span>
                   </li>
+                  <li className="flex items-start">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-neon-pink-bright mr-2 shrink-0 mt-0.5" />
+                    <span>Nhỏ gọn cầm tay — điều khiển trọn buổi diễn ngay trên điện thoại với <strong className="text-white font-semibold">đầy đủ tính năng như bản máy tính</strong></span>
+                  </li>
                 </ul>
 
-                {/* Badges / Download buttons */}
-                <div className="pt-4 flex flex-wrap items-center gap-4">
-                  {/* Mock Get it on google play badge */}
-                  <a 
-                    href="#download" 
-                    onClick={(e) => { e.preventDefault(); alert("Đang chuyển hướng đến CH Play..."); }}
-                    className="flex items-center bg-black border border-white/10 hover:border-neon-pink/50 rounded-xl px-4 py-2 transition-all cursor-pointer shadow-lg group-hover:scale-102"
-                  >
-                    <div className="mr-3 text-white">
-                      {/* Play Store Vector icon */}
-                      <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current text-white" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3 5.25V18.75c0 .69.56 1.25 1.25 1.25H19.75c.69 0 1.25-.56 1.25-1.25V5.25c0-.69-.56-1.25-1.25-1.25H4.25c-.69 0-1.25.56-1.25 1.25z" fill="none" />
-                        <path d="M5.5 4h13c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5h-13C4.7 20 4 19.3 4 18.5v-13c0-.8.7-1.5 1.5-1.5zm6.5 13.8l4.4-4.4-4.4-4.4V11.5H7.2v1.8H12v4.5z" />
-                      </svg>
-                    </div>
-                    <div className="text-left">
-                      <p className="text-[9px] font-mono uppercase text-slate-400 tracking-wider">Tải ngay trên</p>
-                      <p className="text-xs font-display font-semibold text-white tracking-tight">Google Play</p>
-                    </div>
-                  </a>
+                {/* Download panel: QR + nút Google Play gom gọn một khối */}
+                <div className="pt-2 space-y-3">
+                  <div className="flex items-center gap-4 p-3 rounded-2xl bg-slate-950/50 border border-white/5">
+                    {/* QR Code → Google Play (quét trên di động hoặc bấm trên desktop) */}
+                    <a
+                      href={ANDROID_APP_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Quét hoặc bấm để mở ARGB HSL trên Google Play"
+                      className="w-20 h-20 bg-white p-1.5 rounded-lg flex items-center justify-center shrink-0 hover:ring-2 hover:ring-neon-pink/40 transition-shadow cursor-pointer no-underline"
+                    >
+                      <img
+                        src="/img/app-mobile/qr-google-play.png"
+                        alt="QR code tải ứng dụng ARGB HSL trên Google Play"
+                        loading="lazy"
+                        className="w-full h-full"
+                      />
+                    </a>
 
-                  {/* QR Code trigger layout */}
-                  <div className="flex items-center space-x-2.5 p-2 bg-[#0c0b13] border border-white/5 rounded-xl">
-                    {/* Mock QR SVG */}
-                    <div className="w-10 h-10 bg-white p-0.5 rounded flex items-center justify-center shrink-0">
-                      <svg viewBox="0 0 100 100" className="w-9 h-9 text-slate-950 fill-current">
-                        <rect x="0" y="0" width="20" height="20" />
-                        <rect x="0" y="80" width="20" height="20" />
-                        <rect x="80" y="0" width="20" height="20" />
-                        <rect x="40" y="40" width="20" height="20" />
-                        <rect x="20" y="20" width="10" height="10" />
-                        <rect x="60" y="60" width="10" height="10" />
-                        <rect x="10" y="10" width="5" height="5" fill="white" />
-                        <rect x="85" y="10" width="5" height="5" fill="white" />
-                        <rect x="10" y="85" width="5" height="5" fill="white" />
-                      </svg>
-                    </div>
-                    <div className="text-left font-mono text-[9px] text-slate-500">
-                      <span className="block text-white font-bold uppercase">QUÉT QR CODE</span>
-                      <span>TẢI TRỰC TIẾP .APK</span>
+                    {/* Nút Get it on Google Play + gợi ý */}
+                    <div className="flex flex-col gap-2 min-w-0">
+                      <a
+                        href={ANDROID_APP_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center w-fit bg-black border border-white/10 hover:border-neon-pink/50 rounded-xl px-4 py-2 transition-all cursor-pointer shadow-lg"
+                      >
+                        <div className="mr-3 text-white">
+                          {/* Play Store Vector icon */}
+                          <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current text-white" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 5.25V18.75c0 .69.56 1.25 1.25 1.25H19.75c.69 0 1.25-.56 1.25-1.25V5.25c0-.69-.56-1.25-1.25-1.25H4.25c-.69 0-1.25.56-1.25 1.25z" fill="none" />
+                            <path d="M5.5 4h13c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5h-13C4.7 20 4 19.3 4 18.5v-13c0-.8.7-1.5 1.5-1.5zm6.5 13.8l4.4-4.4-4.4-4.4V11.5H7.2v1.8H12v4.5z" />
+                          </svg>
+                        </div>
+                        <div className="text-left">
+                          <p className="text-[9px] font-mono uppercase text-slate-400 tracking-wider">Tải ngay trên</p>
+                          <p className="text-xs font-display font-semibold text-white tracking-tight">Google Play</p>
+                        </div>
+                      </a>
+                      <p className="text-[10px] text-slate-500 font-sans leading-snug">
+                        Quét mã QR hoặc bấm nút để tải trực tiếp từ kho ứng dụng.
+                      </p>
                     </div>
                   </div>
+
+                  {/* Pricing note: app trả phí */}
+                  <p className="text-[11px] text-amber-400/90 font-sans flex items-center gap-1.5">
+                    <Info className="w-3.5 h-3.5 shrink-0" />
+                    Ứng dụng di động là <strong className="font-semibold">phần mềm trả phí</strong> trên Google Play.
+                  </p>
                 </div>
 
                 <div className="pt-4 flex flex-col gap-3">
@@ -191,8 +204,8 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
                 </div>
               </div>
 
-              {/* Dynamic Interactive App Interface Simulator */}
-              <div className="md:col-span-5 flex justify-center">
+              {/* Dynamic Interactive App Interface Simulator — chỉ hiện từ md trở lên */}
+              <div className="hidden md:col-span-5 md:flex justify-center">
                 <div className="w-[190px] h-[380px] rounded-[32px] bg-slate-950 border-4 border-slate-700 shadow-glow-dual relative overflow-hidden flex flex-col justify-between p-3 select-none">
                   {/* Top phone notch */}
                   <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-20 h-4 bg-slate-700 rounded-b-xl z-20 flex items-center justify-center">
@@ -404,8 +417,8 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
                   )}
                 </AnimatePresence>
                 
-                <span className="block text-[10px] text-center font-mono text-slate-500 uppercase">
-                  Phiên bản v3.7.1 mới nhất // Tương thích Windows 10/11 x64
+                <span className="block text-[10px] text-center font-mono text-emerald-400 uppercase font-bold">
+                  Miễn phí 100% // Phiên bản v3.7.1 // Windows 10/11 x64
                 </span>
                 <span className="block text-[9px] text-center font-mono text-slate-600 break-all leading-relaxed">
                   SHA256: e54c7ddcde8dac45bcb1f0d921e6e97d91004154af752767e34fa7b58e6eeeec

@@ -61,7 +61,7 @@ export default function Footer({ onNavigate }: FooterProps) {
                 { id: "products", label: "Sản phẩm" },
                 { id: "features", label: "Tính năng" },
                 { id: "ecosystem", label: "Hệ sinh thái" },
-                { id: "estimator", label: "Dự toán LED" },
+                { id: "estimator", label: "Tư vấn & Báo giá" },
               ].map((link) => (
                 <button
                   key={link.id}

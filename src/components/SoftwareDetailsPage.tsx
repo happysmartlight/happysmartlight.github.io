@@ -52,6 +52,7 @@ interface SoftwareDetailsPageProps {
 
 const WINDOWS_TOOL_URL =
   "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.7.1.exe";
+const ANDROID_APP_URL = "https://play.google.com/store/apps/details?id=com.happysmartlight.argb";
 
 const APP_SCREENSHOTS: (ZoomGalleryItem & { desc: string })[] = [
   {
@@ -115,7 +116,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
 
   // ---- Usage steps ----
   const appSteps: Step[] = [
-    { title: "Cài đặt ứng dụng", desc: "Tải ARGB HSL từ Google Play hoặc quét QR để cài file .APK trực tiếp." },
+    { title: "Cài đặt ứng dụng", desc: "Tải ARGB HSL trực tiếp từ Google Play (CH Play) — cài đặt chính chủ, tự động cập nhật." },
     { title: "Cấp nguồn & kết nối WiFi", desc: "Cắm nguồn bộ điều khiển, đảm bảo điện thoại và mạch cùng một mạng WiFi nhà bạn." },
     { title: "Quét & ghép nối thiết bị", desc: "Mở app, nhấn 'Quét thiết bị' hoặc quét QR trên mạch để app tự nhận bộ điều khiển." },
     { title: "Chọn hiệu ứng & tuỳ chỉnh", desc: "Lựa chọn màu, hiệu ứng, độ sáng; bật chế độ theo nhạc nếu muốn đèn nhảy theo âm thanh." },
@@ -347,12 +348,13 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
           <section className="pt-6 border-t border-white/5">
             {isApp ? (
               <a
-                href="#download"
-                onClick={(e) => { e.preventDefault(); alert("Đang chuyển hướng đến CH Play..."); }}
+                href={ANDROID_APP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-neon-pink to-purple-500 text-center font-display text-xs font-bold uppercase tracking-wider text-white flex items-center justify-center space-x-2 cursor-pointer shadow-glow-pink hover:scale-102 transition-all"
               >
                 <PlayCircle className="w-4 h-4" />
-                <span>TẢI ỨNG DỤNG TRÊN GOOGLE PLAY</span>
+                <span>TẢI ỨNG DỤNG TRÊN GOOGLE PLAY (CÓ PHÍ)</span>
               </a>
             ) : (
               <button
@@ -363,6 +365,12 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
                 <span>TẢI ARGB HSL WINDOWS TOOL (325 MB)</span>
               </button>
             )}
+
+            <p className={`mt-3 text-center text-[11px] font-mono uppercase tracking-wider ${isApp ? "text-amber-400" : "text-emerald-400"}`}>
+              {isApp
+                ? "Ứng dụng di động: phần mềm trả phí trên Google Play"
+                : "Công cụ máy tính Windows: miễn phí 100%"}
+            </p>
           </section>
 
           {/* Support */}

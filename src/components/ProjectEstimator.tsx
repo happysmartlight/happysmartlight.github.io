@@ -1,32 +1,147 @@
-import { useState, useEffect, useRef, FormEvent } from "react";
-import { Sliders, CheckCircle2, Zap, HelpCircle, PhoneCall, Send, Sparkles, Loader2 } from "lucide-react";
+import { useState, useEffect, useRef, useMemo, FormEvent } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  Wand2,
+  Lightbulb,
+  Grid3x3,
+  MonitorPlay,
+  CheckCircle2,
+  PhoneCall,
+  Send,
+  Loader2,
+  ArrowRight,
+  RotateCcw,
+  Eye,
+  Cpu,
+  PlugZap,
+  Sparkles,
+} from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 interface ProjectEstimatorProps {
   preFilledProduct: string;
 }
 
-type LedType = "strip" | "matrix" | "other";
-
 // Anti-spam config
 const SUBMIT_COOLDOWN_MS = 60_000; // tối thiểu 60s giữa 2 lần gửi
 const MIN_FILL_MS = 3_000; // gửi nhanh hơn 3s sau khi mở form -> nghi là bot
 const LAST_SUBMIT_KEY = "hsl_last_submit_at";
 
-export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorProps) {
-  // Calculator states
-  const [ledType, setLedType] = useState<LedType>("strip");
-  const [stripLength, setStripLength] = useState<number>(5); // meters
-  const [ledDensity, setLedDensity] = useState<number>(60); // LEDs per meter
-  const [matrixCols, setMatrixCols] = useState<number>(32);
-  const [matrixRows, setMatrixRows] = useState<number>(32);
-  const [poiCount, setPoiCount] = useState<number>(2);
+type Accent = "pink" | "blue" | "yellow" | "dual";
+type NeedId = "poi" | "strip" | "matrix-event" | "panel";
+type Scale = "small" | "medium" | "large";
 
-  // Result states
-  const [totalPixels, setTotalPixels] = useState<number>(300);
-  const [maxAmpere, setMaxAmpere] = useState<number>(18); // 5V Amperes assuming 60mA max per pixel
-  const [maxWatts, setMaxWatts] = useState<number>(90);
-  const [recommendedController, setRecommendedController] = useState<string>("Happy Smart Light 2X PRO");
+interface ProductRef {
+  id: string; // slug trang chi tiết /san-pham/:id
+  name: string;
+  price: string;
+  accent: Accent;
+}
+
+const PRODUCTS: Record<string, ProductRef> = {
+  v4pro: { id: "v4pro", name: "Bộ Điều Khiển ARGB 2X PRO", price: "1.200.000đ", accent: "yellow" },
+  hsl4x: { id: "hsl4x", name: "Bộ Điều Khiển ARGB 4X", price: "930.000đ", accent: "dual" },
+  matrix: { id: "matrix", name: "LED Matrix Driver Pro", price: "Tùy thời giá linh kiện", accent: "blue" },
+  poi: { id: "poi", name: "Happy POI Performance Wand", price: "Tùy thời giá linh kiện", accent: "pink" },
+};
+
+interface NeedOption {
+  id: NeedId;
+  label: string;
+  sub: string;
+  icon: typeof Wand2;
+  accent: Accent;
+}
+
+const NEEDS: NeedOption[] = [
+  { id: "poi", label: "Biểu diễn POI / Múa LED", sub: "Gậy, đạo cụ cầm tay, nhóm múa POV", icon: Wand2, accent: "pink" },
+  { id: "strip", label: "Dải LED trang trí / Đồng bộ nhạc", sub: "Nhà, quán, sân khấu nhỏ, react audio", icon: Lightbulb, accent: "yellow" },
+  { id: "matrix-event", label: "Ma trận / Trống / Cờ LED sự kiện", sub: "4.000–5.000 pixel, công suất lớn", icon: Grid3x3, accent: "dual" },
+  { id: "panel", label: "Panel LED Cabin chuyên nghiệp", sub: "Tấm panel/cabin, màn hình LED", icon: MonitorPlay, accent: "blue" },
+];
+
+interface Recommendation {
+  mainId: string;
+  comboIds: string[];
+  heading: string;
+  note: string;
+  accessories: string[];
+  accent: Accent;
+}
+
+/** Sinh đề xuất combo theo nhu cầu + quy mô. */
+function recommend(need: NeedId, scale: Scale): Recommendation {
+  switch (need) {
+    case "poi":
+      return {
+        mainId: "poi",
+        comboIds: ["poi", "v4pro"],
+        heading: "Combo Biểu Diễn POI",
+        note:
+          scale === "large"
+            ? "Đội hình lớn nhiều gậy — nên đồng bộ AP nội bộ, mỗi gậy 1 bộ 2X PRO + pin LiPo."
+            : "Gậy POV cầm tay kết hợp bộ điều khiển 2X PRO nhỏ gọn, pin sạc trực tiếp.",
+        accessories: ["Pin LiPo/Lithium + mạch sạc", "Anten rời tầm xa", "Đồng bộ nhóm qua Wifi AP"],
+        accent: "pink",
+      };
+    case "strip": {
+      // Dải LED lớn -> nâng cấp lên 4X để chịu dòng & số pixel cao.
+      const big = scale === "large";
+      return {
+        mainId: big ? "hsl4x" : "v4pro",
+        comboIds: big ? ["hsl4x"] : ["v4pro"],
+        heading: big ? "Combo Dải LED Công Suất Lớn" : "Combo Dải LED Trang Trí",
+        note: big
+          ? "Dải LED dài/nhiều điểm sáng — dùng bộ 4X chịu dòng tới 30A, kèm nguồn công suất lớn."
+          : "Dải LED vừa phải — bộ 2X PRO đồng bộ nhạc (LedFx/xLights), 2 cổng ARGB độc lập.",
+        accessories: [
+          big ? "Nguồn 5V công suất lớn (theo tổng pixel)" : "Nguồn 5V theo chiều dài dải",
+          "Dây LED ARGB (WS2812B/SK6812)",
+          "Tiêm nguồn (power injection) cho dải dài",
+        ],
+        accent: big ? "dual" : "yellow",
+      };
+    }
+    case "matrix-event":
+      return {
+        mainId: "hsl4x",
+        comboIds: ["hsl4x"],
+        heading: "Combo Sự Kiện Công Suất Cao",
+        note: "Trống/cờ/ma trận LED sự kiện — bộ 4X tối ưu 4.000–5.000 pixel, 4 cổng ra độc lập, khe ETH & SD.",
+        accessories: ["Nguồn công suất lớn 5V/12V/24V", "Module ETH + thẻ nhớ SD", "Cầu đấu đồng gánh tải tới 30A"],
+        accent: "dual",
+      };
+    case "panel":
+      return {
+        mainId: "matrix",
+        comboIds: ["matrix"],
+        heading: "Combo Panel / Cabin LED",
+        note: "Màn hình/panel LED chuyên nghiệp — Matrix Driver Pro lái trực tiếp panel, stream DDP qua LAN, nạp offline SD.",
+        accessories: ["Tấm Panel/Cabin LED", "Nguồn cấp theo số module", "Cáp mạng LAN Ethernet (DDP)"],
+        accent: "blue",
+      };
+  }
+}
+
+const ACCENT = {
+  pink: { text: "text-neon-pink-bright", border: "border-neon-pink/40", chip: "bg-neon-pink/15 text-neon-pink-bright border-neon-pink/30", dot: "bg-neon-pink" },
+  blue: { text: "text-neon-blue-bright", border: "border-neon-blue/40", chip: "bg-neon-blue/15 text-neon-blue-bright border-neon-blue/30", dot: "bg-neon-blue" },
+  yellow: { text: "text-neon-yellow-bright", border: "border-neon-yellow/40", chip: "bg-neon-yellow/15 text-neon-yellow-bright border-neon-yellow/30", dot: "bg-neon-yellow" },
+  dual: { text: "text-purple-300", border: "border-purple-500/40", chip: "bg-purple-500/15 text-purple-300 border-purple-500/30", dot: "bg-purple-500" },
+} as const;
+
+const SCALE_LABELS: Record<Scale, string> = {
+  small: "Nhỏ (≤ 500 điểm)",
+  medium: "Vừa (500–2.000)",
+  large: "Lớn (> 2.000)",
+};
+
+export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorProps) {
+  const navigate = useNavigate();
+
+  // Wizard states
+  const [need, setNeed] = useState<NeedId | null>(null);
+  const [scale, setScale] = useState<Scale>("medium");
 
   // Contact form states
   const [name, setName] = useState("");
@@ -40,43 +155,32 @@ export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorP
   const [honeypot, setHoneypot] = useState(""); // ô ẩn, chỉ bot mới điền
   const formOpenedAt = useRef<number>(Date.now()); // mốc thời gian mở form
 
-  // Sync preFilledProduct with message
+  const rec = useMemo(() => (need ? recommend(need, scale) : null), [need, scale]);
+
+  // Sync preFilledProduct (từ trang sản phẩm / card) vào lời nhắn.
   useEffect(() => {
     if (preFilledProduct) {
       setMessage(`Tôi muốn nhận tư vấn và báo giá thiết bị: ${preFilledProduct}`);
-      // Logically refocus message or scroll to contact
       const el = document.getElementById("estimator");
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      }
+      if (el) el.scrollIntoView({ behavior: "smooth" });
     }
   }, [preFilledProduct]);
 
-  // Recalculate specifications in real-time
-  useEffect(() => {
-    let pixels = 0;
-    if (ledType === "strip") {
-      pixels = stripLength * ledDensity;
-      setRecommendedController("Happy Smart Light 2X PRO");
-    } else if (ledType === "matrix") {
-      pixels = matrixCols * matrixRows;
-      setRecommendedController("Bộ Điều Khiển ARGB Happy Smart Light 4X");
-    } else {
-      pixels = poiCount * 144; // average POV pixel count
-      setRecommendedController("Happy POI Performance Wand (Gậy Biểu Diễn)");
-    }
+  const loadComboToForm = () => {
+    if (!rec) return;
+    const products = rec.comboIds.map((id) => PRODUCTS[id]?.name).filter(Boolean).join(" + ");
+    const text =
+      `Tôi muốn tư vấn ${rec.heading}.\n` +
+      `Thiết bị đề xuất: ${products}.\n` +
+      `Phụ kiện đi kèm: ${rec.accessories.join(", ")}.`;
+    setMessage(text);
+    document.getElementById("estimator-contact-box")?.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
 
-    setTotalPixels(pixels);
-
-    // standard assumption: WS2812B/SK6812 RGB at 100% white consumes ~0.06A per pixel at 5V
-    // we use a safe 0.05A multiplier for real-world mixed color consumption average
-    const peakAmps = Math.round(pixels * 0.05 * 10) / 10;
-    setMaxAmpere(peakAmps < 1 ? 1 : peakAmps);
-
-    // Watts = Amps * Volts (5V default for strip/matrix)
-    const peakWatts = Math.round(peakAmps * 5);
-    setMaxWatts(peakWatts < 5 ? 5 : peakWatts);
-  }, [ledType, stripLength, ledDensity, matrixCols, matrixRows, poiCount]);
+  const resetWizard = () => {
+    setNeed(null);
+    setScale("medium");
+  };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -86,17 +190,14 @@ export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorP
     }
 
     // --- Chống spam (kiểm tra trước khi gửi) ---
-    // 1. Honeypot: người dùng thật không thấy/không điền ô này; nếu có giá trị -> bot.
     if (honeypot.trim() !== "") {
       setSubmitted(true); // giả vờ thành công, không gửi gì cả
       return;
     }
-    // 2. Gửi quá nhanh sau khi mở form -> nghi bot.
     if (Date.now() - formOpenedAt.current < MIN_FILL_MS) {
       alert("Bạn thao tác hơi nhanh. Vui lòng kiểm tra lại thông tin rồi gửi lại sau giây lát.");
       return;
     }
-    // 3. Cooldown: chặn gửi liên tục trong thời gian ngắn.
     const lastSubmit = Number(localStorage.getItem(LAST_SUBMIT_KEY) || 0);
     const waitMs = SUBMIT_COOLDOWN_MS - (Date.now() - lastSubmit);
     if (waitMs > 0) {
@@ -109,12 +210,12 @@ export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorP
     const token = import.meta.env.VITE_TELEGRAM_BOT_TOKEN;
     const chatId = import.meta.env.VITE_TELEGRAM_CHAT_ID;
 
-    // Plain text (no parse_mode) so any character in user input is safe.
     const text =
       `🔔 YÊU CẦU TƯ VẤN MỚI\n\n` +
       `👤 Họ tên: ${name}\n` +
       `📞 SĐT: ${phone}\n` +
       (email ? `✉️ Email: ${email}\n` : "") +
+      (rec ? `🧩 Combo quan tâm: ${rec.heading}\n` : "") +
       `\n📝 Yêu cầu:\n${message || "(không có lời nhắn)"}\n` +
       `\n⏰ ${new Date().toLocaleString("vi-VN")}`;
 
@@ -136,7 +237,7 @@ export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorP
         throw new Error(err.description || `Telegram trả về lỗi ${res.status}`);
       }
 
-      localStorage.setItem(LAST_SUBMIT_KEY, String(Date.now())); // mốc cho cooldown
+      localStorage.setItem(LAST_SUBMIT_KEY, String(Date.now()));
       setSubmitted(true);
     } catch (err) {
       console.error("Gửi yêu cầu thất bại:", err);
@@ -166,208 +267,162 @@ export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorP
         {/* Section Title */}
         <div className="text-center max-w-3xl mx-auto mb-16" id="estimator-intro">
           <span className="font-mono text-xs text-[#00f0ff] uppercase tracking-widest font-bold">
-            TỰ ĐỘNG HÓA DỰ TOÁN & LIÊN HỆ
+            TƯ VẤN CHỌN THIẾT BỊ & LIÊN HỆ
           </span>
           <h2 className="mt-2 font-display font-bold text-3xl sm:text-4xl text-white tracking-tight">
-            Lập Kế Hoạch Setup &{" "}
+            Tìm Đúng Combo &{" "}
             <span className="bg-gradient-to-r from-neon-pink-bright via-white to-neon-blue-bright bg-clip-text text-transparent">
               Nhận Báo Giá
             </span>
           </h2>
           <p className="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
-            Sử dụng công cụ tính toán thông minh bên dưới để dự toán điện năng dòng tải tiêu hao của dải LED, từ đó lựa chọn nguồn cấp và bộ điều khiển Happy Smart Light tối ưu nhất!
+            Trả lời vài câu hỏi nhanh để chúng tôi gợi ý bộ điều khiển và combo Happy Smart Light phù hợp nhất với nhu cầu của bạn — rồi gửi yêu cầu tư vấn ngay!
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-12 gap-8 items-stretch" id="estimator-layout">
-          {/* Left Estimator Calculator Column */}
-          <div className="lg:col-span-6 bg-glass p-6 sm:p-8 rounded-3xl border border-white/10 flex flex-col justify-between" id="estimator-calculator-box">
-            <div className="space-y-6">
-              <div className="flex items-center space-x-2 pb-4 border-b border-white/5">
-                <Sliders className="w-5 h-5 text-neon-blue-bright" />
-                <h3 className="font-display font-bold text-lg text-white">
-                  1. Công Cụ Dự Toán Công Suất LED
-                </h3>
+        <div className="max-w-4xl mx-auto flex flex-col gap-8" id="estimator-layout">
+          {/* Row 1: Product/Combo Advisor */}
+          <div className="bg-glass p-6 sm:p-8 rounded-3xl border border-white/10" id="estimator-advisor-box">
+            <div className="flex items-center justify-between pb-4 border-b border-white/5">
+              <div className="flex items-center space-x-2">
+                <Wand2 className="w-5 h-5 text-neon-blue-bright" />
+                <h3 className="font-display font-bold text-lg text-white">1. Trợ Lý Chọn Sản Phẩm</h3>
               </div>
+              {need && (
+                <button
+                  type="button"
+                  onClick={resetWizard}
+                  className="flex items-center gap-1 text-[10px] font-mono uppercase tracking-wider text-slate-400 hover:text-white transition-colors cursor-pointer"
+                >
+                  <RotateCcw className="w-3 h-3" /> Chọn lại
+                </button>
+              )}
+            </div>
 
-              {/* Selector led geometry */}
-              <div className="space-y-2">
-                <label className="text-xs font-mono uppercase text-slate-400 tracking-wider">Cấu trúc dải LED của bạn:</label>
-                <div className="grid grid-cols-3 gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setLedType("strip")}
-                    className={`py-2 px-3 rounded-lg text-xs font-display tracking-wider uppercase border cursor-pointer transition-all ${
-                      ledType === "strip"
-                        ? "bg-neon-blue/15 border-neon-blue text-white font-semibold"
-                        : "bg-slate-900/60 border-white/5 text-slate-400 hover:text-white"
-                    }`}
-                  >
-                    Dây LED Cuộn
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setLedType("matrix")}
-                    className={`py-2 px-3 rounded-lg text-xs font-display tracking-wider uppercase border cursor-pointer transition-all ${
-                      ledType === "matrix"
-                        ? "bg-neon-blue/15 border-neon-blue text-white font-semibold"
-                        : "bg-slate-900/60 border-white/5 text-slate-400 hover:text-white"
-                    }`}
-                  >
-                    Bảng Ma Trận
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setLedType("other")}
-                    className={`py-2 px-3 rounded-lg text-xs font-display tracking-wider uppercase border cursor-pointer transition-all ${
-                      ledType === "other"
-                        ? "bg-neon-blue/15 border-neon-blue text-white font-semibold"
-                        : "bg-slate-900/60 border-white/5 text-slate-400 hover:text-white"
-                    }`}
-                  >
-                    POI / POV Khác
-                  </button>
-                </div>
-              </div>
-
-              {/* Dynamic Range inputs based on selected geometry */}
-              <div className="space-y-4 pt-2">
-                {ledType === "strip" && (
-                  <>
-                    <div className="space-y-1">
-                      <div className="flex justify-between text-xs font-mono">
-                        <span className="text-slate-400">Chiều dài dải LED (Meters)</span>
-                        <span className="text-white font-semibold">{stripLength}m</span>
-                      </div>
-                      <input
-                        type="range"
-                        min="1"
-                        max="30"
-                        value={stripLength}
-                        onChange={(e) => setStripLength(parseInt(e.target.value))}
-                        className="w-full accent-neon-blue h-1.5 bg-slate-900 rounded-lg cursor-pointer"
-                      />
-                    </div>
-
-                    <div className="space-y-2">
-                      <span className="text-xs font-mono text-slate-400 block pb-1">Mật độ đèn LED bóng/m:</span>
-                      <div className="grid grid-cols-3 gap-2">
-                        {[30, 60, 144].map((density) => (
-                          <button
-                            key={density}
-                            type="button"
-                            onClick={() => setLedDensity(density)}
-                            className={`py-1.5 rounded bg-slate-900 border text-xs font-mono transition-all cursor-pointer ${
-                              ledDensity === density
-                                ? "border-neon-blue text-[#00f0ff] font-bold"
-                                : "border-white/5 text-slate-400 hover:text-white"
-                            }`}
-                          >
-                            {density} LEDs/m
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  </>
-                )}
-
-                {ledType === "matrix" && (
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <span className="text-xs font-mono text-slate-400 block">Số Cột (Columns):</span>
-                      <div className="grid grid-cols-2 gap-1.5">
-                        {[16, 32, 64].map((cols) => (
-                          <button
-                            key={cols}
-                            type="button"
-                            onClick={() => setMatrixCols(cols)}
-                            className={`py-1.5 rounded bg-slate-900 border text-xs font-mono cursor-pointer transition-all ${
-                              matrixCols === cols ? "border-neon-blue text-[#00f0ff] font-bold" : "border-white/5 text-slate-400"
-                            }`}
-                          >
-                            {cols}px
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      <span className="text-xs font-mono text-slate-400 block">Số Hàng (Rows):</span>
-                      <div className="grid grid-cols-2 gap-1.5">
-                        {[16, 32, 64].map((rows) => (
-                          <button
-                            key={rows}
-                            type="button"
-                            onClick={() => setMatrixRows(rows)}
-                            className={`py-1.5 rounded bg-slate-900 border text-xs font-mono cursor-pointer transition-all ${
-                              matrixRows === rows ? "border-neon-blue text-[#00f0ff] font-bold" : "border-white/5 text-slate-400"
-                            }`}
-                          >
-                            {rows}px
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                )}
-
-                {ledType === "other" && (
-                  <div className="space-y-1">
-                    <div className="flex justify-between text-xs font-mono">
-                      <span className="text-slate-400">Số lượng thiết bị POI đồng hành:</span>
-                      <span className="text-white font-semibold">{poiCount} chiếc</span>
-                    </div>
-                    <input
-                      type="range"
-                      min="1"
-                      max="10"
-                      value={poiCount}
-                      onChange={(e) => setPoiCount(parseInt(e.target.value))}
-                      className="w-full accent-neon-blue h-1.5 bg-slate-900 rounded-lg cursor-pointer"
-                    />
-                  </div>
-                )}
+            {/* Step 1: Need selection */}
+            <div className="mt-6 space-y-2">
+              <label className="text-xs font-mono uppercase text-slate-400 tracking-wider">Bạn dùng LED cho mục đích gì?</label>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                {NEEDS.map((opt) => {
+                  const Icon = opt.icon;
+                  const active = need === opt.id;
+                  const a = ACCENT[opt.accent];
+                  return (
+                    <button
+                      key={opt.id}
+                      type="button"
+                      onClick={() => setNeed(opt.id)}
+                      className={`text-left p-3 rounded-xl border transition-all cursor-pointer ${
+                        active ? `bg-slate-900/80 ${a.border}` : "bg-slate-900/40 border-white/5 hover:border-white/15"
+                      }`}
+                    >
+                      <Icon className={`w-4 h-4 mb-1.5 ${active ? a.text : "text-slate-400"}`} />
+                      <span className={`block text-xs font-display font-semibold ${active ? "text-white" : "text-slate-300"}`}>{opt.label}</span>
+                      <span className="block text-[10px] text-slate-500 mt-0.5 leading-snug">{opt.sub}</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
-            {/* Calculations Outcome card */}
-            <div className="mt-8 pt-6 border-t border-white/5 space-y-4" id="estimator-calculations-result">
-              <span className="text-xs font-mono text-slate-500 uppercase tracking-widest block font-bold">// KẾT QUẢ DỰ TOÁN ĐIỆN NĂNG LOẠI 5V:</span>
-              <div className="grid grid-cols-3 gap-3">
-                <div className="p-3 rounded-xl bg-slate-900/50 border border-white/5">
-                  <span className="block text-[9px] text-slate-500 font-mono">STT ĐIỂM SÁNG LED:</span>
-                  <span className="block text-xl font-display font-medium text-white">{totalPixels} px</span>
-                </div>
-                <div className="p-3 rounded-xl bg-slate-900/50 border border-white/5">
-                  <span className="block text-[9px] text-slate-500 font-mono">CƯỜNG ĐỘ DÒNG TỐI ĐA:</span>
-                  <span className="block text-xl font-display font-medium text-neon-pink-bright">{maxAmpere}A</span>
-                </div>
-                <div className="p-3 rounded-xl bg-slate-900/50 border border-white/5">
-                  <span className="block text-[9px] text-slate-500 font-mono">CÔNG SUẤT KHUYÊN DÙNG:</span>
-                  <span className="block text-xl font-display font-medium text-[#00f0ff]">{maxWatts}W</span>
+            {/* Step 2: Scale */}
+            {need && (
+              <div className="mt-5 space-y-2">
+                <label className="text-xs font-mono uppercase text-slate-400 tracking-wider">Quy mô số điểm sáng LED:</label>
+                <div className="grid grid-cols-3 gap-2">
+                  {(Object.keys(SCALE_LABELS) as Scale[]).map((s) => (
+                    <button
+                      key={s}
+                      type="button"
+                      onClick={() => setScale(s)}
+                      className={`py-2 px-2 rounded-lg text-[11px] font-mono border transition-all cursor-pointer ${
+                        scale === s ? "border-neon-blue text-[#00f0ff] font-bold bg-neon-blue/10" : "border-white/5 text-slate-400 bg-slate-900/60 hover:text-white"
+                      }`}
+                    >
+                      {SCALE_LABELS[s]}
+                    </button>
+                  ))}
                 </div>
               </div>
+            )}
 
-              <div className="p-4 rounded-xl bg-slate-900 border border-white/5 font-sans text-xs flex items-center justify-between gap-3">
-                <div className="space-y-1">
-                  <span className="text-slate-400 block font-mono text-[9px] uppercase">Thiết bị điều khiển đề xuất:</span>
-                  <span className="text-white font-bold block">{recommendedController}</span>
+            {/* Result */}
+            <div className="pt-6">
+              {!rec ? (
+                <div className="mt-2 p-6 rounded-2xl bg-slate-900/40 border border-dashed border-white/10 text-center">
+                  <Sparkles className="w-6 h-6 text-slate-600 mx-auto mb-2" />
+                  <p className="text-xs text-slate-500">Chọn mục đích sử dụng để nhận gợi ý combo phù hợp.</p>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => {
-                    const recMsg = `Bộ điều khiển khuyên dùng: ${recommendedController}. Cấu hình: ${totalPixels} pixels, ước tính dòng tải ${maxAmpere}A, công suất ${maxWatts}W.`;
-                    setMessage(recMsg);
-                  }}
-                  className="py-1.5 px-3 rounded bg-neon-blue/10 text-neon-blue-bright hover:bg-neon-blue hover:text-white text-[10px] font-mono uppercase tracking-wider transition-all duration-200 cursor-pointer"
-                >
-                  Nạp Vào Biểu Mẫu
-                </button>
-              </div>
+              ) : (
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`${rec.heading}-${rec.mainId}`}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.2 }}
+                    className={`rounded-2xl bg-slate-900/60 border ${ACCENT[rec.accent].border} p-5 space-y-4`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="text-[9px] font-mono uppercase tracking-widest text-slate-500">// GỢI Ý CHO BẠN</span>
+                      <span className={`px-2.5 py-0.5 rounded-full text-[9px] font-mono uppercase border ${ACCENT[rec.accent].chip}`}>{rec.heading}</span>
+                    </div>
+
+                    {/* Product list */}
+                    <div className="space-y-2">
+                      {rec.comboIds.map((id) => {
+                        const p = PRODUCTS[id];
+                        if (!p) return null;
+                        return (
+                          <div key={id} className="flex items-center justify-between gap-3 p-2.5 rounded-xl bg-slate-950/50 border border-white/5">
+                            <div className="flex items-center gap-2 min-w-0">
+                              <Cpu className={`w-4 h-4 shrink-0 ${ACCENT[p.accent].text}`} />
+                              <div className="min-w-0">
+                                <span className="block text-xs font-display font-semibold text-white truncate">{p.name}</span>
+                                <span className="block text-[10px] font-mono text-slate-500">{p.price}</span>
+                              </div>
+                            </div>
+                            <button
+                              type="button"
+                              onClick={() => navigate(`/san-pham/${p.id}`)}
+                              className="flex items-center gap-1 py-1.5 px-2.5 rounded-lg bg-white/5 border border-white/10 text-[10px] font-mono uppercase text-slate-300 hover:text-white hover:border-white/20 transition-all cursor-pointer shrink-0"
+                            >
+                              <Eye className="w-3 h-3" /> Chi tiết
+                            </button>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    <p className="text-[11px] text-slate-400 leading-relaxed">{rec.note}</p>
+
+                    {/* Accessories */}
+                    <div className="flex items-start gap-2">
+                      <PlugZap className="w-3.5 h-3.5 text-slate-500 mt-0.5 shrink-0" />
+                      <div className="flex flex-wrap gap-1.5">
+                        {rec.accessories.map((acc) => (
+                          <span key={acc} className="px-2 py-0.5 rounded bg-slate-950/60 border border-white/5 text-[9px] font-mono text-slate-400">
+                            {acc}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <button
+                      type="button"
+                      onClick={loadComboToForm}
+                      className="w-full py-2.5 rounded-xl bg-neon-blue/10 text-neon-blue-bright hover:bg-neon-blue hover:text-white text-xs font-display font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5"
+                    >
+                      Nạp Combo Vào Biểu Mẫu <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </motion.div>
+                </AnimatePresence>
+              )}
             </div>
           </div>
 
-          {/* Right Contact Form Column */}
-          <div className="lg:col-span-6 bg-glass p-6 sm:p-8 rounded-3xl border border-white/10 flex flex-col justify-between" id="estimator-contact-box">
+          {/* Row 2: Contact Form */}
+          <div className="bg-glass p-6 sm:p-8 rounded-3xl border border-white/10" id="estimator-contact-box">
             <AnimatePresence mode="wait">
               {!submitted ? (
                 <motion.form
@@ -382,12 +437,10 @@ export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorP
                   <div className="space-y-4">
                     <div className="flex items-center space-x-2 pb-4 border-b border-white/5">
                       <PhoneCall className="w-5 h-5 text-neon-pink-bright" />
-                      <h3 className="font-display font-bold text-lg text-white">
-                        2. Biểu Mẫu Gửi Tư Vấn & Đặt Mua
-                      </h3>
+                      <h3 className="font-display font-bold text-lg text-white">2. Biểu Mẫu Gửi Tư Vấn & Đặt Mua</h3>
                     </div>
 
-                    {/* Honeypot chống bot: ẩn với người dùng thật, chỉ bot tự điền */}
+                    {/* Honeypot chống bot */}
                     <input
                       type="text"
                       name="website"
@@ -485,11 +538,9 @@ export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorP
                   </div>
 
                   <div className="space-y-2">
-                    <h3 className="font-display font-extrabold text-2xl text-white">
-                      Gửi Thông Tin Thành Công!
-                    </h3>
+                    <h3 className="font-display font-extrabold text-2xl text-white">Gửi Thông Tin Thành Công!</h3>
                     <p className="font-sans font-light text-slate-400 text-sm max-w-sm mx-auto leading-relaxed">
-                      Chào mừng <span className="text-white font-bold">{name}</span>. Hệ thống Happy Smart Light đã tiếp nhận thông tin dự toán kỹ thuật của bạn.
+                      Chào mừng <span className="text-white font-bold">{name}</span>. Hệ thống Happy Smart Light đã tiếp nhận yêu cầu tư vấn của bạn.
                     </p>
                   </div>
 
@@ -502,7 +553,7 @@ export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorP
                   </div>
 
                   <p className="text-slate-400 text-xs">
-                    Kỹ thuật viên của chúng tôi sẽ chủ động gọi lại tư vấn và cấu hình tối ưu dây LED cho bạn trong vòng 15 phút.
+                    Kỹ thuật viên của chúng tôi sẽ chủ động gọi lại tư vấn và cấu hình tối ưu cho bạn trong vòng 15 phút.
                   </p>
 
                   <button

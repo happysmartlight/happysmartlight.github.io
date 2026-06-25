@@ -18,7 +18,7 @@ import {
   Wand2,
 } from "lucide-react";
 import ArticleLayout, { SectionHeading, InfoCard, FeatureCard, ArtQuote, Callout } from "../ArticleLayout";
-import TikTokEmbed from "../TikTokEmbed";
+import ArticleVideoGallery from "../ArticleVideoGallery";
 import ImageZoomLightbox, { type ZoomGalleryItem } from "../ImageZoomLightbox";
 
 const SITE = "https://happysmartlight.com";
@@ -92,7 +92,7 @@ const PRODUCT_JSON_LD = {
   "@type": "Product",
   name: "Đạo Cụ POI LED Happy Smart Light (Happy POI Performance Wand)",
   description: "Gậy múa LED POI cầm tay, hiển thị logo và hình ảnh POV theo chuyển động xoay, pin sạc tích hợp, đồng bộ không dây cho nhóm biểu diễn chuyên nghiệp.",
-  image: [`${SITE}/img/post-news/poi/hinh-anh-su-dung/hinh-dep/7747ab723b43b41ded5252.jpg`],
+  image: [`${SITE}/img/post-news/poi/hinh-anh-su-dung/z7404784963475_e832ec45e843c34caa5bc5cd46c44111.jpg`],
   brand: { "@type": "Brand", name: "Happy Smart Light" },
   url: `${SITE}${PAGE_PATH}`,
 };
@@ -117,7 +117,7 @@ export default function ArticlePoiProduct() {
       metaTitle="Đạo Cụ POI LED Happy Smart Light | Gậy Múa LED Biểu Diễn"
       description="Đạo cụ POI LED Happy Smart Light: gậy múa LED hiển thị logo, hình ảnh sống động theo chuyển động xoay, pin sạc bền bỉ, đồng bộ không dây cho cả nhóm biểu diễn."
       eyebrow="HAPPY SMART LIGHT — SẢN PHẨM ĐẠO CỤ POI"
-      bannerImg="/img/post-news/poi/hinh-anh-su-dung/hinh-dep/7747ab723b43b41ded5252.jpg"
+      bannerImg="/img/post-news/poi/hinh-anh-su-dung/z7404784963475_e832ec45e843c34caa5bc5cd46c44111.jpg"
       accent="pink"
       path={PAGE_PATH}
       backPath="/post-news/"
@@ -187,10 +187,10 @@ export default function ArticlePoiProduct() {
         </div>
       </section>
 
-      {/* TikTok Demo */}
+      {/* Video Demo */}
       <section className="space-y-3">
         <SectionHeading accent="pink">Video Trình Diễn Thực Tế</SectionHeading>
-        <TikTokEmbed videoId="7584604893197946132" />
+        <ArticleVideoGallery videos={[{ youtube: "https://www.youtube.com/watch?v=WLtPjFGXv6s", title: "Demo đạo cụ POI — Happy Smart Light" }]} columns={1} accent="pink" />
       </section>
 
       {/* Gallery */}

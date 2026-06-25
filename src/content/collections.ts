@@ -112,7 +112,7 @@ const PORTED_POSTS: CollectionItem[] = [
     title: "Đạo Cụ POI LED Happy Smart Light — Gậy Múa Trình Diễn Logo, Hình Ảnh Theo Chuyển Động",
     metaTitle: "Đạo Cụ POI LED Happy Smart Light | Gậy Múa LED Biểu Diễn",
     image: "/img/post-news/poi/hinh-anh-su-dung/hinh-dep/73a2539bc3aa4cf415bb47.jpg",
-    bigimg: "/img/post-news/poi/hinh-anh-su-dung/hinh-dep/7747ab723b43b41ded5252.jpg",
+    bigimg: "/img/post-news/poi/hinh-anh-su-dung/z7404784963475_e832ec45e843c34caa5bc5cd46c44111.jpg",
     tags: ["poi", "dao-cu-led", "gay-mua-led", "san-pham", "bieu-dien-nghe-thuat"],
     excerpt: "Khám phá đạo cụ POI LED Happy Smart Light — gậy múa LED hiển thị logo, hình ảnh sống động theo từng vòng xoay, pin sạc bền bỉ, đồng bộ không dây cho cả nhóm biểu diễn.",
     html: ""

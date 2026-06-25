@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Cpu, AlertTriangle, Settings, Download, HardDrive, Lightbulb, Eye } from "lucide-react";
 import ArticleLayout, { SectionHeading, InfoCard, FeatureCard, ArtQuote, Callout } from "../ArticleLayout";
-import TikTokEmbed from "../TikTokEmbed";
+import ArticleVideoGallery from "../ArticleVideoGallery";
 import ImageZoomLightbox, { type ZoomGalleryItem } from "../ImageZoomLightbox";
 
 const STORAGE_TABLE = [
@@ -221,10 +221,10 @@ export default function ArticlePoiGuide() {
         </div>
       </section>
 
-      {/* TikTok Demo */}
+      {/* Video Demo */}
       <section className="space-y-3">
         <SectionHeading accent="pink">Video Demo Từ Nhà HSL</SectionHeading>
-        <TikTokEmbed videoId="7584604893197946132" />
+        <ArticleVideoGallery videos={[{ youtube: "https://www.youtube.com/watch?v=WLtPjFGXv6s", title: "Demo tính năng POI — Happy Smart Light" }]} columns={1} accent="pink" />
       </section>
 
       {/* Demo Photo Album */}

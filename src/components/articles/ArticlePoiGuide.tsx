@@ -1,6 +1,8 @@
-import { Cpu, AlertTriangle, Settings, Download, HardDrive, Lightbulb, Zap } from "lucide-react";
+import { useState } from "react";
+import { Cpu, AlertTriangle, Settings, Download, HardDrive, Lightbulb, Eye } from "lucide-react";
 import ArticleLayout, { SectionHeading, InfoCard, FeatureCard, ArtQuote, Callout } from "../ArticleLayout";
 import TikTokEmbed from "../TikTokEmbed";
+import ImageZoomLightbox, { type ZoomGalleryItem } from "../ImageZoomLightbox";
 
 const STORAGE_TABLE = [
   { pixel: "15 × 15", size: "~0.76 KB", max: "5,290 ảnh" },
@@ -11,7 +13,72 @@ const STORAGE_TABLE = [
   { pixel: "145 × 145", size: "~61.8 KB", max: "64 ảnh" },
 ];
 
+const WINDOWS_TOOL_URL =
+  "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.7.1.exe";
+
+const DEMO_PHOTO_FILES = [
+  "12530490991406016422.jpg",
+  "16306775808821168501.jpg",
+  "189547626772519281042.jpg",
+  "189547626772519281043.jpg",
+  "228096405165556914446.jpg",
+  "42680700471224202225.jpg",
+  "69a0c79657a7d8f981b651.jpg",
+  "73a2539bc3aa4cf415bb47.jpg",
+  "7747ab723b43b41ded5252.jpg",
+  "9ec3b7f727c6a898f1d750.jpg",
+  "z7404349773725_2a3b6787293d82b7b047b48787acd693.jpg",
+  "z7404349779794_0727a31a4acfd707e25e5562f9303932.jpg",
+  "z7404349807836_1072ac7362afaa00c0ee7be44529fbff.jpg",
+  "z7404349833925_3b285bae6e508827dc28fe7483f752f4.jpg",
+  "z7404349861256_34441da41da3f21898c4f2a8345b3714.jpg",
+  "z7404349994982_05bf18ac2bfc293b0079128f629628f8.jpg",
+  "z7404350039355_e043596f5c624c46c2b85b2867d70d78.jpg",
+  "z7404350039360_a4aaf6e67689cf9fea00961dd6738c4b.jpg",
+];
+
+const DEMO_PHOTOS: ZoomGalleryItem[] = DEMO_PHOTO_FILES.map((file, idx) => ({
+  url: `/img/post-news/poi/hinh-anh-su-dung/hinh-dep/${file}`,
+  label: `Ảnh demo POI #${idx + 1}`,
+  alt: `Hình ảnh demo sử dụng tính năng POI Happy Smart Light #${idx + 1}`,
+}));
+
+const GUIDE_PHOTOS: ZoomGalleryItem[] = [
+  { url: "/img/post-news/poi/LED.jpg", label: "LED chuyên dụng POI", alt: "LED chuyên dụng POI" },
+  { url: "/img/controller-chip/ARGB_HSL_TOP.png", label: "3D PCB LED PIXEL ARGB IPEX V2.0", alt: "3D PCB LED PIXEL ARGB IPEX V2.0" },
+  { url: "/img/post-news/poi/set-on-mode-poi.png", label: "Kiểm tra kết nối & cấu hình mode Poi", alt: "Kiểm tra kết nối & cấu hình mode Poi" },
+  { url: "/img/post-news/poi/upload-img-poi.png", label: "Set pixel, độ sáng và nạp ảnh logo", alt: "Set pixel, độ sáng và nạp ảnh logo" },
+];
+
+function ZoomableImage({ src, alt, className, onClick }: { src: string; alt: string; className?: string; onClick: () => void }) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={`Xem lớn ${alt}`}
+      className="group/zoom relative block w-full cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-pink/60"
+    >
+      <img src={src} alt={alt} loading="lazy" className={className} />
+      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/zoom:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <Eye className="w-5 h-5 text-white" />
+      </div>
+    </button>
+  );
+}
+
 export default function ArticlePoiGuide() {
+  const [activePhotoIndex, setActivePhotoIndex] = useState<number>(0);
+  const [isPhotoViewerOpen, setIsPhotoViewerOpen] = useState<boolean>(false);
+  const [activeGuideIndex, setActiveGuideIndex] = useState<number>(0);
+  const [isGuideViewerOpen, setIsGuideViewerOpen] = useState<boolean>(false);
+
+  const openGuidePhoto = (url: string) => {
+    const index = GUIDE_PHOTOS.findIndex((photo) => photo.url === url);
+    if (index < 0) return;
+    setActiveGuideIndex(index);
+    setIsGuideViewerOpen(true);
+  };
+
   return (
     <ArticleLayout
       title="Hướng Dẫn Sử Dụng Tính Năng POI — Happy Smart Light"
@@ -43,7 +110,7 @@ export default function ArticlePoiGuide() {
               Tối đa <strong className="text-neon-pink-bright">145 LED cho mỗi mặt</strong> đạo cụ POI. Bắt buộc sử dụng LED tần số cao chuyên dụng.
             </p>
             <div className="mt-2 rounded-lg overflow-hidden border border-white/10">
-              <img src="/img/post-news/poi/LED.jpg" alt="LED chuyên dụng POI" loading="lazy" className="w-full object-cover" />
+              <ZoomableImage src="/img/post-news/poi/LED.jpg" alt="LED chuyên dụng POI" className="w-full object-cover" onClick={() => openGuidePhoto("/img/post-news/poi/LED.jpg")} />
             </div>
           </InfoCard>
           <div className="p-4 rounded-xl bg-red-500/5 border border-red-500/15">
@@ -85,7 +152,7 @@ export default function ArticlePoiGuide() {
             </div>
           </InfoCard>
           <div className="rounded-xl overflow-hidden border border-white/10">
-            <img src="/img/controller-chip/ARGB_HSL_TOP.png" alt="3D PCB LED PIXEL ARGB IPEX V2.0" loading="lazy" className="w-full object-contain bg-slate-900/40 p-2" />
+            <ZoomableImage src="/img/controller-chip/ARGB_HSL_TOP.png" alt="3D PCB LED PIXEL ARGB IPEX V2.0" className="w-full object-contain bg-slate-900/40 p-2" onClick={() => openGuidePhoto("/img/controller-chip/ARGB_HSL_TOP.png")} />
           </div>
         </div>
       </section>
@@ -95,10 +162,18 @@ export default function ArticlePoiGuide() {
         <SectionHeading accent="pink">Cấu Hình LED & Chip LED</SectionHeading>
         <div className="space-y-3">
           {[
-            { step: "1", title: "Kết nối mạch vào sóng điều khiển", desc: "Vào giao diện Cài đặt → Tùy chọn LED", img: "/img/post-news/poi/b1.png" },
-            { step: "2", title: "Xóa các Port thừa", desc: "Xóa 3 Port LED, chỉ giữ lại 1 Port trên cùng", img: "/img/post-news/poi/b2.png" },
-            { step: "3", title: "Cấu hình nguồn & POI", desc: "Thiết lập nguồn điện, thuộc tính POI, đấu nối P17 (Data) + P18 (CLK). Bấm Lưu.", img: "/img/post-news/poi/b3.png" },
-            { step: "4", title: "Đổi tên thiết bị (tùy chọn)", desc: "Giúp nhận diện thiết bị khi sử dụng nhiều mạch cùng lúc", img: "/img/post-news/poi/b4.png" },
+            {
+              step: "1",
+              title: "Kiểm tra kết nối & cấu hình mode Poi",
+              desc: "Mở phần mềm ARGB HSL Tool, vào Tab \"Cấu hình phần cứng\" để kiểm tra mạch đã kết nối chưa. Nếu đã kết nối, tick chọn mode Poi và cấu hình LED như hình dưới.",
+              img: "/img/post-news/poi/set-on-mode-poi.png",
+            },
+            {
+              step: "2",
+              title: "Set pixel, độ sáng và nạp ảnh logo",
+              desc: "Tiến hành set số lượng pixel, độ sáng, chọn mạch và nạp ảnh logo vào hiển thị.",
+              img: "/img/post-news/poi/upload-img-poi.png",
+            },
           ].map(({ step, title, desc, img }) => (
             <div key={step} className="flex gap-4 p-4 rounded-xl bg-slate-900/30 border border-white/5 hover:border-white/15 transition-colors">
               <span className="font-mono text-[10px] text-neon-pink-bright font-bold bg-neon-pink/10 px-2.5 py-1 rounded-lg shrink-0 h-fit">
@@ -108,7 +183,7 @@ export default function ArticlePoiGuide() {
                 <h4 className="text-xs font-semibold text-white">{title}</h4>
                 <p className="text-[11px] text-slate-500 mt-0.5">{desc}</p>
                 <div className="mt-2 rounded-lg overflow-hidden border border-white/10 max-w-xs">
-                  <img src={img} alt={title} loading="lazy" className="w-full object-cover" />
+                  <ZoomableImage src={img} alt={title} className="w-full object-cover" onClick={() => openGuidePhoto(img)} />
                 </div>
               </div>
             </div>
@@ -132,17 +207,16 @@ export default function ArticlePoiGuide() {
               <li>Gửi ảnh trực tiếp vào mạch</li>
             </ol>
             <a
-              href="https://drive.google.com/drive/folders/1sPGiqML3gM14iFop44tH6MFm2_VKa3mB?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={WINDOWS_TOOL_URL}
+              download
               className="mt-4 flex items-center gap-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-neon-pink to-purple-600 text-white text-xs font-mono font-bold no-underline hover:scale-[1.02] transition-transform"
             >
               <Download className="w-4 h-4" />
-              Tải Phần Mềm HSL (Google Drive)
+              Tải ARGB HSL Tool (Windows)
             </a>
           </InfoCard>
           <div className="rounded-xl overflow-hidden border border-white/10">
-            <img src="/img/post-news/poi/p3.png" alt="Giao diện POI TOOL HSL" loading="lazy" className="w-full object-cover" />
+            <ZoomableImage src="/img/post-news/poi/upload-img-poi.png" alt="Giao diện ARGB HSL Tool nạp ảnh POI" className="w-full object-cover" onClick={() => openGuidePhoto("/img/post-news/poi/upload-img-poi.png")} />
           </div>
         </div>
       </section>
@@ -151,6 +225,36 @@ export default function ArticlePoiGuide() {
       <section className="space-y-3">
         <SectionHeading accent="pink">Video Demo Từ Nhà HSL</SectionHeading>
         <TikTokEmbed videoId="7584604893197946132" />
+      </section>
+
+      {/* Demo Photo Album */}
+      <section className="space-y-3">
+        <SectionHeading accent="pink">Album Ảnh Demo Thực Tế</SectionHeading>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          {DEMO_PHOTOS.map((photo, idx) => (
+            <button
+              key={photo.url}
+              type="button"
+              onClick={() => {
+                setActivePhotoIndex(idx);
+                setIsPhotoViewerOpen(true);
+              }}
+              aria-label={`Xem lớn ${photo.label}`}
+              className="group/poi relative aspect-square overflow-hidden rounded-xl border border-white/10 bg-slate-900/40 cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-pink/60"
+            >
+              <img
+                src={photo.url}
+                alt={photo.alt ?? photo.label}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover group-hover/poi:scale-[1.05] transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/poi:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <Eye className="w-5 h-5 text-white" />
+              </div>
+            </button>
+          ))}
+        </div>
       </section>
 
       {/* Storage Table */}
@@ -198,6 +302,24 @@ export default function ArticlePoiGuide() {
       <ArtQuote accent="pink">
         Happy Smart Light — Giải pháp ánh sáng sáng tạo cho biểu diễn chuyên nghiệp.
       </ArtQuote>
+
+      <ImageZoomLightbox
+        open={isPhotoViewerOpen}
+        items={DEMO_PHOTOS}
+        currentIndex={activePhotoIndex}
+        title="Album ảnh demo POI"
+        onClose={() => setIsPhotoViewerOpen(false)}
+        onIndexChange={setActivePhotoIndex}
+      />
+
+      <ImageZoomLightbox
+        open={isGuideViewerOpen}
+        items={GUIDE_PHOTOS}
+        currentIndex={activeGuideIndex}
+        title="Hình minh họa hướng dẫn POI"
+        onClose={() => setIsGuideViewerOpen(false)}
+        onIndexChange={setActiveGuideIndex}
+      />
     </ArticleLayout>
   );
 }

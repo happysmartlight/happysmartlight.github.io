@@ -94,6 +94,18 @@ const PORTED_PARTNERS: CollectionItem[] = [
 
 const PORTED_POSTS: CollectionItem[] = [
   {
+    slug: "trang-phuc-led-robot-dance-happy-smart-light",
+    collection: "post-news",
+    url: "/post-news/trang-phuc-led-robot-dance-happy-smart-light/",
+    title: "Trang Phục LED Robot Dance Happy Smart Light — Người LED Biểu Diễn Ánh Sáng Đỉnh Cao",
+    metaTitle: "Trang Phục LED Robot Dance | Happy Smart Light",
+    image: "/img/led-props/led-man/LED-Drummes-in-Sharjah1-scaled-2.jpg",
+    bigimg: "/img/led-props/led-man/Visual-Tron456.jpg",
+    tags: ["led-man", "robot-dance", "trang-phuc-led", "tron-dance", "bieu-dien-anh-sang"],
+    excerpt: "Khám phá trang phục LED Robot Dance Happy Smart Light — bộ giáp LED Man phát sáng đồng bộ theo nhạc, biến tấu nhịp nhàng theo từng điệu nhảy robot, ấn tượng cho mọi sân khấu và sự kiện.",
+    html: ""
+  },
+  {
     slug: "dao-cu-poi-led-happy-smart-light",
     collection: "post-news",
     url: "/post-news/dao-cu-poi-led-happy-smart-light/",

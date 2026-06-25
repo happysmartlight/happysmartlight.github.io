@@ -15,6 +15,7 @@ const CUSTOM_ARTICLES: Record<string, React.LazyExoticComponent<React.ComponentT
   "doi-tac/partner-NCTA": lazy(() => import("../components/articles/PartnerNCTA")),
   "post-news/su-dung-poi-voi-argb-hsl": lazy(() => import("../components/articles/ArticlePoiGuide")),
   "post-news/dao-cu-poi-led-happy-smart-light": lazy(() => import("../components/articles/ArticlePoiProduct")),
+  "post-news/trang-phuc-led-robot-dance-happy-smart-light": lazy(() => import("../components/articles/ArticleLedManRobotDance")),
 };
 
 // Exported as `Component` for lazy loading (keeps collection JSON out of main bundle).

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Cpu, ShieldCheck, Sparkles, Orbit, Timer, LayoutGrid, Wifi, Clock } from "lucide-react";
+import { Cpu, ShieldCheck, Sparkles, Orbit, Timer, LayoutGrid, Wifi, Crosshair } from "lucide-react";
 import { motion } from "motion/react";
 import { usePrefersReducedMotion } from "../hooks/perf";
 
@@ -79,6 +79,7 @@ export default function About() {
       color: "border-neon-blue/20 hover:border-neon-blue/50 group-hover:shadow-glow-blue/10",
       glow: "bg-neon-blue/5",
       bar: "bg-gradient-to-r from-neon-blue to-cyan-400",
+      numShadow: "group-hover:drop-shadow-[0_0_16px_rgba(0,229,255,0.55)]",
     },
     {
       icon: <Orbit className="w-6 h-6 text-neon-pink-bright" />,
@@ -87,6 +88,7 @@ export default function About() {
       color: "border-neon-pink/20 hover:border-neon-pink/50 group-hover:shadow-glow-pink/10",
       glow: "bg-neon-pink/5",
       bar: "bg-gradient-to-r from-neon-pink to-fuchsia-400",
+      numShadow: "group-hover:drop-shadow-[0_0_16px_rgba(255,45,149,0.55)]",
     },
     {
       icon: <Sparkles className="w-6 h-6 text-amber-400" />,
@@ -95,6 +97,7 @@ export default function About() {
       color: "border-amber-500/20 hover:border-amber-500/50 hover:shadow-amber-500/5",
       glow: "bg-amber-500/5",
       bar: "bg-gradient-to-r from-amber-400 to-orange-400",
+      numShadow: "group-hover:drop-shadow-[0_0_16px_rgba(245,158,11,0.55)]",
     },
     {
       icon: <ShieldCheck className="w-6 h-6 text-emerald-400" />,
@@ -103,6 +106,7 @@ export default function About() {
       color: "border-emerald-500/20 hover:border-emerald-500/50 hover:shadow-emerald-500/5",
       glow: "bg-emerald-500/5",
       bar: "bg-gradient-to-r from-emerald-400 to-teal-400",
+      numShadow: "group-hover:drop-shadow-[0_0_16px_rgba(16,185,129,0.55)]",
     },
   ];
 
@@ -124,7 +128,7 @@ export default function About() {
       value: 4096,
       decimals: 0,
       suffix: "+",
-      label: "Số Điểm LED Độc Lập / Cổng",
+      label: "Số Điểm LED Độc Lập / Mạch 4X",
     },
     {
       icon: Wifi,
@@ -133,14 +137,17 @@ export default function About() {
       value: 100,
       decimals: 0,
       suffix: "%",
-      label: "Đồng Bộ Không Dây Wi-Fi",
+      label: "Đồng Bộ Wi-Fi/Ethernet ",
     },
     {
-      icon: Clock,
-      iconColor: "text-slate-300",
-      numClass: "text-white",
-      staticValue: "24/7",
-      label: "Sẵn Sàng Cho Sân Khấu",
+      icon: Crosshair,
+      iconColor: "text-amber-400",
+      numClass: "text-amber-400 text-glow-yellow",
+      prefix: "± ",
+      value: 1,
+      decimals: 0,
+      suffix: " ms",
+      label: "Độ Chính Xác Timecode",
     },
   ];
 
@@ -177,8 +184,10 @@ export default function About() {
               className={`relative overflow-hidden p-6 rounded-2xl bg-slate-950/40 backdrop-blur-md max-md:backdrop-blur-none max-md:bg-slate-950/60 border ${pillar.color} transition-[background-color,border-color,box-shadow] duration-300 group flex flex-col justify-between`}
               id={`about-pillar-${idx}`}
             >
-              {/* Large faded index number */}
-              <span className="pointer-events-none absolute top-2 right-4 font-display font-extrabold text-6xl leading-none text-white/[0.05] group-hover:text-white/[0.09] transition-colors select-none">
+              {/* Large index number — accent gradient, brightens + scales + glows on hover */}
+              <span
+                className={`pointer-events-none absolute top-2 right-4 font-display font-extrabold text-6xl leading-none select-none origin-top-right bg-clip-text text-transparent transition-all duration-500 opacity-25 group-hover:opacity-100 group-hover:scale-110 ${pillar.bar} ${pillar.numShadow}`}
+              >
                 {String(idx + 1).padStart(2, "0")}
               </span>
 
@@ -218,16 +227,7 @@ export default function About() {
                 <s.icon className={`w-5 h-5 mx-auto ${s.iconColor}`} strokeWidth={1.75} />
 
                 <span className={`block font-display font-bold text-3xl sm:text-4xl ${s.numClass}`}>
-                  {s.staticValue ? (
-                    s.staticValue
-                  ) : (
-                    <CountUp
-                      value={s.value as number}
-                      decimals={s.decimals}
-                      prefix={s.prefix}
-                      suffix={s.suffix}
-                    />
-                  )}
+                  <CountUp value={s.value} decimals={s.decimals} prefix={s.prefix} suffix={s.suffix} />
                 </span>
 
                 <span className="block text-[10px] sm:text-xs font-mono tracking-widest uppercase text-slate-500">

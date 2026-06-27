@@ -156,11 +156,18 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
                         rel="noopener noreferrer"
                         className="inline-flex items-center w-fit bg-black border border-white/10 hover:border-neon-pink/50 rounded-xl px-4 py-2 transition-all cursor-pointer shadow-lg"
                       >
-                        <div className="mr-3 text-white">
-                          {/* Play Store Vector icon */}
-                          <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current text-white" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3 5.25V18.75c0 .69.56 1.25 1.25 1.25H19.75c.69 0 1.25-.56 1.25-1.25V5.25c0-.69-.56-1.25-1.25-1.25H4.25c-.69 0-1.25.56-1.25 1.25z" fill="none" />
-                            <path d="M5.5 4h13c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5h-13C4.7 20 4 19.3 4 18.5v-13c0-.8.7-1.5 1.5-1.5zm6.5 13.8l4.4-4.4-4.4-4.4V11.5H7.2v1.8H12v4.5z" />
+                        <div className="mr-3">
+                          {/* Official Google Play triangle — 4-color Google brand fill */}
+                          <svg viewBox="0 0 24 24" className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <defs>
+                              <linearGradient id="gp-icon" x1="2" y1="2" x2="20" y2="22" gradientUnits="userSpaceOnUse">
+                                <stop offset="0" stopColor="#00d2ff" />
+                                <stop offset="0.45" stopColor="#00e676" />
+                                <stop offset="0.75" stopColor="#ffce00" />
+                                <stop offset="1" stopColor="#ff3a44" />
+                              </linearGradient>
+                            </defs>
+                            <path fill="url(#gp-icon)" d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z" />
                           </svg>
                         </div>
                         <div className="text-left">

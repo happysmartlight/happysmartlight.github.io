@@ -194,6 +194,34 @@
   .anim-marquee { animation: none; }
 }
 
+/* ===== "Mua Ngay" CTA (navbar) =====
+   3 lớp tạo cảm giác cuốn hút: viền gradient neon chạy ngang, quầng sáng xoay
+   tròn phía sau, và một vệt sáng quét qua theo chu kỳ. Tất cả chỉ animate
+   transform/opacity/background-position nên rẻ với compositor. */
+.hsl-cta-border {
+  background: linear-gradient(110deg, #ff2d95, #a855f7, #00e5ff, #ff2d95);
+  background-size: 220% 100%;
+  animation: hsl-cta-gradient 3s linear infinite;
+}
+@keyframes hsl-cta-gradient {
+  to { background-position: 220% 50%; }
+}
+
+.hsl-cta-shine {
+  background: linear-gradient(100deg, transparent 25%, rgba(255, 255, 255, 0.55) 50%, transparent 75%);
+  transform: translateX(-160%);
+  animation: hsl-cta-shine 3.4s ease-in-out infinite;
+}
+@keyframes hsl-cta-shine {
+  0% { transform: translateX(-160%); }
+  55%, 100% { transform: translateX(260%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hsl-cta-border { animation: none; }
+  .hsl-cta-shine { animation: none; opacity: 0; }
+}
+
 /* ===== TikTok embed ===== */
 /* Khử nền trắng + viền + box-shadow mặc định mà embed.js gắn lên lớp bọc ngoài
    (.tiktok-embed thuộc DOM của ta nên chỉnh được). Phần nền TRẮNG còn lại nằm

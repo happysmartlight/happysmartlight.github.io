@@ -1,50 +1,15 @@
-import { useState, useEffect, useRef } from "react";
-import { Zap, Play, Sliders, Settings, Wifi, Eye } from "lucide-react";
-import { motion } from "motion/react";
-import { useInView, usePrefersReducedMotion } from "../hooks/perf";
+import { useState } from "react";
+import { Zap, Wifi, Eye } from "lucide-react";
+import LedMatrixCanvas, { type PresetMode } from "./LedMatrixCanvas";
 
 interface HeroProps {
   onNavigate: (sectionId: string) => void;
 }
 
-type PresetMode = "rainbow" | "audio" | "aurora" | "fire";
-
-// 5-pixel-high font bitmaps for scrolling text (each char is 5 rows x variable width)
-const FONT_MAP: Record<string, number[][]> = {
-  H: [[1,0,1],[1,0,1],[1,1,1],[1,0,1],[1,0,1]],
-  A: [[0,1,0],[1,0,1],[1,1,1],[1,0,1],[1,0,1]],
-  P: [[1,1,0],[1,0,1],[1,1,0],[1,0,0],[1,0,0]],
-  Y: [[1,0,1],[1,0,1],[0,1,0],[0,1,0],[0,1,0]],
-  S: [[0,1,1],[1,0,0],[0,1,0],[0,0,1],[1,1,0]],
-  M: [[1,0,0,0,1],[1,1,0,1,1],[1,0,1,0,1],[1,0,0,0,1],[1,0,0,0,1]],
-  R: [[1,1,0],[1,0,1],[1,1,0],[1,0,1],[1,0,1]],
-  T: [[1,1,1],[0,1,0],[0,1,0],[0,1,0],[0,1,0]],
-  L: [[1,0,0],[1,0,0],[1,0,0],[1,0,0],[1,1,1]],
-  I: [[1,1,1],[0,1,0],[0,1,0],[0,1,0],[1,1,1]],
-  G: [[0,1,1],[1,0,0],[1,0,1],[1,0,1],[0,1,1]],
-  ' ': [[0],[0],[0],[0],[0]],
-};
-
-const SCROLL_TEXT = "HAPPY SMART LIGHT  ";
-const scrollBitmap: number[][] = [[], [], [], [], []];
-for (const char of SCROLL_TEXT) {
-  const glyph = FONT_MAP[char] || FONT_MAP[' '];
-  for (let row = 0; row < 5; row++) {
-    scrollBitmap[row].push(...glyph[row], 0); // 1-pixel gap between chars
-  }
-}
-const SCROLL_WIDTH = scrollBitmap[0].length;
-
 export default function Hero({ onNavigate }: HeroProps) {
   const [activePreset, setActivePreset] = useState<PresetMode>("aurora");
   const [ledSpeed, setLedSpeed] = useState<number>(50);
   const [ledBrightness, setLedBrightness] = useState<number>(85);
-  const [frameCount, setFrameCount] = useState<number>(0);
-  const [fps, setFps] = useState<number>(60);
-  const animateRef = useRef<number | null>(null);
-  const textOffsetRef = useRef<number>(0);
-  const { ref: sectionRef, inView } = useInView<HTMLElement>();
-  const reducedMotion = usePrefersReducedMotion();
 
   // Stats generation helper based on state
   const getProtocolStats = () => {
@@ -62,122 +27,6 @@ export default function Hero({ onNavigate }: HeroProps) {
 
   const { protocol, streamType, ip, fps: currentFps } = getProtocolStats();
 
-  // Animation frame loop driving the visualizer matrix. Paused when the Hero is
-  // off-screen or the user prefers reduced motion, and the React state update is
-  // throttled to ~15fps so we don't re-render the 8x8 grid on every frame.
-  useEffect(() => {
-    if (!inView || reducedMotion) return;
-    const RENDER_INTERVAL = 66; // ms between visual state updates (~15fps)
-    let lastTime = performance.now();
-    let lastRender = lastTime;
-    let scrollAccum = 0;
-
-    const tick = (now: number) => {
-      const delta = now - lastTime;
-      lastTime = now;
-      scrollAccum += delta * (ledSpeed / 100) * 0.0095;
-
-      if (now - lastRender >= RENDER_INTERVAL) {
-        const frames = (now - lastRender) / 16.7;
-        const increment = (ledSpeed / 100 * 2 + 0.2) * frames;
-        setFrameCount((prev) => (prev + increment) % 360);
-
-        if (scrollAccum >= 1) {
-          textOffsetRef.current = (textOffsetRef.current + Math.floor(scrollAccum)) % SCROLL_WIDTH;
-          scrollAccum = scrollAccum % 1;
-        }
-        if (Math.random() < 0.2) {
-          const calculatedFps = Math.min(60, Math.round(1000 / delta));
-          setFps(calculatedFps === 0 ? 60 : calculatedFps);
-        }
-        lastRender = now;
-      }
-
-      animateRef.current = requestAnimationFrame(tick);
-    };
-
-    animateRef.current = requestAnimationFrame(tick);
-    return () => {
-      if (animateRef.current) cancelAnimationFrame(animateRef.current);
-    };
-  }, [ledSpeed, inView, reducedMotion]);
-
-  // Generate color values for an 8x8 matrix grid based on mode, scale, frameCount, and brightness
-  const renderCellColor = (row: number, col: number) => {
-    const alpha = ledBrightness / 100;
-    const speedScale = frameCount * (Math.PI / 180);
-
-    let r = 0, g = 0, b = 0;
-
-    switch (activePreset) {
-      case "rainbow": {
-        // Hue cycles across columns and rows smoothly
-        const hue = (row * 20 + col * 20 + frameCount * 3) % 360;
-        // Simple HSL to RGB conversion approximation
-        const h = hue / 60;
-        const x = (1 - Math.abs((h % 2) - 1));
-        if (h < 1) { r = 255; g = x * 255; }
-        else if (h < 2) { r = x * 255; g = 255; }
-        else if (h < 3) { g = 255; b = x * 255; }
-        else if (h < 4) { g = x * 255; b = 255; }
-        else if (h < 5) { r = x * 255; b = 255; }
-        else { r = 255; b = x * 255; }
-        break;
-      }
-      case "audio": {
-        // Equalizer columns bouncing according to sine waves and speed
-        const amplitude = Math.sin(col * 0.8 + speedScale * 4) * 3.5 + 3.5;
-        const active = (7 - row) <= amplitude;
-        if (active) {
-          // Yellow-to-cyan audio reactive gradient
-          r = Math.max(0, 255 - row * 30);
-          g = Math.min(255, row * 25 + 50);
-          b = Math.min(255, col * 32);
-        } else {
-          return "transparent";
-        }
-        break;
-      }
-      case "aurora": {
-        // Scrolling "HAPPY SMART LIGHT" text across the 8x8 matrix
-        // Text is rendered in rows 1-5 (centered vertically), rows 0,6,7 are off
-        const textRow = row - 1; // offset to center 5-row font in 8-row grid
-        if (textRow >= 0 && textRow < 5) {
-          const bitmapCol = (col + textOffsetRef.current) % SCROLL_WIDTH;
-          if (scrollBitmap[textRow][bitmapCol] === 1) {
-            // Gradient color from neon pink to neon blue based on column position
-            const colBlend = col / 7;
-            r = Math.round(236 * (1 - colBlend) + 6 * colBlend);
-            g = Math.round(72 * (1 - colBlend) + 182 * colBlend);
-            b = Math.round(153 * (1 - colBlend) + 212 * colBlend);
-          } else {
-            return "transparent";
-          }
-        } else {
-          return "transparent";
-        }
-        break;
-      }
-      case "fire": {
-        // Flame effect: noisy bottom row rising with flicker
-        const noise = Math.sin(col * 1.5 + speedScale * 5) * 1.2;
-        const flameHeight = 4.5 + noise - (row * 0.8);
-        const intensity = Math.max(0, Math.min(1, flameHeight / 4));
-        
-        if (intensity > 0.1) {
-          r = Math.round(255);
-          g = Math.round(100 * intensity + (Math.sin(speedScale * 8) * 30));
-          b = Math.round(20 * (1 - intensity));
-        } else {
-          return "transparent";
-        }
-        break;
-      }
-    }
-
-    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-  };
-
   const presetLabels = [
     { id: "aurora", label: "Text Scroll", activeClass: "bg-neon-pink/20 text-neon-pink-bright border-neon-pink/50 shadow-[0_0_15px_rgba(255,0,127,0.4)]" },
     { id: "audio", label: "LedFx Audio Sync", activeClass: "bg-emerald-500/20 text-emerald-400 border-emerald-500/50 shadow-[0_0_15px_rgba(16,185,129,0.4)]" },
@@ -189,7 +38,6 @@ export default function Hero({ onNavigate }: HeroProps) {
 
   return (
     <section
-      ref={sectionRef}
       id="hero"
       className="relative min-h-screen pt-28 pb-16 flex items-center overflow-hidden"
     >
@@ -291,27 +139,14 @@ export default function Hero({ onNavigate }: HeroProps) {
 
               {/* Glowing Simulator Matrix Panel */}
               <div className="flex flex-col space-y-4" id="visualizer-body">
-                <div className="aspect-square w-full rounded-2xl bg-black/70 border border-white/5 p-4 flex flex-col justify-between relative overflow-hidden">
-                  {/* Neon Grid of LED Matrix */}
-                  <div className="grid grid-cols-8 grid-rows-8 gap-2 w-full h-full relative z-10">
-                    {Array.from({ length: 64 }).map((_, idx) => {
-                      const row = Math.floor(idx / 8);
-                      const col = idx % 8;
-                      const cellColor = renderCellColor(row, col);
-                      const isLit = cellColor !== "transparent";
-
-                      return (
-                        <div
-                          key={idx}
-                          style={{
-                            backgroundColor: isLit ? cellColor : "rgba(255, 255, 255, 0.03)",
-                            boxShadow: isLit ? `0 0 8px ${cellColor}` : "none",
-                          }}
-                          className="rounded-full transition-all duration-75 relative overflow-hidden"
-                        />
-                      );
-                    })}
-                  </div>
+                <div className="aspect-square w-full rounded-2xl bg-black/70 border border-white/5 p-4 relative overflow-hidden">
+                  {/* Canvas LED matrix — glowing 60fps visualizer (replaces 64 DOM cells) */}
+                  <LedMatrixCanvas
+                    preset={activePreset}
+                    speed={ledSpeed}
+                    brightness={ledBrightness}
+                    className="w-full h-full relative z-10"
+                  />
                 </div>
 
                 {/* Simulated Terminal Telemetry Screen */}

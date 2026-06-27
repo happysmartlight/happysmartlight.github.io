@@ -9,7 +9,6 @@ interface ProductsProps {
 }
 
 export default function Products({ onQuoteRequested, onViewProductDetails }: ProductsProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [activeTabMap, setActiveTabMap] = useState<Record<string, "features" | "specs">>({
     v4pro: "features",
     matrix: "features",
@@ -172,33 +171,11 @@ export default function Products({ onQuoteRequested, onViewProductDetails }: Pro
               Các dòng sản phẩm được hoàn thiện cơ khí tinh xảo, sử dụng linh kiện công nghiệp và phần mềm mở tối ưu hóa độ trễ, sẵn sàng đáp ứng mọi hình thức thi công của bạn.
             </p>
           </div>
-
-          <div className="mt-6 md:mt-0 flex gap-2 overflow-x-auto pb-2 md:pb-0" id="products-filter">
-            {["all", "ARGB HSL/xLights", "Matrix/Panel", "Biểu Diễn POV"].map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-lg text-xs font-mono uppercase tracking-wider border cursor-pointer transition-all duration-200 whitespace-nowrap ${selectedCategory === cat
-                  ? "bg-white/10 text-white border-white/20"
-                  : "bg-slate-900/40 text-slate-400 border-white/5 hover:border-white/10 hover:text-white"
-                  }`}
-              >
-                {cat === "all" ? "Tất Cả Sản Phẩm" : cat}
-              </button>
-            ))}
-          </div>
         </div>
 
         {/* Products Grid */}
         <div className="grid lg:grid-cols-2 gap-8" id="products-grid">
           {products
-            .filter((p) => {
-              if (selectedCategory === "all") return true;
-              if (selectedCategory === "ARGB HSL/xLights") return p.id === "v4pro" || p.id === "hsl4x" || p.id === "poi";
-              if (selectedCategory === "Matrix/Panel") return p.id === "matrix" || p.id === "hsl4x";
-              if (selectedCategory === "Biểu Diễn POV") return p.id === "poi" || p.id === "v4pro";
-              return false;
-            })
             .map((product) => {
               const activeTab = activeTabMap[product.id] || "features";
               return (

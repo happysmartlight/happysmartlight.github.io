@@ -11,7 +11,7 @@ import { Cpu } from "lucide-react";
  * 👉 LINK ĐỐI TÁC:
  * Thêm `link: "/doi-tac/partner-TenDoiTac/"` để click vào logo sẽ mở trang đối tác.
  */
-type Partner = { name: string; logo?: string; link?: string };
+type Partner = { name: string; logo?: string; link?: string; contain?: boolean };
 
 const PARTNERS: Partner[] = [
   // Dùng tạm ảnh đối tác có sẵn trong /img/partner/ (trang đối tác)
@@ -20,14 +20,13 @@ const PARTNERS: Partner[] = [
   { name: "Espressif", logo: "/img/partner/partner-espressif.webp", link: "/doi-tac/partner-ESP32/" },
   { name: "Moonlight Dance", logo: "/img/partner/partner-MOONLIGHT-DANCE-STUDIO/partner-MOONLIGHT-DANCE-STUDIO.jpg", link: "/doi-tac/partner-Moonlight-dance/" },
   { name: "NCTA — Người Chế Tạo", logo: "/img/partner/partner-ncta.jpg", link: "/doi-tac/partner-NCTA/" },
-  // Placeholder SVG (chưa có logo thật)
-  { name: "Art-Net", logo: "/img/partners/art-net.svg" },
-  { name: "Pixel Pro", logo: "/img/partners/pixel-pro.svg" },
+  { name: "Art-Net", logo: "/img/partners/Artnet_logo.png", contain: true },
 ];
 
 function renderLogo(partner: Partner, key: string) {
-  // SVG wordmark → object-contain (giữ trọn logo); ảnh thật (jpg/png/webp) → object-cover lấp đầy ô, cắt gọn.
+  // SVG wordmark hoặc logo cần giữ trọn (contain) → object-contain; ảnh banner thật → object-cover lấp đầy ô.
   const isVector = partner.logo?.toLowerCase().endsWith(".svg");
+  const useContain = isVector || partner.contain;
 
   const content = (
     <div
@@ -36,7 +35,7 @@ function renderLogo(partner: Partner, key: string) {
       title={partner.name}
     >
       {partner.logo ? (
-        isVector ? (
+        useContain ? (
           <img
             src={partner.logo}
             alt={partner.name}
@@ -81,12 +80,14 @@ export default function PartnerMarquee() {
   return (
     <section className="relative py-14 border-t border-white/5 overflow-hidden" id="partners">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 text-center">
-        <span className="font-mono text-[11px] uppercase tracking-widest text-slate-500 font-bold">
-          Đối Tác &amp; Hệ Sinh Thái Tương Thích
-        </span>
-        <p className="font-sans text-xs text-slate-600 mt-2">
+        <h2 className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight">
+          Đối Tác &amp;{" "}
+          <span className="bg-gradient-to-r from-neon-pink-bright to-neon-blue-bright bg-clip-text text-transparent">
+            Hệ Sinh Thái Tương Thích
+          </span>
+        </h2>
+        <p className="font-sans text-sm sm:text-base text-slate-400 mt-3">
           Tương thích &amp; đồng hành cùng các nền tảng, thương hiệu uy tín
-          <span className="text-slate-700"> (logo demo — sẽ cập nhật chính xác)</span>
         </p>
       </div>
 

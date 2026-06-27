@@ -1,5 +1,74 @@
-import { Cpu, ShieldCheck, Sparkles, Orbit } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { Cpu, ShieldCheck, Sparkles, Orbit, Timer, LayoutGrid, Wifi, Clock } from "lucide-react";
 import { motion } from "motion/react";
+import { usePrefersReducedMotion } from "../hooks/perf";
+
+// Counts from 0 up to `value` once the element scrolls into view (easeOutCubic).
+// Honors reduced-motion by jumping straight to the final value.
+function CountUp({
+  value,
+  decimals = 0,
+  prefix = "",
+  suffix = "",
+  duration = 1400,
+}: {
+  value: number;
+  decimals?: number;
+  prefix?: string;
+  suffix?: string;
+  duration?: number;
+}) {
+  const ref = useRef<HTMLSpanElement | null>(null);
+  const reduced = usePrefersReducedMotion();
+  const [display, setDisplay] = useState(0);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const begin = () => {
+      if (started.current) return;
+      started.current = true;
+      if (reduced) {
+        setDisplay(value);
+        return;
+      }
+      const start = performance.now();
+      const tick = (now: number) => {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        setDisplay(value * eased);
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    if (typeof IntersectionObserver === "undefined") {
+      begin();
+      return;
+    }
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          begin();
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.4 }
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [value, decimals, duration, reduced]);
+
+  return (
+    <span ref={ref}>
+      {prefix}
+      {display.toFixed(decimals)}
+      {suffix}
+    </span>
+  );
+}
 
 export default function About() {
   const brandPillars = [
@@ -9,6 +78,7 @@ export default function About() {
       desc: "Trang bị chip vi xử lý ARM 32-bit tốc độ cao, tích hợp bộ chuyển đổi mức logic điện áp (Level Shifter) chuẩn công nghiệp bảo vệ tín hiệu không bị suy hao trên dây dài.",
       color: "border-neon-blue/20 hover:border-neon-blue/50 group-hover:shadow-glow-blue/10",
       glow: "bg-neon-blue/5",
+      bar: "bg-gradient-to-r from-neon-blue to-cyan-400",
     },
     {
       icon: <Orbit className="w-6 h-6 text-neon-pink-bright" />,
@@ -16,6 +86,7 @@ export default function About() {
       desc: "Hỗ trợ toàn diện các nền tảng ARGB HSL, xLights, LedFx kết nối qua Wi-Fi 2.4Ghz tốc độ cao, cho phép phối ghép và điều khiển không giới hạn mọi loại thiết bị ánh sáng nghệ thuật.",
       color: "border-neon-pink/20 hover:border-neon-pink/50 group-hover:shadow-glow-pink/10",
       glow: "bg-neon-pink/5",
+      bar: "bg-gradient-to-r from-neon-pink to-fuchsia-400",
     },
     {
       icon: <Sparkles className="w-6 h-6 text-amber-400" />,
@@ -23,6 +94,7 @@ export default function About() {
       desc: "Tạo lập hiệu ứng ánh sáng động theo thời gian thực (real-time music visualizer), ma trận màu sắc LED Matrix rực rỡ, hay đồng bộ timeline biểu diễn nhạc nước, nhạc hội chuyên nghiệp.",
       color: "border-amber-500/20 hover:border-amber-500/50 hover:shadow-amber-500/5",
       glow: "bg-amber-500/5",
+      bar: "bg-gradient-to-r from-amber-400 to-orange-400",
     },
     {
       icon: <ShieldCheck className="w-6 h-6 text-emerald-400" />,
@@ -30,6 +102,45 @@ export default function About() {
       desc: "Sản phẩm được tối ưu mạch lọc nhiễu, bảo vệ quá nhiệt, bảo vệ phân cực ngược, đảm bảo hệ thống LED hoạt động liên tục 24/7 dưới mọi điều kiện sân khấu phức tạp.",
       color: "border-emerald-500/20 hover:border-emerald-500/50 hover:shadow-emerald-500/5",
       glow: "bg-emerald-500/5",
+      bar: "bg-gradient-to-r from-emerald-400 to-teal-400",
+    },
+  ];
+
+  const stats = [
+    {
+      icon: Timer,
+      iconColor: "text-neon-pink-bright",
+      numClass: "text-neon-pink-bright text-glow-pink",
+      prefix: "< ",
+      value: 0.5,
+      decimals: 1,
+      suffix: "ms",
+      label: "Độ Trễ Tín Hiệu (DDP)",
+    },
+    {
+      icon: LayoutGrid,
+      iconColor: "text-slate-300",
+      numClass: "text-white",
+      value: 4096,
+      decimals: 0,
+      suffix: "+",
+      label: "Số Điểm LED Độc Lập / Cổng",
+    },
+    {
+      icon: Wifi,
+      iconColor: "text-neon-blue-bright",
+      numClass: "text-neon-blue-bright text-glow-blue",
+      value: 100,
+      decimals: 0,
+      suffix: "%",
+      label: "Đồng Bộ Không Dây Wi-Fi",
+    },
+    {
+      icon: Clock,
+      iconColor: "text-slate-300",
+      numClass: "text-white",
+      staticValue: "24/7",
+      label: "Sẵn Sàng Cho Sân Khấu",
     },
   ];
 
@@ -63,11 +174,19 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className={`p-6 rounded-2xl bg-slate-950/40 backdrop-blur-md max-md:backdrop-blur-none max-md:bg-slate-950/60 border ${pillar.color} transition-[background-color,border-color,box-shadow] duration-300 group flex flex-col justify-between`}
+              className={`relative overflow-hidden p-6 rounded-2xl bg-slate-950/40 backdrop-blur-md max-md:backdrop-blur-none max-md:bg-slate-950/60 border ${pillar.color} transition-[background-color,border-color,box-shadow] duration-300 group flex flex-col justify-between`}
               id={`about-pillar-${idx}`}
             >
-              <div>
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 relative overflow-hidden ${pillar.glow}`}>
+              {/* Large faded index number */}
+              <span className="pointer-events-none absolute top-2 right-4 font-display font-extrabold text-6xl leading-none text-white/[0.05] group-hover:text-white/[0.09] transition-colors select-none">
+                {String(idx + 1).padStart(2, "0")}
+              </span>
+
+              <div className="relative">
+                {/* Top accent bar */}
+                <div className={`h-1 w-10 rounded-full mb-5 ${pillar.bar} group-hover:w-16 transition-all duration-500`} />
+
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 relative overflow-hidden ${pillar.glow}`}>
                   {pillar.icon}
                 </div>
                 <h3 className="font-display font-medium text-lg text-white mb-3 group-hover:text-neon-pink transition-colors">
@@ -79,7 +198,7 @@ export default function About() {
               </div>
 
               {/* Decorative light line at the bottom */}
-              <div className="w-full h-[2px] bg-slate-900 mt-6 overflow-hidden rounded-full">
+              <div className="w-full h-[2px] bg-slate-900 mt-6 overflow-hidden rounded-full relative z-10">
                 <div className="w-1/3 h-[2px] bg-gradient-to-r from-neon-pink to-neon-blue opacity-50 group-hover:w-full group-hover:opacity-100 transition-all duration-500" />
               </div>
             </motion.div>
@@ -88,39 +207,34 @@ export default function About() {
 
         {/* Localized Dev & Core Metrics stats */}
         <div className="mt-16 bg-glass p-8 rounded-3xl border border-white/10" id="about-stats-panel">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center" id="about-stats-grid">
-            <div className="space-y-1">
-              <span className="block font-display font-bold text-3xl sm:text-4xl text-glow-pink text-neon-pink-bright">
-                &lt; 0.5ms
-              </span>
-              <span className="text-[10px] sm:text-xs font-mono tracking-widest uppercase text-slate-500">
-                Độ Trễ Tín Hiệu (DDP)
-              </span>
-            </div>
-            <div className="space-y-1">
-              <span className="block font-display font-bold text-3xl sm:text-4xl text-white">
-                4096+
-              </span>
-              <span className="text-[10px] sm:text-xs font-mono tracking-widest uppercase text-slate-500">
-                Số Điểm LED Độc Lập / Cổng
-              </span>
-            </div>
-            <div className="space-y-1">
-              <span className="block font-display font-bold text-3xl sm:text-4xl text-glow-blue text-neon-blue-bright">
-                100%
-              </span>
-              <span className="text-[10px] sm:text-xs font-mono tracking-widest uppercase text-slate-500">
-                Đồng Bộ Không Dây Wi-Fi
-              </span>
-            </div>
-            <div className="space-y-1">
-              <span className="block font-display font-bold text-3xl sm:text-4xl text-white">
-                24/7
-              </span>
-              <span className="text-[10px] sm:text-xs font-mono tracking-widest uppercase text-slate-500">
-                Sẵn Sàng Cho Sân Khấu
-              </span>
-            </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 text-center" id="about-stats-grid">
+            {stats.map((s, i) => (
+              <div key={i} className="relative px-2 space-y-2">
+                {/* Vertical neon divider between columns (md+ only) */}
+                {i > 0 && (
+                  <span className="hidden md:block absolute left-0 top-1/2 -translate-y-1/2 h-14 w-px bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+                )}
+
+                <s.icon className={`w-5 h-5 mx-auto ${s.iconColor}`} strokeWidth={1.75} />
+
+                <span className={`block font-display font-bold text-3xl sm:text-4xl ${s.numClass}`}>
+                  {s.staticValue ? (
+                    s.staticValue
+                  ) : (
+                    <CountUp
+                      value={s.value as number}
+                      decimals={s.decimals}
+                      prefix={s.prefix}
+                      suffix={s.suffix}
+                    />
+                  )}
+                </span>
+
+                <span className="block text-[10px] sm:text-xs font-mono tracking-widest uppercase text-slate-500">
+                  {s.label}
+                </span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

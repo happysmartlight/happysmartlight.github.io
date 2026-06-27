@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Music, Car, Gamepad2, Presentation, Flame, Sparkles, Play } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { ApplicationItem } from "../types";
@@ -104,6 +104,36 @@ export default function InteractiveAppShowcase({ onThemeChanged }: InteractiveAp
     setActiveAppId(id);
     onThemeChanged(theme);
   };
+
+  // Allow the navbar "Giải Pháp" dropdown to deep-link to a specific use-case:
+  // it dispatches `hsl:select-app` (live, when this section is already mounted)
+  // and/or stashes the id in sessionStorage (read on mount when arriving from
+  // another route). Either path selects the tab + applies its theme.
+  useEffect(() => {
+    const applyApp = (id: string) => {
+      const app = applications.find((a) => a.id === id);
+      if (!app) return;
+      setActiveAppId(app.id);
+      onThemeChanged(app.themeColor);
+      try {
+        sessionStorage.removeItem("hsl-pending-app");
+      } catch {
+        /* ignore */
+      }
+    };
+
+    try {
+      const pending = sessionStorage.getItem("hsl-pending-app");
+      if (pending) applyApp(pending);
+    } catch {
+      /* ignore */
+    }
+
+    const handler = (e: Event) => applyApp((e as CustomEvent<string>).detail);
+    window.addEventListener("hsl:select-app", handler);
+    return () => window.removeEventListener("hsl:select-app", handler);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <section id="applications" className="relative py-[65px] overflow-hidden border-t border-white/5">

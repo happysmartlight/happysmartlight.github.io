@@ -8,32 +8,53 @@ interface HeaderProps {
   onNavigate: (sectionId: string) => void;
 }
 
-// Discriminated nav entries: in-page section scroll, route link, or the products
-// dropdown trigger (which both scrolls AND reveals a product submenu on hover).
+// A dropdown child either opens a detail route (`to`) or, for in-page use-cases,
+// selects a showcase tab (`appId`) and scrolls to its section.
+type DropdownChild = { label: string; desc: string; dot: string; to?: string; appId?: string };
+
+// Discriminated nav entries: in-page section scroll, route link, or a hover
+// dropdown (trigger still scrolls to its section; children open detail routes).
 type NavItem =
   | { kind: "section"; id: string; label: string }
   | { kind: "route"; id: string; to: string; label: string }
-  | { kind: "products"; id: "products"; label: string };
+  | { kind: "dropdown"; id: string; label: string; menu: DropdownChild[]; allLabel: string };
+
+// Flagship products surfaced in the Sản Phẩm dropdown. `dot` matches each
+// product's accent so the menu reads as the same family shown on the page.
+const productMenu: DropdownChild[] = [
+  { label: "HSL 2X PRO", desc: "Flagship POI", dot: "#fbbf24", to: "/san-pham/v4pro" },
+  { label: "HSL 4X", desc: "Công suất cực cao", dot: "#00e5ff", to: "/san-pham/hsl4x" },
+  { label: "LED Matrix Driver Pro", desc: "Cho panel LED", dot: "#00e5ff", to: "/san-pham/matrix" },
+  { label: "Happy POI Wand", desc: "Nghệ thuật di động", dot: "#ff2d95", to: "/san-pham/poi" },
+];
+
+// Download targets: the Android app and the desktop tool detail pages.
+const downloadMenu: DropdownChild[] = [
+  { label: "Ứng dụng Android", desc: "ARGB HSL Mobile", dot: "#00e676", to: "/argb-hsl-tool-mobile" },
+  { label: "Phần mềm Desktop", desc: "ARGB HSL cho PC", dot: "#00e5ff", to: "/argb-hsl-tool-pc" },
+];
+
+// Use-cases of the "Giải Pháp" showcase. `appId` selects the matching tab in
+// InteractiveAppShowcase; `dot` mirrors each use-case's theme color.
+const solutionMenu: DropdownChild[] = [
+  { label: "Gậy POI & Biểu Diễn", desc: "Đội múa di động", dot: "#10b981", appId: "poi" },
+  { label: "LED Dance & Trang Phục", desc: "Vũ đoàn pixel", dot: "#a855f7", appId: "dance" },
+  { label: "LED Sân Khấu & Sự Kiện", desc: "Show & DMX", dot: "#ff2d95", appId: "stage" },
+  { label: "Phòng Gaming / Studio", desc: "Sync âm thanh", dot: "#00e5ff", appId: "gaming" },
+  { label: "Ma Trận LED Quảng Cáo", desc: "Chữ chạy / panel", dot: "#a855f7", appId: "matrix" },
+  { label: "Độ LED Ô Tô / Xe Máy", desc: "Ánh sáng gầm xe", dot: "#f59e0b", appId: "car" },
+];
 
 const navItems: NavItem[] = [
   { kind: "section", id: "hero", label: "Trang Chủ" },
   { kind: "section", id: "about", label: "Giới Thiệu" },
-  { kind: "products", id: "products", label: "Sản Phẩm" },
+  { kind: "dropdown", id: "products", label: "Sản Phẩm", menu: productMenu, allLabel: "Xem tất cả sản phẩm →" },
   { kind: "section", id: "features", label: "Tính Năng" },
   { kind: "section", id: "ecosystem", label: "Hệ Sinh Thái" },
-  { kind: "section", id: "applications", label: "Giải Pháp" },
+  { kind: "dropdown", id: "applications", label: "Giải Pháp", menu: solutionMenu, allLabel: "Mở khu vực giải pháp →" },
   { kind: "route", id: "post-news", to: "/post-news", label: "Bài Viết" },
-  { kind: "section", id: "app-and-tool", label: "Download" },
+  { kind: "dropdown", id: "app-and-tool", label: "Download", menu: downloadMenu, allLabel: "Tới khu vực tải về →" },
   { kind: "section", id: "contact", label: "Liên Hệ" },
-];
-
-// The four flagship products surfaced in the Sản Phẩm dropdown. `dot` matches each
-// product's accent so the menu reads as the same family shown in the Products section.
-const productMenu = [
-  { id: "v4pro", label: "HSL 2X PRO", desc: "Flagship POI", dot: "#fbbf24" },
-  { id: "hsl4x", label: "HSL 4X", desc: "Công suất cực cao", dot: "#00e5ff" },
-  { id: "matrix", label: "LED Matrix Driver Pro", desc: "Cho panel LED", dot: "#00e5ff" },
-  { id: "poi", label: "Happy POI Wand", desc: "Nghệ thuật di động", dot: "#ff2d95" },
 ];
 
 export default function Header({ activeSection, onNavigate }: HeaderProps) {
@@ -41,8 +62,8 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isProductsOpen, setIsProductsOpen] = useState(false);
-  const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const [mobileOpenDropdown, setMobileOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -50,23 +71,37 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (id: string) => {
+  const closeAll = () => {
     setIsMobileMenuOpen(false);
-    setIsProductsOpen(false);
+    setOpenDropdown(null);
+    setMobileOpenDropdown(null);
+  };
+
+  const handleNavClick = (id: string) => {
+    closeAll();
     onNavigate(id);
   };
 
   const goToRoute = (to: string) => {
-    setIsMobileMenuOpen(false);
-    setIsProductsOpen(false);
+    closeAll();
     navigate(to);
   };
 
-  const goToProduct = (id: string) => {
-    setIsMobileMenuOpen(false);
-    setIsProductsOpen(false);
-    setIsMobileProductsOpen(false);
-    navigate(`/san-pham/${id}`);
+  // Dropdown child: open a detail route, or deep-link a showcase use-case (select
+  // its tab via event/sessionStorage, then scroll to the "Giải Pháp" section).
+  const goToChild = (c: DropdownChild) => {
+    closeAll();
+    if (c.appId) {
+      try {
+        sessionStorage.setItem("hsl-pending-app", c.appId);
+      } catch {
+        /* ignore */
+      }
+      window.dispatchEvent(new CustomEvent("hsl:select-app", { detail: c.appId }));
+      onNavigate("applications");
+    } else if (c.to) {
+      navigate(c.to);
+    }
   };
 
   const isRouteActive = (to: string) => location.pathname.startsWith(to);
@@ -76,6 +111,14 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
     `px-3 py-1.5 rounded-full text-xs font-medium font-display tracking-wide uppercase transition-all duration-300 relative border cursor-pointer ${
       active ? "text-white bg-white/5 border-white/10" : "text-slate-400 hover:text-white border-transparent"
     }`;
+
+  const navGlow = (
+    <motion.span
+      layoutId="nav-glow"
+      className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-pink/10 to-neon-blue/10 -z-10 blur-xs"
+      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+    />
+  );
 
   return (
     <header
@@ -128,50 +171,39 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
                       id={`nav-item-${item.id}`}
                     >
                       {item.label}
-                      {active && (
-                        <motion.span
-                          layoutId="nav-glow"
-                          className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-pink/10 to-neon-blue/10 -z-10 blur-xs"
-                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                        />
-                      )}
+                      {active && navGlow}
                     </button>
                   );
                 }
 
-                if (item.kind === "products") {
+                if (item.kind === "dropdown") {
                   const active = activeSection === item.id;
+                  const isOpen = openDropdown === item.id;
                   return (
                     <div
                       key={item.id}
                       className="relative"
-                      onMouseEnter={() => setIsProductsOpen(true)}
-                      onMouseLeave={() => setIsProductsOpen(false)}
+                      onMouseEnter={() => setOpenDropdown(item.id)}
+                      onMouseLeave={() => setOpenDropdown((cur) => (cur === item.id ? null : cur))}
                     >
                       <button
                         onClick={() => handleNavClick(item.id)}
                         className={`${pill(active)} inline-flex items-center gap-1`}
                         id={`nav-item-${item.id}`}
                         aria-haspopup="menu"
-                        aria-expanded={isProductsOpen}
+                        aria-expanded={isOpen}
                       >
                         {item.label}
                         <ChevronDown
-                          className={`w-3 h-3 transition-transform duration-300 ${isProductsOpen ? "rotate-180" : ""}`}
+                          className={`w-3 h-3 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
                         />
-                        {active && (
-                          <motion.span
-                            layoutId="nav-glow"
-                            className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-pink/10 to-neon-blue/10 -z-10 blur-xs"
-                            transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                          />
-                        )}
+                        {active && navGlow}
                       </button>
 
                       {/* Hover dropdown — pt-3 bridges the gap so the menu stays open
                           while the pointer travels from the trigger to the panel. */}
                       <AnimatePresence>
-                        {isProductsOpen && (
+                        {isOpen && (
                           <motion.div
                             initial={{ opacity: 0, y: 8 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -181,33 +213,33 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
                             role="menu"
                           >
                             <div className="rounded-2xl border border-white/10 bg-slate-950/95 backdrop-blur-xl shadow-2xl shadow-black/40 p-2">
-                              {productMenu.map((p) => (
+                              {item.menu.map((c) => (
                                 <button
-                                  key={p.id}
-                                  onClick={() => goToProduct(p.id)}
+                                  key={c.to ?? c.appId}
+                                  onClick={() => goToChild(c)}
                                   className="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-left transition-colors hover:bg-white/5 cursor-pointer group/item"
                                   role="menuitem"
                                 >
                                   <span
                                     className="w-2 h-2 rounded-full shrink-0"
-                                    style={{ backgroundColor: p.dot, boxShadow: `0 0 8px ${p.dot}` }}
+                                    style={{ backgroundColor: c.dot, boxShadow: `0 0 8px ${c.dot}` }}
                                   />
                                   <span className="flex flex-col">
                                     <span className="text-sm font-display font-semibold text-slate-200 group-hover/item:text-white">
-                                      {p.label}
+                                      {c.label}
                                     </span>
                                     <span className="text-[11px] font-mono uppercase tracking-wide text-slate-500">
-                                      {p.desc}
+                                      {c.desc}
                                     </span>
                                   </span>
                                 </button>
                               ))}
                               <button
-                                onClick={() => handleNavClick("products")}
+                                onClick={() => handleNavClick(item.id)}
                                 className="w-full mt-1 px-3 py-2 rounded-xl text-center text-[11px] font-mono uppercase tracking-wider text-[#00f0ff] hover:bg-white/5 transition-colors cursor-pointer"
                                 role="menuitem"
                               >
-                                Xem tất cả sản phẩm →
+                                {item.allLabel}
                               </button>
                             </div>
                           </motion.div>
@@ -227,13 +259,7 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
                     id={`nav-item-${item.id}`}
                   >
                     {item.label}
-                    {active && (
-                      <motion.span
-                        layoutId="nav-glow"
-                        className="absolute inset-0 rounded-full bg-gradient-to-r from-neon-pink/10 to-neon-blue/10 -z-10 blur-xs"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      />
-                    )}
+                    {active && navGlow}
                   </button>
                 );
               })}
@@ -281,18 +307,17 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
           >
             <div className="grid grid-cols-2 gap-2 mt-2">
               {navItems.map((item) => {
-                if (item.kind === "products") {
+                if (item.kind === "dropdown") {
+                  const isOpen = mobileOpenDropdown === item.id;
                   return (
                     <button
                       key={item.id}
-                      onClick={() => setIsMobileProductsOpen((v) => !v)}
+                      onClick={() => setMobileOpenDropdown((cur) => (cur === item.id ? null : item.id))}
                       className="p-3 rounded-lg text-left text-sm font-display font-medium tracking-wide uppercase transition-all flex items-center justify-between text-slate-400 hover:text-white bg-slate-900/50 border border-transparent"
-                      id="mobile-nav-item-products"
+                      id={`mobile-nav-item-${item.id}`}
                     >
                       <span>{item.label}</span>
-                      <ChevronDown
-                        className={`w-4 h-4 transition-transform ${isMobileProductsOpen ? "rotate-180" : ""}`}
-                      />
+                      <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? "rotate-180" : ""}`} />
                     </button>
                   );
                 }
@@ -318,9 +343,9 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
               })}
             </div>
 
-            {/* Mobile product submenu */}
+            {/* Mobile submenu for the currently open dropdown */}
             <AnimatePresence>
-              {isMobileProductsOpen && (
+              {mobileOpenDropdown && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: "auto" }}
@@ -328,23 +353,25 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
                   className="overflow-hidden"
                 >
                   <div className="mt-2 grid grid-cols-1 gap-1.5 rounded-xl border border-white/10 bg-slate-900/40 p-2">
-                    {productMenu.map((p) => (
-                      <button
-                        key={p.id}
-                        onClick={() => goToProduct(p.id)}
-                        className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left hover:bg-white/5 transition-colors"
-                        id={`mobile-product-${p.id}`}
-                      >
-                        <span
-                          className="w-2 h-2 rounded-full shrink-0"
-                          style={{ backgroundColor: p.dot, boxShadow: `0 0 8px ${p.dot}` }}
-                        />
-                        <span className="flex flex-col">
-                          <span className="text-sm font-display font-semibold text-slate-200">{p.label}</span>
-                          <span className="text-[11px] font-mono uppercase tracking-wide text-slate-500">{p.desc}</span>
-                        </span>
-                      </button>
-                    ))}
+                    {navItems
+                      .filter((i): i is Extract<NavItem, { kind: "dropdown" }> => i.kind === "dropdown" && i.id === mobileOpenDropdown)
+                      .flatMap((i) => i.menu)
+                      .map((c) => (
+                        <button
+                          key={c.to ?? c.appId}
+                          onClick={() => goToChild(c)}
+                          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left hover:bg-white/5 transition-colors"
+                        >
+                          <span
+                            className="w-2 h-2 rounded-full shrink-0"
+                            style={{ backgroundColor: c.dot, boxShadow: `0 0 8px ${c.dot}` }}
+                          />
+                          <span className="flex flex-col">
+                            <span className="text-sm font-display font-semibold text-slate-200">{c.label}</span>
+                            <span className="text-[11px] font-mono uppercase tracking-wide text-slate-500">{c.desc}</span>
+                          </span>
+                        </button>
+                      ))}
                   </div>
                 </motion.div>
               )}

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Menu, X, Zap, ChevronDown } from "lucide-react";
+import { Menu, X, Zap, ChevronDown, Home } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { latestPosts } from "../content/collections";
 
 interface HeaderProps {
   activeSection: string;
@@ -13,11 +14,18 @@ interface HeaderProps {
 type DropdownChild = { label: string; desc: string; dot: string; to?: string; appId?: string };
 
 // Discriminated nav entries: in-page section scroll, route link, or a hover
-// dropdown (trigger still scrolls to its section; children open detail routes).
+// dropdown. A dropdown's trigger scrolls to its section by default, or navigates
+// to `to` when set (e.g. Bài Viết → /post-news).
 type NavItem =
   | { kind: "section"; id: string; label: string }
   | { kind: "route"; id: string; to: string; label: string }
-  | { kind: "dropdown"; id: string; label: string; menu: DropdownChild[]; allLabel: string };
+  | { kind: "dropdown"; id: string; label: string; menu: DropdownChild[]; allLabel: string; to?: string };
+
+const formatDate = (iso?: string) => {
+  if (!iso) return "";
+  const [y, m, d] = iso.split("-");
+  return d && m && y ? `${d}/${m}/${y}` : iso;
+};
 
 // Flagship products surfaced in the Sản Phẩm dropdown. `dot` matches each
 // product's accent so the menu reads as the same family shown on the page.
@@ -45,6 +53,14 @@ const solutionMenu: DropdownChild[] = [
   { label: "Độ LED Ô Tô / Xe Máy", desc: "Ánh sáng gầm xe", dot: "#f59e0b", appId: "car" },
 ];
 
+// 3 newest articles surfaced in the Bài Viết dropdown (sorted by date).
+const newsMenu: DropdownChild[] = latestPosts(3).map((p) => ({
+  label: p.title,
+  desc: formatDate(p.date),
+  dot: "#00e5ff",
+  to: p.url,
+}));
+
 const navItems: NavItem[] = [
   { kind: "section", id: "hero", label: "Trang Chủ" },
   { kind: "section", id: "about", label: "Giới Thiệu" },
@@ -52,9 +68,8 @@ const navItems: NavItem[] = [
   { kind: "section", id: "features", label: "Tính Năng" },
   { kind: "section", id: "ecosystem", label: "Hệ Sinh Thái" },
   { kind: "dropdown", id: "applications", label: "Giải Pháp", menu: solutionMenu, allLabel: "Mở khu vực giải pháp →" },
-  { kind: "route", id: "post-news", to: "/post-news", label: "Bài Viết" },
   { kind: "dropdown", id: "app-and-tool", label: "Download", menu: downloadMenu, allLabel: "Tới khu vực tải về →" },
-  { kind: "section", id: "contact", label: "Liên Hệ" },
+  { kind: "dropdown", id: "post-news", label: "Bài Viết", menu: newsMenu, allLabel: "Xem tất cả bài viết →", to: "/post-news" },
 ];
 
 export default function Header({ activeSection, onNavigate }: HeaderProps) {
@@ -177,8 +192,9 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
                 }
 
                 if (item.kind === "dropdown") {
-                  const active = activeSection === item.id;
+                  const active = item.to ? isRouteActive(item.to) : activeSection === item.id;
                   const isOpen = openDropdown === item.id;
+                  const onTrigger = () => (item.to ? goToRoute(item.to) : handleNavClick(item.id));
                   return (
                     <div
                       key={item.id}
@@ -187,7 +203,7 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
                       onMouseLeave={() => setOpenDropdown((cur) => (cur === item.id ? null : cur))}
                     >
                       <button
-                        onClick={() => handleNavClick(item.id)}
+                        onClick={onTrigger}
                         className={`${pill(active)} inline-flex items-center gap-1`}
                         id={`nav-item-${item.id}`}
                         aria-haspopup="menu"
@@ -224,8 +240,8 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
                                     className="w-2 h-2 rounded-full shrink-0"
                                     style={{ backgroundColor: c.dot, boxShadow: `0 0 8px ${c.dot}` }}
                                   />
-                                  <span className="flex flex-col">
-                                    <span className="text-sm font-display font-semibold text-slate-200 group-hover/item:text-white">
+                                  <span className="flex flex-col min-w-0">
+                                    <span className="text-sm font-display font-semibold text-slate-200 group-hover/item:text-white line-clamp-2">
                                       {c.label}
                                     </span>
                                     <span className="text-[11px] font-mono uppercase tracking-wide text-slate-500">
@@ -235,7 +251,7 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
                                 </button>
                               ))}
                               <button
-                                onClick={() => handleNavClick(item.id)}
+                                onClick={onTrigger}
                                 className="w-full mt-1 px-3 py-2 rounded-xl text-center text-[11px] font-mono uppercase tracking-wider text-[#00f0ff] hover:bg-white/5 transition-colors cursor-pointer"
                                 role="menuitem"
                               >
@@ -251,6 +267,27 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
 
                 // kind === "section"
                 const active = activeSection === item.id;
+
+                // "Trang Chủ" gets a distinct treatment: a home icon + a standing
+                // gradient-tinted pill so it reads as the anchor of the nav.
+                if (item.id === "hero") {
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => handleNavClick(item.id)}
+                      className={`group/home relative inline-flex items-center gap-1.5 px-3.5 py-1.5 mr-1 rounded-full text-xs font-bold font-display tracking-wide uppercase cursor-pointer border transition-all duration-300 ${
+                        active
+                          ? "text-white border-white/20 bg-gradient-to-r from-neon-pink/20 to-neon-blue/20 shadow-glow-dual"
+                          : "text-slate-200 border-white/10 bg-gradient-to-r from-neon-pink/10 to-neon-blue/10 hover:text-white hover:border-white/20 hover:from-neon-pink/20 hover:to-neon-blue/20"
+                      }`}
+                      id={`nav-item-${item.id}`}
+                    >
+                      <Home className="w-3.5 h-3.5 text-neon-pink-bright group-hover/home:scale-110 transition-transform" />
+                      {item.label}
+                    </button>
+                  );
+                }
+
                 return (
                   <button
                     key={item.id}
@@ -326,6 +363,22 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
                   item.kind === "route" ? () => goToRoute(item.to) : () => handleNavClick(item.id);
                 const active =
                   item.kind === "route" ? isRouteActive(item.to) : activeSection === item.id;
+
+                // "Trang Chủ" stands out on mobile too: home icon + gradient tint.
+                if (item.kind === "section" && item.id === "hero") {
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={onClick}
+                      className="col-span-2 p-3 rounded-lg text-left text-sm font-display font-bold tracking-wide uppercase transition-all flex items-center gap-2 text-white bg-gradient-to-r from-neon-pink/15 to-neon-blue/15 border border-white/15"
+                      id={`mobile-nav-item-${item.id}`}
+                    >
+                      <Home className="w-4 h-4 text-neon-pink-bright" />
+                      {item.label}
+                    </button>
+                  );
+                }
+
                 return (
                   <button
                     key={item.id}
@@ -352,27 +405,39 @@ export default function Header({ activeSection, onNavigate }: HeaderProps) {
                   exit={{ opacity: 0, height: 0 }}
                   className="overflow-hidden"
                 >
-                  <div className="mt-2 grid grid-cols-1 gap-1.5 rounded-xl border border-white/10 bg-slate-900/40 p-2">
-                    {navItems
-                      .filter((i): i is Extract<NavItem, { kind: "dropdown" }> => i.kind === "dropdown" && i.id === mobileOpenDropdown)
-                      .flatMap((i) => i.menu)
-                      .map((c) => (
+                  {(() => {
+                    const dd = navItems.find(
+                      (i): i is Extract<NavItem, { kind: "dropdown" }> =>
+                        i.kind === "dropdown" && i.id === mobileOpenDropdown
+                    );
+                    if (!dd) return null;
+                    return (
+                      <div className="mt-2 grid grid-cols-1 gap-1.5 rounded-xl border border-white/10 bg-slate-900/40 p-2">
+                        {dd.menu.map((c) => (
+                          <button
+                            key={c.to ?? c.appId}
+                            onClick={() => goToChild(c)}
+                            className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left hover:bg-white/5 transition-colors"
+                          >
+                            <span
+                              className="w-2 h-2 rounded-full shrink-0"
+                              style={{ backgroundColor: c.dot, boxShadow: `0 0 8px ${c.dot}` }}
+                            />
+                            <span className="flex flex-col min-w-0">
+                              <span className="text-sm font-display font-semibold text-slate-200 line-clamp-2">{c.label}</span>
+                              <span className="text-[11px] font-mono uppercase tracking-wide text-slate-500">{c.desc}</span>
+                            </span>
+                          </button>
+                        ))}
                         <button
-                          key={c.to ?? c.appId}
-                          onClick={() => goToChild(c)}
-                          className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-left hover:bg-white/5 transition-colors"
+                          onClick={() => (dd.to ? goToRoute(dd.to) : handleNavClick(dd.id))}
+                          className="w-full mt-0.5 px-3 py-2 rounded-lg text-center text-[11px] font-mono uppercase tracking-wider text-[#00f0ff] hover:bg-white/5 transition-colors"
                         >
-                          <span
-                            className="w-2 h-2 rounded-full shrink-0"
-                            style={{ backgroundColor: c.dot, boxShadow: `0 0 8px ${c.dot}` }}
-                          />
-                          <span className="flex flex-col">
-                            <span className="text-sm font-display font-semibold text-slate-200">{c.label}</span>
-                            <span className="text-[11px] font-mono uppercase tracking-wide text-slate-500">{c.desc}</span>
-                          </span>
+                          {dd.allLabel}
                         </button>
-                      ))}
-                  </div>
+                      </div>
+                    );
+                  })()}
                 </motion.div>
               )}
             </AnimatePresence>

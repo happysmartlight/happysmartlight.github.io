@@ -94,6 +94,7 @@ for (const [coll, dir] of Object.entries(COLLECTIONS)) {
             : [],
       excerpt: excerpt(html),
       html,
+      date: data.date ? String(data.date).slice(0, 10) : "",
     });
   }
   // newest-ish first by title stability; keep file order otherwise

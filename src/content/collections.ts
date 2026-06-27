@@ -15,6 +15,8 @@ export interface CollectionItem {
   tags: string[];
   excerpt: string;
   html: string;
+  /** ISO date (yyyy-mm-dd) the article/news was published — used to sort & filter. */
+  date?: string;
 }
 
 const PORTED_PARTNERS: CollectionItem[] = [
@@ -103,7 +105,8 @@ const PORTED_POSTS: CollectionItem[] = [
     bigimg: "/img/led-props/led-man/Visual-Tron456.jpg",
     tags: ["led-man", "robot-dance", "trang-phuc-led", "tron-dance", "bieu-dien-anh-sang"],
     excerpt: "Khám phá trang phục LED Robot Dance Happy Smart Light — bộ giáp LED Man phát sáng đồng bộ theo nhạc, biến tấu nhịp nhàng theo từng điệu nhảy robot, ấn tượng cho mọi sân khấu và sự kiện.",
-    html: ""
+    html: "",
+    date: "2026-06-20"
   },
   {
     slug: "dao-cu-poi-led-happy-smart-light",
@@ -115,7 +118,8 @@ const PORTED_POSTS: CollectionItem[] = [
     bigimg: "/img/post-news/poi/hinh-anh-su-dung/z7404784963475_e832ec45e843c34caa5bc5cd46c44111.jpg",
     tags: ["poi", "dao-cu-led", "gay-mua-led", "san-pham", "bieu-dien-nghe-thuat"],
     excerpt: "Khám phá đạo cụ POI LED Happy Smart Light — gậy múa LED hiển thị logo, hình ảnh sống động theo từng vòng xoay, pin sạc bền bỉ, đồng bộ không dây cho cả nhóm biểu diễn.",
-    html: ""
+    html: "",
+    date: "2026-05-22"
   },
   {
     slug: "su-dung-poi-voi-argb-hsl",
@@ -127,7 +131,8 @@ const PORTED_POSTS: CollectionItem[] = [
     bigimg: "/img/post-news/poi/upload-img-poi.png",
     tags: ["poi", "performance", "guide"],
     excerpt: "Hướng dẫn chi tiết cách biên tập hình ảnh hiệu ứng POV và đồng bộ tính năng múa LED POI cùng phần mềm ARGB HSL.",
-    html: ""
+    html: "",
+    date: "2026-04-18"
   }
 ];
 
@@ -141,5 +146,12 @@ export const COLLECTIONS: Record<CollectionKey, CollectionItem[]> = {
 
 export function getItem(collection: CollectionKey, slug: string): CollectionItem | undefined {
   return COLLECTIONS[collection]?.find((i) => i.slug === slug);
+}
+
+/** Newest post-news articles first (by `date`), capped at `n`. */
+export function latestPosts(n = 3): CollectionItem[] {
+  return [...(COLLECTIONS["post-news"] ?? [])]
+    .sort((a, b) => (b.date ?? "").localeCompare(a.date ?? ""))
+    .slice(0, n);
 }
 

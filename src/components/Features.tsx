@@ -14,7 +14,7 @@ export default function Features() {
     {
       id: "protocols",
       title: "Đa Giao Thức Đồng Bộ Chuyên Nghiệp",
-      description: "Tương thích hoàn toàn với các luồng kịch bản tốc độ cao hàng đầu thế giới: ARGB HSL Sync độc quyền, xLights (E1.31 / DDP), LedFx (Audio reactive streams), Art-Net dmx và TPM2.net. Tự động chuyển đổi thông minh.",
+      description: "Tương thích hoàn toàn với các luồng kịch bản tốc độ cao phổ biến trên thế giới: ARGB HSL Sync độc quyền, xLights (E1.31 / DDP), LedFx (Audio reactive streams), Art-Net dmx và TPM2.net. Tự động chuyển đổi thông minh.",
       iconName: "network",
       color: "pink",
     },

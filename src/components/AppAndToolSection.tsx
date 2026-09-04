@@ -78,7 +78,7 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
             </span>
           </h2>
           <p className="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
-            Kiểm soát tuyệt đối dải LED của bạn trực tiếp từ Thiết bị di động (Android App) hoặc Thiết lập không gian diễn sướng phức tạp cấp độ cao qua Máy tính (Windows Tool) độc quyền của <strong className="text-white">Happy Smart Light</strong>.
+            Kiểm soát trọn vẹn dải LED của bạn trực tiếp từ Thiết bị di động (Android App) hoặc Thiết lập không gian diễn sướng phức tạp cấp độ cao qua Máy tính (Windows Tool) độc quyền của <strong className="text-white">Happy Smart Light</strong>.
           </p>
         </div>
 
@@ -340,7 +340,7 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
                 </h3>
 
                 <p className="font-sans text-xs sm:text-sm text-slate-400 font-light leading-relaxed mt-3">
-                  Phần mềm điều khiển và cấu hình ma trận LED chuyên nghiệp hàng đầu Việt Nam cho các kỹ sư ánh sáng và nhà thầu biểu diễn nghệ thuật.
+                  Phần mềm điều khiển và cấu hình ma trận LED chuyên nghiệp, phát triển tại Việt Nam cho các kỹ sư ánh sáng và nhà thầu biểu diễn nghệ thuật.
                 </p>
 
                 <div className="mt-5 space-y-3.5" id="windows-tool-specs">

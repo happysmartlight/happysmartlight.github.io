@@ -69,7 +69,7 @@ export default function Products({ onQuoteRequested, onViewProductDetails }: Pro
       id: "matrix",
       name: "Happy Smart LED Matrix Driver Pro",
       price: "Tùy thời giá linh kiện",
-      description: "Bộ lái ma trận LED cabin chuyên nghiệp hàng đầu với chip ghim tọa độ, tối ưu hiển thị tranh điện LED Matrix, hoạt ảnh chữ xếp động và timeline nhạc sự kiện.",
+      description: "Bộ lái ma trận LED cabin chuyên dụng với chip ghim tọa độ, tối ưu hiển thị tranh điện LED Matrix, hoạt ảnh chữ xếp động và timeline nhạc sự kiện.",
       features: [
         "Điều khiển trực tiếp các tấm Panel LED (LED Cabin) đồng bộ thời gian thực mượt mà",
         "Bố trí khe SD Micro nạp trước kịch bản đồng bộ offline đa độ phân giải",
@@ -93,7 +93,7 @@ export default function Products({ onQuoteRequested, onViewProductDetails }: Pro
       price: "Tùy thời giá linh kiện",
       description: "Gậy múa LED xiếc ảo ảnh POV cầm tay di động siêu bền, pin Lipo sạc tích hợp đồng bộ nhóm múa chuyên dùng sân khấu.",
       features: [
-        "Module dải LED SK9822 rực rỡ nhất (Tần suất PWM rọi kịch 4.7KHz)",
+        "Module dải LED SK9822 độ sáng cao (Tần suất PWM 4.7KHz)",
         "Đồng bộ liên minh sóng Wifi nội bộ AP tự trị giữa các gậy múa liên kết",
         "Đồng hồ thời gian thực RTC pin sạc Type-C siêu trâu múa liên tục 5-8 giờ",
         "Lõi vỏ nhựa Polycarbonate bọc chống rạn vỡ chịu rơi ném va đập mạnh",

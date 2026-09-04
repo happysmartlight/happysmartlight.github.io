@@ -29,7 +29,7 @@ const PORTED_PARTNERS: CollectionItem[] = [
     image: "/img/partner/partner-xlights-banner.jpg",
     bigimg: "/img/partner/partner-xlights-banner.jpg",
     tags: ["partner", "xLights", "training"],
-    excerpt: "Happy Smart Light tự hào hợp tác cùng xLights Việt Nam mang đến giải pháp trình diễn ánh sáng chuyên nghiệp hàng đầu.",
+    excerpt: "Happy Smart Light tự hào hợp tác cùng xLights Việt Nam mang đến giải pháp trình diễn ánh sáng chuyên nghiệp.",
     html: ""
   },
   {
@@ -77,7 +77,7 @@ const PORTED_PARTNERS: CollectionItem[] = [
     image: "/img/partner/partner-espressif.webp",
     bigimg: "/img/partner/partner-espressif-banner.jpg",
     tags: ["partner", "ESP32", "microcontroller"],
-    excerpt: "Happy Smart Light tự hào sử dụng dòng vi xử lý ESP32 của Espressif mang lại hiệu năng điều khiển LED vượt trội.",
+    excerpt: "Happy Smart Light tự hào sử dụng dòng vi xử lý ESP32 của Espressif mang lại hiệu năng điều khiển LED ổn định và mạnh mẽ.",
     html: ""
   },
   {

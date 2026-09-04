@@ -20,7 +20,7 @@ export default function PartnerLedFx() {
     <ArticleLayout
       title="Happy Smart Light × LedFX Tech — Kết Nối Ánh Sáng, Đồng Bộ Âm Thanh"
       eyebrow="HAPPY SMART LIGHT — PARTNER × LEDFX TECH"
-      description="HSL chính thức hợp tác công nghệ chiến lược cùng LedFX Tech — nền tảng điều khiển ánh sáng theo nhạc mã nguồn mở hàng đầu thế giới."
+      description="HSL chính thức hợp tác công nghệ chiến lược cùng LedFX Tech — nền tảng điều khiển ánh sáng theo nhạc mã nguồn mở được cộng đồng quốc tế ưa chuộng."
       bannerImg="/img/partner/partner-LedFX-banner.png"
       accent="emerald"
       path="/doi-tac/partner-LedFx/"
@@ -30,7 +30,7 @@ export default function PartnerLedFx() {
       {/* Intro */}
       <Callout icon={<Music className="w-5 h-5 text-emerald-400" />}>
         <p>
-          <strong className="text-white">Happy Smart Light (HSL)</strong> chính thức công bố <strong className="text-white">hợp tác công nghệ chiến lược</strong> cùng <strong className="text-white">LedFX Tech</strong> — nền tảng điều khiển ánh sáng theo nhạc mã nguồn mở hàng đầu thế giới. Mang đến trải nghiệm <strong className="text-emerald-300">LED sống động, đồng bộ âm thanh — ánh sáng — cảm xúc</strong>.
+          <strong className="text-white">Happy Smart Light (HSL)</strong> chính thức công bố <strong className="text-white">hợp tác công nghệ chiến lược</strong> cùng <strong className="text-white">LedFX Tech</strong> — nền tảng điều khiển ánh sáng theo nhạc mã nguồn mở được cộng đồng quốc tế ưa chuộng. Mang đến trải nghiệm <strong className="text-emerald-300">LED sống động, đồng bộ âm thanh — ánh sáng — cảm xúc</strong>.
         </p>
       </Callout>
 

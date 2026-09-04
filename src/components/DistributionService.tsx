@@ -28,11 +28,11 @@ export default function DistributionService() {
       brand: "Lighttoys",
       name: "Chip Điều Khiển FT2 (Future Technology)",
       codeName: "LT-FT2-RX",
-      badge: "BÁN CHẠY #1",
+      badge: "BÁN CHẠY",
       bestSeller: true,
       referenceUrl: "https://www.lighttoys.cz/product/ft2-control-chip/",
       originalProp: "Trang bị gốc trên Buugeng, Juggling Club & Aerial Hoop FT2 của Lighttoys",
-      description: "Dòng chip điều khiển bán chạy nhất của Lighttoys: bộ thu (receiver) điều khiển dải LED pixel digital 5V (APA102/WS2812, khuyến nghị APA102) cho đạo cụ biểu diễn. Tích hợp DC-DC ổn áp ngõ ra, sạc nhanh USB-C và đồng bộ vô tuyến tầm xa cho cả đội múa.",
+      description: "Dòng chip điều khiển được ưa chuộng của Lighttoys: bộ thu (receiver) điều khiển dải LED pixel digital 5V (APA102/WS2812, khuyến nghị APA102) cho đạo cụ biểu diễn. Tích hợp DC-DC ổn áp ngõ ra, sạc nhanh USB-C và đồng bộ vô tuyến tầm xa cho cả đội múa.",
       specs: [
         { label: "Ngõ ra LED", value: "2 cổng digital độc lập (mỗi bên 1 cổng) — APA102 / WS2812" },
         { label: "Tầm sóng đồng bộ", value: "Điều khiển vô tuyến tới 200m qua FT Remote" },

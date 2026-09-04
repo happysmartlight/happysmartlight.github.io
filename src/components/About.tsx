@@ -74,7 +74,7 @@ export default function About() {
   const brandPillars = [
     {
       icon: <Cpu className="w-6 h-6 text-neon-blue-bright" />,
-      title: "Công Nghệ Tiên Phong",
+      title: "Công Nghệ Hiện Đại",
       desc: "Trang bị chip vi xử lý ARM 32-bit tốc độ cao, tích hợp bộ chuyển đổi mức logic điện áp (Level Shifter) chuẩn công nghiệp bảo vệ tín hiệu không bị suy hao trên dây dài.",
       color: "border-neon-blue/20 hover:border-neon-blue/50 group-hover:shadow-glow-blue/10",
       glow: "bg-neon-blue/5",
@@ -168,7 +168,7 @@ export default function About() {
             </span>
           </h2>
           <p className="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
-            Chúng tôi sinh ra để thúc đẩy sự sáng tạo nghệ thuật ánh sáng của người Việt. Bằng việc cung cấp các thiết bị điều khiển LED thông minh thế hệ mới, chúng tôi giúp mọi ý tưởng chiếu sáng từ phòng ngủ cá nhân, xe độ độc bản, đến các sân khấu ca nhạc bùng nổ, rực rỡ nhất trở thành hiện thực hiện đại.
+            Chúng tôi sinh ra để thúc đẩy sự sáng tạo nghệ thuật ánh sáng của người Việt. Bằng việc cung cấp các thiết bị điều khiển LED thông minh thế hệ mới, chúng tôi giúp mọi ý tưởng chiếu sáng từ phòng ngủ cá nhân, xe độ độc bản, đến các sân khấu ca nhạc bùng nổ, rực rỡ trở thành hiện thực hiện đại.
           </p>
         </div>
 

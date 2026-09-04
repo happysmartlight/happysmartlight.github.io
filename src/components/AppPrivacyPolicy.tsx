@@ -88,7 +88,7 @@ export default function AppPrivacyPolicy({ onBack }: AppPrivacyPolicyProps) {
               <div className="p-4 rounded-xl bg-slate-900/60 border border-emerald-500/10 flex items-start gap-3">
                 <CheckCircle className="w-5 h-5 text-emerald-400 shrink-0 mt-0.5" />
                 <p className="text-xs text-slate-400">
-                  <strong>Cam kết an toàn tuyệt đối:</strong> Ứng dụng <strong>ARGB HSL</strong> được thiết kế theo tiêu chí "Ngoại tuyến trước tiên" (Offline-First). Chúng tôi không lưu trữ, thu thập hay chia sẻ bất kỳ dữ liệu cá nhân nào từ thiết bị của bạn lên mây hay bất kỳ máy chủ bên thứ ba nào. Mọi tiến trình điều khiển LED, âm thanh, hay hình ảnh đều được xử lý cục bộ ngay trên vi xử lý của thiết bị di động của bạn.
+                  <strong>Cam kết về quyền riêng tư:</strong> Ứng dụng <strong>ARGB HSL</strong> được thiết kế theo tiêu chí "Ngoại tuyến trước tiên" (Offline-First). Chúng tôi không lưu trữ, thu thập hay chia sẻ bất kỳ dữ liệu cá nhân nào từ thiết bị của bạn lên mây hay bất kỳ máy chủ bên thứ ba nào. Mọi tiến trình điều khiển LED, âm thanh, hay hình ảnh đều được xử lý cục bộ ngay trên vi xử lý của thiết bị di động của bạn.
                 </p>
               </div>
 
@@ -129,7 +129,7 @@ export default function AppPrivacyPolicy({ onBack }: AppPrivacyPolicyProps) {
                       Quyền sử dụng Microphone (Ghi âm)
                     </h3>
                     <p className="text-xs text-slate-400 mt-1">
-                      Sử dụng duy nhất khi bạn kích hoạt chế độ <strong>"Nhạc nước / Đồng bộ âm thanh trực tiếp" (Audio Reactive Mode)</strong>. Ứng dụng chuyển đổi tín hiệu âm thanh thu được từ mic thành dải sóng tần số (Fast Fourier Transform - FFT) để đổi màu đèn LED theo nhịp điệu. <strong>Tuyệt đối không lưu trữ, không ghi tệp âm thanh, và không gửi âm thanh ra khỏi thiết bị di động.</strong>
+                      Chỉ sử dụng khi bạn kích hoạt chế độ <strong>"Nhạc nước / Đồng bộ âm thanh trực tiếp" (Audio Reactive Mode)</strong>. Ứng dụng chuyển đổi tín hiệu âm thanh thu được từ mic thành dải sóng tần số (Fast Fourier Transform - FFT) để đổi màu đèn LED theo nhịp điệu. <strong>Tuyệt đối không lưu trữ, không ghi tệp âm thanh, và không gửi âm thanh ra khỏi thiết bị di động.</strong>
                     </p>
                   </div>
 

@@ -113,7 +113,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         {
           category: "Cấu trúc phần cứng & Nguồn",
           list: [
-            { label: "PCB 4 lớp cao cấp", value: "Bo mạch PCB 4 lớp chất liệu cao cấp cho độ bền cơ học, tản nhiệt và ổn định tín hiệu vượt trội" },
+            { label: "PCB 4 lớp cao cấp", value: "Bo mạch PCB 4 lớp chất liệu cao cấp cho độ bền cơ học, tản nhiệt và độ ổn định tín hiệu cao" },
             { label: "Thiết kế siêu nhỏ gọn", value: "Tối ưu kích thước tối đa, phù hợp gá lắp vào mọi đạo cụ cần gọn nhẹ như gậy POI, trang phục biểu diễn" },
             { label: "Nguồn pin LiPo/Lithium", value: "Hỗ trợ pin LiPo/Lithium 3.7V - 4.2V cho thiết bị di động" },
             { label: "Sạc trực tiếp tiện lợi", value: "Hỗ trợ sạc trực tiếp ngay trên mạch, không cần tháo pin" },
@@ -143,7 +143,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         },
         {
           title: "PCB 4 Lớp & Anten Rời Tầm Xa",
-          desc: "Bo mạch PCB 4 lớp chất liệu cao cấp cho độ bền và ổn định tín hiệu vượt trội. Anten rời giúp truyền nhận sóng cực xa và ổn định, giữ kết nối tốt ngay cả ở khoảng cách lớn hay môi trường nhiễu.",
+          desc: "Bo mạch PCB 4 lớp chất liệu cao cấp cho độ bền và độ ổn định tín hiệu cao. Anten rời giúp truyền nhận sóng cực xa và ổn định, giữ kết nối tốt ngay cả ở khoảng cách lớn hay môi trường nhiễu.",
           icon: "radio"
         },
         {
@@ -167,7 +167,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
     matrix: {
       name: "Happy Smart LED Matrix Driver Pro",
       price: "Tùy thời giá linh kiện",
-      tagline: "Bộ lái ma trận LED chuyên nghiệp hàng đầu cho các tấm Panel LED, Cabin LED lớn",
+      tagline: "Bộ lái ma trận LED chuyên dụng cho các tấm Panel LED, Cabin LED lớn",
       description: "Không đơn giản là hiển thị dải màu chạy đuổi, Happy Smart LED Matrix Driver Pro tương đương một card máy tính mini hóa, hỗ trợ lập sơ đồ tọa độ và điều khiển trực tiếp các tấm Panel LED (LED Cabin) ghép nối để tạo thành những bức tường LED đa sắc khổng lồ chất lượng cao, đồng bộ mạnh mẽ và mượt mà.",
       badge: "Ông Vua Panel LED",
       glowColor: "blue",
@@ -191,7 +191,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
           list: [
             { label: "Cầu đấu phân dòng nguồn", value: "Cầu đấu đồng khối mạ đồng chịu dòng cực lớn lên tới 40A liên tục" },
             { label: "Bộ điều ổn dòng điện", value: "Hạn dòng kỹ thuật số thông minh (Amps Limiter) thông qua trang quản trị" },
-            { label: "Cổng mạng dây mở rộng", value: "Hỗ trợ chân kết nối module Ethernet LAN RJ45 cho tốc độ ping tuyệt đối" }
+            { label: "Cổng mạng dây mở rộng", value: "Hỗ trợ chân kết nối module Ethernet LAN RJ45 cho độ trễ phản hồi thấp và ổn định" }
           ]
         }
       ],
@@ -282,7 +282,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
       technicalPoints: [
         {
           title: "4 Cổng Ra Chống Dội Ngược",
-          desc: "Bảo vệ an toàn tuyệt đối cho vi xử lý trước hiện tượng dòng điện cảm ứng dội ngược từ các cuộn LED công suất lớn, tránh chập cháy.",
+          desc: "Tăng cường bảo vệ vi xử lý trước hiện tượng dòng điện cảm ứng dội ngược từ các cuộn LED công suất lớn, tránh chập cháy.",
           icon: "cpu"
         },
         {
@@ -357,7 +357,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
           category: "Linh kiện hiển thị kịch trần",
           list: [
             { label: "Góc hiển thị POV kép", value: "Dải LED gắn mặt trước và mặt sau đối xứng góc 180 độ hoàn hảo" },
-            { label: "Tần số làm mượt", value: "Đồng bộ quét dọc 600 dòng ảnh mỗi giây vẽ chính xác tuyệt đối" },
+            { label: "Tần số làm mượt", value: "Đồng bộ quét dọc 600 dòng ảnh mỗi giây, cho hình ảnh mượt và ổn định" },
             { label: "Dung lượng bộ nhớ lưu ảnh", value: "128MB lưu trữ sẵn hơn 500 ảnh Bitmap độ phân giải lớn tải lên qua PC" }
           ]
         },
@@ -376,7 +376,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
       technicalPoints: [
         {
           title: "LED SK9822 Tần Quét 4.7KHz",
-          desc: "Đắt đỏ và vượt trội hoàn toàn WS2812B. Giúp hình ảnh múa POV hoàn hảo không hề có bất kỳ sọc quét dọc hay vệt đen nào khi quay video phơi sáng dài.",
+          desc: "Chi phí cao hơn nhưng tần số PWM lớn hơn nhiều lần so với WS2812B. Nhờ đó hình ảnh múa POV hạn chế tối đa sọc quét dọc và vệt đen khi quay video phơi sáng dài.",
           icon: "sparkles"
         },
         {
@@ -1176,7 +1176,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
             </div>
 
             <p className="font-sans text-xs text-slate-400 leading-relaxed max-w-3xl font-light">
-              Mạch điều khiển ARGB LED có khả năng hỗ trợ cả dải đèn LED ARGB <strong className="text-white">5V</strong> và <strong className="text-white">12V</strong>. Tùy thuộc vào loại dải LED của bạn, hãy làm theo hướng dẫn đấu nối tương ứng dưới đây để đảm bảo an toàn phần cứng và tín hiệu truyền tải luôn ổn định nhất.
+              Mạch điều khiển ARGB LED có khả năng hỗ trợ cả dải đèn LED ARGB <strong className="text-white">5V</strong> và <strong className="text-white">12V</strong>. Tùy thuộc vào loại dải LED của bạn, hãy làm theo hướng dẫn đấu nối tương ứng dưới đây để đảm bảo an toàn phần cứng và tín hiệu truyền tải luôn ổn định.
             </p>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

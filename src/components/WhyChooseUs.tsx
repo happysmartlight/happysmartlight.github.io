@@ -13,7 +13,7 @@ export default function WhyChooseUs() {
       num: "02",
       icon: <Sparkles className="w-5 h-5 text-neon-blue-bright" />,
       title: "Giá Xuất Xưởng Hỗ Trợ Cộng Đồng",
-      desc: "Sản phẩm được nghiên cứu, tối ưu bo mạch PCB và đóng gói trực tiếp tại Việt Nam. Không qua bất kỳ khâu trung gian phân phối thương mại nào, đem lại mức giá thành tốt nhất, dễ thở nhất cho mọi Maker.",
+      desc: "Sản phẩm được nghiên cứu, tối ưu bo mạch PCB và đóng gói trực tiếp tại Việt Nam. Không qua bất kỳ khâu trung gian phân phối thương mại nào, đem lại mức giá hợp lý, dễ tiếp cận cho mọi Maker.",
     },
     {
       num: "03",
@@ -25,7 +25,7 @@ export default function WhyChooseUs() {
       num: "04",
       icon: <ShieldAlert className="w-5 h-5 text-emerald-400" />,
       title: "Bảo Vệ Phần Cứng Chuẩn Chỉ",
-      desc: "Bo mạch tích hợp tụ lọc nguồn chống nhiễu gai điện ápt, cầu chì bảo vệ quá dòng có thể tháo rời, di-ốt chống cắm ngược cực. Bảo vệ an toàn tuyệt đối cho mắt dải LED đắt tiền của bạn.",
+      desc: "Bo mạch tích hợp tụ lọc nguồn chống nhiễu gai điện ápt, cầu chì bảo vệ quá dòng có thể tháo rời, di-ốt chống cắm ngược cực. Giúp bảo vệ an toàn cho mắt dải LED đắt tiền của bạn.",
     },
   ];
 

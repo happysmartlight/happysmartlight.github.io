@@ -28,7 +28,7 @@ export default function Ecosystem() {
       useCase: "Biểu diễn nhạc hội nghệ thuật, trang trí mùa lễ hội, nhạc nước chuyên nghiệp với timeline nhạc chi tiết từng mili-giây.",
       dataRate: "DDP / E1.31 (~15 - 50Kbps/cổng)",
       latency: "< 2ms ở tần số 40Hz",
-      desc: "Phần mềm mã nguồn mở mạnh mẽ nhất thế giới để vẽ mô hình LED đa chiều, nạp tệp nhạc wav/mp3, đặt từng keyframe biến chuyển màu săc cho hàng triệu điểm pixel đồng loạt.",
+      desc: "Phần mềm mã nguồn mở mạnh mẽ, được cộng đồng quốc tế tin dùng để vẽ mô hình LED đa chiều, nạp tệp nhạc wav/mp3, đặt từng keyframe biến chuyển màu săc cho hàng triệu điểm pixel đồng loạt.",
       glowColor: "pink",
       particleColor: "rgba(255, 0, 127, 0.8)",
       flowDirection: "burst",

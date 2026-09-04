@@ -30,7 +30,7 @@ export default function PartnerESP32() {
       {/* Intro */}
       <Callout icon={<Cpu className="w-5 h-5 text-neon-blue-bright" />}>
         <p>
-          <strong className="text-white">Happy Smart Light (HSL)</strong> chính thức lựa chọn dòng <strong className="text-white">ESP32-S3</strong> — con chip cao cấp nhất trong dòng vi điều khiển ESP32 của <strong className="text-white">Espressif Systems</strong> — để tích hợp vào toàn bộ các sản phẩm điều khiển LED ARGB, LED PIXEL và ánh sáng thông minh thế hệ mới.
+          <strong className="text-white">Happy Smart Light (HSL)</strong> chính thức lựa chọn dòng <strong className="text-white">ESP32-S3</strong> — một trong những dòng vi điều khiển cao cấp của <strong className="text-white">Espressif Systems</strong> — để tích hợp vào toàn bộ các sản phẩm điều khiển LED ARGB, LED PIXEL và ánh sáng thông minh thế hệ mới.
         </p>
       </Callout>
 

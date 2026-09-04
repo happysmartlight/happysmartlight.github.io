@@ -35,7 +35,7 @@ export default function PartnerMoonlight() {
       {/* Intro */}
       <Callout icon={<Heart className="w-5 h-5 text-neon-pink-bright" />}>
         <p>
-          <strong className="text-white">Moonlight Dance Studio</strong> — một trong những trung tâm đào tạo vũ đạo chuyên nghiệp và giàu cảm hứng — chính thức trở thành <strong className="text-white">đối tác chiến lược</strong> của <strong className="text-white">Happy Smart Light</strong> — thương hiệu hàng đầu về giải pháp chiếu sáng thông minh tại Việt Nam.
+          <strong className="text-white">Moonlight Dance Studio</strong> — một trong những trung tâm đào tạo vũ đạo chuyên nghiệp và giàu cảm hứng — chính thức trở thành <strong className="text-white">đối tác chiến lược</strong> của <strong className="text-white">Happy Smart Light</strong> — thương hiệu Việt chuyên về giải pháp chiếu sáng thông minh.
         </p>
       </Callout>
 

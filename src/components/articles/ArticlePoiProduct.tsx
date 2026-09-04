@@ -140,7 +140,7 @@ export default function ArticlePoiProduct() {
         <SectionHeading accent="pink">POI Là Gì? Vì Sao Chọn Đạo Cụ POI Happy Smart Light</SectionHeading>
         <InfoCard>
           <p className="text-xs text-slate-400 leading-relaxed">
-            POI là kỹ thuật trình diễn ánh sáng dựa trên hiện tượng lưu ảnh trên mắt người: dải LED chớp tắt theo từng dòng pixel cực nhanh trong lúc đạo cụ chuyển động, ghép lại thành một hình ảnh hoàn chỉnh trước mắt người xem. Đạo cụ POI của Happy Smart Light sử dụng <strong className="text-white">module LED chuyên dụng SK9822 tần số cao (PWM 4.7KHz)</strong> — khắc phục triệt để hiện tượng nhòe, sọc hình mà các loại LED phổ thông như WS2812/WS2812B gặp phải khi xoay tốc độ cao. Kết hợp cảm biến xoay IMU và giao thức đồng bộ độc quyền <strong className="text-white">ARGB HSL POI Sync</strong>, đạo cụ cho hình ảnh sắc nét, ổn định và đồng bộ chính xác giữa nhiều gậy cùng lúc trên sân khấu.
+            POI là kỹ thuật trình diễn ánh sáng dựa trên hiện tượng lưu ảnh trên mắt người: dải LED chớp tắt theo từng dòng pixel cực nhanh trong lúc đạo cụ chuyển động, ghép lại thành một hình ảnh hoàn chỉnh trước mắt người xem. Đạo cụ POI của Happy Smart Light sử dụng <strong className="text-white">module LED chuyên dụng SK9822 tần số cao (PWM 4.7KHz)</strong> — hạn chế đáng kể hiện tượng nhòe, sọc hình thường gặp khi xoay đạo cụ ở tốc độ cao. Kết hợp cảm biến xoay IMU và giao thức đồng bộ độc quyền <strong className="text-white">ARGB HSL POI Sync</strong>, đạo cụ cho hình ảnh sắc nét, ổn định và đồng bộ chính xác giữa nhiều gậy cùng lúc trên sân khấu.
           </p>
         </InfoCard>
       </section>

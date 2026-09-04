@@ -56,7 +56,7 @@ export default function Home() {
     >
       <Seo
         title="Happy Smart Light — Đèn LED ARGB Thông Minh & Bộ Điều Khiển HSL"
-        description="Hệ sinh thái đèn LED ARGB thông minh hàng đầu Việt Nam: bộ điều khiển HSL, ứng dụng di động & công cụ máy tính ARGB HSL điều khiển ma trận LED chuyên nghiệp cho trang trí, sân khấu và sự kiện."
+        description="Hệ sinh thái đèn LED ARGB thông minh do người Việt phát triển: bộ điều khiển HSL, ứng dụng di động & công cụ máy tính ARGB HSL điều khiển ma trận LED chuyên nghiệp cho trang trí, sân khấu và sự kiện."
         path="/"
       />
       <Hero onNavigate={scrollToSection} />

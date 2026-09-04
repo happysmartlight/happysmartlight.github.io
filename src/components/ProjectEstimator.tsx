@@ -276,7 +276,7 @@ export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorP
             </span>
           </h2>
           <p className="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
-            Trả lời vài câu hỏi nhanh để chúng tôi gợi ý bộ điều khiển và combo Happy Smart Light phù hợp nhất với nhu cầu của bạn — rồi gửi yêu cầu tư vấn ngay!
+            Trả lời vài câu hỏi nhanh để chúng tôi gợi ý bộ điều khiển và combo Happy Smart Light phù hợp với nhu cầu của bạn — rồi gửi yêu cầu tư vấn ngay!
           </p>
         </div>
 

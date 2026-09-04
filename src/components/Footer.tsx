@@ -42,7 +42,7 @@ export default function Footer({ onNavigate }: FooterProps) {
             </div>
 
             <p className="font-sans font-light text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
-              Hệ sinh thái thiết bị điều khiển LED thông minh thế hệ mới, hỗ trợ tối đa các giao thức hiệu ứng sừng sỏ nhất thế giới. Sáng tạo bởi người Việt, vì người Việt.
+              Hệ sinh thái thiết bị điều khiển LED thông minh thế hệ mới, hỗ trợ tối đa các giao thức hiệu ứng phổ biến trên thế giới. Sáng tạo bởi người Việt, vì người Việt.
             </p>
           </div>
 

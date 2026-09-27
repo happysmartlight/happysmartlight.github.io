@@ -96,6 +96,19 @@ const PORTED_PARTNERS: CollectionItem[] = [
 
 const PORTED_POSTS: CollectionItem[] = [
   {
+    slug: "luu-y-khi-su-dung-xlights-voi-argb-hsl",
+    collection: "post-news",
+    url: "/post-news/luu-y-khi-su-dung-xlights-voi-argb-hsl/",
+    title: "Lưu Ý Khi Sử Dụng xLights Với ARGB HSL — Điều Kiện Để Nhận Tín Hiệu Điều Khiển",
+    metaTitle: "Lưu Ý Khi Dùng xLights Với ARGB HSL",
+    image: "/img/partner/partner-xlights-banner.jpg",
+    bigimg: "/img/partner/partner-xlights-banner.jpg",
+    tags: ["xLights", "argb-hsl", "huong-dan", "port-mapping", "discover", "ddp-artnet", "espixelstick", "falcon"],
+    excerpt: "Năm điều kiện bắt buộc để ARGB HSL nhận tín hiệu từ xLights: tắt Mode 2D và 2D Mapping, thiết bị cùng lớp mạng, Port Mapping 1024/1200 pixel mỗi port, Discover đúng thứ tự (sóng lên trước khi cấp nguồn), và chọn đúng Controller — ESPixelStick-4X + DDP cho 4.096 LED hoặc Falcon F16V2X + ArtNet cho 16.000 LED.",
+    html: "",
+    date: "2026-09-27"
+  },
+  {
     slug: "trang-phuc-led-robot-dance-happy-smart-light",
     collection: "post-news",
     url: "/post-news/trang-phuc-led-robot-dance-happy-smart-light/",

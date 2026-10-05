@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Cpu, Zap, Radio, Sliders, Check, ShieldAlert, Award, Eye } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { Product } from "../types";
+import { discountPercent } from "../price";
 
 interface ProductsProps {
   onQuoteRequested: (productName: string) => void;
@@ -10,7 +11,7 @@ interface ProductsProps {
 
 export default function Products({ onQuoteRequested, onViewProductDetails }: ProductsProps) {
   const [activeTabMap, setActiveTabMap] = useState<Record<string, "features" | "specs">>({
-    v4pro: "features",
+    "hsl2x-pro": "features",
     matrix: "features",
     hsl4x: "features",
     poi: "features",
@@ -18,9 +19,10 @@ export default function Products({ onQuoteRequested, onViewProductDetails }: Pro
 
   const products: Product[] = [
     {
-      id: "v4pro",
+      id: "hsl2x-pro",
       name: "Bộ Điều Khiển ARGB Happy Smart Light 2X PRO",
-      price: "1.200.000 VND",
+      price: "850.000 VND",
+      originalPrice: "1.200.000 VND",
       description: "Bộ điều khiển ánh sáng độc quyền sử dụng giao thức ARGB HSL tốc độ cao, chuyên dụng cho các dải LED ARGB mật độ lớn. PCB 4 lớp cao cấp, anten rời tầm xa, thiết kế nhỏ gọn, hỗ trợ pin LiPo/Lithium và sạc trực tiếp — tối ưu cho mạch POI mạnh mẽ, bền bỉ và di động.",
       features: [
         "PCB 4 lớp chất liệu cao cấp, thiết kế siêu nhỏ gọn phù hợp mọi đạo cụ cần tối ưu kích thước",
@@ -331,10 +333,23 @@ export default function Products({ onQuoteRequested, onViewProductDetails }: Pro
                   {/* Pricing / CTA button */}
                   <div className="pt-4 border-t border-white/5 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
                     <div className="flex flex-col">
-                      <span className="text-[10px] font-mono text-slate-500 uppercase">Giá bán lẻ đề xuất</span>
+                      <span className="text-[10px] font-mono text-slate-500 uppercase">
+                        {product.originalPrice ? "Giá khuyến mãi" : "Giá bán lẻ đề xuất"}
+                      </span>
                       <span className="text-sm font-display font-semibold text-[#00f0ff] uppercase tracking-wider">
                         {product.price}
                       </span>
+                      {product.originalPrice && (
+                        <span className="flex items-center gap-1.5 mt-0.5">
+                          <s className="text-[11px] font-mono text-slate-500">
+                            <span className="sr-only">Giá gốc </span>
+                            {product.originalPrice}
+                          </s>
+                          <span className="px-1.5 py-px rounded text-[9px] font-mono font-bold bg-neon-pink/20 text-neon-pink-bright border border-neon-pink/40">
+                            -{discountPercent(product.price, product.originalPrice)}%
+                          </span>
+                        </span>
+                      )}
                     </div>
 
                     <div className="flex flex-wrap sm:flex-nowrap gap-2" id={`btn-group-product-${product.id}`}>

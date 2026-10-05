@@ -8,10 +8,16 @@ import SalesPolicyRoute from "./pages/SalesPolicyRoute";
 import IpPolicyRoute from "./pages/IpPolicyRoute";
 import ProductDetailsRoute from "./pages/ProductDetailsRoute";
 import LicenseSignerRoute from "./pages/LicenseSignerRoute";
+import LegacyRedirectRoute from "./pages/LegacyRedirectRoute";
 import { COLLECTION_KEYS } from "./content/collections-meta";
 
 // Product slugs that have a (React-native) detail page.
-export const PRODUCT_IDS = ["v4pro", "matrix", "hsl4x", "poi"];
+export const PRODUCT_IDS = ["hsl2x-pro", "matrix", "hsl4x", "poi"];
+
+// Slug cũ đã đổi tên → slug mới. Vẫn pre-render để link cũ (đã chia sẻ/index) không chết.
+export const LEGACY_PRODUCT_SLUGS: Record<string, string> = {
+  v4pro: "hsl2x-pro",
+};
 
 export const routes: RouteRecord[] = [
   {
@@ -31,6 +37,11 @@ export const routes: RouteRecord[] = [
         element: <ProductDetailsRoute />,
         getStaticPaths: () => PRODUCT_IDS.map((id) => `/san-pham/${id}`),
       },
+      // Route tĩnh được ưu tiên hơn "san-pham/:id" nên không đụng trang sản phẩm thật.
+      ...Object.entries(LEGACY_PRODUCT_SLUGS).map(([oldId, newId]) => ({
+        path: `san-pham/${oldId}`,
+        element: <LegacyRedirectRoute to={`/san-pham/${newId}/`} />,
+      })),
       // Jekyll-ported collections — lazy-loaded so the article JSON is a separate
       // chunk fetched only on these pages (keeps the main bundle small).
       {

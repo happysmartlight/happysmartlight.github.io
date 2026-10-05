@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ArrowLeft, Cpu, Columns, Layers, Radio, Sliders, Play, Check, Sparkles, Battery, Monitor, Code, Settings, AlertTriangle, Hammer, Zap, Wifi, Eye, X, ZoomIn, ZoomOut, ChevronLeft, ChevronRight, RotateCcw, Share2 } from "lucide-react";
 import { motion } from "motion/react";
+import { discountPercent } from "../price";
 
 interface ProductDetailsPageProps {
   productId: string;
@@ -54,6 +55,8 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
   const productsDetailedData: Record<string, {
     name: string;
     price: string;
+    /** Giá gốc khi đang khuyến mãi — hiển thị gạch ngang cạnh `price`. */
+    originalPrice?: string;
     tagline: string;
     description: string;
     badge: string;
@@ -68,9 +71,10 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
     wiringDiagram?: string;
     wiringDiagrams?: { label: string; url: string }[];
   }> = {
-    v4pro: {
+    "hsl2x-pro": {
       name: "Bộ Điều Khiển ARGB Happy Smart Light 2X PRO",
-      price: "1.200.000 VND",
+      price: "850.000 VND",
+      originalPrice: "1.200.000 VND",
       tagline: "Ông vua phân phối tín hiệu LED pixel đa cực cho sân khấu, nội thất và mạch POI chuyên dụng",
       description: "Thoát ly hoàn toàn khỏi giới hạn của firmware cũ, dòng 2X PRO được kỹ sư Happy Smart Light tái kiến trúc nguyên bản phần cứng lẫn firmware dựa trên cốt lõi giao thức truyền thông ARGB HSL độc quyền. Phiên bản này được tối ưu đặc biệt hỗ trợ thiết kế mạch POI biểu diễn nghệ thuật mạnh mẽ, hoạt động với điện áp 5V ổn định và tương thích hoàn hảo với các cell pin Lithium 3.7V - 4.2V tiện dụng cho thiết bị di động. Ưu điểm cốt lõi: PCB 4 lớp chất liệu cao cấp, anten rời truyền nhận sóng cực xa và ổn định, thiết kế nhỏ gọn phù hợp mọi đạo cụ cần tối ưu kích thước, hỗ trợ pin LiPo/Lithium và sạc trực tiếp tiện lợi.",
       badge: "Flagship POI",
@@ -162,6 +166,16 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         "v4.3.0-release: Nâng cấp bo mạch PCB 4 lớp cao cấp, anten rời tầm xa, thiết kế nhỏ gọn hơn, hỗ trợ pin LiPo/Lithium và sạc trực tiếp.",
         "v4.2.1-stable: Tối ưu mạch sạc pin và tương thích cell pin 3.7-4.2V cho POI",
         "v4.0.0-release: Chuyển đổi toàn diện sang độc quyền giao thức ARGB HSL và tích hợp app di động mới"
+      ],
+      images: [
+        "/img/products/hsl2x-pro/ARGB_HSL_2X_TOP.png",
+        "/img/products/hsl2x-pro/ARGB_HSL_2X_BOTTOM.png"
+      ],
+      wiringDiagrams: [
+        { label: "Sơ đồ chân (Pinout)", url: "/img/products/hsl2x-pro/pinout_diagram.svg" },
+        { label: "Kết nối 2 cổng ARGB", url: "/img/products/hsl2x-pro/wiring_standard.svg" },
+        { label: "Kết nối LED 5V", url: "/img/controller-chip/strip_led_5v.png" },
+        { label: "Kết nối LED 12V (Chung GND)", url: "/img/controller-chip/ket-noi-5v-12v.png" }
       ]
     },
     matrix: {
@@ -403,7 +417,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
     }
   };
 
-  const selectedProduct = productsDetailedData[productId] || productsDetailedData.v4pro;
+  const selectedProduct = productsDetailedData[productId] || productsDetailedData["hsl2x-pro"];
 
   // Centralized glow-color styling (tránh lặp ternary 4 nhánh ở nhiều nơi)
   const glowStyles = {
@@ -648,11 +662,24 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
             </p>
 
             {/* Price display */}
-            <div className="flex items-center space-x-3 py-1">
-              <span className="text-slate-400 text-xs font-mono uppercase tracking-wider">Giá bán lẻ đề xuất:</span>
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 py-1">
+              <span className="text-slate-400 text-xs font-mono uppercase tracking-wider">
+                {selectedProduct.originalPrice ? "Giá khuyến mãi:" : "Giá bán lẻ đề xuất:"}
+              </span>
               <span className="text-xl sm:text-2xl font-display font-bold text-[#00f0ff] tracking-wide">
                 {selectedProduct.price}
               </span>
+              {selectedProduct.originalPrice && (
+                <>
+                  <s className="text-sm sm:text-base font-mono text-slate-500">
+                    <span className="sr-only">Giá gốc </span>
+                    {selectedProduct.originalPrice}
+                  </s>
+                  <span className="px-2 py-0.5 rounded-md text-[11px] font-mono font-bold bg-neon-pink/20 text-neon-pink-bright border border-neon-pink/40">
+                    -{discountPercent(selectedProduct.price, selectedProduct.originalPrice)}%
+                  </span>
+                </>
+              )}
             </div>
 
             {/* Core Stats highlights badge row */}
@@ -1369,7 +1396,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
           </span>
           <div className="flex flex-wrap justify-center gap-3" id="cross-nav-buttons">
             {[
-              { id: "v4pro", name: "HSL 2X PRO" },
+              { id: "hsl2x-pro", name: "HSL 2X PRO" },
               { id: "matrix", name: "Matrix Driver Pro" },
               { id: "hsl4x", name: "HSL 4X Matrix" },
               { id: "poi", name: "POI Wand Performance" }

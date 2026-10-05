@@ -35,11 +35,12 @@ interface ProductRef {
   id: string; // slug trang chi tiết /san-pham/:id
   name: string;
   price: string;
+  originalPrice?: string; // giá gốc khi đang khuyến mãi (gạch ngang)
   accent: Accent;
 }
 
 const PRODUCTS: Record<string, ProductRef> = {
-  v4pro: { id: "v4pro", name: "Bộ Điều Khiển ARGB 2X PRO", price: "1.200.000đ", accent: "yellow" },
+  "hsl2x-pro": { id: "hsl2x-pro", name: "Bộ Điều Khiển ARGB 2X PRO", price: "850.000đ", originalPrice: "1.200.000đ", accent: "yellow" },
   hsl4x: { id: "hsl4x", name: "Bộ Điều Khiển ARGB 4X", price: "930.000đ", accent: "dual" },
   matrix: { id: "matrix", name: "LED Matrix Driver Pro", price: "Tùy thời giá linh kiện", accent: "blue" },
   poi: { id: "poi", name: "Happy POI Performance Wand", price: "Tùy thời giá linh kiện", accent: "pink" },
@@ -75,7 +76,7 @@ function recommend(need: NeedId, scale: Scale): Recommendation {
     case "poi":
       return {
         mainId: "poi",
-        comboIds: ["poi", "v4pro"],
+        comboIds: ["poi", "hsl2x-pro"],
         heading: "Combo Biểu Diễn POI",
         note:
           scale === "large"
@@ -88,8 +89,8 @@ function recommend(need: NeedId, scale: Scale): Recommendation {
       // Dải LED lớn -> nâng cấp lên 4X để chịu dòng & số pixel cao.
       const big = scale === "large";
       return {
-        mainId: big ? "hsl4x" : "v4pro",
-        comboIds: big ? ["hsl4x"] : ["v4pro"],
+        mainId: big ? "hsl4x" : "hsl2x-pro",
+        comboIds: big ? ["hsl4x"] : ["hsl2x-pro"],
         heading: big ? "Combo Dải LED Công Suất Lớn" : "Combo Dải LED Trang Trí",
         note: big
           ? "Dải LED dài/nhiều điểm sáng — dùng bộ 4X chịu dòng tới 30A, kèm nguồn công suất lớn."
@@ -379,7 +380,10 @@ export default function ProjectEstimator({ preFilledProduct }: ProjectEstimatorP
                               <Cpu className={`w-4 h-4 shrink-0 ${ACCENT[p.accent].text}`} />
                               <div className="min-w-0">
                                 <span className="block text-xs font-display font-semibold text-white truncate">{p.name}</span>
-                                <span className="block text-[10px] font-mono text-slate-500">{p.price}</span>
+                                <span className="block text-[10px] font-mono text-slate-500">
+                                  {p.price}
+                                  {p.originalPrice && <s className="ml-1.5 text-slate-600">{p.originalPrice}</s>}
+                                </span>
                               </div>
                             </div>
                             <button

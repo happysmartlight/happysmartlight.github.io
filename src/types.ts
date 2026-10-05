@@ -2,6 +2,8 @@ export interface Product {
   id: string;
   name: string;
   price: string;
+  /** Giá gốc khi đang khuyến mãi — hiển thị gạch ngang cạnh `price`. */
+  originalPrice?: string;
   description: string;
   features: string[];
   specs: { label: string; value: string }[];

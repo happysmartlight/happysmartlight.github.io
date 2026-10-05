@@ -30,9 +30,10 @@ function toUrl(file) {
   return rel;
 }
 
-// Trang cố tình ẩn (vd công cụ nội bộ ký license) — không liệt kê trong sitemap.
+// Trang cố tình ẩn (vd công cụ nội bộ ký license) hoặc trang chuyển hướng từ slug cũ
+// (LEGACY_PRODUCT_SLUGS trong src/routes.tsx) — không liệt kê trong sitemap.
 // Các route này cũng đặt <meta robots="noindex"> trong chính trang.
-const SITEMAP_DENY = new Set(["/tools/hsl-lic-7q3m9x/"]);
+const SITEMAP_DENY = new Set(["/tools/hsl-lic-7q3m9x/", "/san-pham/v4pro/"]);
 
 const urls = [...new Set(walk(DIST).map(toUrl))]
   .filter((u) => !SITEMAP_DENY.has(u))

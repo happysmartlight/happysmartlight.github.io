@@ -9,12 +9,12 @@ import type { AppOutletContext } from "../Layout";
 const SITE = "https://happysmartlight.com";
 
 const PRODUCT_META: Record<string, { title: string; description: string; image: string; name: string; priceVnd: number | null }> = {
-  v4pro: {
+  "hsl2x-pro": {
     title: "Bộ Điều Khiển ARGB HSL 2X PRO — LED Pixel & POI | HSL",
     description: "Bộ điều khiển LED pixel ARGB HSL 2X PRO: 2 cổng cách ly quang học, tải 4096 pixel, 60FPS không rách hình, PCB 4 lớp, pin sạc — tối ưu cho sân khấu & mạch POI.",
-    image: "/img/controller-chip/argb_IPEX_ver1.0_TOP.png",
+    image: "/img/products/hsl2x-pro/ARGB_HSL_2X_TOP.png",
     name: "Bộ Điều Khiển ARGB Happy Smart Light 2X PRO",
-    priceVnd: 1200000,
+    priceVnd: 850000,
   },
   matrix: {
     title: "LED Matrix Driver Pro — Điều Khiển Ma Trận LED | HSL",
@@ -79,13 +79,13 @@ export default function ProductDetailsRoute() {
   const location = useLocation();
   const { id } = useParams<{ id: string }>();
   const { setThemeGlow, requestQuote } = useOutletContext<AppOutletContext>();
-  const pid = id ?? "v4pro";
-  const meta = PRODUCT_META[pid] ?? PRODUCT_META.v4pro;
+  const pid = id ?? "hsl2x-pro";
+  const meta = PRODUCT_META[pid] ?? PRODUCT_META["hsl2x-pro"];
 
   // Update ambient glow theme to match the product's glowColor on mount / route change
   useEffect(() => {
     const themeMap: Record<string, "pink" | "blue" | "emerald" | "amber" | "purple" | "yellow"> = {
-      v4pro: "yellow",
+      "hsl2x-pro": "yellow",
       matrix: "blue",
       hsl4x: "purple",
       poi: "pink",

@@ -30,7 +30,7 @@ const formatDate = (iso?: string) => {
 // Flagship products surfaced in the Sản Phẩm dropdown. `dot` matches each
 // product's accent so the menu reads as the same family shown on the page.
 const productMenu: DropdownChild[] = [
-  { label: "HSL 2X PRO", desc: "Flagship POI", dot: "#fbbf24", to: "/san-pham/v4pro" },
+  { label: "HSL 2X PRO", desc: "Flagship POI", dot: "#fbbf24", to: "/san-pham/hsl2x-pro" },
   { label: "HSL 4X", desc: "Công suất cực cao", dot: "#00e5ff", to: "/san-pham/hsl4x" },
   { label: "LED Matrix Driver Pro", desc: "Cho panel LED", dot: "#00e5ff", to: "/san-pham/matrix" },
   { label: "Happy POI Wand", desc: "Nghệ thuật di động", dot: "#ff2d95", to: "/san-pham/poi" },

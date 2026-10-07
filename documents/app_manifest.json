@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.8.0",
-    "version_label": "v3.8.0 - September 2026",
-    "release_date": "2026-09-26",
-    "release_notes": "📥 Tab xLights Model — NHẬP mapping OneLED (.SFMap) để xuất ledmap.json:\n- Nút \"📥 OneLED\" trên thanh công cụ (hoặc menu 📁 Tệp → Nhập mapping OneLED)\nđọc file .SFMap của phần mềm OneLED rồi dựng lại model lên canvas; bấm tiếp\n\"🧩 ledmap.json\" là ra file mapping cho mạch ARGB HSL. Mở model cũng nhận\nthẳng .SFMap.\n- Dialog xem trước: tên IC, số LED, pitch, số đoạn dây, ngày giờ lưu file;\nchỉnh độ phân giải lưới (hoặc bấm \"Tự động\"), lật trục Y nếu hình bị ngược.\n- Preview chấm màu theo từng đoạn dây, ô LED trùng nhau tô ĐỎ + báo rõ số LED\nsẽ mất; \"Tự động\" tìm độ phân giải nhỏ nhất giữ đủ 100% LED.\n- Thứ tự LED trên dây giữ nguyên theo file OneLED, nên hiệu ứng chạy đúng chiều.\n- Đọc được file nhiều block và tự loại marker controller trên canvas OneLED\n(record không phải LED) — nếu nhận nhầm thì khung lưới phình gấp nhiều lần.",
+    "version": "3.9.0",
+    "version_label": "v3.9.0 - October 2026",
+    "release_date": "2026-10-07",
+    "release_notes": "🎬 Tab Timecode — mọi thao tác với mạch chạy nền, bỏ popup chỉ để thông báo:\n- Kéo hiệu ứng/preset xuống track: ghi xuống mạch chạy nền, báo ở thanh\nstatus + log (không còn popup \"Đã bake\"), không tải lại cả cột hiệu ứng nên\ngiữ nguyên slider/màu đang chỉnh; kéo liên tục thì tự xếp hàng ghi tiếp.\n- Thư viện hiệu ứng/bảng màu tải nền, chỉ tải lại khi mở app, đổi thiết bị\nnguồn hoặc bấm \"Tải preset\"; dữ liệu effect/màu chỉ tải lại khi đổi firmware.\n- Click hiệu ứng, kéo slider, đổi màu, độ sáng: gửi xuống mạch ở luồng nền,\nthao tác dồn dập được gộp lại → không còn khựng.\n- Lưu playlist, Load slot, Xóa preset, Test RGBW chạy nền (Test RGBW có nút\n\"⏹ Dừng test\"); Load slot không đọc được gì thì giữ nguyên timeline.\n- Preset có BMP/GIF kéo từ mạch khác: tải file nền và nhớ trong phiên.\n- Bỏ popup \"Chuẩn bị OFF preset\": slot 248 ghi kèm lần ghi clip.\n🔊 Tab Timecode — âm thanh tự chuyển theo loa/tai nghe đang chọn trên Windows;\nthêm ô chọn đầu ra (Theo Windows hoặc cố định 1 thiết bị).\n🔧 Tab Cấu hình phần cứng:\n- Sửa lỗi \"Kiểm tra cập nhật\"/\"Mở khoá OTA\" làm mất sửa đổi chưa lưu, lỗi cấu\nhình mạch trước hiện (và có thể bị lưu) sang mạch khác, lỗi quét mạng ở Tab 1\nxoá sửa đổi chưa lưu, lỗi đổi mạch giữa chừng làm khoá nút firmware.\n- Cảnh báo port vượt 1024 LED; sửa cảnh báo nguồn sai với WS2815 (mA/LED 255);\nthông báo lỗi đánh số Port 1 / Nút 1 khớp với card.\n- Lưu: hỏi Mã PIN trước nếu mạch đang khoá; lưu xong tự đợi mạch khởi động lại\nvà đọc lại cấu hình để xác nhận, báo rõ mục nào firmware không nhận.\n- Nút \"↶ Hoàn tác xoá\" port/nút; preset chia nhóm Logo / Hệ thống / Timecode;\ncard thiết bị tự cập nhật firmware/tên; mạch online lại tự tải cấu hình.\n🖼 Tab POI + Matrix Led:\n- Click preset / đổi mạch ở Tab POI chạy nền, không khựng.\n- Upload, xoá ảnh/preset không còn làm đơ app khi wifi yếu (vẫn hỏi Mã PIN).",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.8.0.exe",
-    "size": 342916495,
-    "sha256": "509f3bb3e875a8595e4b684e66b023fba90078118b66cd6ec659cb55088084de"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.9.0.exe",
+    "size": 342940275,
+    "sha256": "2edd41ba7d687d866355a80883e6b556d494f5d5449abb3a6615e3219a485d08"
   }
 }

@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.9.0",
-    "version_label": "v3.9.0 - October 2026",
-    "release_date": "2026-10-07",
-    "release_notes": "🎬 Tab Timecode — mọi thao tác với mạch chạy nền, bỏ popup chỉ để thông báo:\n- Kéo hiệu ứng/preset xuống track: ghi xuống mạch chạy nền, báo ở thanh\nstatus + log (không còn popup \"Đã bake\"), không tải lại cả cột hiệu ứng nên\ngiữ nguyên slider/màu đang chỉnh; kéo liên tục thì tự xếp hàng ghi tiếp.\n- Thư viện hiệu ứng/bảng màu tải nền, chỉ tải lại khi mở app, đổi thiết bị\nnguồn hoặc bấm \"Tải preset\"; dữ liệu effect/màu chỉ tải lại khi đổi firmware.\n- Click hiệu ứng, kéo slider, đổi màu, độ sáng: gửi xuống mạch ở luồng nền,\nthao tác dồn dập được gộp lại → không còn khựng.\n- Lưu playlist, Load slot, Xóa preset, Test RGBW chạy nền (Test RGBW có nút\n\"⏹ Dừng test\"); Load slot không đọc được gì thì giữ nguyên timeline.\n- Preset có BMP/GIF kéo từ mạch khác: tải file nền và nhớ trong phiên.\n- Bỏ popup \"Chuẩn bị OFF preset\": slot 248 ghi kèm lần ghi clip.\n🔊 Tab Timecode — âm thanh tự chuyển theo loa/tai nghe đang chọn trên Windows;\nthêm ô chọn đầu ra (Theo Windows hoặc cố định 1 thiết bị).\n🔧 Tab Cấu hình phần cứng:\n- Sửa lỗi \"Kiểm tra cập nhật\"/\"Mở khoá OTA\" làm mất sửa đổi chưa lưu, lỗi cấu\nhình mạch trước hiện (và có thể bị lưu) sang mạch khác, lỗi quét mạng ở Tab 1\nxoá sửa đổi chưa lưu, lỗi đổi mạch giữa chừng làm khoá nút firmware.\n- Cảnh báo port vượt 1024 LED; sửa cảnh báo nguồn sai với WS2815 (mA/LED 255);\nthông báo lỗi đánh số Port 1 / Nút 1 khớp với card.\n- Lưu: hỏi Mã PIN trước nếu mạch đang khoá; lưu xong tự đợi mạch khởi động lại\nvà đọc lại cấu hình để xác nhận, báo rõ mục nào firmware không nhận.\n- Nút \"↶ Hoàn tác xoá\" port/nút; preset chia nhóm Logo / Hệ thống / Timecode;\ncard thiết bị tự cập nhật firmware/tên; mạch online lại tự tải cấu hình.\n🖼 Tab POI + Matrix Led:\n- Click preset / đổi mạch ở Tab POI chạy nền, không khựng.\n- Upload, xoá ảnh/preset không còn làm đơ app khi wifi yếu (vẫn hỏi Mã PIN).",
+    "version": "3.10.0",
+    "version_label": "v3.10.0 - October 2026",
+    "release_date": "2026-10-08",
+    "release_notes": "🔧 Tab Cấu hình phần cứng — nút \"🧨 Khôi phục cài đặt gốc\": xoá toàn bộ cấu\nhình, preset và file trên mạch rồi khởi động lại ở chế độ phát WiFi ARGB-AP\n(giống trang Bảo mật của mạch). Có hộp xác nhận chống bấm nhầm (phải tick\n\"Tôi hiểu...\" mới bấm được), tự hỏi Mã PIN nếu mạch đang khoá và kiểm tra\nmạch có thật sự khởi động lại.\n🎬 Tab Matrix Led:\n- Upload Visual ở mode SINGLE chỉ gửi cho mạch đang chọn (trước đây gửi cho\nmọi mạch online); kiểm tra dung lượng cũng chỉ tính các mạch sẽ nhận.\n- Gộp Upload ALL / SELECTED / GHÉP thành 1 nút \"⬆️ Upload\" đi theo Mode, hiện\nsố mạch sẽ nhận.\n- Upload Visual convert riêng 1 GIF cho mỗi kích thước ledmap — mạch nào cũng\nnhận đúng W×H của nó (như upload ảnh).\n- Ghép mạch: chỉnh thứ tự mạch bằng ▲▼, \"⇅ Đảo ngược\", \"↺ Theo lưới\"; thứ\ntự được nhớ cho lần sau. Không đọc được preset của 1 mạch thì dừng thay vì\nghi đè nhầm.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.9.0.exe",
-    "size": 342940275,
-    "sha256": "2edd41ba7d687d866355a80883e6b556d494f5d5449abb3a6615e3219a485d08"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.10.0.exe",
+    "size": 342976251,
+    "sha256": "c30ee3ff0f5d1281fdd805f82c314843c0f538f7dd44619fba8920f480bb4a0c"
   }
 }

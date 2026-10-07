@@ -1,0 +1,64 @@
+import type { RouteRecord } from "vite-react-ssg";
+import Layout from "./Layout";
+import Home from "./pages/Home";
+import AppDetailsRoute from "./pages/AppDetailsRoute";
+import ToolDetailsRoute from "./pages/ToolDetailsRoute";
+import PrivacyRoute from "./pages/PrivacyRoute";
+import SalesPolicyRoute from "./pages/SalesPolicyRoute";
+import IpPolicyRoute from "./pages/IpPolicyRoute";
+import ProductDetailsRoute from "./pages/ProductDetailsRoute";
+import LicenseSignerRoute from "./pages/LicenseSignerRoute";
+import LegacyRedirectRoute from "./pages/LegacyRedirectRoute";
+import { COLLECTION_KEYS } from "./content/collections-meta";
+
+// Product slugs that have a (React-native) detail page.
+export const PRODUCT_IDS = ["hsl2x-pro", "matrix", "hsl4x", "poi"];
+
+// Slug cũ đã đổi tên → slug mới. Vẫn pre-render để link cũ (đã chia sẻ/index) không chết.
+export const LEGACY_PRODUCT_SLUGS: Record<string, string> = {
+  v4pro: "hsl2x-pro",
+};
+
+export const routes: RouteRecord[] = [
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      { index: true, element: <Home /> },
+      { path: "argb-hsl-tool-mobile", element: <AppDetailsRoute /> },
+      { path: "argb-hsl-tool-pc", element: <ToolDetailsRoute /> },
+      { path: "chinh-sach-bao-mat", element: <PrivacyRoute /> },
+      { path: "chinh-sach-ban-hang", element: <SalesPolicyRoute /> },
+      { path: "chinh-sach-ban-quyen", element: <IpPolicyRoute /> },
+      // Công cụ nội bộ ký license — URL khó đoán, noindex + ngoài sitemap (giữ ẩn).
+      { path: "tools/hsl-lic-7q3m9x", element: <LicenseSignerRoute /> },
+      {
+        path: "san-pham/:id",
+        element: <ProductDetailsRoute />,
+        getStaticPaths: () => PRODUCT_IDS.map((id) => `/san-pham/${id}`),
+      },
+      // Route tĩnh được ưu tiên hơn "san-pham/:id" nên không đụng trang sản phẩm thật.
+      ...Object.entries(LEGACY_PRODUCT_SLUGS).map(([oldId, newId]) => ({
+        path: `san-pham/${oldId}`,
+        element: <LegacyRedirectRoute to={`/san-pham/${newId}/`} />,
+      })),
+      // Jekyll-ported collections — lazy-loaded so the article JSON is a separate
+      // chunk fetched only on these pages (keeps the main bundle small).
+      {
+        path: ":collection",
+        lazy: () => import("./pages/CollectionListRoute"),
+        getStaticPaths: () => COLLECTION_KEYS.map((k) => `/${k}`),
+      },
+      {
+        path: ":collection/:slug",
+        lazy: () => import("./pages/CollectionItemRoute"),
+        getStaticPaths: async () => {
+          const { COLLECTIONS } = await import("./content/collections");
+          return Object.values(COLLECTIONS)
+            .flat()
+            .map((i) => i.url);
+        },
+      },
+    ],
+  },
+];

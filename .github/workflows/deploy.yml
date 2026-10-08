@@ -1,9 +1,9 @@
 name: Build & Deploy to GitHub Pages
 
 on:
-  # Tự chạy khi push lên nhánh chính (master) hoặc nhánh preview (new-style)
+  # Tự chạy khi push lên nhánh chính (master)
   push:
-    branches: [master, new-style]
+    branches: [master]
   # Cho phép bấm chạy thủ công trong tab Actions
   workflow_dispatch:
 

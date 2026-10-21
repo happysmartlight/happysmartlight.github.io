@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Smartphone, Laptop, Download, RefreshCw, Smartphone as PhoneIcon, Sliders, Play, CheckCircle2, QrCode, Monitor, Sparkles, Info } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { WINDOWS_TOOL_URL, WINDOWS_TOOL_VERSION, WINDOWS_TOOL_FILE, WINDOWS_TOOL_SIZE, WINDOWS_TOOL_SHA256 } from "../windowsTool";
 
 interface AppAndToolSectionProps {
   onViewPrivacy?: () => void;
@@ -22,7 +23,6 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
   const colorsList = ["#ff2d95", "#00e5ff", "#a855f7", "#eab308", "#22c55e", "#ef4444"];
   const effectsList = ["Rainbow Flow", "Cosmic Strobe", "Pixel Wave", "Pulse Beat", "Metropoli Beat"];
 
-  const WINDOWS_TOOL_URL = "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.7.1.exe";
   const ANDROID_APP_URL = "https://play.google.com/store/apps/details?id=com.happysmartlight.argb";
 
   const startDownload = () => {
@@ -389,7 +389,7 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
                       <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
                       <div>
                         <span className="text-white font-bold block">Tải xuống hoàn tất!</span>
-                        <span className="text-emerald-300">File cài đặt ToolARGB_HSL_Setup_3.7.1.exe đã sẵn sàng.</span>
+                        <span className="text-emerald-300">File cài đặt {WINDOWS_TOOL_FILE} đã sẵn sàng.</span>
                       </div>
                     </motion.div>
                   ) : downloading ? (
@@ -419,16 +419,16 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
                       id="btn-download-windows-tool"
                     >
                       <Download className="w-4 h-4 text-slate-950 animate-bounce" />
-                      <span>TẢI ARGB HSL WINDOWS TOOL (325 MB)</span>
+                      <span>TẢI ARGB HSL WINDOWS TOOL ({WINDOWS_TOOL_SIZE})</span>
                     </button>
                   )}
                 </AnimatePresence>
                 
                 <span className="block text-[10px] text-center font-mono text-emerald-400 uppercase font-bold">
-                  Miễn phí 100% // Phiên bản v3.7.1 // Windows 10/11 x64
+                  Miễn phí 100% // Phiên bản v{WINDOWS_TOOL_VERSION} // Windows 10/11 x64
                 </span>
                 <span className="block text-[9px] text-center font-mono text-slate-600 break-all leading-relaxed">
-                  SHA256: e54c7ddcde8dac45bcb1f0d921e6e97d91004154af752767e34fa7b58e6eeeec
+                  SHA256: {WINDOWS_TOOL_SHA256}
                 </span>
 
                 {onViewToolDetails && (

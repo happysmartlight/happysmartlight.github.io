@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ArrowLeft, Smartphone, Laptop, Download, CheckCircle2, Cpu, Wifi, Sliders, Music, Camera, ShieldCheck, Mail, Phone, PlayCircle, Settings, Sparkles, Eye, type LucideIcon } from "lucide-react";
 import { motion } from "motion/react";
 import ImageZoomLightbox, { type ZoomGalleryItem } from "./ImageZoomLightbox";
+import { WINDOWS_TOOL_URL, WINDOWS_TOOL_VERSION, WINDOWS_TOOL_FILE, WINDOWS_TOOL_SIZE, WINDOWS_TOOL_SHA256 } from "../windowsTool";
 
 interface Feature {
   icon: LucideIcon;
@@ -50,8 +51,6 @@ interface SoftwareDetailsPageProps {
   onBack: () => void;
 }
 
-const WINDOWS_TOOL_URL =
-  "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.7.1.exe";
 const ANDROID_APP_URL = "https://play.google.com/store/apps/details?id=com.happysmartlight.argb";
 
 const APP_SCREENSHOTS: (ZoomGalleryItem & { desc: string })[] = [
@@ -124,7 +123,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
   ];
 
   const toolSteps: Step[] = [
-    { title: "Tải & cài đặt phần mềm", desc: "Tải bộ cài ToolARGB_HSL_Setup_3.7.1.exe, chạy file và làm theo trình hướng dẫn cài đặt." },
+    { title: "Tải & cài đặt phần mềm", desc: `Tải bộ cài ${WINDOWS_TOOL_FILE}, chạy file và làm theo trình hướng dẫn cài đặt.` },
     { title: "Kết nối mạch qua cổng COM", desc: "Cắm bộ điều khiển vào máy tính bằng cáp USB, chọn đúng cổng COM trong phần mềm." },
     { title: "Nạp firmware (nếu cần)", desc: "Dùng Auto-Flasher để nạp/cập nhật firmware mới nhất cho chip điều khiển." },
     { title: "Thiết kế layout Pixel Mapper", desc: "Vẽ sơ đồ ma trận LED 2D/3D theo bố cục thi công thực tế của bạn." },
@@ -173,7 +172,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
                 {isApp ? "ỨNG DỤNG DI ĐỘNG ARGB HSL" : "CÔNG CỤ MÁY TÍNH ARGB HSL CONTROL TOOL"}
               </h1>
               <p className="font-mono text-xs text-slate-400 mt-2">
-                {isApp ? "Điều khiển dải LED ARGB từ điện thoại — mọi lúc, mọi nơi." : "Phần mềm cấu hình & điều khiển ma trận LED chuyên nghiệp — Phiên bản v3.7.1"}
+                {isApp ? "Điều khiển dải LED ARGB từ điện thoại — mọi lúc, mọi nơi." : `Phần mềm cấu hình & điều khiển ma trận LED chuyên nghiệp — Phiên bản v${WINDOWS_TOOL_VERSION}`}
               </p>
             </div>
           </div>
@@ -336,9 +335,9 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
               ) : (
                 <>
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Windows 10 / 11 (64-bit)</p>
-                  <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Dung lượng cài đặt: 325 MB</p>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Dung lượng cài đặt: {WINDOWS_TOOL_SIZE}</p>
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Cổng USB (nạp firmware) & cổng mạng LAN/Wi-Fi (stream)</p>
-                  <p className="break-all pt-1 text-[10px] text-slate-500">SHA256: e54c7ddcde8dac45bcb1f0d921e6e97d91004154af752767e34fa7b58e6eeeec</p>
+                  <p className="break-all pt-1 text-[10px] text-slate-500">SHA256: {WINDOWS_TOOL_SHA256}</p>
                 </>
               )}
             </div>
@@ -362,7 +361,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
                 className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-cyan-500 to-neon-blue text-center font-display text-xs font-bold uppercase tracking-wider text-slate-950 flex items-center justify-center space-x-2 cursor-pointer shadow-glow-blue hover:scale-102 transition-all"
               >
                 <Download className="w-4 h-4 text-slate-950" />
-                <span>TẢI ARGB HSL WINDOWS TOOL (325 MB)</span>
+                <span>TẢI ARGB HSL WINDOWS TOOL ({WINDOWS_TOOL_SIZE})</span>
               </button>
             )}
 

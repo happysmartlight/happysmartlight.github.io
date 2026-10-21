@@ -3,6 +3,7 @@ import { Cpu, AlertTriangle, Settings, Download, HardDrive, Lightbulb, Eye } fro
 import ArticleLayout, { SectionHeading, InfoCard, FeatureCard, ArtQuote, Callout } from "../ArticleLayout";
 import ArticleVideoGallery from "../ArticleVideoGallery";
 import ImageZoomLightbox, { type ZoomGalleryItem } from "../ImageZoomLightbox";
+import { WINDOWS_TOOL_URL } from "../../windowsTool";
 
 const STORAGE_TABLE = [
   { pixel: "15 × 15", size: "~0.76 KB", max: "5,290 ảnh" },
@@ -13,8 +14,6 @@ const STORAGE_TABLE = [
   { pixel: "145 × 145", size: "~61.8 KB", max: "64 ảnh" },
 ];
 
-const WINDOWS_TOOL_URL =
-  "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.7.1.exe";
 
 const DEMO_PHOTO_FILES = [
   "12530490991406016422.jpg",

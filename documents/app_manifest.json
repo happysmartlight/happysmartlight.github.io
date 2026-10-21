@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.10.0",
-    "version_label": "v3.10.0 - October 2026",
-    "release_date": "2026-10-08",
-    "release_notes": "🔧 Tab Cấu hình phần cứng — nút \"🧨 Khôi phục cài đặt gốc\": xoá toàn bộ cấu\nhình, preset và file trên mạch rồi khởi động lại ở chế độ phát WiFi ARGB-AP\n(giống trang Bảo mật của mạch). Có hộp xác nhận chống bấm nhầm (phải tick\n\"Tôi hiểu...\" mới bấm được), tự hỏi Mã PIN nếu mạch đang khoá và kiểm tra\nmạch có thật sự khởi động lại.\n🎬 Tab Matrix Led:\n- Upload Visual ở mode SINGLE chỉ gửi cho mạch đang chọn (trước đây gửi cho\nmọi mạch online); kiểm tra dung lượng cũng chỉ tính các mạch sẽ nhận.\n- Gộp Upload ALL / SELECTED / GHÉP thành 1 nút \"⬆️ Upload\" đi theo Mode, hiện\nsố mạch sẽ nhận.\n- Upload Visual convert riêng 1 GIF cho mỗi kích thước ledmap — mạch nào cũng\nnhận đúng W×H của nó (như upload ảnh).\n- Ghép mạch: chỉnh thứ tự mạch bằng ▲▼, \"⇅ Đảo ngược\", \"↺ Theo lưới\"; thứ\ntự được nhớ cho lần sau. Không đọc được preset của 1 mạch thì dừng thay vì\nghi đè nhầm.",
+    "version": "3.10.1",
+    "version_label": "v3.10.1 - October 2026",
+    "release_date": "2026-10-21",
+    "release_notes": "📡 Quét thiết bị: hỗ trợ dòng sản phẩm mới \"ARGB HSL Controller 2X Pro\".",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.10.0.exe",
-    "size": 342976251,
-    "sha256": "c30ee3ff0f5d1281fdd805f82c314843c0f538f7dd44619fba8920f480bb4a0c"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.10.1.exe",
+    "size": 342959070,
+    "sha256": "fe36fb2dd5730f03d3a0e80e4c95f8b9d27c9377b1f98d109676408fb60fed4c"
   }
 }

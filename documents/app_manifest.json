@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.10.2",
-    "version_label": "v3.10.2 - October 2026",
+    "version": "3.10.3",
+    "version_label": "v3.10.3 - October 2026",
     "release_date": "2026-10-27",
-    "release_notes": "🧩 Tab Gen JSON Matrix: nâng kích thước tối đa từ 256 lên 300 × 300. Đọc tệp\nledmap.json lớn hơn 256 không còn bị cắt ngầm về 256 W; tệp vượt 300 báo\nlỗi thay vì nạp sai. Lưới chỉ vẽ phần đang hiển thị nên click/kéo ở ma trận\nlớn mượt hơn.",
+    "release_notes": "🔌 Công cụ → Nạp Firmware (USB):\n- Sửa lỗi \"Tải firmware thất bại\" với mọi mạch (link firmware cũ trên web đã\nbị gỡ).\n- Tự nhận dòng mạch qua cổng USB và nạp đúng firmware cho dòng đó (hỗ trợ\nARGB HSL Controller 2X Pro). Trước đây mọi mạch đều bị nạp chung 1 bản.\nFirmware tải về được kiểm tra dung lượng + mã băm trước khi nạp; dòng mạch\nchưa có firmware thì báo rõ thay vì nạp nhầm.\n- Nút \"🔍 Làm mới\" đọc lại thiết bị: xác minh, dòng mạch, firmware đang chạy\ntrên mạch và bản mới nhất (có bản mới / đã mới nhất) — không nạp.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.10.2.exe",
-    "size": 342960908,
-    "sha256": "43aa0c92801517865ed1332755182ae9eb44448e4b817d4a3f08f7e9590a6273"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.10.3.exe",
+    "size": 342980319,
+    "sha256": "bf0aa3c6c7de3f8c9bc94b3cc920ca7a214c36dd83d37bb768b26b8bb00d8f74"
   }
 }

@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.10.1",
-    "version_label": "v3.10.1 - October 2026",
-    "release_date": "2026-10-21",
-    "release_notes": "📡 Quét thiết bị: hỗ trợ dòng sản phẩm mới \"ARGB HSL Controller 2X Pro\".",
+    "version": "3.10.2",
+    "version_label": "v3.10.2 - October 2026",
+    "release_date": "2026-10-27",
+    "release_notes": "🧩 Tab Gen JSON Matrix: nâng kích thước tối đa từ 256 lên 300 × 300. Đọc tệp\nledmap.json lớn hơn 256 không còn bị cắt ngầm về 256 W; tệp vượt 300 báo\nlỗi thay vì nạp sai. Lưới chỉ vẽ phần đang hiển thị nên click/kéo ở ma trận\nlớn mượt hơn.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.10.1.exe",
-    "size": 342959070,
-    "sha256": "fe36fb2dd5730f03d3a0e80e4c95f8b9d27c9377b1f98d109676408fb60fed4c"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.10.2.exe",
+    "size": 342960908,
+    "sha256": "43aa0c92801517865ed1332755182ae9eb44448e4b817d4a3f08f7e9590a6273"
   }
 }

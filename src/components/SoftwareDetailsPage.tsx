@@ -1,8 +1,12 @@
 import { useState } from "react";
-import { ArrowLeft, Smartphone, Laptop, Download, CheckCircle2, Cpu, Wifi, Sliders, Music, Camera, ShieldCheck, Mail, Phone, PlayCircle, Settings, Sparkles, Eye, type LucideIcon } from "lucide-react";
+import { ArrowLeft, Smartphone, Laptop, Download, CheckCircle2, Cpu, Wifi, Sliders, Music, Camera, ShieldCheck, Mail, Phone, PlayCircle, Settings, Sparkles, Eye, WandSparkles, ImageUp, Users, Thermometer, BatteryCharging, type LucideIcon } from "lucide-react";
 import { motion } from "motion/react";
 import ImageZoomLightbox, { type ZoomGalleryItem } from "./ImageZoomLightbox";
 import { WINDOWS_TOOL_URL, WINDOWS_TOOL_VERSION, WINDOWS_TOOL_FILE, WINDOWS_TOOL_SIZE, WINDOWS_TOOL_SHA256 } from "../windowsTool";
+import { POI_STUDIO_URL, POI_STUDIO_VERSION, POI_STUDIO_FILE, POI_STUDIO_SIZE, POI_STUDIO_SHA256 } from "../poiStudio";
+
+// "app" = Android, "tool" = ARGB HSL Windows Tool, "poi" = POI HSL Studio (app POI riêng cho Windows).
+type SoftwareType = "app" | "tool" | "poi";
 
 interface Feature {
   icon: LucideIcon;
@@ -25,7 +29,7 @@ interface ThemeConfig {
   stepCircle: string;
 }
 
-const THEME: Record<"app" | "tool", ThemeConfig> = {
+const THEME: Record<SoftwareType, ThemeConfig> = {
   app: {
     glow: "bg-neon-pink-bright/5",
     backHover: "hover:text-neon-pink-bright",
@@ -44,10 +48,19 @@ const THEME: Record<"app" | "tool", ThemeConfig> = {
     bar: "bg-neon-blue",
     stepCircle: "bg-neon-blue/10 border-neon-blue-bright/35 text-neon-blue-bright",
   },
+  poi: {
+    glow: "bg-emerald-500/5",
+    backHover: "hover:text-emerald-400",
+    accentLine: "from-emerald-400 via-cyan-500 to-neon-blue",
+    label: "text-emerald-400",
+    icon: "text-emerald-400",
+    bar: "bg-emerald-500",
+    stepCircle: "bg-emerald-500/10 border-emerald-400/35 text-emerald-400",
+  },
 };
 
 interface SoftwareDetailsPageProps {
-  type: "app" | "tool";
+  type: SoftwareType;
   onBack: () => void;
 }
 
@@ -82,6 +95,7 @@ const APP_SCREENSHOTS: (ZoomGalleryItem & { desc: string })[] = [
 
 export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPageProps) {
   const isApp = type === "app";
+  const isPoi = type === "poi";
   const t = THEME[type];
   const [activeScreenshotIndex, setActiveScreenshotIndex] = useState<number>(0);
   const [isScreenshotViewerOpen, setIsScreenshotViewerOpen] = useState<boolean>(false);
@@ -89,7 +103,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
 
   const startToolDownload = () => {
     const link = document.createElement("a");
-    link.href = WINDOWS_TOOL_URL;
+    link.href = isPoi ? POI_STUDIO_URL : WINDOWS_TOOL_URL;
     link.setAttribute("download", "");
     document.body.appendChild(link);
     link.click();
@@ -113,6 +127,14 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
     { icon: Settings, title: "Quản lý kịch bản & preset", desc: "Lưu, xuất và tái sử dụng các bố cục, preset hiệu ứng cho từng dự án thi công." },
   ];
 
+  const poiFeatures: Feature[] = [
+    { icon: ImageUp, title: "Nạp ảnh POI kéo-thả", desc: "Kéo-thả ảnh, xem trước vòng quay như khi múa thật; tự kiểm tra dung lượng 63 KB và gợi ý số pixel phù hợp trước khi gửi." },
+    { icon: Users, title: "Gửi một lần cho cả đội gậy", desc: "Chọn nhiều gậy, gửi nhiều ảnh cùng lúc; tên ảnh tiếng Việt tự bỏ dấu, không ghi đè ảnh của preset khác." },
+    { icon: Music, title: "Timecode theo nhạc", desc: "Lập trình kịch bản ánh sáng theo bài nhạc trên timeline, cả đội POI chạy đồng bộ khi biểu diễn." },
+    { icon: Thermometer, title: "Theo dõi từng gậy", desc: "Bảng tất cả gậy: sóng Wi-Fi, bộ nhớ, nhiệt độ chip, mode quay POI; cảnh báo gậy cần chú ý và nút Nháy để nhận diện từng cây." },
+    { icon: BatteryCharging, title: "Độ sáng an toàn cho pin", desc: "Thanh độ sáng giới hạn ở mức an toàn cho pin POI (hiển thị 0-100%), tránh sụt áp giữa buổi diễn." },
+  ];
+
   // ---- Usage steps ----
   const appSteps: Step[] = [
     { title: "Cài đặt ứng dụng", desc: "Tải ARGB HSL trực tiếp từ Google Play (CH Play) — cài đặt chính chủ, tự động cập nhật." },
@@ -130,8 +152,17 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
     { title: "Stream kịch bản & xuất bản", desc: "Kết nối nguồn kịch bản (xLights) qua Ethernet/Wi-Fi UDP và phát trực tiếp ra dải đèn." },
   ];
 
-  const features = isApp ? appFeatures : toolFeatures;
-  const steps = isApp ? appSteps : toolSteps;
+  const poiSteps: Step[] = [
+    { title: "Tải & cài đặt", desc: `Tải bộ cài ${POI_STUDIO_FILE}, chạy file và làm theo trình hướng dẫn. App cài song song, không ảnh hưởng ARGB HSL Windows Tool.` },
+    { title: "Bật gậy POI & quét mạng", desc: "Bật gậy POI, để máy tính và gậy cùng mạng Wi-Fi; app tự tìm gậy (hoặc bấm Quét mạng)." },
+    { title: "Chọn ảnh & thông số", desc: "Kéo-thả ảnh vào app, chỉnh số pixel LED và độ sáng; thanh dung lượng báo ngay ảnh có vừa với gậy không." },
+    { title: "Gửi ảnh lên gậy", desc: "Bấm 'Gửi ảnh này lên mạch' để ghi vào ID trống kế tiếp, hoặc 'Gửi nhiều ảnh' để nạp cho cả đội gậy cùng lúc." },
+    { title: "Lập trình Timecode (tuỳ chọn)", desc: "Mở Tab Timecode, nạp bài nhạc và sắp xếp hiệu ứng theo nhịp để cả đội POI chạy đồng bộ." },
+  ];
+
+  const features = isApp ? appFeatures : isPoi ? poiFeatures : toolFeatures;
+  const steps = isApp ? appSteps : isPoi ? poiSteps : toolSteps;
+  const HeadingIcon = isApp ? Smartphone : isPoi ? WandSparkles : Laptop;
 
   return (
     <div className="relative min-h-screen bg-[#020204] text-[#f8fafc] pt-24 pb-16 font-sans">
@@ -162,17 +193,21 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
           {/* Heading */}
           <div className="flex items-start gap-4 mb-6">
             <div className="w-12 h-12 rounded-xl bg-slate-900 border border-white/10 flex items-center justify-center shrink-0">
-              {isApp ? <Smartphone className={`w-6 h-6 ${t.icon}`} /> : <Laptop className={`w-6 h-6 ${t.icon}`} />}
+              <HeadingIcon className={`w-6 h-6 ${t.icon}`} />
             </div>
             <div>
               <span className={`font-mono text-[9px] uppercase tracking-widest ${t.label} font-bold`}>
-                {isApp ? "MOBILE APPLICATION (ANDROID)" : "DESKTOP SETUP TOOL (WINDOWS x64)"}
+                {isApp ? "MOBILE APPLICATION (ANDROID)" : isPoi ? "POI DESKTOP APP (WINDOWS x64)" : "DESKTOP SETUP TOOL (WINDOWS x64)"}
               </span>
               <h1 className="font-display font-bold text-xl sm:text-3xl text-white tracking-tight mt-1">
-                {isApp ? "ỨNG DỤNG DI ĐỘNG ARGB HSL" : "CÔNG CỤ MÁY TÍNH ARGB HSL CONTROL TOOL"}
+                {isApp ? "ỨNG DỤNG DI ĐỘNG ARGB HSL" : isPoi ? "POI HSL STUDIO — APP CHUYÊN DỤNG GẬY POI" : "CÔNG CỤ MÁY TÍNH ARGB HSL CONTROL TOOL"}
               </h1>
               <p className="font-mono text-xs text-slate-400 mt-2">
-                {isApp ? "Điều khiển dải LED ARGB từ điện thoại — mọi lúc, mọi nơi." : `Phần mềm cấu hình & điều khiển ma trận LED chuyên nghiệp — Phiên bản v${WINDOWS_TOOL_VERSION}`}
+                {isApp
+                  ? "Điều khiển dải LED ARGB từ điện thoại — mọi lúc, mọi nơi."
+                  : isPoi
+                    ? `Nạp ảnh & lập trình Timecode cho gậy POI ARGB HSL — Phiên bản v${POI_STUDIO_VERSION}`
+                    : `Phần mềm cấu hình & điều khiển ma trận LED chuyên nghiệp — Phiên bản v${WINDOWS_TOOL_VERSION}`}
               </p>
             </div>
           </div>
@@ -183,12 +218,14 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
             <p className="text-xs text-slate-400 leading-relaxed">
               {isApp
                 ? "ARGB HSL là ứng dụng điều khiển LED thông minh theo triết lý 'Offline-First': nhanh, mượt, bảo mật tuyệt đối. Phù hợp cho trang trí nhà cửa, phòng gaming, quán cà phê và các không gian sáng tạo."
-                : "ARGB HSL Control Tool là bộ phần mềm máy tính chuyên nghiệp dành cho kỹ sư ánh sáng và nhà thầu biểu diễn nghệ thuật: thiết kế layout, nạp firmware và stream kịch bản ánh sáng quy mô lớn."}
+                : isPoi
+                  ? "POI HSL Studio là app máy tính gọn nhẹ dành riêng cho gậy POI: chỉ gồm Công cụ POI, Timecode và Cập nhật phần mềm — giao diện tập trung, thao tác nhanh cho đội biểu diễn. Cài song song với ARGB HSL Windows Tool và dùng chung bản quyền đã kích hoạt trên máy."
+                  : "ARGB HSL Control Tool là bộ phần mềm máy tính chuyên nghiệp dành cho kỹ sư ánh sáng và nhà thầu biểu diễn nghệ thuật: thiết kế layout, nạp firmware và stream kịch bản ánh sáng quy mô lớn."}
             </p>
           </div>
 
           {/* Illustration image for PC tool */}
-          {!isApp && (
+          {type === "tool" && (
             <div className="mb-10 rounded-2xl overflow-hidden border border-white/5 bg-slate-900/40 p-2 shadow-inner">
               <img 
                 src="/img/controller-chip/tool_argb_hsl.png" 
@@ -332,6 +369,13 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Kết nối WiFi 2.4GHz cùng mạng với bộ điều khiển</p>
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Bộ điều khiển ARGB HSL (chip ESP8266 / ESP32)</p>
                 </>
+              ) : isPoi ? (
+                <>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Windows 10 / 11 (64-bit)</p>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Dung lượng cài đặt: {POI_STUDIO_SIZE}</p>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Gậy POI ARGB HSL cùng mạng Wi-Fi với máy tính</p>
+                  <p className="break-all pt-1 text-[10px] text-slate-500">SHA256: {POI_STUDIO_SHA256}</p>
+                </>
               ) : (
                 <>
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Windows 10 / 11 (64-bit)</p>
@@ -355,6 +399,14 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
                 <PlayCircle className="w-4 h-4" />
                 <span>TẢI ỨNG DỤNG TRÊN GOOGLE PLAY (CÓ PHÍ)</span>
               </a>
+            ) : isPoi ? (
+              <button
+                onClick={startToolDownload}
+                className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-emerald-400 to-cyan-500 text-center font-display text-xs font-bold uppercase tracking-wider text-slate-950 flex items-center justify-center space-x-2 cursor-pointer shadow-lg shadow-emerald-500/20 hover:scale-102 transition-all"
+              >
+                <Download className="w-4 h-4 text-slate-950" />
+                <span>TẢI POI HSL STUDIO ({POI_STUDIO_SIZE})</span>
+              </button>
             ) : (
               <button
                 onClick={startToolDownload}
@@ -368,7 +420,9 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
             <p className={`mt-3 text-center text-[11px] font-mono uppercase tracking-wider ${isApp ? "text-amber-400" : "text-emerald-400"}`}>
               {isApp
                 ? "Ứng dụng di động: phần mềm trả phí trên Google Play"
-                : "Công cụ máy tính Windows: miễn phí 100%"}
+                : isPoi
+                  ? `POI HSL Studio v${POI_STUDIO_VERSION} // Windows 10/11 x64`
+                  : "Công cụ máy tính Windows: miễn phí 100%"}
             </p>
           </section>
 

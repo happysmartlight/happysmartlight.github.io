@@ -3,6 +3,7 @@ import Layout from "./Layout";
 import Home from "./pages/Home";
 import AppDetailsRoute from "./pages/AppDetailsRoute";
 import ToolDetailsRoute from "./pages/ToolDetailsRoute";
+import PoiStudioDetailsRoute from "./pages/PoiStudioDetailsRoute";
 import PrivacyRoute from "./pages/PrivacyRoute";
 import SalesPolicyRoute from "./pages/SalesPolicyRoute";
 import IpPolicyRoute from "./pages/IpPolicyRoute";
@@ -27,6 +28,7 @@ export const routes: RouteRecord[] = [
       { index: true, element: <Home /> },
       { path: "argb-hsl-tool-mobile", element: <AppDetailsRoute /> },
       { path: "argb-hsl-tool-pc", element: <ToolDetailsRoute /> },
+      { path: "poi-hsl-studio-pc", element: <PoiStudioDetailsRoute /> },
       { path: "chinh-sach-bao-mat", element: <PrivacyRoute /> },
       { path: "chinh-sach-ban-hang", element: <SalesPolicyRoute /> },
       { path: "chinh-sach-ban-quyen", element: <IpPolicyRoute /> },

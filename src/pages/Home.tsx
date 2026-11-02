@@ -72,6 +72,7 @@ export default function Home() {
         onViewPrivacy={() => navigate("/chinh-sach-bao-mat")}
         onViewAppDetails={() => navigate("/argb-hsl-tool-mobile")}
         onViewToolDetails={() => navigate("/argb-hsl-tool-pc")}
+        onViewPoiDetails={() => navigate("/poi-hsl-studio-pc")}
       />
       <DistributionService />
       <WhyChooseUs />

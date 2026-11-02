@@ -1,33 +1,39 @@
 import { useState } from "react";
-import { Smartphone, Laptop, Download, RefreshCw, Smartphone as PhoneIcon, Sliders, Play, CheckCircle2, QrCode, Monitor, Sparkles, Info } from "lucide-react";
+import { Smartphone, Laptop, Download, RefreshCw, Smartphone as PhoneIcon, Sliders, Play, CheckCircle2, QrCode, Monitor, Sparkles, Info, WandSparkles, ImageUp, Users, Music } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { WINDOWS_TOOL_URL, WINDOWS_TOOL_VERSION, WINDOWS_TOOL_FILE, WINDOWS_TOOL_SIZE, WINDOWS_TOOL_SHA256 } from "../windowsTool";
+import { POI_STUDIO_URL, POI_STUDIO_VERSION, POI_STUDIO_FILE, POI_STUDIO_SIZE, POI_STUDIO_SHA256 } from "../poiStudio";
 
 interface AppAndToolSectionProps {
   onViewPrivacy?: () => void;
   onViewAppDetails?: () => void;
   onViewToolDetails?: () => void;
+  onViewPoiDetails?: () => void;
 }
 
-export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onViewToolDetails }: AppAndToolSectionProps) {
+interface InstallerDownloadProps {
+  url: string;
+  file: string;
+  label: string;
+  buttonId: string;
+  /** Lớp màu riêng của nút tải (gradient + glow). */
+  buttonClass: string;
+  /** Màu icon xoay khi đang tải. */
+  spinnerClass: string;
+  /** Gradient thanh tiến trình. */
+  barClass: string;
+}
+
+// Nút tải bộ cài Windows: chạy thanh tiến trình ngắn rồi mở link tải, báo "hoàn tất" 5 giây.
+// Dùng chung cho ARGB HSL Windows Tool và POI HSL Studio.
+function InstallerDownload({ url, file, label, buttonId, buttonClass, spinnerClass, barClass }: InstallerDownloadProps) {
   const [downloading, setDownloading] = useState(false);
   const [downloadProgress, setDownloadProgress] = useState(0);
   const [downloadSuccess, setDownloadSuccess] = useState(false);
 
-  // App Simulator State
-  const [activeColor, setActiveColor] = useState("#ff2d95");
-  const [activeEffect, setActiveEffect] = useState("Rainbow Flow");
-  const [brightness, setBrightness] = useState(85);
-  const [syncStatus, setSyncStatus] = useState(true);
-
-  const colorsList = ["#ff2d95", "#00e5ff", "#a855f7", "#eab308", "#22c55e", "#ef4444"];
-  const effectsList = ["Rainbow Flow", "Cosmic Strobe", "Pixel Wave", "Pulse Beat", "Metropoli Beat"];
-
-  const ANDROID_APP_URL = "https://play.google.com/store/apps/details?id=com.happysmartlight.argb";
-
   const startDownload = () => {
     const link = document.createElement("a");
-    link.href = WINDOWS_TOOL_URL;
+    link.href = url;
     link.setAttribute("download", "");
     document.body.appendChild(link);
     link.click();
@@ -59,6 +65,67 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
   };
 
   return (
+    <AnimatePresence mode="wait">
+      {downloadSuccess ? (
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/35 flex items-center space-x-3 text-xs"
+        >
+          <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+          <div>
+            <span className="text-white font-bold block">Tải xuống hoàn tất!</span>
+            <span className="text-emerald-300">File cài đặt {file} đã sẵn sàng.</span>
+          </div>
+        </motion.div>
+      ) : downloading ? (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="space-y-2 p-3.5 rounded-xl bg-slate-900 border border-white/5"
+        >
+          <div className="flex justify-between items-center text-xs text-slate-400">
+            <span className="flex items-center">
+              <RefreshCw className={`w-3.5 h-3.5 ${spinnerClass} animate-spin mr-2`} />
+              Đang tải phần mềm cài đặt...
+            </span>
+            <span className="font-mono font-bold text-white">{downloadProgress}%</span>
+          </div>
+          <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+            <div
+              className={`h-full bg-gradient-to-r ${barClass} transition-all duration-200`}
+              style={{ width: `${downloadProgress}%` }}
+            />
+          </div>
+        </motion.div>
+      ) : (
+        <button
+          onClick={triggerDownload}
+          className={`w-full py-4 px-6 rounded-2xl ${buttonClass} text-center font-display text-xs font-bold uppercase tracking-wider text-slate-950 flex items-center justify-center space-x-2 cursor-pointer hover:scale-102 transition-all`}
+          id={buttonId}
+        >
+          <Download className="w-4 h-4 text-slate-950 animate-bounce" />
+          <span>{label}</span>
+        </button>
+      )}
+    </AnimatePresence>
+  );
+}
+
+export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onViewToolDetails, onViewPoiDetails }: AppAndToolSectionProps) {
+  // App Simulator State
+  const [activeColor, setActiveColor] = useState("#ff2d95");
+  const [activeEffect, setActiveEffect] = useState("Rainbow Flow");
+  const [brightness, setBrightness] = useState(85);
+  const [syncStatus, setSyncStatus] = useState(true);
+
+  const colorsList = ["#ff2d95", "#00e5ff", "#a855f7", "#eab308", "#22c55e", "#ef4444"];
+  const effectsList = ["Rainbow Flow", "Cosmic Strobe", "Pixel Wave", "Pulse Beat", "Metropoli Beat"];
+
+  const ANDROID_APP_URL = "https://play.google.com/store/apps/details?id=com.happysmartlight.argb";
+
+  return (
     <section id="app-and-tool" className="relative py-[65px] border-t border-white/5 bg-slate-950/40 overflow-hidden">
       {/* Decorative ambient gradients */}
       <div className="absolute top-1/4 right-[10%] w-96 h-96 bg-neon-pink-bright/5 rounded-full blur-[120px] pointer-events-none -z-10" />
@@ -72,13 +139,13 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
             HỆ ĐIỀU HÀNH THỜI GIAN THỰC
           </span>
           <h2 className="mt-2 font-display font-bold text-3xl sm:text-4xl text-white tracking-tight">
-            Bộ Đôi Giải Pháp Tối Ưu:{" "}
+            Bộ Giải Pháp Tối Ưu:{" "}
             <span className="bg-gradient-to-r from-neon-pink-bright via-purple-400 to-neon-blue-bright bg-clip-text text-transparent">
               Ứng Dụng HSL
             </span>
           </h2>
           <p className="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
-            Kiểm soát trọn vẹn dải LED của bạn trực tiếp từ Thiết bị di động (Android App) hoặc Thiết lập không gian diễn sướng phức tạp cấp độ cao qua Máy tính (Windows Tool) độc quyền của <strong className="text-white">Happy Smart Light</strong>.
+            Kiểm soát trọn vẹn dải LED của bạn trực tiếp từ Thiết bị di động (Android App), Thiết lập không gian diễn sướng phức tạp cấp độ cao qua Máy tính (Windows Tool), hoặc nạp ảnh cho gậy POI với app chuyên dụng <strong className="text-emerald-400">POI HSL Studio</strong> — độc quyền của <strong className="text-white">Happy Smart Light</strong>.
           </p>
         </div>
 
@@ -378,51 +445,15 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
 
               {/* Dynamic responsive download block with progress */}
               <div className="pt-6 border-t border-white/5 space-y-3.5">
-                <AnimatePresence mode="wait">
-                  {downloadSuccess ? (
-                    <motion.div 
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/35 flex items-center space-x-3 text-xs"
-                    >
-                      <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
-                      <div>
-                        <span className="text-white font-bold block">Tải xuống hoàn tất!</span>
-                        <span className="text-emerald-300">File cài đặt {WINDOWS_TOOL_FILE} đã sẵn sàng.</span>
-                      </div>
-                    </motion.div>
-                  ) : downloading ? (
-                    <motion.div 
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="space-y-2 p-3.5 rounded-xl bg-slate-900 border border-white/5"
-                    >
-                      <div className="flex justify-between items-center text-xs text-slate-400">
-                        <span className="flex items-center">
-                          <RefreshCw className="w-3.5 h-3.5 text-neon-blue-bright animate-spin mr-2" />
-                          Đang tải phần mềm cài đặt...
-                        </span>
-                        <span className="font-mono font-bold text-white">{downloadProgress}%</span>
-                      </div>
-                      <div className="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
-                        <div 
-                          className="h-full bg-gradient-to-r from-neon-blue-bright to-cyan-500 transition-all duration-200"
-                          style={{ width: `${downloadProgress}%` }}
-                        />
-                      </div>
-                    </motion.div>
-                  ) : (
-                    <button
-                      onClick={triggerDownload}
-                      className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-cyan-500 to-neon-blue text-center font-display text-xs font-bold uppercase tracking-wider text-slate-950 flex items-center justify-center space-x-2 cursor-pointer shadow-glow-blue hover:scale-102 transition-all"
-                      id="btn-download-windows-tool"
-                    >
-                      <Download className="w-4 h-4 text-slate-950 animate-bounce" />
-                      <span>TẢI ARGB HSL WINDOWS TOOL ({WINDOWS_TOOL_SIZE})</span>
-                    </button>
-                  )}
-                </AnimatePresence>
+                <InstallerDownload
+                  url={WINDOWS_TOOL_URL}
+                  file={WINDOWS_TOOL_FILE}
+                  label={`TẢI ARGB HSL WINDOWS TOOL (${WINDOWS_TOOL_SIZE})`}
+                  buttonId="btn-download-windows-tool"
+                  buttonClass="bg-gradient-to-r from-cyan-500 to-neon-blue shadow-glow-blue"
+                  spinnerClass="text-neon-blue-bright"
+                  barClass="from-neon-blue-bright to-cyan-500"
+                />
                 
                 <span className="block text-[10px] text-center font-mono text-emerald-400 uppercase font-bold">
                   Miễn phí 100% // Phiên bản v{WINDOWS_TOOL_VERSION} // Windows 10/11 x64
@@ -442,6 +473,79 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
                 )}
               </div>
 
+            </div>
+          </div>
+
+          {/* Card 3: POI HSL Studio — app POI riêng cho Windows (đọc version/link từ poi_app_manifest.json) */}
+          <div className="lg:col-span-12 bg-glass rounded-3xl border border-white/10 p-6 sm:p-8 relative overflow-hidden group" id="poi-studio-card">
+            <div className="absolute -top-12 -left-12 w-48 h-48 bg-emerald-500/5 rounded-full blur-3xl pointer-events-none group-hover:bg-emerald-500/10 transition-colors" />
+
+            <div className="grid md:grid-cols-12 gap-6 lg:gap-10 items-center">
+              <div className="md:col-span-7 space-y-4">
+                <div className="flex items-center space-x-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-400/35 flex items-center justify-center">
+                    <WandSparkles className="w-4 h-4 text-emerald-400" />
+                  </div>
+                  <span className="font-mono text-xs tracking-wider uppercase text-emerald-400 font-bold">
+                    POI DESKTOP APP (WINDOWS x64)
+                  </span>
+                  <span className="px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-400/40 font-mono text-[9px] font-bold uppercase tracking-wider text-emerald-300">
+                    Mới
+                  </span>
+                </div>
+
+                <h3 className="font-display font-bold text-xl sm:text-2xl text-white leading-tight">
+                  App Chuyên Dụng Gậy POI <br />
+                  <span className="font-extrabold text-emerald-400">POI HSL STUDIO</span>
+                </h3>
+
+                <p className="font-sans text-xs sm:text-sm text-slate-400 font-light leading-relaxed">
+                  Bản gọn nhẹ dành riêng cho đội biểu diễn POI: chỉ gồm Công cụ POI, Timecode và Cập nhật phần mềm. Cài song song với ARGB HSL Windows Tool, dùng chung bản quyền đã kích hoạt trên máy.
+                </p>
+
+                <div className="grid sm:grid-cols-3 gap-3" id="poi-studio-specs">
+                  {[
+                    { icon: ImageUp, title: "Nạp ảnh kéo-thả", desc: "Xem trước vòng quay, tự kiểm tra dung lượng 63 KB trước khi gửi." },
+                    { icon: Users, title: "Cả đội gậy một lần", desc: "Gửi nhiều ảnh lên nhiều gậy, nút Nháy nhận diện từng cây." },
+                    { icon: Music, title: "Timecode theo nhạc", desc: "Lập trình kịch bản theo bài nhạc, cả đội chạy đồng bộ." },
+                  ].map((f) => (
+                    <div key={f.title} className="p-3 rounded-xl bg-slate-900/60 border border-white/5">
+                      <f.icon className="w-4 h-4 text-emerald-400 mb-2" />
+                      <span className="text-white block text-xs font-medium">{f.title}</span>
+                      <span className="text-slate-400 text-[11px] leading-snug block mt-0.5">{f.desc}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="md:col-span-5 space-y-3.5">
+                <InstallerDownload
+                  url={POI_STUDIO_URL}
+                  file={POI_STUDIO_FILE}
+                  label={`TẢI POI HSL STUDIO (${POI_STUDIO_SIZE})`}
+                  buttonId="btn-download-poi-studio"
+                  buttonClass="bg-gradient-to-r from-emerald-400 to-cyan-500 shadow-lg shadow-emerald-500/20"
+                  spinnerClass="text-emerald-400"
+                  barClass="from-emerald-400 to-cyan-500"
+                />
+
+                <span className="block text-[10px] text-center font-mono text-emerald-400 uppercase font-bold">
+                  Phiên bản v{POI_STUDIO_VERSION} // Windows 10/11 x64
+                </span>
+                <span className="block text-[9px] text-center font-mono text-slate-600 break-all leading-relaxed">
+                  SHA256: {POI_STUDIO_SHA256}
+                </span>
+
+                {onViewPoiDetails && (
+                  <button
+                    onClick={onViewPoiDetails}
+                    className="w-full py-2.5 px-5 rounded-xl bg-slate-900 border border-emerald-400/30 hover:border-emerald-400 hover:bg-emerald-500/5 text-xs font-display font-bold uppercase tracking-wider text-white flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <Info className="w-4 h-4 text-emerald-400" />
+                    Xem chi tiết & hướng dẫn sử dụng
+                  </button>
+                )}
+              </div>
             </div>
           </div>
 

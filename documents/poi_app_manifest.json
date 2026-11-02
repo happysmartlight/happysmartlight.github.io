@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "channel": "stable",
+  "instructions": "Manifest cap nhat RIENG cua POI HSL Studio (khong dung chung app_manifest.json cua Tool ARGB HSL). File that nam o happysmartlight.github.io/documents/poi_app_manifest.json, do tools/release_gui.py (app 'POI HSL Studio') tao/cap nhat tu dong: version/release notes lay tu poi_config.py, installer upload len release tag App_POI_HSL_Studio. File nay chi la mau cho lan release dau tien.",
+  "latest": {
+    "version": "1.0.0",
+    "version_label": "v1.0.0 - November 2026",
+    "release_date": "2026-11-02",
+    "release_notes": "🖼 POI HSL Studio — bản đầu tiên:\n- App riêng cho POI: Công cụ POI · Timecode · Cập nhật & Log. Cài song song\nTool ARGB HSL, không ảnh hưởng nhau.\n- Gửi ảnh: kéo-thả ảnh, kiểm tra dung lượng 63 KB trước khi gửi và gợi ý số\npixel tối đa; gửi 1 ảnh vào ID trống kế tiếp hoặc gửi nhiều ảnh lên nhiều\nmạch cùng lúc. Tên ảnh tiếng Việt tự bỏ dấu, không ghi đè ảnh preset khác.\n- Độ sáng giới hạn an toàn cho pin POI (hiển thị 0-100%) ở cả Tab POI và\nTimecode — tránh sụt áp.\n- Nhiều mạch: bảng tất cả mạch (sóng, bộ nhớ, nhiệt độ chip, mode quay POI,\nsố ảnh), cảnh báo mạch cần chú ý, chọn mạch đích dùng chung cho gửi / tắt\nLED / xoá, nút 💡 Nháy để biết mạch là cây POI nào.",
+    "min_supported_version": "1.0.0",
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.0.0.exe",
+    "size": 223547781,
+    "sha256": "29de2052c352161a27e4f2f80647da7f069feb09650e0d4427bcf828f562176a"
+  }
+}

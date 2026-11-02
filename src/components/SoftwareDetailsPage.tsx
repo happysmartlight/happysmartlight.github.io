@@ -93,13 +93,80 @@ const APP_SCREENSHOTS: (ZoomGalleryItem & { desc: string })[] = [
   },
 ];
 
+const POI_SCREENSHOTS: (ZoomGalleryItem & { desc: string })[] = [
+  {
+    url: "/img/poi-hsl-studio/poi-hsl-studio-cong-cu-poi.webp",
+    label: "Công cụ POI & bảng tất cả gậy",
+    desc: "Kéo-thả ảnh, xem trước vòng quay, theo dõi sóng / bộ nhớ / nhiệt độ từng gậy.",
+    alt: "Giao diện Công cụ POI của POI HSL Studio với bảng trạng thái nhiều gậy POI",
+  },
+  {
+    url: "/img/poi-hsl-studio/poi-hsl-studio-gui-nhieu-anh.webp",
+    label: "Gửi nhiều ảnh cho cả đội gậy",
+    desc: "Chọn các gậy đích và chế độ ghi, gửi một lần cho cả đội.",
+    alt: "Hộp thoại gửi nhiều ảnh lên nhiều gậy POI của POI HSL Studio",
+  },
+  {
+    url: "/img/poi-hsl-studio/poi-hsl-studio-timecode.webp",
+    label: "Timecode theo nhạc",
+    desc: "Sắp xếp ảnh và hiệu ứng theo bài nhạc, cả đội POI chạy đồng bộ.",
+    alt: "Tab Timecode của POI HSL Studio: nhạc và chuỗi hiệu ứng cho từng gậy POI",
+  },
+];
+
+// Album ảnh giao diện theo mẫu /san-pham/hsl4x/: nhãn trên, 1 ảnh lớn, hàng thumbnail, lightbox.
+interface GalleryConfig {
+  items: (ZoomGalleryItem & { desc: string })[];
+  tab: string;
+  badge: string;
+  title: string;
+  frame: string;
+  ping: string;
+  ring: string;
+  eye: string;
+  selected: string;
+  thumb: string;
+  aspect: string;
+}
+
+const GALLERY: Partial<Record<SoftwareType, GalleryConfig>> = {
+  app: {
+    items: APP_SCREENSHOTS,
+    tab: "Ảnh demo app",
+    badge: "APP SCREEN VIEW",
+    title: "Ứng dụng di động ARGB HSL",
+    frame: "border-neon-pink/25 shadow-glow-pink/10",
+    ping: "bg-neon-pink",
+    ring: "focus-visible:ring-neon-pink/60",
+    eye: "text-neon-pink-bright",
+    selected: "border-neon-pink shadow-glow-pink/30 scale-105",
+    thumb: "w-12 h-12 sm:w-14 sm:h-14",
+    aspect: "aspect-[1.65/1]",
+  },
+  poi: {
+    items: POI_SCREENSHOTS,
+    tab: "Ảnh giao diện app",
+    badge: "DESKTOP SCREEN VIEW",
+    title: "POI HSL Studio",
+    frame: "border-emerald-400/25",
+    ping: "bg-emerald-400",
+    ring: "focus-visible:ring-emerald-400/60",
+    eye: "text-emerald-400",
+    selected: "border-emerald-400 shadow-lg shadow-emerald-500/20 scale-105",
+    thumb: "w-20 h-12 sm:w-24 sm:h-14",
+    aspect: "aspect-[1720/1010]",
+  },
+};
+
 export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPageProps) {
   const isApp = type === "app";
   const isPoi = type === "poi";
   const t = THEME[type];
   const [activeScreenshotIndex, setActiveScreenshotIndex] = useState<number>(0);
   const [isScreenshotViewerOpen, setIsScreenshotViewerOpen] = useState<boolean>(false);
-  const activeScreenshot = APP_SCREENSHOTS[activeScreenshotIndex] ?? APP_SCREENSHOTS[0];
+  const gallery = GALLERY[type];
+  const screenshots = gallery?.items ?? [];
+  const activeScreenshot = screenshots[activeScreenshotIndex] ?? screenshots[0];
 
   const startToolDownload = () => {
     const link = document.createElement("a");
@@ -154,7 +221,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
 
   const poiSteps: Step[] = [
     { title: "Tải & cài đặt", desc: `Tải bộ cài ${POI_STUDIO_FILE}, chạy file và làm theo trình hướng dẫn. App cài song song, không ảnh hưởng ARGB HSL Windows Tool.` },
-    { title: "Bật gậy POI & quét mạng", desc: "Bật gậy POI, để máy tính và gậy cùng mạng Wi-Fi; app tự tìm gậy (hoặc bấm Quét mạng)." },
+    { title: "Bật gậy POI & quét mạng", desc: "Bật gậy POI, để máy tính và gậy cùng mạng Wi-Fi; app tự tìm gậy (hoặc bấm Quét mạng). Thanh thiết bị hiện 'Quay POI: Có' là gậy đã sẵn sàng." },
     { title: "Chọn ảnh & thông số", desc: "Kéo-thả ảnh vào app, chỉnh số pixel LED và độ sáng; thanh dung lượng báo ngay ảnh có vừa với gậy không." },
     { title: "Gửi ảnh lên gậy", desc: "Bấm 'Gửi ảnh này lên mạch' để ghi vào ID trống kế tiếp, hoặc 'Gửi nhiều ảnh' để nạp cho cả đội gậy cùng lúc." },
     { title: "Lập trình Timecode (tuỳ chọn)", desc: "Mở Tab Timecode, nạp bài nhạc và sắp xếp hiệu ứng theo nhịp để cả đội POI chạy đồng bộ." },
@@ -219,7 +286,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
               {isApp
                 ? "ARGB HSL là ứng dụng điều khiển LED thông minh theo triết lý 'Offline-First': nhanh, mượt, bảo mật tuyệt đối. Phù hợp cho trang trí nhà cửa, phòng gaming, quán cà phê và các không gian sáng tạo."
                 : isPoi
-                  ? "POI HSL Studio là app máy tính gọn nhẹ dành riêng cho gậy POI: chỉ gồm Công cụ POI, Timecode và Cập nhật phần mềm — giao diện tập trung, thao tác nhanh cho đội biểu diễn. Cài song song với ARGB HSL Windows Tool và dùng chung bản quyền đã kích hoạt trên máy."
+                  ? "POI HSL Studio là app máy tính miễn phí, gọn nhẹ, dành riêng cho gậy POI: chỉ gồm Công cụ POI, Timecode và Cập nhật phần mềm — giao diện tập trung, thao tác nhanh cho đội biểu diễn. Cài song song với ARGB HSL Windows Tool và dùng chung bản quyền: máy đã kích hoạt Windows Tool thì mở là dùng."
                   : "ARGB HSL Control Tool là bộ phần mềm máy tính chuyên nghiệp dành cho kỹ sư ánh sáng và nhà thầu biểu diễn nghệ thuật: thiết kế layout, nạp firmware và stream kịch bản ánh sáng quy mô lớn."}
             </p>
           </div>
@@ -235,8 +302,8 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
             </div>
           )}
 
-          {/* Mobile App Screenshots Showcase */}
-          {isApp && (
+          {/* Album ảnh giao diện (app Android / POI HSL Studio) */}
+          {gallery && activeScreenshot && (
             <div className="mb-10 space-y-4">
               <div className="flex justify-center">
                 <div className="inline-flex rounded-2xl bg-slate-950 border border-white/10 p-1 shadow-inner">
@@ -244,22 +311,22 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
                     type="button"
                     className="px-5 py-2 rounded-xl bg-white/10 text-white font-display text-xs font-bold uppercase tracking-wider"
                   >
-                    Ảnh demo app
+                    {gallery.tab}
                   </button>
                 </div>
               </div>
 
-              <div className="w-full rounded-3xl bg-slate-950 border border-neon-pink/25 p-4 sm:p-5 flex flex-col items-center justify-between min-h-[420px] relative overflow-hidden shadow-glow-pink/10">
+              <div className={`w-full rounded-3xl bg-slate-950 border ${gallery.frame} p-4 sm:p-5 flex flex-col items-center justify-between min-h-[420px] relative overflow-hidden`}>
                 <div className="absolute top-2 right-3 flex items-center space-x-1.5 opacity-40 font-mono text-[8px] z-10">
-                  <span className="w-1.5 h-1.5 rounded-full bg-neon-pink animate-ping" />
-                  <span>APP SCREEN VIEW</span>
+                  <span className={`w-1.5 h-1.5 rounded-full ${gallery.ping} animate-ping`} />
+                  <span>{gallery.badge}</span>
                 </div>
 
                 <button
                   type="button"
                   onClick={() => setIsScreenshotViewerOpen(true)}
                   aria-label={`Xem lớn ${activeScreenshot.label}`}
-                  className="group/zoom w-full relative aspect-[1.65/1] overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 flex items-center justify-center cursor-zoom-in mt-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-pink/60"
+                  className={`group/zoom w-full relative ${gallery.aspect} overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 flex items-center justify-center cursor-zoom-in mt-2 focus-visible:outline-none focus-visible:ring-2 ${gallery.ring}`}
                 >
                   <img
                     src={activeScreenshot.url}
@@ -270,14 +337,14 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
                   />
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/zoom:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-2xl">
                     <span className="px-3.5 py-1.5 bg-slate-900/90 border border-white/10 rounded-lg text-[10px] font-mono text-white flex items-center space-x-1.5 shadow-lg">
-                      <Eye className="w-3 h-3 text-neon-pink-bright" />
+                      <Eye className={`w-3 h-3 ${gallery.eye}`} />
                       <span>CLICK ĐỂ PHÓNG TO</span>
                     </span>
                   </div>
                 </button>
 
                 <div className="flex flex-wrap justify-center gap-2 mt-4 max-h-[84px] overflow-y-auto py-1 w-full">
-                  {APP_SCREENSHOTS.map((screen, idx) => {
+                  {screenshots.map((screen, idx) => {
                     const selected = idx === activeScreenshotIndex;
                     return (
                       <button
@@ -286,10 +353,8 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
                         onClick={() => setActiveScreenshotIndex(idx)}
                         aria-pressed={selected}
                         aria-label={`Chọn ${screen.label}`}
-                        className={`w-12 h-12 sm:w-14 sm:h-14 rounded-lg overflow-hidden border bg-slate-900 transition-all duration-200 cursor-pointer flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-pink/60 ${
-                          selected
-                            ? "border-neon-pink shadow-glow-pink/30 scale-105"
-                            : "border-white/10 hover:border-white/30"
+                        className={`${gallery.thumb} rounded-lg overflow-hidden border bg-slate-900 transition-all duration-200 cursor-pointer flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 ${gallery.ring} ${
+                          selected ? gallery.selected : "border-white/10 hover:border-white/30"
                         }`}
                       >
                         <img
@@ -306,7 +371,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
 
                 <div className="w-full pt-3 mt-3 border-t border-white/5 flex items-center justify-center text-center text-[10px] font-mono text-slate-500">
                   <span className="text-slate-300 mr-2 tabular-nums">
-                    {activeScreenshotIndex + 1} / {APP_SCREENSHOTS.length}
+                    {activeScreenshotIndex + 1} / {screenshots.length}
                   </span>
                   <span>{activeScreenshot.label}</span>
                 </div>
@@ -374,6 +439,8 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Windows 10 / 11 (64-bit)</p>
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Dung lượng cài đặt: {POI_STUDIO_SIZE}</p>
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Gậy POI ARGB HSL cùng mạng Wi-Fi với máy tính</p>
+                  <p className="flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" /> Mạch đã bật mode POI — thiết lập 1 lần bằng ARGB HSL Windows Tool (Tab Cấu hình phần cứng)</p>
+                  <p className="flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" /> Kích hoạt bản quyền 1 lần: gửi mã máy cho HSL qua Zalo ngay trong app</p>
                   <p className="break-all pt-1 text-[10px] text-slate-500">SHA256: {POI_STUDIO_SHA256}</p>
                 </>
               ) : (
@@ -421,7 +488,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
               {isApp
                 ? "Ứng dụng di động: phần mềm trả phí trên Google Play"
                 : isPoi
-                  ? `POI HSL Studio v${POI_STUDIO_VERSION} // Windows 10/11 x64`
+                  ? "POI HSL Studio: miễn phí 100%"
                   : "Công cụ máy tính Windows: miễn phí 100%"}
             </p>
           </section>
@@ -443,14 +510,16 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
         </motion.div>
       </div>
 
-      <ImageZoomLightbox
-        open={isScreenshotViewerOpen}
-        items={APP_SCREENSHOTS}
-        currentIndex={activeScreenshotIndex}
-        title="Ứng dụng di động ARGB HSL"
-        onClose={() => setIsScreenshotViewerOpen(false)}
-        onIndexChange={setActiveScreenshotIndex}
-      />
+      {gallery && (
+        <ImageZoomLightbox
+          open={isScreenshotViewerOpen}
+          items={gallery.items}
+          currentIndex={activeScreenshotIndex}
+          title={gallery.title}
+          onClose={() => setIsScreenshotViewerOpen(false)}
+          onIndexChange={setActiveScreenshotIndex}
+        />
+      )}
     </div>
   );
 }

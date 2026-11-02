@@ -500,7 +500,7 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
                 </h3>
 
                 <p className="font-sans text-xs sm:text-sm text-slate-400 font-light leading-relaxed">
-                  Bản gọn nhẹ dành riêng cho đội biểu diễn POI: chỉ gồm Công cụ POI, Timecode và Cập nhật phần mềm. Cài song song với ARGB HSL Windows Tool, dùng chung bản quyền đã kích hoạt trên máy.
+                  Bản gọn nhẹ dành riêng cho đội biểu diễn POI: chỉ gồm Công cụ POI, Timecode và Cập nhật phần mềm. Cài song song với ARGB HSL Windows Tool, dùng chung bản quyền — máy đã kích hoạt Windows Tool thì mở là dùng.
                 </p>
 
                 <div className="grid sm:grid-cols-3 gap-3" id="poi-studio-specs">
@@ -530,7 +530,7 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
                 />
 
                 <span className="block text-[10px] text-center font-mono text-emerald-400 uppercase font-bold">
-                  Phiên bản v{POI_STUDIO_VERSION} // Windows 10/11 x64
+                  Miễn phí 100% // Phiên bản v{POI_STUDIO_VERSION} // Windows 10/11 x64
                 </span>
                 <span className="block text-[9px] text-center font-mono text-slate-600 break-all leading-relaxed">
                   SHA256: {POI_STUDIO_SHA256}

@@ -62,7 +62,7 @@ const FAQS = [
   },
   {
     q: "Làm sao để nạp logo, hình ảnh riêng vào đạo cụ POI?",
-    a: "Sử dụng phần mềm ARGB HSL Tool (miễn phí, tải về máy tính Windows): kiểm tra kết nối mạch ở Tab Cấu hình phần cứng, tick chọn mode Poi, thiết lập số lượng pixel, độ sáng rồi nạp ảnh logo trực tiếp vào mạch. Xem chi tiết từng bước trong bài hướng dẫn cấu hình POI.",
+    a: "Dùng app POI HSL Studio (miễn phí, cho máy tính Windows): kéo-thả ảnh, chỉnh số pixel và độ sáng rồi gửi thẳng lên một hoặc nhiều gậy cùng lúc. Mạch chưa bật mode POI thì thiết lập một lần bằng phần mềm ARGB HSL Windows Tool (Tab Cấu hình phần cứng, tick chọn mode Poi). Xem chi tiết từng bước trong bài hướng dẫn cấu hình POI.",
   },
   {
     q: "Giá đạo cụ POI Happy Smart Light là bao nhiêu?",
@@ -170,6 +170,9 @@ export default function ArticlePoiProduct() {
           Cấu hình LED tối đa <strong className="text-slate-300">145 LED mỗi mặt</strong> đạo cụ, thiết lập qua phần mềm{" "}
           <Link to="/post-news/su-dung-poi-voi-argb-hsl/" className="text-neon-pink-bright hover:underline">
             ARGB HSL Tool
+          </Link>; nạp ảnh nhanh bằng app{" "}
+          <Link to="/poi-hsl-studio-pc/" className="text-neon-pink-bright hover:underline">
+            POI HSL Studio
           </Link>.
         </p>
       </section>

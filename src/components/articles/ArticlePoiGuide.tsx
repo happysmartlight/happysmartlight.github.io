@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Cpu, AlertTriangle, Settings, Download, HardDrive, Lightbulb, Eye } from "lucide-react";
 import ArticleLayout, { SectionHeading, InfoCard, FeatureCard, ArtQuote, Callout } from "../ArticleLayout";
 import ArticleVideoGallery from "../ArticleVideoGallery";
 import ImageZoomLightbox, { type ZoomGalleryItem } from "../ImageZoomLightbox";
 import { WINDOWS_TOOL_URL } from "../../windowsTool";
+import { POI_STUDIO_URL, POI_STUDIO_SIZE } from "../../poiStudio";
 
 const STORAGE_TABLE = [
   { pixel: "15 × 15", size: "~0.76 KB", max: "5,290 ảnh" },
@@ -46,7 +48,8 @@ const GUIDE_PHOTOS: ZoomGalleryItem[] = [
   { url: "/img/post-news/poi/LED.jpg", label: "LED chuyên dụng POI", alt: "LED chuyên dụng POI" },
   { url: "/img/controller-chip/ARGB_HSL_TOP.png", label: "3D PCB LED PIXEL ARGB IPEX V2.0", alt: "3D PCB LED PIXEL ARGB IPEX V2.0" },
   { url: "/img/post-news/poi/set-on-mode-poi.png", label: "Kiểm tra kết nối & cấu hình mode Poi", alt: "Kiểm tra kết nối & cấu hình mode Poi" },
-  { url: "/img/post-news/poi/upload-img-poi.png", label: "Set pixel, độ sáng và nạp ảnh logo", alt: "Set pixel, độ sáng và nạp ảnh logo" },
+  { url: "/img/poi-hsl-studio/poi-hsl-studio-cong-cu-poi.webp", label: "Nạp ảnh logo bằng POI HSL Studio", alt: "Giao diện Công cụ POI của POI HSL Studio: set pixel, độ sáng và nạp ảnh logo" },
+  { url: "/img/poi-hsl-studio/poi-hsl-studio-gui-nhieu-anh.webp", label: "Gửi nhiều ảnh cho cả đội gậy", alt: "Hộp thoại gửi nhiều ảnh lên nhiều gậy POI của POI HSL Studio" },
 ];
 
 function ZoomableImage({ src, alt, className, onClick }: { src: string; alt: string; className?: string; onClick: () => void }) {
@@ -82,7 +85,7 @@ export default function ArticlePoiGuide() {
     <ArticleLayout
       title="Hướng Dẫn Sử Dụng Tính Năng POI — Happy Smart Light"
       eyebrow="HAPPY SMART LIGHT — HƯỚNG DẪN KỸ THUẬT POI"
-      description="Hướng dẫn cấu hình LED, kết nối phần cứng và sử dụng phần mềm POI TOOL HSL để tải hình ảnh vào thiết bị biểu diễn."
+      description="Hướng dẫn cấu hình LED, kết nối phần cứng và dùng app POI HSL Studio để nạp hình ảnh vào gậy POI biểu diễn."
       bannerImg="/img/post-news/poi/hinh-anh-su-dung/hinh-dep/9ec3b7f727c6a898f1d750.jpg"
       accent="pink"
       path="/post-news/su-dung-poi-voi-argb-hsl/"
@@ -163,15 +166,15 @@ export default function ArticlePoiGuide() {
           {[
             {
               step: "1",
-              title: "Kiểm tra kết nối & cấu hình mode Poi",
-              desc: "Mở phần mềm ARGB HSL Tool, vào Tab \"Cấu hình phần cứng\" để kiểm tra mạch đã kết nối chưa. Nếu đã kết nối, tick chọn mode Poi và cấu hình LED như hình dưới.",
+              title: "Kiểm tra kết nối & cấu hình mode Poi (làm 1 lần)",
+              desc: "Mở phần mềm ARGB HSL Windows Tool, vào Tab \"Cấu hình phần cứng\" để kiểm tra mạch đã kết nối chưa. Nếu đã kết nối, tick chọn mode Poi và cấu hình LED như hình dưới. Bước này chỉ có trên Windows Tool — POI HSL Studio không có tab này, nhưng thanh thiết bị của nó hiện \"Quay POI: Có\" để bạn kiểm tra nhanh.",
               img: "/img/post-news/poi/set-on-mode-poi.png",
             },
             {
               step: "2",
               title: "Set pixel, độ sáng và nạp ảnh logo",
-              desc: "Tiến hành set số lượng pixel, độ sáng, chọn mạch và nạp ảnh logo vào hiển thị.",
-              img: "/img/post-news/poi/upload-img-poi.png",
+              desc: "Mở app POI HSL Studio, chọn gậy, kéo-thả ảnh logo, set số lượng pixel và độ sáng rồi bấm \"Gửi ảnh này lên mạch\" (hoặc \"Gửi nhiều ảnh…\" cho cả đội gậy). Tab Công cụ POI của ARGB HSL Windows Tool vẫn làm được việc này.",
+              img: "/img/poi-hsl-studio/poi-hsl-studio-cong-cu-poi.webp",
             },
           ].map(({ step, title, desc, img }) => (
             <div key={step} className="flex gap-4 p-4 rounded-xl bg-slate-900/30 border border-white/5 hover:border-white/15 transition-colors">
@@ -194,28 +197,33 @@ export default function ArticlePoiGuide() {
         </Callout>
       </section>
 
-      {/* POI TOOL */}
+      {/* POI HSL Studio */}
       <section className="space-y-3">
-        <SectionHeading accent="pink">Thêm Hình Ảnh Bằng POI TOOL HSL</SectionHeading>
+        <SectionHeading accent="pink">Thêm Hình Ảnh Bằng POI HSL Studio</SectionHeading>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <InfoCard>
             <ol className="text-xs text-slate-400 space-y-2 list-decimal list-inside">
-              <li>Mở phần mềm <strong className="text-white">POI TOOL HSL</strong></li>
-              <li>Chọn hình ảnh / logo cần hiển thị</li>
-              <li>Chuyển đổi sang định dạng POI</li>
-              <li>Gửi ảnh trực tiếp vào mạch</li>
+              <li>Tải & cài app <strong className="text-white">POI HSL Studio</strong> (miễn phí, cài song song ARGB HSL Windows Tool)</li>
+              <li>Bật gậy POI, để máy tính và gậy cùng mạng Wi-Fi — app tự tìm gậy</li>
+              <li>Kéo-thả ảnh / logo, chỉnh số pixel LED và độ sáng — thanh dung lượng báo ngay ảnh có vừa giới hạn 63 KB không</li>
+              <li>Bấm <strong className="text-white">Gửi ảnh này lên mạch</strong> (ghi vào ID trống kế tiếp) hoặc <strong className="text-white">Gửi nhiều ảnh…</strong> để nạp cho cả đội gậy cùng lúc</li>
             </ol>
             <a
-              href={WINDOWS_TOOL_URL}
+              href={POI_STUDIO_URL}
               download
               className="mt-4 flex items-center gap-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-neon-pink to-purple-600 text-white text-xs font-mono font-bold no-underline hover:scale-[1.02] transition-transform"
             >
               <Download className="w-4 h-4" />
-              Tải ARGB HSL Tool (Windows)
+              Tải POI HSL Studio (Windows · {POI_STUDIO_SIZE})
             </a>
+            <p className="mt-3 text-[11px] text-slate-500 leading-relaxed">
+              <Link to="/poi-hsl-studio-pc/" className="text-neon-pink-bright hover:underline">Xem chi tiết POI HSL Studio</Link>
+              {" · "}Cần cấu hình phần cứng (bước B.1)?{" "}
+              <a href={WINDOWS_TOOL_URL} download className="text-neon-pink-bright hover:underline">Tải ARGB HSL Windows Tool</a>
+            </p>
           </InfoCard>
           <div className="rounded-xl overflow-hidden border border-white/10">
-            <ZoomableImage src="/img/post-news/poi/upload-img-poi.png" alt="Giao diện ARGB HSL Tool nạp ảnh POI" className="w-full object-cover" onClick={() => openGuidePhoto("/img/post-news/poi/upload-img-poi.png")} />
+            <ZoomableImage src="/img/poi-hsl-studio/poi-hsl-studio-gui-nhieu-anh.webp" alt="Hộp thoại gửi nhiều ảnh lên nhiều gậy POI của POI HSL Studio" className="w-full object-cover" onClick={() => openGuidePhoto("/img/poi-hsl-studio/poi-hsl-studio-gui-nhieu-anh.webp")} />
           </div>
         </div>
       </section>
@@ -279,6 +287,9 @@ export default function ArticlePoiGuide() {
             </tbody>
           </table>
         </div>
+        <p className="text-[11px] text-slate-500">
+          Bảng trên tính theo dung lượng bộ nhớ. Giới hạn thực tế mỗi gậy là <strong className="text-slate-300">59 ảnh POI</strong> (preset ID 1-59) và mỗi file ảnh tối đa <strong className="text-slate-300">63 KB</strong> (~145 pixel).
+        </p>
       </section>
 
       {/* Preset & Tips */}
@@ -287,8 +298,8 @@ export default function ArticlePoiGuide() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <FeatureCard
             icon={<HardDrive className="w-4 h-4 text-neon-pink-bright shrink-0" />}
-            title="Preset lưu tối đa: 250"
-            desc="Tương ứng tối đa 250 ảnh cho một bài diễn. Mỗi Preset = một ảnh hoặc hiệu ứng POI."
+            title="Tối đa 59 ảnh POI mỗi gậy"
+            desc="Ảnh POI lưu ở preset ID 1-59 (mỗi preset = một ảnh). ID 60-240 dành cho kịch bản Timecode nên ảnh và Timecode không ghi đè nhau."
           />
           <FeatureCard
             icon={<Settings className="w-4 h-4 text-neon-pink-bright shrink-0" />}

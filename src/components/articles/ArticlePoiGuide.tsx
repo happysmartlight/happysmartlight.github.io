@@ -46,7 +46,7 @@ const DEMO_PHOTOS: ZoomGalleryItem[] = DEMO_PHOTO_FILES.map((file, idx) => ({
 
 const GUIDE_PHOTOS: ZoomGalleryItem[] = [
   { url: "/img/post-news/poi/LED.jpg", label: "LED chuyên dụng POI", alt: "LED chuyên dụng POI" },
-  { url: "/img/controller-chip/ARGB_HSL_TOP.png", label: "3D PCB LED PIXEL ARGB IPEX V2.0", alt: "3D PCB LED PIXEL ARGB IPEX V2.0" },
+  { url: "/img/products/hsl2x-pro/ARGB_HSL_2X_TOP.png", label: "Mạch ARGB HSL Controller 2X Pro", alt: "Mạch ARGB HSL Controller 2X Pro với chân P15, P16" },
   { url: "/img/post-news/poi/set-on-mode-poi.png", label: "Kiểm tra kết nối & cấu hình mode Poi", alt: "Kiểm tra kết nối & cấu hình mode Poi" },
   { url: "/img/poi-hsl-studio/poi-hsl-studio-cong-cu-poi.webp", label: "Nạp ảnh logo bằng POI HSL Studio", alt: "Giao diện Công cụ POI của POI HSL Studio: set pixel, độ sáng và nạp ảnh logo" },
   { url: "/img/poi-hsl-studio/poi-hsl-studio-gui-nhieu-anh.webp", label: "Gửi nhiều ảnh cho cả đội gậy", alt: "Hộp thoại gửi nhiều ảnh lên nhiều gậy POI của POI HSL Studio" },
@@ -138,23 +138,24 @@ export default function ArticlePoiGuide() {
 
       {/* Wiring */}
       <section className="space-y-3">
-        <SectionHeading accent="pink">Kết Nối LED Với Mạch ARGB IPEX V2.0</SectionHeading>
+        <SectionHeading accent="pink">Kết Nối LED Với Mạch ARGB HSL Controller 2X Pro</SectionHeading>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <InfoCard>
             <p className="text-xs text-slate-400 mb-3">Đấu nối đúng chân tín hiệu:</p>
             <div className="space-y-2">
               <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-900/60 border border-white/5">
-                <span className="font-mono text-[10px] text-neon-pink-bright font-bold bg-neon-pink/10 px-2 py-0.5 rounded">P17</span>
+                <span className="font-mono text-[10px] text-neon-pink-bright font-bold bg-neon-pink/10 px-2 py-0.5 rounded">P15</span>
                 <span className="text-xs text-slate-300">→ Data (Dữ liệu)</span>
               </div>
               <div className="flex items-center gap-2 p-2 rounded-lg bg-slate-900/60 border border-white/5">
-                <span className="font-mono text-[10px] text-neon-blue-bright font-bold bg-neon-blue/10 px-2 py-0.5 rounded">P18</span>
+                <span className="font-mono text-[10px] text-neon-blue-bright font-bold bg-neon-blue/10 px-2 py-0.5 rounded">P16</span>
                 <span className="text-xs text-slate-300">→ CLK (Clock / Xung nhịp)</span>
               </div>
             </div>
+            <p className="mt-3 text-[11px] text-slate-500">Mạch đời trước ARGB IPEX V2.0: P17 → Data, P18 → CLK.</p>
           </InfoCard>
           <div className="rounded-xl overflow-hidden border border-white/10">
-            <ZoomableImage src="/img/controller-chip/ARGB_HSL_TOP.png" alt="3D PCB LED PIXEL ARGB IPEX V2.0" className="w-full object-contain bg-slate-900/40 p-2" onClick={() => openGuidePhoto("/img/controller-chip/ARGB_HSL_TOP.png")} />
+            <ZoomableImage src="/img/products/hsl2x-pro/ARGB_HSL_2X_TOP.png" alt="Mạch ARGB HSL Controller 2X Pro với chân P15, P16" className="w-full object-contain bg-slate-900/40 p-2" onClick={() => openGuidePhoto("/img/products/hsl2x-pro/ARGB_HSL_2X_TOP.png")} />
           </div>
         </div>
       </section>
@@ -167,7 +168,7 @@ export default function ArticlePoiGuide() {
             {
               step: "1",
               title: "Kiểm tra kết nối & cấu hình mode Poi (làm 1 lần)",
-              desc: "Mở phần mềm ARGB HSL Windows Tool, vào Tab \"Cấu hình phần cứng\" để kiểm tra mạch đã kết nối chưa. Nếu đã kết nối, tick chọn mode Poi và cấu hình LED như hình dưới. Bước này chỉ có trên Windows Tool — POI HSL Studio không có tab này, nhưng thanh thiết bị của nó hiện \"Quay POI: Có\" để bạn kiểm tra nhanh.",
+              desc: "Mở phần mềm ARGB HSL Windows Tool, vào Tab \"Cấu hình phần cứng\" để kiểm tra mạch đã kết nối chưa. Nếu đã kết nối, tick chọn mode Poi và cấu hình LED như hình dưới (Loại LED APA102, GPIO Data 15, GPIO CLK 16). Bước này chỉ có trên Windows Tool — POI HSL Studio không có tab này, nhưng thanh thiết bị của nó hiện \"Quay POI: Có\" để bạn kiểm tra nhanh.",
               img: "/img/post-news/poi/set-on-mode-poi.png",
             },
             {

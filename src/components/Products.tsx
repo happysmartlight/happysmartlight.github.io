@@ -101,7 +101,7 @@ export default function Products({ onQuoteRequested, onViewProductDetails }: Pro
         "Lõi vỏ nhựa Polycarbonate bọc chống rạn vỡ chịu rơi ném va đập mạnh",
       ],
       specs: [
-        { label: "Vi xử lý", value: "Cortex M4 Ultra low-power Co-processor" },
+        { label: "Mạch điều khiển", value: "ARGB HSL Controller 2X Pro (ESP32-S3)" },
         { label: "Pin Lithium sạc", value: "Li-poly sạc an toàn chống phồng 4200mAh" },
         { label: "Dung lượng chứa ảnh", value: "128MB nạp sẵn hàng trăm ảnh Bitmap POV rực rỡ" },
         { label: "Độ chính xác xoay", value: "Con quay hồi chuyển IMU đo hành trình múa vẽ ảnh" },

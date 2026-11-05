@@ -370,6 +370,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         {
           category: "Linh kiện hiển thị kịch trần",
           list: [
+            { label: "Mạch điều khiển", value: "ARGB HSL Controller 2X Pro (ESP32-S3)" },
             { label: "Góc hiển thị POV kép", value: "Dải LED gắn mặt trước và mặt sau đối xứng góc 180 độ hoàn hảo" },
             { label: "Tần số làm mượt", value: "Đồng bộ quét dọc 600 dòng ảnh mỗi giây, cho hình ảnh mượt và ổn định" },
             { label: "Dung lượng bộ nhớ lưu ảnh", value: "128MB lưu trữ sẵn hơn 500 ảnh Bitmap độ phân giải lớn tải lên qua PC" }

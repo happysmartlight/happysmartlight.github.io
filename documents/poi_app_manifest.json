@@ -3,13 +3,13 @@
   "channel": "stable",
   "instructions": "Manifest cap nhat RIENG cua POI HSL Studio (khong dung chung app_manifest.json cua Tool ARGB HSL). File that nam o happysmartlight.github.io/documents/poi_app_manifest.json, do tools/release_gui.py (app 'POI HSL Studio') tao/cap nhat tu dong: version/release notes lay tu poi_config.py, installer upload len release tag App_POI_HSL_Studio. File nay chi la mau cho lan release dau tien.",
   "latest": {
-    "version": "1.0.0",
-    "version_label": "v1.0.0 - November 2026",
-    "release_date": "2026-11-02",
-    "release_notes": "🖼 POI HSL Studio — bản đầu tiên:\n- App riêng cho POI: Công cụ POI · Timecode · Cập nhật & Log. Cài song song\nTool ARGB HSL, không ảnh hưởng nhau.\n- Gửi ảnh: kéo-thả ảnh, kiểm tra dung lượng 63 KB trước khi gửi và gợi ý số\npixel tối đa; gửi 1 ảnh vào ID trống kế tiếp hoặc gửi nhiều ảnh lên nhiều\nmạch cùng lúc. Tên ảnh tiếng Việt tự bỏ dấu, không ghi đè ảnh preset khác.\n- Độ sáng giới hạn an toàn cho pin POI (hiển thị 0-100%) ở cả Tab POI và\nTimecode — tránh sụt áp.\n- Nhiều mạch: bảng tất cả mạch (sóng, bộ nhớ, nhiệt độ chip, mode quay POI,\nsố ảnh), cảnh báo mạch cần chú ý, chọn mạch đích dùng chung cho gửi / tắt\nLED / xoá, nút 💡 Nháy để biết mạch là cây POI nào.",
+    "version": "1.1.0",
+    "version_label": "v1.1.0 - November 2026",
+    "release_date": "2026-11-05",
+    "release_notes": "🌀 Tốc độ quay POI — dành cho ARGB HSL Controller 2X Pro, firmware build 2611050 trở lên:\n- Thanh trượt Tốc độ (RPM): đặt bằng tốc độ quay thật để hình đứng gần như yên.\nChạy preset rồi chỉnh là mạch đổi ngay, bấm Lưu mới ghi vào preset.\n- Kiểu hình Đúng hình: logo hiện đúng dáng, chiếm cả vòng tròn. Kiểu Uốn theo\nvòng chọn được Số ảnh/vòng. Thêm Đảo chiều khi quay chiều ngược lại.\n- Ảnh tới 512 KB trên mạch có PSRAM. Danh sách preset hiện tốc độ từng preset.\n- Gửi ảnh chắc chắn hơn: kiểm tra preset đã lưu thật trên mạch, chưa có thì tự lưu lại.\n⚠ App chỉ hỗ trợ ARGB HSL Controller 2X Pro. Mạch 2X Pro có firmware thấp hơn 2611050\nphải nâng cấp mới dùng được: app hiện cảnh báo và nút Nạp firmware ngay trên màn hình.\nMạch khác và mạch cũ vẫn dùng được Tắt LED và Nháy.",
     "min_supported_version": "1.0.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.0.0.exe",
-    "size": 223547781,
-    "sha256": "29de2052c352161a27e4f2f80647da7f069feb09650e0d4427bcf828f562176a"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.1.0.exe",
+    "size": 223575250,
+    "sha256": "2ab7869a6681d35c357810f4d55293f6af5f3c25978ced67fe30717593002529"
   }
 }

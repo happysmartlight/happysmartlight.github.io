@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowLeft, Smartphone, Laptop, Download, CheckCircle2, Cpu, Wifi, Sliders, Music, Camera, ShieldCheck, Mail, Phone, PlayCircle, Settings, Sparkles, Eye, WandSparkles, ImageUp, Users, Thermometer, BatteryCharging, type LucideIcon } from "lucide-react";
+import { ArrowLeft, Smartphone, Laptop, Download, CheckCircle2, Cpu, Wifi, Sliders, Music, Camera, ShieldCheck, Mail, Phone, PlayCircle, Settings, Sparkles, Eye, WandSparkles, ImageUp, Users, Thermometer, Gauge, BatteryCharging, type LucideIcon } from "lucide-react";
 import { motion } from "motion/react";
 import ImageZoomLightbox, { type ZoomGalleryItem } from "./ImageZoomLightbox";
 import { WINDOWS_TOOL_URL, WINDOWS_TOOL_VERSION, WINDOWS_TOOL_FILE, WINDOWS_TOOL_SIZE, WINDOWS_TOOL_SHA256 } from "../windowsTool";
@@ -97,7 +97,7 @@ const POI_SCREENSHOTS: (ZoomGalleryItem & { desc: string })[] = [
   {
     url: "/img/poi-hsl-studio/poi-hsl-studio-cong-cu-poi.webp",
     label: "Công cụ POI & bảng tất cả gậy",
-    desc: "Kéo-thả ảnh, xem trước vòng quay, theo dõi sóng / bộ nhớ / nhiệt độ từng gậy.",
+    desc: "Kéo-thả ảnh, chỉnh tốc độ quay, xem trước vòng quay, theo dõi sóng / bộ nhớ / nhiệt độ từng gậy.",
     alt: "Giao diện Công cụ POI của POI HSL Studio với bảng trạng thái nhiều gậy POI",
   },
   {
@@ -195,7 +195,8 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
   ];
 
   const poiFeatures: Feature[] = [
-    { icon: ImageUp, title: "Nạp ảnh POI kéo-thả", desc: "Kéo-thả ảnh, xem trước vòng quay như khi múa thật; tự kiểm tra dung lượng 63 KB và gợi ý số pixel phù hợp trước khi gửi." },
+    { icon: ImageUp, title: "Nạp ảnh POI kéo-thả", desc: "Kéo-thả ảnh, xem trước vòng quay như khi múa thật; tự kiểm tra dung lượng (tới 512 KB mỗi ảnh) và gợi ý số pixel phù hợp trước khi gửi." },
+    { icon: Gauge, title: "Tốc độ quay & kiểu hình", desc: "Thanh trượt RPM: đang chạy preset thì mạch đổi ngay, bấm Lưu mới ghi vào preset. Kiểu Đúng hình hiện logo đúng dáng, chiếm cả vòng tròn; kiểu Uốn theo vòng chọn được số ảnh mỗi vòng; có Đảo chiều khi quay ngược lại." },
     { icon: Users, title: "Gửi một lần cho cả đội gậy", desc: "Chọn nhiều gậy, gửi nhiều ảnh cùng lúc; tên ảnh tiếng Việt tự bỏ dấu, không ghi đè ảnh của preset khác." },
     { icon: Music, title: "Timecode theo nhạc", desc: "Lập trình kịch bản ánh sáng theo bài nhạc trên timeline, cả đội POI chạy đồng bộ khi biểu diễn." },
     { icon: Thermometer, title: "Theo dõi từng gậy", desc: "Bảng tất cả gậy: sóng Wi-Fi, bộ nhớ, nhiệt độ chip, mode quay POI; cảnh báo gậy cần chú ý và nút Nháy để nhận diện từng cây." },
@@ -221,9 +222,9 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
 
   const poiSteps: Step[] = [
     { title: "Tải & cài đặt", desc: `Tải bộ cài ${POI_STUDIO_FILE}, chạy file và làm theo trình hướng dẫn. App cài song song, không ảnh hưởng ARGB HSL Windows Tool.` },
-    { title: "Bật gậy POI & quét mạng", desc: "Bật gậy POI, để máy tính và gậy cùng mạng Wi-Fi; app tự tìm gậy (hoặc bấm Quét mạng). Thanh thiết bị hiện 'Quay POI: Có' là gậy đã sẵn sàng." },
-    { title: "Chọn ảnh & thông số", desc: "Kéo-thả ảnh vào app, chỉnh số pixel LED và độ sáng; thanh dung lượng báo ngay ảnh có vừa với gậy không." },
-    { title: "Gửi ảnh lên gậy", desc: "Bấm 'Gửi ảnh này lên mạch' để ghi vào ID trống kế tiếp, hoặc 'Gửi nhiều ảnh' để nạp cho cả đội gậy cùng lúc." },
+    { title: "Bật gậy POI & quét mạng", desc: "Bật gậy POI, để máy tính và gậy cùng mạng Wi-Fi; app tự tìm gậy (hoặc bấm Quét mạng). Thanh thiết bị hiện 'Quay POI: Có' là gậy đã sẵn sàng. Mạch 2X Pro firmware cũ sẽ có cảnh báo kèm nút Nạp firmware ngay trong app." },
+    { title: "Chọn ảnh & thông số", desc: "Kéo-thả ảnh vào app, chỉnh số pixel LED, độ sáng, kiểu hình và tốc độ quay (RPM); thanh dung lượng báo ngay ảnh có vừa với gậy không." },
+    { title: "Gửi ảnh lên gậy", desc: "Bấm 'Gửi ảnh này' để ghi vào ID trống kế tiếp, hoặc 'Gửi nhiều…' để nạp cho cả đội gậy cùng lúc." },
     { title: "Lập trình Timecode (tuỳ chọn)", desc: "Mở Tab Timecode, nạp bài nhạc và sắp xếp hiệu ứng theo nhịp để cả đội POI chạy đồng bộ." },
   ];
 
@@ -286,7 +287,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
               {isApp
                 ? "ARGB HSL là ứng dụng điều khiển LED thông minh theo triết lý 'Offline-First': nhanh, mượt, bảo mật tuyệt đối. Phù hợp cho trang trí nhà cửa, phòng gaming, quán cà phê và các không gian sáng tạo."
                 : isPoi
-                  ? "POI HSL Studio là app máy tính miễn phí, gọn nhẹ, dành riêng cho gậy POI: chỉ gồm Công cụ POI, Timecode và Cập nhật phần mềm — giao diện tập trung, thao tác nhanh cho đội biểu diễn. Cài song song với ARGB HSL Windows Tool và dùng chung bản quyền: máy đã kích hoạt Windows Tool thì mở là dùng."
+                  ? "POI HSL Studio là app máy tính miễn phí, gọn nhẹ, dành riêng cho gậy POI: chỉ gồm Công cụ POI, Timecode và Cập nhật phần mềm — giao diện tập trung, thao tác nhanh cho đội biểu diễn. Cài song song với ARGB HSL Windows Tool và dùng chung bản quyền: máy đã kích hoạt Windows Tool thì mở là dùng. App dành cho mạch ARGB HSL Controller 2X Pro, firmware build 2611050 trở lên."
                   : "ARGB HSL Control Tool là bộ phần mềm máy tính chuyên nghiệp dành cho kỹ sư ánh sáng và nhà thầu biểu diễn nghệ thuật: thiết kế layout, nạp firmware và stream kịch bản ánh sáng quy mô lớn."}
             </p>
           </div>
@@ -438,7 +439,8 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
                 <>
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Windows 10 / 11 (64-bit)</p>
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Dung lượng cài đặt: {POI_STUDIO_SIZE}</p>
-                  <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Gậy POI ARGB HSL cùng mạng Wi-Fi với máy tính</p>
+                  <p className="flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" /> Chỉ hỗ trợ mạch ARGB HSL Controller 2X Pro, firmware build 2611050 trở lên (nâng cấp qua USB ngay trong app)</p>
+                  <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Gậy POI cùng mạng Wi-Fi với máy tính</p>
                   <p className="flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" /> Mạch đã bật mode POI — thiết lập 1 lần bằng ARGB HSL Windows Tool (Tab Cấu hình phần cứng)</p>
                   <p className="flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" /> Kích hoạt bản quyền 1 lần: gửi mã máy cho HSL qua Zalo ngay trong app</p>
                   <p className="break-all pt-1 text-[10px] text-slate-500">SHA256: {POI_STUDIO_SHA256}</p>

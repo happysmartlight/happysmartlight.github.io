@@ -500,12 +500,12 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
                 </h3>
 
                 <p className="font-sans text-xs sm:text-sm text-slate-400 font-light leading-relaxed">
-                  Bản gọn nhẹ dành riêng cho đội biểu diễn POI: chỉ gồm Công cụ POI, Timecode và Cập nhật phần mềm. Cài song song với ARGB HSL Windows Tool, dùng chung bản quyền — máy đã kích hoạt Windows Tool thì mở là dùng.
+                  Bản gọn nhẹ dành riêng cho đội biểu diễn POI: chỉ gồm Công cụ POI, Timecode và Cập nhật phần mềm. Cài song song với ARGB HSL Windows Tool, dùng chung bản quyền — máy đã kích hoạt Windows Tool thì mở là dùng. Dành cho mạch ARGB HSL Controller 2X Pro, firmware build 2611050 trở lên.
                 </p>
 
                 <div className="grid sm:grid-cols-3 gap-3" id="poi-studio-specs">
                   {[
-                    { icon: ImageUp, title: "Nạp ảnh kéo-thả", desc: "Xem trước vòng quay, tự kiểm tra dung lượng 63 KB trước khi gửi." },
+                    { icon: ImageUp, title: "Nạp ảnh kéo-thả", desc: "Xem trước vòng quay, chỉnh tốc độ RPM, tự kiểm tra dung lượng trước khi gửi." },
                     { icon: Users, title: "Cả đội gậy một lần", desc: "Gửi nhiều ảnh lên nhiều gậy, nút Nháy nhận diện từng cây." },
                     { icon: Music, title: "Timecode theo nhạc", desc: "Lập trình kịch bản theo bài nhạc, cả đội chạy đồng bộ." },
                   ].map((f) => (

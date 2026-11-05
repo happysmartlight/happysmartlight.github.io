@@ -173,7 +173,7 @@ export default function ArticlePoiGuide() {
             {
               step: "2",
               title: "Set pixel, độ sáng và nạp ảnh logo",
-              desc: "Mở app POI HSL Studio, chọn gậy, kéo-thả ảnh logo, set số lượng pixel và độ sáng rồi bấm \"Gửi ảnh này lên mạch\" (hoặc \"Gửi nhiều ảnh…\" cho cả đội gậy). Tab Công cụ POI của ARGB HSL Windows Tool vẫn làm được việc này.",
+              desc: "Mở app POI HSL Studio, chọn gậy, kéo-thả ảnh logo, set số lượng pixel và độ sáng rồi bấm \"Gửi ảnh này\" (hoặc \"Gửi nhiều…\" cho cả đội gậy). Tab Công cụ POI của ARGB HSL Windows Tool vẫn làm được việc này.",
               img: "/img/poi-hsl-studio/poi-hsl-studio-cong-cu-poi.webp",
             },
           ].map(({ step, title, desc, img }) => (
@@ -205,9 +205,12 @@ export default function ArticlePoiGuide() {
             <ol className="text-xs text-slate-400 space-y-2 list-decimal list-inside">
               <li>Tải & cài app <strong className="text-white">POI HSL Studio</strong> (miễn phí, cài song song ARGB HSL Windows Tool)</li>
               <li>Bật gậy POI, để máy tính và gậy cùng mạng Wi-Fi — app tự tìm gậy</li>
-              <li>Kéo-thả ảnh / logo, chỉnh số pixel LED và độ sáng — thanh dung lượng báo ngay ảnh có vừa giới hạn 63 KB không</li>
-              <li>Bấm <strong className="text-white">Gửi ảnh này lên mạch</strong> (ghi vào ID trống kế tiếp) hoặc <strong className="text-white">Gửi nhiều ảnh…</strong> để nạp cho cả đội gậy cùng lúc</li>
+              <li>Kéo-thả ảnh / logo, chỉnh số pixel LED, độ sáng, kiểu hình và tốc độ quay (RPM) — thanh dung lượng báo ngay ảnh có vừa giới hạn của mạch không</li>
+              <li>Bấm <strong className="text-white">Gửi ảnh này</strong> (ghi vào ID trống kế tiếp) hoặc <strong className="text-white">Gửi nhiều…</strong> để nạp cho cả đội gậy cùng lúc</li>
             </ol>
+            <p className="mt-3 text-[11px] text-amber-300/90 leading-relaxed">
+              POI HSL Studio chỉ hỗ trợ <strong className="text-white">mạch ARGB HSL Controller 2X Pro, firmware build 2611050 trở lên</strong>. Mạch 2X Pro firmware cũ nâng cấp ngay trong app; mạch dòng khác dùng Tab Công cụ POI của ARGB HSL Windows Tool.
+            </p>
             <a
               href={POI_STUDIO_URL}
               download
@@ -288,7 +291,7 @@ export default function ArticlePoiGuide() {
           </table>
         </div>
         <p className="text-[11px] text-slate-500">
-          Bảng trên tính theo dung lượng bộ nhớ. Giới hạn thực tế mỗi gậy là <strong className="text-slate-300">59 ảnh POI</strong> (preset ID 1-59) và mỗi file ảnh tối đa <strong className="text-slate-300">63 KB</strong> (~145 pixel).
+          Bảng trên tính theo dung lượng bộ nhớ. Giới hạn thực tế mỗi gậy là <strong className="text-slate-300">59 ảnh POI</strong> (preset ID 1-59) và mỗi file ảnh tối đa <strong className="text-slate-300">63 KB</strong> (~145 pixel). Riêng POI HSL Studio trên mạch 2X Pro firmware build 2611050 trở lên được tới <strong className="text-slate-300">512 KB</strong> mỗi ảnh.
         </p>
       </section>
 

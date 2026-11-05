@@ -62,7 +62,7 @@ const FAQS = [
   },
   {
     q: "Làm sao để nạp logo, hình ảnh riêng vào đạo cụ POI?",
-    a: "Dùng app POI HSL Studio (miễn phí, cho máy tính Windows): kéo-thả ảnh, chỉnh số pixel và độ sáng rồi gửi thẳng lên một hoặc nhiều gậy cùng lúc. Mạch chưa bật mode POI thì thiết lập một lần bằng phần mềm ARGB HSL Windows Tool (Tab Cấu hình phần cứng, tick chọn mode Poi). Xem chi tiết từng bước trong bài hướng dẫn cấu hình POI.",
+    a: "Dùng app POI HSL Studio (miễn phí, cho máy tính Windows): kéo-thả ảnh, chỉnh số pixel và độ sáng rồi gửi thẳng lên một hoặc nhiều gậy cùng lúc. App dành cho mạch ARGB HSL Controller 2X Pro, firmware build 2611050 trở lên. Mạch chưa bật mode POI thì thiết lập một lần bằng phần mềm ARGB HSL Windows Tool (Tab Cấu hình phần cứng, tick chọn mode Poi). Xem chi tiết từng bước trong bài hướng dẫn cấu hình POI.",
   },
   {
     q: "Giá đạo cụ POI Happy Smart Light là bao nhiêu?",

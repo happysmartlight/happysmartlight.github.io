@@ -34,8 +34,8 @@ const FEATURES = [
 const SPECS = [
   { label: "Mạch điều khiển", value: "ARGB HSL Controller 2X Pro (ESP32-S3)" },
   { label: "Pin Lithium sạc", value: "Li-poly 4200mAh, sạc qua cổng Type-C, chống phồng" },
-  { label: "Bộ nhớ lưu ảnh", value: "128MB — nạp sẵn hàng trăm ảnh Bitmap/logo POV" },
-  { label: "Cảm biến xoay", value: "Con quay hồi chuyển IMU đo chính xác hành trình múa vẽ ảnh" },
+  { label: "Bộ nhớ lưu ảnh", value: "Flash 8MB, vùng lưu file khoảng 4,9MB, tối đa 59 ảnh mỗi gậy" },
+  { label: "Tốc độ quay", value: "Nghệ nhân quay tay, chỉnh RPM cho từng ảnh bằng POI HSL Studio" },
   { label: "Khối lượng", value: "240g — tối ưu trọng tâm khi quăng, múa" },
   { label: "Giao thức đồng bộ", value: "ARGB HSL POI Sync, Wireless AP mode, xLights Timeline" },
 ];
@@ -54,7 +54,7 @@ const FAQS = [
   },
   {
     q: "Đạo cụ POI Happy Smart Light khác gì so với gậy LED thông thường?",
-    a: "Sản phẩm dùng LED tần số cao SK9822 (PWM 4.7KHz) thay vì LED phổ thông WS2812/WS2812B nên hình ảnh xoay không bị nhòe hay sọc. Ngoài ra còn có IMU đo hành trình xoay, đồng bộ Wifi AP giữa nhiều gậy và pin sạc rời chuyên dụng cho biểu diễn liên tục nhiều giờ.",
+    a: "Sản phẩm dùng LED tần số cao SK9822 (PWM 4.7KHz) thay vì LED phổ thông WS2812/WS2812B nên hình ảnh xoay không bị nhòe hay sọc. Ngoài ra còn chỉnh được tốc độ quay (RPM) theo tay nghệ nhân, có đồng bộ Wifi AP giữa nhiều gậy và pin sạc rời chuyên dụng cho biểu diễn liên tục nhiều giờ.",
   },
   {
     q: "Pin của đạo cụ POI dùng được bao lâu?",
@@ -140,7 +140,7 @@ export default function ArticlePoiProduct() {
         <SectionHeading accent="pink">POI Là Gì? Vì Sao Chọn Đạo Cụ POI Happy Smart Light</SectionHeading>
         <InfoCard>
           <p className="text-xs text-slate-400 leading-relaxed">
-            POI là kỹ thuật trình diễn ánh sáng dựa trên hiện tượng lưu ảnh trên mắt người: dải LED chớp tắt theo từng dòng pixel cực nhanh trong lúc đạo cụ chuyển động, ghép lại thành một hình ảnh hoàn chỉnh trước mắt người xem. Đạo cụ POI của Happy Smart Light sử dụng <strong className="text-white">module LED chuyên dụng SK9822 tần số cao (PWM 4.7KHz)</strong> — hạn chế đáng kể hiện tượng nhòe, sọc hình thường gặp khi xoay đạo cụ ở tốc độ cao. Kết hợp cảm biến xoay IMU và giao thức đồng bộ độc quyền <strong className="text-white">ARGB HSL POI Sync</strong>, đạo cụ cho hình ảnh sắc nét, ổn định và đồng bộ chính xác giữa nhiều gậy cùng lúc trên sân khấu.
+            POI là kỹ thuật trình diễn ánh sáng dựa trên hiện tượng lưu ảnh trên mắt người: dải LED chớp tắt theo từng dòng pixel cực nhanh trong lúc đạo cụ chuyển động, ghép lại thành một hình ảnh hoàn chỉnh trước mắt người xem. Đạo cụ POI của Happy Smart Light sử dụng <strong className="text-white">module LED chuyên dụng SK9822 tần số cao (PWM 4.7KHz)</strong> — hạn chế đáng kể hiện tượng nhòe, sọc hình thường gặp khi xoay đạo cụ ở tốc độ cao. Kết hợp tốc độ quay chỉnh được theo tay nghệ nhân và giao thức đồng bộ độc quyền <strong className="text-white">ARGB HSL POI Sync</strong>, đạo cụ cho hình ảnh sắc nét, ổn định và đồng bộ chính xác giữa nhiều gậy cùng lúc trên sân khấu.
           </p>
         </InfoCard>
       </section>

@@ -357,12 +357,12 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
       name: "Happy POI Performance Wand (Gậy LED Biểu Diễn)",
       price: "Tùy thời giá linh kiện",
       tagline: "Bộ sản phẩm múa lửa ảo ảnh cao cấp chuyên sâu với chip LED siêu tần PWM",
-      description: "Dành riêng cho nghệ sĩ xiếc ảo thuật, kịch nghệ, múa lửa ảo ảnh POV (Persistance of Vision). Gậy POI của chúng tôi được đóng gọn trong vỏ ống polycarbonate chống nứt vỡ chịu lực quăng quật va đập đập cực cao, tích hợp cảm biến IMU đo tốc độ lắc xoay để tự động điều chỉnh tốc độ tải mật độ ảnh bitmap vẽ ra giữa không trung rõ như pha lê.",
+      description: "Dành riêng cho nghệ sĩ xiếc ảo thuật, kịch nghệ, múa lửa ảo ảnh POV (Persistance of Vision). Gậy POI của chúng tôi được đóng gọn trong vỏ ống polycarbonate chống nứt vỡ chịu lực quăng quật va đập đập cực cao. Nghệ nhân quay bằng tay và chỉnh tốc độ (RPM) cho từng ảnh bằng app POI HSL Studio để logo, hình ảnh hiện rõ giữa không trung.",
       badge: "Nghệ Thuật Độc Bản",
       glowColor: "pink",
       heroSpecs: [
         { label: "Mật độ bóng LED", value: "SK9822 siêu dày đặc (tần số quét PWM tới 4.7KHz)" },
-        { label: "Cảm biến xoay vòng", value: "Gia tốc kế IMU 6 trục tự nội suy tốc độ múa" },
+        { label: "Tốc độ quay", value: "Nghệ nhân quay tay, chỉnh RPM cho từng ảnh bằng POI HSL Studio" },
         { label: "Bộ nguồn lưu trữ pin", value: "Pin sạc Lithium Cobalt Oxide 4200mAh chạy 5-8 giờ" },
         { label: "Sức chịu đựng va đập", value: "Ống kính bọc Polycarbonate chống rơi đập tầm cao 3 mét" }
       ],
@@ -373,7 +373,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
             { label: "Mạch điều khiển", value: "ARGB HSL Controller 2X Pro (ESP32-S3)" },
             { label: "Góc hiển thị POV kép", value: "Dải LED gắn mặt trước và mặt sau đối xứng góc 180 độ hoàn hảo" },
             { label: "Tần số làm mượt", value: "Đồng bộ quét dọc 600 dòng ảnh mỗi giây, cho hình ảnh mượt và ổn định" },
-            { label: "Dung lượng bộ nhớ lưu ảnh", value: "128MB lưu trữ sẵn hơn 500 ảnh Bitmap độ phân giải lớn tải lên qua PC" }
+            { label: "Dung lượng bộ nhớ lưu ảnh", value: "Flash 8MB, vùng lưu file khoảng 4,9MB, tối đa 59 ảnh mỗi gậy, nạp từ PC qua Wi-Fi" }
           ]
         },
         {
@@ -395,9 +395,9 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
           icon: "sparkles"
         },
         {
-          title: "IMU 6-Trục Đo Góc Định Vị",
-          desc: "Vạn dặm như một. Cho dù nghệ sĩ quay gậy nhanh hay chậm, ảnh vẽ ra giữa không trung vẫn không bị giãn méo hay thu hẹp, ảnh giữ đúng tỉ lệ trực quan.",
-          icon: "radio"
+          title: "Chỉnh Tốc Độ Theo Tay Nghệ Nhân",
+          desc: "Gậy quay bằng tay, không dùng cảm biến xoay. Đặt RPM cho từng ảnh trên POI HSL Studio, đang chạy là mạch đổi ngay. Tay giữ nhịp đều và gần đúng RPM đã đặt thì hình càng ổn định; lệch nhiều thì hình sẽ trôi.",
+          icon: "sliders"
         },
         {
           title: "Đồng Bộ Sóng AP Không Dây Nhóm",
@@ -412,7 +412,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
         { step: "04", title: "Biểu Diễn Thăng Hoa", desc: "Nghệ sĩ cầm nắm chắc chắn dải vòng quay gậy, múa xoay vòng tròn theo âm nhạc để cảm nhận vẻ đẹp rực rỡ ảo ảnh múa lửa vây quanh." }
       ],
       changelog: [
-        "v5.0.2-performance: Độ chính xác nội suy góc IMU tăng 15% giúp ảnh vẽ cân xứng hơn",
+        "Firmware build 2611050: Quét theo RPM, đảo chiều, đệm ảnh trong PSRAM để đổi ảnh đã nạp gần như tức thì",
         "v5.0.0-stable: Phiên bản gậy múa ảo ảnh chuyên dụng hợp lực kỹ nghệ biểu diễn ánh sáng Việt Nam"
       ]
     }

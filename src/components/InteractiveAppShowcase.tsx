@@ -54,7 +54,7 @@ export default function InteractiveAppShowcase({ onThemeChanged }: InteractiveAp
       description: "Trọng lượng nhẹ lý tưởng cùng liên kết sóng không dây AP Master-Slave giúp các thành viên đội múa giữ đồng điệu hiệu ứng POV vẽ hình ảnh tinh tế trong không khí khi múa xoay gậy.",
       themeColor: "emerald",
       gradientClass: "from-emerald-400 to-teal-600",
-      metrics: ["Thời lượng pin sạc tới 8 tiếng", "IMU 6 trục định vị tốc độ quay", "Vỏ siêu dẻo chống vỡ nứt"],
+      metrics: ["Thời lượng pin sạc tới 8 tiếng", "Chỉnh tốc độ quay theo tay nghệ nhân", "Vỏ siêu dẻo chống vỡ nứt"],
     },
     {
       id: "dance",

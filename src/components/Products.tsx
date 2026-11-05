@@ -103,8 +103,8 @@ export default function Products({ onQuoteRequested, onViewProductDetails }: Pro
       specs: [
         { label: "Mạch điều khiển", value: "ARGB HSL Controller 2X Pro (ESP32-S3)" },
         { label: "Pin Lithium sạc", value: "Li-poly sạc an toàn chống phồng 4200mAh" },
-        { label: "Dung lượng chứa ảnh", value: "128MB nạp sẵn hàng trăm ảnh Bitmap POV rực rỡ" },
-        { label: "Độ chính xác xoay", value: "Con quay hồi chuyển IMU đo hành trình múa vẽ ảnh" },
+        { label: "Dung lượng chứa ảnh", value: "Flash 8MB, vùng lưu file khoảng 4,9MB, tối đa 59 ảnh mỗi gậy" },
+        { label: "Tốc độ quay", value: "Nghệ nhân quay tay, chỉnh RPM cho từng ảnh bằng POI HSL Studio" },
         { label: "Khối lượng", value: "Nặng 240g tối ưu hóa trọng tâm quăng múa nghệ sĩ" },
       ],
       protocols: ["ARGB HSL POI Sync", "xLights Timeline", "Wireless AP mode", "Offline POV Script"],

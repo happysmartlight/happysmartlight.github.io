@@ -43,7 +43,8 @@
       },
       {
         "version": "3.0.0",
-        "vid": 2610270,
+        "notes": "Build 2611050 cho ARGB HSL Controller 2X Pro: them toc do quay POI (RPM), so anh moi vong, dao chieu; quet nhanh hon va giu anh trong PSRAM de doi anh tuc thi. Ban toi thieu de dung POI HSL Studio.",
+        "vid": 2611050,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -56,8 +57,8 @@
 		    "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
-        "size": 1267152,
-        "sha256": "f1bfe6f9797666f8cc2c18c63d1755d110956fe505920edd0b49b2a29de6bf80"
+        "size": 1269360,
+        "sha256": "49c04f2f4d05a9e1f5c0d8efa951e3a64ca54adeb20ccbb444e8627bd0df7947"
       }
     ]
   }

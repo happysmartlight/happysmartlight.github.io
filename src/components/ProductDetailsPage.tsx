@@ -372,7 +372,7 @@ export default function ProductDetailsPage({ productId, onBack, onQuoteRequested
           list: [
             { label: "Mạch điều khiển", value: "ARGB HSL Controller 2X Pro (ESP32-S3)" },
             { label: "Góc hiển thị POV kép", value: "Dải LED gắn mặt trước và mặt sau đối xứng góc 180 độ hoàn hảo" },
-            { label: "Tần số làm mượt", value: "Đồng bộ quét dọc 600 dòng ảnh mỗi giây, cho hình ảnh mượt và ổn định" },
+            { label: "Tốc độ quét", value: "Khoảng 2.190 dòng ảnh mỗi giây (đo trên dải 72 LED), cho hình ảnh mượt và ổn định" },
             { label: "Dung lượng bộ nhớ lưu ảnh", value: "Flash 8MB, vùng lưu file khoảng 4,9MB, tối đa 59 ảnh mỗi gậy, nạp từ PC qua Wi-Fi" }
           ]
         },

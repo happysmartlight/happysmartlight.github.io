@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.11.0",
-    "version_label": "v3.11.0 - November 2026",
-    "release_date": "2026-11-06",
-    "release_notes": "🛠 Tab Công cụ POI làm mới hoàn toàn, dùng chung với app POI HSL Studio:\n- Làm theo 3 bước: ① Ảnh → ② Thông số → ③ Gửi. Kéo-thả ảnh, xem trước và biết\nngay dung lượng BMP trước khi gửi.\n- Tốc độ quay (RPM): đặt bằng tốc độ quay thật để hình đứng gần như yên. Chạy\npreset rồi chỉnh là mạch đổi ngay, bấm Lưu mới ghi vào preset. Chọn được\nSố ảnh/vòng và Đảo chiều.\n- Kiểu hình Đúng hình: logo hiện đúng dáng, chiếm cả vòng tròn. Ảnh tới 512 KB\ntrên mạch có PSRAM.\n- Nhiều mạch: bảng tất cả mạch (sóng, bộ nhớ, nhiệt độ, mode quay POI, số ảnh),\ncảnh báo mạch cần chú ý, chọn mạch đích cho gửi / tắt LED / xoá, nút 💡 Nháy\nđể biết mạch nào là cây POI nào.\n- Gửi ảnh chắc chắn hơn: kiểm tra preset đã lưu thật trên mạch, chưa có thì tự\nlưu lại. Tên ảnh tiếng Việt tự bỏ dấu, không đè ảnh của preset khác.\n- Độ sáng trong tab giới hạn an toàn cho pin POI (hiển thị 0-100%).\n- Đọc mạch không còn làm mất preset nút bấm (ID 250).\n⚠ Tab Công cụ POI giờ chỉ dùng được với ARGB HSL Controller 2X Pro, firmware\nbuild 2611050 trở lên. Mạch 2X Pro firmware cũ: tab báo cảnh báo kèm nút Nạp\nfirmware. Mạch khác vẫn Tắt LED và Nháy được trong tab. Các tab còn lại, kể\ncả Timecode, vẫn dùng bình thường với mọi mạch.\n🎬 Tab Matrix Led:\n- Sửa GIF/clip bị vỡ hình, chạy sai tốc độ và kẹt hình cũ khi up trùng tên.\n- Upload Visual: chưa chọn mạch hoặc bấm Hủy không còn mất GIF vừa chuyển đổi.\n- GHÉP MẠCH giữ đúng tổng W×H, cụm lớn không còn bị mờ hình.\n- File gửi lên bị thiếu: báo lỗi rõ và không lưu preset hỏng.\n🖱 Khác: double-click card thiết bị sang đúng Tab POI. Nhãn tab \"Update & Log\"\nhiển thị đúng.",
+    "version": "3.12.0",
+    "version_label": "v3.12.0 - November 2026",
+    "release_date": "2026-11-07",
+    "release_notes": "🎨 Tab Công cụ POI có Thư viện mẫu:\n- 137 ảnh mẫu xem sẵn hình khi POI quay, thay vì ảnh gốc khó đoán: rê chuột để\nxem quay, bấm 1 lần là dùng ngay.\n- Mỗi mẫu tự chọn kiểu hình phù hợp (Uốn theo vòng / Đúng hình), giữ nguyên số\npixel và tốc độ quay đang đặt.\n- Chia nhóm (Hoạ tiết POI, Lửa & ánh sáng, Động vật, Fractal & vũ trụ, Hình học,\nHoa lá & vui nhộn), tìm kiếm không cần gõ dấu, lưu được mẫu Yêu thích.\n- Hàng Chọn nhanh ngay ở bước ①: mẫu yêu thích, mẫu vừa dùng và mẫu gợi ý.\n- Sửa lỗi: xoá nhiều preset liên tiếp không còn báo nhầm mạch mất kết nối, nút\nLưu tốc độ không còn tạo lại preset vừa xoá.\n🔧 Tab Cấu hình phần cứng:\n- Đổi số LED hoặc port: tự đưa phân đoạn về 1 đoạn phủ toàn bộ LED, giữ hiệu ứng\nvà màu, không còn phải xoá phân đoạn bằng tay. Preset còn lưu phân đoạn cũ sẽ\nđược báo ID để lưu lại.\n- Mở tab là tự chọn mạch trên cùng, card có nhãn \"Đang cấu hình\".\n- Mạch 2X Pro đúng giới hạn phần cứng: tối đa 2 port (GPIO 15, 16), 2048 LED.\nCấu hình cũ vượt giới hạn cần sửa lại mới lưu được.\n- Gọn hơn: cập nhật firmware thu còn 1 dòng, tóm tắt 1 dòng có thanh LED đã dùng,\ncard Port và Nút xếp cạnh nhau, không còn khung cuộn lồng nhau.\n- Hộp xác nhận Lưu liệt kê đúng những gì sẽ thay đổi. Ước lượng tải cập nhật ngay\nkhi gõ số LED, để tham khảo: mức dùng thường và mức tối đa.\n- Nhãn dễ hiểu hơn, sửa các nhãn Cân bằng trắng, Nhiệt độ màu từ RGB, IC nhiệt độ\nmàu cho đúng chức năng của firmware.\n📦 Bộ cài nhẹ hơn: chỉ đóng gói những ảnh app thực sự dùng.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.11.0.exe",
-    "size": 343238352,
-    "sha256": "e0d781a92f11ec2fba58975f9576484daa23418086de00ee4f353fdc97936082"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.12.0.exe",
+    "size": 298386559,
+    "sha256": "e5952af9dfcda6a207b204ad089625da970dd41776890e20cd0962fbee3c2628"
   }
 }

@@ -3,13 +3,13 @@
   "channel": "stable",
   "instructions": "Manifest cap nhat RIENG cua POI HSL Studio (khong dung chung app_manifest.json cua Tool ARGB HSL). File that nam o happysmartlight.github.io/documents/poi_app_manifest.json, do tools/release_gui.py (app 'POI HSL Studio') tao/cap nhat tu dong: version/release notes lay tu poi_config.py, installer upload len release tag App_POI_HSL_Studio. File nay chi la mau cho lan release dau tien.",
   "latest": {
-    "version": "1.1.1",
-    "version_label": "v1.1.1 - November 2026",
-    "release_date": "2026-11-06",
-    "release_notes": "🛠 Sửa lỗi: xoá đúng preset đang chạy rồi bấm Lưu tốc độ không còn tạo lại preset\nvừa xoá.\n📦 Bộ cài nhẹ hơn, tải và cập nhật nhanh hơn: bỏ các file app POI không dùng tới.",
+    "version": "1.2.0",
+    "version_label": "v1.2.0 - November 2026",
+    "release_date": "2026-11-07",
+    "release_notes": "🎨 Thư viện mẫu trong Tab Công cụ POI:\n- 137 ảnh mẫu xem sẵn hình khi POI quay, thay vì ảnh gốc khó đoán: rê chuột để\nxem quay, bấm 1 lần là dùng ngay.\n- Mỗi mẫu tự chọn kiểu hình phù hợp (Uốn theo vòng / Đúng hình), giữ nguyên số\npixel và tốc độ quay đang đặt.\n- Chia nhóm (Hoạ tiết POI, Lửa & ánh sáng, Động vật, Fractal & vũ trụ, Hình học,\nHoa lá & vui nhộn), tìm kiếm không cần gõ dấu, lưu được mẫu Yêu thích.\n- Hàng Chọn nhanh ngay ở bước ①: mẫu yêu thích, mẫu vừa dùng và mẫu gợi ý.\n🛠 Sửa lỗi: xoá nhiều preset liên tiếp không còn báo nhầm mạch mất kết nối, nút\nLưu tốc độ không còn tạo lại preset vừa xoá.",
     "min_supported_version": "1.0.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.1.1.exe",
-    "size": 139729480,
-    "sha256": "5a31cecd48d96a07e096da8bacff7b8222f64b427983b42e899cb3b182e3a6c2"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.2.0.exe",
+    "size": 152617313,
+    "sha256": "bcb7b115b749ef571194d1a61cbd04cd119ed6f7b461cc4f52c1005c137cff67"
   }
 }

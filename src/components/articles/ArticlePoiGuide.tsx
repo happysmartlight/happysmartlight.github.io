@@ -174,7 +174,7 @@ export default function ArticlePoiGuide() {
             {
               step: "2",
               title: "Set pixel, độ sáng và nạp ảnh logo",
-              desc: "Mở app POI HSL Studio, chọn gậy, kéo-thả ảnh logo, set số lượng pixel và độ sáng rồi bấm \"Gửi ảnh này\" (hoặc \"Gửi nhiều…\" cho cả đội gậy). Tab Công cụ POI của ARGB HSL Windows Tool vẫn làm được việc này.",
+              desc: "Mở app POI HSL Studio, chọn gậy, kéo-thả ảnh logo (hoặc chọn từ Thư viện mẫu), set số lượng pixel và độ sáng rồi bấm \"Gửi ảnh này\" (hoặc \"Gửi nhiều…\" cho cả đội gậy). Tab Công cụ POI của ARGB HSL Windows Tool vẫn làm được việc này.",
               img: "/img/poi-hsl-studio/poi-hsl-studio-cong-cu-poi.webp",
             },
           ].map(({ step, title, desc, img }) => (

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ArrowLeft, Smartphone, Laptop, Download, CheckCircle2, Cpu, Wifi, Sliders, Music, Camera, ShieldCheck, Mail, Phone, PlayCircle, Settings, Sparkles, Eye, WandSparkles, ImageUp, Users, Thermometer, Gauge, BatteryCharging, type LucideIcon } from "lucide-react";
+import { Images, Wrench, ArrowLeft, Smartphone, Laptop, Download, CheckCircle2, Cpu, Wifi, Sliders, Music, Camera, ShieldCheck, Mail, Phone, PlayCircle, Settings, Sparkles, Eye, WandSparkles, ImageUp, Users, Thermometer, Gauge, BatteryCharging, type LucideIcon } from "lucide-react";
 import { motion } from "motion/react";
 import ImageZoomLightbox, { type ZoomGalleryItem } from "./ImageZoomLightbox";
 import { WINDOWS_TOOL_URL, WINDOWS_TOOL_VERSION, WINDOWS_TOOL_FILE, WINDOWS_TOOL_SIZE, WINDOWS_TOOL_SHA256 } from "../windowsTool";
@@ -101,6 +101,12 @@ const POI_SCREENSHOTS: (ZoomGalleryItem & { desc: string })[] = [
     alt: "Giao diện Công cụ POI của POI HSL Studio với bảng trạng thái nhiều gậy POI",
   },
   {
+    url: "/img/poi-hsl-studio/poi-hsl-studio-thu-vien-mau.webp",
+    label: "Thư viện 137 ảnh mẫu",
+    desc: "Xem sẵn hình khi gậy quay: rê chuột để xem quay, bấm 1 lần là dùng ngay.",
+    alt: "Thư viện ảnh mẫu của POI HSL Studio: lưới ảnh hiển thị đúng hình khi gậy POI quay",
+  },
+  {
     url: "/img/poi-hsl-studio/poi-hsl-studio-gui-nhieu-anh.webp",
     label: "Gửi nhiều ảnh cho cả đội gậy",
     desc: "Chọn các gậy đích và chế độ ghi, gửi một lần cho cả đội.",
@@ -187,6 +193,8 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
   ];
 
   const toolFeatures: Feature[] = [
+    { icon: Images, title: "Công cụ POI có thư viện 137 ảnh mẫu", desc: "Xem sẵn hình khi gậy quay, bấm 1 lần là dùng ngay; mỗi mẫu tự chọn kiểu hình phù hợp, có nhóm, tìm kiếm và mục Yêu thích." },
+    { icon: Wrench, title: "Cấu hình phần cứng theo đúng dòng mạch", desc: "Tự nhận giới hạn port và số LED của từng dòng mạch. Đổi số LED hoặc port là phân đoạn tự về 1 đoạn phủ toàn bộ LED, giữ hiệu ứng và màu, không phải xoá bằng tay." },
     { icon: Download, title: "Auto-Flasher firmware qua cổng COM", desc: "Tự động nạp code chương trình mới nhất cho chip điều khiển, chống nạp lỗi và hỏng chip dán." },
     { icon: Sliders, title: "Pixel Mapper Layout 2D/3D", desc: "Số hóa sơ đồ nối dây bất kỳ, xuất ma trận tối ưu tuyến đường tín hiệu đi dây thực tế." },
     { icon: Wifi, title: "Stream Ethernet / Wi-Fi UDP 60Hz", desc: "Truyền trực tiếp luồng kịch bản xLights với nén dữ liệu độc quyền ARGB HSL, không trễ." },
@@ -195,6 +203,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
   ];
 
   const poiFeatures: Feature[] = [
+    { icon: Images, title: "Thư viện 137 ảnh mẫu", desc: "Xem sẵn hình khi gậy quay thay vì ảnh gốc khó đoán: rê chuột để xem quay, bấm 1 lần là dùng ngay. Mỗi mẫu tự chọn kiểu hình phù hợp; có nhóm, tìm kiếm không cần gõ dấu và mục Yêu thích." },
     { icon: ImageUp, title: "Nạp ảnh POI kéo-thả", desc: "Kéo-thả ảnh, xem trước vòng quay như khi múa thật; tự kiểm tra dung lượng (tới 512 KB mỗi ảnh) và gợi ý số pixel phù hợp trước khi gửi." },
     { icon: Gauge, title: "Tốc độ quay & kiểu hình", desc: "Thanh trượt RPM: đang chạy preset thì mạch đổi ngay, bấm Lưu mới ghi vào preset. Kiểu Đúng hình hiện logo đúng dáng, chiếm cả vòng tròn; kiểu Uốn theo vòng chọn được số ảnh mỗi vòng; có Đảo chiều khi quay ngược lại." },
     { icon: Users, title: "Gửi một lần cho cả đội gậy", desc: "Chọn nhiều gậy, gửi nhiều ảnh cùng lúc; tên ảnh tiếng Việt tự bỏ dấu, không ghi đè ảnh của preset khác." },
@@ -223,7 +232,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
   const poiSteps: Step[] = [
     { title: "Tải & cài đặt", desc: `Tải bộ cài ${POI_STUDIO_FILE}, chạy file và làm theo trình hướng dẫn. App cài song song, không ảnh hưởng ARGB HSL Windows Tool.` },
     { title: "Bật gậy POI & quét mạng", desc: "Bật gậy POI, để máy tính và gậy cùng mạng Wi-Fi; app tự tìm gậy (hoặc bấm Quét mạng). Thanh thiết bị hiện 'Quay POI: Có' là gậy đã sẵn sàng. Mạch 2X Pro firmware cũ sẽ có cảnh báo kèm nút Nạp firmware ngay trong app." },
-    { title: "Chọn ảnh & thông số", desc: "Kéo-thả ảnh vào app, chỉnh số pixel LED, độ sáng, kiểu hình và tốc độ quay (RPM); thanh dung lượng báo ngay ảnh có vừa với gậy không." },
+    { title: "Chọn ảnh & thông số", desc: "Kéo-thả ảnh vào app hoặc chọn từ Thư viện mẫu, chỉnh số pixel LED, độ sáng, kiểu hình và tốc độ quay (RPM); thanh dung lượng báo ngay ảnh có vừa với gậy không." },
     { title: "Gửi ảnh lên gậy", desc: "Bấm 'Gửi ảnh này' để ghi vào ID trống kế tiếp, hoặc 'Gửi nhiều…' để nạp cho cả đội gậy cùng lúc." },
     { title: "Lập trình Timecode (tuỳ chọn)", desc: "Mở Tab Timecode, nạp bài nhạc và sắp xếp hiệu ứng theo nhịp để cả đội POI chạy đồng bộ." },
   ];

@@ -17,7 +17,7 @@ export default function PoiStudioDetailsRoute() {
     >
       <Seo
         title={`POI HSL Studio ${POI_STUDIO_VERSION} — App Nạp Ảnh Gậy POI Cho Windows | Happy Smart Light`}
-        description={`POI HSL Studio — app Windows cho gậy POI dùng mạch ARGB HSL Controller 2X Pro: kéo-thả ảnh, chỉnh tốc độ quay, gửi ảnh cho cả đội, lập trình Timecode theo nhạc. Tải bản ${POI_STUDIO_VERSION} cho Windows 10/11.`}
+        description={`POI HSL Studio — app Windows cho gậy POI dùng mạch ARGB HSL Controller 2X Pro: kéo-thả ảnh hoặc chọn từ 137 ảnh mẫu, chỉnh tốc độ quay, gửi ảnh cho cả đội, lập trình Timecode theo nhạc. Tải bản ${POI_STUDIO_VERSION} cho Windows 10/11.`}
         path="/poi-hsl-studio-pc/"
       />
       <SoftwareDetailsPage type="poi" onBack={onBack} />

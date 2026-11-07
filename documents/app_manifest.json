@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.12.1",
-    "version_label": "v3.12.1 - November 2026",
+    "version": "3.13.0",
+    "version_label": "v3.13.0 - November 2026",
     "release_date": "2026-11-07",
-    "release_notes": "🔌 Công cụ nạp firmware / cấu hình WiFi qua USB:\n- Hỏi xác nhận trước khi nạp, vì nạp qua USB sẽ xoá sạch mạch (WiFi, cấu hình,\npreset, ảnh). Có nhắc tháo LED để tránh LED treo sáng và treo mạch.\n- Mất kết nối USB giữa chừng: báo rõ lỗi và mở lại các nút, không còn đứng yên ở\n\"Đang xác minh\" và không phải tắt app.\n- App không còn lỗi khi tắt lúc mạch vừa mất kết nối USB.\n- Không mở được cổng hoặc mất USB không còn bị tính là xác minh sai, tránh bị tạm\nkhoá 5 phút.\n✏️ Sửa chữ \"&\" trên các nút bị hiện thành dấu gạch dưới.",
+    "release_notes": "🎨 Thư viện mẫu của Tab Công cụ POI có thêm 169 mẫu mới, tổng cộng 306 mẫu:\n- Hoạ tiết POI: Sóng, Zigzag, Xoắn ốc, Chấm bi, Đan chéo, Vảy rồng, Sóng Nhật, Plasma,\nThanh nhạc, Sao chổi.\n- Lửa & ánh sáng: Lửa bùng, Tia sét, Màn sáng, Mặt trời, Cầu lửa, Vòng lửa.\n- Động vật: Bướm, Sứa, Mèo, Cá chép, Dấu chân.\n- Fractal & vũ trụ: Julia, Cá ngựa, Xoáy sâu, Newton, Thiên hà, Tinh vân, Hành tinh.\n- Hình học: Mandala, Kính vạn hoa, Hồi văn, Kính màu, La bàn, Đường hầm, Tổ ong.\n- Hoa lá & vui nhộn: Hoa sen, Bông tuyết, Hạt hướng dương, Dây leo, Tim xếp, Mạng nhện.\n- Nền đen để hình nổi hơn khi quay và đỡ pin, mỗi mẫu đã chọn sẵn kiểu hình phù hợp.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.12.1.exe",
-    "size": 298409241,
-    "sha256": "af6aa463dd6941a7eebc800fd608e0e39b3126214e556a23d4e08f604d5b6c41"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.13.0.exe",
+    "size": 314084639,
+    "sha256": "ce2af26f5da0ec8b5eb399d1160c9c546b03111f35fb436b14d83907a3a8594f"
   }
 }

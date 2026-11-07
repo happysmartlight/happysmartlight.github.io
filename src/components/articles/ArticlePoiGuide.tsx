@@ -201,6 +201,9 @@ export default function ArticlePoiGuide() {
       {/* POI HSL Studio */}
       <section className="space-y-3">
         <SectionHeading accent="pink">Thêm Hình Ảnh Bằng POI HSL Studio</SectionHeading>
+        <p className="text-xs text-slate-400">
+          Chưa có ảnh? Xem trước <Link to="/post-news/thu-vien-mau-poi/" className="text-neon-pink-bright hover:underline">306 mẫu có sẵn trong Thư viện mẫu</Link>.
+        </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <InfoCard>
             <ol className="text-xs text-slate-400 space-y-2 list-decimal list-inside">

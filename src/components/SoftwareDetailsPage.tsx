@@ -102,7 +102,7 @@ const POI_SCREENSHOTS: (ZoomGalleryItem & { desc: string })[] = [
   },
   {
     url: "/img/poi-hsl-studio/poi-hsl-studio-thu-vien-mau.webp",
-    label: "Thư viện 137 ảnh mẫu",
+    label: "Thư viện 306 ảnh mẫu",
     desc: "Xem sẵn hình khi gậy quay: rê chuột để xem quay, bấm 1 lần là dùng ngay.",
     alt: "Thư viện ảnh mẫu của POI HSL Studio: lưới ảnh hiển thị đúng hình khi gậy POI quay",
   },
@@ -193,7 +193,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
   ];
 
   const toolFeatures: Feature[] = [
-    { icon: Images, title: "Công cụ POI có thư viện 137 ảnh mẫu", desc: "Xem sẵn hình khi gậy quay, bấm 1 lần là dùng ngay; mỗi mẫu tự chọn kiểu hình phù hợp, có nhóm, tìm kiếm và mục Yêu thích." },
+    { icon: Images, title: "Công cụ POI có thư viện 306 ảnh mẫu", desc: "Xem sẵn hình khi gậy quay, bấm 1 lần là dùng ngay; mỗi mẫu tự chọn kiểu hình phù hợp, có nhóm, tìm kiếm và mục Yêu thích." },
     { icon: Wrench, title: "Cấu hình phần cứng theo đúng dòng mạch", desc: "Tự nhận giới hạn port và số LED của từng dòng mạch. Đổi số LED hoặc port là phân đoạn tự về 1 đoạn phủ toàn bộ LED, giữ hiệu ứng và màu, không phải xoá bằng tay." },
     { icon: Download, title: "Auto-Flasher firmware qua cổng COM", desc: "Tự động nạp code chương trình mới nhất cho chip điều khiển, chống nạp lỗi và hỏng chip dán." },
     { icon: Sliders, title: "Pixel Mapper Layout 2D/3D", desc: "Số hóa sơ đồ nối dây bất kỳ, xuất ma trận tối ưu tuyến đường tín hiệu đi dây thực tế." },
@@ -203,7 +203,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
   ];
 
   const poiFeatures: Feature[] = [
-    { icon: Images, title: "Thư viện 137 ảnh mẫu", desc: "Xem sẵn hình khi gậy quay thay vì ảnh gốc khó đoán: rê chuột để xem quay, bấm 1 lần là dùng ngay. Mỗi mẫu tự chọn kiểu hình phù hợp; có nhóm, tìm kiếm không cần gõ dấu và mục Yêu thích." },
+    { icon: Images, title: "Thư viện 306 ảnh mẫu", desc: "Xem sẵn hình khi gậy quay thay vì ảnh gốc khó đoán: rê chuột để xem quay, bấm 1 lần là dùng ngay. Mỗi mẫu tự chọn kiểu hình phù hợp; có nhóm, tìm kiếm không cần gõ dấu và mục Yêu thích." },
     { icon: ImageUp, title: "Nạp ảnh POI kéo-thả", desc: "Kéo-thả ảnh, xem trước vòng quay như khi múa thật; tự kiểm tra dung lượng (tới 512 KB mỗi ảnh) và gợi ý số pixel phù hợp trước khi gửi." },
     { icon: Gauge, title: "Tốc độ quay & kiểu hình", desc: "Thanh trượt RPM: đang chạy preset thì mạch đổi ngay, bấm Lưu mới ghi vào preset. Kiểu Đúng hình hiện logo đúng dáng, chiếm cả vòng tròn; kiểu Uốn theo vòng chọn được số ảnh mỗi vòng; có Đảo chiều khi quay ngược lại." },
     { icon: Users, title: "Gửi một lần cho cả đội gậy", desc: "Chọn nhiều gậy, gửi nhiều ảnh cùng lúc; tên ảnh tiếng Việt tự bỏ dấu, không ghi đè ảnh của preset khác." },

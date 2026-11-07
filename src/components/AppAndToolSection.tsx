@@ -505,7 +505,7 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
 
                 <div className="grid sm:grid-cols-3 gap-3" id="poi-studio-specs">
                   {[
-                    { icon: ImageUp, title: "Kéo-thả hoặc chọn mẫu", desc: "Kéo-thả ảnh hoặc chọn từ 137 ảnh mẫu, xem trước vòng quay, chỉnh tốc độ RPM, tự kiểm tra dung lượng." },
+                    { icon: ImageUp, title: "Kéo-thả hoặc chọn mẫu", desc: "Kéo-thả ảnh hoặc chọn từ 306 ảnh mẫu, xem trước vòng quay, chỉnh tốc độ RPM, tự kiểm tra dung lượng." },
                     { icon: Users, title: "Cả đội gậy một lần", desc: "Gửi nhiều ảnh lên nhiều gậy, nút Nháy nhận diện từng cây." },
                     { icon: Music, title: "Timecode theo nhạc", desc: "Lập trình kịch bản theo bài nhạc, cả đội chạy đồng bộ." },
                   ].map((f) => (

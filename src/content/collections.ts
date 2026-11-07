@@ -159,6 +159,19 @@ const PORTED_POSTS: CollectionItem[] = [
     excerpt: "Hướng dẫn từng bước cập nhật firmware cho mạch ARGB HSL bằng OTA không dây hoặc qua cổng Type-C, cấu hình WiFi bằng Tool ARGB HSL, và những việc cần chuẩn bị để không mất dữ liệu.",
     html: "",
     date: "2026-11-07"
+  },
+  {
+    slug: "thu-vien-mau-poi",
+    collection: "post-news",
+    url: "/post-news/thu-vien-mau-poi/",
+    title: "Thư Viện Mẫu POI: 306 Hình Có Sẵn Để Dùng Ngay",
+    metaTitle: "Thư Viện 306 Mẫu POI | Happy Smart Light",
+    image: "/img/post-news/thu-vien-mau/banner.webp",
+    bigimg: "/img/post-news/thu-vien-mau/banner.webp",
+    tags: ["poi", "thu-vien-mau", "guide"],
+    excerpt: "Xem trước toàn bộ 306 ảnh mẫu có sẵn trong Công cụ POI của Tool ARGB HSL và POI HSL Studio, mô phỏng hình hiện ra khi gậy POI quay.",
+    html: "",
+    date: "2026-11-07"
   }
 ];
 

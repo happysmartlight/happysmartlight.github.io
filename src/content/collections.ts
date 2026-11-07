@@ -146,6 +146,19 @@ const PORTED_POSTS: CollectionItem[] = [
     excerpt: "Hướng dẫn chi tiết cách biên tập hình ảnh hiệu ứng POV và đồng bộ tính năng múa LED POI cùng phần mềm ARGB HSL.",
     html: "",
     date: "2026-04-18"
+  },
+  {
+    slug: "nap-firmware-cau-hinh-wifi-argb-hsl",
+    collection: "post-news",
+    url: "/post-news/nap-firmware-cau-hinh-wifi-argb-hsl/",
+    title: "Nạp Firmware Mới Và Cấu Hình WiFi Cho Mạch ARGB HSL",
+    metaTitle: "Nạp Firmware & Cấu Hình WiFi Mạch ARGB HSL",
+    image: "/img/post-news/nap-firmware/banner.png",
+    bigimg: "/img/post-news/nap-firmware/banner.png",
+    tags: ["firmware", "ota", "wifi", "guide"],
+    excerpt: "Hướng dẫn từng bước cập nhật firmware cho mạch ARGB HSL bằng OTA không dây hoặc qua cổng Type-C, cấu hình WiFi bằng Tool ARGB HSL, và những việc cần chuẩn bị để không mất dữ liệu.",
+    html: "",
+    date: "2026-11-07"
   }
 ];
 

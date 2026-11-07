@@ -3,13 +3,13 @@
   "channel": "stable",
   "instructions": "Manifest cap nhat RIENG cua POI HSL Studio (khong dung chung app_manifest.json cua Tool ARGB HSL). File that nam o happysmartlight.github.io/documents/poi_app_manifest.json, do tools/release_gui.py (app 'POI HSL Studio') tao/cap nhat tu dong: version/release notes lay tu poi_config.py, installer upload len release tag App_POI_HSL_Studio. File nay chi la mau cho lan release dau tien.",
   "latest": {
-    "version": "1.2.0",
-    "version_label": "v1.2.0 - November 2026",
+    "version": "1.2.1",
+    "version_label": "v1.2.1 - November 2026",
     "release_date": "2026-11-07",
-    "release_notes": "🎨 Thư viện mẫu trong Tab Công cụ POI:\n- 137 ảnh mẫu xem sẵn hình khi POI quay, thay vì ảnh gốc khó đoán: rê chuột để\nxem quay, bấm 1 lần là dùng ngay.\n- Mỗi mẫu tự chọn kiểu hình phù hợp (Uốn theo vòng / Đúng hình), giữ nguyên số\npixel và tốc độ quay đang đặt.\n- Chia nhóm (Hoạ tiết POI, Lửa & ánh sáng, Động vật, Fractal & vũ trụ, Hình học,\nHoa lá & vui nhộn), tìm kiếm không cần gõ dấu, lưu được mẫu Yêu thích.\n- Hàng Chọn nhanh ngay ở bước ①: mẫu yêu thích, mẫu vừa dùng và mẫu gợi ý.\n🛠 Sửa lỗi: xoá nhiều preset liên tiếp không còn báo nhầm mạch mất kết nối, nút\nLưu tốc độ không còn tạo lại preset vừa xoá.",
+    "release_notes": "🔌 Công cụ nạp firmware / cấu hình WiFi qua USB:\n- Hỏi xác nhận trước khi nạp, vì nạp qua USB sẽ xoá sạch mạch (WiFi, cấu hình,\npreset, ảnh). Có nhắc tháo LED để tránh LED treo sáng và treo mạch.\n- Mất kết nối USB giữa chừng: báo rõ lỗi và mở lại các nút, không còn đứng yên ở\n\"Đang xác minh\" và không phải tắt app.\n- App không còn lỗi khi tắt lúc mạch vừa mất kết nối USB.\n- Không mở được cổng hoặc mất USB không còn bị tính là xác minh sai, tránh bị tạm\nkhoá 5 phút.\n✏️ Sửa chữ \"&\" trên các nút bị hiện thành dấu gạch dưới.",
     "min_supported_version": "1.0.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.2.0.exe",
-    "size": 152617313,
-    "sha256": "bcb7b115b749ef571194d1a61cbd04cd119ed6f7b461cc4f52c1005c137cff67"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.2.1.exe",
+    "size": 152617402,
+    "sha256": "e99e155ee37ffa99c3b6f9b883fe60028119ab57468385c86d9aced4983401d4"
   }
 }

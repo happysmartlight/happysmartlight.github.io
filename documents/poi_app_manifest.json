@@ -3,13 +3,13 @@
   "channel": "stable",
   "instructions": "Manifest cap nhat RIENG cua POI HSL Studio (khong dung chung app_manifest.json cua Tool ARGB HSL). File that nam o happysmartlight.github.io/documents/poi_app_manifest.json, do tools/release_gui.py (app 'POI HSL Studio') tao/cap nhat tu dong: version/release notes lay tu poi_config.py, installer upload len release tag App_POI_HSL_Studio. File nay chi la mau cho lan release dau tien.",
   "latest": {
-    "version": "1.2.1",
-    "version_label": "v1.2.1 - November 2026",
+    "version": "1.3.0",
+    "version_label": "v1.3.0 - November 2026",
     "release_date": "2026-11-07",
-    "release_notes": "🔌 Công cụ nạp firmware / cấu hình WiFi qua USB:\n- Hỏi xác nhận trước khi nạp, vì nạp qua USB sẽ xoá sạch mạch (WiFi, cấu hình,\npreset, ảnh). Có nhắc tháo LED để tránh LED treo sáng và treo mạch.\n- Mất kết nối USB giữa chừng: báo rõ lỗi và mở lại các nút, không còn đứng yên ở\n\"Đang xác minh\" và không phải tắt app.\n- App không còn lỗi khi tắt lúc mạch vừa mất kết nối USB.\n- Không mở được cổng hoặc mất USB không còn bị tính là xác minh sai, tránh bị tạm\nkhoá 5 phút.\n✏️ Sửa chữ \"&\" trên các nút bị hiện thành dấu gạch dưới.",
+    "release_notes": "🎨 Thư viện mẫu của Tab Công cụ POI có thêm 169 mẫu mới, tổng cộng 306 mẫu:\n- Hoạ tiết POI: Sóng, Zigzag, Xoắn ốc, Chấm bi, Đan chéo, Vảy rồng, Sóng Nhật, Plasma,\nThanh nhạc, Sao chổi.\n- Lửa & ánh sáng: Lửa bùng, Tia sét, Màn sáng, Mặt trời, Cầu lửa, Vòng lửa.\n- Động vật: Bướm, Sứa, Mèo, Cá chép, Dấu chân.\n- Fractal & vũ trụ: Julia, Cá ngựa, Xoáy sâu, Newton, Thiên hà, Tinh vân, Hành tinh.\n- Hình học: Mandala, Kính vạn hoa, Hồi văn, Kính màu, La bàn, Đường hầm, Tổ ong.\n- Hoa lá & vui nhộn: Hoa sen, Bông tuyết, Hạt hướng dương, Dây leo, Tim xếp, Mạng nhện.\n- Nền đen để hình nổi hơn khi quay và đỡ pin, mỗi mẫu đã chọn sẵn kiểu hình phù hợp.",
     "min_supported_version": "1.0.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.2.1.exe",
-    "size": 152617402,
-    "sha256": "e99e155ee37ffa99c3b6f9b883fe60028119ab57468385c86d9aced4983401d4"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.3.0.exe",
+    "size": 168322082,
+    "sha256": "d070b999da431cefbccbbd0400967c380313780e35a38406784b4fb3bdfd0634"
   }
 }

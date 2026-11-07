@@ -242,7 +242,7 @@ export default function ArticleNapFirmwareWifi() {
           <AlertTriangle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
           <div className="text-xs text-slate-400 space-y-1.5">
             <p><strong className="text-red-300">Cách này xoá sạch mạch:</strong> WiFi, loại LED, số LED, preset và toàn bộ ảnh đều mất, mạch trở về cấu hình mặc định.</p>
-            <p>Các bản Tool sau 3.12.0 sẽ hỏi xác nhận trước khi xoá. <strong className={strong}>Bản 3.12.0 trở về trước chạy ngay khi bấm, không hỏi lại</strong>. Hãy làm xong phần chuẩn bị bên dưới trước khi bấm.</p>
+            <p>Từ Tool ARGB HSL 3.12.1 và POI HSL Studio 1.2.1, app sẽ hỏi xác nhận trước khi xoá. <strong className={strong}>Các bản cũ hơn chạy ngay khi bấm, không hỏi lại</strong>, nên hãy cập nhật app và làm xong phần chuẩn bị bên dưới trước khi bấm.</p>
           </div>
         </div>
 
@@ -282,7 +282,7 @@ export default function ArticleNapFirmwareWifi() {
             <p>Bấm <strong className={strong}>🔍 Làm mới</strong> ở góc dưới. Tool phải báo <strong className={strong}>Thiết bị hợp lệ</strong> và đúng dòng mạch của bạn. Mạch có thể khởi động lại lúc này, LED chớp tắt là bình thường.</p>
             <p>Nếu Tool báo “đã là bản mới nhất” mà mạch vẫn hoạt động bình thường thì bạn không cần nạp. Nếu vẫn cần nạp lại, kiểm tra xong phần chuẩn bị rồi bấm <strong className={strong}>Tải &amp; Nạp Firmware</strong>.</p>
             <Shot file="04-xac-minh.png" open={open} />
-            <p>Từ các bản Tool sau 3.12.0, Tool hiện thêm hộp xác nhận như dưới đây. Đọc kỹ rồi bấm <strong className={strong}>Xoá sạch và nạp</strong> để tiếp tục, hoặc <strong className={strong}>Huỷ</strong> để dừng lại.</p>
+            <p>Tool hiện hộp xác nhận như dưới đây. Đọc kỹ rồi bấm <strong className={strong}>Xoá sạch và nạp</strong> để tiếp tục, hoặc <strong className={strong}>Huỷ</strong> để dừng lại.</p>
             <Shot file="04b-hop-xac-nhan.png" open={open} />
           </Step>
           <Step n={4} title="Chờ thanh tiến trình chạy hết, không rút dây">

@@ -3,26 +3,8 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2606030 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller, ARGB HSL Controller 4X va ARGB HSL Controller 2X Pro.",
+    "notes": "Build 2611091 cho ESP32-S3 N8R8. Co 2 file rieng cho HW board ARGB HSL Controller 4X va ARGB HSL Controller 2X Pro.",
     "files": [
-      {
-        "version": "3.3.0",
-        "vid": 2606030,
-        "target": [
-          "esp32s3",
-          "esp32-s3",
-          "esp32_s3"
-        ],
-        "chip": "esp32-s3",
-        "flash_psram": "n8r8",
-        "bootloaderSHA256": "a02af2aaee12f83ad96f58ceb710d114f11d33a30cf84765660b23f1a300c5bb",
-        "product": "ARGB HSL Controller",
-		    "hw_version": "v1.0.0",
-        "repo": "any",
-        "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware.bin",
-        "size": 1264480,
-        "sha256": "8b0a614e7bf07d1c8bac6400739b61d2917e31ddc8defc17ad756a9abf99cbf3"
-      },
       {
         "version": "3.0.0",
         "notes": "Build 2611091 cho ARGB HSL Controller 4X: luu toi da 1024 preset (ID 1-250 va 256-1024, 251-255 danh rieng); sua loi playlist; presets.json khong con bi hong khi tai len file co dau cach. Kem toc do quay POI va cache anh PSRAM nhu ban 2X Pro.",

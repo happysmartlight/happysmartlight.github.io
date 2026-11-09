@@ -194,7 +194,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
 
   const toolFeatures: Feature[] = [
     { icon: Images, title: "Công cụ POI có thư viện 306 ảnh mẫu", desc: "Xem sẵn hình khi gậy quay, bấm 1 lần là dùng ngay; mỗi mẫu tự chọn kiểu hình phù hợp, có nhóm, tìm kiếm và mục Yêu thích." },
-    { icon: Wrench, title: "Cấu hình phần cứng theo đúng dòng mạch", desc: "Tự nhận giới hạn port và số LED của từng dòng mạch. Đổi số LED hoặc port là phân đoạn tự về 1 đoạn phủ toàn bộ LED, giữ hiệu ứng và màu, không phải xoá bằng tay." },
+    { icon: Wrench, title: "Cấu hình phần cứng theo đúng dòng mạch", desc: "Tự nhận giới hạn port và số LED của từng dòng mạch. Đổi số LED hoặc port là phân đoạn tự về 1 đoạn phủ toàn bộ LED, giữ hiệu ứng và màu, không phải xoá bằng tay. Xem và đổi tên từng mạch ngay trong tab (kèm mDNS, MAC để phân biệt mạch trùng tên), không cần khởi động lại." },
     { icon: Download, title: "Auto-Flasher firmware qua cổng COM", desc: "Tự động nạp code chương trình mới nhất cho chip điều khiển, chống nạp lỗi và hỏng chip dán." },
     { icon: Sliders, title: "Pixel Mapper Layout 2D/3D", desc: "Số hóa sơ đồ nối dây bất kỳ, xuất ma trận tối ưu tuyến đường tín hiệu đi dây thực tế." },
     { icon: Wifi, title: "Stream Ethernet / Wi-Fi UDP 60Hz", desc: "Truyền trực tiếp luồng kịch bản xLights với nén dữ liệu độc quyền ARGB HSL, không trễ." },

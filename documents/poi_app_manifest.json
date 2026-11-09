@@ -3,13 +3,13 @@
   "channel": "stable",
   "instructions": "Manifest cap nhat RIENG cua POI HSL Studio (khong dung chung app_manifest.json cua Tool ARGB HSL). File that nam o happysmartlight.github.io/documents/poi_app_manifest.json, do tools/release_gui.py (app 'POI HSL Studio') tao/cap nhat tu dong: version/release notes lay tu poi_config.py, installer upload len release tag App_POI_HSL_Studio. File nay chi la mau cho lan release dau tien.",
   "latest": {
-    "version": "1.4.0",
-    "version_label": "v1.4.0 - November 2026",
+    "version": "1.4.1",
+    "version_label": "v1.4.1 - November 2026",
     "release_date": "2026-11-09",
-    "release_notes": "🗑 Tab Công cụ POI: gộp 2 nút xoá thành 1 nút \"Xóa preset + ảnh\". Xoá preset thì xoá luôn\nảnh BMP của nó (ảnh preset khác còn dùng được giữ lại), kèm mục dọn ảnh BMP thừa\nkhông thuộc preset nào.\n🎬 Tab Timecode dễ nhìn, dễ thao tác hơn:\n- Track của mạch nguồn (mạch đang cấp hiệu ứng / bảng màu / preset) có badge ★ NGUỒN;\nchuột phải tên mạch → \"Dùng làm mạch nguồn\" để đổi nhanh.\n- Mạch có mạng nhưng app chưa dùng được hiện rõ lý do: \"KHÔNG HỖ TRỢ\" (không phải 2X Pro)\nhoặc \"CẦN NÂNG FW\", thay vì báo OFFLINE.\n- Nút đổi tên cho khỏi nhầm (💾 Lưu file / ⬆ Ghi vào mạch, 📂 Mở file / ⬇ Đọc từ mạch,\n▶ Phát từ đầu / 📡 Phát bản đã ghi) và tô màu theo loại việc.\n- Kéo thả hiện bóng clip đúng chỗ sẽ thả và cho biết app sẽ làm gì; kéo hiệu ứng vào\nmạch offline hoặc không hỗ trợ bị chặn ngay.\n- Nút \"Xóa preset + ảnh\" xoá kèm ảnh của preset Timecode.\n🔢 Hỗ trợ firmware 2611091: mạch 2X Pro lưu tới 1024 preset, Timecode tự dùng thêm\nID 256-1024 khi 60-240 đã đầy. Mạch firmware cũ giữ nguyên giới hạn 250.\n🔌 Nạp firmware qua USB: lỗi khi nạp ghi rõ lý do vào log.",
+    "release_notes": "✏️ Chữ có dấu tiếng Việt gửi lên mạch (tên preset, tên mạch) không còn bị lưu thành mã\nký tự lạ.",
     "min_supported_version": "1.0.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.4.0.exe",
-    "size": 168394842,
-    "sha256": "e89d9f2a87f078734e659da261c905d5dd575c0c128c149520fdacc4ee0afcea"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.4.1.exe",
+    "size": 168387769,
+    "sha256": "c38b9add7c600be308bda88fb73b407c16d1729fa8905a130cb4c9036d478f97"
   }
 }

@@ -3,13 +3,13 @@
   "channel": "stable",
   "instructions": "Manifest cap nhat RIENG cua POI HSL Studio (khong dung chung app_manifest.json cua Tool ARGB HSL). File that nam o happysmartlight.github.io/documents/poi_app_manifest.json, do tools/release_gui.py (app 'POI HSL Studio') tao/cap nhat tu dong: version/release notes lay tu poi_config.py, installer upload len release tag App_POI_HSL_Studio. File nay chi la mau cho lan release dau tien.",
   "latest": {
-    "version": "1.3.0",
-    "version_label": "v1.3.0 - November 2026",
-    "release_date": "2026-11-07",
-    "release_notes": "🎨 Thư viện mẫu của Tab Công cụ POI có thêm 169 mẫu mới, tổng cộng 306 mẫu:\n- Hoạ tiết POI: Sóng, Zigzag, Xoắn ốc, Chấm bi, Đan chéo, Vảy rồng, Sóng Nhật, Plasma,\nThanh nhạc, Sao chổi.\n- Lửa & ánh sáng: Lửa bùng, Tia sét, Màn sáng, Mặt trời, Cầu lửa, Vòng lửa.\n- Động vật: Bướm, Sứa, Mèo, Cá chép, Dấu chân.\n- Fractal & vũ trụ: Julia, Cá ngựa, Xoáy sâu, Newton, Thiên hà, Tinh vân, Hành tinh.\n- Hình học: Mandala, Kính vạn hoa, Hồi văn, Kính màu, La bàn, Đường hầm, Tổ ong.\n- Hoa lá & vui nhộn: Hoa sen, Bông tuyết, Hạt hướng dương, Dây leo, Tim xếp, Mạng nhện.\n- Nền đen để hình nổi hơn khi quay và đỡ pin, mỗi mẫu đã chọn sẵn kiểu hình phù hợp.",
+    "version": "1.4.0",
+    "version_label": "v1.4.0 - November 2026",
+    "release_date": "2026-11-09",
+    "release_notes": "🗑 Tab Công cụ POI: gộp 2 nút xoá thành 1 nút \"Xóa preset + ảnh\". Xoá preset thì xoá luôn\nảnh BMP của nó (ảnh preset khác còn dùng được giữ lại), kèm mục dọn ảnh BMP thừa\nkhông thuộc preset nào.\n🎬 Tab Timecode dễ nhìn, dễ thao tác hơn:\n- Track của mạch nguồn (mạch đang cấp hiệu ứng / bảng màu / preset) có badge ★ NGUỒN;\nchuột phải tên mạch → \"Dùng làm mạch nguồn\" để đổi nhanh.\n- Mạch có mạng nhưng app chưa dùng được hiện rõ lý do: \"KHÔNG HỖ TRỢ\" (không phải 2X Pro)\nhoặc \"CẦN NÂNG FW\", thay vì báo OFFLINE.\n- Nút đổi tên cho khỏi nhầm (💾 Lưu file / ⬆ Ghi vào mạch, 📂 Mở file / ⬇ Đọc từ mạch,\n▶ Phát từ đầu / 📡 Phát bản đã ghi) và tô màu theo loại việc.\n- Kéo thả hiện bóng clip đúng chỗ sẽ thả và cho biết app sẽ làm gì; kéo hiệu ứng vào\nmạch offline hoặc không hỗ trợ bị chặn ngay.\n- Nút \"Xóa preset + ảnh\" xoá kèm ảnh của preset Timecode.\n🔢 Hỗ trợ firmware 2611091: mạch 2X Pro lưu tới 1024 preset, Timecode tự dùng thêm\nID 256-1024 khi 60-240 đã đầy. Mạch firmware cũ giữ nguyên giới hạn 250.\n🔌 Nạp firmware qua USB: lỗi khi nạp ghi rõ lý do vào log.",
     "min_supported_version": "1.0.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.3.0.exe",
-    "size": 168322082,
-    "sha256": "d070b999da431cefbccbbd0400967c380313780e35a38406784b4fb3bdfd0634"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.4.0.exe",
+    "size": 168394842,
+    "sha256": "e89d9f2a87f078734e659da261c905d5dd575c0c128c149520fdacc4ee0afcea"
   }
 }

@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.14.0",
-    "version_label": "v3.14.0 - November 2026",
+    "version": "3.14.1",
+    "version_label": "v3.14.1 - November 2026",
     "release_date": "2026-11-09",
-    "release_notes": "🎬 Tab Timecode dễ nhìn, dễ thao tác hơn:\n- Track của mạch nguồn (mạch đang cấp hiệu ứng / bảng màu / preset) có badge ★ NGUỒN;\nchuột phải tên mạch → \"Dùng làm mạch nguồn\" để đổi nhanh.\n- Nút đổi tên cho khỏi nhầm (💾 Lưu file / ⬆ Ghi vào mạch, 📂 Mở file / ⬇ Đọc từ mạch,\n▶ Phát từ đầu / 📡 Phát bản đã ghi) và tô màu theo loại việc: xanh lá = phát,\nxanh dương = đọc / ghi mạch, vàng = mạch nguồn, viền đỏ = xoá.\n- Kéo thả hiện bóng clip đúng chỗ sẽ thả và cho biết app sẽ làm gì (dùng preset có sẵn /\ncopy từ mạch nguồn / tạo preset tạm); kéo hiệu ứng vào mạch offline bị chặn ngay.\n- Tên mạch không còn bị badge OFFLINE che; bố cục gọn, vừa màn hình laptop 1366 px.\n🗑 Xoá preset kèm ảnh: Tab POI, Matrix và Timecode chỉ còn 1 nút \"Xóa preset + ảnh\".\nXoá preset thì xoá luôn ảnh BMP / GIF của nó (ảnh preset khác còn dùng được giữ lại),\nkèm mục dọn ảnh thừa không thuộc preset nào.\n🧹 Tab Cấu hình phần cứng: nút \"Xóa bộ nhớ\" giải phóng bộ nhớ mạch (xoá preset + ảnh)\nmà vẫn giữ WiFi, cấu hình LED / nút bấm và Mã PIN.\n🔢 Hỗ trợ firmware 2611091 (2X Pro / 4X): mạch lưu tới 1024 preset, Timecode tự dùng\nthêm ID 256-1024 khi 60-240 đã đầy. Mạch firmware cũ giữ nguyên giới hạn 250.\n🔌 Nạp firmware qua USB: lỗi khi nạp ghi rõ lý do vào log.",
+    "release_notes": "🏷 Tab Cấu hình phần cứng: hiện tên thiết bị ngay dưới tiêu đề, kèm địa chỉ mDNS và MAC để\nphân biệt các mạch đang trùng tên. Đổi tên ngay trong tab: áp dụng liền, mạch không khởi\nđộng lại và không mất các chỉnh sửa cấu hình chưa lưu. Tên có dấu tiếng Việt dùng được.\n✏️ Chữ có dấu gửi lên mạch (tên mạch, tên preset) không còn bị lưu thành mã ký tự lạ.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.14.0.exe",
-    "size": 314164990,
-    "sha256": "d4018caa65dc19d2734da75a6780109e023c8de18c8b86b3758efe3e9d2205a9"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.14.1.exe",
+    "size": 314175883,
+    "sha256": "7c3abcffb4ee79b2c3459b971f2d4ce167bee91dd66129fcfea10b2462d1c72e"
   }
 }

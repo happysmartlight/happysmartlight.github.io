@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Images, Wrench, ArrowLeft, Smartphone, Laptop, Download, CheckCircle2, Cpu, Wifi, Sliders, Music, Camera, ShieldCheck, Mail, Phone, PlayCircle, Settings, Sparkles, Eye, WandSparkles, ImageUp, Users, Thermometer, Gauge, BatteryCharging, type LucideIcon } from "lucide-react";
+import { Images, Wrench, ArrowLeft, Smartphone, Laptop, Download, CheckCircle2, Cpu, Wifi, Sliders, Music, Camera, ShieldCheck, Mail, Phone, PlayCircle, Settings, Sparkles, Eye, WandSparkles, ImageUp, Users, Thermometer, Gauge, BatteryCharging, Trash2, Clock, type LucideIcon } from "lucide-react";
 import { motion } from "motion/react";
 import ImageZoomLightbox, { type ZoomGalleryItem } from "./ImageZoomLightbox";
 import { WINDOWS_TOOL_URL, WINDOWS_TOOL_VERSION, WINDOWS_TOOL_FILE, WINDOWS_TOOL_SIZE, WINDOWS_TOOL_SHA256 } from "../windowsTool";
@@ -200,6 +200,8 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
     { icon: Wifi, title: "Stream Ethernet / Wi-Fi UDP 60Hz", desc: "Truyền trực tiếp luồng kịch bản xLights với nén dữ liệu độc quyền ARGB HSL, không trễ." },
     { icon: Cpu, title: "Hỗ trợ ma trận quy mô lớn", desc: "Điều khiển hàng chục nghìn điểm ảnh, phù hợp sân khấu, mặt dựng tòa nhà, sự kiện lớn." },
     { icon: Settings, title: "Quản lý kịch bản & preset", desc: "Lưu, xuất và tái sử dụng các bố cục, preset hiệu ứng cho từng dự án thi công." },
+    { icon: Clock, title: "Timecode trực quan", desc: "Mạch nguồn có badge ★ NGUỒN, kéo-thả hiện trước chỗ clip sẽ nằm và app sẽ làm gì, nút tô màu theo chức năng. Mạch firmware 2611091 dùng được tới 1024 preset." },
+    { icon: Trash2, title: "Dọn bộ nhớ mạch gọn gàng", desc: "Xoá preset là xoá luôn ảnh BMP/GIF của nó (ảnh preset khác còn dùng được giữ lại). Nút Xóa bộ nhớ giải phóng bộ nhớ mạch mà vẫn giữ WiFi và cấu hình." },
   ];
 
   const poiFeatures: Feature[] = [
@@ -207,7 +209,8 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
     { icon: ImageUp, title: "Nạp ảnh POI kéo-thả", desc: "Kéo-thả ảnh, xem trước vòng quay như khi múa thật; tự kiểm tra dung lượng (tới 512 KB mỗi ảnh) và gợi ý số pixel phù hợp trước khi gửi." },
     { icon: Gauge, title: "Tốc độ quay & kiểu hình", desc: "Thanh trượt RPM: đang chạy preset thì mạch đổi ngay, bấm Lưu mới ghi vào preset. Kiểu Đúng hình hiện logo đúng dáng, chiếm cả vòng tròn; kiểu Uốn theo vòng chọn được số ảnh mỗi vòng; có Đảo chiều khi quay ngược lại." },
     { icon: Users, title: "Gửi một lần cho cả đội gậy", desc: "Chọn nhiều gậy, gửi nhiều ảnh cùng lúc; tên ảnh tiếng Việt tự bỏ dấu, không ghi đè ảnh của preset khác." },
-    { icon: Music, title: "Timecode theo nhạc", desc: "Lập trình kịch bản ánh sáng theo bài nhạc trên timeline, cả đội POI chạy đồng bộ khi biểu diễn." },
+    { icon: Music, title: "Timecode theo nhạc", desc: "Lập trình kịch bản ánh sáng theo bài nhạc trên timeline, cả đội POI chạy đồng bộ khi biểu diễn. Gậy nguồn có badge ★ NGUỒN, kéo-thả báo trước app sẽ làm gì; gậy firmware 2611091 dùng được tới 1024 preset." },
+    { icon: Trash2, title: "Xoá preset kèm ảnh", desc: "Một nút xoá preset cùng ảnh BMP của nó và dọn ảnh thừa trên gậy; ảnh mà preset khác còn dùng được giữ lại." },
     { icon: Thermometer, title: "Theo dõi từng gậy", desc: "Bảng tất cả gậy: sóng Wi-Fi, bộ nhớ, nhiệt độ chip, mode quay POI; cảnh báo gậy cần chú ý và nút Nháy để nhận diện từng cây." },
     { icon: BatteryCharging, title: "Độ sáng an toàn cho pin", desc: "Thanh độ sáng giới hạn ở mức an toàn cho pin POI (hiển thị 0-100%), tránh sụt áp giữa buổi diễn." },
   ];

@@ -25,7 +25,8 @@
       },
       {
         "version": "3.0.0",
-        "vid": 2610270,
+        "notes": "Build 2611091 cho ARGB HSL Controller 4X: luu toi da 1024 preset (ID 1-250 va 256-1024, 251-255 danh rieng); sua loi playlist; presets.json khong con bi hong khi tai len file co dau cach. Kem toc do quay POI va cache anh PSRAM nhu ban 2X Pro.",
+        "vid": 2611091,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -37,14 +38,14 @@
         "product": "ARGB HSL Controller 4X",
 		    "hw_version": "v1.0.0",
         "repo": "any",
-        "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware.bin",
-        "size": 1267184,
-        "sha256": "78558072f8b28f83e92bb09542c59608731933b38787d96326810612e734a65d"
+        "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-4x.bin",
+        "size": 1272576,
+        "sha256": "d759e4a28ca2f6b657ccc30237ed6c1831310ae4b1284a152500aefe4c753e8b"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611050 cho ARGB HSL Controller 2X Pro: them toc do quay POI (RPM), so anh moi vong, dao chieu; quet nhanh hon va giu anh trong PSRAM de doi anh tuc thi. Ban toi thieu de dung POI HSL Studio.",
-        "vid": 2611050,
+        "notes": "Build 2611091 cho ARGB HSL Controller 2X Pro: luu toi da 1024 preset (ID 1-250 va 256-1024, 251-255 danh rieng); sua loi playlist; presets.json khong con bi hong khi tai len file co dau cach. POI HSL Studio can build 2611050 tro len.",
+        "vid": 2611091,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -57,8 +58,8 @@
 		    "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
-        "size": 1269360,
-        "sha256": "49c04f2f4d05a9e1f5c0d8efa951e3a64ca54adeb20ccbb444e8627bd0df7947"
+        "size": 1272544,
+        "sha256": "eda80090bf321ac30af9c286b4cd344c9a115a995bb368446dfbba48c35c6244"
       }
     ]
   }

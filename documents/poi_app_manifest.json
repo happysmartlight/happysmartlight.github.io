@@ -3,13 +3,13 @@
   "channel": "stable",
   "instructions": "Manifest cap nhat RIENG cua POI HSL Studio (khong dung chung app_manifest.json cua Tool ARGB HSL). File that nam o happysmartlight.github.io/documents/poi_app_manifest.json, do tools/release_gui.py (app 'POI HSL Studio') tao/cap nhat tu dong: version/release notes lay tu poi_config.py, installer upload len release tag App_POI_HSL_Studio. File nay chi la mau cho lan release dau tien.",
   "latest": {
-    "version": "1.4.1",
-    "version_label": "v1.4.1 - November 2026",
-    "release_date": "2026-11-09",
-    "release_notes": "✏️ Chữ có dấu tiếng Việt gửi lên mạch (tên preset, tên mạch) không còn bị lưu thành mã\nký tự lạ.",
+    "version": "1.5.0",
+    "version_label": "v1.5.0 - November 2026",
+    "release_date": "2026-11-11",
+    "release_notes": "🌐 Tab Timecode hiện tên tiếng Việt cho hiệu ứng và bảng màu của mạch, cùng cách gọi với giao\ndiện web của mạch: thư viện hiệu ứng / bảng màu, clip trên timeline và các nút chỉnh hiệu ứng.\nRê chuột vào một hiệu ứng để xem kèm tên gốc tiếng Anh. File timeline cũ mở lên cũng hiện\ntên tiếng Việt.",
     "min_supported_version": "1.0.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.4.1.exe",
-    "size": 168387769,
-    "sha256": "c38b9add7c600be308bda88fb73b407c16d1729fa8905a130cb4c9036d478f97"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.5.0.exe",
+    "size": 168397778,
+    "sha256": "175d5de1956d016e959e7e8db3db5debf09558321a12cefaace74d2f2a075c4d"
   }
 }

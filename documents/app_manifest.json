@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.14.1",
-    "version_label": "v3.14.1 - November 2026",
-    "release_date": "2026-11-09",
-    "release_notes": "🏷 Tab Cấu hình phần cứng: hiện tên thiết bị ngay dưới tiêu đề, kèm địa chỉ mDNS và MAC để\nphân biệt các mạch đang trùng tên. Đổi tên ngay trong tab: áp dụng liền, mạch không khởi\nđộng lại và không mất các chỉnh sửa cấu hình chưa lưu. Tên có dấu tiếng Việt dùng được.\n✏️ Chữ có dấu gửi lên mạch (tên mạch, tên preset) không còn bị lưu thành mã ký tự lạ.",
+    "version": "3.15.0",
+    "version_label": "v3.15.0 - November 2026",
+    "release_date": "2026-11-11",
+    "release_notes": "🌐 Tab Timecode hiện tên tiếng Việt cho hiệu ứng và bảng màu của mạch, cùng cách gọi với giao\ndiện web của mạch: thư viện hiệu ứng / bảng màu, clip trên timeline và các nút chỉnh hiệu ứng.\nRê chuột vào một hiệu ứng để xem kèm tên gốc tiếng Anh. File timeline cũ mở lên cũng hiện\ntên tiếng Việt.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.14.1.exe",
-    "size": 314175883,
-    "sha256": "7c3abcffb4ee79b2c3459b971f2d4ce167bee91dd66129fcfea10b2462d1c72e"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.15.0.exe",
+    "size": 314202388,
+    "sha256": "7c075a546cf0ae2af8572a32dc7f6be4988483d8873a88f8ba7913b034e7f72e"
   }
 }

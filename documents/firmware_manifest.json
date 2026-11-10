@@ -3,12 +3,12 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2611091 cho ESP32-S3 N8R8. Co 2 file rieng cho HW board ARGB HSL Controller 4X va ARGB HSL Controller 2X Pro.",
+    "notes": "Build 2611102 cho ESP32-S3 N8R8. Co 2 file rieng cho HW board ARGB HSL Controller 4X va ARGB HSL Controller 2X Pro.",
     "files": [
       {
         "version": "3.0.0",
-        "notes": "Build 2611091 cho ARGB HSL Controller 4X: luu toi da 1024 preset (ID 1-250 va 256-1024, 251-255 danh rieng); sua loi playlist; presets.json khong con bi hong khi tai len file co dau cach. Kem toc do quay POI va cache anh PSRAM nhu ban 2X Pro.",
-        "vid": 2611091,
+        "notes": "Build 2611102 cho ARGB HSL Controller 4X: cap nhat cac ban sua loi cua WLED 16.0.1 (mau hieu ung Rainbow, chuyen canh, preset khi khoi dong, nut analog, nap cau hinh LED tu file); POI quet khong con bo hang khi dang dung web hoac app, tre hang giam hon mot nua; sua loi CPU chay 100% khi ten anh khong hop le o RPM co dinh; tu khoi dong lai neu bi treo (watchdog); anh nen giao dien la logo HSL (link anh cu da hong).",
+        "vid": 2611102,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -21,13 +21,13 @@
 		    "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-4x.bin",
-        "size": 1272576,
-        "sha256": "d759e4a28ca2f6b657ccc30237ed6c1831310ae4b1284a152500aefe4c753e8b"
+        "size": 1275360,
+        "sha256": "764a2dab290d3d5deaf84c1d1f85770bdb8e13348507088a979afea8444b3cb3"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611091 cho ARGB HSL Controller 2X Pro: luu toi da 1024 preset (ID 1-250 va 256-1024, 251-255 danh rieng); sua loi playlist; presets.json khong con bi hong khi tai len file co dau cach. POI HSL Studio can build 2611050 tro len.",
-        "vid": 2611091,
+        "notes": "Build 2611102 cho ARGB HSL Controller 2X Pro: cap nhat cac ban sua loi cua WLED 16.0.1 (mau hieu ung Rainbow, chuyen canh, preset khi khoi dong, nut analog, nap cau hinh LED tu file); POI quet khong con bo hang khi dang dung web hoac app, tre hang giam hon mot nua; sua loi CPU chay 100% khi ten anh khong hop le o RPM co dinh; tu khoi dong lai neu bi treo (watchdog); anh nen giao dien la logo HSL (link anh cu da hong). POI HSL Studio can build 2611050 tro len.",
+        "vid": 2611102,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -40,8 +40,8 @@
 		    "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
-        "size": 1272544,
-        "sha256": "eda80090bf321ac30af9c286b4cd344c9a115a995bb368446dfbba48c35c6244"
+        "size": 1275312,
+        "sha256": "18a31e5612292b6a85dc93c8e6b3ad343827ebe2c41508a458da6ce8a648b417"
       }
     ]
   }

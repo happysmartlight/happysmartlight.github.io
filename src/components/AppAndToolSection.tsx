@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Smartphone, Laptop, Download, RefreshCw, Smartphone as PhoneIcon, Sliders, Play, CheckCircle2, QrCode, Monitor, Sparkles, Info, WandSparkles, ImageUp, Users, Music } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { WINDOWS_TOOL_URL, WINDOWS_TOOL_VERSION, WINDOWS_TOOL_FILE, WINDOWS_TOOL_SIZE, WINDOWS_TOOL_SHA256 } from "../windowsTool";
-import { MACOS_TOOL_URL, MACOS_TOOL_VERSION, MACOS_TOOL_FILE, MACOS_TOOL_SIZE, MACOS_TOOL_SHA256, MACOS_TOOL_MIN_OS, MACOS_TOOL_CHIP_SHORT } from "../macosTool";
-import { POI_STUDIO_URL, POI_STUDIO_VERSION, POI_STUDIO_FILE, POI_STUDIO_SIZE, POI_STUDIO_SHA256 } from "../poiStudio";
+import { MACOS_TOOL } from "../macosTool";
+import { POI_STUDIO_URL, POI_STUDIO_VERSION, POI_STUDIO_FILE, POI_STUDIO_SIZE, POI_STUDIO_SHA256, POI_STUDIO_MAC } from "../poiStudio";
+import type { MacRelease } from "../macosRelease";
 
 interface AppAndToolSectionProps {
   onViewPrivacy?: () => void;
@@ -111,6 +112,34 @@ function InstallerDownload({ url, file, label, buttonId, buttonClass, spinnerCla
         </button>
       )}
     </AnimatePresence>
+  );
+}
+
+// Khối tải bản macOS (.dmg) đặt dưới nút tải Windows, dùng chung cho Windows Tool và
+// POI HSL Studio. mac = null (app chưa có bản macOS) → không hiện gì.
+function MacDownload({ mac, buttonId }: { mac: MacRelease | null; buttonId: string }) {
+  if (!mac) return null;
+  return (
+    <div className="pt-3.5 border-t border-white/5 space-y-3.5">
+      <InstallerDownload
+        url={mac.url}
+        file={mac.file}
+        label={`TẢI BẢN MACOS (${mac.size})`}
+        buttonId={buttonId}
+        buttonClass="bg-gradient-to-r from-slate-100 to-slate-300 shadow-lg shadow-white/10"
+        spinnerClass="text-slate-200"
+        barClass="from-slate-100 to-slate-400"
+      />
+      <span className="block text-[10px] text-center font-mono text-emerald-400 uppercase font-bold">
+        Miễn phí 100% // Phiên bản v{mac.version} // macOS {mac.minOs}+ {mac.chipShort}
+      </span>
+      <span className="block text-[10px] text-center text-amber-300/80 leading-relaxed">
+        Lần đầu mở app: vào Cài đặt hệ thống → Quyền riêng tư &amp; Bảo mật → bấm "Vẫn mở".
+      </span>
+      <span className="block text-[9px] text-center font-mono text-slate-600 break-all leading-relaxed">
+        SHA256: {mac.sha256}
+      </span>
+    </div>
   );
 }
 
@@ -398,7 +427,7 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
                     <Laptop className="w-4 h-4 text-neon-blue-bright" />
                   </div>
                   <span className="font-mono text-xs tracking-wider uppercase text-neon-blue-bright font-bold">
-                    DESKTOP SETUP TOOL (WINDOWS & MACOS)
+                    DESKTOP SETUP TOOL ({MACOS_TOOL ? "WINDOWS & MACOS" : "WINDOWS x64"})
                   </span>
                 </div>
 
@@ -464,26 +493,7 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
                 </span>
 
                 {/* Bản macOS (.dmg): đọc version/link từ app_manifest_macos.json */}
-                <div className="pt-3.5 border-t border-white/5 space-y-3.5" id="macos-tool-download">
-                  <InstallerDownload
-                    url={MACOS_TOOL_URL}
-                    file={MACOS_TOOL_FILE}
-                    label={`TẢI BẢN MACOS (${MACOS_TOOL_SIZE})`}
-                    buttonId="btn-download-macos-tool"
-                    buttonClass="bg-gradient-to-r from-slate-100 to-slate-300 shadow-lg shadow-white/10"
-                    spinnerClass="text-slate-200"
-                    barClass="from-slate-100 to-slate-400"
-                  />
-                  <span className="block text-[10px] text-center font-mono text-emerald-400 uppercase font-bold">
-                    Miễn phí 100% // Phiên bản v{MACOS_TOOL_VERSION} // macOS {MACOS_TOOL_MIN_OS}+ {MACOS_TOOL_CHIP_SHORT}
-                  </span>
-                  <span className="block text-[10px] text-center text-amber-300/80 leading-relaxed">
-                    Lần đầu mở app: vào Cài đặt hệ thống → Quyền riêng tư &amp; Bảo mật → bấm "Vẫn mở".
-                  </span>
-                  <span className="block text-[9px] text-center font-mono text-slate-600 break-all leading-relaxed">
-                    SHA256: {MACOS_TOOL_SHA256}
-                  </span>
-                </div>
+                <MacDownload mac={MACOS_TOOL} buttonId="btn-download-macos-tool" />
 
                 {onViewToolDetails && (
                   <button
@@ -510,7 +520,7 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
                     <WandSparkles className="w-4 h-4 text-emerald-400" />
                   </div>
                   <span className="font-mono text-xs tracking-wider uppercase text-emerald-400 font-bold">
-                    POI DESKTOP APP (WINDOWS x64)
+                    POI DESKTOP APP ({POI_STUDIO_MAC ? "WINDOWS & MACOS" : "WINDOWS x64"})
                   </span>
                   <span className="px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-400/40 font-mono text-[9px] font-bold uppercase tracking-wider text-emerald-300">
                     Mới
@@ -558,6 +568,9 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
                 <span className="block text-[9px] text-center font-mono text-slate-600 break-all leading-relaxed">
                   SHA256: {POI_STUDIO_SHA256}
                 </span>
+
+                {/* Bản macOS (.dmg): đọc từ poi_app_manifest_macos.json, chưa có thì ẩn */}
+                <MacDownload mac={POI_STUDIO_MAC} buttonId="btn-download-macos-poi-studio" />
 
                 {onViewPoiDetails && (
                   <button

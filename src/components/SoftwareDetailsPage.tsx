@@ -3,8 +3,23 @@ import { Images, Wrench, ArrowLeft, Smartphone, Laptop, Download, CheckCircle2, 
 import { motion } from "motion/react";
 import ImageZoomLightbox, { type ZoomGalleryItem } from "./ImageZoomLightbox";
 import { WINDOWS_TOOL_URL, WINDOWS_TOOL_VERSION, WINDOWS_TOOL_FILE, WINDOWS_TOOL_SIZE, WINDOWS_TOOL_SHA256 } from "../windowsTool";
-import { MACOS_TOOL_URL, MACOS_TOOL_FILE, MACOS_TOOL_SIZE, MACOS_TOOL_SHA256, MACOS_TOOL_MIN_OS, MACOS_TOOL_CHIP } from "../macosTool";
-import { POI_STUDIO_URL, POI_STUDIO_VERSION, POI_STUDIO_FILE, POI_STUDIO_SIZE, POI_STUDIO_SHA256 } from "../poiStudio";
+import { MACOS_TOOL } from "../macosTool";
+import { POI_STUDIO_URL, POI_STUDIO_VERSION, POI_STUDIO_FILE, POI_STUDIO_SIZE, POI_STUDIO_SHA256, POI_STUDIO_MAC } from "../poiStudio";
+import type { MacRelease } from "../macosRelease";
+
+// Dòng yêu cầu hệ thống của bản macOS (chỉ hiện khi app đã có bản .dmg).
+function MacRequirement({ mac }: { mac: MacRelease }) {
+  return (
+    <p className="flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" /> macOS {mac.minOs} trở lên, máy Mac {mac.chip} (file .dmg {mac.size})</p>
+  );
+}
+
+// Bước "Tải & cài đặt": thêm hướng dẫn macOS khi app đã có bản .dmg.
+function installDesc(winFile: string, mac: MacRelease | null, extra = ""): string {
+  const win = `${mac ? "Windows: tải" : "Tải"} bộ cài ${winFile}, chạy file và làm theo trình hướng dẫn cài đặt.${extra}`;
+  if (!mac) return win;
+  return `${win} macOS: tải ${mac.file}, kéo app vào thư mục Applications; lần đầu mở vào Cài đặt hệ thống → Quyền riêng tư & Bảo mật → bấm "Vẫn mở", và cho phép quyền Mạng cục bộ để app tìm được mạch.`;
+}
 
 // "app" = Android, "tool" = ARGB HSL Windows Tool, "poi" = POI HSL Studio (app POI riêng cho Windows).
 type SoftwareType = "app" | "tool" | "poi";
@@ -168,6 +183,8 @@ const GALLERY: Partial<Record<SoftwareType, GalleryConfig>> = {
 export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPageProps) {
   const isApp = type === "app";
   const isPoi = type === "poi";
+  // Bản macOS của trang đang xem (Android không có; chưa đăng .dmg thì null → ẩn).
+  const mac: MacRelease | null = isApp ? null : isPoi ? POI_STUDIO_MAC : MACOS_TOOL;
   const t = THEME[type];
   const [activeScreenshotIndex, setActiveScreenshotIndex] = useState<number>(0);
   const [isScreenshotViewerOpen, setIsScreenshotViewerOpen] = useState<boolean>(false);
@@ -226,7 +243,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
   ];
 
   const toolSteps: Step[] = [
-    { title: "Tải & cài đặt phần mềm", desc: `Windows: tải bộ cài ${WINDOWS_TOOL_FILE}, chạy file và làm theo trình hướng dẫn cài đặt. macOS: tải ${MACOS_TOOL_FILE}, kéo app vào thư mục Applications; lần đầu mở vào Cài đặt hệ thống → Quyền riêng tư & Bảo mật → bấm "Vẫn mở", và cho phép quyền Mạng cục bộ để app tìm được mạch.` },
+    { title: "Tải & cài đặt phần mềm", desc: installDesc(WINDOWS_TOOL_FILE, MACOS_TOOL) },
     { title: "Kết nối mạch qua cổng COM", desc: "Cắm bộ điều khiển vào máy tính bằng cáp USB, chọn đúng cổng COM trong phần mềm." },
     { title: "Nạp firmware (nếu cần)", desc: "Dùng Auto-Flasher để nạp/cập nhật firmware mới nhất cho chip điều khiển." },
     { title: "Thiết kế layout Pixel Mapper", desc: "Vẽ sơ đồ ma trận LED 2D/3D theo bố cục thi công thực tế của bạn." },
@@ -234,7 +251,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
   ];
 
   const poiSteps: Step[] = [
-    { title: "Tải & cài đặt", desc: `Tải bộ cài ${POI_STUDIO_FILE}, chạy file và làm theo trình hướng dẫn. App cài song song, không ảnh hưởng ARGB HSL Windows Tool.` },
+    { title: "Tải & cài đặt", desc: installDesc(POI_STUDIO_FILE, POI_STUDIO_MAC, " App cài song song, không ảnh hưởng ARGB HSL Windows Tool.") },
     { title: "Bật gậy POI & quét mạng", desc: "Bật gậy POI, để máy tính và gậy cùng mạng Wi-Fi; app tự tìm gậy (hoặc bấm Quét mạng). Thanh thiết bị hiện 'Quay POI: Có' là gậy đã sẵn sàng. Mạch 2X Pro firmware cũ sẽ có cảnh báo kèm nút Nạp firmware ngay trong app." },
     { title: "Chọn ảnh & thông số", desc: "Kéo-thả ảnh vào app hoặc chọn từ Thư viện mẫu, chỉnh số pixel LED, độ sáng, kiểu hình và tốc độ quay (RPM); thanh dung lượng báo ngay ảnh có vừa với gậy không." },
     { title: "Gửi ảnh lên gậy", desc: "Bấm 'Gửi ảnh này' để ghi vào ID trống kế tiếp, hoặc 'Gửi nhiều…' để nạp cho cả đội gậy cùng lúc." },
@@ -456,16 +473,18 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Gậy POI cùng mạng Wi-Fi với máy tính</p>
                   <p className="flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" /> Mạch đã bật mode POI — thiết lập 1 lần bằng ARGB HSL Windows Tool (Tab Cấu hình phần cứng)</p>
                   <p className="flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" /> Kích hoạt bản quyền 1 lần: gửi mã máy cho HSL qua Zalo ngay trong app</p>
-                  <p className="break-all pt-1 text-[10px] text-slate-500">SHA256: {POI_STUDIO_SHA256}</p>
+                  {mac && <MacRequirement mac={mac} />}
+                  <p className="break-all pt-1 text-[10px] text-slate-500">SHA256{mac ? " Windows" : ""}: {POI_STUDIO_SHA256}</p>
+                  {mac && <p className="break-all text-[10px] text-slate-500">SHA256 macOS: {mac.sha256}</p>}
                 </>
               ) : (
                 <>
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Windows 10 / 11 (64-bit)</p>
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Dung lượng cài đặt: {WINDOWS_TOOL_SIZE}</p>
-                  <p className="flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" /> macOS {MACOS_TOOL_MIN_OS} trở lên, máy Mac {MACOS_TOOL_CHIP} (file .dmg {MACOS_TOOL_SIZE})</p>
+                  {mac && <MacRequirement mac={mac} />}
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Cổng USB (nạp firmware) & cổng mạng LAN/Wi-Fi (stream)</p>
-                  <p className="break-all pt-1 text-[10px] text-slate-500">SHA256 Windows: {WINDOWS_TOOL_SHA256}</p>
-                  <p className="break-all text-[10px] text-slate-500">SHA256 macOS: {MACOS_TOOL_SHA256}</p>
+                  <p className="break-all pt-1 text-[10px] text-slate-500">SHA256{mac ? " Windows" : ""}: {WINDOWS_TOOL_SHA256}</p>
+                  {mac && <p className="break-all text-[10px] text-slate-500">SHA256 macOS: {mac.sha256}</p>}
                 </>
               )}
             </div>
@@ -492,23 +511,27 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
                 <span>TẢI POI HSL STUDIO ({POI_STUDIO_SIZE})</span>
               </button>
             ) : (
-              <div className="space-y-3">
+              <button
+                onClick={() => startToolDownload(WINDOWS_TOOL_URL)}
+                className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-cyan-500 to-neon-blue text-center font-display text-xs font-bold uppercase tracking-wider text-slate-950 flex items-center justify-center space-x-2 cursor-pointer shadow-glow-blue hover:scale-102 transition-all"
+              >
+                <Download className="w-4 h-4 text-slate-950" />
+                <span>TẢI ARGB HSL WINDOWS TOOL ({WINDOWS_TOOL_SIZE})</span>
+              </button>
+            )}
+
+            {/* Bản macOS (.dmg) của Tool / Studio: chưa có trong manifest macOS thì ẩn. */}
+            {mac && (
+              <div className="mt-3 space-y-3">
                 <button
-                  onClick={() => startToolDownload(WINDOWS_TOOL_URL)}
-                  className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-cyan-500 to-neon-blue text-center font-display text-xs font-bold uppercase tracking-wider text-slate-950 flex items-center justify-center space-x-2 cursor-pointer shadow-glow-blue hover:scale-102 transition-all"
-                >
-                  <Download className="w-4 h-4 text-slate-950" />
-                  <span>TẢI ARGB HSL WINDOWS TOOL ({WINDOWS_TOOL_SIZE})</span>
-                </button>
-                <button
-                  onClick={() => startToolDownload(MACOS_TOOL_URL)}
+                  onClick={() => startToolDownload(mac.url)}
                   className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-slate-100 to-slate-300 text-center font-display text-xs font-bold uppercase tracking-wider text-slate-950 flex items-center justify-center space-x-2 cursor-pointer shadow-lg shadow-white/10 hover:scale-102 transition-all"
                 >
                   <Download className="w-4 h-4 text-slate-950" />
-                  <span>TẢI BẢN MACOS ({MACOS_TOOL_SIZE})</span>
+                  <span>TẢI BẢN MACOS ({mac.size})</span>
                 </button>
                 <p className="text-center text-[11px] text-amber-300/80 leading-relaxed">
-                  macOS {MACOS_TOOL_MIN_OS}+, máy Mac {MACOS_TOOL_CHIP}. Bản macOS chưa ký với Apple: lần đầu mở app, vào Cài đặt hệ thống → Quyền riêng tư &amp; Bảo mật → bấm "Vẫn mở".
+                  macOS {mac.minOs}+, máy Mac {mac.chip}. Bản macOS chưa ký với Apple: lần đầu mở app, vào Cài đặt hệ thống → Quyền riêng tư &amp; Bảo mật → bấm "Vẫn mở".
                 </p>
               </div>
             )}
@@ -516,9 +539,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
             <p className={`mt-3 text-center text-[11px] font-mono uppercase tracking-wider ${isApp ? "text-amber-400" : "text-emerald-400"}`}>
               {isApp
                 ? "Ứng dụng di động: phần mềm trả phí trên Google Play"
-                : isPoi
-                  ? "POI HSL Studio: miễn phí 100%"
-                  : "Công cụ máy tính Windows & macOS: miễn phí 100%"}
+                : `${isPoi ? "POI HSL Studio" : "Công cụ máy tính"} ${mac ? "Windows & macOS" : "Windows"}: miễn phí 100%`}
             </p>
           </section>
 

@@ -2,8 +2,13 @@
 // Release Tool (repo Tool-POI-HSL, app "POI HSL Studio") tự cập nhật documents/poi_app_manifest.json
 // mỗi lần phát hành → push master → CI build lại, nên trang web không cần sửa tay khi lên bản mới.
 import manifest from "../documents/poi_app_manifest.json";
+import macManifest from "../documents/poi_app_manifest_macos.json";
+import { readMacRelease } from "./macosRelease";
 
 const { latest } = manifest;
+
+/** Bản macOS (.dmg), đọc từ poi_app_manifest_macos.json; null = chưa có → ẩn nút tải macOS. */
+export const POI_STUDIO_MAC = readMacRelease(macManifest);
 
 /** Link tải bộ cài .exe trên GitHub Release (tag App_POI_HSL_Studio). */
 export const POI_STUDIO_URL = latest.url;

@@ -3,13 +3,13 @@
   "channel": "stable",
   "instructions": "Manifest cap nhat RIENG cua POI HSL Studio (khong dung chung app_manifest.json cua Tool ARGB HSL). File that nam o happysmartlight.github.io/documents/poi_app_manifest.json, do tools/release_gui.py (app 'POI HSL Studio') tao/cap nhat tu dong: version/release notes lay tu poi_config.py, installer upload len release tag App_POI_HSL_Studio. File nay chi la mau cho lan release dau tien.",
   "latest": {
-    "version": "1.5.0",
-    "version_label": "v1.5.0 - November 2026",
-    "release_date": "2026-11-11",
-    "release_notes": "🌐 Tab Timecode hiện tên tiếng Việt cho hiệu ứng và bảng màu của mạch, cùng cách gọi với giao\ndiện web của mạch: thư viện hiệu ứng / bảng màu, clip trên timeline và các nút chỉnh hiệu ứng.\nRê chuột vào một hiệu ứng để xem kèm tên gốc tiếng Anh. File timeline cũ mở lên cũng hiện\ntên tiếng Việt.",
+    "version": "1.6.0",
+    "version_label": "v1.6.0 - November 2026",
+    "release_date": "2026-11-12",
+    "release_notes": "🔎 Tab Timecode: cột \"Preset mẫu\" có nút lọc theo loại (Ảnh POI, Matrix, Visual, Timecode,\nPlaylist, Khác) kèm số lượng, và ô tìm theo tên hoặc ID (gõ không dấu cũng được). Mỗi thẻ\npreset ghi rõ loại; app nhớ nhóm đang lọc cho lần mở sau.\n🐞 Gậy nhiều preset (firmware mới, tới 1024 preset) giờ hiện đủ trong cột Preset mẫu,\ntrước đây chỉ hiện 200 preset đầu tiên.\n🍎 Có thêm bản cho macOS (máy Mac chip Apple M1 trở lên, macOS 14 trở lên), tải tại\nhappysmartlight.com.",
     "min_supported_version": "1.0.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.5.0.exe",
-    "size": 168397778,
-    "sha256": "175d5de1956d016e959e7e8db3db5debf09558321a12cefaace74d2f2a075c4d"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.6.0.exe",
+    "size": 169542956,
+    "sha256": "6b5d8af20d31070865348c4467ccfc5a58cf22e71a22035222a02a308cc7fd54"
   }
 }

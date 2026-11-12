@@ -3,6 +3,7 @@ import { Images, Wrench, ArrowLeft, Smartphone, Laptop, Download, CheckCircle2, 
 import { motion } from "motion/react";
 import ImageZoomLightbox, { type ZoomGalleryItem } from "./ImageZoomLightbox";
 import { WINDOWS_TOOL_URL, WINDOWS_TOOL_VERSION, WINDOWS_TOOL_FILE, WINDOWS_TOOL_SIZE, WINDOWS_TOOL_SHA256 } from "../windowsTool";
+import { MACOS_TOOL_URL, MACOS_TOOL_FILE, MACOS_TOOL_SIZE, MACOS_TOOL_SHA256, MACOS_TOOL_MIN_OS, MACOS_TOOL_CHIP } from "../macosTool";
 import { POI_STUDIO_URL, POI_STUDIO_VERSION, POI_STUDIO_FILE, POI_STUDIO_SIZE, POI_STUDIO_SHA256 } from "../poiStudio";
 
 // "app" = Android, "tool" = ARGB HSL Windows Tool, "poi" = POI HSL Studio (app POI riêng cho Windows).
@@ -174,9 +175,9 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
   const screenshots = gallery?.items ?? [];
   const activeScreenshot = screenshots[activeScreenshotIndex] ?? screenshots[0];
 
-  const startToolDownload = () => {
+  const startToolDownload = (url: string) => {
     const link = document.createElement("a");
-    link.href = isPoi ? POI_STUDIO_URL : WINDOWS_TOOL_URL;
+    link.href = url;
     link.setAttribute("download", "");
     document.body.appendChild(link);
     link.click();
@@ -225,7 +226,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
   ];
 
   const toolSteps: Step[] = [
-    { title: "Tải & cài đặt phần mềm", desc: `Tải bộ cài ${WINDOWS_TOOL_FILE}, chạy file và làm theo trình hướng dẫn cài đặt.` },
+    { title: "Tải & cài đặt phần mềm", desc: `Windows: tải bộ cài ${WINDOWS_TOOL_FILE}, chạy file và làm theo trình hướng dẫn cài đặt. macOS: tải ${MACOS_TOOL_FILE}, kéo app vào thư mục Applications; lần đầu mở vào Cài đặt hệ thống → Quyền riêng tư & Bảo mật → bấm "Vẫn mở", và cho phép quyền Mạng cục bộ để app tìm được mạch.` },
     { title: "Kết nối mạch qua cổng COM", desc: "Cắm bộ điều khiển vào máy tính bằng cáp USB, chọn đúng cổng COM trong phần mềm." },
     { title: "Nạp firmware (nếu cần)", desc: "Dùng Auto-Flasher để nạp/cập nhật firmware mới nhất cho chip điều khiển." },
     { title: "Thiết kế layout Pixel Mapper", desc: "Vẽ sơ đồ ma trận LED 2D/3D theo bố cục thi công thực tế của bạn." },
@@ -461,8 +462,10 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
                 <>
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Windows 10 / 11 (64-bit)</p>
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Dung lượng cài đặt: {WINDOWS_TOOL_SIZE}</p>
+                  <p className="flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" /> macOS {MACOS_TOOL_MIN_OS} trở lên, máy Mac {MACOS_TOOL_CHIP} (file .dmg {MACOS_TOOL_SIZE})</p>
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Cổng USB (nạp firmware) & cổng mạng LAN/Wi-Fi (stream)</p>
-                  <p className="break-all pt-1 text-[10px] text-slate-500">SHA256: {WINDOWS_TOOL_SHA256}</p>
+                  <p className="break-all pt-1 text-[10px] text-slate-500">SHA256 Windows: {WINDOWS_TOOL_SHA256}</p>
+                  <p className="break-all text-[10px] text-slate-500">SHA256 macOS: {MACOS_TOOL_SHA256}</p>
                 </>
               )}
             </div>
@@ -482,20 +485,32 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
               </a>
             ) : isPoi ? (
               <button
-                onClick={startToolDownload}
+                onClick={() => startToolDownload(POI_STUDIO_URL)}
                 className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-emerald-400 to-cyan-500 text-center font-display text-xs font-bold uppercase tracking-wider text-slate-950 flex items-center justify-center space-x-2 cursor-pointer shadow-lg shadow-emerald-500/20 hover:scale-102 transition-all"
               >
                 <Download className="w-4 h-4 text-slate-950" />
                 <span>TẢI POI HSL STUDIO ({POI_STUDIO_SIZE})</span>
               </button>
             ) : (
-              <button
-                onClick={startToolDownload}
-                className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-cyan-500 to-neon-blue text-center font-display text-xs font-bold uppercase tracking-wider text-slate-950 flex items-center justify-center space-x-2 cursor-pointer shadow-glow-blue hover:scale-102 transition-all"
-              >
-                <Download className="w-4 h-4 text-slate-950" />
-                <span>TẢI ARGB HSL WINDOWS TOOL ({WINDOWS_TOOL_SIZE})</span>
-              </button>
+              <div className="space-y-3">
+                <button
+                  onClick={() => startToolDownload(WINDOWS_TOOL_URL)}
+                  className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-cyan-500 to-neon-blue text-center font-display text-xs font-bold uppercase tracking-wider text-slate-950 flex items-center justify-center space-x-2 cursor-pointer shadow-glow-blue hover:scale-102 transition-all"
+                >
+                  <Download className="w-4 h-4 text-slate-950" />
+                  <span>TẢI ARGB HSL WINDOWS TOOL ({WINDOWS_TOOL_SIZE})</span>
+                </button>
+                <button
+                  onClick={() => startToolDownload(MACOS_TOOL_URL)}
+                  className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-slate-100 to-slate-300 text-center font-display text-xs font-bold uppercase tracking-wider text-slate-950 flex items-center justify-center space-x-2 cursor-pointer shadow-lg shadow-white/10 hover:scale-102 transition-all"
+                >
+                  <Download className="w-4 h-4 text-slate-950" />
+                  <span>TẢI BẢN MACOS ({MACOS_TOOL_SIZE})</span>
+                </button>
+                <p className="text-center text-[11px] text-amber-300/80 leading-relaxed">
+                  macOS {MACOS_TOOL_MIN_OS}+, máy Mac {MACOS_TOOL_CHIP}. Bản macOS chưa ký với Apple: lần đầu mở app, vào Cài đặt hệ thống → Quyền riêng tư &amp; Bảo mật → bấm "Vẫn mở".
+                </p>
+              </div>
             )}
 
             <p className={`mt-3 text-center text-[11px] font-mono uppercase tracking-wider ${isApp ? "text-amber-400" : "text-emerald-400"}`}>
@@ -503,7 +518,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
                 ? "Ứng dụng di động: phần mềm trả phí trên Google Play"
                 : isPoi
                   ? "POI HSL Studio: miễn phí 100%"
-                  : "Công cụ máy tính Windows: miễn phí 100%"}
+                  : "Công cụ máy tính Windows & macOS: miễn phí 100%"}
             </p>
           </section>
 

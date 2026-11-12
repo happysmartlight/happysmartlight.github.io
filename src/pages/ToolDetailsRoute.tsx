@@ -17,7 +17,7 @@ export default function ToolDetailsRoute() {
     >
       <Seo
         title={`Công Cụ Máy Tính ARGB HSL Control Tool ${WINDOWS_TOOL_VERSION} — Tải Về | Happy Smart Light`}
-        description={`Phần mềm máy tính ARGB HSL Control Tool: nạp firmware qua COM, thiết kế layout Pixel Mapper 2D/3D, stream xLights qua Ethernet/Wi-Fi. Tải bản ${WINDOWS_TOOL_VERSION} cho Windows 10/11.`}
+        description={`Phần mềm máy tính ARGB HSL Control Tool: nạp firmware qua COM, thiết kế layout Pixel Mapper 2D/3D, stream xLights qua Ethernet/Wi-Fi. Tải bản ${WINDOWS_TOOL_VERSION} cho Windows 10/11 và macOS (Mac chip Apple).`}
         path="/argb-hsl-tool-pc/"
       />
       <SoftwareDetailsPage type="tool" onBack={onBack} />

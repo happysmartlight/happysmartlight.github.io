@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Smartphone, Laptop, Download, RefreshCw, Smartphone as PhoneIcon, Sliders, Play, CheckCircle2, QrCode, Monitor, Sparkles, Info, WandSparkles, ImageUp, Users, Music } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { WINDOWS_TOOL_URL, WINDOWS_TOOL_VERSION, WINDOWS_TOOL_FILE, WINDOWS_TOOL_SIZE, WINDOWS_TOOL_SHA256 } from "../windowsTool";
+import { MACOS_TOOL_URL, MACOS_TOOL_VERSION, MACOS_TOOL_FILE, MACOS_TOOL_SIZE, MACOS_TOOL_SHA256, MACOS_TOOL_MIN_OS, MACOS_TOOL_CHIP_SHORT } from "../macosTool";
 import { POI_STUDIO_URL, POI_STUDIO_VERSION, POI_STUDIO_FILE, POI_STUDIO_SIZE, POI_STUDIO_SHA256 } from "../poiStudio";
 
 interface AppAndToolSectionProps {
@@ -24,8 +25,8 @@ interface InstallerDownloadProps {
   barClass: string;
 }
 
-// Nút tải bộ cài Windows: chạy thanh tiến trình ngắn rồi mở link tải, báo "hoàn tất" 5 giây.
-// Dùng chung cho ARGB HSL Windows Tool và POI HSL Studio.
+// Nút tải bộ cài: chạy thanh tiến trình ngắn rồi mở link tải, báo "hoàn tất" 5 giây.
+// Dùng chung cho ARGB HSL Windows Tool, bản macOS (.dmg) và POI HSL Studio.
 function InstallerDownload({ url, file, label, buttonId, buttonClass, spinnerClass, barClass }: InstallerDownloadProps) {
   const [downloading, setDownloading] = useState(false);
   const [downloadProgress, setDownloadProgress] = useState(0);
@@ -145,7 +146,7 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
             </span>
           </h2>
           <p className="mt-4 text-slate-400 text-sm sm:text-base leading-relaxed">
-            Kiểm soát trọn vẹn dải LED của bạn trực tiếp từ Thiết bị di động (Android App), Thiết lập không gian diễn sướng phức tạp cấp độ cao qua Máy tính (Windows Tool), hoặc nạp ảnh cho gậy POI với app chuyên dụng <strong className="text-emerald-400">POI HSL Studio</strong> — độc quyền của <strong className="text-white">Happy Smart Light</strong>.
+            Kiểm soát trọn vẹn dải LED của bạn trực tiếp từ Thiết bị di động (Android App), Thiết lập không gian diễn sướng phức tạp cấp độ cao qua Máy tính (Windows &amp; macOS Tool), hoặc nạp ảnh cho gậy POI với app chuyên dụng <strong className="text-emerald-400">POI HSL Studio</strong> — độc quyền của <strong className="text-white">Happy Smart Light</strong>.
           </p>
         </div>
 
@@ -397,7 +398,7 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
                     <Laptop className="w-4 h-4 text-neon-blue-bright" />
                   </div>
                   <span className="font-mono text-xs tracking-wider uppercase text-neon-blue-bright font-bold">
-                    DESKTOP SETUP TOOL (WINDOWS x64)
+                    DESKTOP SETUP TOOL (WINDOWS & MACOS)
                   </span>
                 </div>
 
@@ -461,6 +462,28 @@ export default function AppAndToolSection({ onViewPrivacy, onViewAppDetails, onV
                 <span className="block text-[9px] text-center font-mono text-slate-600 break-all leading-relaxed">
                   SHA256: {WINDOWS_TOOL_SHA256}
                 </span>
+
+                {/* Bản macOS (.dmg): đọc version/link từ app_manifest_macos.json */}
+                <div className="pt-3.5 border-t border-white/5 space-y-3.5" id="macos-tool-download">
+                  <InstallerDownload
+                    url={MACOS_TOOL_URL}
+                    file={MACOS_TOOL_FILE}
+                    label={`TẢI BẢN MACOS (${MACOS_TOOL_SIZE})`}
+                    buttonId="btn-download-macos-tool"
+                    buttonClass="bg-gradient-to-r from-slate-100 to-slate-300 shadow-lg shadow-white/10"
+                    spinnerClass="text-slate-200"
+                    barClass="from-slate-100 to-slate-400"
+                  />
+                  <span className="block text-[10px] text-center font-mono text-emerald-400 uppercase font-bold">
+                    Miễn phí 100% // Phiên bản v{MACOS_TOOL_VERSION} // macOS {MACOS_TOOL_MIN_OS}+ {MACOS_TOOL_CHIP_SHORT}
+                  </span>
+                  <span className="block text-[10px] text-center text-amber-300/80 leading-relaxed">
+                    Lần đầu mở app: vào Cài đặt hệ thống → Quyền riêng tư &amp; Bảo mật → bấm "Vẫn mở".
+                  </span>
+                  <span className="block text-[9px] text-center font-mono text-slate-600 break-all leading-relaxed">
+                    SHA256: {MACOS_TOOL_SHA256}
+                  </span>
+                </div>
 
                 {onViewToolDetails && (
                   <button

@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "channel": "stable",
+  "latest": {
+    "version": "3.15.0",
+    "version_label": "v3.15.0 - November 2026",
+    "release_date": "2026-11-12",
+    "release_notes": "🌐 Tab Timecode hiện tên tiếng Việt cho hiệu ứng và bảng màu của mạch, cùng cách gọi với giao\ndiện web của mạch: thư viện hiệu ứng / bảng màu, clip trên timeline và các nút chỉnh hiệu ứng.\nRê chuột vào một hiệu ứng để xem kèm tên gốc tiếng Anh. File timeline cũ mở lên cũng hiện\ntên tiếng Việt.",
+    "arch": "arm64",
+    "min_macos": "14.0",
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_macOS_3.15.0_arm64.dmg",
+    "size": 396480940,
+    "sha256": "07bfd02c4e7775b39a84df930e86c246fdc23fe151664bfde8129381b570a102"
+  }
+}

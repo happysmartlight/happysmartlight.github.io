@@ -40,7 +40,7 @@ const productMenu: DropdownChild[] = [
 // (ARGB HSL Windows Tool + POI HSL Studio — app riêng cho gậy POI).
 const downloadMenu: DropdownChild[] = [
   { label: "Ứng dụng Android", desc: "ARGB HSL Mobile", dot: "#00e676", to: "/argb-hsl-tool-mobile" },
-  { label: "Phần mềm Desktop", desc: "ARGB HSL cho PC", dot: "#00e5ff", to: "/argb-hsl-tool-pc" },
+  { label: "Phần mềm Desktop", desc: "Windows & macOS", dot: "#00e5ff", to: "/argb-hsl-tool-pc" },
   { label: "POI HSL Studio", desc: "App gậy POI cho PC", dot: "#10b981", to: "/poi-hsl-studio-pc" },
 ];
 

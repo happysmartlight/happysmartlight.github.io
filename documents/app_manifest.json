@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.16.0",
-    "version_label": "v3.16.0 - November 2026",
+    "version": "3.17.0",
+    "version_label": "v3.17.0 - November 2026",
     "release_date": "2026-11-12",
-    "release_notes": "🔎 Tab Timecode: cột \"Preset mẫu\" có nút lọc theo loại (Ảnh POI, Matrix, Visual, Timecode,\nPlaylist, Khác) kèm số lượng, và ô tìm theo tên hoặc ID (gõ không dấu cũng được). Mỗi thẻ\npreset ghi rõ loại; app nhớ nhóm đang lọc cho lần mở sau.\n🐞 Mạch nhiều preset (firmware mới, tới 1024 preset) giờ hiện đủ trong cột Preset mẫu,\ntrước đây chỉ hiện 200 preset đầu tiên.\n🎬 Tab Matrix: preset tạo bằng Upload Visual có tên bắt đầu bằng \"VIS\" để lọc riêng.\n🍎 Có thêm bản cho macOS (máy Mac chip Apple M1 trở lên, macOS 14 trở lên), tải tại\nhappysmartlight.com.",
+    "release_notes": "🛡 Tab Timecode không còn mất hay phát sai timeline khi rút / cắm lại mạch:\n- Bấm \"Quét mạng\" hay mạch tạm mất kết nối không làm mất clip: track của mạch vắng hiện\noffline và trở lại bình thường khi tìm thấy mạch.\n- Mạch vừa cắm lại (có thể đã nạp lại firmware hoặc xoá bộ nhớ): app kiểm tra preset trên mạch\ntrước khi phát. Clip mất preset có dấu ⚠ và được ghi lại tự động. Muốn kiểm tra ngay thì\nchuột phải tên mạch → \"♻ Kiểm tra & ghi lại clip\".\n- Router đổi IP của mạch: app nhận lại mạch theo địa chỉ MAC, track tự chuyển sang IP mới.\n- Ctrl+Z sau khi ghi clip xuống mạch không còn làm clip trỏ sai preset.\n▶ Bấm Phát: lệnh tới mọi mạch được gửi cùng lúc, các mạch bắt đầu đồng bộ hơn (trước đây mạch\nsau chậm hơn mạch trước).\n💾 File timeline lưu kèm nội dung preset và ảnh của từng clip: mở file trên mạch thiếu preset,\napp ghi lại được. Đặt file nhạc cạnh file timeline thì mang sang máy khác vẫn có nhạc. Mở file\nkhác khi timeline chưa lưu: app hỏi trước.\n♻ Tự lưu phiên làm việc: app tắt đột ngột thì mở lại Tab Timecode, timeline quay về như cũ.\n📋 Dán clip sang mạch khác ghi đúng preset (kèm ảnh) lên mạch đó. \"Đọc từ mạch\" chỉ thay track\ncủa mạch đã đọc, các track khác giữ nguyên.\n🔒 Trước khi ghi đè danh sách preset của mạch, app sao lưu bản cũ trên máy và đọc lại để chắc\nmạch đã lưu.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.16.0.exe",
-    "size": 318417460,
-    "sha256": "a24a10bbfaa8bb92728e6ad06729e5ac19b8f7249b72099547dc68265ae873e2"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.17.0.exe",
+    "size": 318439781,
+    "sha256": "c273808515df88a34bfc2b1c512410a137b90be1343f7ac1cbf015711eacf737"
   }
 }

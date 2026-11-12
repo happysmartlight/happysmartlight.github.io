@@ -1,5 +1,15 @@
 {
   "schema": 1,
   "channel": "stable",
-  "latest": null
+  "latest": {
+    "version": "1.6.0",
+    "version_label": "v1.6.0 - November 2026",
+    "release_date": "2026-11-12",
+    "release_notes": "🔎 Tab Timecode: cột \"Preset mẫu\" có nút lọc theo loại (Ảnh POI, Matrix, Visual, Timecode,\nPlaylist, Khác) kèm số lượng, và ô tìm theo tên hoặc ID (gõ không dấu cũng được). Mỗi thẻ\npreset ghi rõ loại; app nhớ nhóm đang lọc cho lần mở sau.\n🐞 Gậy nhiều preset (firmware mới, tới 1024 preset) giờ hiện đủ trong cột Preset mẫu,\ntrước đây chỉ hiện 200 preset đầu tiên.\n🍎 Có thêm bản cho macOS (máy Mac chip Apple M1 trở lên, macOS 14 trở lên), tải tại\nhappysmartlight.com.",
+    "arch": "arm64",
+    "min_macos": "14.0",
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_macOS_1.6.0_arm64.dmg",
+    "size": 183111481,
+    "sha256": "930fc2d39a3aaef524f89ce5bdec630b179d8b32034758c5b1039f6050f635fb"
+  }
 }

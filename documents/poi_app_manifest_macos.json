@@ -2,14 +2,14 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "1.7.1",
-    "version_label": "v1.7.1 - November 2026",
+    "version": "1.7.2",
+    "version_label": "v1.7.2 - November 2026",
     "release_date": "2026-11-13",
-    "release_notes": "⏯ Tab Timecode chạy đúng với gậy dùng firmware mới:\n- Tạm dừng rồi Tiếp tục, hoặc bấm Phát sau \"Phát slot\": khi phát xong, gậy không còn tự chạy\nlại timeline từ giữa.\n- Tạm dừng: mọi gậy đứng hình cùng lúc (trước đây lần lượt từng gậy).\n- Dừng: mọi gậy tắt cùng lúc và thôi chạy timeline hẳn.",
+    "release_notes": "🩹 Sửa lỗi bản v1.7.1 không mở được trên nhiều máy: bấm mở app mà không thấy gì.\n- App chạy lại bình thường trên mọi máy Windows 64-bit.\n- Đã cài v1.7.1 mà không mở được: tải bộ cài mới trên web, cài đè (giữ dữ liệu, bản quyền).\n💾 Sao lưu presets.json khi ghi vào gậy: 2 lần ghi liền nhau không còn đè mất bản sao lưu.",
     "arch": "arm64",
     "min_macos": "14.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_macOS_1.7.1_arm64.dmg",
-    "size": 186975819,
-    "sha256": "f3ae72ceae98c15d705117a89c562692912efd1d9b164e6c11f1da7a877549e6"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_macOS_1.7.2_arm64.dmg",
+    "size": 186974491,
+    "sha256": "caed24691ac848a5748ef0801ed7861e6e47776657b3fbe63700454fce387066"
   }
 }

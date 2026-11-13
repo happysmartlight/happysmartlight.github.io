@@ -2,14 +2,14 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "1.7.0",
-    "version_label": "v1.7.0 - November 2026",
-    "release_date": "2026-11-12",
-    "release_notes": "🛡 Tab Timecode không còn mất hay phát sai timeline khi rút / cắm lại gậy:\n- Bấm \"Quét mạng\" hay gậy tạm mất kết nối không làm mất clip: track của gậy vắng hiện\noffline và trở lại bình thường khi tìm thấy gậy.\n- Gậy vừa cắm lại (có thể đã nạp lại firmware hoặc xoá bộ nhớ): app kiểm tra preset trên gậy\ntrước khi phát. Clip mất preset có dấu ⚠ và được ghi lại tự động. Muốn kiểm tra ngay thì\nchuột phải tên gậy → \"♻ Kiểm tra & ghi lại clip\".\n- Router đổi IP của gậy: app nhận lại gậy theo địa chỉ MAC, track tự chuyển sang IP mới.\n- Ctrl+Z sau khi ghi clip xuống gậy không còn làm clip trỏ sai preset.\n▶ Bấm Phát: lệnh tới mọi gậy được gửi cùng lúc, các gậy bắt đầu đồng bộ hơn (trước đây gậy\nsau chậm hơn gậy trước).\n💾 File timeline lưu kèm nội dung preset và ảnh của từng clip: mở file trên gậy thiếu preset,\napp ghi lại được. Đặt file nhạc cạnh file timeline thì mang sang máy khác vẫn có nhạc. Mở file\nkhác khi timeline chưa lưu: app hỏi trước.\n♻ Tự lưu phiên làm việc: app tắt đột ngột thì mở lại Tab Timecode, timeline quay về như cũ.\n📋 Dán clip sang gậy khác ghi đúng preset (kèm ảnh POI) lên gậy đó. \"Đọc từ mạch\" chỉ thay\ntrack của gậy đã đọc, các track khác giữ nguyên.\n🔒 Trước khi ghi đè danh sách preset của gậy, app sao lưu bản cũ trên máy và đọc lại để chắc\ngậy đã lưu.",
+    "version": "1.7.1",
+    "version_label": "v1.7.1 - November 2026",
+    "release_date": "2026-11-13",
+    "release_notes": "⏯ Tab Timecode chạy đúng với gậy dùng firmware mới:\n- Tạm dừng rồi Tiếp tục, hoặc bấm Phát sau \"Phát slot\": khi phát xong, gậy không còn tự chạy\nlại timeline từ giữa.\n- Tạm dừng: mọi gậy đứng hình cùng lúc (trước đây lần lượt từng gậy).\n- Dừng: mọi gậy tắt cùng lúc và thôi chạy timeline hẳn.",
     "arch": "arm64",
     "min_macos": "14.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_macOS_1.7.0_arm64.dmg",
-    "size": 186973269,
-    "sha256": "167627e1c5ef873022949b8b1c8e429f7f4d334534258583295800225677610b"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_macOS_1.7.1_arm64.dmg",
+    "size": 186975819,
+    "sha256": "f3ae72ceae98c15d705117a89c562692912efd1d9b164e6c11f1da7a877549e6"
   }
 }

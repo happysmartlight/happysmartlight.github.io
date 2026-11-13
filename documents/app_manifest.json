@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.17.0",
-    "version_label": "v3.17.0 - November 2026",
-    "release_date": "2026-11-12",
-    "release_notes": "🛡 Tab Timecode không còn mất hay phát sai timeline khi rút / cắm lại mạch:\n- Bấm \"Quét mạng\" hay mạch tạm mất kết nối không làm mất clip: track của mạch vắng hiện\noffline và trở lại bình thường khi tìm thấy mạch.\n- Mạch vừa cắm lại (có thể đã nạp lại firmware hoặc xoá bộ nhớ): app kiểm tra preset trên mạch\ntrước khi phát. Clip mất preset có dấu ⚠ và được ghi lại tự động. Muốn kiểm tra ngay thì\nchuột phải tên mạch → \"♻ Kiểm tra & ghi lại clip\".\n- Router đổi IP của mạch: app nhận lại mạch theo địa chỉ MAC, track tự chuyển sang IP mới.\n- Ctrl+Z sau khi ghi clip xuống mạch không còn làm clip trỏ sai preset.\n▶ Bấm Phát: lệnh tới mọi mạch được gửi cùng lúc, các mạch bắt đầu đồng bộ hơn (trước đây mạch\nsau chậm hơn mạch trước).\n💾 File timeline lưu kèm nội dung preset và ảnh của từng clip: mở file trên mạch thiếu preset,\napp ghi lại được. Đặt file nhạc cạnh file timeline thì mang sang máy khác vẫn có nhạc. Mở file\nkhác khi timeline chưa lưu: app hỏi trước.\n♻ Tự lưu phiên làm việc: app tắt đột ngột thì mở lại Tab Timecode, timeline quay về như cũ.\n📋 Dán clip sang mạch khác ghi đúng preset (kèm ảnh) lên mạch đó. \"Đọc từ mạch\" chỉ thay track\ncủa mạch đã đọc, các track khác giữ nguyên.\n🔒 Trước khi ghi đè danh sách preset của mạch, app sao lưu bản cũ trên máy và đọc lại để chắc\nmạch đã lưu.",
+    "version": "3.17.1",
+    "version_label": "v3.17.1 - November 2026",
+    "release_date": "2026-11-13",
+    "release_notes": "⏯ Tab Timecode chạy đúng với mạch dùng firmware mới:\n- Tạm dừng rồi Tiếp tục, hoặc bấm Phát sau \"Phát slot\": khi phát xong, mạch không còn tự chạy\nlại timeline từ giữa.\n- Tạm dừng: mọi mạch đứng hình cùng lúc (trước đây lần lượt từng mạch).\n- Dừng: mọi mạch tắt cùng lúc và thôi chạy timeline hẳn.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.17.0.exe",
-    "size": 318439781,
-    "sha256": "c273808515df88a34bfc2b1c512410a137b90be1343f7ac1cbf015711eacf737"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.17.1.exe",
+    "size": 318450660,
+    "sha256": "7d82704d9c12e3c2550ce7d705303f5ed4c3b667eb0a1cd6cad43bb346f7821d"
   }
 }

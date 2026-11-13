@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.17.1",
-    "version_label": "v3.17.1 - November 2026",
+    "version": "3.17.2",
+    "version_label": "v3.17.2 - November 2026",
     "release_date": "2026-11-13",
-    "release_notes": "⏯ Tab Timecode chạy đúng với mạch dùng firmware mới:\n- Tạm dừng rồi Tiếp tục, hoặc bấm Phát sau \"Phát slot\": khi phát xong, mạch không còn tự chạy\nlại timeline từ giữa.\n- Tạm dừng: mọi mạch đứng hình cùng lúc (trước đây lần lượt từng mạch).\n- Dừng: mọi mạch tắt cùng lúc và thôi chạy timeline hẳn.",
+    "release_notes": "🩹 Sửa lỗi bản v3.17.1 không mở được trên nhiều máy: bấm mở app mà không thấy gì.\n- App chạy lại bình thường trên mọi máy Windows 64-bit.\n- Đã cài v3.17.1 mà không mở được: tải bộ cài mới trên web, cài đè (giữ dữ liệu, bản quyền).\n💾 Sao lưu presets.json khi ghi vào mạch: 2 lần ghi liền nhau không còn đè mất bản sao lưu.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.17.1.exe",
-    "size": 318450660,
-    "sha256": "7d82704d9c12e3c2550ce7d705303f5ed4c3b667eb0a1cd6cad43bb346f7821d"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.17.2.exe",
+    "size": 318468347,
+    "sha256": "74472e7bcc78dc0ae5ed71842b34e66aa0ad779fa866cf85148541aece3573f8"
   }
 }

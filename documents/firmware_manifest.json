@@ -3,12 +3,12 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2611103 cho ESP32-S3 N8R8. Co 2 file rieng cho HW board ARGB HSL Controller 4X va ARGB HSL Controller 2X Pro.",
+    "notes": "Build 2611140 cho ESP32-S3 N8R8. Co 2 file rieng cho HW board ARGB HSL Controller 4X va ARGB HSL Controller 2X Pro.",
     "files": [
       {
         "version": "3.0.0",
-        "notes": "Build 2611103 cho ARGB HSL Controller 4X: giao dien tieng Viet cho ten hieu ung, bang mau va thanh truot (tim duoc ca khi go khong dau); giao dien moi Neon HSL theo mau logo; the POI hien RPM, anh/vong, dao chieu va so hang quet moi giay. Gom luon cac ban sua cua build 2611102.",
-        "vid": 2611103,
+        "notes": "Build 2611140 cho ARGB HSL Controller 4X: hieu ung Image (GIF) nhanh hon nhieu, file GIF duoc nap san vao PSRAM va giai ma o nhan 0 nen nhan dieu khien LED chi con ton 0,6% thoi gian (truoc day toi 95% voi GIF nang); GIF 128x128 nhieu mau chay du 43 FPS (truoc 37 FPS), giai ma nhanh hon 1,8-7,3 lan; GIF lon den 320x200 nay chay duoc (truoc bi loi), anh GIF tinh chi giai ma 1 lan; sua loi doi sang anh khac phai cho het thoi gian cua khung cu moi hien. Gom luon cac ban sua cua build 2611103.",
+        "vid": 2611140,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -18,16 +18,16 @@
         "flash_psram": "n8r8",
         "bootloaderSHA256": "a02af2aaee12f83ad96f58ceb710d114f11d33a30cf84765660b23f1a300c5bb",
         "product": "ARGB HSL Controller 4X",
-		    "hw_version": "v1.0.0",
+        "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-4x.bin",
-        "size": 1282512,
-        "sha256": "8f6d502af31a238f9052b73ac6d56ab1441c1f349a063804d0357ebb249f79c4"
+        "size": 1286976,
+        "sha256": "c70e13eaebedce7c3be4e7429d4615e26610038cab3e4e0f0d38cd031d5f561e"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611103 cho ARGB HSL Controller 2X Pro: giao dien tieng Viet cho ten hieu ung, bang mau va thanh truot (tim duoc ca khi go khong dau); giao dien moi Neon HSL theo mau logo; the POI hien RPM, anh/vong, dao chieu va so hang quet moi giay. Gom luon cac ban sua cua build 2611102. POI HSL Studio can build 2611050 tro len.",
-        "vid": 2611103,
+        "notes": "Build 2611140 cho ARGB HSL Controller 2X Pro: hieu ung Image (GIF) nhanh hon nhieu, file GIF duoc nap san vao PSRAM va giai ma o nhan 0 nen nhan dieu khien LED chi con ton 0,6% thoi gian (truoc day toi 95% voi GIF nang); GIF 128x128 nhieu mau chay du 43 FPS (truoc 37 FPS), giai ma nhanh hon 1,8-7,3 lan; GIF lon den 320x200 nay chay duoc (truoc bi loi), anh GIF tinh chi giai ma 1 lan; sua loi doi sang anh khac phai cho het thoi gian cua khung cu moi hien. Gom luon cac ban sua cua build 2611103. POI HSL Studio can build 2611050 tro len.",
+        "vid": 2611140,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -37,11 +37,11 @@
         "flash_psram": "n8r8",
         "bootloaderSHA256": "a02af2aaee12f83ad96f58ceb710d114f11d33a30cf84765660b23f1a300c5bb",
         "product": "ARGB HSL Controller 2X Pro",
-		    "hw_version": "v1.0.0",
+        "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
-        "size": 1282464,
-        "sha256": "43c1f57afa49f12ee1ae81012c03eb99d14e6b26a8a866f26090dd258c1c26d2"
+        "size": 1286928,
+        "sha256": "ad3b889a24063944ca9b2401a7e7cc5b4bf7fc676ff01d945d96d5e0456353a1"
       }
     ]
   }

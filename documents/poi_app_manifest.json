@@ -3,13 +3,13 @@
   "channel": "stable",
   "instructions": "Manifest cap nhat RIENG cua POI HSL Studio (khong dung chung app_manifest.json cua Tool ARGB HSL). File that nam o happysmartlight.github.io/documents/poi_app_manifest.json, do tools/release_gui.py (app 'POI HSL Studio') tao/cap nhat tu dong: version/release notes lay tu poi_config.py, installer upload len release tag App_POI_HSL_Studio. File nay chi la mau cho lan release dau tien.",
   "latest": {
-    "version": "1.7.1",
-    "version_label": "v1.7.1 - November 2026",
+    "version": "1.7.2",
+    "version_label": "v1.7.2 - November 2026",
     "release_date": "2026-11-13",
-    "release_notes": "⏯ Tab Timecode chạy đúng với gậy dùng firmware mới:\n- Tạm dừng rồi Tiếp tục, hoặc bấm Phát sau \"Phát slot\": khi phát xong, gậy không còn tự chạy\nlại timeline từ giữa.\n- Tạm dừng: mọi gậy đứng hình cùng lúc (trước đây lần lượt từng gậy).\n- Dừng: mọi gậy tắt cùng lúc và thôi chạy timeline hẳn.",
+    "release_notes": "🩹 Sửa lỗi bản v1.7.1 không mở được trên nhiều máy: bấm mở app mà không thấy gì.\n- App chạy lại bình thường trên mọi máy Windows 64-bit.\n- Đã cài v1.7.1 mà không mở được: tải bộ cài mới trên web, cài đè (giữ dữ liệu, bản quyền).\n💾 Sao lưu presets.json khi ghi vào gậy: 2 lần ghi liền nhau không còn đè mất bản sao lưu.",
     "min_supported_version": "1.0.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.7.1.exe",
-    "size": 169582116,
-    "sha256": "3ebdf89d0ff1dd0d894c70cdda4f3e97a7f69830958a4c523e90ca63f045c58b"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.7.2.exe",
+    "size": 169587673,
+    "sha256": "20aaebfa88bbf83b9b166bdcff59aa6c946ef01d4b2a5425d1b4a42354660bd2"
   }
 }

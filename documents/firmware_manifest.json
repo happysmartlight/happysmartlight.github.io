@@ -3,12 +3,12 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2611141 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
+    "notes": "Build 2611142 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
     "files": [
       {
         "version": "3.0.0",
-        "notes": "Build 2611141 cho ARGB HSL Controller 4X: them dong mach ARGB HSL Controller 16X: 16 cong LED WS2812 chay song song, moi cong toi 1024 LED (tong 16384 LED); mach co nhieu cong LED xuat mau nhanh hon; sua loi doi khi mach mat het cong LED sau khi Tool ARGB HSL ghi cau hinh phan cung.",
-        "vid": 2611141,
+        "notes": "Build 2611142 cho ARGB HSL Controller 4X: sua loi mach khoi dong lai lien tuc va khong luu duoc cau hinh LED khi 1 cong LED chay RMT co tren 1365 LED (LED RGBW: tren 1024 LED); trang cai dat LED gioi han toi da 1024 LED moi cong, giong Tool ARGB HSL.",
+        "vid": 2611142,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -21,13 +21,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-4x.bin",
-        "size": 1287184,
-        "sha256": "67cce0d114350b6c4fdc7c4b2072ebd6afdca7652691145b9c0e726148cb40f0"
+        "size": 1286304,
+        "sha256": "e226a77a5a4b379a4814e79ac9a976a4e2059498ab4cc3ab20122d8ca7aa530a"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611141 cho ARGB HSL Controller 2X Pro: them dong mach ARGB HSL Controller 16X: 16 cong LED WS2812 chay song song, moi cong toi 1024 LED (tong 16384 LED); mach co nhieu cong LED xuat mau nhanh hon; sua loi doi khi mach mat het cong LED sau khi Tool ARGB HSL ghi cau hinh phan cung. POI HSL Studio can build 2611050 tro len.",
-        "vid": 2611141,
+        "notes": "Build 2611142 cho ARGB HSL Controller 2X Pro: sua loi mach khoi dong lai lien tuc va khong luu duoc cau hinh LED khi 1 cong LED chay RMT co tren 1365 LED (LED RGBW: tren 1024 LED); trang cai dat LED gioi han toi da 1024 LED moi cong, giong Tool ARGB HSL. POI HSL Studio can build 2611050 tro len.",
+        "vid": 2611142,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -40,13 +40,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
-        "size": 1287136,
-        "sha256": "93dfe6a3beec205f07917f5f97456fc538d3fdcd8fcd4cc2ec8e6a55964f5a7a"
+        "size": 1286256,
+        "sha256": "34165ea0f9abf97ace39c6d321f5d339994ce33f4fb433f2505dc658dfa07f2f"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611141 cho ARGB HSL Controller 16X: them dong mach ARGB HSL Controller 16X: 16 cong LED WS2812 chay song song, moi cong toi 1024 LED (tong 16384 LED); mach co nhieu cong LED xuat mau nhanh hon; sua loi doi khi mach mat het cong LED sau khi Tool ARGB HSL ghi cau hinh phan cung.",
-        "vid": 2611141,
+        "notes": "Build 2611142 cho ARGB HSL Controller 16X: sua loi mach khoi dong lai lien tuc va khong luu duoc cau hinh LED khi 1 cong LED chay RMT co tren 1365 LED (LED RGBW: tren 1024 LED); trang cai dat LED gioi han toi da 1024 LED moi cong, giong Tool ARGB HSL.",
+        "vid": 2611142,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -59,8 +59,8 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-16x.bin",
-        "size": 1291424,
-        "sha256": "98a94be7ca94264911378a61642cf882a3ad70f9ad09a81f89fab3b8f67d4591"
+        "size": 1290512,
+        "sha256": "5eee15258db68aa1c26a53e34291a634c7493c07d1db0f8fd0515c0e48fc9f0e"
       }
     ]
   }

@@ -3,12 +3,12 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2611142 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
+    "notes": "Build 2611143 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
     "files": [
       {
         "version": "3.0.0",
-        "notes": "Build 2611142 cho ARGB HSL Controller 4X: sua loi mach khoi dong lai lien tuc va khong luu duoc cau hinh LED khi 1 cong LED chay RMT co tren 1365 LED (LED RGBW: tren 1024 LED); trang cai dat LED gioi han toi da 1024 LED moi cong, giong Tool ARGB HSL.",
-        "vid": 2611142,
+        "notes": "Build 2611143 cho ARGB HSL Controller 4X: giao dien web moi SuperNova cho trang dieu khien va trang cai dat; bo cuc moi tren dien thoai va may tinh (man hinh rong tu 1024 px chuyen sang 3 cot), co giao dien sang va toi; tab Mau sac: o mau dang chinh nam dau tab, thanh truot co ten va gia tri, luoi mau nhanh 6 x 2; tab Hieu ung: loc theo nhom, danh dau hieu ung yeu thich, bang tuy chinh hieu ung thu gon san tren dien thoai; bang Thong tin moi: nhiet do chip, FPS, so LED, dong uoc tinh va canh bao khi gioi han ABL qua thap; xem nhanh cac cong LED va xem LED truc tiep dang ma tran 2D; trang cai dat LED lam lai, moi cong LED mot the rieng; app WLED tren dien thoai khong con bao Update Available.",
+        "vid": 2611143,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -21,13 +21,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-4x.bin",
-        "size": 1286304,
-        "sha256": "e226a77a5a4b379a4814e79ac9a976a4e2059498ab4cc3ab20122d8ca7aa530a"
+        "size": 1294720,
+        "sha256": "33b8c54903106078f8ae73fa26f8fae4ccfbb5d6c7e183cea89e54f91e30c139"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611142 cho ARGB HSL Controller 2X Pro: sua loi mach khoi dong lai lien tuc va khong luu duoc cau hinh LED khi 1 cong LED chay RMT co tren 1365 LED (LED RGBW: tren 1024 LED); trang cai dat LED gioi han toi da 1024 LED moi cong, giong Tool ARGB HSL. POI HSL Studio can build 2611050 tro len.",
-        "vid": 2611142,
+        "notes": "Build 2611143 cho ARGB HSL Controller 2X Pro: giao dien web moi SuperNova cho trang dieu khien va trang cai dat; bo cuc moi tren dien thoai va may tinh (man hinh rong tu 1024 px chuyen sang 3 cot), co giao dien sang va toi; tab Mau sac: o mau dang chinh nam dau tab, thanh truot co ten va gia tri, luoi mau nhanh 6 x 2; tab Hieu ung: loc theo nhom, danh dau hieu ung yeu thich, bang tuy chinh hieu ung thu gon san tren dien thoai; bang Thong tin moi: nhiet do chip, FPS, so LED, dong uoc tinh va canh bao khi gioi han ABL qua thap; xem nhanh cac cong LED va xem LED truc tiep dang ma tran 2D; trang cai dat LED lam lai, moi cong LED mot the rieng; app WLED tren dien thoai khong con bao Update Available. POI HSL Studio can build 2611050 tro len.",
+        "vid": 2611143,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -40,13 +40,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
-        "size": 1286256,
-        "sha256": "34165ea0f9abf97ace39c6d321f5d339994ce33f4fb433f2505dc658dfa07f2f"
+        "size": 1294672,
+        "sha256": "71e8d3d61f4748ca50628331908417cdcab4e1ffba431082b027ce84423c2683"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611142 cho ARGB HSL Controller 16X: sua loi mach khoi dong lai lien tuc va khong luu duoc cau hinh LED khi 1 cong LED chay RMT co tren 1365 LED (LED RGBW: tren 1024 LED); trang cai dat LED gioi han toi da 1024 LED moi cong, giong Tool ARGB HSL.",
-        "vid": 2611142,
+        "notes": "Build 2611143 cho ARGB HSL Controller 16X: giao dien web moi SuperNova cho trang dieu khien va trang cai dat; bo cuc moi tren dien thoai va may tinh (man hinh rong tu 1024 px chuyen sang 3 cot), co giao dien sang va toi; tab Mau sac: o mau dang chinh nam dau tab, thanh truot co ten va gia tri, luoi mau nhanh 6 x 2; tab Hieu ung: loc theo nhom, danh dau hieu ung yeu thich, bang tuy chinh hieu ung thu gon san tren dien thoai; bang Thong tin moi: nhiet do chip, FPS, so LED, dong uoc tinh va canh bao khi gioi han ABL qua thap; xem nhanh cac cong LED va xem LED truc tiep dang ma tran 2D; trang cai dat LED lam lai, moi cong LED mot the rieng; app WLED tren dien thoai khong con bao Update Available.",
+        "vid": 2611143,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -59,8 +59,8 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-16x.bin",
-        "size": 1290512,
-        "sha256": "5eee15258db68aa1c26a53e34291a634c7493c07d1db0f8fd0515c0e48fc9f0e"
+        "size": 1298928,
+        "sha256": "d10cdc0951e4acbbb8d7821887f411da750bbb5635d44b1f3717ff29006027b8"
       }
     ]
   }

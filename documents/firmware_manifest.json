@@ -42,6 +42,25 @@
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
         "size": 1286928,
         "sha256": "ad3b889a24063944ca9b2401a7e7cc5b4bf7fc676ff01d945d96d5e0456353a1"
+      },
+      {
+        "version": "3.0.0",
+        "notes": "",
+        "vid": 0,
+        "target": [
+          "esp32s3",
+          "esp32-s3",
+          "esp32_s3"
+        ],
+        "chip": "esp32-s3",
+        "flash_psram": "n8r8",
+        "bootloaderSHA256": "a02af2aaee12f83ad96f58ceb710d114f11d33a30cf84765660b23f1a300c5bb",
+        "product": "ARGB HSL Controller 16X",
+        "hw_version": "v1.0.0",
+        "repo": "any",
+        "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-16x.bin",
+        "size": 0,
+        "sha256": ""
       }
     ]
   }

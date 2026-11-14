@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.17.2",
-    "version_label": "v3.17.2 - November 2026",
-    "release_date": "2026-11-13",
-    "release_notes": "🩹 Sửa lỗi bản v3.17.1 không mở được trên nhiều máy: bấm mở app mà không thấy gì.\n- App chạy lại bình thường trên mọi máy Windows 64-bit.\n- Đã cài v3.17.1 mà không mở được: tải bộ cài mới trên web, cài đè (giữ dữ liệu, bản quyền).\n💾 Sao lưu presets.json khi ghi vào mạch: 2 lần ghi liền nhau không còn đè mất bản sao lưu.",
+    "version": "3.17.3",
+    "version_label": "v3.17.3 - November 2026",
+    "release_date": "2026-11-14",
+    "release_notes": "🆕 Hỗ trợ dòng mạch mới ARGB HSL Controller 16X: 16 cổng LED WS2812, mỗi cổng tối đa 1024 LED.\n- Quét mạng tìm thấy mạch 16X.\n- Tab Cấu hình phần cứng: tối đa 16 port, 16384 LED, chọn đúng 16 GPIO của mạch. Port thêm\nmới chạy chế độ xuất song song (LCD) cho tốc độ khung hình cao nhất.\n- Cập nhật firmware: mạch 16X nhận đúng bản firmware dành cho 16X.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.17.2.exe",
-    "size": 318468347,
-    "sha256": "74472e7bcc78dc0ae5ed71842b34e66aa0ad779fa866cf85148541aece3573f8"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.17.3.exe",
+    "size": 318465668,
+    "sha256": "000e5a317e8e9a27432ff73e42873b4b2bbf88dd8fc9fd7f8109b14bde3704bf"
   }
 }

@@ -3,12 +3,12 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2611143 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
+    "notes": "Build 2611150 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
     "files": [
       {
         "version": "3.0.0",
-        "notes": "Build 2611143 cho ARGB HSL Controller 4X: giao dien web moi SuperNova cho trang dieu khien va trang cai dat; bo cuc moi tren dien thoai va may tinh (man hinh rong tu 1024 px chuyen sang 3 cot), co giao dien sang va toi; tab Mau sac: o mau dang chinh nam dau tab, thanh truot co ten va gia tri, luoi mau nhanh 6 x 2; tab Hieu ung: loc theo nhom, danh dau hieu ung yeu thich, bang tuy chinh hieu ung thu gon san tren dien thoai; bang Thong tin moi: nhiet do chip, FPS, so LED, dong uoc tinh va canh bao khi gioi han ABL qua thap; xem nhanh cac cong LED va xem LED truc tiep dang ma tran 2D; trang cai dat LED lam lai, moi cong LED mot the rieng; app WLED tren dien thoai khong con bao Update Available.",
-        "vid": 2611143,
+        "notes": "Build 2611150 cho ARGB HSL Controller 4X: lam lai cac trang cai dat Giao dien, WiFi, Ma tran 2D, Usermod va Bao mat theo giao dien SuperNova; trang Giao dien: khung xem truoc truc tiep, chon nen toi hoac sang bang the, ghi ro cai dat luu tren mach hay tren trinh duyet; trang WiFi: o tom tat ket noi va do manh song, moi mang WiFi mot the, quet mang co vach song; trang Ma tran 2D: xem truoc bo cuc tung tam LED, bao khi so LED khai bao khong khop voi ma tran; trang Usermod: ten tieng Viet, hien nhiet do chip truc tiep; trang Bao mat va sao luu: ma PIN 4 o, the sao luu va khoi phuc, vung khoi phuc cai dat goc; sua loi trang Usermod khong luu duoc cai dat Nhiet do ARGB HSL; sua loi trang Bao mat khong hien phien ban va ten tep sao luu.",
+        "vid": 2611150,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -21,13 +21,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-4x.bin",
-        "size": 1294720,
-        "sha256": "33b8c54903106078f8ae73fa26f8fae4ccfbb5d6c7e183cea89e54f91e30c139"
+        "size": 1303184,
+        "sha256": "9c2f2a76bbe0652b94b9b7855f128b8592797032612146365b2ac5a2692902c8"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611143 cho ARGB HSL Controller 2X Pro: giao dien web moi SuperNova cho trang dieu khien va trang cai dat; bo cuc moi tren dien thoai va may tinh (man hinh rong tu 1024 px chuyen sang 3 cot), co giao dien sang va toi; tab Mau sac: o mau dang chinh nam dau tab, thanh truot co ten va gia tri, luoi mau nhanh 6 x 2; tab Hieu ung: loc theo nhom, danh dau hieu ung yeu thich, bang tuy chinh hieu ung thu gon san tren dien thoai; bang Thong tin moi: nhiet do chip, FPS, so LED, dong uoc tinh va canh bao khi gioi han ABL qua thap; xem nhanh cac cong LED va xem LED truc tiep dang ma tran 2D; trang cai dat LED lam lai, moi cong LED mot the rieng; app WLED tren dien thoai khong con bao Update Available. POI HSL Studio can build 2611050 tro len.",
-        "vid": 2611143,
+        "notes": "Build 2611150 cho ARGB HSL Controller 2X Pro: lam lai cac trang cai dat Giao dien, WiFi, Ma tran 2D, Usermod va Bao mat theo giao dien SuperNova; trang Giao dien: khung xem truoc truc tiep, chon nen toi hoac sang bang the, ghi ro cai dat luu tren mach hay tren trinh duyet; trang WiFi: o tom tat ket noi va do manh song, moi mang WiFi mot the, quet mang co vach song; trang Ma tran 2D: xem truoc bo cuc tung tam LED, bao khi so LED khai bao khong khop voi ma tran; trang Usermod: ten tieng Viet, hien nhiet do chip truc tiep; trang Bao mat va sao luu: ma PIN 4 o, the sao luu va khoi phuc, vung khoi phuc cai dat goc; sua loi trang Usermod khong luu duoc cai dat Nhiet do ARGB HSL; sua loi trang Bao mat khong hien phien ban va ten tep sao luu. POI HSL Studio can build 2611050 tro len.",
+        "vid": 2611150,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -40,13 +40,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
-        "size": 1294672,
-        "sha256": "71e8d3d61f4748ca50628331908417cdcab4e1ffba431082b027ce84423c2683"
+        "size": 1303136,
+        "sha256": "6947c15a4cdeb51245a475b96ab8a05a3e7c7869754e4e946ddc2ae68b8f6ee0"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611143 cho ARGB HSL Controller 16X: giao dien web moi SuperNova cho trang dieu khien va trang cai dat; bo cuc moi tren dien thoai va may tinh (man hinh rong tu 1024 px chuyen sang 3 cot), co giao dien sang va toi; tab Mau sac: o mau dang chinh nam dau tab, thanh truot co ten va gia tri, luoi mau nhanh 6 x 2; tab Hieu ung: loc theo nhom, danh dau hieu ung yeu thich, bang tuy chinh hieu ung thu gon san tren dien thoai; bang Thong tin moi: nhiet do chip, FPS, so LED, dong uoc tinh va canh bao khi gioi han ABL qua thap; xem nhanh cac cong LED va xem LED truc tiep dang ma tran 2D; trang cai dat LED lam lai, moi cong LED mot the rieng; app WLED tren dien thoai khong con bao Update Available.",
-        "vid": 2611143,
+        "notes": "Build 2611150 cho ARGB HSL Controller 16X: lam lai cac trang cai dat Giao dien, WiFi, Ma tran 2D, Usermod va Bao mat theo giao dien SuperNova; trang Giao dien: khung xem truoc truc tiep, chon nen toi hoac sang bang the, ghi ro cai dat luu tren mach hay tren trinh duyet; trang WiFi: o tom tat ket noi va do manh song, moi mang WiFi mot the, quet mang co vach song; trang Ma tran 2D: xem truoc bo cuc tung tam LED, bao khi so LED khai bao khong khop voi ma tran; trang Usermod: ten tieng Viet, hien nhiet do chip truc tiep; trang Bao mat va sao luu: ma PIN 4 o, the sao luu va khoi phuc, vung khoi phuc cai dat goc; sua loi trang Usermod khong luu duoc cai dat Nhiet do ARGB HSL; sua loi trang Bao mat khong hien phien ban va ten tep sao luu.",
+        "vid": 2611150,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -59,8 +59,8 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-16x.bin",
-        "size": 1298928,
-        "sha256": "d10cdc0951e4acbbb8d7821887f411da750bbb5635d44b1f3717ff29006027b8"
+        "size": 1307392,
+        "sha256": "03b67a0a3b438572670e37b20508e5aff3e67fa09c0df17359d5e779e72d3214"
       }
     ]
   }

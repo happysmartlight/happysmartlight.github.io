@@ -27,6 +27,17 @@ const PHOTO_LIST: { file: string; label: string; w: number; h: number }[] = [
   { file: "13-cau-hinh.webp", label: "Trang Cài đặt trên điện thoại: nút Về màn hình điều khiển và 6 thẻ", w: 420, h: 720 },
   { file: "14-den-led.webp", label: "Trang Đèn LED và phần cứng: ô tóm tắt, thẻ Nguồn và độ sáng, mỗi cổng một thẻ", w: 1366, h: 840 },
   { file: "15-giao-dien-sang.webp", label: "Giao diện nền sáng trên máy tính", w: 1366, h: 840 },
+  { file: "16-cai-dat-giao-dien.webp", label: "Trang Giao diện: khung xem trước, hai thẻ chủ đề Tối và Sáng, nhãn cho biết cài đặt lưu ở đâu", w: 1366, h: 840 },
+  { file: "17-giao-dien-dien-thoai.webp", label: "Trang Giao diện trên điện thoại: khung xem trước nằm trên cùng", w: 420, h: 840 },
+  { file: "18-giao-dien-sang-dien-thoai.webp", label: "Bấm thẻ Sáng là trang đổi màu ngay. Bên dưới là các ô chọn cách chọn màu", w: 420, h: 840 },
+  { file: "19-wifi.webp", label: "Trang WiFi và mạng: ô tóm tắt kết nối, thẻ mạng WiFi, điểm phát của mạch (đã che IP, tên mạng và mDNS)", w: 1366, h: 840 },
+  { file: "20-wifi-dien-thoai.webp", label: "Thẻ mạng WiFi trên điện thoại, đã mở phần BSSID và IP tĩnh", w: 420, h: 840 },
+  { file: "21-ma-tran-2d.webp", label: "Trang Ma trận 2D: ô tóm tắt và khung xem trước 4 tấm LED, chấm xanh là LED đầu, chấm hồng là LED cuối", w: 1366, h: 840 },
+  { file: "22-ma-tran-2d-dien-thoai.webp", label: "Mỗi tấm LED là một thẻ: LED đầu tiên, kích thước, độ lệch, hướng đi dây, zig-zag", w: 420, h: 840 },
+  { file: "23-usermod.webp", label: "Trang Usermod: mỗi mô-đun một thẻ, đầu thẻ Nhiệt độ ARGB HSL hiện nhiệt độ chip", w: 1366, h: 840 },
+  { file: "24-bao-mat.webp", label: "Trang Bảo mật và sao lưu: ô tóm tắt, mã PIN 4 ô, hai thẻ sao lưu và khôi phục", w: 1366, h: 840 },
+  { file: "25-bao-mat-pin-dien-thoai.webp", label: "Nhập mã PIN mới: ô tóm tắt báo Sẽ bật, bấm Lưu để áp dụng", w: 420, h: 840 },
+  { file: "26-bao-mat-dat-lai-dien-thoai.webp", label: "Bật Khôi phục cài đặt gốc: vùng đỏ hiện lời nhắc, nút Lưu đổi thành Xóa và khởi động lại", w: 420, h: 840 },
 ];
 
 const PHOTOS: ZoomGalleryItem[] = PHOTO_LIST.map(({ file, label }) => ({ url: `${IMG}/${file}`, label, alt: label }));
@@ -38,7 +49,7 @@ const HEADER_BUTTONS: { icon: ReactNode; name: string; desc: string }[] = [
   { icon: <Cable className="w-4 h-4 text-neon-blue-bright" />, name: "Cổng LED", desc: "Xem nhanh từng cổng LED của mạch. Nút này có trên màn hình rộng như máy tính." },
   { icon: <Network className="w-4 h-4 text-neon-blue-bright" />, name: "ARGB khác", desc: "Chỉ hiện khi trong mạng có mạch ARGB HSL khác, để mở danh sách các mạch đó." },
   { icon: <SunMoon className="w-4 h-4 text-neon-blue-bright" />, name: "Giao diện", desc: "Đổi nền tối hoặc nền sáng." },
-  { icon: <SlidersHorizontal className="w-4 h-4 text-neon-blue-bright" />, name: "Cấu hình", desc: "Mở trang Cài đặt: WiFi, đèn LED, ma trận, giao diện, bảo mật và cập nhật." },
+  { icon: <SlidersHorizontal className="w-4 h-4 text-neon-blue-bright" />, name: "Cấu hình", desc: "Mở trang Cài đặt: WiFi, đèn LED, ma trận, giao diện, usermod, bảo mật và sao lưu." },
 ];
 
 const SETTING_CARDS: { name: string; desc: string }[] = [
@@ -47,7 +58,7 @@ const SETTING_CARDS: { name: string; desc: string }[] = [
   { name: "Ma trận 2D", desc: "Kích thước và cách xếp tấm LED ma trận." },
   { name: "Giao diện", desc: "Tên thiết bị, nền sáng hoặc tối, ảnh nền." },
   { name: "Usermods", desc: "Các chức năng mở rộng như Autosave, POI, cảm biến." },
-  { name: "Bảo mật và cập nhật", desc: "Mật khẩu, sao lưu cấu hình, cập nhật firmware." },
+  { name: "Bảo mật và sao lưu", desc: "Mã PIN, sao lưu và khôi phục, khôi phục cài đặt gốc." },
 ];
 
 const strong = "text-white";
@@ -134,7 +145,7 @@ export default function ArticleGiaoDienSuperNova() {
       title="Giao Diện SuperNova Mới Của Mạch ARGB HSL: Làm Quen Từng Vùng Màn Hình"
       metaTitle="Giao Diện SuperNova Mạch ARGB HSL | Hướng Dẫn Sử Dụng"
       eyebrow="HAPPY SMART LIGHT — HƯỚNG DẪN SỬ DỤNG"
-      description="Làm quen giao diện SuperNova trên trang điều khiển của mạch ARGB HSL: thanh trên cùng, dải LED xem trước, nút nguồn và độ sáng, các tab Màu sắc, Hiệu ứng, Phân đoạn, Presets, bảng Thông tin, Cổng LED và trang Cấu hình, trên cả điện thoại lẫn máy tính."
+      description="Làm quen giao diện SuperNova trên trang điều khiển của mạch ARGB HSL: thanh trên cùng, dải LED xem trước, nút nguồn và độ sáng, các tab Màu sắc, Hiệu ứng, Phân đoạn, Presets, bảng Thông tin, Cổng LED và các trang cài đặt Đèn LED, Giao diện, WiFi, Ma trận 2D, Usermod, Bảo mật, trên cả điện thoại lẫn máy tính."
       bannerImg={`${IMG}/banner.webp`}
       accent={ACCENT}
       path="/post-news/giao-dien-supernova-argb-hsl/"
@@ -144,6 +155,9 @@ export default function ArticleGiaoDienSuperNova() {
       <Callout icon={<Lightbulb className="w-5 h-5 text-neon-blue-bright" />}>
         <p>
           Mạch ARGB HSL (2X Pro, 4X, 16X) có sẵn một trang điều khiển: mở trình duyệt trên điện thoại hoặc máy tính, gõ địa chỉ của mạch là dùng được, không cần cài app. <strong className={strong}>SuperNova</strong> là giao diện mới của trang này. Chữ rõ hơn, nút có tên tiếng Việt, và bố cục tự đổi theo màn hình bạn đang dùng. Mọi ảnh trong bài đều bấm vào để xem lớn.
+        </p>
+        <p className="mt-2">
+          <strong className={strong}>Cập nhật 15/11/2026:</strong> thêm hướng dẫn các trang cài đặt Giao diện, WiFi, Ma trận 2D, Usermod, Bảo mật và sao lưu, cũng mang phong cách SuperNova. Các trang này có từ firmware bản dựng 2611150, cập nhật bằng Tool ARGB HSL như bước 1 bên dưới.
         </p>
       </Callout>
 
@@ -353,11 +367,101 @@ export default function ArticleGiaoDienSuperNova() {
         </div>
       </section>
 
+      {/* Trang Giao diện */}
+      <section className="space-y-3">
+        <SectionHeading accent={ACCENT}>Trang Giao Diện</SectionHeading>
+        <p className="text-xs text-slate-400">
+          Trang này đổi cách màn hình điều khiển hiển thị. Khung bên trái là một màn hình điện thoại thu nhỏ, đổi ngay theo từng lựa chọn: chủ đề, màu nền, ảnh nền, độ đậm thanh tab, nhãn dưới nút, tên thiết bị. Bạn thấy kết quả trước khi lưu.
+        </p>
+        <ul className="text-xs text-slate-400 space-y-1.5">
+          <Point title="Chủ đề">hai thẻ <strong className={strong}>Tối</strong> và <strong className={strong}>Sáng</strong>. Bấm vào là trang cài đặt đổi màu ngay. Màn hình điều khiển đổi theo sau khi bạn bấm Lưu và tải lại trang.</Point>
+          <Point title="Lưu ở đâu">mỗi nhóm có một nhãn nhỏ. <strong className={strong}>Lưu trên mạch</strong> (tên thiết bị, giao diện cơ bản) áp dụng cho mọi điện thoại. <strong className={strong}>Lưu trên trình duyệt này</strong> chỉ áp dụng cho trình duyệt bạn đang dùng, sang điện thoại khác thì chỉnh lại.</Point>
+          <Point title="Màn hình điều khiển">hiện tên gốc tiếng Anh, hiện ID preset, xếp preset theo ID, dùng thông số mặc định khi đổi hiệu ứng, cách nhập phân đoạn.</Point>
+          <Point title="Cách chọn màu">bốn ô <strong className={strong}>Bánh xe màu</strong>, <strong className={strong}>Thanh trượt RGB</strong>, <strong className={strong}>Màu nhanh</strong>, <strong className={strong}>Mã HEX</strong>. Bật ô nào thì tab Màu sắc có cách chọn đó.</Point>
+          <Point title="Nút nguồn">chọn preset chạy khi bấm nút nguồn để bật hoặc tắt. Tên preset hiện ngay dưới ô số, để 0 nếu chỉ muốn bật tắt đèn.</Point>
+          <Point title="Nền">màu nền, độ rõ của ảnh nền, logo HSL, ảnh của bạn (lưu trong trình duyệt, nên dùng ảnh nhỏ) hoặc ảnh ngẫu nhiên từ Internet.</Point>
+          <Point title="Nâng cao">CSS tùy chỉnh, danh sách ngày lễ, và nút <strong className={strong}>Xóa</strong> dữ liệu tạm (preset và bảng màu trình duyệt lưu sẵn để mở nhanh).</Point>
+        </ul>
+        <Shot file="16-cai-dat-giao-dien.webp" open={open} />
+        <PhoneRow files={["17-giao-dien-dien-thoai.webp", "18-giao-dien-sang-dien-thoai.webp"]} open={open} />
+      </section>
+
+      {/* Trang WiFi */}
+      <section className="space-y-3">
+        <SectionHeading accent={ACCENT}>Trang WiFi Và Mạng</SectionHeading>
+        <ul className="text-xs text-slate-400 space-y-1.5">
+          <Point title="Ba ô tóm tắt">địa chỉ IP của mạch kèm độ mạnh sóng và kênh WiFi, điểm phát riêng của mạch (ARGB-AP), và địa chỉ theo tên (mDNS). Bấm vào tên mDNS để mở mạch bằng tên thay vì gõ số IP.</Point>
+          <Point title="Mạng WiFi">lưu tối đa 3 mạng, mỗi mạng một thẻ. Mạch chọn mạng có sóng mạnh nhất, ưu tiên mạng đứng trước. Bấm <strong className={strong}>Quét mạng</strong> để ô tên mạng thành danh sách các mạng xung quanh, có chấm sóng ●●●○ và số dBm. Chọn <strong className={strong}>Mạng khác...</strong> để tự gõ tên.</Point>
+          <Point title="BSSID và IP tĩnh">thu gọn sẵn trong mỗi thẻ. Mở ra khi cần gắn mạch vào một bộ phát cố định hoặc đặt IP cố định. Để 0.0.0.0 thì mạch nhận IP tự động.</Point>
+          <Point title="Điểm phát WiFi (AP)">tên, mật khẩu (để trống hoặc ít nhất 8 ký tự), khi nào bật điểm phát, ẩn tên và kênh. Mặc định điểm phát bật khi mạch không kết nối được WiFi lúc khởi động.</Point>
+          <Point title="Tên miền và Sóng WiFi">tên mDNS, máy chủ DNS, tắt chế độ ngủ WiFi để kết nối ổn định hơn, và công suất phát.</Point>
+        </ul>
+        <Callout icon={<AlertTriangle className="w-5 h-5 text-amber-400" />} variant="warning">
+          <p>
+            Bấm <strong className="text-amber-300">Lưu và kết nối</strong> là mạch kết nối lại. Nếu chuyển sang mạng khác, điện thoại cũng phải vào mạng mới rồi tìm lại mạch bằng Tool ARGB HSL hoặc tên mDNS. Gõ sai mật khẩu thì với cài đặt mặc định, mạch sẽ bật điểm phát của nó (tên mặc định <strong className="text-amber-300">ARGB-AP</strong>) để bạn vào sửa lại.
+          </p>
+        </Callout>
+        <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,13rem)_minmax(0,1fr)] gap-3 sm:gap-5 items-start">
+          <Shot file="20-wifi-dien-thoai.webp" open={open} phone />
+          <Shot file="19-wifi.webp" open={open} phone />
+        </div>
+      </section>
+
+      {/* Trang Ma trận 2D */}
+      <section className="space-y-3">
+        <SectionHeading accent={ACCENT}>Trang Ma Trận 2D</SectionHeading>
+        <ul className="text-xs text-slate-400 space-y-1.5">
+          <Point title="Kiểu bố trí LED">hai thẻ <strong className={strong}>Dải LED 1D</strong> (dây LED, poi, viền, khi điều khiển bằng xLights) và <strong className={strong}>Ma trận LED 2D</strong> (tấm LED, hiệu ứng 2D, ảnh GIF).</Point>
+          <Point title="Ô tóm tắt">kích thước ma trận, số tấm LED, và số LED đã khai báo trong trang Đèn LED. Ô cuối màu xanh khi khớp với ma trận, màu cam và ghi rõ thiếu bao nhiêu LED khi khai báo chưa đủ.</Point>
+          <Point title="Xem trước bố cục">vẽ từng tấm theo đúng đường đi dây. Chấm xanh là LED đầu, chấm hồng là LED cuối, số ở giữa là thứ tự tấm. Đổi một ô bất kỳ là hình vẽ lại ngay.</Point>
+          <Point title="Trình tạo ma trận">nhập kích thước một tấm và số tấm ngang × dọc, bấm <strong className={strong}>Tạo bố cục</strong> để tạo nhanh nhiều tấm giống nhau. Nút này thay cả danh sách tấm bên dưới.</Point>
+          <Point title="Các tấm LED">mỗi tấm một thẻ: LED đầu tiên ở góc nào, rộng và cao, độ lệch X Y, hướng đi dây ngang hoặc dọc, zig-zag.</Point>
+        </ul>
+        <Callout icon={<Info className="w-5 h-5 text-neon-blue-bright" />}>
+          <p>Nếu mạch có tệp <strong className={strong}>ledmap.json</strong> ghi sẵn kích thước, trang hiện một khung xanh báo ma trận đang lấy kích thước và cách đi dây từ tệp đó, và vẽ lưới đúng kích thước. Khi đó bạn không cần khai báo tấm.</p>
+        </Callout>
+        <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,13rem)_minmax(0,1fr)] gap-3 sm:gap-5 items-start">
+          <Shot file="22-ma-tran-2d-dien-thoai.webp" open={open} phone />
+          <Shot file="21-ma-tran-2d.webp" open={open} phone />
+        </div>
+      </section>
+
+      {/* Trang Usermod */}
+      <section className="space-y-3">
+        <SectionHeading accent={ACCENT}>Trang Usermod</SectionHeading>
+        <p className="text-xs text-slate-400">
+          Usermod là các mô-đun mở rộng có sẵn trong firmware. Mỗi mô-đun là một thẻ có tên và mô tả tiếng Việt. Đầu thẻ ghi trạng thái <strong className={strong}>Đang bật</strong> hoặc <strong className={strong}>Đang tắt</strong>, hoặc số đo trực tiếp như nhiệt độ chip.
+        </p>
+        <ul className="text-xs text-slate-400 space-y-1.5">
+          <Point title="Tự lưu trạng thái">bạn ngừng chỉnh bao nhiêu giây thì mạch lưu màu và hiệu ứng vào một preset (mặc định preset 100, bị ghi đè mỗi lần lưu). Có thể mở lại preset đó mỗi lần khởi động, và bỏ qua khi đang chạy preset.</Point>
+          <Point title="Nhiệt độ ARGB HSL">đo nhiệt độ chip theo chu kỳ (mili giây). Quá ngưỡng (°C) thì mạch bật preset bạn chọn, ví dụ một preset độ sáng thấp. Ô preset để 0 nếu không dùng.</Point>
+          <Point title="Khởi động lại sau khi lưu">bật khi mô-đun cần khởi động lại mới nhận thay đổi.</Point>
+        </ul>
+        <Shot file="23-usermod.webp" open={open} />
+      </section>
+
+      {/* Trang Bảo mật và sao lưu */}
+      <section className="space-y-3">
+        <SectionHeading accent={ACCENT}>Trang Bảo Mật Và Sao Lưu</SectionHeading>
+        <ul className="text-xs text-slate-400 space-y-1.5">
+          <Point title="Ô tóm tắt">mã PIN đang bật hay chưa, tên thiết bị, phiên bản firmware và số bản dựng.</Point>
+          <Point title="Mã PIN cài đặt">bốn ô số. Mã PIN khóa trang cài đặt, quản lý tệp, việc tải tệp lên mạch và cập nhật firmware. Màn hình điều khiển vẫn dùng bình thường. Nút <strong className={strong}>Hiện</strong> để xem lại số vừa gõ. Bấm <strong className={strong}>Bỏ mã PIN</strong> rồi Lưu để tắt. Ô tóm tắt báo trước điều sẽ xảy ra khi Lưu: Sẽ bật, Mã mới, Sẽ tắt hoặc Chưa đủ 4 số.</Point>
+          <Point title="Sao lưu">hai thẻ <strong className={strong}>Preset</strong> và <strong className={strong}>Cấu hình</strong>. Nút <strong className={strong}>Tải bản sao lưu</strong> lưu tệp có tên mạch, ví dụ HSL_ARGB_cfg_ARGB.json. Mật khẩu không có trong bản sao lưu.</Point>
+          <Point title="Khôi phục">chọn tệp đã sao lưu rồi bấm <strong className={strong}>Khôi phục</strong>. Tệp này ghi đè lên dữ liệu đang có, và mạch tự khởi động lại sau khi nhận cấu hình.</Point>
+          <Point title="Khôi phục cài đặt gốc">nằm trong vùng viền đỏ. Bật công tắc thì nút Lưu đổi thành <strong className={strong}>Xóa và khởi động lại</strong>. Thao tác này xóa mọi cài đặt, preset và tệp trên mạch, cả ảnh GIF và BMP. Sau đó kết nối WiFi <strong className={strong}>ARGB-AP</strong> để cài đặt lại.</Point>
+        </ul>
+        <Callout icon={<AlertTriangle className="w-5 h-5 text-amber-400" />} variant="warning">
+          <p>Tải cả hai bản sao lưu trước khi khôi phục cài đặt gốc hay thử một cấu hình lạ. Khi đặt mã PIN, đừng dùng lại mã ngân hàng, cửa hay SIM, vì mã gửi qua mạng không được mã hóa.</p>
+        </Callout>
+        <Shot file="24-bao-mat.webp" open={open} />
+        <PhoneRow files={["25-bao-mat-pin-dien-thoai.webp", "26-bao-mat-dat-lai-dien-thoai.webp"]} open={open} />
+      </section>
+
       {/* Sáng tối */}
       <section className="space-y-3">
         <SectionHeading accent={ACCENT}>Nền Tối Hay Nền Sáng</SectionHeading>
         <p className="text-xs text-slate-400">
-          Mặc định là nền tối, dễ nhìn khi đang chỉnh đèn trong phòng tối. Trên máy tính, bấm nút <strong className={strong}>Giao diện</strong> ở thanh bên trái để đổi sang nền sáng, bấm lần nữa để về nền tối. Trên điện thoại, đổi trong <strong className={strong}>Cấu hình → Giao diện</strong>.
+          Mặc định là nền tối, dễ nhìn khi đang chỉnh đèn trong phòng tối. Trên máy tính, bấm nút <strong className={strong}>Giao diện</strong> ở thanh bên trái để đổi sang nền sáng, bấm lần nữa để về nền tối. Trên điện thoại, vào <strong className={strong}>Cấu hình → Giao diện</strong> rồi bấm thẻ Tối hoặc Sáng.
         </p>
         <Shot file="15-giao-dien-sang.webp" open={open} />
       </section>

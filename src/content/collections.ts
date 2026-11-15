@@ -182,7 +182,7 @@ const PORTED_POSTS: CollectionItem[] = [
     image: "/img/post-news/giao-dien-supernova/banner.webp",
     bigimg: "/img/post-news/giao-dien-supernova/banner.webp",
     tags: ["supernova", "giao-dien", "web-ui", "guide"],
-    excerpt: "Làm quen giao diện SuperNova trên trang điều khiển của mạch ARGB HSL: thanh trên cùng, dải LED xem trước, nút nguồn và độ sáng, các tab Màu sắc, Hiệu ứng, Phân đoạn, Presets, bảng Thông tin, Cổng LED và trang Cấu hình, trên cả điện thoại lẫn máy tính.",
+    excerpt: "Làm quen giao diện SuperNova trên trang điều khiển của mạch ARGB HSL: thanh trên cùng, dải LED xem trước, nút nguồn và độ sáng, các tab Màu sắc, Hiệu ứng, Phân đoạn, Presets, bảng Thông tin, Cổng LED và các trang cài đặt Đèn LED, Giao diện, WiFi, Ma trận 2D, Usermod, Bảo mật, trên cả điện thoại lẫn máy tính.",
     html: "",
     date: "2026-11-14"
   }

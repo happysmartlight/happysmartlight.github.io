@@ -3,12 +3,12 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2611162 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
+    "notes": "Build 2611163 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
     "files": [
       {
         "version": "3.0.0",
-        "notes": "Build 2611162 cho ARGB HSL Controller 4X: them trinh phat show cho tab Timecode (dung voi Tool ARGB HSL v3.17.5 tro len): chia mach thanh nhieu phan doan dat ten tuy y (vd giap dau, giap tay, giap nguc) va lap trinh hieu ung rieng cho tung phan; show chay theo dong ho rieng nen khop nhac hon va khong con gioi han 100 buoc. Show va nut bam cu van chay nhu truoc.",
-        "vid": 2611162,
+        "notes": "Build 2611163 cho ARGB HSL Controller 4X: them trinh phat show cho tab Timecode (dung voi Tool ARGB HSL v3.17.5 tro len): chia mach thanh nhieu phan doan dat ten tuy y (vd giap dau, giap tay, giap nguc), toi da 64 phan doan, va lap trinh hieu ung rieng cho tung phan; show chay theo dong ho rieng nen khop nhac hon va khong con gioi han 100 buoc; vach danh dau cua timeline duoc luu cung show de doc lai tu mach. Show va nut bam cu van chay nhu truoc.",
+        "vid": 2611163,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -21,13 +21,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-4x.bin",
-        "size": 1315824,
-        "sha256": "33b3b49a2dce3e0c436380f78fd12d9dcd51536f65d5891f70f64dcd127cd26b"
+        "size": 1317232,
+        "sha256": "801a76205dc7dad832b8bd544cbfa236b719db02d6770b361fb0b0e294b91a09"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611162 cho ARGB HSL Controller 2X Pro: them trinh phat show cho tab Timecode (dung voi Tool ARGB HSL v3.17.5 tro len): chia mach thanh nhieu phan doan dat ten tuy y (vd giap dau, giap tay, giap nguc) va lap trinh hieu ung rieng cho tung phan; show chay theo dong ho rieng nen khop nhac hon va khong con gioi han 100 buoc. Show va nut bam cu van chay nhu truoc. POI HSL Studio can build 2611050 tro len.",
-        "vid": 2611162,
+        "notes": "Build 2611163 cho ARGB HSL Controller 2X Pro: them trinh phat show cho tab Timecode (dung voi Tool ARGB HSL v3.17.5 tro len): chia mach thanh nhieu phan doan dat ten tuy y (vd giap dau, giap tay, giap nguc), toi da 64 phan doan, va lap trinh hieu ung rieng cho tung phan; show chay theo dong ho rieng nen khop nhac hon va khong con gioi han 100 buoc; vach danh dau cua timeline duoc luu cung show de doc lai tu mach. Show va nut bam cu van chay nhu truoc. POI HSL Studio can build 2611050 tro len.",
+        "vid": 2611163,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -40,13 +40,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
-        "size": 1315792,
-        "sha256": "aa742afaa830ccf2c7befb36d52b723ce6fb9b62839c8ea040d5686a963f99cd"
+        "size": 1317184,
+        "sha256": "69da2411755b31cbd35cc070f23d085ea4d560c2fa56d801e0110df31f8dbd70"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611162 cho ARGB HSL Controller 16X: them trinh phat show cho tab Timecode (dung voi Tool ARGB HSL v3.17.5 tro len): chia mach thanh nhieu phan doan dat ten tuy y (vd giap dau, giap tay, giap nguc) va lap trinh hieu ung rieng cho tung phan; show chay theo dong ho rieng nen khop nhac hon va khong con gioi han 100 buoc. Show va nut bam cu van chay nhu truoc.",
-        "vid": 2611162,
+        "notes": "Build 2611163 cho ARGB HSL Controller 16X: them trinh phat show cho tab Timecode (dung voi Tool ARGB HSL v3.17.5 tro len): chia mach thanh nhieu phan doan dat ten tuy y (vd giap dau, giap tay, giap nguc), toi da 64 phan doan, va lap trinh hieu ung rieng cho tung phan; show chay theo dong ho rieng nen khop nhac hon va khong con gioi han 100 buoc; vach danh dau cua timeline duoc luu cung show de doc lai tu mach. Show va nut bam cu van chay nhu truoc.",
+        "vid": 2611163,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -59,8 +59,8 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-16x.bin",
-        "size": 1320016,
-        "sha256": "8c630f3d5c585bccbda4886e2fbb97997f51f42fcf6defb9ef8352c98688863b"
+        "size": 1321584,
+        "sha256": "11bec746e24b54e714ce53e01bc52d243a58b064fb2bb9cff65010bba45f04bd"
       }
     ]
   }

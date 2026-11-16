@@ -3,12 +3,12 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2611160 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
+    "notes": "Build 2611161 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
     "files": [
       {
         "version": "3.0.0",
-        "notes": "Build 2611160 cho ARGB HSL Controller 4X: sua loi quet WiFi qua cap USB trong Tool ARGB HSL doi khi bao khong tim thay mang nao: mach cho het luot quet (co luot mat hon 6 giay) roi moi gui danh sach, khong khoi dong lai luot quet dang chay, va tu quet lai khi mach dang ket noi WiFi; sua loi mach luu nhieu mang WiFi co the khong tu ket noi lai sau khi quet WiFi qua USB.",
-        "vid": 2611160,
+        "notes": "Build 2611161 cho ARGB HSL Controller 4X: sua loi show Timecode tre dan so voi nhac: moi buoc cua playlist bi tre them vai mili giay va cong don, show dai tren mach nhieu LED (vd 4 x 1024 LED) co the tre hon 1 giay o cuoi show; nay mach chuyen buoc dung nhip, khong con tre cong don, ke ca khi tat / bat den giua show.",
+        "vid": 2611161,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -21,13 +21,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-4x.bin",
-        "size": 1303552,
-        "sha256": "0b1955c28f4edfc767ead5cf8fd916470f5c0847e7f9617147ce5c047b541945"
+        "size": 1303584,
+        "sha256": "f028d7bf3b28a7d7d0610ff89b76a5353475396987082528b2cd55e573eeeb86"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611160 cho ARGB HSL Controller 2X Pro: sua loi quet WiFi qua cap USB trong Tool ARGB HSL doi khi bao khong tim thay mang nao: mach cho het luot quet (co luot mat hon 6 giay) roi moi gui danh sach, khong khoi dong lai luot quet dang chay, va tu quet lai khi mach dang ket noi WiFi; sua loi mach luu nhieu mang WiFi co the khong tu ket noi lai sau khi quet WiFi qua USB. POI HSL Studio can build 2611050 tro len.",
-        "vid": 2611160,
+        "notes": "Build 2611161 cho ARGB HSL Controller 2X Pro: sua loi show Timecode tre dan so voi nhac: moi buoc cua playlist bi tre them vai mili giay va cong don, show dai tren mach nhieu LED (vd 4 x 1024 LED) co the tre hon 1 giay o cuoi show; nay mach chuyen buoc dung nhip, khong con tre cong don, ke ca khi tat / bat den giua show. POI HSL Studio can build 2611050 tro len.",
+        "vid": 2611161,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -40,13 +40,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
-        "size": 1303504,
-        "sha256": "8b5ff4500ee723a81a8492516f06c75f5412583e946d9ddf678624268b0e0056"
+        "size": 1303536,
+        "sha256": "340cffba33a10b27878c04da523b9372946f0df7d87e29da6e031381bb1a949d"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611160 cho ARGB HSL Controller 16X: sua loi quet WiFi qua cap USB trong Tool ARGB HSL doi khi bao khong tim thay mang nao: mach cho het luot quet (co luot mat hon 6 giay) roi moi gui danh sach, khong khoi dong lai luot quet dang chay, va tu quet lai khi mach dang ket noi WiFi; sua loi mach luu nhieu mang WiFi co the khong tu ket noi lai sau khi quet WiFi qua USB.",
-        "vid": 2611160,
+        "notes": "Build 2611161 cho ARGB HSL Controller 16X: sua loi show Timecode tre dan so voi nhac: moi buoc cua playlist bi tre them vai mili giay va cong don, show dai tren mach nhieu LED (vd 4 x 1024 LED) co the tre hon 1 giay o cuoi show; nay mach chuyen buoc dung nhip, khong con tre cong don, ke ca khi tat / bat den giua show.",
+        "vid": 2611161,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -59,8 +59,8 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-16x.bin",
-        "size": 1307776,
-        "sha256": "a4af36083eaa39288bac2853509cbda06795b4318c9ae43650d1a3bf04dcf4e4"
+        "size": 1307808,
+        "sha256": "bf3b5a29faa8a9fb8583423f2c35e95198d88286915a491df1c2acb44ceb6236"
       }
     ]
   }

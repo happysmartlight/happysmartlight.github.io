@@ -2,14 +2,14 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.17.4",
-    "version_label": "v3.17.4 - November 2026",
-    "release_date": "2026-11-15",
-    "release_notes": "🔍 Tab Thiết bị ARGB: giao diện web của mạch mặc định hiển thị 110% cho dễ đọc (trước đây 80%).\n- Sau khi cập nhật, giao diện web về 110% một lần. Muốn chỉnh thì giữ Ctrl + lăn chuột,\nCtrl+0 để về lại 110%.",
+    "version": "3.17.5",
+    "version_label": "v3.17.5 - November 2026",
+    "release_date": "2026-11-16",
+    "release_notes": "🧩 Tab Timecode chia phân đoạn: một mạch chia thành nhiều phần đặt tên tự do (vd Giáp đầu,\nGiáp tay, Giáp ngực…), mỗi phần có hàng riêng ngay dưới tên mạch.\n- Clip ở hàng tên mạch chạy cả mạch; clip ở hàng phân đoạn chỉ đổi phần đó.\n- Chuột phải tên mạch: Thêm phân đoạn, Chia nhanh (đôi / 3 / 4 / mỗi cổng LED), Đọc phân đoạn\nđang có trên mạch. Chuột phải tên đoạn: đổi tên, sửa khoảng LED, nháy thử, gộp, xoá.\n- Nháy thử: đoạn đó chớp trắng 2 giây trên mạch thật để biết nó nằm ở đâu.\n- Thiết bị mô phỏng cũng chia được phân đoạn; khi gán sang mạch thật, phân đoạn ghép theo tên.\n- Cần firmware 2611163 trở lên (cập nhật ở tab Cấu hình phần cứng). Mạch firmware cũ vẫn phát\nnhư trước, chỉ chưa chia phân đoạn được.\n⏱ Mạch có firmware 2611163 trở lên phát Timecode bằng file show: khớp nhạc hơn, không còn\ngiới hạn 100 bước. Phát / Tạm dừng / Dừng / Ghi vào mạch / Đọc từ mạch dùng như cũ.\n- Vạch đánh dấu (phím T) được ghi cùng show lên mạch: \"Đọc từ mạch\" dựng lại cả vạch đánh dấu.\n- Mạch firmware cũ: app cảnh báo khi show vượt 100 bước (phần dư mạch không chạy).\n🎛 Tab Timecode: cột Hiệu ứng có nút lọc HOT / 1D / 2D / Hạt / Nhạc và ô tìm kiếm.\n🩹 Tab Timecode: mở app khi mạch chưa kịp online, cột Hiệu ứng không còn trống mãi với dòng\n\"Chưa có thiết bị online\" — mạch online là app tự tải lại hiệu ứng.\n🔘 Nút bấm trên mạch: tab Cấu hình phần cứng tự tạo preset 248 \"Tắt đèn\" (tắt mọi đoạn LED).\n- Thẻ nút bấm có \"Gán nhanh\": bấm ngắn chạy show (249), giữ lâu tắt đèn (248).\n📶 Quét WiFi qua USB: đóng cổng COM không còn khởi động lại mạch; danh sách rỗng thì tự hỏi lại.",
     "arch": "arm64",
     "min_macos": "14.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_macOS_3.17.4_arm64.dmg",
-    "size": 395449571,
-    "sha256": "cb01c78f72b96570ad5f73c66af13f4fc65bef2bd8452cab715559e65a7ad278"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_macOS_3.17.5_arm64.dmg",
+    "size": 391189056,
+    "sha256": "8054faebece39610ccb3ad53659a6c2c0c75114ce7f3b7b8ec24544b1b3a2bcb"
   }
 }

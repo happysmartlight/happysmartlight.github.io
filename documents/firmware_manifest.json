@@ -3,12 +3,12 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2611150 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
+    "notes": "Build 2611160 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
     "files": [
       {
         "version": "3.0.0",
-        "notes": "Build 2611150 cho ARGB HSL Controller 4X: lam lai cac trang cai dat Giao dien, WiFi, Ma tran 2D, Usermod va Bao mat theo giao dien SuperNova; trang Giao dien: khung xem truoc truc tiep, chon nen toi hoac sang bang the, ghi ro cai dat luu tren mach hay tren trinh duyet; trang WiFi: o tom tat ket noi va do manh song, moi mang WiFi mot the, quet mang co vach song; trang Ma tran 2D: xem truoc bo cuc tung tam LED, bao khi so LED khai bao khong khop voi ma tran; trang Usermod: ten tieng Viet, hien nhiet do chip truc tiep; trang Bao mat va sao luu: ma PIN 4 o, the sao luu va khoi phuc, vung khoi phuc cai dat goc; sua loi trang Usermod khong luu duoc cai dat Nhiet do ARGB HSL; sua loi trang Bao mat khong hien phien ban va ten tep sao luu.",
-        "vid": 2611150,
+        "notes": "Build 2611160 cho ARGB HSL Controller 4X: sua loi quet WiFi qua cap USB trong Tool ARGB HSL doi khi bao khong tim thay mang nao: mach cho het luot quet (co luot mat hon 6 giay) roi moi gui danh sach, khong khoi dong lai luot quet dang chay, va tu quet lai khi mach dang ket noi WiFi; sua loi mach luu nhieu mang WiFi co the khong tu ket noi lai sau khi quet WiFi qua USB.",
+        "vid": 2611160,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -21,13 +21,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-4x.bin",
-        "size": 1303184,
-        "sha256": "9c2f2a76bbe0652b94b9b7855f128b8592797032612146365b2ac5a2692902c8"
+        "size": 1303552,
+        "sha256": "0b1955c28f4edfc767ead5cf8fd916470f5c0847e7f9617147ce5c047b541945"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611150 cho ARGB HSL Controller 2X Pro: lam lai cac trang cai dat Giao dien, WiFi, Ma tran 2D, Usermod va Bao mat theo giao dien SuperNova; trang Giao dien: khung xem truoc truc tiep, chon nen toi hoac sang bang the, ghi ro cai dat luu tren mach hay tren trinh duyet; trang WiFi: o tom tat ket noi va do manh song, moi mang WiFi mot the, quet mang co vach song; trang Ma tran 2D: xem truoc bo cuc tung tam LED, bao khi so LED khai bao khong khop voi ma tran; trang Usermod: ten tieng Viet, hien nhiet do chip truc tiep; trang Bao mat va sao luu: ma PIN 4 o, the sao luu va khoi phuc, vung khoi phuc cai dat goc; sua loi trang Usermod khong luu duoc cai dat Nhiet do ARGB HSL; sua loi trang Bao mat khong hien phien ban va ten tep sao luu. POI HSL Studio can build 2611050 tro len.",
-        "vid": 2611150,
+        "notes": "Build 2611160 cho ARGB HSL Controller 2X Pro: sua loi quet WiFi qua cap USB trong Tool ARGB HSL doi khi bao khong tim thay mang nao: mach cho het luot quet (co luot mat hon 6 giay) roi moi gui danh sach, khong khoi dong lai luot quet dang chay, va tu quet lai khi mach dang ket noi WiFi; sua loi mach luu nhieu mang WiFi co the khong tu ket noi lai sau khi quet WiFi qua USB. POI HSL Studio can build 2611050 tro len.",
+        "vid": 2611160,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -40,13 +40,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
-        "size": 1303136,
-        "sha256": "6947c15a4cdeb51245a475b96ab8a05a3e7c7869754e4e946ddc2ae68b8f6ee0"
+        "size": 1303504,
+        "sha256": "8b5ff4500ee723a81a8492516f06c75f5412583e946d9ddf678624268b0e0056"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611150 cho ARGB HSL Controller 16X: lam lai cac trang cai dat Giao dien, WiFi, Ma tran 2D, Usermod va Bao mat theo giao dien SuperNova; trang Giao dien: khung xem truoc truc tiep, chon nen toi hoac sang bang the, ghi ro cai dat luu tren mach hay tren trinh duyet; trang WiFi: o tom tat ket noi va do manh song, moi mang WiFi mot the, quet mang co vach song; trang Ma tran 2D: xem truoc bo cuc tung tam LED, bao khi so LED khai bao khong khop voi ma tran; trang Usermod: ten tieng Viet, hien nhiet do chip truc tiep; trang Bao mat va sao luu: ma PIN 4 o, the sao luu va khoi phuc, vung khoi phuc cai dat goc; sua loi trang Usermod khong luu duoc cai dat Nhiet do ARGB HSL; sua loi trang Bao mat khong hien phien ban va ten tep sao luu.",
-        "vid": 2611150,
+        "notes": "Build 2611160 cho ARGB HSL Controller 16X: sua loi quet WiFi qua cap USB trong Tool ARGB HSL doi khi bao khong tim thay mang nao: mach cho het luot quet (co luot mat hon 6 giay) roi moi gui danh sach, khong khoi dong lai luot quet dang chay, va tu quet lai khi mach dang ket noi WiFi; sua loi mach luu nhieu mang WiFi co the khong tu ket noi lai sau khi quet WiFi qua USB.",
+        "vid": 2611160,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -59,8 +59,8 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-16x.bin",
-        "size": 1307392,
-        "sha256": "03b67a0a3b438572670e37b20508e5aff3e67fa09c0df17359d5e779e72d3214"
+        "size": 1307776,
+        "sha256": "a4af36083eaa39288bac2853509cbda06795b4318c9ae43650d1a3bf04dcf4e4"
       }
     ]
   }

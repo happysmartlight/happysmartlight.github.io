@@ -185,6 +185,19 @@ const PORTED_POSTS: CollectionItem[] = [
     excerpt: "Làm quen giao diện SuperNova trên trang điều khiển của mạch ARGB HSL: thanh trên cùng, dải LED xem trước, nút nguồn và độ sáng, các tab Màu sắc, Hiệu ứng, Phân đoạn, Presets, bảng Thông tin, Cổng LED và các trang cài đặt Đèn LED, Giao diện, WiFi, Ma trận 2D, Usermod, Bảo mật, trên cả điện thoại lẫn máy tính.",
     html: "",
     date: "2026-11-14"
+  },
+  {
+    slug: "tab-timecode-tool-argb-hsl",
+    collection: "post-news",
+    url: "/post-news/tab-timecode-tool-argb-hsl/",
+    title: "Tab Timecode Trong Tool ARGB HSL: Lập Trình Show Ánh Sáng Theo Nhạc, Chia Từng Phân Đoạn",
+    metaTitle: "Tab Timecode Tool ARGB HSL | Lập Trình Show Ánh Sáng Theo Nhạc",
+    image: "/img/post-news/tab-timecode/banner.webp",
+    bigimg: "/img/post-news/tab-timecode/banner.webp",
+    tags: ["timecode", "tool-argb-hsl", "phan-doan", "show-anh-sang", "guide"],
+    excerpt: "Hướng dẫn dùng tab Timecode của Tool ARGB HSL: thêm nhạc, đánh dấu nhịp, kéo thả hiệu ứng lên timeline cho từng mạch, chia phân đoạn để mỗi phần trang phục LED chạy hiệu ứng riêng, lập trình trước bằng track mô phỏng, phát thử và ghi show vào mạch.",
+    html: "",
+    date: "2026-11-17"
   }
 ];
 

@@ -2,10 +2,11 @@ import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import {
   AlertTriangle, Clapperboard, Eye, FlaskConical, Keyboard, Layers, Lightbulb, ListChecks,
-  MousePointerClick, Music, Wrench,
+  MonitorPlay, MousePointerClick, Music, Wrench,
 } from "lucide-react";
 import ArticleLayout, { SectionHeading, InfoCard, Callout, ArtQuote } from "../ArticleLayout";
 import ImageZoomLightbox, { type ZoomGalleryItem } from "../ImageZoomLightbox";
+import LiveViewDemo from "./LiveViewDemo";
 
 const IMG = "/img/post-news/tab-timecode";
 const ACCENT = "purple" as const;
@@ -128,15 +129,18 @@ export default function ArticleTabTimecode() {
         <p className="mt-2">
           <strong className={strong}>Cập nhật Tool v3.17.6 (17/11/2026):</strong> clip ở hàng tên mạch là lớp trên cùng, phủ kín toàn bộ LED, nên logo đặt ở đó hiện thành một logo lớn trên cả khung. Các phân đoạn được dùng chung LED và đổi lớp trên dưới được. Nháy thử phân đoạn có màu rực hơn.
         </p>
+        <p className="mt-2">
+          <strong className={strong}>Cập nhật Tool v3.17.7 tới v3.17.9 (17/11/2026):</strong> cửa sổ <strong className={strong}>📺 Live view</strong> xem LED đang sáng của một hoặc nhiều mạch cùng lúc; bấm tên mạch hay tên phân đoạn để chọn chỗ xem thử hiệu ứng (dấu 👁); ghim hiệu ứng, bảng màu hay dùng lên đầu cột.
+        </p>
       </Callout>
 
       {/* Chuẩn bị */}
       <section className="space-y-3">
         <SectionHeading accent={ACCENT}>Cần Chuẩn Bị Gì</SectionHeading>
         <ul className="text-xs text-slate-400 space-y-1.5">
-          <Point title="Tool ARGB HSL">bản v3.17.6 trở lên trên máy tính. Tool đang cài sẽ tự báo khi có bản mới. Chưa có Tool? <Link to="/argb-hsl-tool-pc/" className={link}>Tải Tool ARGB HSL cho máy tính</Link>.</Point>
+          <Point title="Tool ARGB HSL">bản v3.17.9 trở lên trên máy tính. Tool đang cài sẽ tự báo khi có bản mới. Chưa có Tool? <Link to="/argb-hsl-tool-pc/" className={link}>Tải Tool ARGB HSL cho máy tính</Link>.</Point>
           <Point title="Mạch ARGB HSL">2X Pro, 4X hoặc 16X, kết nối cùng mạng WiFi với máy tính. Mạch tìm thấy ở tab Thiết bị ARGB tự hiện thành một hàng trên timeline. Vừa thêm mạch mới thì bấm <strong className={strong}>🔄 DS mạch</strong>.</Point>
-          <Point title="Firmware để chia phân đoạn">bản dựng 2611170 trở lên. Cập nhật ở tab <strong className={strong}>Cấu hình phần cứng</strong>, các bước có trong bài <Link to="/post-news/nap-firmware-cau-hinh-wifi-argb-hsl/" className={link}>Nạp Firmware Mới Và Cấu Hình WiFi</Link>. Mạch chưa cập nhật vẫn chạy show cả mạch như trước.</Point>
+          <Point title="Firmware để chia phân đoạn">bản dựng 2611171 trở lên. Cập nhật ở tab <strong className={strong}>Cấu hình phần cứng</strong>, các bước có trong bài <Link to="/post-news/nap-firmware-cau-hinh-wifi-argb-hsl/" className={link}>Nạp Firmware Mới Và Cấu Hình WiFi</Link>. Mạch chưa cập nhật vẫn chạy show cả mạch như trước.</Point>
           <Point title="Bài nhạc">file âm thanh trên máy tính, ví dụ mp3 hoặc wav.</Point>
         </ul>
         <p className="text-xs text-slate-400">
@@ -158,9 +162,9 @@ export default function ArticleTabTimecode() {
           <Point title="Thư viện Có sẵn">hiệu ứng và bảng màu có sẵn trong Tool, dùng được khi chưa có mạch online.</Point>
           <Point title="Thư viện Từ mạch">tải hiệu ứng, bảng màu và preset từ <strong className={strong}>mạch nguồn</strong>. Mạch nguồn có nhãn ★ NGUỒN trên timeline. Chọn mạch khác ở ô <strong className={strong}>Mạch nguồn</strong>, hoặc chuột phải tên mạch → Dùng làm mạch nguồn.</Point>
           <Point title="Tất cả mạch">nút <strong className={strong}>Test RGBW</strong> chạy lần lượt đỏ, xanh lá, xanh dương, trắng trên mọi mạch online để kiểm tra dây LED và thứ tự màu. <strong className={strong}>Chuẩn màu</strong> đặt màu chính đỏ, màu nền đen trên mọi mạch để bắt đầu từ cùng một màu. Thanh trượt đặt độ sáng chung cho mọi mạch.</Point>
-          <Point title="Cột Hiệu ứng">tìm theo tên tiếng Việt (gõ không dấu cũng được), tên gốc hoặc ID, có chip lọc theo nhóm. Bấm một hiệu ứng là mạch nguồn chạy thử ngay, không cần lưu preset.</Point>
+          <Point title="Cột Hiệu ứng">tìm theo tên tiếng Việt (gõ không dấu cũng được), tên gốc hoặc ID, có chip lọc theo nhóm. Bấm một hiệu ứng là mạch chạy thử ngay, không cần lưu preset. Rê chuột lên thẻ và bấm ☆ để ghim: mục <strong className={strong}>Đã ghim</strong> và <strong className={strong}>Vừa dùng</strong> nằm trên đầu cột, Tool nhớ cho lần mở sau.</Point>
           <Point title="Cột Tuỳ chỉnh hiệu ứng">chỉnh Tốc độ, Cường độ, màu, đảo chiều cho hiệu ứng đang chọn. Clip kéo xuống giữ đúng thông số lúc thả.</Point>
-          <Point title="Cột Bảng màu và Preset mẫu">chọn một bảng màu rồi kéo hiệu ứng, clip sẽ mang cả hai. Preset là trạng thái đã lưu trên mạch, ví dụ ảnh, logo, chữ chạy. Ô đếm như 0/180 cho biết số chỗ preset Timecode đã dùng.</Point>
+          <Point title="Cột Bảng màu và Preset mẫu">mỗi thẻ bảng màu hiện dải màu lớn, có ô tìm theo tên. Chọn một bảng màu rồi kéo hiệu ứng, clip sẽ mang cả hai. Preset là trạng thái đã lưu trên mạch, ví dụ ảnh, logo, chữ chạy. Ô đếm như 0/180 cho biết số chỗ preset Timecode đã dùng.</Point>
         </ul>
         <Shot file="02-thu-vien.webp" open={open} />
 
@@ -189,7 +193,8 @@ export default function ArticleTabTimecode() {
             <p>Thả hiệu ứng vào giữa hai vạch thì clip tự dài vừa khoảng đó, đèn đổi đúng nhịp mà không phải kéo tay. Vạch đánh dấu được lưu cùng show, nên khi đọc show từ mạch về vẫn còn.</p>
           </Step>
           <Step n={3} title="Chọn hiệu ứng">
-            <p>Bấm vào một hiệu ứng ở cột Hiệu ứng để xem thử trên mạch nguồn. Ưng rồi thì chỉnh tốc độ và màu ở cột Tuỳ chỉnh hiệu ứng.</p>
+            <p>Bấm vào một hiệu ứng ở cột Hiệu ứng để xem thử trên mạch. Ưng rồi thì chỉnh tốc độ và màu ở cột Tuỳ chỉnh hiệu ứng.</p>
+            <p>Muốn xem thử ở chỗ khác, bấm vào <strong className={strong}>tên mạch</strong> ở cột tên để xem trên cả mạch đó, hoặc bấm <strong className={strong}>tên một phân đoạn</strong> để chỉ phần LED của đoạn đó chạy hiệu ứng. Hàng đang xem thử có dấu <strong className={strong}>👁</strong>. Xem thử không làm đổi phân đoạn hay trạng thái lưu của mạch: bấm Dừng hoặc Phát là mạch về như cũ.</p>
           </Step>
           <Step n={4} title="Kéo thả xuống timeline">
             <p>Kéo hiệu ứng, bảng màu hoặc preset vào hàng của mạch. Trong lúc kéo, bóng clip cho biết clip sẽ nằm ở đâu và Tool sẽ làm gì: dùng preset có sẵn, chép preset từ mạch nguồn sang, hay tạo preset tạm.</p>
@@ -287,6 +292,37 @@ export default function ArticleTabTimecode() {
         </Callout>
       </section>
 
+      {/* Live view */}
+      <section className="space-y-3">
+        <SectionHeading accent={ACCENT}>Xem LED Trực Tiếp Trong Cửa Sổ Live View</SectionHeading>
+        <p className="text-xs text-slate-400">
+          Tab Timecode đã kín chỗ, nên phần xem LED nằm ở một cửa sổ riêng. Bấm <strong className={strong}>📺 Live view</strong> trên thanh điều khiển (ngay sau ô trạng thái phát): cửa sổ mở ra, kéo sang màn hình thứ hai được. Mỗi mạch một ô, vẽ đúng LED đang sáng, kể cả khi đang phát show cùng nhạc.
+        </p>
+        <LiveViewDemo />
+        <p className="text-[11px] text-slate-500">Minh hoạ chạy thử ngay trên trang: bấm chip tên mạch, đổi bố cục, bật tắt Khung phân đoạn, bấm tên một mạch để phóng to. LED ở đây là giả lập; trong Tool là LED thật của mạch.</p>
+
+        <AreaHeading icon={<MonitorPlay className={iconClass} />}>Dùng thế nào</AreaHeading>
+        <ul className="text-xs text-slate-400 space-y-1.5">
+          <Point title="Chọn mạch">bấm chip tên mạch để thêm hoặc bỏ. Chấm xanh là mạch đang chạy, xám là mạch tắt đèn, đỏ là mất kết nối. Lần đầu mở, cửa sổ hiện mạch nguồn.</Point>
+          <Point title="Bố cục">Tự động chia lưới theo số mạch, hoặc chọn 1, 2, 3 cột. Bấm tên một mạch để phóng to, bấm lần nữa để về lưới.</Point>
+          <Point title="Khung phân đoạn">vẽ viền và tên từng phân đoạn của timeline ngay trên LED. Đoạn đang xem thử hiệu ứng có viền xanh và dấu 👁.</Point>
+          <Point title="Cỡ điểm LED, Luôn trên cùng">chỉnh cỡ chấm LED cho dễ nhìn; ghim cửa sổ nằm trên các cửa sổ khác khi đang dựng show.</Point>
+          <Point title="Nhớ cho lần sau">vị trí, cỡ cửa sổ, các mạch đã chọn và bố cục được giữ lại. Đóng cửa sổ là xong, không ghi gì vào mạch.</Point>
+        </ul>
+
+        <AreaHeading icon={<Layers className={iconClass} />}>Mạch nào hiện ra sao</AreaHeading>
+        <ul className="text-xs text-slate-400 space-y-1.5">
+          <Point title="Mạch ma trận">hiện đúng lưới, ví dụ 16×16.</Point>
+          <Point title="Mạch dải LED">mỗi cổng LED một hàng, theo cấu hình của mạch.</Point>
+          <Point title="Mạch rất nhiều LED">mỗi khung hình mạch chỉ gửi khoảng 1024 LED, nên màn LED lớn hiện thô hơn (1/2 hoặc 1/4 số điểm) và dải dài hiện cách quãng. Dòng dưới mỗi ô ghi rõ điều này.</Point>
+        </ul>
+        <Callout icon={<AlertTriangle className="w-5 h-5 text-amber-400" />} variant="warning">
+          <p>
+            Mỗi mạch chỉ gửi hình trực tiếp cho <strong className="text-amber-300">một</strong> nơi xem. Nếu trang điều khiển của mạch đang bật Xem LED trực tiếp, ô của mạch đó báo lại và có nút <strong className="text-amber-300">Giành lại live</strong>. Màu trong cửa sổ là màu hiệu ứng, chưa tính độ sáng của mạch; mạch tắt đèn thì ô ghi "Mạch đang tắt đèn".
+          </p>
+        </Callout>
+      </section>
+
       {/* Mô phỏng */}
       <section className="space-y-3">
         <SectionHeading accent={ACCENT}>Chưa Có Mạch? Lập Trình Trước Bằng Track Mô Phỏng</SectionHeading>
@@ -352,7 +388,7 @@ export default function ArticleTabTimecode() {
             Dùng gậy POI? Xem thêm <Link to="/post-news/su-dung-poi-voi-argb-hsl/" className={link}>bài hướng dẫn POI</Link> và <Link to="/post-news/thu-vien-mau-poi/" className={link}>thư viện 306 mẫu POI</Link> để có ảnh đưa vào show.
           </p>
         </Callout>
-        <p className="text-[11px] text-slate-500">Ảnh chụp từ Tool ARGB HSL v3.17.5 và v3.17.6 với dữ liệu mẫu. Tên mạch, địa chỉ và hiệu ứng trên máy của bạn sẽ khác.</p>
+        <p className="text-[11px] text-slate-500">Ảnh chụp từ Tool ARGB HSL v3.17.5 và v3.17.6 với dữ liệu mẫu; minh hoạ Live view chạy bằng LED giả lập. Tên mạch, địa chỉ và hiệu ứng trên máy của bạn sẽ khác.</p>
       </section>
 
       <ArtQuote accent={ACCENT}>

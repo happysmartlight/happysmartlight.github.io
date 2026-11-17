@@ -2,14 +2,14 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.17.8",
-    "version_label": "v3.17.8 - November 2026",
+    "version": "3.17.9",
+    "version_label": "v3.17.9 - November 2026",
     "release_date": "2026-11-17",
-    "release_notes": "👁 Tab Timecode: chọn chỗ xem thử hiệu ứng. Bấm tên mạch → xem thử trên cả mạch; bấm tên\nphân đoạn → chỉ trên phần LED của đoạn đó. Hàng đang xem thử có dấu 👁.\n- Kéo thanh Tốc độ / Cường độ, đổi màu, đảo chiều: vẫn xem thử đúng chỗ đang chọn.\n- Xem thử không làm đổi phân đoạn hay trạng thái lưu của mạch: bấm Dừng, Phát, hoặc đổi trên\nweb của mạch là mạch tự về như cũ.\n🩹 Sửa lỗi: sau khi phát show, bấm xem thử hiệu ứng khác mà mạch vẫn hiện logo của show.\n- Cần firmware 2611171 trở lên (cập nhật ở tab Cấu hình phần cứng). Mạch firmware cũ vẫn\nxem thử trên cả mạch như trước.",
+    "release_notes": "📺 Tab Timecode: cửa sổ Live view xem LED đang sáng của 1 hoặc nhiều mạch cùng lúc.\n- Bấm nút \"📺 Live view\" cạnh nút Phát; cửa sổ kéo sang màn hình khác được, có \"Luôn trên cùng\".\n- Bấm tên mạch ở trên để chọn mạch xem; bố cục tự chia lưới hoặc 1 / 2 / 3 cột; bấm tên một\nmạch để phóng to.\n- Bật \"Khung phân đoạn\" để thấy viền và tên từng phân đoạn ngay trên LED.\n- Cửa sổ nhớ vị trí và các mạch đã chọn cho lần mở sau. Không ghi gì vào mạch.",
     "arch": "arm64",
     "min_macos": "14.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_macOS_3.17.8_arm64.dmg",
-    "size": 392373895,
-    "sha256": "9d2f3efd047f50e60d88ab038d316c2a12482b7426c644425a04db56839f21a7"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_macOS_3.17.9_arm64.dmg",
+    "size": 390565321,
+    "sha256": "f6e22b4dfd50e96ad9b79794d6ae6e5fb9be5f89d43ab484104eb036daae3f7f"
   }
 }

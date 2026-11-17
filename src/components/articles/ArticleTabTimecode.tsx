@@ -15,11 +15,11 @@ const PHOTO_LIST: { file: string; label: string; w: number; h: number }[] = [
   { file: "01-tong-quan.webp", label: "Tab Timecode: thư viện hiệu ứng ở trên, timeline theo nhạc ở dưới, mỗi mạch một hàng, mạch 4X chia 5 phân đoạn", w: 1600, h: 1000 },
   { file: "02-thu-vien.webp", label: "Thanh trên cùng và 4 cột thư viện: Hiệu ứng, Bảng màu, Tuỳ chỉnh hiệu ứng, Preset mẫu", w: 1600, h: 400 },
   { file: "08-thanh-dieu-khien.webp", label: "Hai hàng nút điều khiển: phát, nhạc, mô phỏng, độ dài clip, đọc và ghi vào mạch", w: 900, h: 140 },
-  { file: "09-hang-phan-doan.webp", label: "Hàng nhạc có vạch đánh dấu, hàng toàn mạch và các hàng phân đoạn. Vệt sọc “toàn mạch” là lúc đoạn đó chạy theo clip toàn mạch", w: 1600, h: 436 },
+  { file: "09-hang-phan-doan.webp", label: "Hàng nhạc có vạch đánh dấu, hàng tên mạch và các hàng phân đoạn. Vệt sọc “toàn mạch” là lúc clip ở hàng tên mạch phủ lên đoạn đó", w: 1600, h: 436 },
   { file: "03-menu-mach.webp", label: "Chuột phải vào tên mạch: Thêm phân đoạn, Chia nhanh, Đọc phân đoạn đang có trên mạch, Thu gọn", w: 1000, h: 322 },
-  { file: "04-hop-thoai-phan-doan.webp", label: "Hộp thoại Phân đoạn: đặt tên, khoảng LED, thanh LED xem trước màu từng đoạn, nút Nháy thử trên mạch", w: 705, h: 560 },
+  { file: "04-hop-thoai-phan-doan.webp", label: "Hộp thoại Phân đoạn: đặt tên, khoảng LED, nút Lên lớp trên / Xuống lớp dưới, thanh LED xem trước, ghi chú khi hai đoạn dùng chung LED", w: 705, h: 560 },
   { file: "04c-ma-tran.webp", label: "Mạch ma trận 2D: kéo chuột trên lưới để vẽ vùng cho từng phân đoạn", w: 705, h: 560 },
-  { file: "05-menu-phan-doan.webp", label: "Chuột phải vào tên phân đoạn: đổi tên, sửa khoảng LED, nháy thử, đưa clip lên toàn mạch, gộp, xoá", w: 1000, h: 322 },
+  { file: "05-menu-phan-doan.webp", label: "Chuột phải vào tên phân đoạn: đổi tên, sửa khoảng LED, lên / xuống lớp, nháy thử, đưa clip lên toàn mạch, gộp, xoá", w: 1000, h: 370 },
   { file: "06-mo-phong.webp", label: "Track mô phỏng có nhãn MÔ PHỎNG, chia phân đoạn và lập trình như mạch thật", w: 1600, h: 364 },
   { file: "07-gan-mach-that.webp", label: "Gán mạch thật: chọn mạch cho từng track mô phỏng, cột Phân đoạn cho biết đoạn nào ghép vào đoạn nào", w: 820, h: 190 },
 ];
@@ -125,15 +125,18 @@ export default function ArticleTabTimecode() {
         <p className="mt-2">
           <strong className={strong}>Mới trong Tool v3.17.5 (16/11/2026):</strong> chia một mạch thành nhiều <strong className={strong}>phân đoạn</strong> đặt tên theo thứ bạn nhìn thấy, ví dụ Giáp đầu, Giáp tay, Giáp ngực của bộ trang phục LED. Mỗi phân đoạn có hàng riêng trên timeline và chạy hiệu ứng riêng. Mọi ảnh trong bài đều bấm vào để xem lớn.
         </p>
+        <p className="mt-2">
+          <strong className={strong}>Cập nhật Tool v3.17.6 (17/11/2026):</strong> clip ở hàng tên mạch là lớp trên cùng, phủ kín toàn bộ LED, nên logo đặt ở đó hiện thành một logo lớn trên cả khung. Các phân đoạn được dùng chung LED và đổi lớp trên dưới được. Nháy thử phân đoạn có màu rực hơn.
+        </p>
       </Callout>
 
       {/* Chuẩn bị */}
       <section className="space-y-3">
         <SectionHeading accent={ACCENT}>Cần Chuẩn Bị Gì</SectionHeading>
         <ul className="text-xs text-slate-400 space-y-1.5">
-          <Point title="Tool ARGB HSL">bản v3.17.5 trở lên trên máy tính. Tool đang cài sẽ tự báo khi có bản mới. Chưa có Tool? <Link to="/argb-hsl-tool-pc/" className={link}>Tải Tool ARGB HSL cho máy tính</Link>.</Point>
+          <Point title="Tool ARGB HSL">bản v3.17.6 trở lên trên máy tính. Tool đang cài sẽ tự báo khi có bản mới. Chưa có Tool? <Link to="/argb-hsl-tool-pc/" className={link}>Tải Tool ARGB HSL cho máy tính</Link>.</Point>
           <Point title="Mạch ARGB HSL">2X Pro, 4X hoặc 16X, kết nối cùng mạng WiFi với máy tính. Mạch tìm thấy ở tab Thiết bị ARGB tự hiện thành một hàng trên timeline. Vừa thêm mạch mới thì bấm <strong className={strong}>🔄 DS mạch</strong>.</Point>
-          <Point title="Firmware để chia phân đoạn">bản dựng 2611163 trở lên. Cập nhật ở tab <strong className={strong}>Cấu hình phần cứng</strong>, các bước có trong bài <Link to="/post-news/nap-firmware-cau-hinh-wifi-argb-hsl/" className={link}>Nạp Firmware Mới Và Cấu Hình WiFi</Link>. Mạch chưa cập nhật vẫn chạy show cả mạch như trước.</Point>
+          <Point title="Firmware để chia phân đoạn">bản dựng 2611170 trở lên. Cập nhật ở tab <strong className={strong}>Cấu hình phần cứng</strong>, các bước có trong bài <Link to="/post-news/nap-firmware-cau-hinh-wifi-argb-hsl/" className={link}>Nạp Firmware Mới Và Cấu Hình WiFi</Link>. Mạch chưa cập nhật vẫn chạy show cả mạch như trước.</Point>
           <Point title="Bài nhạc">file âm thanh trên máy tính, ví dụ mp3 hoặc wav.</Point>
         </ul>
         <p className="text-xs text-slate-400">
@@ -211,7 +214,7 @@ export default function ArticleTabTimecode() {
           Một mạch thường điều khiển cả bộ trang phục hay cả một cụm đèn. Khi chia phân đoạn, mỗi phần có hàng riêng ngay dưới tên mạch: Giáp đầu có thể chạy Ngọn lửa trong lúc Giáp tay chạy Đuổi màu, còn Giáp ngực hiện logo.
         </p>
         <p className="text-xs text-slate-400">
-          Phân đoạn là <strong className={strong}>một khoảng LED bất kỳ</strong>, đặt tên tuỳ ý. Không cần trùng với cổng LED: Giáp tay có thể là LED 40 tới 119, nằm vắt qua hai cổng. Một mạch chia được tới 64 phân đoạn.
+          Phân đoạn là <strong className={strong}>một khoảng LED bất kỳ</strong>, đặt tên tuỳ ý. Không cần trùng với cổng LED: Giáp tay có thể là LED 40 tới 119, nằm vắt qua hai cổng. Các đoạn được dùng chung LED, ví dụ đoạn Logo ngực nằm bên trong Giáp ngực. Một mạch chia được tới 63 phân đoạn.
         </p>
 
         <AreaHeading icon={<MousePointerClick className={iconClass} />}>Tạo phân đoạn</AreaHeading>
@@ -228,8 +231,9 @@ export default function ArticleTabTimecode() {
         <ul className="text-xs text-slate-400 space-y-1.5">
           <Point title="Tự chọn khoảng">gõ tên, LED bắt đầu và LED kết thúc cho từng dòng, hoặc kéo chuột trên thanh LED bên dưới. Bấm các nút <strong className={strong}>Gợi ý tên</strong> như Giáp đầu, Giáp tay trái, Kiếm, Khiên để điền nhanh.</Point>
           <Point title="Chia đều, Theo cổng LED">hai tab để chia nhanh ngay trong hộp thoại.</Point>
-          <Point title="Thanh LED xem trước">tô mỗi đoạn một màu, đúng màu của hàng đó trên timeline. Hai đoạn chồng lên nhau hoặc vượt quá số LED thì có dòng báo đỏ.</Point>
-          <Point title="Nháy thử trên mạch">các đoạn trong bảng chớp sáng trên đồ thật, nhìn là biết Giáp tay nằm ở đâu. Mạch đang tắt vẫn sáng lúc nháy, xong mạch trở lại như cũ, không mất preset hay cài đặt nào.</Point>
+          <Point title="Thanh LED xem trước">tô mỗi đoạn một màu, đúng màu của hàng đó trên timeline. Hai đoạn dùng chung LED thì thanh tách thành hai hàng, kèm dòng ghi chú vàng cho biết chỗ chung hiện đoạn nào. Đoạn vượt quá số LED thì có dòng báo đỏ.</Point>
+          <Point title="▲ Lên lớp trên, ▼ Xuống lớp dưới">đổi thứ tự đoạn đang chọn. Đoạn nằm trên trong bảng là lớp trên, đè lên đoạn bên dưới ở chỗ dùng chung LED.</Point>
+          <Point title="Nháy thử trên mạch">các đoạn trong bảng chớp sáng đúng màu của chúng trên đồ thật, nhìn là biết Giáp tay nằm ở đâu. Mạch đang tắt vẫn sáng lúc nháy, xong mạch trở lại như cũ, không mất preset hay cài đặt nào.</Point>
         </ul>
         <Shot file="04-hop-thoai-phan-doan.webp" open={open} narrow />
         <p className="text-xs text-slate-400">
@@ -240,16 +244,20 @@ export default function ArticleTabTimecode() {
         <AreaHeading icon={<ListChecks className={iconClass} />}>Quy tắc chạy</AreaHeading>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <InfoCard>
-            <h3 className="font-semibold text-white text-xs mb-1.5">Hàng tên mạch là toàn mạch</h3>
-            <p className="text-xs text-slate-400">Clip ở hàng này chạy trên mọi phân đoạn. Mạch chưa chia thì chỉ có hàng này, như trước giờ.</p>
+            <h3 className="font-semibold text-white text-xs mb-1.5">Hàng tên mạch là lớp trên cùng</h3>
+            <p className="text-xs text-slate-400">Clip ở hàng này phủ kín toàn bộ LED của mạch, nằm trên mọi phân đoạn. Logo hay ảnh GIF đặt ở đây hiện thành một hình lớn trên cả khung, không bị chia nhỏ theo từng đoạn. Mạch chưa chia thì chỉ có hàng này, như trước giờ.</p>
           </InfoCard>
           <InfoCard>
-            <h3 className="font-semibold text-white text-xs mb-1.5">Clip phân đoạn đè clip toàn mạch</h3>
-            <p className="text-xs text-slate-400">Trong lúc clip riêng chạy, đoạn đó bỏ clip toàn mạch. Hết clip riêng, đoạn quay về clip toàn mạch. Vệt sọc mờ ghi “toàn mạch” cho biết lúc đó.</p>
+            <h3 className="font-semibold text-white text-xs mb-1.5">Clip toàn mạch che clip phân đoạn</h3>
+            <p className="text-xs text-slate-400">Trong lúc clip ở hàng tên mạch chạy, clip của các phân đoạn bị che. Timeline phủ mờ phần bị che và vẽ vệt sọc “toàn mạch”. Hết clip toàn mạch, các đoạn chạy tiếp clip của mình.</p>
+          </InfoCard>
+          <InfoCard>
+            <h3 className="font-semibold text-white text-xs mb-1.5">Hàng trên đè hàng dưới</h3>
+            <p className="text-xs text-slate-400">Hai đoạn dùng chung LED thì chỗ chung hiện đoạn nằm trên. Đổi thứ tự bằng chuột phải tên đoạn → Lên lớp trên hoặc Xuống lớp dưới.</p>
           </InfoCard>
           <InfoCard>
             <h3 className="font-semibold text-white text-xs mb-1.5">Không có clip nào thì đoạn tắt</h3>
-            <p className="text-xs text-slate-400">Giống khoảng trống trên timeline, nhưng chỉ tắt đúng đoạn đó. Các đoạn khác vẫn chạy.</p>
+            <p className="text-xs text-slate-400">Giống khoảng trống trên timeline, nhưng chỉ tắt đúng đoạn đó. Các đoạn khác vẫn chạy, và nếu có đoạn nằm dưới dùng chung LED thì đoạn đó hiện ra.</p>
           </InfoCard>
           <InfoCard>
             <h3 className="font-semibold text-white text-xs mb-1.5">Một hiệu ứng cho nhiều đoạn</h3>
@@ -262,9 +270,10 @@ export default function ArticleTabTimecode() {
         <p className="text-xs text-slate-400">Chuột phải vào tên một phân đoạn:</p>
         <ul className="text-xs text-slate-400 space-y-1.5">
           <Point title="Đổi tên, Sửa khoảng LED">sửa trực tiếp, clip của đoạn giữ nguyên.</Point>
-          <Point title="Nháy thử đoạn này trên mạch">chỉ đoạn đó chớp sáng.</Point>
+          <Point title="Lên lớp trên, Xuống lớp dưới">đổi chỗ với hàng ngay trên hoặc ngay dưới. Menu ghi sẵn tên đoạn sẽ đổi chỗ.</Point>
+          <Point title="Nháy thử đoạn này trên mạch">chỉ đoạn đó chớp sáng, đúng màu của đoạn.</Point>
           <Point title="Đưa clip lên toàn mạch">chuyển clip của đoạn lên hàng tên mạch.</Point>
-          <Point title="Gộp với đoạn dưới">nối hai đoạn liền nhau thành một.</Point>
+          <Point title="Gộp với đoạn dưới">nối hai đoạn thành một. Nếu khoảng mới trùm lên đoạn khác, Tool hỏi trước.</Point>
           <Point title="Xoá phân đoạn">nếu đoạn còn clip, Tool hỏi đưa clip lên toàn mạch hay xoá luôn. Mặc định là đưa lên.</Point>
         </ul>
         <Shot file="05-menu-phan-doan.webp" open={open} />
@@ -273,7 +282,7 @@ export default function ArticleTabTimecode() {
         </p>
         <Callout icon={<AlertTriangle className="w-5 h-5 text-amber-400" />} variant="warning">
           <p>
-            Mỗi lúc chỉ <strong className="text-amber-300">một phân đoạn</strong> chạy được ảnh GIF. Nếu hai đoạn cùng chạy GIF một lúc, đoạn thứ hai sẽ tối. Hãy so le các clip GIF giữa các đoạn, hoặc để GIF ở hàng toàn mạch.
+            Mỗi lúc chỉ <strong className="text-amber-300">một phân đoạn</strong> chạy được ảnh GIF. Nếu hai đoạn cùng chạy GIF một lúc, đoạn thứ hai sẽ tối. Hãy so le các clip GIF giữa các đoạn, hoặc để GIF ở hàng tên mạch: GIF ở hàng này luôn hiện, phủ kín cả khung.
           </p>
         </Callout>
       </section>
@@ -292,7 +301,7 @@ export default function ArticleTabTimecode() {
           <Point title="Ghép theo tên trước">Giáp tay của track mô phỏng vào Giáp tay của mạch thật, dù thứ tự hay khoảng LED trên mạch thật khác đi.</Point>
           <Point title="Rồi theo thứ tự">các đoạn không trùng tên được ghép theo thứ tự.</Point>
           <Point title="Mạch thật chưa chia">phân đoạn của track mô phỏng được chép sang nguyên vẹn.</Point>
-          <Point title="Đoạn không ghép được">clip của nó lên hàng toàn mạch, và Tool báo cho bạn biết.</Point>
+          <Point title="Đoạn chưa có trên mạch thật">được thêm vào mạch thật với đúng khoảng LED và thứ tự lớp như ở track mô phỏng, kể cả khi dùng chung LED với đoạn có sẵn.</Point>
         </ul>
         <Shot file="07-gan-mach-that.webp" open={open} narrow />
       </section>
@@ -343,7 +352,7 @@ export default function ArticleTabTimecode() {
             Dùng gậy POI? Xem thêm <Link to="/post-news/su-dung-poi-voi-argb-hsl/" className={link}>bài hướng dẫn POI</Link> và <Link to="/post-news/thu-vien-mau-poi/" className={link}>thư viện 306 mẫu POI</Link> để có ảnh đưa vào show.
           </p>
         </Callout>
-        <p className="text-[11px] text-slate-500">Ảnh chụp từ Tool ARGB HSL v3.17.5 với dữ liệu mẫu. Tên mạch, địa chỉ và hiệu ứng trên máy của bạn sẽ khác.</p>
+        <p className="text-[11px] text-slate-500">Ảnh chụp từ Tool ARGB HSL v3.17.5 và v3.17.6 với dữ liệu mẫu. Tên mạch, địa chỉ và hiệu ứng trên máy của bạn sẽ khác.</p>
       </section>
 
       <ArtQuote accent={ACCENT}>

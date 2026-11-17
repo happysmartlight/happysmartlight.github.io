@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.17.7",
-    "version_label": "v3.17.7 - November 2026",
+    "version": "3.17.8",
+    "version_label": "v3.17.8 - November 2026",
     "release_date": "2026-11-17",
-    "release_notes": "🧱 Tab Timecode: cột Hiệu ứng, Bảng màu và Preset mẫu xếp thẻ kín khung, không còn khoảng\ntrống bên phải. Cùng độ rộng, mỗi hàng chứa thêm thẻ.\n⭐ Ghim hiệu ứng, bảng màu hay dùng: rê chuột lên thẻ, bấm ☆. Thẻ đã ghim nằm ở mục\n\"Đã ghim\" trên đầu cột.\n- Mục \"Vừa dùng\": 8 hiệu ứng / bảng màu vừa thả xuống timeline, chọn lại không cần tìm.\n- Ghim và Vừa dùng được nhớ cho lần mở sau, không ghi gì vào mạch.\n🎨 Thẻ bảng màu hiện dải màu lớn, tên nhỏ bên dưới: nhìn màu là chọn được.\n- Cột Bảng màu có ô tìm theo tên (gõ không dấu cũng được) hoặc số.",
+    "release_notes": "👁 Tab Timecode: chọn chỗ xem thử hiệu ứng. Bấm tên mạch → xem thử trên cả mạch; bấm tên\nphân đoạn → chỉ trên phần LED của đoạn đó. Hàng đang xem thử có dấu 👁.\n- Kéo thanh Tốc độ / Cường độ, đổi màu, đảo chiều: vẫn xem thử đúng chỗ đang chọn.\n- Xem thử không làm đổi phân đoạn hay trạng thái lưu của mạch: bấm Dừng, Phát, hoặc đổi trên\nweb của mạch là mạch tự về như cũ.\n🩹 Sửa lỗi: sau khi phát show, bấm xem thử hiệu ứng khác mà mạch vẫn hiện logo của show.\n- Cần firmware 2611171 trở lên (cập nhật ở tab Cấu hình phần cứng). Mạch firmware cũ vẫn\nxem thử trên cả mạch như trước.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.17.7.exe",
-    "size": 318623758,
-    "sha256": "115eb65f531b2275d36ec6222fa03bd79de54e2deffe7482e376b03c4b424278"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.17.8.exe",
+    "size": 318618701,
+    "sha256": "a20008827cc7d9864207079e885ee0b1c779cb94683e117591751cba2dd3a861"
   }
 }

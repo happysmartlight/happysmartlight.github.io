@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.17.6",
-    "version_label": "v3.17.6 - November 2026",
+    "version": "3.17.7",
+    "version_label": "v3.17.7 - November 2026",
     "release_date": "2026-11-17",
-    "release_notes": "🖼 Tab Timecode: clip ở hàng tên mạch là lớp trên cùng, phủ kín toàn bộ LED. Logo đặt ở hàng\ntên mạch hiện thành 1 logo lớn trên cả khung, không còn chia nhỏ theo từng phân đoạn.\n- Trong lúc clip ở hàng tên mạch chạy, clip của các phân đoạn bị che (timeline phủ mờ chỗ đó).\n- Cần firmware 2611170 trở lên (cập nhật ở tab Cấu hình phần cứng); mạch firmware cũ: app nhắc.\n🧩 Phân đoạn được dùng chung LED như trên web của mạch: hàng nằm trên đè hàng nằm dưới.\n- Chuột phải tên đoạn hoặc trong hộp thoại Phân đoạn: ▲ Lên lớp trên / ▼ Xuống lớp dưới.\n- Hộp thoại Phân đoạn ghi rõ chỗ dùng chung LED hiện đoạn nào.\n🔦 Nháy thử phân đoạn: màu trên LED rực, đúng tông màu của đoạn (trước đây nhạt, bạc màu).",
+    "release_notes": "🧱 Tab Timecode: cột Hiệu ứng, Bảng màu và Preset mẫu xếp thẻ kín khung, không còn khoảng\ntrống bên phải. Cùng độ rộng, mỗi hàng chứa thêm thẻ.\n⭐ Ghim hiệu ứng, bảng màu hay dùng: rê chuột lên thẻ, bấm ☆. Thẻ đã ghim nằm ở mục\n\"Đã ghim\" trên đầu cột.\n- Mục \"Vừa dùng\": 8 hiệu ứng / bảng màu vừa thả xuống timeline, chọn lại không cần tìm.\n- Ghim và Vừa dùng được nhớ cho lần mở sau, không ghi gì vào mạch.\n🎨 Thẻ bảng màu hiện dải màu lớn, tên nhỏ bên dưới: nhìn màu là chọn được.\n- Cột Bảng màu có ô tìm theo tên (gõ không dấu cũng được) hoặc số.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.17.6.exe",
-    "size": 318610727,
-    "sha256": "7e84147d4ab5bbd55f9e08eb94b8c6ad8fed647a81cda364fadb1ed34d9a155f"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.17.7.exe",
+    "size": 318623758,
+    "sha256": "115eb65f531b2275d36ec6222fa03bd79de54e2deffe7482e376b03c4b424278"
   }
 }

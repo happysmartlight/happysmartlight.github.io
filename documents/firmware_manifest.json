@@ -3,12 +3,12 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2611211 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
+    "notes": "Build 2611212 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
     "files": [
       {
         "version": "3.0.0",
-        "notes": "Build 2611211 cho ARGB HSL Controller 4X: phan doan theo thu tu LED tren ma tran 2D: o tab Phan doan, chon kieu \"Thu tu LED\" de chia phan doan theo so thu tu LED tren duong day giong dai LED 1D (LED dau / LED cuoi / Lech), hop voi hinh LED tu do dung ledmap (nguoi, logo...): moi bo phan nhu dau, tay, chan la mot phan doan rieng, hieu ung chay dung theo duong day. Kieu \"Vung ma tran\" (hinh chu nhat) van nhu cu, hai kieu dung chung duoc va luu vao preset. Hop thoai Them phan doan cung chon duoc kieu nay.",
-        "vid": 2611211,
+        "notes": "Build 2611212 cho ARGB HSL Controller 4X: phan doan Thu tu LED: lenh tu Tool ARGB HSL, app hoac preset cu co gui vung hang (Y) ma khong ghi kieu se dat phan doan ve hinh chu nhat nhu truoc, khong con giu kieu Thu tu LED voi khoang sai. Tool ARGB HSL ban moi doc va chia duoc phan doan Thu tu LED trong tab Timecode (theo ledmap cua mach).",
+        "vid": 2611212,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -21,13 +21,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-4x.bin",
-        "size": 1322256,
-        "sha256": "9305e9d01515597356aabff57cfeaa23e72050e3dddcd7a39074b73c2b14a7b6"
+        "size": 1322272,
+        "sha256": "486ef1817b76021530cb7ac766ced3b9d023e4dc3050485f3483c5e245e5cb8d"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611211 cho ARGB HSL Controller 2X Pro: phan doan theo thu tu LED tren ma tran 2D: o tab Phan doan, chon kieu \"Thu tu LED\" de chia phan doan theo so thu tu LED tren duong day giong dai LED 1D (LED dau / LED cuoi / Lech), hop voi hinh LED tu do dung ledmap (nguoi, logo...): moi bo phan nhu dau, tay, chan la mot phan doan rieng, hieu ung chay dung theo duong day. Kieu \"Vung ma tran\" (hinh chu nhat) van nhu cu, hai kieu dung chung duoc va luu vao preset. Hop thoai Them phan doan cung chon duoc kieu nay. POI HSL Studio can build 2611050 tro len.",
-        "vid": 2611211,
+        "notes": "Build 2611212 cho ARGB HSL Controller 2X Pro: phan doan Thu tu LED: lenh tu Tool ARGB HSL, app hoac preset cu co gui vung hang (Y) ma khong ghi kieu se dat phan doan ve hinh chu nhat nhu truoc, khong con giu kieu Thu tu LED voi khoang sai. Tool ARGB HSL ban moi doc va chia duoc phan doan Thu tu LED trong tab Timecode (theo ledmap cua mach). POI HSL Studio can build 2611050 tro len.",
+        "vid": 2611212,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -40,13 +40,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
-        "size": 1322208,
-        "sha256": "07fe139fc65a3b1c1eb4ae1eca4b5c507c256266cae4f1dba4d3caee230827af"
+        "size": 1322240,
+        "sha256": "0adfb8d7ad10bd0729aadf21fcb42d558e590b7a6ff8edd09022b685f572363a"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611211 cho ARGB HSL Controller 16X: phan doan theo thu tu LED tren ma tran 2D: o tab Phan doan, chon kieu \"Thu tu LED\" de chia phan doan theo so thu tu LED tren duong day giong dai LED 1D (LED dau / LED cuoi / Lech), hop voi hinh LED tu do dung ledmap (nguoi, logo...): moi bo phan nhu dau, tay, chan la mot phan doan rieng, hieu ung chay dung theo duong day. Kieu \"Vung ma tran\" (hinh chu nhat) van nhu cu, hai kieu dung chung duoc va luu vao preset. Hop thoai Them phan doan cung chon duoc kieu nay.",
-        "vid": 2611211,
+        "notes": "Build 2611212 cho ARGB HSL Controller 16X: phan doan Thu tu LED: lenh tu Tool ARGB HSL, app hoac preset cu co gui vung hang (Y) ma khong ghi kieu se dat phan doan ve hinh chu nhat nhu truoc, khong con giu kieu Thu tu LED voi khoang sai. Tool ARGB HSL ban moi doc va chia duoc phan doan Thu tu LED trong tab Timecode (theo ledmap cua mach).",
+        "vid": 2611212,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -59,8 +59,8 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-16x.bin",
-        "size": 1326672,
-        "sha256": "14f9e3abd3a66a1a93ef15f6d0cc7b4295d386b7d3ed1ccab6afc038b4b6060a"
+        "size": 1326704,
+        "sha256": "8b850b7aaa0d4410eaae8d548ae4394aadae0d56fb7b7d83aa1a012a38075cc9"
       }
     ]
   }

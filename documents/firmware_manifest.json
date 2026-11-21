@@ -3,12 +3,12 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2611212 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
+    "notes": "Build 2611213 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
     "files": [
       {
         "version": "3.0.0",
-        "notes": "Build 2611212 cho ARGB HSL Controller 4X: phan doan Thu tu LED: lenh tu Tool ARGB HSL, app hoac preset cu co gui vung hang (Y) ma khong ghi kieu se dat phan doan ve hinh chu nhat nhu truoc, khong con giu kieu Thu tu LED voi khoang sai. Tool ARGB HSL ban moi doc va chia duoc phan doan Thu tu LED trong tab Timecode (theo ledmap cua mach).",
-        "vid": 2611212,
+        "notes": "Build 2611213 cho ARGB HSL Controller 4X: Timecode: clip cua preset nhieu lop (vd chu chay + hieu ung hoa tron len tren) dat o hang ten mach gio chay du cac lop nhu khi bam preset tren web, moi lop dung vung LED cua no trong preset. Truoc day chi hien lop dau (chi co chu). Can Tool ARGB HSL ban moi de gui du lop; Tool cu van phat nhu truoc.",
+        "vid": 2611213,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -21,13 +21,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-4x.bin",
-        "size": 1322272,
-        "sha256": "486ef1817b76021530cb7ac766ced3b9d023e4dc3050485f3483c5e245e5cb8d"
+        "size": 1323088,
+        "sha256": "25cdae91c03d0f0d013cc927832a4ee4794c9ad54377dca27cb82a016a2423cb"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611212 cho ARGB HSL Controller 2X Pro: phan doan Thu tu LED: lenh tu Tool ARGB HSL, app hoac preset cu co gui vung hang (Y) ma khong ghi kieu se dat phan doan ve hinh chu nhat nhu truoc, khong con giu kieu Thu tu LED voi khoang sai. Tool ARGB HSL ban moi doc va chia duoc phan doan Thu tu LED trong tab Timecode (theo ledmap cua mach). POI HSL Studio can build 2611050 tro len.",
-        "vid": 2611212,
+        "notes": "Build 2611213 cho ARGB HSL Controller 2X Pro: Timecode: clip cua preset nhieu lop (vd chu chay + hieu ung hoa tron len tren) dat o hang ten mach gio chay du cac lop nhu khi bam preset tren web, moi lop dung vung LED cua no trong preset. Truoc day chi hien lop dau (chi co chu). Can Tool ARGB HSL ban moi de gui du lop; Tool cu van phat nhu truoc. POI HSL Studio can build 2611050 tro len.",
+        "vid": 2611213,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -40,13 +40,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
-        "size": 1322240,
-        "sha256": "0adfb8d7ad10bd0729aadf21fcb42d558e590b7a6ff8edd09022b685f572363a"
+        "size": 1323040,
+        "sha256": "2c148e380c40fd5c23b3d62c156c852d8835d9f3b799af66e2c19b717ad47f32"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611212 cho ARGB HSL Controller 16X: phan doan Thu tu LED: lenh tu Tool ARGB HSL, app hoac preset cu co gui vung hang (Y) ma khong ghi kieu se dat phan doan ve hinh chu nhat nhu truoc, khong con giu kieu Thu tu LED voi khoang sai. Tool ARGB HSL ban moi doc va chia duoc phan doan Thu tu LED trong tab Timecode (theo ledmap cua mach).",
-        "vid": 2611212,
+        "notes": "Build 2611213 cho ARGB HSL Controller 16X: Timecode: clip cua preset nhieu lop (vd chu chay + hieu ung hoa tron len tren) dat o hang ten mach gio chay du cac lop nhu khi bam preset tren web, moi lop dung vung LED cua no trong preset. Truoc day chi hien lop dau (chi co chu). Can Tool ARGB HSL ban moi de gui du lop; Tool cu van phat nhu truoc.",
+        "vid": 2611213,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -59,8 +59,8 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-16x.bin",
-        "size": 1326704,
-        "sha256": "8b850b7aaa0d4410eaae8d548ae4394aadae0d56fb7b7d83aa1a012a38075cc9"
+        "size": 1327616,
+        "sha256": "b382a939ec68fc6750230a899c4a7dadb164ebbd47b782684ddd03293ee32638"
       }
     ]
   }

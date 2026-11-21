@@ -3,12 +3,12 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2611214 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
+    "notes": "Build 2611220 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
     "files": [
       {
         "version": "3.0.0",
-        "notes": "Build 2611214 cho ARGB HSL Controller 4X: Timecode: phat show den het bai hoac bam Dung thi mach tat den ngay, khong con nhay lai hieu ung cu truoc khi tat. Can Tool ARGB HSL ban moi de dung lenh tat den moi; Tool cu van chay nhu truoc.",
-        "vid": 2611214,
+        "notes": "Build 2611220 cho ARGB HSL Controller 4X: Timecode: doan LED trong show khong con giu kieu hoa tron mau (blend) cua hieu ung chay truoc do, mau hien dung nhu clip. Preset nhieu lop van chay du lop nhu truoc.",
+        "vid": 2611220,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -21,13 +21,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-4x.bin",
-        "size": 1323376,
-        "sha256": "ddf5cf60a143f160c13fc1347aa75cb9c152dfed2d1abb089d457e5aa472c023"
+        "size": 1323440,
+        "sha256": "c61c7b542e1e842c6b05032177750a8ee48c91ca398e612ea48f0242266f67e3"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611214 cho ARGB HSL Controller 2X Pro: Timecode: phat show den het bai hoac bam Dung thi mach tat den ngay, khong con nhay lai hieu ung cu truoc khi tat. Can Tool ARGB HSL ban moi de dung lenh tat den moi; Tool cu van chay nhu truoc. POI HSL Studio can build 2611050 tro len.",
-        "vid": 2611214,
+        "notes": "Build 2611220 cho ARGB HSL Controller 2X Pro: Timecode: doan LED trong show khong con giu kieu hoa tron mau (blend) cua hieu ung chay truoc do, mau hien dung nhu clip. Preset nhieu lop van chay du lop nhu truoc. POI HSL Studio can build 2611050 tro len.",
+        "vid": 2611220,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -40,13 +40,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
-        "size": 1323328,
-        "sha256": "ea33a465e8c251d1f0f2734bf76c530ba972d739bb7d7f3ec8c97a0296fb0c69"
+        "size": 1323408,
+        "sha256": "041be830218e6e1ebf20eb7f7fafd2070cb43f98bed6e6ce21fbf7fb6af28673"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611214 cho ARGB HSL Controller 16X: Timecode: phat show den het bai hoac bam Dung thi mach tat den ngay, khong con nhay lai hieu ung cu truoc khi tat. Can Tool ARGB HSL ban moi de dung lenh tat den moi; Tool cu van chay nhu truoc.",
-        "vid": 2611214,
+        "notes": "Build 2611220 cho ARGB HSL Controller 16X: Timecode: doan LED trong show khong con giu kieu hoa tron mau (blend) cua hieu ung chay truoc do, mau hien dung nhu clip. Preset nhieu lop van chay du lop nhu truoc.",
+        "vid": 2611220,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -59,8 +59,8 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-16x.bin",
-        "size": 1327904,
-        "sha256": "faf4ae216ad2101147e4753f5b7529b8e5f37aafad58a4861ef97f0800b74f33"
+        "size": 1327984,
+        "sha256": "2de89bcbbf19ca9783065e90f5d71725c00bf0c7911df9e3065389db3065937b"
       }
     ]
   }

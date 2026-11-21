@@ -2,14 +2,14 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.17.9",
-    "version_label": "v3.17.9 - November 2026",
-    "release_date": "2026-11-17",
-    "release_notes": "📺 Tab Timecode: cửa sổ Live view xem LED đang sáng của 1 hoặc nhiều mạch cùng lúc.\n- Bấm nút \"📺 Live view\" cạnh nút Phát; cửa sổ kéo sang màn hình khác được, có \"Luôn trên cùng\".\n- Bấm tên mạch ở trên để chọn mạch xem; bố cục tự chia lưới hoặc 1 / 2 / 3 cột; bấm tên một\nmạch để phóng to.\n- Bật \"Khung phân đoạn\" để thấy viền và tên từng phân đoạn ngay trên LED.\n- Cửa sổ nhớ vị trí và các mạch đã chọn cho lần mở sau. Không ghi gì vào mạch.",
+    "version": "3.17.10",
+    "version_label": "v3.17.10 - November 2026",
+    "release_date": "2026-11-21",
+    "release_notes": "🧍 Tab Timecode: phân đoạn \"Thứ tự LED\" cho ma trận 2D có ledmap (hình người, logo…). Mỗi bộ\nphận nối liền một khúc dây (đầu, tay, chân…) là một phân đoạn, chọn theo số LED như dải LED.\n- Hộp thoại Phân đoạn có thêm cột Kiểu: Vùng ma trận (như cũ) hoặc Thứ tự LED. Đổi kiểu thì\nkhoảng LED tự quy đổi; kéo chuột trên lưới lấy đúng các LED trong vùng kéo; rê chuột lên ô\nđể xem số LED của ô đó. Lưới hiện đúng hình theo ledmap của mạch.\n- Chia \"Theo cổng LED\" dùng được cho ma trận. Nháy thử, xem thử hiệu ứng, phát show, cửa sổ\nLive view và Đọc phân đoạn từ mạch đều đi đúng hình của ledmap.\n- Cần firmware 2611211 trở lên (nên dùng 2611212, cập nhật ở tab Cấu hình phần cứng). Mạch\nfirmware cũ vẫn chia phân đoạn vùng ma trận như trước.",
     "arch": "arm64",
     "min_macos": "14.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_macOS_3.17.9_arm64.dmg",
-    "size": 390565321,
-    "sha256": "f6e22b4dfd50e96ad9b79794d6ae6e5fb9be5f89d43ab484104eb036daae3f7f"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_macOS_3.17.10_arm64.dmg",
+    "size": 399310892,
+    "sha256": "6b7c1e171f8d584cc18cdbd839f5201648778128b907a97825c8f8fed393dd19"
   }
 }

@@ -3,13 +3,13 @@
   "channel": "stable",
   "instructions": "Manifest cap nhat RIENG cua POI HSL Studio (khong dung chung app_manifest.json cua Tool ARGB HSL). File that nam o happysmartlight.github.io/documents/poi_app_manifest.json, do tools/release_gui.py (app 'POI HSL Studio') tao/cap nhat tu dong: version/release notes lay tu poi_config.py, installer upload len release tag App_POI_HSL_Studio. File nay chi la mau cho lan release dau tien.",
   "latest": {
-    "version": "1.7.2",
-    "version_label": "v1.7.2 - November 2026",
-    "release_date": "2026-11-13",
-    "release_notes": "🩹 Sửa lỗi bản v1.7.1 không mở được trên nhiều máy: bấm mở app mà không thấy gì.\n- App chạy lại bình thường trên mọi máy Windows 64-bit.\n- Đã cài v1.7.1 mà không mở được: tải bộ cài mới trên web, cài đè (giữ dữ liệu, bản quyền).\n💾 Sao lưu presets.json khi ghi vào gậy: 2 lần ghi liền nhau không còn đè mất bản sao lưu.",
+    "version": "1.8.0",
+    "version_label": "v1.8.0 - November 2026",
+    "release_date": "2026-11-21",
+    "release_notes": "⏱ Tab Timecode: gậy có firmware mới phát bằng file show: khớp nhạc hơn, không còn giới hạn\n100 bước. Phát / Tạm dừng / Dừng / Ghi vào mạch / Đọc từ mạch dùng như cũ.\n- Vạch đánh dấu (phím T) được ghi cùng show lên gậy: \"Đọc từ mạch\" dựng lại cả vạch đánh dấu.\n- Gậy firmware cũ vẫn phát như trước; app cảnh báo khi show vượt 100 bước (phần dư không chạy).\n🧩 Chia phân đoạn: một gậy chia thành nhiều phần đặt tên tự do, mỗi phần có hàng riêng dưới\ntên gậy. Clip ở hàng tên gậy chạy cả gậy và nằm trên cùng; clip ở hàng phân đoạn chỉ đổi\nphần đó.\n- Chuột phải tên gậy: Thêm phân đoạn, Chia nhanh, Đọc phân đoạn đang có trên gậy. Chuột phải\ntên đoạn: đổi tên, sửa khoảng LED, nháy thử, gộp, xoá, ▲ / ▼ đổi lớp.\n👁 Bấm tên gậy hoặc tên phân đoạn để xem thử hiệu ứng ngay ở đó (dấu 👁 trên hàng đang xem).\n📺 Cửa sổ Live view (nút cạnh nút Phát): xem LED đang sáng của 1 hoặc nhiều gậy cùng lúc.\n🎛 Cột Hiệu ứng có nút lọc HOT / 1D / 2D / Hạt / Nhạc và ô tìm kiếm. Ghim ☆ hiệu ứng, bảng màu\nhay dùng, mục \"Vừa dùng\"; thẻ bảng màu hiện dải màu lớn, tìm được theo tên.\n🩹 Mở app khi gậy chưa kịp online: cột Hiệu ứng tự tải lại khi gậy online. Khoảng trống giữa\ncác clip tắt hết mọi đoạn LED của gậy.\n📶 Quét WiFi qua USB: đóng cổng COM không còn khởi động lại gậy; danh sách rỗng thì tự hỏi lại.\n- Phân đoạn và xem thử theo đoạn cần firmware mới (nên dùng bản mới nhất 2611212): nạp ở menu\nCông cụ → 🔌 Nạp Firmware.",
     "min_supported_version": "1.0.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.7.2.exe",
-    "size": 169587673,
-    "sha256": "20aaebfa88bbf83b9b166bdcff59aa6c946ef01d4b2a5425d1b4a42354660bd2"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_POI_HSL_Studio/POI_HSL_Studio_Setup_1.8.0.exe",
+    "size": 169829865,
+    "sha256": "a4970b00607467dd0a1b05c6fa75a880303bb43a33575a6f3db9b1512ffc5097"
   }
 }

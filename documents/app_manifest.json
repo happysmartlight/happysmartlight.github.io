@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.17.10",
-    "version_label": "v3.17.10 - November 2026",
+    "version": "3.17.11",
+    "version_label": "v3.17.11 - November 2026",
     "release_date": "2026-11-21",
-    "release_notes": "🧍 Tab Timecode: phân đoạn \"Thứ tự LED\" cho ma trận 2D có ledmap (hình người, logo…). Mỗi bộ\nphận nối liền một khúc dây (đầu, tay, chân…) là một phân đoạn, chọn theo số LED như dải LED.\n- Hộp thoại Phân đoạn có thêm cột Kiểu: Vùng ma trận (như cũ) hoặc Thứ tự LED. Đổi kiểu thì\nkhoảng LED tự quy đổi; kéo chuột trên lưới lấy đúng các LED trong vùng kéo; rê chuột lên ô\nđể xem số LED của ô đó. Lưới hiện đúng hình theo ledmap của mạch.\n- Chia \"Theo cổng LED\" dùng được cho ma trận. Nháy thử, xem thử hiệu ứng, phát show, cửa sổ\nLive view và Đọc phân đoạn từ mạch đều đi đúng hình của ledmap.\n- Cần firmware 2611211 trở lên (nên dùng 2611212, cập nhật ở tab Cấu hình phần cứng). Mạch\nfirmware cũ vẫn chia phân đoạn vùng ma trận như trước.",
+    "release_notes": "🎞 Tab Timecode: preset nhiều lớp (vd chữ chạy + hiệu ứng hoà trộn lên trên) kéo xuống hàng tên\nmạch giờ chạy đủ các lớp như khi bấm preset trên web, mỗi lớp đúng vùng LED của nó trong preset.\n- Cần firmware 2611213 trở lên (cập nhật ở tab Cấu hình phần cứng). Mạch firmware cũ: bấm Phát\napp báo trước, mạch chỉ chạy lớp đầu như trước.\n- Clip đặt ở hàng phân đoạn vẫn chỉ chạy lớp đầu của preset (app nhắc khi bấm Phát).\n- Ghi vào mạch rồi Đọc từ mạch vẫn giữ đủ các lớp.\n⏹ Hết bài hoặc bấm Dừng: mạch tắt đèn ngay, không còn nháy lại hiệu ứng cũ rồi mới tắt.\n- Cần firmware 2611214 trở lên; mạch firmware cũ tắt nhanh hơn nhưng có thể còn thoáng nháy.\n📺 Cửa sổ Live view: khung phân đoạn \"Thứ tự LED\" khoanh đúng ô theo ledmap cả khi vừa mở lại\napp (trước đây phải Đọc từ mạch hoặc sửa phân đoạn thì mới đúng).\n🔦 Nháy thử phân đoạn ngay sau khi mở lại app: chớp đúng ô theo ledmap của mạch.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.17.10.exe",
-    "size": 318880870,
-    "sha256": "7c9734f8b4551d66b842b6f0dda4d8556d8310ce4cb184040ed10ce468dedb1e"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.17.11.exe",
+    "size": 318889589,
+    "sha256": "cb83c6f1e34f6d91fade4552987067f04a041f8c6f27da56c0dc4c38efd6a9d0"
   }
 }

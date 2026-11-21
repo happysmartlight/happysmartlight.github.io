@@ -3,12 +3,12 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2611171 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
+    "notes": "Build 2611210 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
     "files": [
       {
         "version": "3.0.0",
-        "notes": "Build 2611171 cho ARGB HSL Controller 4X: tab Timecode (dung voi Tool ARGB HSL v3.17.8 tro len): xem thu hieu ung ngay tren ca mach hoac rieng tung phan doan, mach giu nguyen bo cuc va khong luu ban xem thu; sau khi phat show, bam xem thu hay doi tren web thi mach tu tra lai trang thai truoc show, khong con bi logo cua show che mat. Show va nut bam cu van chay nhu truoc.",
-        "vid": 2611171,
+        "notes": "Build 2611210 cho ARGB HSL Controller 4X: giao dien web: nut but chi doi ten phan doan khong con bi nut mui ten che, bam doi ten duoc nhu binh thuong; khi mo mot preset, so ID khong con che nut doi ten va nut thu gon; tab Mau sac tren dien thoai: cac nut Cong cu khong con sat thanh tab ben duoi khi dung hieu ung khong co bang mau (Solid).",
+        "vid": 2611210,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -21,13 +21,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-4x.bin",
-        "size": 1320464,
-        "sha256": "bcb5e532da29d00f8a3f4191be94c900a9a90113d46cb78b88b2941e1a343a39"
+        "size": 1320528,
+        "sha256": "111f9ab33a5f736bb2764b9fded3c099c5b94422a7029f6d5a53ce8edeed1f62"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611171 cho ARGB HSL Controller 2X Pro: tab Timecode (dung voi Tool ARGB HSL v3.17.8 tro len): xem thu hieu ung ngay tren ca mach hoac rieng tung phan doan, mach giu nguyen bo cuc va khong luu ban xem thu; sau khi phat show, bam xem thu hay doi tren web thi mach tu tra lai trang thai truoc show, khong con bi logo cua show che mat. Show va nut bam cu van chay nhu truoc. POI HSL Studio can build 2611050 tro len.",
-        "vid": 2611171,
+        "notes": "Build 2611210 cho ARGB HSL Controller 2X Pro: giao dien web: nut but chi doi ten phan doan khong con bi nut mui ten che, bam doi ten duoc nhu binh thuong; khi mo mot preset, so ID khong con che nut doi ten va nut thu gon; tab Mau sac tren dien thoai: cac nut Cong cu khong con sat thanh tab ben duoi khi dung hieu ung khong co bang mau (Solid). POI HSL Studio can build 2611050 tro len.",
+        "vid": 2611210,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -40,13 +40,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
-        "size": 1320416,
-        "sha256": "cc2b27d76ac751f8c905fe6de9e020f7c66ea713d689d9bbcab9753d7f067db6"
+        "size": 1320480,
+        "sha256": "fe8efc7c037ee7189eb91470bec90d21c60c22904ab4e721e4ea5136aa6b68a8"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611171 cho ARGB HSL Controller 16X: tab Timecode (dung voi Tool ARGB HSL v3.17.8 tro len): xem thu hieu ung ngay tren ca mach hoac rieng tung phan doan, mach giu nguyen bo cuc va khong luu ban xem thu; sau khi phat show, bam xem thu hay doi tren web thi mach tu tra lai trang thai truoc show, khong con bi logo cua show che mat. Show va nut bam cu van chay nhu truoc.",
-        "vid": 2611171,
+        "notes": "Build 2611210 cho ARGB HSL Controller 16X: giao dien web: nut but chi doi ten phan doan khong con bi nut mui ten che, bam doi ten duoc nhu binh thuong; khi mo mot preset, so ID khong con che nut doi ten va nut thu gon; tab Mau sac tren dien thoai: cac nut Cong cu khong con sat thanh tab ben duoi khi dung hieu ung khong co bang mau (Solid).",
+        "vid": 2611210,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -59,8 +59,8 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-16x.bin",
-        "size": 1324800,
-        "sha256": "8dde75ad0be70f24884a173f800fa5ed79c9323dea836bdeeb5095e9470b843c"
+        "size": 1324864,
+        "sha256": "d19808d83c56edb08e2b8042402c7aaef0e6dc6c74fdf40eb2c22266ac5787b7"
       }
     ]
   }

@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "3.17.11",
-    "version_label": "v3.17.11 - November 2026",
-    "release_date": "2026-11-21",
-    "release_notes": "🎞 Tab Timecode: preset nhiều lớp (vd chữ chạy + hiệu ứng hoà trộn lên trên) kéo xuống hàng tên\nmạch giờ chạy đủ các lớp như khi bấm preset trên web, mỗi lớp đúng vùng LED của nó trong preset.\n- Cần firmware 2611213 trở lên (cập nhật ở tab Cấu hình phần cứng). Mạch firmware cũ: bấm Phát\napp báo trước, mạch chỉ chạy lớp đầu như trước.\n- Clip đặt ở hàng phân đoạn vẫn chỉ chạy lớp đầu của preset (app nhắc khi bấm Phát).\n- Ghi vào mạch rồi Đọc từ mạch vẫn giữ đủ các lớp.\n⏹ Hết bài hoặc bấm Dừng: mạch tắt đèn ngay, không còn nháy lại hiệu ứng cũ rồi mới tắt.\n- Cần firmware 2611214 trở lên; mạch firmware cũ tắt nhanh hơn nhưng có thể còn thoáng nháy.\n📺 Cửa sổ Live view: khung phân đoạn \"Thứ tự LED\" khoanh đúng ô theo ledmap cả khi vừa mở lại\napp (trước đây phải Đọc từ mạch hoặc sửa phân đoạn thì mới đúng).\n🔦 Nháy thử phân đoạn ngay sau khi mở lại app: chớp đúng ô theo ledmap của mạch.",
+    "version": "3.17.12",
+    "version_label": "v3.17.12 - November 2026",
+    "release_date": "2026-11-23",
+    "release_notes": "🎡 Nhận diện mạch Vòng quay may mắn \"ARGB HSL Controller Lucky\": quét mạng thấy mạch như các\ndòng khác. Cập nhật firmware cho mạch này chỉ lấy bản Vòng quay, không bao giờ cài nhầm\nfirmware thường (cài nhầm là mất vòng quay).",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.17.11.exe",
-    "size": 318889589,
-    "sha256": "cb83c6f1e34f6d91fade4552987067f04a041f8c6f27da56c0dc4c38efd6a9d0"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_3.17.12.exe",
+    "size": 318915452,
+    "sha256": "deebbe1ff489dc4b70fd2fad25b98d38c15b081178305052e8aca4a580a32879"
   }
 }

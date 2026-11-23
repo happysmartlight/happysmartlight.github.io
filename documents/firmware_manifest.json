@@ -78,6 +78,25 @@
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-lucky-esp32.bin",
         "size": 1394720,
         "sha256": "d762d12ef562b571fe363ec942a087b986d66fc051c350ba7be2d25ff09917a8"
+      },
+      {
+        "version": "3.0.0",
+        "notes": "Build 2611232 cho ARGB HSL Controller Lucky (ESP32-S3 N16R8): Mach Lucky chinh thuc ESP32-S3 N16R8: 25 LED 5x5, 2 nut bam, loa. Nut A: bam = Quay, giu = Dat lai. Nut B: bam = Tat/Bat den, giu = Diem danh. Trang Vong quay co danh sach mach kem % song, luu thong so cho ca vong, nut tat den; am thanh khi den chay qua va khi trung so. Mach mat nguon hoac mat ket noi giua luc quay khong lam lech ket qua cua cac mach khac. Sua loi treo khi gui ESP-NOW va loi hong danh sach preset.",
+        "vid": 2611232,
+        "target": [
+          "esp32s3",
+          "esp32-s3",
+          "esp32_s3"
+        ],
+        "chip": "esp32-s3",
+        "flash_psram": "n16r8",
+        "bootloaderSHA256": "2ab89832b55ab4f2fea0576e79732f0b1f8b6f915e84d611b5c1e1fb83a4931d",
+        "product": "ARGB HSL Controller Lucky",
+        "hw_version": "v1.0.0",
+        "repo": "any",
+        "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-lucky-esp32s3.bin",
+        "size": 1314208,
+        "sha256": "95a53c107c90102417b43f1892211d5bdde9766c4e1d3af37e66f9829c692edd"
       }
     ]
   }

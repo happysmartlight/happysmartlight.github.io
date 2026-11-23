@@ -61,6 +61,23 @@
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-16x.bin",
         "size": 1327824,
         "sha256": "0762b227b548315a0aea608f26c1c5b1b9df086f8dde9f06d5dac10b4b836451"
+      },
+      {
+        "version": "3.0.0",
+        "notes": "Build 2611231 cho ARGB HSL Controller Lucky (ESP32-WROVER): Vong quay may man v1.0.0: cac mach xep vong tron sang lan luot vai vong roi dung o mot mach ngau nhien, dong bo qua ESP-NOW. Luc cho quay cac mach chay mau ngau nhien nhe nhang. Nhan Quay tren web UI (Cong cu > Vong quay), Tool hoac app.",
+        "vid": 2611231,
+        "target": [
+          "esp32"
+        ],
+        "chip": "esp32",
+        "flash_psram": "wrover",
+        "bootloaderSHA256": "47e6d02e5367e4f70529a3fcd7cf25eb058c63557132a17df28c60420dd8a8f4",
+        "product": "ARGB HSL Controller Lucky",
+        "hw_version": "v1.0.0",
+        "repo": "any",
+        "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-lucky-esp32.bin",
+        "size": 1394720,
+        "sha256": "d762d12ef562b571fe363ec942a087b986d66fc051c350ba7be2d25ff09917a8"
       }
     ]
   }

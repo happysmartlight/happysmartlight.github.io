@@ -81,8 +81,8 @@
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611242 cho ARGB HSL Controller Lucky (ESP32-S3 N16R8): Lucky v1.2.1 - Trang chinh cua mach la trang Vong quay, gon hon: bo phan mau, hieu ung, phan doan cua WLED. Them the \"Thiet bi\": ten mach, firmware, IP, WiFi, ESP-NOW, nut vao cai dat WiFi, bao mat va cap nhat, khoi dong lai. - Thanh do sang chinh ca vong cung luc (theo nhom). - Remote cam tay hien trong danh sach cac mach (nhan R), bam \"Mo\" de vao trang cua remote. Danh sach co o loc theo nhom. - ESP-NOW tu bat tren moi mach (truoc day bi tat sau khi cai bang Tool), cac mach nhan lenh nhanh va chac hon. - Am thanh to hon: tieng tich, tieng bam nut va nhac chuc mung phat o tan so loa keu to nhat.",
-        "vid": 2611242,
+        "notes": "Build 2611243 cho ARGB HSL Controller Lucky (ESP32-S3 N16R8): Lucky v1.2.2 - Link quay tu xa (ma QR) ghi kem so qua cau va nhom. Trang quay tu xa hien \"Link cua qua cau so N\", ke ca khi qua cau do mat dien, de biet can kiem tra mach nao. - Danh sach \"Cac mach trong mang\" co nhan \"Quay tu xa\" o mach dang phat link. Bam nhan de vao thang the Quay tu xa cua mach do, nhap PIN roi tat hoac tao link moi. - Remote cam tay khong phat link quay tu xa.",
+        "vid": 2611243,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -95,8 +95,8 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-lucky-esp32s3.bin",
-        "size": 1342800,
-        "sha256": "850c6e641cb21bf30c1839bfa2b5797b164afba1ceb53e31c6c7b17f427dfb36"
+        "size": 1343392,
+        "sha256": "48b807e3b8951c27098c3a703ce0516fc05aeb7eca60cdb01518b1dd775d60e6"
       }
     ]
   }

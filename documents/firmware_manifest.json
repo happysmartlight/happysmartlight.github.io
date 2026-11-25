@@ -3,12 +3,12 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2611230 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
+    "notes": "Build 2611260 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
     "files": [
       {
         "version": "3.0.0",
-        "notes": "Build 2611230 cho ARGB HSL Controller 4X: Sua loi mach tu khoi dong lai (bao loi 90) sau vai gio hoat dong: bo nho bi hao dan moi khi app hoac trinh duyet ngat ket noi dot ngot. Mach chay on dinh lau dai, khong con tu khoi dong lai.",
-        "vid": 2611230,
+        "notes": "Build 2611260 cho ARGB HSL Controller 4X: Timecode: nhieu mach chay khop nhau theo mot dong ho show chung, bam Phat la moi mach cung hien khung hinh dau (lech con khoang 1 ms, truoc day toi 31 ms), mach tu khoi dong lai giua show thi tu vao lai dung vi tri; Timecode: luu toi 7 show trong mot mach, preset \"Show ke tiep\" gan cho nut bam de chuyen show; Mach bao gioi han va ket qua moi lenh ghi cho app: gui anh, GIF, luu preset nhanh hon, file gui len duoc doi chieu dung luong va ma kiem tra; Hai lenh luu preset lien tiep khong con mat lenh sau; Doi so LED roi khoi dong lai: phan doan tu theo bo cuc LED moi; presets.json hong do mat dien dung luc ghi: mach tu lay lai ban truoc lan ghi gan nhat; Mach ghi lai nguyen nhan khi tu khoi dong lai do loi hoac sut ap de app bao va gui ky thuat HSL; Live view: app va trang web cua mach xem cung luc duoc (toi da 3 noi); Can Tool ARGB HSL v4.0.0 de dung cac tinh nang moi, Tool cu van chay nhu truoc.",
+        "vid": 2611260,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -21,13 +21,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-4x.bin",
-        "size": 1323296,
-        "sha256": "e92cd717aa00340720b3307c8ad31ac2e3121cf0d0850bf25997ac5cc2ebc878"
+        "size": 1337936,
+        "sha256": "a7562bf1885087bc5b7175aa7b8b88951c702612656995e9f49eef5394bbd96b"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611230 cho ARGB HSL Controller 2X Pro: Sua loi mach tu khoi dong lai (bao loi 90) sau vai gio hoat dong: bo nho bi hao dan moi khi app hoac trinh duyet ngat ket noi dot ngot. Mach chay on dinh lau dai, khong con tu khoi dong lai. POI HSL Studio can build 2611050 tro len.",
-        "vid": 2611230,
+        "notes": "Build 2611260 cho ARGB HSL Controller 2X Pro: Timecode: nhieu mach chay khop nhau theo mot dong ho show chung, bam Phat la moi mach cung hien khung hinh dau (lech con khoang 1 ms, truoc day toi 31 ms), mach tu khoi dong lai giua show thi tu vao lai dung vi tri; Timecode: luu toi 7 show trong mot mach, preset \"Show ke tiep\" gan cho nut bam de chuyen show; Mach bao gioi han va ket qua moi lenh ghi cho app: gui anh, GIF, luu preset nhanh hon, file gui len duoc doi chieu dung luong va ma kiem tra; Hai lenh luu preset lien tiep khong con mat lenh sau; Doi so LED roi khoi dong lai: phan doan tu theo bo cuc LED moi; presets.json hong do mat dien dung luc ghi: mach tu lay lai ban truoc lan ghi gan nhat; Mach ghi lai nguyen nhan khi tu khoi dong lai do loi hoac sut ap de app bao va gui ky thuat HSL; Live view: app va trang web cua mach xem cung luc duoc (toi da 3 noi); Can Tool ARGB HSL v4.0.0 de dung cac tinh nang moi, Tool cu van chay nhu truoc. POI HSL Studio can build 2611050 tro len.",
+        "vid": 2611260,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -40,13 +40,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
-        "size": 1323248,
-        "sha256": "6b5463803baf61a4a1f0d27ed0844d95ab4c15a4ddf74135c7862d561d99cd3a"
+        "size": 1337840,
+        "sha256": "3f6e4f7095d13dd85401876c3b3d9a9252b3adb3848f2bee9fe1b8b033d4d3ba"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611230 cho ARGB HSL Controller 16X: Sua loi mach tu khoi dong lai (bao loi 90) sau vai gio hoat dong: bo nho bi hao dan moi khi app hoac trinh duyet ngat ket noi dot ngot. Mach chay on dinh lau dai, khong con tu khoi dong lai.",
-        "vid": 2611230,
+        "notes": "Build 2611260 cho ARGB HSL Controller 16X: Timecode: nhieu mach chay khop nhau theo mot dong ho show chung, bam Phat la moi mach cung hien khung hinh dau (lech con khoang 1 ms, truoc day toi 31 ms), mach tu khoi dong lai giua show thi tu vao lai dung vi tri; Timecode: luu toi 7 show trong mot mach, preset \"Show ke tiep\" gan cho nut bam de chuyen show; Mach bao gioi han va ket qua moi lenh ghi cho app: gui anh, GIF, luu preset nhanh hon, file gui len duoc doi chieu dung luong va ma kiem tra; Hai lenh luu preset lien tiep khong con mat lenh sau; Doi so LED roi khoi dong lai: phan doan tu theo bo cuc LED moi; presets.json hong do mat dien dung luc ghi: mach tu lay lai ban truoc lan ghi gan nhat; Mach ghi lai nguyen nhan khi tu khoi dong lai do loi hoac sut ap de app bao va gui ky thuat HSL; Live view: app va trang web cua mach xem cung luc duoc (toi da 3 noi); Can Tool ARGB HSL v4.0.0 de dung cac tinh nang moi, Tool cu van chay nhu truoc.",
+        "vid": 2611260,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -59,8 +59,8 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-16x.bin",
-        "size": 1327824,
-        "sha256": "0762b227b548315a0aea608f26c1c5b1b9df086f8dde9f06d5dac10b4b836451"
+        "size": 1342288,
+        "sha256": "8bf798fba7e3a95303c87ad9b9f7d470785847bb744e46ccdc2f25d43f33ba5b"
       },
       {
         "version": "3.0.0",

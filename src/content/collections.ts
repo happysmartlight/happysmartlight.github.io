@@ -198,6 +198,19 @@ const PORTED_POSTS: CollectionItem[] = [
     excerpt: "Hướng dẫn dùng tab Timecode của Tool ARGB HSL: thêm nhạc, đánh dấu nhịp, kéo thả hiệu ứng lên timeline cho từng mạch, chia phân đoạn để mỗi phần trang phục LED chạy hiệu ứng riêng, lập trình trước bằng track mô phỏng, phát thử và ghi show vào mạch.",
     html: "",
     date: "2026-11-17"
+  },
+  {
+    slug: "tab-sao-chep-cau-hinh-tool-argb-hsl",
+    collection: "post-news",
+    url: "/post-news/tab-sao-chep-cau-hinh-tool-argb-hsl/",
+    title: "Tab Sao Chép Cấu Hình Trong Tool ARGB HSL: Cài Đặt Nhiều Mạch Giống Nhau Trong Một Lần",
+    metaTitle: "Tab Sao Chép Cấu Hình Tool ARGB HSL | Cài Đặt Nhiều Mạch Cùng Lúc",
+    image: "/img/post-news/tab-sao-chep-cau-hinh/banner.webp",
+    bigimg: "/img/post-news/tab-sao-chep-cau-hinh/banner.webp",
+    tags: ["sao-chep-cau-hinh", "tool-argb-hsl", "cfg-json", "lap-dat", "guide"],
+    excerpt: "Hướng dẫn dùng tab Sao chép cấu hình mới của Tool ARGB HSL v4.0.0: lấy cấu hình mẫu từ một mạch hoặc file cfg.json, chọn phần sẽ chép, đặt tên hàng loạt, gửi lần lượt cho nhiều mạch, vì sao WiFi và IP tĩnh không bị chép, và cách khôi phục từ bản sao lưu.",
+    html: "",
+    date: "2026-11-26"
   }
 ];
 

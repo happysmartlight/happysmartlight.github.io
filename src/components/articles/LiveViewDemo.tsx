@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-// Minh hoạ cửa sổ Live view của Tool ARGB HSL (tab Timecode → 📺 Live view): LED giả lập,
-// bấm chip mạch, đổi bố cục, bật khung phân đoạn, bấm tên mạch để phóng to.
+// Minh hoạ cửa sổ Live view của Tool ARGB HSL (tab Timecode → 📺 Live view): LED giả lập.
+// Xem kỹ: bấm chip mạch, đổi bố cục, bật khung phân đoạn, bấm tên mạch để phóng to.
+// Tổng quan: mỗi mạch một ô nhỏ, màu LED đổi mỗi giây, mạch có vấn đề xếp lên đầu.
 
 type Board = {
   id: string;
@@ -17,22 +18,23 @@ type Board = {
   src?: boolean;
   eye?: boolean;
   fx: "plasma" | "fire" | "none";
+  clip?: string;
   fps: number;
   segs: [string, number, number, number?, number?][];
 };
 
 const BOARDS: Board[] = [
   {
-    id: "a", name: "ARGB 16X", ip: "192.168.0.130", kind: "matrix", w: 16, h: 16, on: true, src: true, eye: true,
+    id: "a", name: "ARGB 16X", ip: "192.0.2.31", kind: "matrix", w: 16, h: 16, on: true, src: true, eye: true,
     segs: [["Giáp đầu", 0, 8, 0, 8], ["Giáp ngực", 8, 16, 0, 8], ["Giáp lưng", 0, 8, 8, 16], ["Giáp hông", 8, 16, 8, 16]],
-    fx: "plasma", fps: 31,
+    fx: "plasma", clip: "Plasma", fps: 31,
   },
   {
-    id: "b", name: "4X Sân khấu", ip: "192.168.0.142", kind: "strip", ports: [30, 30, 30, 30], on: true, fx: "fire", fps: 42,
+    id: "b", name: "4X Sân khấu", ip: "192.0.2.32", kind: "strip", ports: [30, 30, 30, 30], on: true, fx: "fire", clip: "Ngọn lửa", fps: 42,
     segs: [["Cột trái", 0, 30], ["Cột phải", 30, 60], ["Viền dưới", 60, 120]],
   },
-  { id: "c", name: "16X Màn LED", ip: "192.168.0.150", kind: "matrix", w: 128, h: 64, sample: 4, on: false, fx: "none", fps: 24, segs: [] },
-  { id: "d", name: "2X Pro POI", ip: "192.168.0.21", kind: "strip", ports: [72], on: false, offline: true, fx: "none", fps: 0, segs: [] },
+  { id: "c", name: "16X Màn LED", ip: "192.0.2.33", kind: "matrix", w: 128, h: 64, sample: 4, on: false, fx: "none", fps: 24, segs: [] },
+  { id: "d", name: "2X Pro POI", ip: "192.0.2.34", kind: "strip", ports: [72], on: false, offline: true, fx: "none", fps: 0, segs: [] },
 ];
 
 type Cols = "auto" | "1" | "2" | "3";
@@ -126,7 +128,48 @@ function Dot({ b }: { b: Board }) {
   return <span className={`inline-block w-2 h-2 rounded-full ${c}`} />;
 }
 
+type Kind = "lost" | "warn" | "ok" | "idle";
+const RANK: Record<Kind, number> = { lost: 0, warn: 1, ok: 2, idle: 3 };
+const KIND_DOT: Record<Kind, string> = { ok: "#43c46b", warn: "#f0b75a", lost: "#e5534b", idle: "#5b6470" };
+const KIND_BORDER: Record<Kind, string> = { ok: "#2a3038", warn: "#6b5326", lost: "#7a3631", idle: "#2a3038" };
+const KIND_NOTE: Record<Kind, string> = { ok: "#9aa4b2", warn: "#f0b75a", lost: "#ff9b93", idle: "#8a939f" };
+
+// Ô Tổng quan: trạng thái + clip đang chạy, như trong Tool.
+function boardState(b: Board): { kind: Kind; note: string } {
+  if (b.offline) return { kind: "lost", note: "mất kết nối" };
+  if (!b.on) return { kind: "idle", note: "tắt (khoảng trống)" };
+  return { kind: "ok", note: b.clip ?? "online" };
+}
+
+// 16 màu dọc theo dây LED (Tool lấy 1 khung LED mỗi giây cho mỗi mạch).
+function stripColours(b: Board, t: number, n = 16): string[] {
+  const ports = b.ports ?? [];
+  const w = b.kind === "matrix" ? (b.sample ? (b.w ?? 1) / b.sample : b.w ?? 1) : 0;
+  const h = b.kind === "matrix" ? (b.sample ? (b.h ?? 1) / b.sample : b.h ?? 1) : 0;
+  const total = b.kind === "matrix" ? w * h : ports.reduce((a, v) => a + v, 0);
+  const out: string[] = [];
+  for (let k = 0; k < n; k++) {
+    const i = Math.floor(((k + 0.5) * total) / n);
+    let x = 0;
+    let y = 0;
+    if (b.kind === "matrix") {
+      x = i % w;
+      y = Math.floor(i / w);
+    } else {
+      let acc = 0;
+      while (y < ports.length - 1 && i >= acc + ports[y]) { acc += ports[y]; y++; }
+      x = i - acc;
+    }
+    const [r, g, bl] = colour(b, x, y, t, i);
+    out.push(`rgb(${(r * 255) | 0},${(g * 255) | 0},${(bl * 255) | 0})`);
+  }
+  return out;
+}
+
 export default function LiveViewDemo() {
+  const [view, setView] = useState<"detail" | "overview">("detail");
+  const [issuesOnly, setIssuesOnly] = useState(false);
+  const [snapT, setSnapT] = useState(1.2);
   const [shown, setShown] = useState<string[]>(["a", "b"]);
   const [cols, setCols] = useState<Cols>("auto");
   const [segsOn, setSegsOn] = useState(true);
@@ -219,7 +262,24 @@ export default function LiveViewDemo() {
       const g = geo.current[b.id];
       if (cv && g) drawBoard(cv, b, g, 1.2, segsOn);
     }
-  }, [segsOn, size, nCols, shown, focus]);
+  }, [segsOn, size, nCols, shown, focus, view]);
+
+  useEffect(() => {
+    // Tổng quan: màu LED đổi mỗi giây (giảm chuyển động: đứng yên)
+    if (view !== "overview" || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const id = window.setInterval(() => setSnapT(performance.now() / 1000), 1000);
+    return () => window.clearInterval(id);
+  }, [view]);
+
+  const tiles = BOARDS.map((b, k) => ({ b, k, ...boardState(b) }))
+    .sort((p, q) => RANK[p.kind] - RANK[q.kind] || p.k - q.k)
+    .filter((p) => !issuesOnly || p.kind === "lost" || p.kind === "warn");
+  const lost = BOARDS.filter((b) => boardState(b).kind === "lost").length;
+  const openDetail = (id: string) => {
+    setShown((s) => [...s.filter((x) => x !== id), id].slice(-4));
+    setFocus(null);
+    setView("detail");
+  };
 
   const toggleBoard = (id: string) => {
     setShown((s) => (s.includes(id) ? s.filter((x) => x !== id) : [...s, id]));
@@ -236,6 +296,20 @@ export default function LiveViewDemo() {
         <span className={`${btn} !cursor-default`} aria-hidden>✕</span>
       </div>
       <div className="flex flex-wrap gap-x-4 gap-y-2 items-center px-3 py-2.5 border-b border-[#222a36] text-[12px] text-slate-200">
+        <div className="flex gap-1.5 items-center" role="group" aria-label="Cách xem">
+          <button type="button" aria-pressed={view === "overview"} onClick={() => setView("overview")} className={`${btn} ${view === "overview" ? btnOn : ""}`}>
+            Tổng quan · {BOARDS.length} mạch
+          </button>
+          <button type="button" aria-pressed={view === "detail"} onClick={() => setView("detail")} className={`${btn} ${view === "detail" ? btnOn : ""}`}>
+            Xem kỹ · {shown.length}
+          </button>
+        </div>
+        {view === "overview" && (
+          <label className="inline-flex items-center gap-1.5 cursor-pointer">
+            <input type="checkbox" checked={issuesOnly} onChange={(e) => setIssuesOnly(e.target.checked)} className="accent-[#4fd1e8]" /> Chỉ mạch cần chú ý
+          </label>
+        )}
+        {view === "detail" && (<>
         <div className="flex flex-wrap gap-1.5 items-center" role="group" aria-label="Mạch hiển thị">
           <span className="text-slate-400 mr-0.5">Mạch:</span>
           {BOARDS.map((b) => (
@@ -263,8 +337,36 @@ export default function LiveViewDemo() {
           Cỡ điểm LED
           <input type="range" min={60} max={140} value={size} onChange={(e) => setSize(Number(e.target.value))} className="w-[90px] accent-[#4fd1e8]" />
         </label>
+        </>)}
       </div>
-      <div ref={stageRef} className="p-3 grid gap-3 min-h-[300px]" style={{ gridTemplateColumns: `repeat(${nCols}, minmax(0, 1fr))` }}>
+      {view === "overview" && (
+        <div className="p-3 min-h-[160px]">
+          <p className="text-[12px] text-slate-300 mb-2">
+            <span className="text-[#6fd08f]">{BOARDS.length - lost} bình thường</span>
+            {lost ? <> · <span className="text-[#ff9b93]">{lost} mất kết nối</span></> : null}
+            <span className="text-slate-500 ml-2">Mạch có vấn đề xếp lên đầu · bấm một ô để xem trực tiếp</span>
+          </p>
+          <div className="grid gap-1.5" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))" }}>
+            {tiles.map(({ b, kind, note }) => (
+              <button key={b.id} type="button" onClick={() => openDetail(b.id)} title={`${b.name} · ${b.ip} · ${note} · bấm để xem trực tiếp`}
+                className="text-left rounded-md bg-[#0f1318] px-2 py-1.5 cursor-pointer hover:brightness-125 focus-visible:outline focus-visible:outline-2 focus-visible:outline-sky-300"
+                style={{ border: `1px solid ${KIND_BORDER[kind]}` }}>
+                <span className="flex items-center gap-1.5 text-[12px] font-bold text-white truncate">
+                  <span className="inline-block w-2 h-2 rounded-full shrink-0" style={{ background: KIND_DOT[kind] }} />{b.name}
+                </span>
+                <span className="mt-1 flex gap-px h-1.5">
+                  {(kind === "lost" ? Array<string>(16).fill("#232832") : stripColours(b, snapT)).map((c, i) => (
+                    <span key={i} className="flex-1" style={{ background: c }} />
+                  ))}
+                </span>
+                <span className="block mt-1 text-[11px] truncate" style={{ color: KIND_NOTE[kind] }}>{note}</span>
+              </button>
+            ))}
+            {!tiles.length && <p className="col-span-full text-center text-slate-400 text-[13px] py-10">Không có mạch nào cần chú ý.</p>}
+          </div>
+        </div>
+      )}
+      <div ref={stageRef} className={`p-3 gap-3 min-h-[300px] ${view === "detail" ? "grid" : "hidden"}`} style={{ gridTemplateColumns: `repeat(${nCols}, minmax(0, 1fr))` }}>
         {BOARDS.map((b) => {
           const vis = shown.includes(b.id) && (!focus || focus === b.id);
           const leds = b.kind === "matrix" ? (b.w ?? 0) * (b.h ?? 0) : (b.ports ?? []).reduce((a, x) => a + x, 0);
@@ -308,7 +410,9 @@ export default function LiveViewDemo() {
       </div>
       <div className="flex flex-wrap gap-x-4 gap-y-1.5 px-3 py-2 border-t border-[#222a36] text-[11.5px] text-slate-400 tabular-nums">
         <span>▶ Timeline <b className="text-slate-200 font-semibold">00:12.4</b> / 00:46.6</span>
-        <span>Đang xem <b className="text-slate-200 font-semibold">{shown.length}</b> mạch</span>
+        {view === "overview"
+          ? <span>Tổng quan <b className="text-slate-200 font-semibold">{BOARDS.length}</b> mạch, màu LED cập nhật mỗi 1 giây</span>
+          : <span>Đang xem trực tiếp <b className="text-slate-200 font-semibold">{shown.length}</b> mạch</span>}
         <span>Màu hiển thị là màu hiệu ứng, chưa nhân độ sáng của mạch</span>
       </div>
     </div>

@@ -20,6 +20,7 @@ const CUSTOM_ARTICLES: Record<string, React.LazyExoticComponent<React.ComponentT
   "post-news/tab-timecode-tool-argb-hsl": lazy(() => import("../components/articles/ArticleTabTimecode")),
   "post-news/tab-sao-chep-cau-hinh-tool-argb-hsl": lazy(() => import("../components/articles/ArticleTabSaoChepCauHinh")),
   "post-news/tab-tao-so-do-led-tool-argb-hsl": lazy(() => import("../components/articles/ArticleTabTaoSoDoLed")),
+  "post-news/tab-ve-so-do-tu-do-tool-argb-hsl": lazy(() => import("../components/articles/ArticleTabVeSoDoTuDo")),
   "post-news/luu-y-khi-su-dung-xlights-voi-argb-hsl": lazy(() => import("../components/articles/ArticleXLightsNotes")),
   "post-news/dao-cu-poi-led-happy-smart-light": lazy(() => import("../components/articles/ArticlePoiProduct")),
   "post-news/trang-phuc-led-robot-dance-happy-smart-light": lazy(() => import("../components/articles/ArticleLedManRobotDance")),

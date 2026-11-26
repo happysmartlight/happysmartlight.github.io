@@ -224,6 +224,19 @@ const PORTED_POSTS: CollectionItem[] = [
     excerpt: "Hướng dẫn dùng tab Tạo sơ đồ LED của Tool ARGB HSL v4.0.0: nhập kích thước, chọn cách đi dây bằng hình, đọc chiều tín hiệu ngay trên sơ đồ, ghép nhiều tấm, gửi sơ đồ lên nhiều mạch, chạy thử vạch quét, và vì sao Tool chặn sơ đồ quá lớn để mạch không lỗi khi khởi động.",
     html: "",
     date: "2026-11-26"
+  },
+  {
+    slug: "tab-ve-so-do-tu-do-tool-argb-hsl",
+    collection: "post-news",
+    url: "/post-news/tab-ve-so-do-tu-do-tool-argb-hsl/",
+    title: "Tab Vẽ Sơ Đồ Tự Do Trong Tool ARGB HSL: Vẽ LED Theo Hình Bất Kỳ, Gửi Thẳng Lên Mạch Hoặc Xuất Cho xLights",
+    metaTitle: "Tab Vẽ Sơ Đồ Tự Do Tool ARGB HSL | Vẽ Sơ Đồ LED Theo Hình Bất Kỳ",
+    image: "/img/post-news/tab-ve-so-do-tu-do/banner.webp",
+    bigimg: "/img/post-news/tab-ve-so-do-tu-do/banner.webp",
+    tags: ["ve-so-do-tu-do", "tool-argb-hsl", "ledmap", "xLights", "oneled", "guide"],
+    excerpt: "Hướng dẫn dùng tab Vẽ sơ đồ tự do (tên cũ xLights Model) của Tool ARGB HSL v4.0.0: vẽ LED theo hình robot, chữ, logo, đạo cụ, mỗi hình thành một đoạn dây liền; chia cổng, nhóm, vẽ đối xứng, dò theo ảnh nền, nhập file OneLED, gửi sơ đồ thẳng lên mạch có lớp chặn an toàn, chạy thử thứ tự dây, soi từng bóng và xuất cho xLights.",
+    html: "",
+    date: "2026-11-26"
   }
 ];
 

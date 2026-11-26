@@ -198,6 +198,19 @@ const PORTED_POSTS: CollectionItem[] = [
     excerpt: "Hướng dẫn dùng tab Timecode của Tool ARGB HSL: thêm nhạc, đánh dấu nhịp, kéo thả hiệu ứng lên timeline cho từng mạch, chia phân đoạn để mỗi phần trang phục LED chạy hiệu ứng riêng, lập trình trước bằng track mô phỏng, phát thử và ghi show vào mạch.",
     html: "",
     date: "2026-11-17"
+  },
+  {
+    slug: "tab-ve-so-do-tu-do-tool-argb-hsl",
+    collection: "post-news",
+    url: "/post-news/tab-ve-so-do-tu-do-tool-argb-hsl/",
+    title: "Tab Vẽ Sơ Đồ Tự Do Trong Tool ARGB HSL: Vẽ LED Theo Hình Bất Kỳ, Gửi Thẳng Lên Mạch Hoặc Xuất Cho xLights",
+    metaTitle: "Tab Vẽ Sơ Đồ Tự Do Tool ARGB HSL | Vẽ Sơ Đồ LED Theo Hình Bất Kỳ",
+    image: "/img/post-news/tab-ve-so-do-tu-do/banner.webp",
+    bigimg: "/img/post-news/tab-ve-so-do-tu-do/banner.webp",
+    tags: ["ve-so-do-tu-do", "tool-argb-hsl", "ledmap", "xLights", "oneled", "guide"],
+    excerpt: "Hướng dẫn dùng tab Vẽ sơ đồ tự do (tên cũ xLights Model) của Tool ARGB HSL v4.0.0: vẽ LED theo hình robot, chữ, logo, đạo cụ, mỗi hình thành một đoạn dây liền; chia cổng, nhóm, vẽ đối xứng, dò theo ảnh nền, nhập file OneLED, gửi sơ đồ thẳng lên mạch có lớp chặn an toàn, chạy thử thứ tự dây, soi từng bóng và xuất cho xLights.",
+    html: "",
+    date: "2026-11-26"
   }
 ];
 

@@ -190,14 +190,14 @@ const PORTED_POSTS: CollectionItem[] = [
     slug: "tab-timecode-tool-argb-hsl",
     collection: "post-news",
     url: "/post-news/tab-timecode-tool-argb-hsl/",
-    title: "Tab Timecode Trong Tool ARGB HSL: Lập Trình Show Ánh Sáng Theo Nhạc, Chia Từng Phân Đoạn",
-    metaTitle: "Tab Timecode Tool ARGB HSL | Lập Trình Show Ánh Sáng Theo Nhạc",
+    title: "Tab Timecode Trong Tool ARGB HSL: Lập Trình Và Chạy Show Ánh Sáng Theo Nhạc Cho Nhiều Mạch",
+    metaTitle: "Tab Timecode Tool ARGB HSL | Lập Trình Và Chạy Show Ánh Sáng Theo Nhạc",
     image: "/img/post-news/tab-timecode/banner.webp",
     bigimg: "/img/post-news/tab-timecode/banner.webp",
-    tags: ["timecode", "tool-argb-hsl", "phan-doan", "show-anh-sang", "guide"],
-    excerpt: "Hướng dẫn dùng tab Timecode của Tool ARGB HSL: thêm nhạc, đánh dấu nhịp, kéo thả hiệu ứng lên timeline cho từng mạch, chia phân đoạn để mỗi phần trang phục LED chạy hiệu ứng riêng, lập trình trước bằng track mô phỏng, phát thử và ghi show vào mạch.",
+    tags: ["timecode", "tool-argb-hsl", "phan-doan", "show-anh-sang", "chay-show", "live-view", "guide"],
+    excerpt: "Hướng dẫn tab Timecode của Tool ARGB HSL v4.0.0: dựng show theo nhạc, chia phân đoạn, chế độ Chạy show có Live view và Camera, Tổng quan cho buổi diễn nhiều mạch, đồng hồ show giữ các mạch lệch nhau khoảng 1 ms, lưu tới 7 show trong một mạch, quản lý mạch trong dự án.",
     html: "",
-    date: "2026-11-17"
+    date: "2026-11-26"
   }
 ];
 

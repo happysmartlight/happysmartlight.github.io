@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Images, Wrench, ArrowLeft, Smartphone, Laptop, Download, CheckCircle2, Cpu, Wifi, Sliders, Music, Camera, ShieldCheck, Mail, Phone, PlayCircle, Settings, Sparkles, Eye, WandSparkles, ImageUp, Users, Thermometer, Gauge, BatteryCharging, Trash2, Clock, type LucideIcon } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Images, Wrench, ArrowLeft, Smartphone, Laptop, Download, CheckCircle2, Wifi, Sliders, Music, Camera, ShieldCheck, Mail, Phone, PlayCircle, Sparkles, Eye, WandSparkles, ImageUp, Users, Thermometer, Gauge, BatteryCharging, Trash2, SlidersHorizontal, Clapperboard, Tv, Timer, Layers, Rocket, Menu, Orbit, Grid3x3, LayoutGrid, Copy, PenTool, RefreshCw, BookOpen, ArrowDown, type LucideIcon } from "lucide-react";
 import { motion } from "motion/react";
 import ImageZoomLightbox, { type ZoomGalleryItem } from "./ImageZoomLightbox";
 import { WINDOWS_TOOL_URL, WINDOWS_TOOL_VERSION, WINDOWS_TOOL_FILE, WINDOWS_TOOL_SIZE, WINDOWS_TOOL_SHA256 } from "../windowsTool";
@@ -136,9 +137,124 @@ const POI_SCREENSHOTS: (ZoomGalleryItem & { desc: string })[] = [
   },
 ];
 
+// Ảnh giao diện Tool ARGB HSL v4: chụp từ app thật (mạch mẫu, tên chung), 1440×900 / 1600×1000.
+// `thumb` = bản nhỏ 360 px cho hàng thumbnail và thẻ tab (đỡ tải 11 ảnh lớn trên điện thoại).
+const TOOL_IMG = "/img/argb-hsl-tool-pc";
+const toolShot = (file: string, label: string, desc: string, alt: string) => ({
+  url: `${TOOL_IMG}/${file}.webp`,
+  thumb: `${TOOL_IMG}/thumbs/${file}.webp`,
+  label,
+  desc,
+  alt,
+});
+
+const TOOL_SCREENSHOTS: (ZoomGalleryItem & { desc: string; thumb?: string })[] = [
+  toolShot("tab-thiet-bi-argb", "Thiết bị ARGB", "Danh sách mạch và bảng điều khiển riêng.",
+    "Tab Thiết bị ARGB của Tool ARGB HSL: danh sách mạch bên trái, bảng điều khiển màu, hiệu ứng, bảng màu, preset và phân đoạn bên phải"),
+  toolShot("tab-cau-hinh-phan-cung", "Cấu hình phần cứng", "Cổng, GPIO, số LED, nguồn, bộ nhớ của mạch.",
+    "Tab Cấu hình phần cứng của Tool ARGB HSL: firmware, LED vật lý, nguồn, bộ nhớ thiết bị và các cổng LED"),
+  toolShot("tab-cau-hinh-phan-cung-cap-nhat-nhieu-mach", "Cấu hình phần cứng · Cập nhật firmware nhiều mạch", "Nạp OTA nhiều mạch cùng lúc.",
+    "Hộp thoại Cập nhật firmware nhiều mạch của Tool ARGB HSL: bản firmware trên server, mạch cần cập nhật và mạch đã mới nhất"),
+  toolShot("tab-cong-cu-poi", "Công cụ POI", "Xem trước hình khi gậy POI quay.",
+    "Tab Công cụ POI của Tool ARGB HSL: ảnh nguồn, thông số POI, xem trước vòng quay và danh sách preset trên gậy"),
+  toolShot("tab-matrix-led", "Matrix Led · Ghép 3 màn thành màn lớn", "Ảnh, GIF, video lên màn LED ma trận.",
+    "Tab Matrix Led của Tool ARGB HSL: ghép ba màn LED thành một màn lớn 64×16, mỗi màn hiện trước phần hình nó nhận"),
+  toolShot("tab-timecode-lap-trinh", "Timecode · Lập trình", "Show theo nhạc trên timeline từng mạch.",
+    "Tab Timecode của Tool ARGB HSL ở chế độ Lập trình: thư viện hiệu ứng, bảng màu, preset và timeline theo nhạc cho nhiều mạch"),
+  toolShot("tab-timecode-chay-show-30-mach", "Timecode · Chạy show, Live view 30 mạch", "Theo dõi cả đội hình trong lúc diễn.",
+    "Tab Timecode của Tool ARGB HSL ở chế độ Chạy show: Live view Tổng quan 30 mạch phía trên, timeline khoá sửa phía dưới"),
+  toolShot("tab-tao-so-do-led", "Tạo sơ đồ LED", "Kích thước, đi dây, gửi ledmap lên mạch.",
+    "Tab Tạo sơ đồ LED của Tool ARGB HSL: lưới 16×16 đi dây zigzag và thẻ mạch báo Khớp với sơ đồ"),
+  toolShot("tab-sao-chep-cau-hinh", "Sao chép cấu hình", "Chép cấu hình mẫu sang nhiều mạch.",
+    "Tab Sao chép cấu hình của Tool ARGB HSL: cấu hình mẫu, chọn phần sẽ chép và danh sách mạch nhận kèm tên mới"),
+  toolShot("tab-ve-so-do-tu-do", "Vẽ sơ đồ tự do", "Vẽ LED theo hình bất kỳ, chia nhóm, đi dây.",
+    "Tab Vẽ sơ đồ tự do của Tool ARGB HSL: sơ đồ LED trang phục robot chia theo nhóm bộ phận"),
+  toolShot("tab-update-log", "Update & Log", "Phiên bản, Có gì mới, nhật ký hoạt động.",
+    "Tab Update & Log của Tool ARGB HSL: thẻ phiên bản, mục Có gì mới và nhật ký hoạt động"),
+];
+
+// 9 tab của Tool, đúng thứ tự trên app. `shot` = vị trí ảnh trong TOOL_SCREENSHOTS.
+interface ToolTab {
+  icon: LucideIcon;
+  name: string;
+  desc: string;
+  shot: number;
+  links?: { to: string; label: string }[];
+}
+
+const TOOL_TABS: ToolTab[] = [
+  {
+    icon: SlidersHorizontal,
+    name: "Thiết bị ARGB",
+    desc: "Danh sách mọi mạch trong mạng, mỗi thẻ có công tắc nguồn và dòng cho biết mạch đang chạy gì. Bảng điều khiển bên phải chỉnh độ sáng, màu, hiệu ứng (có hình, tên tiếng Việt), bảng màu, preset và phân đoạn; tick nhiều mạch để đổi cùng lúc, lưu trạng thái đang chạy thành preset.",
+    shot: 0,
+    links: [{ to: "/post-news/giao-dien-supernova-argb-hsl/", label: "Trang web SuperNova của mạch" }],
+  },
+  {
+    icon: Wrench,
+    name: "Cấu hình phần cứng",
+    desc: "Đặt số cổng, GPIO, số LED, loại LED, nguồn và nút bấm theo đúng giới hạn của từng dòng mạch, đổi tên mạch mà không phải khởi động lại. Cập nhật firmware OTA cho nhiều mạch cùng lúc, mỗi mạch một thanh tiến độ; dọn bộ nhớ mà vẫn giữ WiFi và cấu hình.",
+    shot: 1,
+    links: [{ to: "/post-news/nap-firmware-cau-hinh-wifi-argb-hsl/", label: "Nạp firmware & cấu hình WiFi" }],
+  },
+  {
+    icon: Orbit,
+    name: "Công cụ POI",
+    desc: "Kéo thả ảnh hoặc chọn trong thư viện 306 mẫu, xem trước đúng hình hiện ra khi gậy quay, chỉnh tốc độ (RPM), kiểu hình, số ảnh mỗi vòng rồi gửi cho một gậy hay cả đội. Dành cho mạch 2X Pro.",
+    shot: 3,
+    links: [
+      { to: "/post-news/su-dung-poi-voi-argb-hsl/", label: "Hướng dẫn POI" },
+      { to: "/post-news/thu-vien-mau-poi/", label: "Thư viện 306 mẫu POI" },
+    ],
+  },
+  {
+    icon: Grid3x3,
+    name: "Matrix Led",
+    desc: "Đưa ảnh, GIF hoặc video lên màn LED ma trận theo 4 bước: gửi cho mọi màn, chọn vài màn, hoặc ghép nhiều màn thành một màn lớn. Mỗi màn hiện trước đúng phần hình nó sẽ nhận trước khi gửi.",
+    shot: 4,
+  },
+  {
+    icon: Clapperboard,
+    name: "Timecode",
+    desc: "Lập trình show theo nhạc: kéo hiệu ứng, bảng màu, preset xuống timeline của từng mạch và từng phân đoạn. Chế độ Chạy show khoá sửa timeline, đặt Live view và Camera ngay cạnh; Tổng quan theo dõi cả đội hình 30 mạch. Đồng hồ show giữ các mạch lệch nhau khoảng 1 ms và mỗi mạch lưu được tới 7 show (firmware 2611260 trở lên).",
+    shot: 5,
+    links: [{ to: "/post-news/tab-timecode-tool-argb-hsl/", label: "Hướng dẫn Tab Timecode" }],
+  },
+  {
+    icon: LayoutGrid,
+    name: "Tạo sơ đồ LED",
+    desc: "Tạo sơ đồ ledmap.json cho ma trận theo 4 bước: kích thước, đi dây (góc dây vào, zigzag, ghép nhiều tấm), tên file, gửi lên mạch. Sơ đồ quá lớn so với mạch bị chặn trước khi gửi; chạy thử vạch quét để kiểm tra đi dây trên mạch thật.",
+    shot: 7,
+    links: [{ to: "/post-news/tab-tao-so-do-led-tool-argb-hsl/", label: "Hướng dẫn Tab Tạo sơ đồ LED" }],
+  },
+  {
+    icon: Copy,
+    name: "Sao chép cấu hình",
+    desc: "Chép cấu hình của một mạch mẫu (hoặc file cfg.json) sang nhiều mạch: chọn từng phần sẽ chép, đặt tên hàng loạt. WiFi mặc định không chép, IP tĩnh không bao giờ chép, cấu hình cũ của từng mạch được sao lưu trước khi ghi.",
+    shot: 8,
+    links: [{ to: "/post-news/tab-sao-chep-cau-hinh-tool-argb-hsl/", label: "Hướng dẫn Tab Sao chép cấu hình" }],
+  },
+  {
+    icon: PenTool,
+    name: "Vẽ sơ đồ tự do",
+    desc: "Vẽ LED theo hình bất kỳ (trang phục, logo, chữ) bằng bút, đường, hình, chữ, vẽ đối xứng; chia cổng, nhóm và đi dây. Gửi thẳng lên mạch, soi từng bóng trên mạch thật, hoặc xuất ledmap.json, xLights, Excel, CSV; nhập được file OneLED.",
+    shot: 9,
+    links: [
+      { to: "/post-news/tab-ve-so-do-tu-do-tool-argb-hsl/", label: "Hướng dẫn Tab Vẽ sơ đồ tự do" },
+      { to: "/post-news/luu-y-khi-su-dung-xlights-voi-argb-hsl/", label: "Lưu ý khi dùng xLights" },
+    ],
+  },
+  {
+    icon: RefreshCw,
+    name: "Update & Log",
+    desc: "Xem bản đang dùng, kiểm tra và cài bản mới ngay trong app (Windows), đọc Có gì mới theo từng mục. Nhật ký hoạt động lọc lỗi / cảnh báo, tìm theo IP hoặc tên mạch, sao chép báo cáo gửi kỹ thuật HSL.",
+    shot: 10,
+  },
+];
+
 // Album ảnh giao diện theo mẫu /san-pham/hsl4x/: nhãn trên, 1 ảnh lớn, hàng thumbnail, lightbox.
 interface GalleryConfig {
-  items: (ZoomGalleryItem & { desc: string })[];
+  items: (ZoomGalleryItem & { desc: string; thumb?: string })[];
   tab: string;
   badge: string;
   title: string;
@@ -149,6 +265,10 @@ interface GalleryConfig {
   selected: string;
   thumb: string;
   aspect: string;
+  /** Hàng thumbnail riêng (nhiều ảnh): điện thoại cuộn ngang, màn rộng xuống dòng. */
+  thumbRow?: string;
+  /** Chiều cao tối thiểu của khung album (mặc định min-h-[420px]). */
+  minH?: string;
 }
 
 const GALLERY: Partial<Record<SoftwareType, GalleryConfig>> = {
@@ -177,6 +297,21 @@ const GALLERY: Partial<Record<SoftwareType, GalleryConfig>> = {
     selected: "border-emerald-400 shadow-lg shadow-emerald-500/20 scale-105",
     thumb: "w-20 h-12 sm:w-24 sm:h-14",
     aspect: "aspect-[1720/1010]",
+  },
+  tool: {
+    items: TOOL_SCREENSHOTS,
+    tab: "Giao diện từng tab",
+    badge: "DESKTOP SCREEN VIEW",
+    title: "Tool ARGB HSL",
+    frame: "border-neon-blue/25",
+    ping: "bg-neon-blue",
+    ring: "focus-visible:ring-neon-blue/60",
+    eye: "text-neon-blue-bright",
+    selected: "border-neon-blue-bright shadow-lg shadow-cyan-500/20 scale-105",
+    thumb: "w-20 h-[50px] sm:w-24 sm:h-[60px]",
+    aspect: "aspect-[16/10]",
+    thumbRow: "w-full mt-4 overflow-x-auto sm:overflow-visible",
+    minH: "min-h-0",
   },
 };
 
@@ -210,16 +345,16 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
     { icon: ShieldCheck, title: "Offline-First — Riêng tư tuyệt đối", desc: "Mọi xử lý đều cục bộ trên thiết bị, không tài khoản, không thu thập dữ liệu, không quảng cáo." },
   ];
 
+  // Điểm mới của giao diện 4.0 (nguồn: changelog app). Chi tiết từng tab ở mục "9 tab" bên dưới.
   const toolFeatures: Feature[] = [
-    { icon: Images, title: "Công cụ POI có thư viện 306 ảnh mẫu", desc: "Xem sẵn hình khi gậy quay, bấm 1 lần là dùng ngay; mỗi mẫu tự chọn kiểu hình phù hợp, có nhóm, tìm kiếm và mục Yêu thích." },
-    { icon: Wrench, title: "Cấu hình phần cứng theo đúng dòng mạch", desc: "Tự nhận giới hạn port và số LED của từng dòng mạch. Đổi số LED hoặc port là phân đoạn tự về 1 đoạn phủ toàn bộ LED, giữ hiệu ứng và màu, không phải xoá bằng tay. Xem và đổi tên từng mạch ngay trong tab (kèm mDNS, MAC để phân biệt mạch trùng tên), không cần khởi động lại." },
-    { icon: Download, title: "Auto-Flasher firmware qua cổng COM", desc: "Tự động nạp code chương trình mới nhất cho chip điều khiển, chống nạp lỗi và hỏng chip dán." },
-    { icon: Sliders, title: "Pixel Mapper Layout 2D/3D", desc: "Số hóa sơ đồ nối dây bất kỳ, xuất ma trận tối ưu tuyến đường tín hiệu đi dây thực tế." },
-    { icon: Wifi, title: "Stream Ethernet / Wi-Fi UDP 60Hz", desc: "Truyền trực tiếp luồng kịch bản xLights với nén dữ liệu độc quyền ARGB HSL, không trễ." },
-    { icon: Cpu, title: "Hỗ trợ ma trận quy mô lớn", desc: "Điều khiển hàng chục nghìn điểm ảnh, phù hợp sân khấu, mặt dựng tòa nhà, sự kiện lớn." },
-    { icon: Settings, title: "Quản lý kịch bản & preset", desc: "Lưu, xuất và tái sử dụng các bố cục, preset hiệu ứng cho từng dự án thi công." },
-    { icon: Clock, title: "Timecode trực quan", desc: "Cột Preset mẫu lọc theo loại (Ảnh POI, Matrix, Visual, Timecode, Playlist) và tìm theo tên hoặc ID, gõ không dấu cũng được. Mạch nguồn có badge ★ NGUỒN, kéo-thả hiện trước chỗ clip sẽ nằm và app sẽ làm gì, nút tô màu theo chức năng. Mạch firmware 2611091 dùng được tới 1024 preset." },
-    { icon: Trash2, title: "Dọn bộ nhớ mạch gọn gàng", desc: "Xoá preset là xoá luôn ảnh BMP/GIF của nó (ảnh preset khác còn dùng được giữ lại). Nút Xóa bộ nhớ giải phóng bộ nhớ mạch mà vẫn giữ WiFi và cấu hình." },
+    { icon: SlidersHorizontal, title: "Bảng điều khiển riêng, nhẹ hơn hẳn", desc: `Tab Thiết bị ARGB không còn nhúng trang web của mạch: chọn mạch là thấy màu, hiệu ứng, bảng màu, preset, phân đoạn và bấm là mạch đổi ngay. App mở nhanh hơn, bộ cài Windows chỉ còn ${WINDOWS_TOOL_SIZE}.` },
+    { icon: Clapperboard, title: "Timecode 2 chế độ: Lập trình & Chạy show", desc: "Soạn show theo nhạc bằng thư viện hiệu ứng, bảng màu, preset; lúc diễn chuyển sang Chạy show: timeline khoá sửa, Live view và Camera nằm ngay cạnh để vừa diễn vừa nhìn LED thật." },
+    { icon: Tv, title: "Live view cho buổi diễn 30 mạch", desc: "Tổng quan hiện mọi mạch thành ô nhỏ kèm clip đang chạy; mạch mất kết nối hoặc lệch nhịp xếp lên đầu, bấm một ô để xem trực tiếp. Màu LED cập nhật mỗi giây nên gần như không tốn WiFi của buổi diễn." },
+    { icon: Timer, title: "Đồng hồ show: các mạch lệch khoảng 1 ms", desc: "Bấm Phát là mọi mạch cùng hiện khung hình đầu và chạy theo cùng một đồng hồ (trước đây lệch tới 31 ms khi WiFi chậm). Mạch khởi động lại giữa show tự vào lại đúng vị trí. Cần firmware 2611260 trở lên." },
+    { icon: Layers, title: "Nhiều show trong một mạch", desc: "Mỗi mạch lưu tới 7 show; tạo preset \"Show kế tiếp\" để gán cho nút bấm, mỗi lần bấm mạch chuyển sang show kế và phát. Phát thử timeline đang soạn không ghi đè show đã lưu." },
+    { icon: Rocket, title: "Cập nhật firmware nhiều mạch cùng lúc", desc: "Kiểm tra mọi mạch trong mạng, chọn sẵn mạch có bản mới, nạp OTA song song, mỗi mạch một thanh tiến độ. App chỉ báo xong khi mạch đã khởi động lại với đúng bản mới." },
+    { icon: Menu, title: "Thanh menu đổi theo tab", desc: "Bên trái là menu của tab đang mở; bên phải luôn có số mạch online (bấm để mở Tab Thiết bị), Công cụ (Quét mạng, Nạp firmware / WiFi qua USB) và Trợ giúp." },
+    { icon: Laptop, title: mac ? "Vừa laptop 1366×768, có bản macOS" : "Vừa màn laptop 1366×768", desc: mac ? `Cửa sổ thu gọn vừa màn 1366×768, hàng nút tự rút gọn khi hẹp. Chạy trên Windows 10/11 64-bit và macOS ${mac.minOs} trở lên cho máy Mac ${mac.chip}.` : "Cửa sổ thu gọn vừa màn 1366×768, hàng nút tự rút gọn khi hẹp. Chạy trên Windows 10/11 64-bit." },
   ];
 
   const poiFeatures: Feature[] = [
@@ -244,10 +379,10 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
 
   const toolSteps: Step[] = [
     { title: "Tải & cài đặt phần mềm", desc: installDesc(WINDOWS_TOOL_FILE, MACOS_TOOL) },
-    { title: "Kết nối mạch qua cổng COM", desc: "Cắm bộ điều khiển vào máy tính bằng cáp USB, chọn đúng cổng COM trong phần mềm." },
-    { title: "Nạp firmware (nếu cần)", desc: "Dùng Auto-Flasher để nạp/cập nhật firmware mới nhất cho chip điều khiển." },
-    { title: "Thiết kế layout Pixel Mapper", desc: "Vẽ sơ đồ ma trận LED 2D/3D theo bố cục thi công thực tế của bạn." },
-    { title: "Stream kịch bản & xuất bản", desc: "Kết nối nguồn kịch bản (xLights) qua Ethernet/Wi-Fi UDP và phát trực tiếp ra dải đèn." },
+    { title: "Cùng mạng & quét mạch", desc: "Cấp nguồn mạch, để máy tính và mạch cùng mạng WiFi / LAN rồi bấm Quét mạng ở Tab Thiết bị ARGB. Mạch mới chưa vào WiFi: cắm cáp USB và dùng Công cụ → Nạp firmware / WiFi qua USB." },
+    { title: "Cấu hình & cập nhật firmware", desc: "Ở Tab Cấu hình phần cứng, đặt số cổng, số LED, loại LED, nguồn, nút bấm; bấm Cập nhật nhiều mạch để đưa cả đội lên firmware mới nhất." },
+    { title: "Chuẩn bị nội dung", desc: "Gửi ảnh cho gậy POI, ảnh / GIF / video cho màn Matrix; tạo sơ đồ LED cho ma trận hoặc vẽ sơ đồ tự do cho trang phục, logo rồi gửi lên mạch." },
+    { title: "Lập trình & chạy show", desc: "Ở Tab Timecode, thêm nhạc, kéo hiệu ứng / preset xuống timeline của từng mạch, ghi show vào mạch, rồi chuyển sang Chạy show khi biểu diễn." },
   ];
 
   const poiSteps: Step[] = [
@@ -261,6 +396,91 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
   const features = isApp ? appFeatures : isPoi ? poiFeatures : toolFeatures;
   const steps = isApp ? appSteps : isPoi ? poiSteps : toolSteps;
   const HeadingIcon = isApp ? Smartphone : isPoi ? WandSparkles : Laptop;
+
+  // Album ảnh giao diện (mẫu /san-pham/hsl4x/): nhãn trên, 1 ảnh lớn, hàng thumbnail, lightbox.
+  const albumBlock = gallery && activeScreenshot ? (
+    <div className="mb-10 space-y-4">
+      <div className="flex justify-center">
+        <div className="inline-flex rounded-2xl bg-slate-950 border border-white/10 p-1 shadow-inner">
+          <button
+            type="button"
+            className="px-5 py-2 rounded-xl bg-white/10 text-white font-display text-xs font-bold uppercase tracking-wider"
+          >
+            {gallery.tab}
+          </button>
+        </div>
+      </div>
+
+      <div className={`w-full rounded-3xl bg-slate-950 border ${gallery.frame} p-4 sm:p-5 flex flex-col items-center justify-between ${gallery.minH ?? "min-h-[420px]"} relative overflow-hidden`}>
+        <div className="absolute top-2 right-3 flex items-center space-x-1.5 opacity-40 font-mono text-[8px] z-10">
+          <span className={`w-1.5 h-1.5 rounded-full ${gallery.ping} animate-ping`} />
+          <span>{gallery.badge}</span>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => setIsScreenshotViewerOpen(true)}
+          aria-label={`Xem lớn ${activeScreenshot.label}`}
+          className={`group/zoom w-full relative ${gallery.aspect} overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 flex items-center justify-center cursor-zoom-in mt-2 focus-visible:outline-none focus-visible:ring-2 ${gallery.ring}`}
+        >
+          <img
+            src={activeScreenshot.url}
+            alt={activeScreenshot.alt ?? activeScreenshot.label}
+            loading="eager"
+            decoding="async"
+            className="w-full h-full object-contain group-hover/zoom:scale-[1.02] transition-transform duration-500"
+          />
+          <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/zoom:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-2xl">
+            <span className="px-3.5 py-1.5 bg-slate-900/90 border border-white/10 rounded-lg text-[10px] font-mono text-white flex items-center space-x-1.5 shadow-lg">
+              <Eye className={`w-3 h-3 ${gallery.eye}`} />
+              <span>CLICK ĐỂ PHÓNG TO</span>
+            </span>
+          </div>
+        </button>
+
+        <div className={gallery.thumbRow ?? "flex flex-wrap justify-center gap-2 mt-4 max-h-[84px] overflow-y-auto py-1 w-full"}>
+          <div className={gallery.thumbRow ? "flex gap-2 py-1 px-1 w-max mx-auto sm:w-full sm:flex-wrap sm:justify-center" : "contents"}>
+          {screenshots.map((screen, idx) => {
+            const selected = idx === activeScreenshotIndex;
+            return (
+              <button
+                key={screen.url}
+                type="button"
+                onClick={() => setActiveScreenshotIndex(idx)}
+                aria-pressed={selected}
+                aria-label={`Chọn ${screen.label}`}
+                className={`${gallery.thumb} rounded-lg overflow-hidden border bg-slate-900 transition-all duration-200 cursor-pointer flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 ${gallery.ring} ${
+                  selected ? gallery.selected : "border-white/10 hover:border-white/30"
+                }`}
+              >
+                <img
+                  src={screen.thumb ?? screen.url}
+                  alt={screen.alt ?? screen.label}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
+              </button>
+            );
+          })}
+          </div>
+        </div>
+
+        <div className="w-full pt-3 mt-3 border-t border-white/5 flex items-center justify-center text-center text-[10px] font-mono text-slate-500">
+          <span className="text-slate-300 mr-2 tabular-nums">
+            {activeScreenshotIndex + 1} / {screenshots.length}
+          </span>
+          <span>{activeScreenshot.label}</span>
+        </div>
+      </div>
+    </div>
+  ) : null;
+
+  // Bấm ảnh nhỏ ở thẻ tab: mở thẳng ảnh đó trong trình xem lớn.
+  const openShot = (idx: number) => {
+    setActiveScreenshotIndex(idx);
+    setIsScreenshotViewerOpen(true);
+  };
 
   return (
     <div className="relative min-h-screen bg-[#020204] text-[#f8fafc] pt-24 pb-16 font-sans">
@@ -295,18 +515,27 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
             </div>
             <div>
               <span className={`font-mono text-[9px] uppercase tracking-widest ${t.label} font-bold`}>
-                {isApp ? "MOBILE APPLICATION (ANDROID)" : isPoi ? "POI DESKTOP APP (WINDOWS x64)" : "DESKTOP SETUP TOOL (WINDOWS x64)"}
+                {isApp ? "MOBILE APPLICATION (ANDROID)" : isPoi ? "POI DESKTOP APP (WINDOWS x64)" : mac ? "DESKTOP APP (WINDOWS x64 · MACOS)" : "DESKTOP APP (WINDOWS x64)"}
               </span>
               <h1 className="font-display font-bold text-xl sm:text-3xl text-white tracking-tight mt-1">
-                {isApp ? "ỨNG DỤNG DI ĐỘNG ARGB HSL" : isPoi ? "POI HSL STUDIO — APP CHUYÊN DỤNG GẬY POI" : "CÔNG CỤ MÁY TÍNH ARGB HSL CONTROL TOOL"}
+                {isApp ? "ỨNG DỤNG DI ĐỘNG ARGB HSL" : isPoi ? "POI HSL STUDIO — APP CHUYÊN DỤNG GẬY POI" : "TOOL ARGB HSL — PHẦN MỀM MÁY TÍNH CHO MẠCH LED ARGB HSL"}
               </h1>
               <p className="font-mono text-xs text-slate-400 mt-2">
                 {isApp
                   ? "Điều khiển dải LED ARGB từ điện thoại — mọi lúc, mọi nơi."
                   : isPoi
                     ? `Nạp ảnh & lập trình Timecode cho gậy POI ARGB HSL — Phiên bản v${POI_STUDIO_VERSION}`
-                    : `Phần mềm cấu hình & điều khiển ma trận LED chuyên nghiệp — Phiên bản v${WINDOWS_TOOL_VERSION}`}
+                    : `Điều khiển, cấu hình và lập trình show ánh sáng cho cả đội mạch — Phiên bản v${WINDOWS_TOOL_VERSION}`}
               </p>
+              {type === "tool" && (
+                <a
+                  href="#tai-ve"
+                  className="mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-neon-blue/10 border border-neon-blue-bright/30 text-neon-blue-bright font-mono text-[11px] uppercase tracking-wider hover:bg-neon-blue/20 transition-colors"
+                >
+                  <ArrowDown className="w-3.5 h-3.5" />
+                  <span>Tải về {mac ? "Windows & macOS" : "cho Windows"} — miễn phí</span>
+                </a>
+              )}
             </div>
           </div>
 
@@ -318,97 +547,28 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
                 ? "ARGB HSL là ứng dụng điều khiển LED thông minh theo triết lý 'Offline-First': nhanh, mượt, bảo mật tuyệt đối. Phù hợp cho trang trí nhà cửa, phòng gaming, quán cà phê và các không gian sáng tạo."
                 : isPoi
                   ? "POI HSL Studio là app máy tính miễn phí, gọn nhẹ, dành riêng cho gậy POI: chỉ gồm Công cụ POI, Timecode và Cập nhật phần mềm — giao diện tập trung, thao tác nhanh cho đội biểu diễn. Cài song song với ARGB HSL Windows Tool và dùng chung bản quyền: máy đã kích hoạt Windows Tool thì mở là dùng. App dành cho mạch ARGB HSL Controller 2X Pro, firmware build 2611050 trở lên."
-                  : "ARGB HSL Control Tool là bộ phần mềm máy tính chuyên nghiệp dành cho kỹ sư ánh sáng và nhà thầu biểu diễn nghệ thuật: thiết kế layout, nạp firmware và stream kịch bản ánh sáng quy mô lớn."}
+                  : "Tool ARGB HSL là phần mềm máy tính miễn phí cho mạch ARGB HSL Controller (2X Pro, 4X, 16X): tìm và điều khiển mọi mạch trong mạng, cấu hình phần cứng, cập nhật firmware, nạp ảnh POI và Matrix, tạo sơ đồ LED, lập trình show ánh sáng theo nhạc cho cả đội hình. Từ bản 4.0, cả 9 tab đều có giao diện mới."}
             </p>
           </div>
 
-          {/* Illustration image for PC tool */}
+          {/* Ảnh bìa Tool: ghép từ ảnh chụp giao diện thật (Timecode, Công cụ POI, Thiết bị ARGB) */}
           {type === "tool" && (
-            <div className="mb-10 rounded-2xl overflow-hidden border border-white/5 bg-slate-900/40 p-2 shadow-inner">
-              <img 
-                src="/img/controller-chip/tool_argb_hsl.png" 
-                alt="Giao diện ARGB HSL Control Tool" 
-                className="w-full h-auto object-cover rounded-xl"
+            <div className="mb-10 rounded-2xl overflow-hidden border border-neon-blue/20 bg-slate-900/40 p-1.5 sm:p-2 shadow-inner">
+              <img
+                src={`${TOOL_IMG}/tool-argb-hsl-v4-cover.webp`}
+                alt="Giao diện Tool ARGB HSL: tab Timecode lập trình show theo nhạc, Công cụ POI xem trước khi quay và bảng điều khiển Thiết bị ARGB"
+                width={1600}
+                height={900}
+                loading="eager"
+                decoding="async"
+                fetchPriority="high"
+                className="w-full h-auto rounded-xl"
               />
             </div>
           )}
 
-          {/* Album ảnh giao diện (app Android / POI HSL Studio) */}
-          {gallery && activeScreenshot && (
-            <div className="mb-10 space-y-4">
-              <div className="flex justify-center">
-                <div className="inline-flex rounded-2xl bg-slate-950 border border-white/10 p-1 shadow-inner">
-                  <button
-                    type="button"
-                    className="px-5 py-2 rounded-xl bg-white/10 text-white font-display text-xs font-bold uppercase tracking-wider"
-                  >
-                    {gallery.tab}
-                  </button>
-                </div>
-              </div>
-
-              <div className={`w-full rounded-3xl bg-slate-950 border ${gallery.frame} p-4 sm:p-5 flex flex-col items-center justify-between min-h-[420px] relative overflow-hidden`}>
-                <div className="absolute top-2 right-3 flex items-center space-x-1.5 opacity-40 font-mono text-[8px] z-10">
-                  <span className={`w-1.5 h-1.5 rounded-full ${gallery.ping} animate-ping`} />
-                  <span>{gallery.badge}</span>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => setIsScreenshotViewerOpen(true)}
-                  aria-label={`Xem lớn ${activeScreenshot.label}`}
-                  className={`group/zoom w-full relative ${gallery.aspect} overflow-hidden rounded-2xl border border-white/5 bg-slate-900/40 flex items-center justify-center cursor-zoom-in mt-2 focus-visible:outline-none focus-visible:ring-2 ${gallery.ring}`}
-                >
-                  <img
-                    src={activeScreenshot.url}
-                    alt={activeScreenshot.alt ?? activeScreenshot.label}
-                    loading="eager"
-                    decoding="async"
-                    className="w-full h-full object-contain group-hover/zoom:scale-[1.02] transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover/zoom:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-2xl">
-                    <span className="px-3.5 py-1.5 bg-slate-900/90 border border-white/10 rounded-lg text-[10px] font-mono text-white flex items-center space-x-1.5 shadow-lg">
-                      <Eye className={`w-3 h-3 ${gallery.eye}`} />
-                      <span>CLICK ĐỂ PHÓNG TO</span>
-                    </span>
-                  </div>
-                </button>
-
-                <div className="flex flex-wrap justify-center gap-2 mt-4 max-h-[84px] overflow-y-auto py-1 w-full">
-                  {screenshots.map((screen, idx) => {
-                    const selected = idx === activeScreenshotIndex;
-                    return (
-                      <button
-                        key={screen.url}
-                        type="button"
-                        onClick={() => setActiveScreenshotIndex(idx)}
-                        aria-pressed={selected}
-                        aria-label={`Chọn ${screen.label}`}
-                        className={`${gallery.thumb} rounded-lg overflow-hidden border bg-slate-900 transition-all duration-200 cursor-pointer flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 ${gallery.ring} ${
-                          selected ? gallery.selected : "border-white/10 hover:border-white/30"
-                        }`}
-                      >
-                        <img
-                          src={screen.url}
-                          alt={screen.alt ?? screen.label}
-                          loading="lazy"
-                          decoding="async"
-                          className="w-full h-full object-cover"
-                        />
-                      </button>
-                    );
-                  })}
-                </div>
-
-                <div className="w-full pt-3 mt-3 border-t border-white/5 flex items-center justify-center text-center text-[10px] font-mono text-slate-500">
-                  <span className="text-slate-300 mr-2 tabular-nums">
-                    {activeScreenshotIndex + 1} / {screenshots.length}
-                  </span>
-                  <span>{activeScreenshot.label}</span>
-                </div>
-              </div>
-            </div>
-          )}
+          {/* Album ảnh giao diện (app Android / POI HSL Studio). Tool: đặt sau "Tính năng nổi bật". */}
+          {type !== "tool" && albumBlock}
 
           {/* Key features */}
           <section className="space-y-4 mb-10">
@@ -430,6 +590,65 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
               ))}
             </div>
           </section>
+
+          {/* 9 tab của Tool: album ảnh từng tab + thẻ tóm tắt kèm bài hướng dẫn */}
+          {type === "tool" && (
+            <section className="mb-10" aria-labelledby="tool-tabs-heading">
+              <h2 id="tool-tabs-heading" className="font-display font-bold text-base sm:text-lg text-white flex items-center gap-2.5 mb-2">
+                <span className={`w-1.5 h-6 rounded-full ${t.bar}`} />
+                9 tab trong Tool ARGB HSL
+              </h2>
+              <p className="text-xs text-slate-400 leading-relaxed mb-5">
+                Ảnh chụp giao diện bản {WINDOWS_TOOL_VERSION}, xếp theo thứ tự tab trên app. Bấm ảnh để phóng to, dùng phím ← → để xem tab kế.
+              </p>
+              {albumBlock}
+              <ol className="grid grid-cols-1 gap-3">
+                {TOOL_TABS.map((tab, i) => {
+                  const shot = TOOL_SCREENSHOTS[tab.shot];
+                  return (
+                    <li key={tab.name} className="p-3 sm:p-4 rounded-xl bg-slate-900/40 border border-white/5 flex items-start gap-3">
+                      <button
+                        type="button"
+                        onClick={() => openShot(tab.shot)}
+                        aria-label={`Xem lớn ảnh tab ${tab.name}`}
+                        className="shrink-0 w-24 sm:w-40 aspect-[16/10] rounded-lg overflow-hidden border border-white/10 bg-slate-900 hover:border-neon-blue-bright/60 transition-colors cursor-zoom-in focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neon-blue/60"
+                      >
+                        <img
+                          src={shot.thumb ?? shot.url}
+                          alt={shot.alt ?? shot.label}
+                          loading="lazy"
+                          decoding="async"
+                          className="w-full h-full object-cover"
+                        />
+                      </button>
+                      <div className="min-w-0">
+                        <h3 className="font-semibold text-white text-sm flex items-center gap-2">
+                          <tab.icon className={`w-4 h-4 shrink-0 ${t.icon}`} />
+                          <span className="font-mono text-[10px] text-slate-500">{String(i + 1).padStart(2, "0")}</span>
+                          <span>{tab.name}</span>
+                        </h3>
+                        <p className="text-xs text-slate-400 mt-1 leading-relaxed">{tab.desc}</p>
+                        {tab.links && (
+                          <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+                            {tab.links.map((l) => (
+                              <Link
+                                key={l.to}
+                                to={l.to}
+                                className="inline-flex items-center gap-1 text-[11px] font-mono text-neon-blue-bright hover:underline"
+                              >
+                                <BookOpen className="w-3 h-3 shrink-0" />
+                                <span>{l.label}</span>
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+            </section>
+          )}
 
           {/* Usage guide */}
           <section className="space-y-4 mb-10">
@@ -482,7 +701,9 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Windows 10 / 11 (64-bit)</p>
                   <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Dung lượng cài đặt: {WINDOWS_TOOL_SIZE}</p>
                   {mac && <MacRequirement mac={mac} />}
-                  <p className="flex items-center gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Cổng USB (nạp firmware) & cổng mạng LAN/Wi-Fi (stream)</p>
+                  <p className="flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" /> Máy tính và mạch ARGB HSL cùng mạng WiFi / LAN; màn hình từ 1366×768</p>
+                  <p className="flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" /> Đồng hồ show và nhiều show trong một mạch: firmware 2611260 trở lên (cập nhật OTA ngay trong Tab Cấu hình phần cứng)</p>
+                  <p className="flex items-start gap-2"><CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" /> Cáp USB chỉ cần khi nạp firmware / WiFi qua cổng USB của mạch</p>
                   <p className="break-all pt-1 text-[10px] text-slate-500">SHA256{mac ? " Windows" : ""}: {WINDOWS_TOOL_SHA256}</p>
                   {mac && <p className="break-all text-[10px] text-slate-500">SHA256 macOS: {mac.sha256}</p>}
                 </>
@@ -491,7 +712,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
           </section>
 
           {/* CTA */}
-          <section className="pt-6 border-t border-white/5">
+          <section id="tai-ve" className="pt-6 border-t border-white/5 scroll-mt-24">
             {isApp ? (
               <a
                 href={ANDROID_APP_URL}
@@ -516,7 +737,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
                 className="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-cyan-500 to-neon-blue text-center font-display text-xs font-bold uppercase tracking-wider text-slate-950 flex items-center justify-center space-x-2 cursor-pointer shadow-glow-blue hover:scale-102 transition-all"
               >
                 <Download className="w-4 h-4 text-slate-950" />
-                <span>TẢI ARGB HSL WINDOWS TOOL ({WINDOWS_TOOL_SIZE})</span>
+                <span>TẢI TOOL ARGB HSL CHO WINDOWS ({WINDOWS_TOOL_SIZE})</span>
               </button>
             )}
 
@@ -539,7 +760,7 @@ export default function SoftwareDetailsPage({ type, onBack }: SoftwareDetailsPag
             <p className={`mt-3 text-center text-[11px] font-mono uppercase tracking-wider ${isApp ? "text-amber-400" : "text-emerald-400"}`}>
               {isApp
                 ? "Ứng dụng di động: phần mềm trả phí trên Google Play"
-                : `${isPoi ? "POI HSL Studio" : "Công cụ máy tính"} ${mac ? "Windows & macOS" : "Windows"}: miễn phí 100%`}
+                : `${isPoi ? "POI HSL Studio" : "Tool ARGB HSL"} ${mac ? "Windows & macOS" : "Windows"}: miễn phí 100%`}
             </p>
           </section>
 

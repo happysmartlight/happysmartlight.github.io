@@ -198,6 +198,19 @@ const PORTED_POSTS: CollectionItem[] = [
     excerpt: "Hướng dẫn dùng tab Timecode của Tool ARGB HSL: thêm nhạc, đánh dấu nhịp, kéo thả hiệu ứng lên timeline cho từng mạch, chia phân đoạn để mỗi phần trang phục LED chạy hiệu ứng riêng, lập trình trước bằng track mô phỏng, phát thử và ghi show vào mạch.",
     html: "",
     date: "2026-11-17"
+  },
+  {
+    slug: "tab-tao-so-do-led-tool-argb-hsl",
+    collection: "post-news",
+    url: "/post-news/tab-tao-so-do-led-tool-argb-hsl/",
+    title: "Tab Tạo Sơ Đồ LED Trong Tool ARGB HSL: Vẽ Sơ Đồ Ma Trận, Gửi Lên Mạch An Toàn",
+    metaTitle: "Tab Tạo Sơ Đồ LED Tool ARGB HSL | Sơ Đồ Ma Trận ledmap.json",
+    image: "/img/post-news/tab-tao-so-do-led/banner.webp",
+    bigimg: "/img/post-news/tab-tao-so-do-led/banner.webp",
+    tags: ["tao-so-do-led", "ledmap", "ma-tran-2d", "tool-argb-hsl", "guide"],
+    excerpt: "Hướng dẫn dùng tab Tạo sơ đồ LED của Tool ARGB HSL v4.0.0: nhập kích thước, chọn cách đi dây bằng hình, đọc chiều tín hiệu ngay trên sơ đồ, ghép nhiều tấm, gửi sơ đồ lên nhiều mạch, chạy thử vạch quét, và vì sao Tool chặn sơ đồ quá lớn để mạch không lỗi khi khởi động.",
+    html: "",
+    date: "2026-11-26"
   }
 ];
 

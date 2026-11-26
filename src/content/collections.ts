@@ -211,6 +211,19 @@ const PORTED_POSTS: CollectionItem[] = [
     excerpt: "Hướng dẫn dùng tab Sao chép cấu hình mới của Tool ARGB HSL v4.0.0: lấy cấu hình mẫu từ một mạch hoặc file cfg.json, chọn phần sẽ chép, đặt tên hàng loạt, gửi lần lượt cho nhiều mạch, vì sao WiFi và IP tĩnh không bị chép, và cách khôi phục từ bản sao lưu.",
     html: "",
     date: "2026-11-26"
+  },
+  {
+    slug: "tab-tao-so-do-led-tool-argb-hsl",
+    collection: "post-news",
+    url: "/post-news/tab-tao-so-do-led-tool-argb-hsl/",
+    title: "Tab Tạo Sơ Đồ LED Trong Tool ARGB HSL: Vẽ Sơ Đồ Ma Trận, Gửi Lên Mạch An Toàn",
+    metaTitle: "Tab Tạo Sơ Đồ LED Tool ARGB HSL | Sơ Đồ Ma Trận ledmap.json",
+    image: "/img/post-news/tab-tao-so-do-led/banner.webp",
+    bigimg: "/img/post-news/tab-tao-so-do-led/banner.webp",
+    tags: ["tao-so-do-led", "ledmap", "ma-tran-2d", "tool-argb-hsl", "guide"],
+    excerpt: "Hướng dẫn dùng tab Tạo sơ đồ LED của Tool ARGB HSL v4.0.0: nhập kích thước, chọn cách đi dây bằng hình, đọc chiều tín hiệu ngay trên sơ đồ, ghép nhiều tấm, gửi sơ đồ lên nhiều mạch, chạy thử vạch quét, và vì sao Tool chặn sơ đồ quá lớn để mạch không lỗi khi khởi động.",
+    html: "",
+    date: "2026-11-26"
   }
 ];
 

@@ -3,12 +3,12 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2611260 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
+    "notes": "Build 2611262 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
     "files": [
       {
         "version": "3.0.0",
-        "notes": "Build 2611260 cho ARGB HSL Controller 4X: Timecode: nhieu mach chay khop nhau theo mot dong ho show chung, bam Phat la moi mach cung hien khung hinh dau (lech con khoang 1 ms, truoc day toi 31 ms), mach tu khoi dong lai giua show thi tu vao lai dung vi tri; Timecode: luu toi 7 show trong mot mach, preset \"Show ke tiep\" gan cho nut bam de chuyen show; Mach bao gioi han va ket qua moi lenh ghi cho app: gui anh, GIF, luu preset nhanh hon, file gui len duoc doi chieu dung luong va ma kiem tra; Hai lenh luu preset lien tiep khong con mat lenh sau; Doi so LED roi khoi dong lai: phan doan tu theo bo cuc LED moi; presets.json hong do mat dien dung luc ghi: mach tu lay lai ban truoc lan ghi gan nhat; Mach ghi lai nguyen nhan khi tu khoi dong lai do loi hoac sut ap de app bao va gui ky thuat HSL; Live view: app va trang web cua mach xem cung luc duoc (toi da 3 noi); Can Tool ARGB HSL v4.0.0 de dung cac tinh nang moi, Tool cu van chay nhu truoc.",
-        "vid": 2611260,
+        "notes": "Build 2611262 cho ARGB HSL Controller 4X: Cap nhat firmware khong con lam mach mat hieu ung, mau, phan doan va anh dang dung: khoi dong lai sau khi cap nhat, mach hien dung nhu truoc (ap dung cho cac lan cap nhat tu ban nay ve sau, Tool ARGB HSL v4.0.1 tu tra lai cho mach dang chay firmware cu); Cap nhat bi ngat giua chung (mat WiFi, sai file): mach giu firmware dang chay, tu tra lai hieu ung, khong con tu khoi dong lai kem bao loi.",
+        "vid": 2611262,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -21,13 +21,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-4x.bin",
-        "size": 1337936,
-        "sha256": "a7562bf1885087bc5b7175aa7b8b88951c702612656995e9f49eef5394bbd96b"
+        "size": 1337984,
+        "sha256": "065fd349966f95789ad5fd1ec722a0f596e4e8c504e018bc21d1ed33361a5932"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611260 cho ARGB HSL Controller 2X Pro: Timecode: nhieu mach chay khop nhau theo mot dong ho show chung, bam Phat la moi mach cung hien khung hinh dau (lech con khoang 1 ms, truoc day toi 31 ms), mach tu khoi dong lai giua show thi tu vao lai dung vi tri; Timecode: luu toi 7 show trong mot mach, preset \"Show ke tiep\" gan cho nut bam de chuyen show; Mach bao gioi han va ket qua moi lenh ghi cho app: gui anh, GIF, luu preset nhanh hon, file gui len duoc doi chieu dung luong va ma kiem tra; Hai lenh luu preset lien tiep khong con mat lenh sau; Doi so LED roi khoi dong lai: phan doan tu theo bo cuc LED moi; presets.json hong do mat dien dung luc ghi: mach tu lay lai ban truoc lan ghi gan nhat; Mach ghi lai nguyen nhan khi tu khoi dong lai do loi hoac sut ap de app bao va gui ky thuat HSL; Live view: app va trang web cua mach xem cung luc duoc (toi da 3 noi); Can Tool ARGB HSL v4.0.0 de dung cac tinh nang moi, Tool cu van chay nhu truoc. POI HSL Studio can build 2611050 tro len.",
-        "vid": 2611260,
+        "notes": "Build 2611262 cho ARGB HSL Controller 2X Pro: Cap nhat firmware khong con lam mach mat hieu ung, mau, phan doan va anh dang dung: khoi dong lai sau khi cap nhat, mach hien dung nhu truoc (ap dung cho cac lan cap nhat tu ban nay ve sau, Tool ARGB HSL v4.0.1 tu tra lai cho mach dang chay firmware cu); Cap nhat bi ngat giua chung (mat WiFi, sai file): mach giu firmware dang chay, tu tra lai hieu ung, khong con tu khoi dong lai kem bao loi. POI HSL Studio can build 2611050 tro len.",
+        "vid": 2611262,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -40,13 +40,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
-        "size": 1337840,
-        "sha256": "3f6e4f7095d13dd85401876c3b3d9a9252b3adb3848f2bee9fe1b8b033d4d3ba"
+        "size": 1337888,
+        "sha256": "366a28d82762ae4734a79624334ace3cedf85fea8e6b0b52cda5003bb638bed1"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611260 cho ARGB HSL Controller 16X: Timecode: nhieu mach chay khop nhau theo mot dong ho show chung, bam Phat la moi mach cung hien khung hinh dau (lech con khoang 1 ms, truoc day toi 31 ms), mach tu khoi dong lai giua show thi tu vao lai dung vi tri; Timecode: luu toi 7 show trong mot mach, preset \"Show ke tiep\" gan cho nut bam de chuyen show; Mach bao gioi han va ket qua moi lenh ghi cho app: gui anh, GIF, luu preset nhanh hon, file gui len duoc doi chieu dung luong va ma kiem tra; Hai lenh luu preset lien tiep khong con mat lenh sau; Doi so LED roi khoi dong lai: phan doan tu theo bo cuc LED moi; presets.json hong do mat dien dung luc ghi: mach tu lay lai ban truoc lan ghi gan nhat; Mach ghi lai nguyen nhan khi tu khoi dong lai do loi hoac sut ap de app bao va gui ky thuat HSL; Live view: app va trang web cua mach xem cung luc duoc (toi da 3 noi); Can Tool ARGB HSL v4.0.0 de dung cac tinh nang moi, Tool cu van chay nhu truoc.",
-        "vid": 2611260,
+        "notes": "Build 2611262 cho ARGB HSL Controller 16X: Cap nhat firmware khong con lam mach mat hieu ung, mau, phan doan va anh dang dung: khoi dong lai sau khi cap nhat, mach hien dung nhu truoc (ap dung cho cac lan cap nhat tu ban nay ve sau, Tool ARGB HSL v4.0.1 tu tra lai cho mach dang chay firmware cu); Cap nhat bi ngat giua chung (mat WiFi, sai file): mach giu firmware dang chay, tu tra lai hieu ung, khong con tu khoi dong lai kem bao loi.",
+        "vid": 2611262,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -59,8 +59,8 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-16x.bin",
-        "size": 1342288,
-        "sha256": "8bf798fba7e3a95303c87ad9b9f7d470785847bb744e46ccdc2f25d43f33ba5b"
+        "size": 1342336,
+        "sha256": "426fa4a9398a9f6a430631760c41d0061b3b3f7c1575389ce1d518083e161b3b"
       },
       {
         "version": "3.0.0",

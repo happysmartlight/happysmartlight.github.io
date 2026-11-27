@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "4.0.3",
-    "version_label": "v4.0.3 - November 2026",
+    "version": "4.0.4",
+    "version_label": "v4.0.4 - November 2026",
     "release_date": "2026-11-27",
-    "release_notes": "🧩 Tab Matrix Led — màn ghép chạy ảnh động liền mạch: sau khi gửi GIF / video lên nhiều màn (Ghép thành\nmàn lớn, Tất cả mạch, Chọn nhiều mạch), Tool cho các màn bắt đầu lại cùng một lúc. Trước đó mỗi mạch\ntự chạy từ lúc nhận xong file, hai nửa màn ghép lệch nhau khoảng 0,3 giây và hình gãy ở đường nối.\n🛠 Gửi hình lên mạch đang chạy preset nhiều lớp (vd \"Chữ chạy\" trên nền hiệu ứng): lớp còn lại không còn\nchạy đè lên hình, và không bị lưu kèm vào preset hình.\n🧹 Gửi hình thành công không còn hiện hộp \"Hoàn tất\": kết quả báo ở dòng trạng thái của tab, hộp thông\nbáo chỉ hiện khi có lỗi.\n🧹 Nút \"Xóa hết & Upload\" hiện đủ chữ; dòng giới thiệu của Tab Matrix Led ghi đúng 4 bước.",
+    "release_notes": "🔤 Tab Thiết bị ARGB — ô \"Chữ hiển thị\" của hiệu ứng Chữ chạy: mạch chạy firmware có font tiếng Việt\n(bản 2611271 trở lên) không còn báo \"Font không có … hãy gõ không dấu\" khi gõ chữ có dấu.\n- Mạch firmware cũ hơn (font chưa có chữ có dấu) nhắc cập nhật firmware ở Tab Cấu hình phần cứng hoặc gõ\nkhông dấu; emoji và ký tự ngoài font vẫn được báo trên mọi mạch.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_4.0.3.exe",
-    "size": 197787039,
-    "sha256": "87dc701a34bef5bb30f79c2ebee64a94e637412fd9c10572d7a1b4490f6b772b"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_4.0.4.exe",
+    "size": 197794125,
+    "sha256": "5be1002d0126a576d769984ca8a489d89919a157fbfdfb016f3efb3aaa868d19"
   }
 }

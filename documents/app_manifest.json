@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "4.0.2",
-    "version_label": "v4.0.2 - November 2026",
-    "release_date": "2026-11-26",
-    "release_notes": "🎛 Tab Thiết bị ARGB — làm được hết việc của phân đoạn và preset ngay trong Tool, không cần mở trang\nweb của mạch:\n- Preset: ô tìm theo tên / ID, nút tải nhanh, sửa (đổi tên, nhãn tải nhanh, ID, lệnh JSON), chép sang\nID khác, lưu đè bằng trạng thái đang chạy, chạy khi khởi động, xoá kèm ảnh chỉ preset đó dùng.\nĐổi tên / chép / sửa không làm đèn đang chạy bị đổi.\n- Playlist: soạn các mục (preset, thời lượng, chuyển cảnh), phát lộn xộn, chuyển mục bằng tay, số\nlần lặp, chạy thử trước khi lưu.\n- Phân đoạn: cột \"Chọn\" để chọn nhiều đoạn cùng lúc; hộp Sửa có đủ gộp, khoảng cách, lệch, đảo,\ngương, xoay trục, độ sáng riêng, đóng băng, nhóm 1–4, kiểu \"Thứ tự LED\" trên ma trận, lặp tới hết\ndây; nút ⋯ có chọn theo nhóm, chọn sơ đồ LED, đặt lại phân đoạn.\n✨ Chữ chạy trên nền hiệu ứng: ô \"Trộn xuống\" chọn cách một phân đoạn trộn màu lên các đoạn bên\ndưới (Cộng, Làm sáng, Màn hình… có ảnh xem trước), ô \"Chữ hiển thị\" gõ thẳng chữ của hiệu ứng\nChữ chạy.\n📺 LED trực tiếp mở thành cửa sổ riêng: ma trận vẽ đúng hàng × cột, có \"Luôn trên cùng\", không còn\nchiếm chỗ trong bảng điều khiển.\n🛠 Bấm một preset: danh sách phân đoạn hiện đúng phân đoạn của preset vừa chọn (trước đó còn hiện\nphân đoạn của preset cũ).",
+    "version": "4.0.3",
+    "version_label": "v4.0.3 - November 2026",
+    "release_date": "2026-11-27",
+    "release_notes": "🧩 Tab Matrix Led — màn ghép chạy ảnh động liền mạch: sau khi gửi GIF / video lên nhiều màn (Ghép thành\nmàn lớn, Tất cả mạch, Chọn nhiều mạch), Tool cho các màn bắt đầu lại cùng một lúc. Trước đó mỗi mạch\ntự chạy từ lúc nhận xong file, hai nửa màn ghép lệch nhau khoảng 0,3 giây và hình gãy ở đường nối.\n🛠 Gửi hình lên mạch đang chạy preset nhiều lớp (vd \"Chữ chạy\" trên nền hiệu ứng): lớp còn lại không còn\nchạy đè lên hình, và không bị lưu kèm vào preset hình.\n🧹 Gửi hình thành công không còn hiện hộp \"Hoàn tất\": kết quả báo ở dòng trạng thái của tab, hộp thông\nbáo chỉ hiện khi có lỗi.\n🧹 Nút \"Xóa hết & Upload\" hiện đủ chữ; dòng giới thiệu của Tab Matrix Led ghi đúng 4 bước.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_4.0.2.exe",
-    "size": 197778243,
-    "sha256": "1d34e20618faccb36092d412965c5727d1478576940776d4da4ef1afe5b1fdf4"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_4.0.3.exe",
+    "size": 197787039,
+    "sha256": "87dc701a34bef5bb30f79c2ebee64a94e637412fd9c10572d7a1b4490f6b772b"
   }
 }

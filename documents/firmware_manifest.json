@@ -3,12 +3,12 @@
   "channel": "stable",
   "instructions": "Moi file firmware co product, bootloaderSHA256 va build vid rieng. App doc /json/info.product de chon firmware, so khop bootloaderSHA256, sau do moi compare vid cua file da match. Thay url, size va sha256 bang file bin that truoc khi upload len server.",
   "latest": {
-    "notes": "Build 2611262 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
+    "notes": "Build 2611271 cho ESP32-S3 N8R8. Co 3 file rieng cho HW board ARGB HSL Controller 4X, ARGB HSL Controller 2X Pro va ARGB HSL Controller 16X.",
     "files": [
       {
         "version": "3.0.0",
-        "notes": "Build 2611262 cho ARGB HSL Controller 4X: Cap nhat firmware khong con lam mach mat hieu ung, mau, phan doan va anh dang dung: khoi dong lai sau khi cap nhat, mach hien dung nhu truoc (ap dung cho cac lan cap nhat tu ban nay ve sau, Tool ARGB HSL v4.0.1 tu tra lai cho mach dang chay firmware cu); Cap nhat bi ngat giua chung (mat WiFi, sai file): mach giu firmware dang chay, tu tra lai hieu ung, khong con tu khoi dong lai kem bao loi.",
-        "vid": 2611262,
+        "notes": "Build 2611271 cho ARGB HSL Controller 4X: Hieu ung Chu chay hien duoc tieng Viet co dau voi ca 5 co chu co san trong mach, khong can cai them font: go tieng Viet vao ten phan doan la chay; Chu chay: co chu mac dinh la co thu 4, vua ma tran 16x16 ma van du dau tieng Viet; Ten phan doan dai qua gioi han khong con bi cat giua mot chu co dau.",
+        "vid": 2611271,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -21,13 +21,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-4x.bin",
-        "size": 1337984,
-        "sha256": "065fd349966f95789ad5fd1ec722a0f596e4e8c504e018bc21d1ed33361a5932"
+        "size": 1351664,
+        "sha256": "b530f5d2ab9a4c873c8644b0f1f794a1b387bb1123ce05c97e2b35e238a524e1"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611262 cho ARGB HSL Controller 2X Pro: Cap nhat firmware khong con lam mach mat hieu ung, mau, phan doan va anh dang dung: khoi dong lai sau khi cap nhat, mach hien dung nhu truoc (ap dung cho cac lan cap nhat tu ban nay ve sau, Tool ARGB HSL v4.0.1 tu tra lai cho mach dang chay firmware cu); Cap nhat bi ngat giua chung (mat WiFi, sai file): mach giu firmware dang chay, tu tra lai hieu ung, khong con tu khoi dong lai kem bao loi. POI HSL Studio can build 2611050 tro len.",
-        "vid": 2611262,
+        "notes": "Build 2611271 cho ARGB HSL Controller 2X Pro: Hieu ung Chu chay hien duoc tieng Viet co dau voi ca 5 co chu co san trong mach, khong can cai them font: go tieng Viet vao ten phan doan la chay; Chu chay: co chu mac dinh la co thu 4, vua ma tran 16x16 ma van du dau tieng Viet; Ten phan doan dai qua gioi han khong con bi cat giua mot chu co dau. POI HSL Studio can build 2611050 tro len.",
+        "vid": 2611271,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -40,13 +40,13 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-2x-pro.bin",
-        "size": 1337888,
-        "sha256": "366a28d82762ae4734a79624334ace3cedf85fea8e6b0b52cda5003bb638bed1"
+        "size": 1351568,
+        "sha256": "f0447c063055ceda0f725f75fb2dfbc8e30a5d53dd5a21d3aed2437ac9490b05"
       },
       {
         "version": "3.0.0",
-        "notes": "Build 2611262 cho ARGB HSL Controller 16X: Cap nhat firmware khong con lam mach mat hieu ung, mau, phan doan va anh dang dung: khoi dong lai sau khi cap nhat, mach hien dung nhu truoc (ap dung cho cac lan cap nhat tu ban nay ve sau, Tool ARGB HSL v4.0.1 tu tra lai cho mach dang chay firmware cu); Cap nhat bi ngat giua chung (mat WiFi, sai file): mach giu firmware dang chay, tu tra lai hieu ung, khong con tu khoi dong lai kem bao loi.",
-        "vid": 2611262,
+        "notes": "Build 2611271 cho ARGB HSL Controller 16X: Hieu ung Chu chay hien duoc tieng Viet co dau voi ca 5 co chu co san trong mach, khong can cai them font: go tieng Viet vao ten phan doan la chay; Chu chay: co chu mac dinh la co thu 4, vua ma tran 16x16 ma van du dau tieng Viet; Ten phan doan dai qua gioi han khong con bi cat giua mot chu co dau.",
+        "vid": 2611271,
         "target": [
           "esp32s3",
           "esp32-s3",
@@ -59,8 +59,8 @@
         "hw_version": "v1.0.0",
         "repo": "any",
         "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-16x.bin",
-        "size": 1342336,
-        "sha256": "426fa4a9398a9f6a430631760c41d0061b3b3f7c1575389ce1d518083e161b3b"
+        "size": 1356000,
+        "sha256": "5bd7aec83566b1e008f5d827a34e5ecd0f3ab3ef13241b1662b0dae726888c82"
       },
       {
         "version": "3.0.0",

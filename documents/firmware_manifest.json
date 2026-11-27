@@ -26,6 +26,25 @@
       },
       {
         "version": "3.0.0",
+        "vid": 2611271,
+        "target": [
+          "esp32s3",
+          "esp32-s3",
+          "esp32_s3"
+        ],
+        "chip": "esp32-s3",
+        "flash_psram": "n8r8",
+        "bootloaderSHA256": "a02af2aaee12f83ad96f58ceb710d114f11d33a30cf84765660b23f1a300c5bb",
+        "hw_version": "v1.0.0",
+        "repo": "any",
+        "url": "https://raw.githubusercontent.com/happysmartlight/happysmartlight.github.io/refs/heads/master/documents/firmware/firmware-4x.bin",
+        "size": 1351664,
+        "sha256": "b530f5d2ab9a4c873c8644b0f1f794a1b387bb1123ce05c97e2b35e238a524e1",
+        "product": "ARGB HSL Controller",
+        "notes": "Build 2611271 cho ARGB HSL Controller: Hieu ung Chu chay hien duoc tieng Viet co dau voi ca 5 co chu co san trong mach, khong can cai them font: go tieng Viet vao ten phan doan la chay; Chu chay: co chu mac dinh la co thu 4, vua ma tran 16x16 ma van du dau tieng Viet; Ten phan doan dai qua gioi han khong con bi cat giua mot chu co dau. Mach ARGB HSL Controller doi dau: sau khi cap nhat mach doi ten thanh ARGB HSL Controller 4X."
+      },
+      {
+        "version": "3.0.0",
         "notes": "Build 2611271 cho ARGB HSL Controller 2X Pro: Hieu ung Chu chay hien duoc tieng Viet co dau voi ca 5 co chu co san trong mach, khong can cai them font: go tieng Viet vao ten phan doan la chay; Chu chay: co chu mac dinh la co thu 4, vua ma tran 16x16 ma van du dau tieng Viet; Ten phan doan dai qua gioi han khong con bi cat giua mot chu co dau. POI HSL Studio can build 2611050 tro len.",
         "vid": 2611271,
         "target": [

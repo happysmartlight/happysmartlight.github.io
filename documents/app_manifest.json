@@ -2,13 +2,13 @@
   "schema": 1,
   "channel": "stable",
   "latest": {
-    "version": "4.1.0",
-    "version_label": "v4.1.0 - November 2026",
+    "version": "4.2.0",
+    "version_label": "v4.2.0 - November 2026",
     "release_date": "2026-11-28",
-    "release_notes": "🖥 Mạch ảo — chạy chính firmware của mạch thật ngay trên máy tính, chưa có mạch vẫn làm được mọi việc: tạo\nmạch 2X Pro / 4X / 16X ở Tab Thiết bị ARGB (nút \"＋ Tạo mạch ảo…\"). Mạch ảo hiện ở mọi tab như mạch thật,\ncó cửa sổ xem LED, mặt mạch, nút bấm, rút / cắm điện.\n- Tạo mạch ảo đúng sơ đồ đang soạn (Tab Tạo sơ đồ LED), xem ghép nhiều màn (Tab Matrix Led), xem vệt quay\nPOI (Tab Công cụ POI), thêm mạch ảo vào show hoặc đổi track mô phỏng thành mạch ảo (Tab Timecode).\n- Gán sang mạch thật: chép sơ đồ, ảnh, preset, show, cấu hình LED / nút từ mạch ảo lên mạch thật, xem trước\ntừng phần, sao lưu mạch thật trước khi ghi. Chiều ngược lại \"Lấy về\"; tạo mạch ảo sao chép một mạch thật;\nlưu / mở mạch ảo bằng file .hslboard; file dự án Timecode mang theo mạch ảo.\n✏ Tab Vẽ sơ đồ tự do:\n- Đi lại dây thông minh: vẽ một nét dọc theo dây thật là đổi thứ tự; cắt / nối dây, đổi chỗ, đảo đoạn, chèn\nbóng; \"Tự đi dây\" so sánh 5 cách (chữ U, zigzag, về đầu hàng, xoắn ốc, gần nhất) theo số chỗ nhảy và\nchiều dài dây.\n- Dò dây trên mạch thật: mạch sáng từng bóng, bấm đúng chỗ bóng sáng là sơ đồ khớp với dây thật.\n- Đặt LED tự do không bám lưới, chia lưới mịn ×2, nhập bản vẽ CAD (.dxf), kéo trục đối xứng, bản đồ thu nhỏ,\ncăn ảnh nền theo 2 điểm. Lúc kéo hình hiện luôn kích thước (rộng × cao).\n- Nút \"💡 Hướng dẫn\": bắt đầu nhanh từng bước, mẹo có hình động cho từng công cụ, bảng phím tắt và cách làm.\n🔧 Tab Cấu hình phần cứng: nút \"💡 Hướng dẫn\" (đi qua từng phần, cách làm thường gặp, giải thích từ ngữ). Cả\napp ghi chân theo kiểu P15, P16 thay cho GPIO.\n🎵 Tab Timecode:\n- Mở dự án / phiên có nhạc không còn hộp chờ làm đứng app: sóng nhạc đọc nền, lần mở sau hiện ngay.\n- Mở dự án trên máy khác: Tool tự tìm bài nhạc trong thư mục dự án (bài đã cắt thì cắt lại từ bài gốc), thiếu\nthì báo ngay trên timeline kèm nút Tìm file. \"Đọc từ mạch\" mở luôn bài nhạc của show (show ghi từ bản này).\n- Nhấp đúp tên mạch trên timeline để dùng mạch đó làm mạch nguồn thư viện.\n🛠 Xóa preset + ảnh / Xóa bộ nhớ: ảnh còn sót lại sau khi xoá (hình lúc tắt đèn, ảnh của show cũ không còn\nchạy được) giờ xoá được. Ảnh show còn dùng thì Tool báo rõ show nào và cách xoá; hộp Xóa bộ nhớ có thêm ô\n\"Xoá luôn show đang dùng ảnh\".",
+    "release_notes": "✏ Tab Vẽ sơ đồ tự do — xoay và nhân bản (công cụ Chọn, khoanh vùng LED trước):\n- Nút \"Xoay ▾\": xoay 90° trái / phải, 180°, hoặc \"Xoay tuỳ ý…\" (Ctrl+R): kéo tay nắm tròn hoặc gõ góc, giữ\nShift để bắt mỗi 15°, đổi được tâm xoay. Góc lẻ thì bóng thành bóng đặt tự do, thứ tự dây giữ nguyên.\n- Nút \"Nhân bản ▾\": \"Mảng thẳng…\" (nhiều bản cách đều, kéo mũi tên để chỉnh), \"Mảng tròn…\" (nan quạt, tia mặt\ntrời quanh một tâm), \"Dọc theo đường…\" (rải bản sao theo đường cong, đường vẽ mới hoặc một nét LED đã vẽ).\n- Xem trước mờ trên khung vẽ, so 3 cách nối dây giữa các bản sao (số chỗ dây nhảy, chiều dài dây), Enter áp\ndụng, một Ctrl+Z là hoàn tác. Không bao giờ đè bóng đã có: bóng trùng ô được báo rõ.\n- Hướng dẫn: mẹo, phím tắt (Ctrl+R, Ctrl+[ / Ctrl+]) và cách làm nan quạt, chữ chạy theo vòm.",
     "min_supported_version": "3.5.0",
-    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_4.1.0.exe",
-    "size": 198342102,
-    "sha256": "75cf85f263ed6740839dfc54b6cb898fe9779ed1566c720d85c691d2cf78b307"
+    "url": "https://github.com/happysmartlight/happysmartlight.github.io/releases/download/App_ARGB_HSL/ToolARGB_HSL_Setup_4.2.0.exe",
+    "size": 198887124,
+    "sha256": "66733707677bf19b7fe66146031f4c32b5fb307694d5bb89e4220e3cdc32ce46"
   }
 }
